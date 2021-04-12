@@ -12,22 +12,36 @@
     <style>
 
         html, body {
-            background-color:               yellow;
+            background-color:               black;
         }
 
-        .test {
-            font-family:                    'Nunito', sans-serif;
-            font-weight:                    600;
-            font-size:                      50px;
-            color:                          #FF00FF;
-            padding:                        160px;
+        .wrap {
+            display:                        grid;
+            grid-template-rows:             1fr auto 1fr;
+            grid-template-columns:          1fr auto 1fr;
+            grid-template-areas:            ". . ."
+                                            ". dot ."
+                                            ". . .";
+        }
+
+        .dot {
+            grid-area:                      dot;
+            width:                          80px;
+            height:                         80px;
+            border-radius:                  40px;
+            background:                     #FFDD00;
         }
 
     </style>
 </head>
 <body>
 
-    <div class="">
+    <div class="wrap">
+
+        <div class="dot">
+
+        </div>
+
     </div>
 
 </body>
