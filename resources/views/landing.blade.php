@@ -4,7 +4,7 @@
 
 @section('css')
 
-    {{HTML::style('css/landing.css')}}
+    <link href="{{ asset('css/landing.css') }}" rel="stylesheet">
 
 @endsection
 
