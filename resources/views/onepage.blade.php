@@ -11,26 +11,32 @@
 
     <style>
 
+        * {
+            box-sizing:                         border-box;
+            margin: 						    0;
+            padding: 						    0;
+        }
+
         html, body {
-            background-color:               black;
+            background-color:                   black;
+            -webkit-font-smoothing:             antialiased;
         }
 
         .wrap {
-            height:                         100%;
-            display:                        grid;
-            grid-template-rows:             1fr auto 1fr;
-            grid-template-columns:          1fr auto 1fr;
-            grid-template-areas:            ". . ."
-                                            ". dot ."
-                                            ". . .";
+            display:                            grid;
+            grid-template-rows:                 1fr auto 1fr;
+            grid-template-columns:              1fr auto 1fr;
+            grid-template-areas:                ". . ."
+                                                ". dot ."
+                                                ". . .";
         }
 
         .dot {
-            grid-area:                      dot;
-            width:                          80px;
-            height:                         80px;
-            border-radius:                  40px;
-            background:                     #FFDD00;
+            grid-area:                          dot;
+            width:                              80px;
+            height:                             80px;
+            border-radius:                      40px;
+            background:                         #FFDD00;
         }
 
     </style>
