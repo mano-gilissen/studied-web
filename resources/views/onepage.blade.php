@@ -16,6 +16,7 @@
         }
 
         .wrap {
+            height:                         100%;
             display:                        grid;
             grid-template-rows:             1fr auto 1fr;
             grid-template-columns:          1fr auto 1fr;
