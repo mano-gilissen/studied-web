@@ -23,6 +23,7 @@
         }
 
         .wrap {
+            height:                             100vh;
             display:                            grid;
             grid-template-rows:                 1fr auto 1fr;
             grid-template-columns:              1fr auto 1fr;
@@ -33,9 +34,9 @@
 
         .dot {
             grid-area:                          dot;
-            width:                              80px;
-            height:                             80px;
-            border-radius:                      40px;
+            width:                              60px;
+            height:                             60px;
+            border-radius:                      30px;
             background:                         #FFDD00;
         }
 
