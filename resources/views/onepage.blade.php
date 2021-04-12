@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Studied</title>
 
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-    <!-- Styles -->
     <style>
+
         html, body {
-            background-color:               aqua;
+            background-color:               yellow;
         }
 
-        .text-standaard {
+        .test {
             font-family:                    'Nunito', sans-serif;
             font-weight:                    600;
             font-size:                      50px;
@@ -27,8 +27,7 @@
 </head>
 <body>
 
-    <div class="text-standaard">
-        hoi ik ben bas welkom op mijn website
+    <div class="">
     </div>
 
 </body>
