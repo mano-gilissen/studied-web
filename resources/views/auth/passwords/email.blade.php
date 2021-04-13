@@ -34,7 +34,7 @@
 
         <button type="submit" class="button">
 
-            {{ __('Send Password Reset Link') }}
+            {{ __('Link sturen om wachtwoord te herstellen') }}
 
         </button>
 

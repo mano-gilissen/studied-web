@@ -44,7 +44,7 @@
 
         <button type="submit" class="btn btn-primary">
 
-            {{ __('Reset Password') }}
+            {{ __('Wachtwoord herstellen') }}
 
         </button>
 
