@@ -25,11 +25,15 @@
         <div style="height: 40px">
 
             @error('email')
+
                 <div class="form-error" role="alert">{{ $message }}</div>
+
             @enderror
 
             @error('passwords')
+
                 <div class="form-error" role="alert">{{ $message }}</div>
+
             @enderror
 
         </div>
