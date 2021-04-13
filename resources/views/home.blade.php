@@ -14,7 +14,7 @@
 
 
 
-    <div>{{ $user->first_name }}</div>
+    <div>{{ $user->email }}</div>
 
 
 
