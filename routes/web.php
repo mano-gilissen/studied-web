@@ -6,10 +6,10 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', function () {
-    return view('landing');
-});
+Auth::routes(['register' => false, 'verify' => false]);
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/',                             'HomeController@landing')->name('landing');
+
+Route::get('/home',                         'HomeController@home')->name('home')->middleware('auth');
