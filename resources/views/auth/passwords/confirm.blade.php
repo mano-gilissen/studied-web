@@ -6,7 +6,7 @@
 
 
 
-    <form method="POST" action="{{ route('passwords.confirm') }}">
+    <form method="POST" action="{{ route('password.confirm') }}">
 
 
 
@@ -14,9 +14,9 @@
 
 
 
-        <input id="password" type="password" class="form-control @error('passwords') is-invalid @enderror" name="password" required autocomplete="current-password">
+        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
-        @error('passwords')
+        @error('password')
 
             <strong>{{ $message }}</strong>
 
@@ -32,7 +32,7 @@
 
 
 
-        <a class="button" href="{{ route('passwords.request') }}">
+        <a class="button" href="{{ route('password.request') }}">
 
             {{ __('Forgot Your Password?') }}
 

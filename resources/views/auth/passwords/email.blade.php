@@ -14,7 +14,7 @@
 
 
 
-    <form method="POST" action="{{ route('passwords.email') }}">
+    <form method="POST" action="{{ route('password.email') }}">
 
 
 

@@ -34,9 +34,9 @@
 
 
 
-        <input id="password" type="password" class="form-control @error('passwords') is-invalid @enderror" name="password" required autocomplete="new-password">
+        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
-        @error('passwords')
+        @error('password')
 
             <strong>{{ $message }}</strong>
 

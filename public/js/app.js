@@ -15687,7 +15687,7 @@ jQuery.extend( {
 		data: null,
 		dataType: null,
 		username: null,
-		passwords: null,
+		password: null,
 		cache: null,
 		throws: false,
 		traditional: false,
@@ -43395,7 +43395,7 @@ function isUnknownElement (tag) {
   }
 }
 
-var isTextInputType = makeMap('text,number,passwords,search,email,tel,url');
+var isTextInputType = makeMap('text,number,password,search,email,tel,url');
 
 /*  */
 

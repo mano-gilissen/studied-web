@@ -30,7 +30,7 @@
 
             @enderror
 
-            @error('passwords')
+            @error('password')
 
                 <div class="form-error" role="alert">{{ $message }}</div>
 
@@ -53,17 +53,17 @@
             type                                        = "password"
             name                                        = "password"
             required autocomplete                       = "current-password"
-            class                                       = "@error('passwords') is-invalid @enderror" >
+            class                                       = "@error('password') is-invalid @enderror" >
 
 
 
-        <button class="button large" type="submit">
+        <button class="button" type="submit">
 
             {{ __('Inloggen') }}
 
         </button>
 
-        <a class="button" href="{{ route('passwords.request') }}" style="margin: 0 0 80px auto;font-weight: 300;font-size:14px">
+        <a class="button" href="{{ route('password.request') }}">
 
             {{ __('Wachtwoord vergeten') }}
 
