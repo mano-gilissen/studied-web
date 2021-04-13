@@ -12,7 +12,7 @@ Route::get('password/email',                    'Auth\ForgotPasswordController@s
 
 Route::post('password/email',                   'Auth\ForgotPasswordController@sendResetLinkEmail');
 
-Route::get('password/reset/{token}',            'Auth\ResetPasswordController@showResetForm')->name('passwords.request');
+/*Route::get('password/reset/{token}',            'Auth\ResetPasswordController@showResetForm')->name('passwords.request');*/
 
 Route::post('password/reset',                   'Auth\ResetPasswordController@postReset')->name('passwords.reset');
 
