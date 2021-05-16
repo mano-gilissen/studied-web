@@ -19,7 +19,7 @@ class ForgotPasswordController extends Controller {
 
     public function forgot() {
 
-        return view('forgot');
+        return view('auth.passwords.forgot');
 
     }
 
