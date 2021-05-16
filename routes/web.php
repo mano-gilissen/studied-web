@@ -14,7 +14,7 @@ Route::get('/',                                 'HomeController@landing')->name(
 
 Route::get('/home',                             'HomeController@view')->name('home.view')->middleware('auth');
 
-Route::get('/inloggen',                         'LoginController@view')->name('login.view');
+Route::get('/inloggen',                         'Auth\LoginController@view')->name('login.view');
 
 
 
