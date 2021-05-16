@@ -17,8 +17,15 @@
     <div>{{ $user->email }}</div>
 
 
+    <div style="margin-bottom: 40px">
 
-    <div style="margin-bottom: 40px">{{ $user->getStudies }}</div>
+        @foreach($user->getStudies as $study)
+
+            {{ $study->subject_text }}<br>
+
+        @endforeach
+
+    </div>
 
 
 
