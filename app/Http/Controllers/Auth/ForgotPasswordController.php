@@ -17,9 +17,9 @@ class ForgotPasswordController extends Controller {
 
 
 
-    public function redirect() {
+    public function forgot() {
 
-        return redirect('password/reset');
+        return view('forgot');
 
     }
 

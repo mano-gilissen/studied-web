@@ -63,7 +63,7 @@
 
         </button>
 
-        <a class="button" href="{{ route('password.request') }}">
+        <a class="button" href="{{ route('password.forgot') }}">
 
             {{ __('Wachtwoord vergeten') }}
 

@@ -16,5 +16,5 @@ Route::get('/home',                             'HomeController@home')->name('ho
 
 
 
-Route::get('/wachtwoordvergeten',               'Auth/ForgotPasswordController@redirect')->name('forgot.password');
+Route::get('/wachtwoordvergeten',               'Auth/ForgotPasswordController@forgot')->name('password.forgot');
 
