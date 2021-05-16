@@ -12,7 +12,9 @@ Auth::routes(['register' => false, 'verify' => false]);
 
 Route::get('/',                                 'HomeController@landing')->name('landing');
 
-Route::get('/home',                             'HomeController@home')->name('home')->middleware('auth');
+Route::get('/home',                             'HomeController@view')->name('home.view')->middleware('auth');
+
+Route::get('/inloggen',                         'LoginController@view')->name('login.view');
 
 
 
