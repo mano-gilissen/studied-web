@@ -42,7 +42,7 @@ class User extends Authenticatable {
 
     public function getStudies() {
 
-        return self::getOneToMany(self::$STUDY, self::$USER, self::$BASE_ID);
+        return self::getOneToMany(self::$STUDY, self::$STUDY_HOST_USER, self::$BASE_ID);
 
     }
 

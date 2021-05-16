@@ -14,7 +14,9 @@ trait StudyTrait {
 
     public static
 
-        $STUDY                                          = 'study';
+        $STUDY                                          = 'study',
+
+        $STUDY_HOST_USER                                = 'host_user';
 
 
 
