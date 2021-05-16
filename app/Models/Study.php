@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 
 
-class Lesson extends Model {
+class Study extends Model {
 
 
 
@@ -19,7 +19,7 @@ class Lesson extends Model {
 
     protected
 
-        $table                                  = 'lesson';
+        $table                                  = 'study';
 
 
 

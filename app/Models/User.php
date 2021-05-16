@@ -5,7 +5,7 @@
 namespace App\Models;
 
 use App\Http\Traits\BaseTrait;
-use App\Http\Traits\LessonTrait;
+use App\Http\Traits\StudyTrait;
 use App\Http\Traits\UserTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -18,7 +18,7 @@ class User extends Authenticatable {
 
     use Notifiable;
     use BaseTrait;
-    use LessonTrait;
+    use StudyTrait;
     use UserTrait;
 
 
@@ -40,9 +40,9 @@ class User extends Authenticatable {
 
 
 
-    public function getLesson() {
+    public function getStudies() {
 
-        return self::getOneToMany(self::$LESSON, self::$USER, self::$BASE_ID);
+        return self::getOneToMany(self::$STUDY, self::$USER, self::$BASE_ID);
 
     }
 

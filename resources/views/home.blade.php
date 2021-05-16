@@ -18,6 +18,10 @@
 
 
 
+    <div style="margin-bottom: 40px">{{ $user->getStudies }}</div>
+
+
+
     <a class="button" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout').submit();">
 
         {{ __('uitloggen') }}
