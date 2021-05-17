@@ -17,6 +17,11 @@
     <div>{{ $user->email }}</div>
 
 
+
+    <div>{{ $user->getPerson->first_name }}</div>
+
+
+
     <div style="margin-bottom: 40px">
 
         @foreach($user->getStudies as $study)
