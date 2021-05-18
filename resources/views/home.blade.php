@@ -18,7 +18,7 @@
 
 
 
-    <div>{{ $user->getPerson->first_name }}</div>
+    <div>{{ $user->getPerson->prefix }} {{ $user->getPerson->first_name }} {{ $user->getPerson->middle_name }} {{ $user->getPerson->last_name }}</div>
 
 
 
