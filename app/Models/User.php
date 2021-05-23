@@ -10,6 +10,7 @@ use App\Http\Traits\StudyTrait;
 use App\Http\Traits\UserTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 
@@ -18,6 +19,7 @@ class User extends Authenticatable {
 
 
     use Notifiable;
+    use SoftDeletes;
     use BaseTrait;
     use PersonTrait;
     use StudyTrait;

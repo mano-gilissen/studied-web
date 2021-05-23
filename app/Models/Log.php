@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 
-class Study extends Model {
+class Log extends Model {
 
 
 
@@ -21,7 +21,7 @@ class Study extends Model {
 
     protected
 
-        $table                                  = 'study';
+        $table                                  = 'log';
 
 
 
