@@ -16,6 +16,7 @@ trait UserTrait {
 
         $USER                                           = 'user',
 
+        $USER_ROLE                                      = 'role',
         $USER_EMAIL                                     = 'email',
         $USER_PASSWORD                                  = 'password',
         $USER_NAME                                      = 'name';

@@ -4,8 +4,6 @@
 
 namespace App\Http\Traits;
 
-use App\Models\Person;
-
 
 
 trait RoleTrait {
@@ -23,7 +21,7 @@ trait RoleTrait {
         $ID_MANAGEMENT                                  = 3,
         $ID_EMPLOYEE                                    = 4,
         $ID_STUDENT                                     = 5,
-        $ID_CLIENT                                      = 6;
+        $ID_CUSTOMER                                    = 6;
 
 
 
