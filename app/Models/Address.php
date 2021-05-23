@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 
-class Log extends Model {
+class Address extends Model {
 
 
 
@@ -19,7 +19,7 @@ class Log extends Model {
 
     protected
 
-        $table                                  = 'log';
+        $table                                  = 'address';
 
 
 
