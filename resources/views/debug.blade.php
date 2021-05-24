@@ -29,11 +29,28 @@
     @if($user->hasStudies())
 
         <p>
-            studies:<br><br>
+            lessen:<br><br>
 
             @foreach($user->getStudies as $study)
 
                 {{ $study->subject_text }}<br>
+
+            @endforeach
+
+        </p>
+
+    @endif
+
+
+
+    @if($user->isCustomer())
+
+        <p>
+            leerlingen:<br><br>
+
+            @foreach($user->getCustomer->getStudents as $student)
+
+                {{ $student->getPerson->first_name }} {{ $student->getPerson->last_name }}<br>
 
             @endforeach
 
