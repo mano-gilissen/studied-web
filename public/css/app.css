@@ -5,6 +5,7 @@
 }
 
 html, body {
-    background-color:                   white;
+    color:                              white;
+    background-color:                   black;
     -webkit-font-smoothing:             antialiased;
 }

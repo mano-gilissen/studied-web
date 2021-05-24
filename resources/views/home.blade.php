@@ -22,7 +22,11 @@
 
 
 
-    <div style="margin-bottom: 40px">
+    <div>{{ $user->getRole->label }}</div>
+
+
+
+    <div style="margin-bottom: 40px;padding: 40px;background: grey">
 
         @foreach($user->getStudies as $study)
 

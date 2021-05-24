@@ -30,11 +30,17 @@ class User extends Authenticatable {
         $hidden                                 = ['password', 'remember_token'];
 
 
-    
+
 
     public function getPerson() {
 
         return self::getThisToOne(self::$PERSON);
+
+    }
+
+    public function getRole() {
+
+        return self::getThisToOne(self::$ROLE);
 
     }
 
