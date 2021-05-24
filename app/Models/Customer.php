@@ -25,7 +25,7 @@ class Customer extends Model {
 
 
 
-    /**   Add hasOneThrough Customer->Person   */
+    /**   Add hasOneThrough for Customer->Person   */
 
     public function getUser() {
 
