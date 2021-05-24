@@ -11,7 +11,7 @@ use Auth;
 
 
 
-class HomeController extends Controller {
+class TestController extends Controller {
 
 
 
@@ -21,7 +21,7 @@ class HomeController extends Controller {
 
     public function view() {
 
-        return view(Views::HOME, [UserTrait::$USER => Auth::user()]);
+        return view(Views::TEST, [UserTrait::$USER => Auth::user()]);
 
     }
 

@@ -4,7 +4,7 @@
 
 @section('css')
 
-    <link href="{{ asset('css/home.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/test.css') }}" rel="stylesheet">
 
 @endsection
 
@@ -14,19 +14,19 @@
 
 
 
-    <div>{{ $user->email }}</div>
+    <p>{{ $user->email }}</p>
 
 
 
-    <div>{{ $user->getPerson->prefix }} {{ $user->getPerson->first_name }} {{ $user->getPerson->middle_name }} {{ $user->getPerson->last_name }}</div>
+    <p>{{ $user->getPerson->prefix }} {{ $user->getPerson->first_name }} {{ $user->getPerson->middle_name }} {{ $user->getPerson->last_name }}</p>
 
 
 
-    <div>{{ $user->getRole->label }}</div>
+    <p>{{ $user->getRole->label }}</p>
 
 
 
-    <div style="margin-bottom: 40px;padding: 40px;background: grey">
+    <p>
 
         @foreach($user->getStudies as $study)
 
@@ -34,7 +34,7 @@
 
         @endforeach
 
-    </div>
+    </p>
 
 
 
