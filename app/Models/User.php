@@ -8,6 +8,7 @@ use App\Http\Traits\BaseTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Collection;
 use Auth;
 
 
@@ -78,7 +79,7 @@ class User extends Authenticatable {
                 return $this->getStudies_asParticipant();
 
             default:
-                return null;
+                return new Collection;
         }
     }
 
