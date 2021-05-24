@@ -65,7 +65,7 @@ class User extends Authenticatable {
 
 
 
-    public function thasStudies() {
+    public function hasStudies() {
 
         return $this->{self::$ROLE} != self::$ID_CUSTOMER;
 

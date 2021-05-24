@@ -26,7 +26,7 @@
 
 
 
-    @if($user->thasStudies)
+    @if($user->hasStudies())
 
         <p>
             studies:<br><br>
