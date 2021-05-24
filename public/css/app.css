@@ -5,7 +5,11 @@
 }
 
 html, body {
-    color:                              white;
-    background-color:                   black;
+    background-color:                   white;
     -webkit-font-smoothing:             antialiased;
+}
+
+p {
+    color:                              black;
+    font-family:                        'Source Sans Pro', sans-serif;
 }
