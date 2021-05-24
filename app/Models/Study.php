@@ -4,7 +4,6 @@
 
 namespace App\Models;
 
-use App\Http\Traits\BaseTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -15,7 +14,6 @@ class Study extends Model {
 
 
     use SoftDeletes;
-    use BaseTrait;
 
 
 

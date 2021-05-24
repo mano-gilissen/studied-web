@@ -4,8 +4,6 @@
 
 namespace App\Http\Traits;
 
-use App\Models\Person;
-
 
 
 trait CustomerTrait {
@@ -14,9 +12,7 @@ trait CustomerTrait {
 
     public static
 
-        $CUSTOMER                                       = 'customer',
-
-        $CUSTOMER_USER                                  = 'user';
+        $CUSTOMER                                       = 'customer';
 
 
 

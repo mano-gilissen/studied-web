@@ -13,11 +13,14 @@ trait LogTrait {
 
 
 
+    use UserTrait;
+
+
+
     public static
 
         $LOG                                            = 'log',
 
-        $LOG_USER                                       = 'user',
         $LOG_ACTION                                     = 'action',
         $LOG_DATA                                       = 'data',
 
@@ -29,7 +32,7 @@ trait LogTrait {
 
         $log                                            = new Log;
 
-        $log->{self::$LOG_USER}                         = Auth::id();
+        $log->{self::$USER}                             = Auth::id();
         $log->{self::$LOG_ACTION}                       = $action;
         $log->{self::$LOG_DATA}                         = $data;
 

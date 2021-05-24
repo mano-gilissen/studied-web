@@ -4,8 +4,6 @@
 
 namespace App\Http\Traits;
 
-use App\Models\Person;
-
 
 
 trait PersonTrait {

@@ -20,21 +20,55 @@ trait BaseTrait {
 
 
 
-    public function getOneToOne($type, $key = null) {
+    #   PLANE { PILOT: X }
+    #   PILOT {          }
 
-        return $this->belongsTo(self::getModelClass($type), $key ? $key : $type);
+    #   PLANE->getOneToThis(self::$PILOT, self::$PLANE)
+
+    public function getOneToThis($foreign, $local) {
+
+        return $this->hasOne(self::getModelClass($foreign), $local);
 
     }
 
-    public function getOneToMany($type, $foreign_key, $local_key) {
 
-        return $this->hasMany(self::getModelClass($type), $foreign_key, $local_key);
+
+    #   PLANE { PILOT: X }
+    #   PILOT {          }
+
+    #   PILOT->getThisToOne(self::$PLANE)
+
+    public function getThisToOne($foreign, $key_local = null) {
+
+        return $this->belongsTo(self::getModelClass($foreign), $key_local ? $key_local : $foreign);
 
     }
 
-    public function getManyToMany($type, $pivot, $local_key, $foreign_key) {
 
-        return $this->belongsToMany(self::getModelClass($type), $pivot, $local_key, $foreign_key);
+
+    #   PLANE { PILOT: X }
+    #   PLANE { PILOT: X }
+    #   PILOT {          }
+
+    #   PILOT->getOneToMany(self::$PLANE, self::$PILOT);
+
+    public function getOneToMany($foreign, $key_foreign, $key_local = null) {
+
+        return $this->hasMany(self::getModelClass($foreign), $key_foreign, $key_local ? $key_local : self::$BASE_ID);
+
+    }
+
+
+
+    #   PLANE {          }
+    #   PILOT {          }
+    #   PLANE_PILOT { PLANE: X; PILOT: X }
+
+    #   PILOT->getManyToMany(self::$PLANE, self::$PLANE_PILOT, self::$PILOT);
+
+    public function getManyToMany($foreign, $pivot, $local) {
+
+        return $this->belongsToMany(self::getModelClass($foreign), $pivot, $local, $foreign);
 
     }
 
@@ -51,6 +85,13 @@ trait BaseTrait {
         return self::$NAMESPACE_MODEL . self::getModel($type);
 
     }
+
+
+
+    use AddressTrait, AgreementTrait, AreaTrait, CourseTrait, CustomerTrait, EmployeeTrait, EvaluationTrait, EventTrait,
+        InvoiceTrait, LaborTrait, LocationTrait, LogTrait, PersonTrait, RelationTrait, ReportTrait, Report_SubjectTriat,
+        RoleTrait, ServiceTrait, StudentTrait, Student_RelationTrait, StudyTrait, Study_ParticipantTrait,
+        Study_UserTrait, SubjectTrait, UserTrait;
 
 
 
