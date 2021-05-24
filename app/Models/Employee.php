@@ -23,4 +23,14 @@ class Employee extends Model {
 
 
 
+    /**   Add hasOneThrough Employee->Person   */
+
+    public function getUser() {
+
+        return self::getThisToOne(self::$USER);
+
+    }
+
+
+
 }

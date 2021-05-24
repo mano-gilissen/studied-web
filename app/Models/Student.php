@@ -25,6 +25,14 @@ class Student extends Model {
 
 
 
+    /**   Add hasOneThrough Student->Person   */
+
+    public function getUser() {
+
+        return self::getThisToOne(self::$USER);
+
+    }
+
     public function getRelations() {
 
         return self::getManyToMany(self::$RELATION, self::$STUDENT_RELATION, self::$STUDENT);

@@ -25,6 +25,14 @@ class Customer extends Model {
 
 
 
+    /**   Add hasOneThrough Customer->Person   */
+
+    public function getUser() {
+
+        return self::getThisToOne(self::$USER);
+
+    }
+
     public function getStudents() {
 
         return self::getOneToMany(self::$STUDENT, self::$CUSTOMER);
