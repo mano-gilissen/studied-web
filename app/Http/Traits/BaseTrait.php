@@ -89,7 +89,7 @@ trait BaseTrait {
 
 
     use AddressTrait, AgreementTrait, AreaTrait, CourseTrait, CustomerTrait, EmployeeTrait, EvaluationTrait, EventTrait,
-        InvoiceTrait, LaborTrait, LocationTrait, LogTrait, PersonTrait, RelationTrait, ReportTrait, Report_SubjectTriat,
+        InvoiceTrait, LaborTrait, LocationTrait, LogTrait, PersonTrait, RelationTrait, ReportTrait, Report_SubjectTrait,
         RoleTrait, ServiceTrait, StudentTrait, Student_RelationTrait, StudyTrait, Study_ParticipantTrait,
         Study_UserTrait, SubjectTrait, UserTrait;
 
