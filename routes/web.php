@@ -10,9 +10,9 @@ Auth::routes(['register' => false, 'verify' => false]);
 
 
 
-Route::get('/',                                 'TestController@landing')->name('landing');
+Route::get('/',                                 'DebugController@landing')->name('landing');
 
-Route::get('/test',                             'TestController@view')->name('test.view')->middleware('auth');
+Route::get('/debug',                            'DebugController@view')->name('debug.view')->middleware('auth');
 
 
 

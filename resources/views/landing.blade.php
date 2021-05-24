@@ -14,9 +14,9 @@
 
     <div class="wrap">
 
-        <div class="dot">
+        <a class="dot" href="{{route('debug')}}">
 
-        </div>
+        </a>
 
     </div>
 
