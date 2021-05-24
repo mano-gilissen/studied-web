@@ -14,19 +14,20 @@
 
 
 
-    <p>{{ $user->email }}</p>
+    <p>email: {{ $user->email }}</p>
 
 
 
-    <p>{{ $user->getPerson->prefix }} {{ $user->getPerson->first_name }} {{ $user->getPerson->middle_name }} {{ $user->getPerson->last_name }}</p>
+    <p>person name: {{ $user->getPerson->prefix }} {{ $user->getPerson->first_name }} {{ $user->getPerson->middle_name }} {{ $user->getPerson->last_name }}</p>
 
 
 
-    <p>{{ $user->getRole->label }}</p>
+    <p>role: {{ $user->getRole->label }}</p>
 
 
 
     <p>
+        studies:<br><br>
 
         @foreach($user->getStudies as $study)
 
@@ -38,11 +39,15 @@
 
 
 
-    <a class="button" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout').submit();">
+    <p>
 
-        {{ __('uitloggen') }}
+        <a class="button" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout').submit();">
 
-    </a>
+            {{ __('uitloggen') }}
+
+        </a>
+
+    </p>
 
 
 
