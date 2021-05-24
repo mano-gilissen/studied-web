@@ -65,21 +65,22 @@ class User extends Authenticatable {
 
 
 
+    public function hasStudies() {
+
+        return $this->{self::$ROLE} != self::$ID_CUSTOMER;
+
+    }
+
     public function getStudies() {
 
         switch ($this->{self::$ROLE}) {
 
-            case self::$ID_ADMINISTRATOR:
-            case self::$ID_BOARD:
-            case self::$ID_MANAGEMENT:
-            case self::$ID_EMPLOYEE:
-                return $this->getStudies_asHost();
-
+            case self::$ID_CUSTOMER:
+                return null;
             case self::$ID_STUDENT:
                 return $this->getStudies_asParticipant();
-
             default:
-                return new Collection;
+                return $this->getStudies_asHost();
         }
     }
 

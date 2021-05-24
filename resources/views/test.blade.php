@@ -26,16 +26,20 @@
 
 
 
-    <p>
-        studies:<br><br>
+    @if($user->hasStudies)
 
-        @foreach($user->getStudies as $study)
+        <p>
+            studies:<br><br>
 
-            {{ $study->subject_text }}<br>
+            @foreach($user->getStudies as $study)
 
-        @endforeach
+                {{ $study->subject_text }}<br>
 
-    </p>
+            @endforeach
+
+        </p>
+
+    @endif
 
 
 
