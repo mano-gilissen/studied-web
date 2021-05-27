@@ -12,7 +12,11 @@ trait ServiceTrait {
 
     public static
 
-        $SERVICE                                    = 'service';
+        $SERVICE                                    = 'service',
+
+        $SERVICE_NAME                               = 'name',
+        $SERVICE_DESCRIPTION                        = 'description',
+        $SERVICE_CODE                               = 'code';
 
 
 

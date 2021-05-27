@@ -39,29 +39,23 @@ class User extends Authenticatable {
 
     }
 
+
+
     public function getRole() {
 
         return self::getThisToOne(self::$ROLE);
 
     }
 
-    public function isEmployee() {
 
-        return $this->{self::$ROLE} == self::$ID_EMPLOYEE;
 
-    }
+    public function isEmployee() {      return $this->{self::$ROLE} == self::$ID_EMPLOYEE;}
 
-    public function isStudent() {
+    public function isStudent() {       return $this->{self::$ROLE} == self::$ID_STUDENT;}
 
-        return $this->{self::$ROLE} == self::$ID_STUDENT;
+    public function isCustomer() {      return $this->{self::$ROLE} == self::$ID_CUSTOMER;}
 
-    }
 
-    public function isCustomer() {
-
-        return $this->{self::$ROLE} == self::$ID_CUSTOMER;
-
-    }
 
     public function getEmployee() {
 

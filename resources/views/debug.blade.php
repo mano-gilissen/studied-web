@@ -50,7 +50,7 @@
 
             @foreach($user->getCustomer->getStudents as $student)
 
-                {{ $student->getUser->getPerson->first_name }} {{ $student->getUser->getPerson->last_name }}<br>
+                {{ $student->getPerson->first_name }} {{ $student->getPerson->last_name }}<br>
 
             @endforeach
 

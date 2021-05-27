@@ -23,11 +23,11 @@ trait BaseTrait {
     #   PLANE { PILOT: X }
     #   PILOT {          }
 
-    #   PLANE->getOneToThis(self::$PILOT, self::$PLANE)
+    #   PILOT->getOneToThis(self::$PLANE, self::$PILOT)
 
-    public function getOneToThis($foreign, $local) {
+    public function getOneToThis($foreign, $key_foreign) {
 
-        return $this->hasOne(self::getModelClass($foreign), $local);
+        return $this->hasOne(self::getModelClass($foreign), $key_foreign);
 
     }
 
@@ -36,7 +36,7 @@ trait BaseTrait {
     #   PLANE { PILOT: X }
     #   PILOT {          }
 
-    #   PILOT->getThisToOne(self::$PLANE)
+    #   PLANE->getThisToOne(self::PILOT)
 
     public function getThisToOne($foreign, $key_local = null) {
 

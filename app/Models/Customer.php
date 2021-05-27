@@ -33,6 +33,8 @@ class Customer extends Model {
 
     }
 
+
+
     public function getStudents() {
 
         return self::getOneToMany(self::$STUDENT, self::$CUSTOMER);

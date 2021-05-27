@@ -12,7 +12,10 @@ trait CourseTrait {
 
     public static
 
-        $COURSE                                 = 'course';
+        $COURSE                                 = 'course',
+
+        $COURSE_NAME                            = 'name',
+        $COURSE_DESCRIPTION                     = 'description';
 
 
 

@@ -12,7 +12,9 @@ trait CustomerTrait {
 
     public static
 
-        $CUSTOMER                                       = 'customer';
+        $CUSTOMER                                       = 'customer',
+
+        $CUSTOMER_REFER                                 = 'refer';
 
 
 

@@ -4,6 +4,7 @@
 
 namespace App\Models;
 
+use App\Http\Traits\BaseTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -13,6 +14,7 @@ class Report extends Model {
 
 
 
+    use BaseTrait;
     use SoftDeletes;
 
 
@@ -20,6 +22,22 @@ class Report extends Model {
     protected
 
         $table                                  = 'report';
+
+
+
+    public function getStudy() {
+
+        return self::getThisToOne(self::$STUDY);
+
+    }
+
+
+
+    public function getStudent() {
+
+        return self::getThisToOne(self::$USER, self::$STUDENT);
+
+    }
 
 
 

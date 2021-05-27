@@ -12,7 +12,10 @@ trait SubjectTrait {
 
     public static
 
-        $SUBJECT                                    = 'subject';
+        $SUBJECT                                    = 'subject',
+
+        $SUBJECT_CODE                               = 'code',
+        $SUBJECT_DESCRIPTION                        = 'description';
 
 
 
