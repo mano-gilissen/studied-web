@@ -31,12 +31,6 @@ class Student extends Model {
 
     }
 
-    public function getPerson() {
-
-        return $this->getUser()->getPerson();
-
-    }
-
 
 
     public function getRelations() {

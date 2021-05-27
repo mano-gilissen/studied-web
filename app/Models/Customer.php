@@ -25,8 +25,6 @@ class Customer extends Model {
 
 
 
-    /**   Add hasOneThrough for Customer->Person   */
-
     public function getUser() {
 
         return self::getThisToOne(self::$USER);
