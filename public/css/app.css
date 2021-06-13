@@ -14,13 +14,6 @@ p {
     font-family:                        'Source Sans Pro', sans-serif;
 }
 
-a {
-    display:                            inline-flex;
-    align-items:                        center;
-    text-decoration:                    none;
-    font-family:                        'Circular', serif;
-}
-
 
 
 
@@ -30,6 +23,7 @@ a {
     padding:                            0 14px 2px;
     border-radius:                      14px;
     font-size:                          12px;
+    font-family:                        'Circular', serif;
     font-weight:                        200;
     background:                         #FFDD34;
     color:                              black;

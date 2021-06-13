@@ -57,17 +57,17 @@
 
 
 
-        <a class="button" type="submit">
+        <div class="button" type="submit">
 
             {{ __('Inloggen') }}
 
-        </a>
+        </div>
 
-        <a class="button" href="{{ route('password.forgot') }}">
+        <div class="button" onclick="window.location.href='{{ route('password.forgot') }}'">
 
             {{ __('Wachtwoord vergeten') }}
 
-        </a>
+        </div>
 
 
 
