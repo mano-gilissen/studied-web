@@ -57,11 +57,11 @@
 
 
 
-        <button class="button" type="submit">
+        <a class="button" type="submit">
 
             {{ __('Inloggen') }}
 
-        </button>
+        </a>
 
         <a class="button" href="{{ route('password.forgot') }}">
 
