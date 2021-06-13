@@ -15,8 +15,10 @@ p {
 }
 
 a {
+    display:                            block;
+    align-items:                        center;
     text-decoration:                    none;
-    height:                             unset;
+    font-family:                        'Circular', serif;
 }
 
 
@@ -28,11 +30,9 @@ a {
     padding:                            0 14px 2px;
     border-radius:                      14px;
     font-size:                          12px;
-    font-family:                        'Circular', serif;
     font-weight:                        200;
     background:                         #FFDD34;
     color:                              black;
-    border:                             none;
 }
 
 .button.large {
