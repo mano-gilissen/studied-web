@@ -31,6 +31,7 @@ p {
     background:                         #FFDD34;
     color:                              black;
     border:                             none;
+    cursor:                             pointer;
 }
 
 .button.large {

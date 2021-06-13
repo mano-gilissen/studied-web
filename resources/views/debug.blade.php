@@ -68,7 +68,7 @@
 
 
 
-    <form id="logout" method="POST" action="{{ route('logout') }}">
+    <form id="logout" method="POST" action="{{ route('logout') }}" style="margin-bottom: 40px;">
 
         @csrf
 
@@ -76,7 +76,7 @@
 
 
 
-    <div class="button" onclick="window.location.href='{{ route('password.forgot') }}'">
+    <div class="button" onclick="window.location.href='{{ route('password.forgot') }}'" style="margin-bottom: 40px;">
 
         {{ __('Link button') }}
 
@@ -84,7 +84,7 @@
 
 
 
-    <div class="button icon">
+    <div class="button icon" style="margin-bottom: 40px;">
 
         <div class="icon"></div>
 
@@ -94,7 +94,7 @@
 
 
 
-    <div class="button icon-reverse">
+    <div class="button icon-reverse" style="margin-bottom: 40px;">
 
         <div class="text">{{ __('Reverse icon button') }}</div>
 
