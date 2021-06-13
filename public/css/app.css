@@ -14,24 +14,30 @@ p {
     font-family:                        'Source Sans Pro', sans-serif;
 }
 
+a {
+    text-decoration:                    none;
+    height:                             unset;
+}
+
 
 
 
 
 .button {
     height:                             28px;
-    padding:                            0 14px;
-    font-size:                          12px;
+    padding:                            0 14px 2px;
     border-radius:                      14px;
-    background:                         #FFDD34;
-    color:                              black;
+    font-size:                          12px;
     font-family:                        'Circular', serif;
     font-weight:                        200;
+    background:                         #FFDD34;
+    color:                              black;
+    border:                             none;
 }
 
 .button.large {
     height:                             32px;
-    padding:                            0 16px;
+    padding:                            0 16px 2px;
     font-size:                          14px;
     border-radius:                      16px;
 }
