@@ -47,9 +47,7 @@ p {
 
 .button.icon .icon {
     height:                             16px;
-    width:                              16px;
-    margin:                             0 8px 0 0;
-    background:                         pink;
+    margin:                             0 6px 0 0;
 }
 
 .button.icon-reverse {
@@ -58,9 +56,7 @@ p {
 
 .button.icon-reverse .icon {
     height:                             16px;
-    width:                              16px;
-    margin:                             0 0 0 8px;
-    background:                         pink;
+    margin:                             0 0 0 6px;
 }
 
 .button.icon .text,
