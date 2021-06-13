@@ -86,7 +86,7 @@
 
     <div class="button icon" style="margin-bottom: 40px;">
 
-        <div class="icon"></div>
+        <img class="icon" src="images/add.svg">
 
         <div class="text">{{ __('Icon button') }}</div>
 
@@ -98,7 +98,7 @@
 
         <div class="text">{{ __('Reverse icon button') }}</div>
 
-        <div class="icon"></div>
+        <img class="icon" src="images/close.svg">
 
     </div>
 
