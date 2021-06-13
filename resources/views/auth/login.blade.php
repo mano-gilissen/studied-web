@@ -63,15 +63,17 @@
 
         </div>
 
-        <div class="button" onclick="window.location.href='{{ route('password.forgot') }}'">
-
-            {{ __('Wachtwoord vergeten') }}
-
-        </div>
-
 
 
     </form>
+
+
+
+    <div class="button" onclick="window.location.href='{{ route('password.forgot') }}'">
+
+        {{ __('Wachtwoord vergeten') }}
+
+    </div>
 
 
 
