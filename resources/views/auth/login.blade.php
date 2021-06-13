@@ -57,11 +57,11 @@
 
 
 
-        <div class="button" type="submit">
+        <button class="button" type="submit">
 
             {{ __('Inloggen') }}
 
-        </div>
+        </button>
 
 
 
