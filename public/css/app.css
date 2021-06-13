@@ -30,6 +30,7 @@ p {
     font-weight:                        200;
     background:                         #FFDD34;
     color:                              black;
+    border:                             none;
 }
 
 .button.large {

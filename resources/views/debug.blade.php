@@ -62,7 +62,7 @@
 
     <div class="button" onclick="event.preventDefault(); document.getElementById('logout').submit();">
 
-        {{ __('uitloggen') }}
+        {{ __('Uitloggen') }}
 
     </div>
 
