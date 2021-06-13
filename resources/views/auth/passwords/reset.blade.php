@@ -42,11 +42,11 @@
 
 
 
-        <button type="submit" class="btn btn-primary">
+        <div type="submit" class="button">
 
             {{ __('Wachtwoord herstellen') }}
 
-        </button>
+        </div>
 
 
 

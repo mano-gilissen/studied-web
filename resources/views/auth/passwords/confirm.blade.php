@@ -24,19 +24,19 @@
 
 
 
-        <button type="submit" class="button">
+        <div type="submit" class="button">
 
             {{ __('Confirm Password') }}
 
-        </button>
+        </div>
 
 
 
-        <a class="button" href="{{ route('password.request') }}">
+        <div class="button" onclick="window.location.href='{{ route('password.request') }}'">
 
             {{ __('Forgot Your Password?') }}
 
-        </a>
+        </div>
 
 
 
