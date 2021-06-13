@@ -14,9 +14,26 @@ p {
     font-family:                        'Source Sans Pro', sans-serif;
 }
 
+
+
+
+
 .button {
+    height:                             28px;
+    padding:                            0 14px;
+    font-size:                          12px;
+    border-radius:                      14px;
+    background:                         #FFDD34;
+    color:                              black;
     font-family:                        'Circular', serif;
     font-weight:                        200;
+}
+
+.button.large {
+    height:                             32px;
+    padding:                            0 16px;
+    font-size:                          14px;
+    border-radius:                      16px;
 }
 
 
