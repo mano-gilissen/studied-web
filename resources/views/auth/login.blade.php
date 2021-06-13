@@ -77,16 +77,4 @@
 
 
 
-    <div class="button icon" type="submit">
-
-        <div class="icon">
-
-        </div>
-
-        {{ __('Inloggen') }}
-
-    </div>
-
-
-
 @endsection

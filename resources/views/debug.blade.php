@@ -60,15 +60,11 @@
 
 
 
-    <p>
+    <div class="button" onclick="event.preventDefault(); document.getElementById('logout').submit();">
 
-        <a class="button" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout').submit();">
+        {{ __('uitloggen') }}
 
-            {{ __('uitloggen') }}
-
-        </a>
-
-    </p>
+    </div>
 
 
 
@@ -77,6 +73,34 @@
         @csrf
 
     </form>
+
+
+
+    <div class="button" onclick="window.location.href='{{ route('password.forgot') }}'">
+
+        {{ __('Link button') }}
+
+    </div>
+
+
+
+    <div class="button icon">
+
+        <div class="icon"></div>
+
+        <div class="text">{{ __('Icon button') }}</div>
+
+    </div>
+
+
+
+    <div class="button icon-reverse">
+
+        <div class="text">{{ __('Reverse icon button') }}</div>
+
+        <div class="icon"></div>
+
+    </div>
 
 
 
