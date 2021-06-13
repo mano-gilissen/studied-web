@@ -13,3 +13,36 @@ p {
     color:                              black;
     font-family:                        'Source Sans Pro', sans-serif;
 }
+
+.button {
+    font-family:                        'Circular', serif;
+    font-weight:                        200;
+}
+
+
+
+
+
+@font-face {
+    font-family:                        'Circular';
+    src:                                url('/fonts/circular-book.otf') format("opentype");
+    font-weight:                        100;
+}
+
+@font-face {
+    font-family:                        'Circular';
+    src:                                url('/fonts/circular-medium.otf') format("opentype");
+    font-weight:                        200;
+}
+
+@font-face {
+    font-family:                        'Circular';
+    src:                                url('/fonts/circular-bold.otf') format("opentype");
+    font-weight:                        300;
+}
+
+@font-face {
+    font-family:                        'Circular';
+    src:                                url('/fonts/circular-black.otf') format("opentype");
+    font-weight:                        400;
+}
