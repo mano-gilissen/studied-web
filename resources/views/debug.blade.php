@@ -84,7 +84,7 @@
 
 
 
-    <div class="button" onclick="event.preventDefault(); document.getElementById('logout').submit();">
+    <div class="button" onclick="event.preventDefault(); document.getElementById('logout').submit();" style="margin: 40px 0;">
 
         {{ __('Uitloggen') }}
 
@@ -92,7 +92,7 @@
 
 
 
-    <form id="logout" method="POST" action="{{ route('logout') }}" style="margin-top:40px;margin-bottom: 40px;">
+    <form id="logout" method="POST" action="{{ route('logout') }}">
 
         @csrf
 
