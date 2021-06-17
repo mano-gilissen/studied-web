@@ -108,11 +108,11 @@ input:focus {
     width:                              20px;
     height:                             20px;
     margin-right:                       10px;
-    opacity:                            .3;
+    opacity:                            .7;
 }
 
 .box-input:focus-within .icon {
-    opacity:                            0;
+    opacity:                            1;
 }
 
 
