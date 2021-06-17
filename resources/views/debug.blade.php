@@ -84,6 +84,23 @@
 
 
 
+    <form method="POST">
+
+        <div class="box-input">
+
+            @csrf
+
+            <input
+                id                                          = "email"
+                type                                        = "email"
+                name                                        = "email">
+
+        </div>
+
+    </form>
+
+
+
     <div class="button" onclick="event.preventDefault(); document.getElementById('logout').submit();" style="margin: 40px 0;">
 
         {{ __('Uitloggen') }}

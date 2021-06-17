@@ -80,6 +80,22 @@ html, body {
 
 
 
+.box-input {
+    width:                              100%;
+    height:                             40px;
+    border-bottom:                      1px solid #CCCCCC;
+    padding-left:                       8px;
+    padding-top:                        8px;
+}
+
+.box-input:focus-within {
+    border-bottom:                      1px solid black;
+}
+
+
+
+
+
 .block-attributes .title {
     padding:                            0 0 16px 4px;
 }
