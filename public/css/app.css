@@ -81,6 +81,7 @@ html, body {
 
 
 input {
+    width:                              100%;
     border:                             none;
     font-size:                          14px;
     font-family:                        'Source Sans Pro', sans-serif;
@@ -88,7 +89,7 @@ input {
 }
 
 input:focus {
-    border:                             none;
+    outline:                            none;
 }
 
 .box-input {
@@ -96,7 +97,7 @@ input:focus {
     height:                             40px;
     border-bottom:                      1px solid #CCCCCC;
     padding-left:                       8px;
-    padding-top:                        8px;
+    padding-top:                        10px;
 }
 
 .box-input:focus-within {
