@@ -14,12 +14,13 @@ html, body {
 .wrap {
     grid-area:                          wrap;
     width:                              380px;
-    padding:                            80px 48px;
+    padding:                            80px 50px;
     background:                         white;
 }
 
 #logo {
-    height:                             60px;
+    height:                             64px;
+    margin-bottom:                      80px;
 }
 
 #box-input-password {
