@@ -16,19 +16,25 @@
 
     <div class="block-attributes">
 
-        <div class="attribute">
+        <div class="title">Gegevens</div>
 
-            <div class="tag">Email</div>
+        <div class="list-attributes">
 
-            <div class="value">{{ $user->email }}</div>
+            <div class="attribute">
 
-        </div>
+                <div class="tag">Email</div>
 
-        <div class="attribute">
+                <div class="value">{{ $user->email }}</div>
 
-            <div class="tag">Rol</div>
+            </div>
 
-            <div class="value">{{ $user->getRole->label }}</div>
+            <div class="attribute">
+
+                <div class="tag">Rol</div>
+
+                <div class="value">{{ $user->getRole->label }}</div>
+
+            </div>
 
         </div>
 
