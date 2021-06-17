@@ -80,6 +80,17 @@ html, body {
 
 
 
+input {
+    border:                             none;
+    font-size:                          14px;
+    font-family:                        'Source Sans Pro', sans-serif;
+    font-weight:                        300;
+}
+
+input:focus {
+    border:                             none;
+}
+
 .box-input {
     width:                              100%;
     height:                             40px;
