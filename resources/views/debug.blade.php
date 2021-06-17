@@ -86,14 +86,25 @@
 
     <form method="POST">
 
-        <div class="box-input">
+        @csrf
 
-            @csrf
+        <div class="box-input">
 
             <input
                 id                                          = "email"
                 type                                        = "email"
                 name                                        = "email">
+
+        </div>
+
+        <div class="box-input">
+
+            <input
+                id                                          = "search"
+                type                                        = "search"
+                name                                        = "search">
+
+            <img class="icon" src="images/close.svg">
 
         </div>
 

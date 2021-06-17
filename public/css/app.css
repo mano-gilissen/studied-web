@@ -93,15 +93,26 @@ input:focus {
 }
 
 .box-input {
+    display:                            flex;
     width:                              100%;
     height:                             40px;
     border-bottom:                      1px solid #CCCCCC;
-    padding-left:                       8px;
-    padding-top:                        10px;
+    padding:                            10px 0 0 8px;
 }
 
 .box-input:focus-within {
     border-bottom:                      1px solid black;
+}
+
+.box-input .icon {
+    width:                              20px;
+    height:                             20px;
+    margin-right:                       10px;
+    color:                              #4D4D4D;
+}
+
+.box-input:focus-within .icon {
+    color:                              #000000;
 }
 
 
