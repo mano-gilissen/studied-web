@@ -97,6 +97,16 @@ input {
     padding-left:                       4px;
 }
 
+input:-webkit-autofill {
+    -webkit-box-shadow:                 none;
+}
+
+input:-webkit-autofill::first-line {
+     font-size:                         14px;
+     font-family:                       'Source Sans Pro', sans-serif;
+     font-weight:                       300;
+}
+
 input:focus {
     outline:                            none;
 }
