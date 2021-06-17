@@ -176,6 +176,32 @@ input:focus {
 
 
 
+.block-form .title {
+    margin-bottom:                      8px;
+}
+
+.block-form .field {
+    margin:                             32px 0 0 16px;
+}
+
+.field {
+    display:                            flex;
+}
+
+.field .tag {
+    width:                              200px;
+    height:                             40px;
+    color:                              #666666;
+}
+
+.field .box-input {
+    width:                              312px;
+}
+
+
+
+
+
 @font-face {
     font-family:                        'Circular';
     src:                                url('/fonts/circular-book.otf') format("opentype");

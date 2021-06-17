@@ -50,6 +50,53 @@
 
 
 
+    <div class="block-form" style="margin: 80px 0">
+
+        <div class="title">Formulier</div>
+
+        <form method="POST">
+
+            @csrf
+
+            <div class="field">
+
+                <div class="tag">Onderwerp</div>
+
+                <div class="box-input">
+
+                    <input
+                        id                                          = "test"
+                        type                                        = "text"
+                        name                                        = "test"
+                        placeholder                                 = "Vul een onderwerp in">
+
+                </div>
+
+            </div>
+
+            <div class="field">
+
+                <div class="tag">Zoeken</div>
+
+                <div class="box-input">
+
+                    <input
+                        id                                          = "search"
+                        type                                        = "text"
+                        name                                        = "search">
+
+                    <img class="icon" src="images/search.svg">
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+
     @if($user->hasStudies())
 
         <p>
@@ -81,35 +128,6 @@
         </p>
 
     @endif
-
-
-
-    <form method="POST">
-
-        @csrf
-
-        <div class="box-input" style="margin: 32px 0;width:324px">
-
-            <input
-                id                                          = "test"
-                type                                        = "text"
-                name                                        = "test"
-                placeholder                                 = "Placeholder">
-
-        </div>
-
-        <div class="box-input" style="margin-bottom: 32px;width:324px">
-
-            <input
-                id                                          = "search"
-                type                                        = "text"
-                name                                        = "search">
-
-            <img class="icon" src="images/search.svg">
-
-        </div>
-
-    </form>
 
 
 
