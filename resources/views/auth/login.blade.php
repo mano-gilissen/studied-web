@@ -14,74 +14,86 @@
 
 
 
-    <form method="POST" action="{{ route('login') }}">
+    <div class="wrap">
 
 
 
-        @csrf
+        <img id="logo" src="images/logo.svg">
 
 
 
-        <div style="height: 40px">
+        <form method="POST" action="{{ route('login') }}">
 
-            @error('email')
 
-                <div class="form-error" role="alert">{{ $message }}</div>
 
-            @enderror
+            @csrf
 
-            @error('password')
 
-                <div class="form-error" role="alert">{{ $message }}</div>
 
-            @enderror
+            <div style="height: 40px">
+
+                @error('email')
+
+                    <div class="form-error" role="alert">{{ $message }}</div>
+
+                @enderror
+
+                @error('password')
+
+                    <div class="form-error" role="alert">{{ $message }}</div>
+
+                @enderror
+
+            </div>
+
+
+
+
+
+            <div class="box-input">
+
+                <input
+                    id                                          = "email"
+                    type                                        = "email"
+                    name                                        = "email"
+                    value                                       = "{{ old('email') }}"
+                    required autocomplete                       = "email" autofocus
+                    class                                       = "@error('email') is-invalid @enderror" >
+
+            </div>
+
+            <div class="box-input" id="box-input-password">
+
+                <input
+                    id                                          = "password"
+                    type                                        = "password"
+                    name                                        = "password"
+                    required autocomplete                       = "current-password"
+                    class                                       = "@error('password') is-invalid @enderror" >
+
+            </div>
+
+
+
+            <button class="button large" id="button-login" type="submit">
+
+                {{ __('Inloggen') }}
+
+            </button>
+
+
+
+        </form>
+
+
+
+        <div class="button-free" id="button-forgot-password" onclick="window.location.href='{{ route('password.forgot') }}'">
+
+            {{ __('Wachtwoord vergeten') }}
 
         </div>
 
 
-
-
-
-        <div class="box-input">
-
-            <input
-                id                                          = "email"
-                type                                        = "email"
-                name                                        = "email"
-                value                                       = "{{ old('email') }}"
-                required autocomplete                       = "email" autofocus
-                class                                       = "@error('email') is-invalid @enderror" >
-
-        </div>
-
-        <div class="box-input" id="box-input-password">
-
-            <input
-                id                                          = "password"
-                type                                        = "password"
-                name                                        = "password"
-                required autocomplete                       = "current-password"
-                class                                       = "@error('password') is-invalid @enderror" >
-
-        </div>
-
-
-
-        <button class="button large" id="button-login" type="submit">
-
-            {{ __('Inloggen') }}
-
-        </button>
-
-
-
-    </form>
-
-
-
-    <div class="button-free" id="button-forgot-password" onclick="window.location.href='{{ route('password.forgot') }}'">
-
-        {{ __('Wachtwoord vergeten') }}
 
     </div>
 

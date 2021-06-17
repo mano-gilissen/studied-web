@@ -88,6 +88,7 @@ html, body {
 input {
     width:                              100%;
     border:                             none;
+    background:                         none;
     font-size:                          14px;
     font-family:                        'Source Sans Pro', sans-serif;
     font-weight:                        300;
