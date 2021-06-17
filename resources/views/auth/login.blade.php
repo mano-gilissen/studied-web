@@ -40,24 +40,34 @@
 
 
 
-        <input
-            id                                          = "email"
-            type                                        = "email"
-            name                                        = "email"
-            value                                       = "{{ old('email') }}"
-            required autocomplete                       = "email" autofocus
-            class                                       = "@error('email') is-invalid @enderror" >
-
-        <input
-            id                                          = "password"
-            type                                        = "password"
-            name                                        = "password"
-            required autocomplete                       = "current-password"
-            class                                       = "@error('password') is-invalid @enderror" >
 
 
+        <div class="box-input">
 
-        <button class="button" type="submit">
+            <input
+                id                                          = "email"
+                type                                        = "email"
+                name                                        = "email"
+                value                                       = "{{ old('email') }}"
+                required autocomplete                       = "email" autofocus
+                class                                       = "@error('email') is-invalid @enderror" >
+
+        </div>
+
+        <div class="box-input" id="box-input-password">
+
+            <input
+                id                                          = "password"
+                type                                        = "password"
+                name                                        = "password"
+                required autocomplete                       = "current-password"
+                class                                       = "@error('password') is-invalid @enderror" >
+
+        </div>
+
+
+
+        <button class="button large" id="button-login" type="submit">
 
             {{ __('Inloggen') }}
 
@@ -69,7 +79,7 @@
 
 
 
-    <div class="button" onclick="window.location.href='{{ route('password.forgot') }}'">
+    <div class="button-free" id="button-forgot-password" onclick="window.location.href='{{ route('password.forgot') }}'">
 
         {{ __('Wachtwoord vergeten') }}
 

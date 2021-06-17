@@ -1,0 +1,21 @@
+html, body {
+    background:                         #E6E6E6;
+}
+
+.wrap {
+    width:                              380px;
+    padding:                            80px 48px;
+    background:                         white;
+}
+
+#box-input-password {
+    margin-top:                         32px;
+}
+
+#button-login {
+    margin-top:                         72px;
+}
+
+#button-forgot-password {
+    margin-top:                         24px;
+}
