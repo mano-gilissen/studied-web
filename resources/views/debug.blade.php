@@ -91,9 +91,10 @@
         <div class="box-input" style="margin: 32px 0;width:324px">
 
             <input
-                id                                          = "email"
-                type                                        = "email"
-                name                                        = "email">
+                id                                          = "test"
+                type                                        = "text"
+                name                                        = "test"
+                placeholder                                 = "Placeholder">
 
         </div>
 
@@ -101,7 +102,7 @@
 
             <input
                 id                                          = "search"
-                type                                        = "search"
+                type                                        = "text"
                 name                                        = "search">
 
             <img class="icon" src="images/search.svg">
