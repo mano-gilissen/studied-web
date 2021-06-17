@@ -104,7 +104,7 @@
                 type                                        = "search"
                 name                                        = "search">
 
-            <img class="icon" src="images/close.svg">
+            <img class="icon" src="images/search.svg">
 
         </div>
 
