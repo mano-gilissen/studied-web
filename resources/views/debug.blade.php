@@ -88,7 +88,7 @@
 
         @csrf
 
-        <div class="box-input" style="margin: 32px 0;">>
+        <div class="box-input" style="margin: 32px 0;">
 
             <input
                 id                                          = "email"
@@ -97,7 +97,7 @@
 
         </div>
 
-        <div class="box-input" style="margin-bottom: 32px;">>
+        <div class="box-input" style="margin-bottom: 32px;">
 
             <input
                 id                                          = "search"
