@@ -49,7 +49,6 @@
 
 
 
-
             <div class="box-input">
 
                 <input
@@ -58,7 +57,7 @@
                     name                                        = "email"
                     placeholder                                 = "Email adres"
                     value                                       = "{{ old('email') }}"
-                    required autocomplete                       = "email" autofocus
+                    required autocomplete                       = "email"
                     class                                       = "@error('email') is-invalid @enderror" >
 
             </div>
