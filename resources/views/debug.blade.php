@@ -36,13 +36,17 @@
 
             </div>
 
+            <div class="attribute">
+
+                <div class="tag">Naam</div>
+
+                <div class="value">{{ $user->getPerson->prefix }} {{ $user->getPerson->first_name }} {{ $user->getPerson->middle_name }} {{ $user->getPerson->last_name }}</div>
+
+            </div>
+
         </div>
 
     </div>
-
-
-
-    <p>person name: {{ $user->getPerson->prefix }} {{ $user->getPerson->first_name }} {{ $user->getPerson->middle_name }} {{ $user->getPerson->last_name }}</p>
 
 
 
