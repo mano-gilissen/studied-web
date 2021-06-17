@@ -177,7 +177,7 @@ input:focus {
 
 
 .block-form .title {
-    margin-bottom:                      8px;
+    padding-bottom:                     8px;
 }
 
 .block-form .field {
@@ -189,6 +189,8 @@ input:focus {
 }
 
 .field .tag {
+    display:                            flex;
+    align-items:                        center;
     width:                              200px;
     height:                             40px;
     color:                              #666666;
