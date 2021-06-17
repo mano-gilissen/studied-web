@@ -26,7 +26,7 @@
 
         <div class="attribute">
 
-            <div class="tag">Role</div>
+            <div class="tag">Rol</div>
 
             <div class="value">{{ $user->getRole->label }}</div>
 
