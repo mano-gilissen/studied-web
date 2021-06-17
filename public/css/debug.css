@@ -1,12 +1,11 @@
 html, body {
     padding:                            20px;
-    background-color:                   black;
 }
 
 p {
     width:                              400px;
     padding:                            40px;
     margin-bottom:                      20px;
-    color:                              white;
-    background:                         #181818;
+    color:                              black;
+    background:                         #F8F8F8;
 }
