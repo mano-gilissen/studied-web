@@ -30,7 +30,7 @@
 
 
 
-            <div style="height: 40px">
+            <div style="height: 0">
 
                 @error('email')
 
