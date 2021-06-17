@@ -1,4 +1,5 @@
 html, body {
+    height:                             100vh;
     background:                         #E6E6E6;
 }
 
@@ -21,5 +22,6 @@ html, body {
 }
 
 #button-forgot-password {
+    width:                              fit-content;
     margin:                             24px 0 0 auto;
 }

@@ -56,6 +56,7 @@
                     id                                          = "email"
                     type                                        = "email"
                     name                                        = "email"
+                    placeholder                                 = "Email adres"
                     value                                       = "{{ old('email') }}"
                     required autocomplete                       = "email" autofocus
                     class                                       = "@error('email') is-invalid @enderror" >
@@ -68,6 +69,7 @@
                     id                                          = "password"
                     type                                        = "password"
                     name                                        = "password"
+                    placeholder                                 = "Wachtwoord"
                     required autocomplete                       = "current-password"
                     class                                       = "@error('password') is-invalid @enderror" >
 
