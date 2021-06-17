@@ -14,15 +14,29 @@
 
 
 
-    <p>email: {{ $user->email }}</p>
+    <div class="block-attributes">
+
+        <div class="attribute">
+
+            <div class="tag">Email</div>
+
+            <div class="value">{{ $user->email }}</div>
+
+        </div>
+
+        <div class="attribute">
+
+            <div class="tag">Role</div>
+
+            <div class="value">{{ $user->getRole->label }}</div>
+
+        </div>
+
+    </div>
 
 
 
     <p>person name: {{ $user->getPerson->prefix }} {{ $user->getPerson->first_name }} {{ $user->getPerson->middle_name }} {{ $user->getPerson->last_name }}</p>
-
-
-
-    <p>role: {{ $user->getRole->label }}</p>
 
 
 
@@ -68,7 +82,7 @@
 
 
 
-    <form id="logout" method="POST" action="{{ route('logout') }}" style="margin-bottom: 40px;">
+    <form id="logout" method="POST" action="{{ route('logout') }}" style="margin-top:40px;margin-bottom: 40px;">
 
         @csrf
 

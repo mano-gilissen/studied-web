@@ -6,12 +6,11 @@
 
 html, body {
     background-color:                   white;
-    -webkit-font-smoothing:             antialiased;
-}
-
-p {
     color:                              black;
+    font-size:                          14px;
     font-family:                        'Source Sans Pro', sans-serif;
+    font-weight:                        300;
+    -webkit-font-smoothing:             antialiased;
 }
 
 
@@ -66,6 +65,30 @@ p {
 .button.icon .text,
 .button.icon-reverse .text {
     padding-bottom:                     2px;
+}
+
+
+
+
+
+.block-attributes {
+    padding:                            16px 0 8px 32px;
+    background:                         #F8F8F8;
+}
+
+.block-attributes .attribute {
+    display:                            flex;
+    height:                             48px;
+    margin-bottom:                      16px;
+}
+
+.block-attributes .tag {
+    width:                              100px;
+    color:                              #666666;
+}
+
+.block-attributes .value {
+
 }
 
 
