@@ -57,7 +57,7 @@
                     name                                        = "email"
                     placeholder                                 = "Email adres"
                     value                                       = "{{ old('email') }}"
-                    required autocomplete                       = "email"
+                    required autocomplete                       = "off"
                     class                                       = "@error('email') is-invalid @enderror" >
 
             </div>
