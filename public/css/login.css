@@ -1,9 +1,18 @@
 html, body {
-    height:                             100vh;
     background:                         #E6E6E6;
 }
 
+#app {
+    display:                            grid;
+    grid-template-columns:              1fr auto 1fr;
+    grid-template-rows:                 1fr auto 1fr;
+    grid-template-areas:                ". . ."
+                                        ". wrap ."
+                                        ". . .";
+}
+
 .wrap {
+    grid-area:                          wrap;
     width:                              380px;
     padding:                            80px 48px;
     background:                         white;
