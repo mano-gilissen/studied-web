@@ -60,6 +60,12 @@
 
             @include('form.field-input', ['id' => 'subject', 'tag' => 'Onderwerp', 'placeholder' => 'Vul een onderwerp in', 'required' => true])
 
+            @include('form.field-input', ['id' => 'subject', 'tag' => 'wefaw', 'placeholder' => 'Vul een a in', 'required' => true])
+
+            @include('form.field-input', ['id' => 'subject', 'tag' => 'ddsfw', 'placeholder' => 'Vul een b in', 'required' => true])
+
+            @include('form.field-input', ['id' => 'subject', 'tag' => 'fefefdd', 'placeholder' => 'Vul een c in', 'required' => true])
+
             @include('form.field-input', ['id' => 'vak', 'tag' => 'Vak', 'icon' => 'search.svg'])
 
             @include('form.field-select-time')

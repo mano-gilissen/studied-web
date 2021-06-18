@@ -30,20 +30,20 @@
 
 
 
-            @include('form.box-input', [
-                        'id'                                    => 'email',
-                        'placeholder'                           => 'Email adres',
-                        'type'                                  => 'email',
-                        'value'                                 => old('email'),
-                        'required'                              => true])
+            @include('form.box-input', ['id'                    => 'email',
+                                        'type'                  => 'email',
+                                        'placeholder'           => 'Email adres',
+                                        'value'                 => old('email'),
+                                        'required'              => true])
 
-            @include('form.box-input', [
-                        'box_id'                                => 'box-input-password',
-                        'id'                                    => 'password',
-                        'placeholder'                           => 'Wachtwoord',
-                        'type'                                  => 'password',
-                        'autocomplete'                          => 'current-password',
-                        'required'                              => true])
+
+
+            @include('form.box-input', ['id_box'                => 'box-input-password',
+                                        'id'                    => 'password',
+                                        'type'                  => 'password',
+                                        'placeholder'           => 'Wachtwoord',
+                                        'autocomplete'          => 'current-password',
+                                        'required'              => true])
 
 
 

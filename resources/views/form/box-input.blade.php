@@ -1,6 +1,6 @@
 <div>
 
-    <div class="box-input @error($id) invalid @enderror" @isset($box_id) id="{{ $box_id }}" @endisset >
+    <div class="box-input @error($id) invalid @enderror" @isset($id_box) id="{{ $id_box }}" @endisset >
 
         <input
             id                                          = "{{ $id }}"
@@ -10,26 +10,12 @@
             value                                       = "{{ $value ?? '' }}"
             autocomplete                                = "{{ $autocomplete ?? 'off' }}"
 
-            @isset($required)
+            @isset($required) required @endisset >
 
-                required
-
-            @endisset
-
-        >
-
-        @isset($icon)
-
-            <img class="icon" src="images/{{ $icon }}">
-
-        @endisset
+        @isset($icon) <img class="icon" src="images/{{ $icon }}"> @endisset
 
     </div>
 
-    @error($id)
-
-        <div class="input-invalid">{{ $message }}</div>
-
-    @enderror
+    @error($id) <div class="input-invalid">{{ $message }}</div> @enderror
 
 </div>
