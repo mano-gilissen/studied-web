@@ -38,11 +38,53 @@
                         'required'                              => true])
 
             @include('form.box-input', [
+                        'box_id'                                => 'box-input-password',
                         'id'                                    => 'password',
                         'placeholder'                           => 'Wachtwoord',
                         'type'                                  => 'password',
                         'autocomplete'                          => 'current-password',
                         'required'                              => true])
+
+
+
+            <div class="box-input @error('email') invalid @enderror ">
+
+                <input
+                    id                                          = "email"
+                    type                                        = "email"
+                    name                                        = "email"
+                    placeholder                                 = "Email adres"
+                    value                                       = "{{ old('email') }}"
+                    autocomplete                                = "off"
+                    required>
+
+            </div>
+
+            @error('email')
+
+                <div class="input-invalid">{{ $message }}</div>
+
+            @enderror
+
+
+
+            <div class="box-input @error('password') invalid @enderror " id="box-input-password">
+
+                <input
+                    id                                          = "password"
+                    type                                        = "password"
+                    name                                        = "password"
+                    placeholder                                 = "Wachtwoord"
+                    autocomplete                                = "current-password"
+                    required>
+
+            </div>
+
+            @error('password')
+
+                <div class="input-invalid">{{ $message }}</div>
+
+            @enderror
 
 
 
