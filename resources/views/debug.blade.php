@@ -58,21 +58,7 @@
 
             @csrf
 
-            <div class="field">
-
-                <div class="tag">Onderwerp</div>
-
-                <div class="box-input">
-
-                    <input
-                        id                                          = "test"
-                        type                                        = "text"
-                        name                                        = "test"
-                        placeholder                                 = "Vul een onderwerp in">
-
-                </div>
-
-            </div>
+            @include('form.input-text', ['id' => 'subject', 'tag' => 'Onderwerp', 'placeholder' => 'Vul een onderwerp in'])
 
             <div class="field">
 
