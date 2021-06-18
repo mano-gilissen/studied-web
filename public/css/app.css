@@ -134,6 +134,8 @@ select {
     text-align:                         center;
     text-align-last:                    center;
     -moz-text-align-last:               center;
+    -moz-appearance:                    none;
+    -webkit-appearance:                 none;
 }
 
 select:focus {
@@ -186,7 +188,7 @@ select::-ms-expand {
 }
 
 .box-select:hover {
-    background:                         #E6E6E6;
+    background:                         #F0F0F0;
 }
 
 
