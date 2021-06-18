@@ -22,30 +22,11 @@
 
 
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('login') }}" novalidate>
 
 
 
             @csrf
-
-
-
-            <div style="height: 0">
-
-                @error('email')
-
-                    <div class="form-error" role="alert">{{ $message }}</div>
-
-                @enderror
-
-                @error('password')
-
-                    <div class="form-error" role="alert">{{ $message }}</div>
-
-                @enderror
-
-            </div>
-
 
 
 
@@ -57,7 +38,15 @@
                     name                                        = "email"
                     placeholder                                 = "Email adres"
                     value                                       = "{{ old('email') }}"
-                    required autocomplete                       = "off" >
+                    autocomplete                                = "off"
+                    class                                       = "@error('email') is-invalid @enderror"
+                    required>
+
+                @error('email')
+
+                    <div class="input-error">{{ $message }}</div>
+
+                @enderror
 
             </div>
 
@@ -68,7 +57,15 @@
                     type                                        = "password"
                     name                                        = "password"
                     placeholder                                 = "Wachtwoord"
-                    required autocomplete                       = "current-password" >
+                    autocomplete                                = "current-password"
+                    class                                       = "@error('password') is-invalid @enderror"
+                    required>
+
+                @error('password')
+
+                    <div class="input-error">{{ $message }}</div>
+
+                @enderror
 
             </div>
 
