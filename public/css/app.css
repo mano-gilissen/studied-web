@@ -238,12 +238,20 @@ select::-ms-expand {
     display:                            flex;
 }
 
-.field .tag {
+.field .tag,
+.field .note {
     display:                            flex;
     align-items:                        center;
-    width:                              200px;
     height:                             40px;
     color:                              #666666;
+}
+
+.field .tag {
+    width:                              200px;
+}
+
+.field .note {
+    text-align:                         center;
 }
 
 .field .box-input,
@@ -251,7 +259,7 @@ select::-ms-expand {
     width:                              312px;
 }
 
-.field .box-select.width-third {
+.block-form .width-third {
     width:                              104px;
 }
 
