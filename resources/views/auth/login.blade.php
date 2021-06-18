@@ -57,8 +57,7 @@
                     name                                        = "email"
                     placeholder                                 = "Email adres"
                     value                                       = "{{ old('email') }}"
-                    required autocomplete                       = "off"
-                    class                                       = "@error('email') is-invalid @enderror" >
+                    required autocomplete                       = "off" >
 
             </div>
 
@@ -69,8 +68,7 @@
                     type                                        = "password"
                     name                                        = "password"
                     placeholder                                 = "Wachtwoord"
-                    required autocomplete                       = "current-password"
-                    class                                       = "@error('password') is-invalid @enderror" >
+                    required autocomplete                       = "current-password" >
 
             </div>
 

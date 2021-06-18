@@ -82,6 +82,10 @@ html, body {
     cursor:                             pointer;
 }
 
+button:focus {
+    outline:                            none;
+}
+
 
 
 
