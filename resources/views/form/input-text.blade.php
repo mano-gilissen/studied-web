@@ -8,7 +8,7 @@
             id                                          = "{{ $id }}"
             type                                        = "text"
             name                                        = "{{ $id }}"
-            placeholder                                 = "{{ $placeholder }}">
+            placeholder                                 = "{{ $placeholder ?? '' }}">
 
         @isset($icon)
 
