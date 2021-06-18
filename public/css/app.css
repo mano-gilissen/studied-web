@@ -115,6 +115,12 @@ input:focus {
     outline:                            none;
 }
 
+.input-error {
+    margin:                             6px 0 0 4px;
+    font-size:                          12px;
+    color:                              red;
+}
+
 ::placeholder {                         color: #B3B3B3; opacity: 1; }
 
 ::-ms-input-placeholder {               color: #B3B3B3;}
@@ -123,8 +129,6 @@ input:focus {
 
 
 .box-input {
-    display:                            flex;
-    align-items:                        center;
     width:                              100%;
     height:                             40px;
     border-bottom:                      1px solid #CCCCCC;
