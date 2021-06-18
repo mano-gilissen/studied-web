@@ -56,7 +56,7 @@
                 <input
                     id                                          = "password"
                     type                                        = "password"
-                    name                                        = "wachtwoord"
+                    name                                        = "password"
                     placeholder                                 = "Wachtwoord"
                     autocomplete                                = "current-password"
                     required>
