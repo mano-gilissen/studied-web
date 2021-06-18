@@ -10,6 +10,12 @@
             name                                        = "{{ $id }}"
             placeholder                                 = "{{ $placeholder }}">
 
+        @if($icon)
+
+            <img class="icon" src="images/{{ $icon }}">
+
+        @endif
+
     </div>
 
 </div>

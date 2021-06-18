@@ -60,22 +60,7 @@
 
             @include('form.input-text', ['id' => 'subject', 'tag' => 'Onderwerp', 'placeholder' => 'Vul een onderwerp in'])
 
-            <div class="field">
-
-                <div class="tag">Zoeken</div>
-
-                <div class="box-input">
-
-                    <input
-                        id                                          = "search"
-                        type                                        = "text"
-                        name                                        = "search">
-
-                    <img class="icon" src="images/search.svg">
-
-                </div>
-
-            </div>
+            @include('form.input-text', ['id' => 'vak', 'tag' => 'Vak', 'icon' => 'search.svg'])
 
             @include('form.select-time')
 
