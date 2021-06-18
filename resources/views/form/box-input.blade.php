@@ -4,15 +4,19 @@
 
         <input
             id                                          = "{{ $id }}"
-            type                                        = "text"
+            type                                        = "{{ $type ?? 'text' }}"
             name                                        = "{{ $id }}"
             placeholder                                 = "{{ $placeholder ?? '' }}"
+            value                                       = "{{ $value ?? '' }}"
+            autocomplete                                = "{{ $autocomplete ?? 'off' }}"
 
             @isset($required)
 
                 required
 
-            @endisset >
+            @endisset
+
+        >
 
         @isset($icon)
 
