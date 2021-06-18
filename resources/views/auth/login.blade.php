@@ -30,7 +30,7 @@
 
 
 
-            <div class="box-input">
+            <div class="box-input @error('email') invalid @enderror ">
 
                 <input
                     id                                          = "email"
@@ -39,19 +39,17 @@
                     placeholder                                 = "Email adres"
                     value                                       = "{{ old('email') }}"
                     autocomplete                                = "off"
-                    class                                       = "@error('email') is-invalid @enderror"
-                    @error('email') style = "border-bottom: 1px solid red" @enderror
                     required>
 
                 @error('email')
 
-                    <div class="input-error">{{ $message }}</div>
+                    <div class="input-invalid">{{ $message }}</div>
 
                 @enderror
 
             </div>
 
-            <div class="box-input" id="box-input-password">
+            <div class="box-input @error('email') invalid @enderror " id="box-input-password">
 
                 <input
                     id                                          = "password"
@@ -59,12 +57,11 @@
                     name                                        = "password"
                     placeholder                                 = "Wachtwoord"
                     autocomplete                                = "current-password"
-                    class                                       = "@error('password') is-invalid @enderror"
                     required>
 
                 @error('password')
 
-                    <div class="input-error">{{ $message }}</div>
+                    <div class="input-invalid">{{ $message }}</div>
 
                 @enderror
 
