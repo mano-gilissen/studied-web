@@ -251,7 +251,7 @@ select::-ms-expand {
 }
 
 .field .note {
-    text-align:                         center;
+    justify-content:                    center;
 }
 
 .field .box-input,
