@@ -12,7 +12,11 @@
                 name                                        = "{{ $id }}"
                 placeholder                                 = "{{ $placeholder ?? '' }}"
 
-                @if($required) required @endif >
+                @isset($required)
+
+                    required
+
+                @endisset >
 
             @isset($icon)
 
