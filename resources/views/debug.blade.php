@@ -95,7 +95,7 @@
 
                 <div class="tag">Zoeken</div>
 
-                <div class="box-input">
+                <div class="box-select width-third">
 
                     <select
                         id                                          = "start"
@@ -172,8 +172,6 @@
                         <option value="00:00">00:00</option>
 
                     </select>
-
-                    <img class="icon" src="images/search.svg">
 
                 </div>
 
