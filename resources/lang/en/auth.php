@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'Er is geen account met dit email adres.',
+    'failed' => 'Deze inloggegevens zijn onjuist.',
     'throttle' => 'Te veel inlog pogingen, probeer het later opnieuw.',
 
 ];
