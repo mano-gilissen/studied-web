@@ -58,11 +58,11 @@
 
             @csrf
 
-            @include('form.input-text', ['id' => 'subject', 'tag' => 'Onderwerp', 'placeholder' => 'Vul een onderwerp in'])
+            @include('form.field-input', ['id' => 'subject', 'tag' => 'Onderwerp', 'placeholder' => 'Vul een onderwerp in', 'required' => true])
 
-            @include('form.input-text', ['id' => 'vak', 'tag' => 'Vak', 'icon' => 'search.svg'])
+            @include('form.field-input', ['id' => 'vak', 'tag' => 'Vak', 'icon' => 'search.svg'])
 
-            @include('form.select-time')
+            @include('form.field-select-time')
 
         </form>
 

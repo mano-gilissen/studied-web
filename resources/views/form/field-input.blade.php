@@ -1,0 +1,33 @@
+<div class="field">
+
+    <div class="tag">{{ $tag }}</div>
+
+    <div>
+
+        <div class="box-input @error($id) invalid @enderror ">
+
+            <input
+                id                                          = "{{ $id }}"
+                type                                        = "text"
+                name                                        = "{{ $id }}"
+                placeholder                                 = "{{ $placeholder ?? '' }}"
+
+                @if($required) required @endif >
+
+            @isset($icon)
+
+                <img class="icon" src="images/{{ $icon }}">
+
+            @endisset
+
+        </div>
+
+        @error($id)
+
+            <div class="input-invalid">{{ $message }}</div>
+
+        @enderror
+
+    </div>
+
+</div>
