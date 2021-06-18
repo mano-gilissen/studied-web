@@ -130,10 +130,18 @@ select {
     font-size:                          14px;
     font-family:                        'Source Sans Pro', sans-serif;
     font-weight:                        400;
+    cursor:                             pointer;
+    text-align:                         center;
+    text-align-last:                    center;
+    -moz-text-align-last:               center;
 }
 
 select:focus {
     outline:                            none;
+}
+
+select::-ms-expand {
+    display:                            none;
 }
 
 ::placeholder {                         color: #B3B3B3; opacity: 1; }
@@ -177,7 +185,7 @@ select:focus {
     background:                         #F8F8F8;
 }
 
-.box-select:focus-within {
+.box-select:hover {
     background:                         #E6E6E6;
 }
 
