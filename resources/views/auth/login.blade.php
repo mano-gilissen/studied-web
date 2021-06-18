@@ -40,6 +40,7 @@
                     value                                       = "{{ old('email') }}"
                     autocomplete                                = "off"
                     class                                       = "@error('email') is-invalid @enderror"
+                    @error('email') style = "border-bottom: 1px solid red" @enderror
                     required>
 
                 @error('email')
