@@ -116,6 +116,7 @@ input:focus {
 }
 
 .input-invalid {
+    position:                           fixed;
     margin:                             6px 0 0 4px;
     font-size:                          12px;
     color:                              red;
@@ -129,17 +130,20 @@ input:focus {
 
 
 .box-input {
+    display:                            flex;
+    align-items:                        center;
     width:                              100%;
     height:                             40px;
     border-bottom:                      1px solid #CCCCCC;
 }
 
-.box-input.invalid {
-    border-bottom:                      1px solid red
-}
-
 .box-input:focus-within {
     border-bottom:                      1px solid black;
+}
+
+.box-input.invalid,
+.box-input.invalid:focus-within {
+    border-bottom:                      1px solid red
 }
 
 .box-input .icon {

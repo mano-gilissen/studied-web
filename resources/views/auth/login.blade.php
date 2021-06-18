@@ -41,15 +41,17 @@
                     autocomplete                                = "off"
                     required>
 
-                @error('email')
-
-                    <div class="input-invalid">{{ $message }}</div>
-
-                @enderror
-
             </div>
 
-            <div class="box-input @error('email') invalid @enderror " id="box-input-password">
+            @error('email')
+
+                <div class="input-invalid">{{ $message }}</div>
+
+            @enderror
+
+
+
+            <div class="box-input @error('password') invalid @enderror " id="box-input-password">
 
                 <input
                     id                                          = "password"
@@ -59,13 +61,13 @@
                     autocomplete                                = "current-password"
                     required>
 
-                @error('password')
-
-                    <div class="input-invalid">{{ $message }}</div>
-
-                @enderror
-
             </div>
+
+            @error('password')
+
+                <div class="input-invalid">{{ $message }}</div>
+
+            @enderror
 
 
 
