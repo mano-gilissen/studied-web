@@ -28,6 +28,8 @@
 
     <script>
 
+        console.log({{ ${"autocomplete_data_".$id} }});
+
         autocomplete(document.getElementById('{{ $id }}'), {{ ${"autocomplete_data_".$id} }});
 
     </script>
