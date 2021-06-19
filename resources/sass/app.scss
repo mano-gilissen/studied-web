@@ -1,3 +1,12 @@
+
+
+
+@import '~bootstrap/scss/bootstrap';
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,300&display=swap');
+
+
+
 * {
     box-sizing:                         border-box;
     margin: 						    0;
@@ -339,7 +348,3 @@ input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration { display: none; }
-
-
-
-@import '~bootstrap/scss/bootstrap';
