@@ -28,7 +28,7 @@
 
     <script>
 
-        autocomplete(document.getElementById('{{ $id }}'), '{{ ${'ac.data.'.$id} }}'.split('::'));
+        autocomplete(document.getElementById('{{ $id }}'), '{{ ${'ac_data_'.$id} }}'.split('::'));
 
     </script>
 
