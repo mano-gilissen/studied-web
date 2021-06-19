@@ -26,7 +26,7 @@ function autocomplete(input, values) {
         list                                        .setAttribute("id", this.id + "-autocomplete-list");
         list                                        .setAttribute("class", "autocomplete-list");
 
-        this.parentNode.appendChild(list);
+        this.parentNode.parentNode.appendChild(list);
 
         for (index = 0; index < values.length; index++) {
 
@@ -139,7 +139,7 @@ function autocomplete(input, values) {
 
             if (element != list[index] && element != input) {
 
-                list[index].parentNode.removeChild(list[index]);
+                list[index].parentNode.parentNode.removeChild(list[index]);
 
             }
         }
