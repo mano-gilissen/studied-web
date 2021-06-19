@@ -24,7 +24,7 @@
 
 </div>
 
-@if($data ?? false)
+@isset($data)
 
     <script>
 
@@ -32,4 +32,4 @@
 
     </script>
 
-@endif
+@endisset
