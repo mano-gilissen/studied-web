@@ -28,9 +28,7 @@
 
     <script>
 
-        console.log({{$autocomplete_data_vak}});
-
-        autocomplete(document.getElementById('{{ $id }}'), {{ $autocomplete_data_vak }});
+        console.log({{ $autocomplete_data_vak }});
 
     </script>
 
