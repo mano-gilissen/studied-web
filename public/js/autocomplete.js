@@ -5,7 +5,7 @@ function autocomplete(input, values) {
 
     var currentFocus;
 
-    console.log(input);
+    console.log(document.getElementById("subject"));
 
     input.addEventListener("input", function(e) {
 
