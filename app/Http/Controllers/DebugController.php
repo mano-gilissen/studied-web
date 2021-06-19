@@ -4,7 +4,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Person;
+use App\Models\Subject;
 use App\Http\Traits\PersonTrait;
 use App\Http\Traits\SubjectTrait;
 use App\Http\Traits\UserTrait;
@@ -29,7 +29,7 @@ class DebugController extends Controller {
             Views::DEBUG,
             [
                 UserTrait::$USER => Auth::user(),
-                "ac_data_vak" => implode('::', Person::all()->pluck(SubjectTrait::$SUBJECT_CODE)->toArray())
+                "ac_data_vak" => implode('::', Subject::all()->pluck(SubjectTrait::$SUBJECT_CODE)->toArray())
             ]);
 
     }
