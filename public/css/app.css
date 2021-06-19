@@ -197,8 +197,8 @@ select::-ms-expand {
 /** TEST - TO BE ALTERED **/
 
 .autocomplete {
-    position:                           relative;
-    display:                            inline-block;
+    position:                           fixed;
+    width:                              100%;
 }
 
 .autocomplete-list {
