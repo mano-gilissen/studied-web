@@ -23,10 +23,10 @@ function autocomplete(input, values) {
         currentFocus = -1;
 
         list                                        = document.createElement("DIV");
-        list                                        .setAttribute("id", this.id + "autocomplete-list");
-        list                                        .setAttribute("class", "autocomplete-items");
+        list                                        .setAttribute("id", this.id + "-autocomplete-list");
+        list                                        .setAttribute("class", "autocomplete-list");
 
-        this.parentNode.appendChild(list);
+        this.parentNode.parentNode.appendChild(list);
 
         for (index = 0; index < values.length; index++) {
 
