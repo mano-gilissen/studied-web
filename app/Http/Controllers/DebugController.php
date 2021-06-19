@@ -21,7 +21,12 @@ class DebugController extends Controller {
 
     public function view() {
 
-        return view(Views::DEBUG, [UserTrait::$USER => Auth::user()]);
+        return view(
+            Views::DEBUG,
+            [
+                UserTrait::$USER => Auth::user(),
+                "array_test" => ["supervak1","supervak2","supervak3"]
+            ]);
 
     }
 
