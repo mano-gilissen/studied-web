@@ -64,7 +64,7 @@
 
             @include('form.field-select-time')
 
-            @include('form.field-input', ['id' => 'vak', 'tag' => 'Vak', 'icon' => 'search.svg', 'data' => ['biologie', 'scheikunde', 'wiskunde']])
+            @include('form.field-input', ['id' => 'vak', 'tag' => 'Vak', 'icon' => 'search.svg'])
 
         </form>
 
