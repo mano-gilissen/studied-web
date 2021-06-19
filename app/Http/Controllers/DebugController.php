@@ -25,7 +25,7 @@ class DebugController extends Controller {
             Views::DEBUG,
             [
                 UserTrait::$USER => Auth::user(),
-                "bbb" => "aaa"
+                "autocomplete_data_vak" => implode(",", ["supervak1","supervak2","supervak3"])
             ]);
 
     }
