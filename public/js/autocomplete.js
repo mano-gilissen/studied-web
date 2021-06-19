@@ -35,7 +35,7 @@ function autocomplete(input, values) {
                 item                                = document.createElement("DIV");
                 item                                .setAttribute("class", "autocomplete-item");
 
-                item.innerHTML                      = "<span style='color:black'>" + values[index].substr(0, val.length) + "</span>";
+                item.innerHTML                      = "<span style='color:black;font-weight:400'>" + values[index].substr(0, val.length) + "</span>";
                 item.innerHTML                      += values[index].substr(val.length);
                 item.innerHTML                      += "<input type='hidden' value='" + values[index] + "'>";
 

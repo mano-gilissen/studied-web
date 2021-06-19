@@ -203,6 +203,7 @@ select::-ms-expand {
 .autocomplete-list {
     position:                           absolute;
     z-index:                            99;
+    width:                              312px;
 }
 
 .autocomplete-item {
@@ -212,7 +213,7 @@ select::-ms-expand {
     padding-left:                       4px;
     background-color:                   white;
     border-bottom:                      1px solid #F0F0F0;
-    color:                              #808080;
+    color:                              #B3B3B3;
     cursor:                             pointer;
 }
 
