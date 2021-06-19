@@ -28,6 +28,8 @@ function autocomplete(input, values) {
 
         this.parentNode.appendChild(list);
 
+        values                                      = values.split(",");
+
         for (index = 0; index < values.length; index++) {
 
             if (values[index].substr(0, val.length).toUpperCase() == val.toUpperCase()) {

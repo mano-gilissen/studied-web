@@ -28,9 +28,7 @@
 
     <script>
 
-        //PHPB ${"autocomplete_data_".$id} PHPB
-
-        autocomplete(document.getElementById('{{ $id }}'), ["A","B"]);
+        autocomplete(document.getElementById('{{ $id }}'), {{ ${"autocomplete_data_".$id} }});
 
     </script>
 
