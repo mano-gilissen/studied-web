@@ -28,7 +28,7 @@
 
     <script>
 
-        console.log({{ $bbb }});
+        console.log({{ $id }});
 
     </script>
 
