@@ -60,7 +60,7 @@
 
             @include('form.field-input', ['id' => 'subject', 'tag' => 'Onderwerp', 'placeholder' => 'Vul een onderwerp in', 'required' => true])
 
-            @include('form.field-input', ['id' => 'vak', 'tag' => 'Vak', 'icon' => 'search.svg', 'data' => $array_test])
+            @include('form.field-input', ['id' => 'vak', 'tag' => 'Vak', 'icon' => 'search.svg', 'data' => true])
 
             @include('form.field-select-time')
 

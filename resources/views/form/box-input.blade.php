@@ -24,11 +24,11 @@
 
 </div>
 
-@isset($data)
+@if($data)
 
     <script>
 
-        autocomplete(document.getElementById('{{ $id }}'), {{ $data }});
+        autocomplete(document.getElementById('{{ $id }}'), {{"autocomplete_data_{$id}"}});
 
     </script>
 

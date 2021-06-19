@@ -25,7 +25,7 @@ class DebugController extends Controller {
             Views::DEBUG,
             [
                 UserTrait::$USER => Auth::user(),
-                "array_test" => ["supervak1","supervak2","supervak3"]
+                "autocomplete_data_subject" => ["supervak1","supervak2","supervak3"]
             ]);
 
     }
