@@ -206,18 +206,22 @@ select::-ms-expand {
 }
 
 .autocomplete-item {
-    height:                             40px;
+    display:                            flex;
+    align-items:                        center;
+    height:                             48px;
+    padding-left:                       4px;
     background-color:                   white;
-    border-bottom:                      1px solid #E6E6E6;
+    border-bottom:                      1px solid #F0F0F0;
+    color:                              #808080;
     cursor:                             pointer;
 }
 
 .autocomplete-item:hover {
-    background-color:                   #E6E6E6;
+    background-color:                   #F0F0F0;
 }
 
-.autocomplete-active {
-    background-color:                   blue !important;
+.autocomplete-item.active {
+    background-color:                   #e6e6e6 !important;
 }
 
 

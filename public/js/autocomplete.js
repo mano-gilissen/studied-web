@@ -35,7 +35,7 @@ function autocomplete(input, values) {
                 item                                = document.createElement("DIV");
                 item                                .setAttribute("class", "autocomplete-item");
 
-                item.innerHTML                      = "<span style='font-weight: 600'>" + values[index].substr(0, val.length) + "</span>";
+                item.innerHTML                      = "<span style='color:black'>" + values[index].substr(0, val.length) + "</span>";
                 item.innerHTML                      += values[index].substr(val.length);
                 item.innerHTML                      += "<input type='hidden' value='" + values[index] + "'>";
 
@@ -116,7 +116,7 @@ function autocomplete(input, values) {
 
         }
 
-        list[currentFocus].classList.add("autocomplete-active");
+        list[currentFocus].classList.add("active");
     }
 
 
@@ -125,7 +125,7 @@ function autocomplete(input, values) {
 
         for (var index = 0; index < list.length; index++) {
 
-            list[index].classList.remove("autocomplete-active");
+            list[index].classList.remove("active");
 
         }
     }
