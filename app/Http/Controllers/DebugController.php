@@ -29,7 +29,7 @@ class DebugController extends Controller {
             Views::DEBUG,
             [
                 UserTrait::$USER => Auth::user(),
-                "ac_data_vak" => implode('::', Subject::all()->pluck(SubjectTrait::$SUBJECT_CODE)->toArray())
+                "ac_data_vak" => implode('::', Subject::all()->pluck(SubjectTrait::$SUBJECT_DESCRIPTION)->toArray())
             ]);
 
     }
