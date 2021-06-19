@@ -4,6 +4,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Traits\PersonTrait;
+use App\Http\Traits\SubjectTrait;
 use App\Http\Traits\UserTrait;
 use App\Http\Support\Views;
 use Illuminate\Http\Request;
@@ -16,6 +18,7 @@ class DebugController extends Controller {
 
 
     use UserTrait;
+    use PersonTrait;
 
 
 
@@ -25,7 +28,7 @@ class DebugController extends Controller {
             Views::DEBUG,
             [
                 UserTrait::$USER => Auth::user(),
-                "autocomplete_data_vak" => implode(",", ["supervak1","supervak2","supervak3"])
+                "ac.data.vak" => implode('::', Person::all()->pluck(SubjectTrait::$SUBJECT_CODE)->toArray())
             ]);
 
     }
