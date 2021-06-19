@@ -2,7 +2,6 @@
     box-sizing:                         border-box;
     margin: 						    0;
     padding: 						    0;
-    white-space:                        pre;
 }
 
 html, body {
@@ -216,6 +215,7 @@ select::-ms-expand {
     border-bottom:                      1px solid #F0F0F0;
     color:                              #B3B3B3;
     cursor:                             pointer;
+    white-space:                        pre;
 }
 
 .autocomplete-item:hover {
