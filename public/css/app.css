@@ -202,23 +202,18 @@ select::-ms-expand {
 
 .autocomplete-list {
     position:                           absolute;
-    border:                             1px solid pink;
-    border-bottom:                      none;
-    border-top:                         none;
     z-index:                            99;
-    top:                                100%;
-    left:                               0;
-    right:                              0;
 }
 
 .autocomplete-item {
+    height:                             40px;
+    background-color:                   white;
+    border-bottom:                      1px solid #E6E6E6;
     cursor:                             pointer;
-    background-color:                   #FFFFFF;
-    border-bottom:                      1px solid black;
 }
 
 .autocomplete-item:hover {
-    background-color:                   lightblue;
+    background-color:                   #E6E6E6;
 }
 
 .autocomplete-active {

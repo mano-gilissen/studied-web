@@ -33,6 +33,7 @@ function autocomplete(input, values) {
             if (values[index].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
 
                 item                                = document.createElement("DIV");
+                item                                .setAttribute("class", "autocomplete-item");
 
                 item.innerHTML                      = "<span style='font-weight: 600'>" + values[index].substr(0, val.length) + "</span>";
                 item.innerHTML                      += values[index].substr(val.length);
