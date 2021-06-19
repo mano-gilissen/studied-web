@@ -5,6 +5,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Subject;
+use App\Models\Person;
 use App\Http\Traits\PersonTrait;
 use App\Http\Traits\SubjectTrait;
 use App\Http\Traits\UserTrait;
