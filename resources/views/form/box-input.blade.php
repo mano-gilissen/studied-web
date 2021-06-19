@@ -28,9 +28,6 @@
 
     <script>
 
-        console.log({{$autocomplete_data_vak}});
-
-
     </script>
 
 @endisset
