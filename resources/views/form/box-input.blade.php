@@ -26,7 +26,7 @@
 
 @isset($data)
 
-    <script>
+    <script src="/resources/js/autocomplete.js">
 
         autocomplete(document.getElementById({{ $id }}), ['biologie', 'scheikunde', 'wiskunde']);
 
