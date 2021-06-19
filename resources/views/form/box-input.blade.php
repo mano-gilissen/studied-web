@@ -28,7 +28,7 @@
 
     <script>
 
-        autocomplete(document.getElementById({{ $id }}), ['biologie', 'scheikunde', 'wiskunde']);
+        autocomplete(document.getElementById('{{ $id }}'), ['biologie', 'scheikunde', 'wiskunde']);
 
     </script>
 
