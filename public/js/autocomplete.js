@@ -5,6 +5,8 @@ function autocomplete(input, values) {
 
     var currentFocus;
 
+    console.log(input);
+
     input.addEventListener("input", function(e) {
 
         var list,
