@@ -28,6 +28,8 @@ function autocomplete(input, values) {
 
         this.parentNode.appendChild(list);
 
+        console.log(values);
+
         values                                      = values.split(",");
 
         for (index = 0; index < values.length; index++) {
