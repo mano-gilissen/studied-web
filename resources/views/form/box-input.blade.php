@@ -28,7 +28,7 @@
 
     <script>
 
-        console.log({{ $autocomplete_data_vak }});
+        console.log({{ $bbb }});
 
     </script>
 
