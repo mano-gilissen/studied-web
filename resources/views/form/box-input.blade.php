@@ -24,7 +24,7 @@
 
 </div>
 
-@if($data)
+@if($data ?? false)
 
     <script>
 
