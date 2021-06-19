@@ -140,7 +140,7 @@ function autocomplete(input, values) {
 
             if (element != list[index] && element != input) {
 
-                list[index].parentNode.parentNode.removeChild(list[index]);
+                list[index].parentNode.removeChild(list[index]);
 
             }
         }
