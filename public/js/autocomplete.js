@@ -3,8 +3,11 @@
 
 function autocomplete(input, values, reject_other) {
 
+
+
     var currentFocus,
         autocompleted                               = false;
+
 
 
     input.addEventListener("input", function(e) {
@@ -13,7 +16,9 @@ function autocomplete(input, values, reject_other) {
 
     });
 
-    input.addEventListener("input", function(e) {
+
+
+    input.addEventListener("focus", function(e) {
 
         openList();
 
