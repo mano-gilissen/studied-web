@@ -46,7 +46,7 @@ class DebugController extends Controller {
 
     public function form_test() {
 
-        return viw(
+        return view(
             Views::FORM_TEST, [
             'page_title'                                => 'Les inplannen',
             'submit_action'                             => 'Insturen',
