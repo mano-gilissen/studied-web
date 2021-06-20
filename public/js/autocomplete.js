@@ -18,19 +18,8 @@ function autocomplete(input, values, reject_other) {
 
 
 
-    input.addEventListener("focus", function(e) {
-
-        openList(this);
-
-    });
-
-
-
-    input.addEventListener("click", function(e) {
-
-        openList(this);
-
-    });
+    // ADD: OPEN (ENTIRE) DATA LIST ON FOCUS OR CLICK EVENT
+    // OR REMOVE: OPEN ENTIRE DATA LIST ON BACKSPACING TO ZERO CHARACTERS (WHEN REJECT_OTHER = TRUE)
 
 
 
