@@ -26,7 +26,7 @@
 
     <script>
 
-        autocomplete(document.getElementById('{{ $id }}'), '{{ ${'ac_data_'.$id} }}'.split('::'), {{ $reject_other }});
+        autocomplete(document.getElementById('{{ $id }}'), '{{ ${'ac_data_'.$id} }}'.split('::'), {{ $reject_other ?? false }});
 
     </script>
 
