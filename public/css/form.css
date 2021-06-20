@@ -16,13 +16,13 @@ html, body {
 
 #left {
     grid-area:                          left;
-    display:                            flex;
-    align-items:                        center;
-    height:                             80px;
 }
 
 #left .wrap {
     position:                           fixed;
+    display:                            flex;
+    align-items:                        center;
+    height:                             80px;
 }
 
 #left .back {
