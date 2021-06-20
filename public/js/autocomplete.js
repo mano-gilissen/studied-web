@@ -46,7 +46,7 @@ function autocomplete(input, values, reject_other) {
 
                     input.value                     = this.getElementsByTagName("input")[0].value;
 
-                    input.classList                 .add("autocompleted");
+                    input.classList                 .add("autocomplete");
 
                     autocompleted                   = true;
 

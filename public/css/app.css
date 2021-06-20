@@ -134,6 +134,10 @@ input:focus {
     outline:                            none;
 }
 
+input.autocomplete {
+    background:                         #FFF7D1;
+}
+
 .input-invalid {
     position:                           fixed;
     margin:                             6px 0 0 4px;
