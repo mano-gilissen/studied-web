@@ -14,7 +14,13 @@
 
     <div id="left">
 
-        <div class="title page">{{ $page_title }}<span class="dot">.</span></div>
+        <div class="wrap">
+
+            <img class="back" src="images/back.svg"/>
+
+            <div class="title page">{{ $page_title }}<span class="dot">.</span></div>
+
+        </div>
 
     </div>
 

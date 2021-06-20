@@ -2,6 +2,8 @@ html, body {
     background:                         #E6E6E6;
 }
 
+
+
 #app {
     height:                             100vh;
     display:                            grid;
@@ -10,18 +12,35 @@ html, body {
     grid-template-areas:                "left form ."
 }
 
+
+
 #left {
-    position:                           fixed;
+    grid-area:                          left;
+    display:                            flex;
+    align-items:                        center;
     height:                             80px;
 }
 
+#left .wrap {
+    position:                           fixed;
+}
+
+#left .back {
+    width:                              20px;
+    height:                             20px;
+    margin:                             0 20px;
+}
+
+
+
 #form {
+    grid-area:                          form;
     margin-top:                         40px;
     margin-bottom:                      96px;
     padding:                            96px 130px;
     background:                         white;
 }
 
-#buttom-submit {
-    margin-top:                         88px;
+#button-submit {
+    margin:                             88px 0 0 auto;
 }
