@@ -50,26 +50,6 @@
 
 
 
-    <div class="block-form" style="margin: 80px 0">
-
-        <div class="title">Formulier</div>
-
-        <form method="POST">
-
-            @csrf
-
-            @include('form.field-input', ['id' => 'onderwerp', 'tag' => 'Onderwerp', 'placeholder' => 'Vul een onderwerp in', 'required' => true, 'data' => true])
-
-            @include('form.field-input', ['id' => 'vak', 'tag' => 'Vak', 'icon' => 'search.svg', 'data' => true])
-
-            @include('form.field-select-time')
-
-        </form>
-
-    </div>
-
-
-
     @if($user->hasStudies())
 
         <p>

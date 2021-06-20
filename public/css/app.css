@@ -15,11 +15,22 @@ html, body {
 
 
 
+.dot {
+    color:                              #FFDD34;
+    background:                         #FFDD34;
+}
+
+
+
 
 .title {
     font-size:                          18px;
     font-family:                        'Circular', serif;
     font-weight:                        200;
+}
+
+.title.page {
+    font-size:                          30px;
 }
 
 

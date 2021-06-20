@@ -25,13 +25,11 @@ class DebugController extends Controller {
 
 
 
-    public function view() {
+    public function debug() {
 
         return view(
             Views::DEBUG, [
-                UserTrait::$USER                            => Auth::user(),
-                Prefix::AUTOCOMPLETE_DATA.'vak'             => implode('::', Subject::all()->pluck(SubjectTrait::$SUBJECT_DESCRIPTION)->toArray()),
-                Prefix::AUTOCOMPLETE_DATA.'onderwerp'       => implode('::', Person::all()->pluck(PersonTrait::$PERSON_FIRST_NAME)->toArray())
+                UserTrait::$USER                            => Auth::user()
             ]);
 
     }
@@ -41,6 +39,21 @@ class DebugController extends Controller {
     public function landing() {
 
         return view(Views::LANDING);
+
+    }
+
+
+
+    public function form_test() {
+
+        return view(
+            Views::FORM_TEST, [
+            'page_title'                                => 'Testformulier',
+            'submit_action'                             => 'Insturen',
+            UserTrait::$USER                            => Auth::user(),
+            Prefix::AUTOCOMPLETE_DATA.'vak'             => implode('::', Subject::all()->pluck(SubjectTrait::$SUBJECT_DESCRIPTION)->toArray()),
+            Prefix::AUTOCOMPLETE_DATA.'onderwerp'       => implode('::', Person::all()->pluck(PersonTrait::$PERSON_FIRST_NAME)->toArray())
+        ]);
 
     }
 
