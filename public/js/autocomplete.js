@@ -95,6 +95,10 @@ function autocomplete(input, values, reject_other) {
                     list[currentFocus].click();
 
                 }
+            } else {
+
+                closeAndReject();
+
             }
         } else if (e.keyCode == 9) {
 
