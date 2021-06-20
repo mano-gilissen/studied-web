@@ -1,9 +1,10 @@
 
 
 
-function autocomplete(input, values) {
+function autocomplete(input, values, reject_other) {
 
-    var currentFocus;
+    var currentFocus,
+        autocompleted                               = false;
 
     input.addEventListener("input", function(e) {
 
@@ -13,6 +14,8 @@ function autocomplete(input, values) {
             val                                     = this.value;
 
         closeAllLists();
+
+        autocompleted                               = false;
 
         if (!val) {
 
@@ -44,6 +47,8 @@ function autocomplete(input, values) {
                     input.value                     = this.getElementsByTagName("input")[0].value;
 
                     input.classList                 .add("autocompleted");
+
+                    autocompleted                   = true;
 
                     closeAllLists();
                 });
@@ -152,6 +157,11 @@ function autocomplete(input, values) {
 
         closeAllLists(e.target);
 
+        if (reject_other && !autocompleted) {
+
+            input.value                             = '';
+
+        }
     });
 
 
