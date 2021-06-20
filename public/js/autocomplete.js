@@ -15,6 +15,8 @@ function autocomplete(input, values, reject_other) {
 
         closeAllLists();
 
+        input.classList                             .remove("autocomplete");
+
         autocompleted                               = false;
 
         if (!val) {
@@ -94,6 +96,11 @@ function autocomplete(input, values, reject_other) {
 
                 }
             }
+        } else if (e.keyCode == 9) {
+
+            e.preventDefault();
+
+            closeAndReject();
         }
     });
 
@@ -151,17 +158,23 @@ function autocomplete(input, values, reject_other) {
         }
     }
 
+    function closeAndReject(element) {
 
-
-    document.addEventListener("click", function (e) {
-
-        closeAllLists(e.target);
+        closeAllLists(element.target);
 
         if (reject_other && !autocompleted) {
 
             input.value                             = '';
 
         }
+    }
+
+
+
+    document.addEventListener("click", function (e) {
+
+        closeAndReject();
+
     });
 
 
