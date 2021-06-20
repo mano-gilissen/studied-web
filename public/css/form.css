@@ -43,8 +43,9 @@ html, body {
 
 #buttons {
     display:                            flex;
+    margin-top:                         88px;
 }
 
 #button-submit {
-    margin:                             88px 8px 0 auto;
+    margin:                             0 8px 0 auto;
 }
