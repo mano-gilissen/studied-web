@@ -12,7 +12,7 @@ function autocomplete(input, values, reject_other) {
 
     input.addEventListener("input", function(e) {
 
-        openList();
+        openList(this);
 
     });
 
@@ -20,7 +20,7 @@ function autocomplete(input, values, reject_other) {
 
     input.addEventListener("focus", function(e) {
 
-        openList();
+        openList(this);
 
     });
 
@@ -69,12 +69,12 @@ function autocomplete(input, values, reject_other) {
 
 
 
-    function openList() {
+    function openList(event) {
 
         var list,
             item,
             index,
-            val                                     = this.value;
+            val                                     = event.value;
 
         closeAllLists();
 
@@ -91,10 +91,10 @@ function autocomplete(input, values, reject_other) {
         currentFocus = -1;
 
         list                                        = document.createElement("DIV");
-        list                                        .setAttribute("id", this.id + "-autocomplete-list");
+        list                                        .setAttribute("id", event.id + "-autocomplete-list");
         list                                        .setAttribute("class", "autocomplete-list");
 
-        this.parentNode.parentNode.appendChild(list);
+        event.parentNode.parentNode.appendChild(list);
 
         for (index = 0; index < values.length; index++) {
 
@@ -118,7 +118,7 @@ function autocomplete(input, values, reject_other) {
 
                 item.addEventListener("click", function(e) {
 
-                    input.value                     = this.getElementsByTagName("input")[0].value;
+                    input.value                     = event.getElementsByTagName("input")[0].value;
 
                     input.parentNode.classList      .add("autocomplete");
 
