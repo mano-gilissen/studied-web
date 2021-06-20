@@ -62,7 +62,7 @@ function autocomplete(input, values, reject_other) {
 
     input.addEventListener("keydown", function(e) {
 
-        var list                                    = document.getElementById(this.id + "autocomplete-list");
+        var list                                    = document.getElementById(this.id + "-autocomplete-list");
 
         if (list) {
 
