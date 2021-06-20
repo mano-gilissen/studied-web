@@ -98,9 +98,8 @@ function autocomplete(input, values, reject_other) {
             }
         } else if (e.keyCode == 9) {
 
-            e.preventDefault();
-
             closeAndReject();
+
         }
     });
 
