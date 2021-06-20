@@ -157,9 +157,9 @@ function autocomplete(input, values, reject_other) {
         }
     }
 
-    function closeAndReject(element) {
+    function closeAndReject(event) {
 
-        closeAllLists(element.target);
+        closeAllLists(event ? event.target : null);
 
         if (reject_other && !autocompleted) {
 
@@ -170,9 +170,9 @@ function autocomplete(input, values, reject_other) {
 
 
 
-    document.addEventListener("click", function (e) {
+    document.addEventListener("click", function (event) {
 
-        closeAndReject();
+        closeAndReject(event);
 
     });
 
