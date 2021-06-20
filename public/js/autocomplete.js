@@ -26,6 +26,14 @@ function autocomplete(input, values, reject_other) {
 
 
 
+    input.addEventListener("click", function(e) {
+
+        openList(this);
+
+    });
+
+
+
     input.addEventListener("keydown", function(e) {
 
         var list                                    = document.getElementById(this.id + "-autocomplete-list");
