@@ -28,17 +28,27 @@
 
         <div class="block-form">
 
-            <form method="POST">
+            <form method="POST" novalidate>
 
                 @csrf
 
                 @yield('fields')
 
-                <button class="button" id="button-submit" type="submit">
+                <div id="buttons">
 
-                    {{ $submit_action }}
+                    <button class="button" id="button-submit" type="submit">
 
-                </button>
+                        {{ $submit_action }}
+
+                    </button>
+
+                    <div class="button transparent">
+
+                        {{ __('Annuleren') }}
+
+                    </div>
+
+                </div>
 
             </form>
 

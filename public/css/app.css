@@ -30,6 +30,7 @@ html, body {
 
 .title.page {
     font-size:                          30px;
+    letter-spacing:                     -1px;
 }
 
 
@@ -84,6 +85,14 @@ html, body {
 .button.icon .text,
 .button.icon-reverse .text {
     padding-bottom:                     2px;
+}
+
+.button.transparent {
+    background:                         none;
+}
+
+.button.transparent:hover {
+    background:                         #F0F0F0;
 }
 
 .button-free {
