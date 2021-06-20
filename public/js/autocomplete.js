@@ -6,7 +6,65 @@ function autocomplete(input, values, reject_other) {
     var currentFocus,
         autocompleted                               = false;
 
+
     input.addEventListener("input", function(e) {
+
+        openList();
+
+    });
+
+    input.addEventListener("input", function(e) {
+
+        openList();
+
+    });
+
+
+
+    input.addEventListener("keydown", function(e) {
+
+        var list                                    = document.getElementById(this.id + "-autocomplete-list");
+
+        if (list) {
+
+            list                                    = list.getElementsByTagName("div");
+
+        }
+
+        if (e.keyCode == 40) {
+
+            currentFocus++;
+
+            addActive(list);
+
+        } else if (e.keyCode == 38) {
+
+            currentFocus--;
+
+            addActive(list);
+
+        } else if (e.keyCode == 13) {
+
+            e.preventDefault();
+
+            if (currentFocus > -1) {
+
+                if (list) {
+
+                    list[currentFocus].click();
+
+                }
+            }
+        } else if (e.keyCode == 9) {
+
+            closeAndReject();
+
+        }
+    });
+
+
+
+    function openList() {
 
         var list,
             item,
@@ -67,50 +125,7 @@ function autocomplete(input, values, reject_other) {
                 list.appendChild(item);
             }
         }
-    });
-
-
-
-    input.addEventListener("keydown", function(e) {
-
-        var list                                    = document.getElementById(this.id + "-autocomplete-list");
-
-        if (list) {
-
-            list                                    = list.getElementsByTagName("div");
-
-        }
-
-        if (e.keyCode == 40) {
-
-            currentFocus++;
-
-            addActive(list);
-
-        } else if (e.keyCode == 38) {
-
-            currentFocus--;
-
-            addActive(list);
-
-        } else if (e.keyCode == 13) {
-
-            e.preventDefault();
-
-            if (currentFocus > -1) {
-
-                if (list) {
-
-                    list[currentFocus].click();
-
-                }
-            }
-        } else if (e.keyCode == 9) {
-
-            closeAndReject();
-
-        }
-    });
+    }
 
 
 
