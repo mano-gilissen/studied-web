@@ -15,7 +15,7 @@ function autocomplete(input, values, reject_other) {
 
         closeAllLists();
 
-        input.classList                             .remove("autocomplete");
+        input.parentNode.classList                  .remove("autocomplete");
 
         autocompleted                               = false;
 
@@ -48,7 +48,7 @@ function autocomplete(input, values, reject_other) {
 
                     input.value                     = this.getElementsByTagName("input")[0].value;
 
-                    input.classList                 .add("autocomplete");
+                    input.parentNode.classList      .add("autocomplete");
 
                     autocompleted                   = true;
 
