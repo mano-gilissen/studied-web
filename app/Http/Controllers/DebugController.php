@@ -9,7 +9,7 @@ use App\Models\Person;
 use App\Http\Traits\PersonTrait;
 use App\Http\Traits\SubjectTrait;
 use App\Http\Traits\UserTrait;
-use App\Http\Support\Prefix;
+use App\Http\Support\Form;
 use App\Http\Support\Views;
 use Illuminate\Http\Request;
 use Auth;
@@ -46,14 +46,15 @@ class DebugController extends Controller {
 
     public function form_test() {
 
-        return view(
-            Views::FORM_TEST, [
-            'page_title'                                                    => 'Les inplannen',
-            'submit_action'                                                 => 'Opslaan',
+        return view(Views::FORM_TEST, [
+
             UserTrait::$USER                                                => Auth::user(),
-            Prefix::AUTOCOMPLETE_DATA.'field_autocomplete'                  => implode('::', Subject::all()->pluck(SubjectTrait::$SUBJECT_DESCRIPTION)->toArray()),
-            Prefix::AUTOCOMPLETE_DATA.'field_autocomplete_reject'           => implode('::', Subject::all()->pluck(SubjectTrait::$SUBJECT_DESCRIPTION)->toArray()),
-            Prefix::AUTOCOMPLETE_DATA.'field_autocomplete_reject_show_all'  => implode('::', Subject::all()->pluck(SubjectTrait::$SUBJECT_DESCRIPTION)->toArray())
+            Form::PAGE_TITLE                                                => 'Test formulier',
+            Form::SUBMIT_ACTION                                             => 'Opslaan',
+
+            Form::AUTOCOMPLETE_DATA.'field_autocomplete'                    => implode('::', Subject::all()->pluck(SubjectTrait::$SUBJECT_DESCRIPTION)->toArray()),
+            Form::AUTOCOMPLETE_DATA.'field_autocomplete_reject'             => implode('::', Subject::all()->pluck(SubjectTrait::$SUBJECT_DESCRIPTION)->toArray()),
+            Form::AUTOCOMPLETE_DATA.'field_autocomplete_reject_show_all'    => implode('::', Subject::all()->pluck(SubjectTrait::$SUBJECT_DESCRIPTION)->toArray())
         ]);
 
     }
