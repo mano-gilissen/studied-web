@@ -172,12 +172,15 @@ function autocomplete(input, values, reject_other, show_all) {
         var list                                    = document.getElementById(input.id + "-autocomplete-list");
         console.log(list);
 
-        for (var index = 0; index < list.length; index++) {
+        if (list) {
 
-            if (element != list[index] && element != input) {
+            for (var index = 0; index < list.length; index++) {
 
-                list[index].parentNode.removeChild(list[index]);
+                if (element != list[index] && element != input) {
 
+                    list[index].parentNode.removeChild(list[index]);
+
+                }
             }
         }
     }
