@@ -1,7 +1,7 @@
 
 
 
-function autocomplete(input, values, reject_other) {
+function autocomplete(input, values, reject_other, show_all) {
 
 
 
@@ -85,7 +85,7 @@ function autocomplete(input, values, reject_other) {
             autocompleted                               = false;
         }
 
-        if (!val && !reject_other) {
+        if (!val && !show_all) {
 
             return false
 
@@ -101,7 +101,7 @@ function autocomplete(input, values, reject_other) {
 
         for (index = 0; index < values.length; index++) {
 
-            if ((reject_other && !val) || values[index].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+            if ((show_all && !val) || values[index].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
 
                 item                                = document.createElement("DIV");
                 item                                .setAttribute("class", "autocomplete-item");
