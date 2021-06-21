@@ -20,6 +20,8 @@ function autocomplete(input, values, reject_other) {
 
     input.addEventListener("focus", function(e) {
 
+        console.log('á');
+
         openList(this);
 
     });
@@ -85,8 +87,6 @@ function autocomplete(input, values, reject_other) {
         closeAllLists();
 
         input.parentNode.classList                  .remove("autocomplete");
-
-        console.log('a');
 
         autocompleted                               = false;
 
