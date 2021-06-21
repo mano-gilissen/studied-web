@@ -48,11 +48,12 @@ class DebugController extends Controller {
 
         return view(
             Views::FORM_TEST, [
-            'page_title'                                => 'Les inplannen',
-            'submit_action'                             => 'Opslaan',
-            UserTrait::$USER                            => Auth::user(),
-            Prefix::AUTOCOMPLETE_DATA.'vak'             => implode('::', Subject::all()->pluck(SubjectTrait::$SUBJECT_DESCRIPTION)->toArray()),
-            Prefix::AUTOCOMPLETE_DATA.'onderwerp'       => implode('::', Person::all()->pluck(PersonTrait::$PERSON_FIRST_NAME)->toArray())
+            'page_title'                                                    => 'Les inplannen',
+            'submit_action'                                                 => 'Opslaan',
+            UserTrait::$USER                                                => Auth::user(),
+            Prefix::AUTOCOMPLETE_DATA.'field_autocomplete'                  => implode('::', Subject::all()->pluck(SubjectTrait::$SUBJECT_DESCRIPTION)->toArray()),
+            Prefix::AUTOCOMPLETE_DATA.'field_autocomplete_reject'           => implode('::', Subject::all()->pluck(SubjectTrait::$SUBJECT_DESCRIPTION)->toArray()),
+            Prefix::AUTOCOMPLETE_DATA.'field_autocomplete_reject_show_all'  => implode('::', Subject::all()->pluck(SubjectTrait::$SUBJECT_DESCRIPTION)->toArray())
         ]);
 
     }
