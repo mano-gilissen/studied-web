@@ -170,10 +170,14 @@ function autocomplete(input, values, reject_other, show_all) {
 
         console.log(input.id + "-autocomplete-list");
         var list                                    = document.getElementById(input.id + "-autocomplete-list");
-        console.log(list);
 
         if (list) {
 
+            console.log('remove');
+            list.parentNode.removeChild(list);
+
+        }
+/*
             for (var index = 0; index < list.length; index++) {
 
                 if (element != list[index] && element != input) {
@@ -182,7 +186,7 @@ function autocomplete(input, values, reject_other, show_all) {
 
                 }
             }
-        }
+        }*/
     }
 
     function closeAndReject(event) {
