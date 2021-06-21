@@ -12,7 +12,7 @@
 
     @include('form.field-select-time')
 
-    <div style="height: 88px;">
+    <div style="height: 88px;"></div>
 
     <div class="title">{{ __('Autocomplete') }}</div>
 
@@ -21,6 +21,5 @@
     @include('form.field-input', ['id' => 'field_autocomplete_reject', 'tag' => 'Autocomplete Reject', 'placeholder' => 'Een autocomplete veld (Vak data)', 'data' => true, 'reject_other' => true])
 
     @include('form.field-input', ['id' => 'field_autocomplete_reject_show_all', 'tag' => 'Autocomplete Reject Show All', 'placeholder' => 'Een autocomplete veld (Vak data)', 'data' => true, 'reject_other' => true, 'show_all' => true])
-
 
 @endsection
