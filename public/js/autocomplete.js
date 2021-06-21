@@ -80,15 +80,13 @@ function autocomplete(input, values, reject_other) {
 
         autocompleted                               = false;
 
-        console.log(val);
-
         if (!val && !reject_other) {
 
             return false
 
         }
 
-        currentFocus = -1;
+        currentFocus                                = -1;
 
         list                                        = document.createElement("DIV");
         list                                        .setAttribute("id", event.id + "-autocomplete-list");
@@ -98,7 +96,7 @@ function autocomplete(input, values, reject_other) {
 
         for (index = 0; index < values.length; index++) {
 
-            if (((!val || val.length == 0) && reject_other) || values[index].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+            if ((!val && reject_other) || values[index].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
 
                 item                                = document.createElement("DIV");
                 item                                .setAttribute("class", "autocomplete-item");
