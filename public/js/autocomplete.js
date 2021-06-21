@@ -198,7 +198,6 @@ function autocomplete(input, values, reject_other, show_all) {
 
         if (event.target == input && !input.value) {
             console.log('b');
-            openList(event.target);
 
         } else {
 
