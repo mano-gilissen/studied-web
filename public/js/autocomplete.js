@@ -210,6 +210,7 @@ function autocomplete(input, values, reject_other) {
     document.addEventListener("click", function (event) {
 
         console.log(input.value);
+        console.log(autocompleted ? 'yes' : 'no');
 
         if (event.target == input && !input.value) {
 
