@@ -91,7 +91,7 @@ function autocomplete(input, values, reject_other) {
             autocompleted                               = false;
         }
 
-        if (!val && !reject_other) {
+        if (!val && !show_all) {
 
             return false
 
@@ -107,21 +107,12 @@ function autocomplete(input, values, reject_other) {
 
         for (index = 0; index < values.length; index++) {
 
-            if ((!val && reject_other) || values[index].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+            if ((show_all && !val) || values[index].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
 
                 item                                = document.createElement("DIV");
                 item                                .setAttribute("class", "autocomplete-item");
 
-                if (val && val.length > 0) {
-
-                    item.innerHTML                  = "<span style='color:black;font-weight:400'>" + values[index].substr(0, val.length) + "</span>";
-                    item.innerHTML                  += values[index].substr(val.length);
-
-                } else {
-
-                    item.innerHTML                  += values[index];
-
-                }
+                item.innerHTML                      = val ? "<span style='color:black;font-weight:400'>" + values[index].substr(0, val.length) + "</span>" + values[index].substr(val.length) : values[index];
 
                 item.innerHTML                      += "<input type='hidden' value='" + values[index] + "'>";
 
