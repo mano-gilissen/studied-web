@@ -4,7 +4,7 @@
 
 @section('fields')
 
-    <div class="title">{{ __('Basis') }}</div>
+    <div class="title">{{ __('Basis elementen') }}</div>
 
     @include('form.field-input', ['id' => 'field_text', 'tag' => 'Tekstveld', 'placeholder' => 'Een tekstveld', 'required' => true])
 
