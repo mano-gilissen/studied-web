@@ -116,7 +116,7 @@ function autocomplete(input, values, reject_other) {
 
                 item.addEventListener("click", function(e) {
 
-                    input.value                     = event.getElementsByTagName("input")[0].value;
+                    input.value                     = this.getElementsByTagName("input")[0].value;
 
                     input.parentNode.classList      .add("autocomplete");
 
