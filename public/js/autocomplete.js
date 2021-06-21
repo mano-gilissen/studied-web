@@ -168,7 +168,7 @@ function autocomplete(input, values, reject_other, show_all) {
 
     function closeAllLists(element) {
 
-        var list                                    = document.getElementsByClassName("autocomplete-list");
+        var list                                    = document.getElementById(input.id + "-autocomplete-list");
 
         for (var index = 0; index < list.length; index++) {
 
