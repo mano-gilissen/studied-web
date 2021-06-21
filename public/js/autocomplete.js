@@ -18,6 +18,14 @@ function autocomplete(input, values, reject_other) {
 
 
 
+    input.addEventListener("focus", function(e) {
+
+        openList(this);
+
+    });
+
+
+
     // ADD: OPEN (ENTIRE) DATA LIST ON FOCUS OR CLICK EVENT
     // OR REMOVE: OPEN ENTIRE DATA LIST ON BACKSPACING TO ZERO CHARACTERS (WHEN REJECT_OTHER = TRUE)
     // FIX: SELECTING DATA ITEM BY ARROWS + ENTER. BROKEN FOR BOTH REJECT_OTHER = TRUE AND FALSE
@@ -199,8 +207,17 @@ function autocomplete(input, values, reject_other) {
 
     document.addEventListener("click", function (event) {
 
-        closeAndReject(event);
+        console.log(input.value);
 
+        if (event.target == input && !input.value) {
+
+            openList(event.target);
+
+        } else {
+
+            closeAndReject(event);
+
+        }
     });
 
 
