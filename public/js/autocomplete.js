@@ -12,6 +12,8 @@ function autocomplete(input, values, reject_other, show_all) {
 
     input.addEventListener("input", function(e) {
 
+        console.log('e');
+
         openList(this, true);
 
     });
@@ -20,7 +22,8 @@ function autocomplete(input, values, reject_other, show_all) {
 
     input.addEventListener("focus", function(e) {
 
-        console.log('a');
+        console.log('d');
+
         openList(this);
 
     });
@@ -196,15 +199,23 @@ function autocomplete(input, values, reject_other, show_all) {
 
     document.addEventListener("click", function (event) {
 
-        if (event.target == input && !input.value) {
+        if (event.target == input) {
 
-            console.log('b');
+            if (!input.value) {
 
-        } else if (event.target == input) {
+                console.log('a');
 
+                openList(event.target)
 
+            } else {
+
+                console.log('b');
+
+            }
 
         } else {
+
+            console.log('c');
 
             closeAndReject(event);
 
