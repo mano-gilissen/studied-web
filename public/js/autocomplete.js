@@ -12,15 +12,13 @@ function autocomplete(input, values, reject_other) {
 
     input.addEventListener("input", function(e) {
 
-        openList(this);
+        openList(this, true);
 
     });
 
 
 
     input.addEventListener("focus", function(e) {
-
-        console.log('á');
 
         openList(this);
 
@@ -77,7 +75,7 @@ function autocomplete(input, values, reject_other) {
 
 
 
-    function openList(event) {
+    function openList(event, received_input = false) {
 
         var list,
             item,
@@ -86,9 +84,12 @@ function autocomplete(input, values, reject_other) {
 
         closeAllLists();
 
-        input.parentNode.classList                  .remove("autocomplete");
+        if (received_input) {
 
-        autocompleted                               = false;
+            input.parentNode.classList                  .remove("autocomplete");
+
+            autocompleted                               = false;
+        }
 
         if (!val && !reject_other) {
 
