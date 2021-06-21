@@ -62,7 +62,7 @@ function autocomplete(input, values, reject_other, show_all) {
             }
         } else if (e.keyCode == 9) {
 
-            closeAndReject();
+            closeListAndReject();
 
         }
     });
@@ -76,7 +76,7 @@ function autocomplete(input, values, reject_other, show_all) {
             index,
             val                                     = event.value;
 
-        closeAllLists();
+        closeList();
 
         if (received_input) {
 
@@ -107,7 +107,6 @@ function autocomplete(input, values, reject_other, show_all) {
                 item                                .setAttribute("class", "autocomplete-item");
 
                 item.innerHTML                      = val ? "<span style='color:black;font-weight:400'>" + values[index].substr(0, val.length) + "</span>" + values[index].substr(val.length) : values[index];
-
                 item.innerHTML                      += "<input type='hidden' value='" + values[index] + "'>";
 
                 item.addEventListener("click", function(e) {
@@ -118,7 +117,7 @@ function autocomplete(input, values, reject_other, show_all) {
 
                     autocompleted                   = true;
 
-                    closeAllLists();
+                    closeList();
                 });
 
                 list.appendChild(item);
@@ -166,32 +165,22 @@ function autocomplete(input, values, reject_other, show_all) {
 
 
 
-    function closeAllLists(element) {
+    function closeList() {
 
-        console.log(input.id + "-autocomplete-list");
         var list                                    = document.getElementById(input.id + "-autocomplete-list");
 
         if (list) {
 
-            console.log('remove');
             list.parentNode.removeChild(list);
 
         }
-/*
-            for (var index = 0; index < list.length; index++) {
-
-                if (element != list[index] && element != input) {
-
-                    list[index].parentNode.removeChild(list[index]);
-
-                }
-            }
-        }*/
     }
 
-    function closeAndReject(event) {
 
-        closeAllLists(event ? event.target : null);
+
+    function closeListAndReject() {
+
+        closeList();
 
         if (reject_other && !autocompleted) {
 
@@ -206,7 +195,7 @@ function autocomplete(input, values, reject_other, show_all) {
 
         if (event.target != input) {
 
-            closeAndReject(event);
+            closeListAndReject();
 
         }
     });
