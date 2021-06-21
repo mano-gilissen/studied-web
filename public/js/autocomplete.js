@@ -194,16 +194,6 @@ function autocomplete(input, values, reject_other, show_all) {
 
 
     document.addEventListener("click", function (event) {
-/*
-        if (event.target == input) {
-
-            if (!input.value) {
-
-                openList(event.target)
-
-            }
-
-        } else {*/
 
         if (event.target != input) {
 
