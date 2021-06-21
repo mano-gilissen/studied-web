@@ -8,7 +8,7 @@
 
     @include('form.field-input', ['id' => 'field_text', 'tag' => 'Tekstveld', 'placeholder' => 'Een tekstveld', 'required' => true])
 
-    @include('form.field-input', ['id' => 'field_text_icon', 'tag' => 'Tekstveld icon', 'placeholder' => 'Een tekstveld met een icon', 'required' => true])
+    @include('form.field-input', ['id' => 'field_text_icon', 'tag' => 'Tekstveld icon', 'icon' => 'search.svg', 'placeholder' => 'Een tekstveld met een icon', 'required' => true])
 
     @include('form.field-input', ['id' => 'field_autocomplete', 'tag' => 'Autocomplete', 'placeholder' => 'Een autocomplete veld (Vak data)', 'data' => true])
 
