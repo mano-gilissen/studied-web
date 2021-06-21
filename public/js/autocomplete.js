@@ -86,6 +86,8 @@ function autocomplete(input, values, reject_other) {
 
         input.parentNode.classList                  .remove("autocomplete");
 
+        console.log('a');
+
         autocompleted                               = false;
 
         if (!val && !reject_other) {
@@ -196,8 +198,6 @@ function autocomplete(input, values, reject_other) {
 
         closeAllLists(event ? event.target : null);
 
-        console.log(autocompleted ? 'yes' : 'no');
-
         if (reject_other && !autocompleted) {
 
             input.value                             = '';
@@ -209,18 +209,11 @@ function autocomplete(input, values, reject_other) {
 
     document.addEventListener("click", function (event) {
 
-        console.log(input.value);
-        console.log(autocompleted ? 'yes' : 'no');
-
         if (event.target == input && !input.value) {
-
-            console.log('a');
 
             openList(event.target);
 
         } else {
-
-            console.log('b');
 
             closeAndReject(event);
 
