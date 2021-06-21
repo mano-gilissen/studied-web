@@ -80,6 +80,8 @@ function autocomplete(input, values, reject_other) {
 
         autocompleted                               = false;
 
+        console.log(val);
+
         if (!val && !reject_other) {
 
             return false
