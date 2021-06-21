@@ -196,6 +196,8 @@ function autocomplete(input, values, reject_other) {
 
         closeAllLists(event ? event.target : null);
 
+        console.log(autocompleted ? 'yes' : 'no');
+
         if (reject_other && !autocompleted) {
 
             input.value                             = '';
@@ -211,9 +213,13 @@ function autocomplete(input, values, reject_other) {
 
         if (event.target == input && !input.value) {
 
+            console.log('a');
+
             openList(event.target);
 
         } else {
+
+            console.log('b');
 
             closeAndReject(event);
 
