@@ -26,12 +26,6 @@ function autocomplete(input, values, reject_other) {
 
 
 
-    // ADD: OPEN (ENTIRE) DATA LIST ON FOCUS OR CLICK EVENT
-    // OR REMOVE: OPEN ENTIRE DATA LIST ON BACKSPACING TO ZERO CHARACTERS (WHEN REJECT_OTHER = TRUE)
-    // FIX: SELECTING DATA ITEM BY ARROWS + ENTER. BROKEN FOR BOTH REJECT_OTHER = TRUE AND FALSE
-
-
-
     input.addEventListener("keydown", function(e) {
 
         var list                                    = document.getElementById(this.id + "-autocomplete-list");
@@ -91,7 +85,7 @@ function autocomplete(input, values, reject_other) {
             autocompleted                               = false;
         }
 
-        if (!val && !show_all) {
+        if (!val && !reject_other) {
 
             return false
 
@@ -107,7 +101,7 @@ function autocomplete(input, values, reject_other) {
 
         for (index = 0; index < values.length; index++) {
 
-            if ((show_all && !val) || values[index].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+            if ((reject_other && !val) || values[index].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
 
                 item                                = document.createElement("DIV");
                 item                                .setAttribute("class", "autocomplete-item");
