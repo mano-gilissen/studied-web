@@ -16,7 +16,11 @@ trait UserTrait {
 
 
 
+
+
     use PersonTrait;
+
+
 
 
 
@@ -34,7 +38,7 @@ trait UserTrait {
 
     public static function getFullName($user, $with_prefix = false) {
 
-        $person                 = $user->getPerson();
+        $person                 = $user->getPerson;
 
         if (!$person) {
 
@@ -54,7 +58,7 @@ trait UserTrait {
 
     public static function getRoleName($user) {
 
-        $role                   = $user->getRole();
+        $role                   = $user->getRole;
 
         if (!$role) {
 
