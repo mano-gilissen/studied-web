@@ -8,6 +8,6 @@
 
     </div>
 
-    <img src="{{ Auth::user()->avatar ?? ''}}"/>
+    <img src="{{ Auth::user()->avatar }}"/>
 
 </div>
