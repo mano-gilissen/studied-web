@@ -20,6 +20,7 @@ html, body {
 #header {
     position:                           fixed;
     display:                            flex;
+    top:                                0;
     align-items:                        center;
     height:                             80px;
     margin-right:                       64px;
@@ -43,7 +44,7 @@ html, body {
     margin:                             0 0 1px auto;
 }
 
-#header .user .title {
+#header .user .role {
     margin:                             0 0 0 auto;
 }
 
@@ -169,7 +170,7 @@ button:focus {
     font-weight:                        600;
 }
 
-.user .title {
+.user .role {
     margin:                             0;
     color:                              #666666;
 }

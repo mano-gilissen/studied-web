@@ -12,7 +12,7 @@
 
 @section('content')
 
-    @include('block.header');
+    @include('block.header')
 
     <div id="content">
 
