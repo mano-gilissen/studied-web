@@ -24,3 +24,4 @@ Route::get('/inloggen',                         'Auth\LoginController@view')->na
 
 Route::get('/wachtwoordvergeten',               'Auth\ForgotPasswordController@forgot')->name('password.forgot');
 
+

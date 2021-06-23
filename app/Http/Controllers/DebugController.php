@@ -30,7 +30,7 @@ class DebugController extends Controller {
         return view(
             Views::LAB, [
 
-                Form::PAGE_TITLE                            => 'The lab',
+                Form::PAGE_TITLE                            => 'The Lab',
                 UserTrait::$USER                            => Auth::user()
             ]);
 

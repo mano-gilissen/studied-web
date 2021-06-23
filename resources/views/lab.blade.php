@@ -92,23 +92,7 @@
 
 
 
-        <div class="button" onclick="event.preventDefault(); document.getElementById('logout').submit();" style="margin: 40px 0;">
-
-            {{ __('Uitloggen') }}
-
-        </div>
-
-
-
-        <form id="logout" method="POST" action="{{ route('logout') }}">
-
-            @csrf
-
-        </form>
-
-
-
-        <div class="button" onclick="window.location.href='{{ route('password.forgot') }}'" style="margin-bottom: 40px;">
+        <div class="button" onclick="window.location.href='{{ route('form_test.view') }}'" style="margin: 40px 0;">
 
             {{ __('Link button') }}
 
@@ -133,6 +117,22 @@
             <img class="icon" src="images/close.svg">
 
         </div>
+
+
+
+        <div class="button" onclick="event.preventDefault(); document.getElementById('logout').submit();" style="margin-bottom: 40px;">
+
+            {{ __('Uitloggen') }}
+
+        </div>
+
+
+
+        <form id="logout" method="POST" action="{{ route('logout') }}">
+
+            @csrf
+
+        </form>
 
 
 
