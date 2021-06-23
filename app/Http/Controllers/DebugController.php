@@ -52,7 +52,7 @@ class DebugController extends Controller {
         return view(Views::FORM_TEST, [
 
             UserTrait::$USER                                                => Auth::user(),
-            Form::PAGE_TITLE                                                => 'Test formulier',
+            Form::PAGE_TITLE                                                => 'Formulier',
             Form::SUBMIT_ACTION                                             => 'Opslaan',
 
             Form::AUTOCOMPLETE_DATA.'field_autocomplete'                    => implode('::', Person::all()->pluck(PersonTrait::$PERSON_FIRST_NAME)->toArray()),
