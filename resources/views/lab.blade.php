@@ -4,7 +4,7 @@
 
 @section('css')
 
-    <link href="{{ asset('css/debug.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/lab.css') }}" rel="stylesheet">
 
 @endsection
 

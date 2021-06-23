@@ -25,10 +25,12 @@ class DebugController extends Controller {
 
 
 
-    public function debug() {
+    public function lab() {
 
         return view(
-            Views::DEBUG, [
+            Views::LAB, [
+
+                Form::PAGE_TITLE                            => 'The lab',
                 UserTrait::$USER                            => Auth::user()
             ]);
 
@@ -39,7 +41,6 @@ class DebugController extends Controller {
     public function landing() {
 
         return view(Views::LANDING);
-
     }
 
 
