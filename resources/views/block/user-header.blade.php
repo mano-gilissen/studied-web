@@ -8,9 +8,9 @@
 
     </div>
 
-    @if(Auth::user()->avatar)
+    @if(Auth::user()->getPerson->avatar)
 
-        <img src="{{ asset("storage/avatar/" . Auth::user()->avatar) }}"/>
+        <img src="{{ asset("storage/avatar/" . Auth::user()->getPerson->avatar) }}"/>
 
     @else
 
