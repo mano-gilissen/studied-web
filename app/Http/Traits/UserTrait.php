@@ -8,6 +8,7 @@ namespace App\Http\Traits;
 
 use App\Models\User;
 use App\Http\Traits\PersonTrait;
+use App\Http\Traits\RoleTrait;
 use Auth;
 
 
@@ -19,6 +20,7 @@ trait UserTrait {
 
 
     use PersonTrait;
+    use RoleTrait;
 
 
 
