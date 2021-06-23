@@ -33,12 +33,21 @@ html, body {
     margin:                             0 20px;
 }
 
-#header .user img {
+#header .user {
+    margin-left:                        auto;
+}
+
+#header .user img,
+#header .user .no-avatar {
     width:                              40px;
     height:                             40px;
     margin:                             0 0 0 12px;
     border-radius:                      20px;
-    background:                         pink;
+}
+
+#header .user .no-avatar {
+    font-size:                          16px;
+    letter-spacing:                     -.5px;
 }
 
 #header .user .name {
@@ -152,12 +161,21 @@ button:focus {
     display:                            flex;
 }
 
-.user img {
+.user img,
+.user .no-avatar {
     width:                              96px;
     height:                             96px;
     margin:                             0 24px 0 0;
     border-right:                       48px;
-    background:                         pink;
+}
+
+.user .no-avatar {
+    background:                         #CCCCCC;
+    color:                              white;
+    font-family:                        'Circular', serif;
+    font-weight:                        200;
+    font-size:                          22px;
+    letter-spacing:                     -.7px;
 }
 
 .user .values {

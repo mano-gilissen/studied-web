@@ -58,6 +58,23 @@ trait UserTrait {
 
 
 
+    public static function getInitials($user) {
+
+        $person                 = $user->getPerson;
+
+        if (!$person) {
+
+            return false;
+
+        }
+        $first_name             = $person->{self::$PERSON_FIRST_NAME};
+        $last_name              = $person->{self::$PERSON_LAST_NAME};
+
+        return substr($first_name, 0, 1) . substr($last_name, 0, 1) ;
+    }
+
+
+
     public static function getRoleName($user) {
 
         $role                   = $user->getRole;

@@ -8,6 +8,14 @@
 
     </div>
 
-    <img src="{{ Auth::user()->avatar }}"/>
+    @if(Auth::user()->avatar)
+
+        <img src="{{ Auth::user()->avatar }}"/>
+
+    @else
+
+        <div class="no-avatar">{{ \App\Http\Traits\UserTrait::getInitials(Auth::user()) }}</div>
+
+    @endif
 
 </div>
