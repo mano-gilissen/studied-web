@@ -74,3 +74,43 @@ class DebugController extends Controller {
 
 
 }
+
+
+
+
+
+/*
+
+    public function avatar_submit(Request $request) {
+
+        $redirect                           = $request->all()['redirect'];
+
+        $image_parts                        = explode(";base64,", $request->image);
+        $image_type_aux                     = explode("image/", $image_parts[0]);
+        $image_base64                       = base64_decode($image_parts[1]);
+        $file_name                          = "avatar_" . Auth::user()->id . "_" . time() . ".jpeg";
+
+        file_put_contents(public_path() . "/storage/avatar/" . $file_name, $image_base64);
+
+        self::avatar_set($file_name);
+
+        return response()->json(['url' => route($redirect)]);
+    }
+
+
+
+    public function avatar_validate($data) {
+
+        $messages = [
+            'avatar.max'                        => 'Deze afbeelding is te groot (Max 10Mb), probeer het opnieuw.',
+            'avatar.mimes'                      => 'De avatar moet een afbeelding zijn. Probeer het opnieuw.'
+        ];
+
+        $validator = Validator::make($data, [
+            'avatar'                            => ['required', 'mimes:jpeg,jpg,png,gif', 'max:10000'],
+        ], $messages);
+
+        $validator->validate();
+    }
+
+*/

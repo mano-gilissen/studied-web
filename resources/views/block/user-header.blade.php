@@ -10,7 +10,7 @@
 
     @if(Auth::user()->avatar)
 
-        <img src="{{ Auth::user()->avatar }}"/>
+        <img src="{{ asset("storage/avatar/" . Auth::user()->avatar) }}"/>
 
     @else
 
