@@ -14,115 +14,127 @@
 
 
 
-    <div class="block-attributes">
+    @include('block.header')
 
-        <div class="title">Gegevens</div>
 
-        <div class="list-attributes">
 
-            <div class="attribute">
+    <div id="content">
 
-                <div class="tag">Email</div>
 
-                <div class="value">{{ $user->email }}</div>
 
-            </div>
+        <div class="block-attributes">
 
-            <div class="attribute">
+            <div class="title">Gegevens</div>
 
-                <div class="tag">Rol</div>
+            <div class="list-attributes">
 
-                <div class="value">{{ $user->getRole->label }}</div>
+                <div class="attribute">
 
-            </div>
+                    <div class="tag">Email</div>
 
-            <div class="attribute">
+                    <div class="value">{{ $user->email }}</div>
 
-                <div class="tag">Naam</div>
+                </div>
 
-                <div class="value">{{ $user->getPerson->prefix }} {{ $user->getPerson->first_name }} {{ $user->getPerson->middle_name }} {{ $user->getPerson->last_name }}</div>
+                <div class="attribute">
+
+                    <div class="tag">Rol</div>
+
+                    <div class="value">{{ $user->getRole->label }}</div>
+
+                </div>
+
+                <div class="attribute">
+
+                    <div class="tag">Naam</div>
+
+                    <div class="value">{{ $user->getPerson->prefix }} {{ $user->getPerson->first_name }} {{ $user->getPerson->middle_name }} {{ $user->getPerson->last_name }}</div>
+
+                </div>
 
             </div>
 
         </div>
 
-    </div>
+
+
+        @if($user->hasStudies())
+
+            <p>
+                lessen:<br><br>
+
+                @foreach($user->getStudies as $study)
+
+                    {{ $study->subject_text }}<br>
+
+                @endforeach
+
+            </p>
+
+        @endif
 
 
 
-    @if($user->hasStudies())
+        @if($user->isCustomer())
 
-        <p>
-            lessen:<br><br>
+            <p>
+                leerlingen:<br><br>
 
-            @foreach($user->getStudies as $study)
+                @foreach($user->getCustomer->getStudents as $student)
 
-                {{ $study->subject_text }}<br>
+                    {{ $student->getUser->getPerson->first_name }} {{ $student->getUser->getPerson->last_name }}<br>
 
-            @endforeach
+                @endforeach
 
-        </p>
+            </p>
 
-    @endif
-
-
-
-    @if($user->isCustomer())
-
-        <p>
-            leerlingen:<br><br>
-
-            @foreach($user->getCustomer->getStudents as $student)
-
-                {{ $student->getUser->getPerson->first_name }} {{ $student->getUser->getPerson->last_name }}<br>
-
-            @endforeach
-
-        </p>
-
-    @endif
+        @endif
 
 
 
-    <div class="button" onclick="event.preventDefault(); document.getElementById('logout').submit();" style="margin: 40px 0;">
+        <div class="button" onclick="event.preventDefault(); document.getElementById('logout').submit();" style="margin: 40px 0;">
 
-        {{ __('Uitloggen') }}
+            {{ __('Uitloggen') }}
 
-    </div>
-
-
-
-    <form id="logout" method="POST" action="{{ route('logout') }}">
-
-        @csrf
-
-    </form>
+        </div>
 
 
 
-    <div class="button" onclick="window.location.href='{{ route('password.forgot') }}'" style="margin-bottom: 40px;">
+        <form id="logout" method="POST" action="{{ route('logout') }}">
 
-        {{ __('Link button') }}
+            @csrf
 
-    </div>
-
-
-
-    <div class="button icon" style="margin-bottom: 40px;">
-
-        <img class="icon" src="images/add.svg">
-
-        <div class="text">{{ __('Icon button') }}</div>
-
-    </div>
+        </form>
 
 
 
-    <div class="button icon-reverse" style="margin-bottom: 40px;">
+        <div class="button" onclick="window.location.href='{{ route('password.forgot') }}'" style="margin-bottom: 40px;">
 
-        <div class="text">{{ __('Reverse icon button') }}</div>
+            {{ __('Link button') }}
 
-        <img class="icon" src="images/close.svg">
+        </div>
+
+
+
+        <div class="button icon" style="margin-bottom: 40px;">
+
+            <img class="icon" src="images/add.svg">
+
+            <div class="text">{{ __('Icon button') }}</div>
+
+        </div>
+
+
+
+        <div class="button icon-reverse" style="margin-bottom: 40px;">
+
+            <div class="text">{{ __('Reverse icon button') }}</div>
+
+            <img class="icon" src="images/close.svg">
+
+        </div>
+
+
 
     </div>
 
