@@ -94,7 +94,15 @@
 
         <div class="button" onclick="window.location.href='{{ route('form_test.view') }}'" style="margin: 40px 0;">
 
-            {{ __('Link button') }}
+            {{ __('Formulier pagina') }}
+
+        </div>
+
+
+
+        <div class="button" onclick="window.location.href='{{ route('study_test.view') }}'" style="margin-bottom: 40px;">
+
+            {{ __('Les pagina') }}
 
         </div>
 
