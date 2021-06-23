@@ -66,7 +66,7 @@ class DebugController extends Controller {
 
         return view(Views::STUDY, [
 
-            Form::PAGE_TITLE                                                => 'Privéles',
+            Form::PAGE_TITLE                                                => 'Privéles'
 
         ]);
     }
