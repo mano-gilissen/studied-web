@@ -15,9 +15,38 @@ html, body {
 
 
 
-.dot {
-    color:                              #FFDD34;
+
+
+#header {
+    position:                           fixed;
+    display:                            flex;
+    align-items:                        center;
+    height:                             80px;
+    margin-right:                       64px;
 }
+
+#header .menu {
+    width:                              24px;
+    height:                             24px;
+    margin:                             0 20px;
+}
+
+#header .user img {
+    width:                              40px;
+    height:                             40px;
+    margin:                             0 0 0 12px;
+    border-right:                       20px;
+    background:                         pink;
+}
+
+#header .user .name {
+    margin:                             0 0 1px auto;
+}
+
+#header .user .title {
+    margin:                             0 0 0 auto;
+}
+
 
 
 
@@ -31,6 +60,14 @@ html, body {
 .title.page {
     font-size:                          30px;
     letter-spacing:                     -1px;
+}
+
+
+
+
+
+.dot {
+    color:                              #FFDD34;
 }
 
 
@@ -103,6 +140,38 @@ html, body {
 
 button:focus {
     outline:                            none;
+}
+
+
+
+
+
+.user {
+    display:                            flex;
+}
+
+.user img {
+    width:                              96px;
+    height:                             96px;
+    margin:                             0 24px 0 0;
+    border-right:                       48px;
+    background:                         pink;
+}
+
+.user .values {
+    height:                             72px;
+    padding:                            0 16px 0 32px;
+    background:                         #F8F8F8;
+}
+
+.user .name {
+    margin:                             0 0 1px 0;
+    font-weight:                        600;
+}
+
+.user .title {
+    margin:                             0;
+    color:                              #666666;
 }
 
 
@@ -235,7 +304,7 @@ select::-ms-expand {
     height:                             48px;
     padding-left:                       16px;
     background:                         #F8F8F8;
-    color:                              #B3B3B3;
+    color:                              #999999;
     cursor:                             pointer;
     white-space:                        pre;
 }
@@ -245,7 +314,7 @@ select::-ms-expand {
 }
 
 .autocomplete-item.active {
-    background-color:                   #e6e6e6 !important;
+    background-color:                   #F0F0F0 !important;
 }
 
 

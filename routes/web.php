@@ -14,6 +14,8 @@ Route::get('/',                                 'DebugController@landing')->name
 
 Route::get('/debug',                            'DebugController@debug')->name('debug.view')->middleware('auth');
 
+Route::get('/studytest',                        'DebugController@study_test')->name('study_test.view')->middleware('auth');
+
 Route::get('/formtest',                         'DebugController@form_test')->name('form_test.view')->middleware('auth');
 
 

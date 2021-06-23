@@ -47,7 +47,6 @@ class DebugController extends Controller {
     public function form_test() {
 
         // TODO: Create helper method to implode autocomplete data from database
-        // TODO: Create (Vue) template for Auth::user() display view top right
 
         return view(Views::FORM_TEST, [
 
@@ -59,7 +58,17 @@ class DebugController extends Controller {
             Form::AUTOCOMPLETE_DATA.'field_autocomplete_reject'             => implode('::', Subject::all()->pluck(SubjectTrait::$SUBJECT_DESCRIPTION)->toArray()),
             Form::AUTOCOMPLETE_DATA.'field_autocomplete_reject_show_all'    => implode('::', Subject::all()->pluck(SubjectTrait::$SUBJECT_DESCRIPTION)->toArray())
         ]);
+    }
 
+
+
+    public function study_test() {
+
+        return view(Views::STUDY, [
+
+            Form::PAGE_TITLE                                                => 'Privéles',
+
+        ]);
     }
 
 
