@@ -32,6 +32,14 @@ class Study extends Model {
 
 
 
+    public function getHost() {
+
+        return $this->getHost_Type() == self::$USER ? $this->getHost_User() : $this->getHost_Relation();
+
+    }
+
+
+
     public function getHost_User() {
 
         return self::getThisToOne(self::$USER, self::$STUDY_HOST_USER);
@@ -51,14 +59,6 @@ class Study extends Model {
     public function getHost_Type() {
 
         return $this->{self::$USER} ? self::$USER : $this->{self::$RELATION} ? self::$RELATION : null;
-
-    }
-
-
-
-    public function getHost_Person() {
-
-        return $this->getHost_Type() == self::$USER ? $this->getHost_User()->getPerson() : $this->getHost_Relation()->getPerson();
 
     }
 
