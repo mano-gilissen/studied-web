@@ -58,7 +58,7 @@ class Study extends Model {
 
     public function getHost_Person() {
 
-        return $this->getHost_Type() == self::$USER ? $this->getHost_User()->getPerson : $this->getHost_Relation()->getPerson;
+        return $this->getHost_Type() == self::$USER ? $this->getHost_User()->getPerson() : $this->getHost_Relation()->getPerson();
 
     }
 
