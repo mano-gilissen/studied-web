@@ -42,7 +42,7 @@ class Study extends Model {
 
     public function getHost_Type() {
 
-            return $this->{self::$STUDY_HOST_USER} ? self::$USER : $this->{self::$STUDY_HOST_RELATION} ? self::$RELATION : null;
+        return $this->{self::$STUDY_HOST_USER} ? self::$USER : ($this->{self::$STUDY_HOST_RELATION} ? self::$RELATION : null);
 
     }
 
