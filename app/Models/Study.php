@@ -7,7 +7,6 @@ namespace App\Models;
 use App\Http\Traits\BaseTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use mysql_xdevapi\Collection;
 
 
 class Study extends Model {
@@ -59,15 +58,8 @@ class Study extends Model {
 
     public function getHost_Person() {
 
-        switch($this->getHost_Type()) {
+        return $this->getHost_Type() == self::$USER ? $this->getHost_User()->getPerson() : $this->getHost_Relation()->getPerson();
 
-            case self::$USER:
-                return $this->getHost_User()->getPerson();
-            case self::$RELATION:
-                return $this->getHost_Relation()->getPerson();
-            default:
-                return new Collection();
-        }
     }
 
 
