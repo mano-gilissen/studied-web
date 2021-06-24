@@ -66,8 +66,9 @@ html, body {
 #actions {
     display:                            flex;
     align-items:                        center;
-    margin:                             0 0 0 auto;
     height:                             60px;
+    width:                              max-content;
+    margin-left:                        auto;
 }
 
 

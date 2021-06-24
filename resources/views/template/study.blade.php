@@ -42,7 +42,7 @@
 
             <div class="content-columns">
 
-                <div class="column">
+                <div class="column left">
 
                     <div class="block-attributes">
 
@@ -80,7 +80,7 @@
 
                 </div>
 
-                <div class="column">
+                <div class="column right">
 
                     <div class="block-attributes">
 
