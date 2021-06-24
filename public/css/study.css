@@ -4,6 +4,10 @@
     margin:                             80px auto 128px;
 }
 
+
+
+
+
 #banner {
     display:                            flex;
     align-items:                        flex-end;
@@ -17,6 +21,10 @@
     color:                              white;
 }
 
+
+
+
+
 #content {
 
 }
@@ -24,7 +32,10 @@
 .content-columns {
     display:                            grid;
     grid-template-columns:              1fr 64px 1fr;
-    grid-template-areas:                "left . right";
+    grid-template-rows:                 auto 64px auto;
+    grid-template-areas:                "left . right"
+                                        ". . ."
+                                        "wide wide wide";
 }
 
 .content-columns .left {
@@ -35,6 +46,6 @@
     grid-area:                          right;
 }
 
-.content-wide {
-
+.content-columns .wide {
+    grid-area:                          wide;
 }

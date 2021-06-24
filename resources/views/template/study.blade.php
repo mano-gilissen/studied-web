@@ -118,11 +118,11 @@
 
                 </div>
 
-            </div>
+                <div class="column wide">
 
-            <div class="content-wide">
+                    <div style="background: pink;height:200px"></div>
 
-                <div style="background: pink;width: 100%;height:200px"></div>
+                </div>
 
             </div>
 
