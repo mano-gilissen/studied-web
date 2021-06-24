@@ -24,7 +24,14 @@ trait StudyTrait {
         $STUDY_DATE                                     = 'date',
         $STUDY_START                                    = 'start',
         $STUDY_END                                      = 'end',
-        $STUDY_TRIAL                                    = 'trial';
+        $STUDY_TRIAL                                    = 'trial',
+
+        $STATUS_CREATED                                 = 0,
+        $STATUS_PLANNED                                 = 1,
+        $STATUS_FINISHED                                = 2,
+        $STATUS_REPORTED                                = 3,
+        $STATUS_CANCELLED                               = 4,
+        $STATUS_ABSENT                                  = 5;
 
 
 
