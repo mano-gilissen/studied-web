@@ -6,7 +6,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Subject;
 use App\Models\Person;
+use App\Models\Study;
 use App\Http\Traits\PersonTrait;
+use App\Http\Traits\StudyTrait;
 use App\Http\Traits\SubjectTrait;
 use App\Http\Traits\UserTrait;
 use App\Http\Support\Form;
@@ -67,7 +69,9 @@ class DebugController extends Controller {
 
         return view(Views::STUDY, [
 
-            Form::PAGE_TITLE                                                => 'Privéles'
+            Form::PAGE_TITLE                                                => 'Privéles',
+            StudyTrait::$STUDY                                              => Study::first(),
+            'button_contact_host'                                           => true
 
         ]);
     }

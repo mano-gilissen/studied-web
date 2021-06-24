@@ -122,7 +122,7 @@
 
             <div class="content-wide">
 
-                <div style="background: pink;width: 100%;height:300px"></div>
+                <div style="background: pink;width: 100%;height:200px"></div>
 
             </div>
 
