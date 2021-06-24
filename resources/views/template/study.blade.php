@@ -54,7 +54,7 @@
 
                                 <div class="tag">Email</div>
 
-                                <div class="value">{{ $user->email }}</div>
+                                <div class="value">123</div>
 
                             </div>
 
@@ -62,7 +62,7 @@
 
                                 <div class="tag">Rol</div>
 
-                                <div class="value">{{ $user->getRole->label }}</div>
+                                <div class="value">456</div>
 
                             </div>
 
@@ -70,7 +70,7 @@
 
                                 <div class="tag">Naam</div>
 
-                                <div class="value">{{ $user->getPerson->prefix }} {{ $user->getPerson->first_name }} {{ $user->getPerson->middle_name }} {{ $user->getPerson->last_name }}</div>
+                                <div class="value">789</div>
 
                             </div>
 
@@ -92,7 +92,7 @@
 
                                 <div class="tag">Email</div>
 
-                                <div class="value">{{ $user->email }}</div>
+                                <div class="value">123</div>
 
                             </div>
 
@@ -100,7 +100,7 @@
 
                                 <div class="tag">Rol</div>
 
-                                <div class="value">{{ $user->getRole->label }}</div>
+                                <div class="value">456</div>
 
                             </div>
 
@@ -108,7 +108,7 @@
 
                                 <div class="tag">Naam</div>
 
-                                <div class="value">{{ $user->getPerson->prefix }} {{ $user->getPerson->first_name }} {{ $user->getPerson->middle_name }} {{ $user->getPerson->last_name }}</div>
+                                <div class="value">789</div>
 
                             </div>
 
