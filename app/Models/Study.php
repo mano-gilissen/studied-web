@@ -49,6 +49,29 @@ class Study extends Model {
 
 
 
+    public function getHost_Type() {
+
+        return $this->{self::$USER} ? self::$USER : $this->{self::$RELATION} ? self::$RELATION : null;
+
+    }
+
+
+
+    public function getHost_Person() {
+
+        switch($this->getHost_Type()) {
+
+            case self::$USER:
+                return $this->getHost_User()->getPerson();
+            case self::$RELATION:
+                return $this->getHost_Relation()->getPerson();
+            default:
+                return null;
+        }
+    }
+
+
+
     public function getSubject_Defined() {
 
         return self::getThisToOne(self::$SUBJECT, self::$STUDY_SUBJECT_DEFINED);

@@ -63,6 +63,17 @@ html, body {
 
 
 
+#actions {
+    display:                            flex;
+    align-items:                        center;
+    margin:                             0 0 0 auto;
+    height:                             60px;
+}
+
+
+
+
+
 .title {
     font-size:                          18px;
     font-family:                        'Circular', serif;
@@ -342,12 +353,15 @@ select::-ms-expand {
 
 
 
+.block-attributes {
+
+}
+
 .block-attributes .title {
     padding:                            0 0 16px 4px;
 }
 
 .block-attributes .list-attributes {
-    width:                              324px;
     padding:                            16px 0 8px 32px;
     margin:                             0 0 48px;
     background:                         #F8F8F8;
