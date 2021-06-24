@@ -18,7 +18,7 @@
 
         <div id="banner" style="background: pink">
 
-            <div class="title">{{ $study->subject_defined ? $study->subject_defined->description : $study->subject_text }}</div>
+            <div class="title">{{ $study->getSubject_Defined ? $study->getSubject_Defined->description : $study->subject_text }}</div>
 
         </div>
 
