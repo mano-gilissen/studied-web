@@ -32,9 +32,9 @@ class Study extends Model {
 
 
 
-    public function getHost() {
+    public function getHost_Person() {
 
-        return $this->getHost_Type() == self::$USER ? $this->getHost_User() : $this->getHost_Relation();
+        return $this->getHost_Type() == self::$USER ? $this->getHost_User()->getPerson() : $this->getHost_Relation()->getPerson();
 
     }
 
