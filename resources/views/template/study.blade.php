@@ -30,7 +30,7 @@
 
                     <img class="icon" src="images/contact.svg">
 
-                    <div class="text">Contacteer {{ $study->getHost_User->getPerson->first_name }}</div>
+                    <div class="text">Contacteer {{ $study->getHost->getPerson->first_name }}</div>
 
                 </div>
 
