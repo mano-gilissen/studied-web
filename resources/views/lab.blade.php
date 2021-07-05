@@ -22,7 +22,7 @@
 
 
 
-        <div class="block-attributes">
+        <div class="block block-attributes">
 
             <div class="title">Gegevens</div>
 

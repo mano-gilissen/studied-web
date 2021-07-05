@@ -44,7 +44,15 @@
 
                 <div class="column left">
 
-                    <div class="block-attributes">
+                    <div class="block block-users">
+
+                        <div class="title">Deelnemers</div>
+
+                        @include('block.user-large')
+
+                    </div>
+
+                    <div class="block block-attributes">
 
                         <div class="title">Gegevens</div>
 
@@ -82,7 +90,7 @@
 
                 <div class="column right">
 
-                    <div class="block-attributes">
+                    <div class="block block-attributes">
 
                         <div class="title">Gegevens</div>
 

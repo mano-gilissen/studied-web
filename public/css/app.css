@@ -174,14 +174,6 @@ button:focus {
     display:                            flex;
 }
 
-.user img,
-.user .no-avatar {
-    width:                              96px;
-    height:                             96px;
-    margin:                             0 24px 0 0;
-    border-right:                       48px;
-}
-
 .user .no-avatar {
     background:                         #CCCCCC;
     color:                              white;
@@ -205,6 +197,22 @@ button:focus {
 .user .role {
     margin:                             0;
     color:                              #666666;
+}
+
+.user.large img,
+.user.large .no-avatar {
+    width:                              96px;
+    height:                             96px;
+    margin:                             0 24px 0 0;
+    border-radius:                      48px;
+}
+
+.user.regular img,
+.user.regular .no-avatar {
+    width:                              72px;
+    height:                             72px;
+    margin:                             0 24px 0 0;
+    border-radius:                      36px;
 }
 
 
@@ -354,11 +362,11 @@ select::-ms-expand {
 
 
 
-.block-attributes {
-
+.block {
+    margin-bottom:                      48px;
 }
 
-.block-attributes .title {
+.block .title {
     padding:                            0 0 16px 4px;
 }
 
