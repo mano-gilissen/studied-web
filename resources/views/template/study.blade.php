@@ -62,7 +62,7 @@
 
                                 <div class="tag">Datum</div>
 
-                                <div class="value">{{ strftime("%A %e %B", $study->created_at->format('Y-m-d H:i:s')) }}</div>
+                                <div class="value">{{ $study->created_at }}</div>
 
                             </div>
 
