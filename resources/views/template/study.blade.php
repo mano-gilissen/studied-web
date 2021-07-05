@@ -16,7 +16,7 @@
 
     <div id="wrap">
 
-        <div id="banner" style="background: pink">
+        <div id="banner" style="background-image:url({{url('images/study_banner_example.png')}})">
 
             <div class="title">{{ $study->getSubject_Defined ? $study->getSubject_Defined->description : $study->subject_text }}</div>
 
