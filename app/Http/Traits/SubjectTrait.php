@@ -15,7 +15,8 @@ trait SubjectTrait {
         $SUBJECT                                    = 'subject',
 
         $SUBJECT_CODE                               = 'code',
-        $SUBJECT_DESCRIPTION                        = 'description';
+        $SUBJECT_DESCRIPTION                        = 'description',
+        $SUBJECT_DESCRIPTION_SHORT                  = 'description_short';
 
 
 
