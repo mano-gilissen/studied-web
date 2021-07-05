@@ -169,6 +169,18 @@ button:focus {
 
 
 
+.tag {
+    height:                             24px;
+    border-radius:                      12px;
+    padding:                            4px 12px;
+    font-family:                        'Circular', serif;
+    font-weight:                        200;
+    font-size:                          12px;
+}
+
+
+
+
 
 .user {
     display:                            flex;
@@ -396,7 +408,7 @@ select::-ms-expand {
     margin-bottom:                      16px;
 }
 
-.attribute .tag {
+.attribute .name {
     width:                              100px;
     color:                              #666666;
 }
@@ -437,7 +449,7 @@ select::-ms-expand {
     display:                            flex;
 }
 
-.field .tag,
+.field .name,
 .field .note {
     display:                            flex;
     align-items:                        center;
@@ -445,7 +457,7 @@ select::-ms-expand {
     color:                              #666666;
 }
 
-.field .tag {
+.field .name {
     width:                              200px;
 }
 

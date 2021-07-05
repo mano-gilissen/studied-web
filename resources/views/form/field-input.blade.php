@@ -1,6 +1,6 @@
 <div class="field">
 
-    <div class="tag">{{ $tag }}</div>
+    <div class="name">{{ $tag }}</div>
 
     @include('form.box-input')
 

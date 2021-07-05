@@ -52,7 +52,7 @@
 
                             <div class="attribute">
 
-                                <div class="tag">Vak</div>
+                                <div class="name">Vak</div>
 
                                 <div class="value">{{ $study->getSubject_Defined ? $study->getSubject_Defined->code : $study->subject_text }}</div>
 
@@ -60,25 +60,29 @@
 
                             <div class="attribute">
 
-                                <div class="tag">Datum</div>
+                                <div class="name">Datum</div>
 
-                                {{ $study->created_at->formatLocalized("%A %e %B") }}
-
-                            </div>
-
-                            <div class="attribute">
-
-                                <div class="tag">Naam</div>
-
-                                <div class="value">789</div>
+                                {{ \App\Http\Support\Format::datetime($study->created_at) }}
 
                             </div>
 
                             <div class="attribute">
 
-                                <div class="tag">Naam</div>
+                                <div class="name">Tijdstip</div>
 
-                                <div class="value">789</div>
+                                <div class="value">{{ $study->start . ' - ' . $study->end  }}</div>
+
+                            </div>
+
+                            <div class="attribute">
+
+                                <div class="name">Status</div>
+
+                                <div class="value">
+
+                                    <div class="tag" style="background: {{\App\Http\Traits\StudyTrait::getStatusColor($study)}};color: {{\App\Http\Traits\StudyTrait::getStatusTextColor($study)}}">{{ \App\Http\Traits\StudyTrait::getStatus($study) }}</div>
+
+                                </div>
 
                             </div>
 
@@ -122,7 +126,7 @@
 
                             <div class="attribute">
 
-                                <div class="tag">Email</div>
+                                <div class="name">Email</div>
 
                                 <div class="value">123</div>
 
@@ -130,7 +134,7 @@
 
                             <div class="attribute">
 
-                                <div class="tag">Rol</div>
+                                <div class="name">Rol</div>
 
                                 <div class="value">456</div>
 
@@ -138,7 +142,7 @@
 
                             <div class="attribute">
 
-                                <div class="tag">Naam</div>
+                                <div class="name">Naam</div>
 
                                 <div class="value">789</div>
 

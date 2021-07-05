@@ -1,6 +1,6 @@
 <div class="field">
 
-    <div class="tag">Tijdstip</div>
+    <div class="name">Tijdstip</div>
 
     <div class="box-select width-third">
 

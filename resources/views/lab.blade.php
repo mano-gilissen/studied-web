@@ -30,7 +30,7 @@
 
                 <div class="attribute">
 
-                    <div class="tag">Email</div>
+                    <div class="name">Email</div>
 
                     <div class="value">{{ $user->email }}</div>
 
@@ -38,7 +38,7 @@
 
                 <div class="attribute">
 
-                    <div class="tag">Rol</div>
+                    <div class="name">Rol</div>
 
                     <div class="value">{{ $user->getRole->label }}</div>
 
@@ -46,7 +46,7 @@
 
                 <div class="attribute">
 
-                    <div class="tag">Naam</div>
+                    <div class="name">Naam</div>
 
                     <div class="value">{{ $user->getPerson->prefix }} {{ $user->getPerson->first_name }} {{ $user->getPerson->middle_name }} {{ $user->getPerson->last_name }}</div>
 
