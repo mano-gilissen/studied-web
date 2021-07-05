@@ -67,7 +67,7 @@ class DebugController extends Controller {
     public function study_test() {
 
         $study = Study::first();
-        setlocale(LC_TIME, 'nl_NL');
+        setlocale(LC_TIME, 'nl_NL.utf8');
 
         return view(Views::STUDY, [
 
