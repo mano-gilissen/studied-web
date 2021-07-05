@@ -73,7 +73,7 @@ class DebugController extends Controller {
             Form::PAGE_TITLE                                                => 'Privéles',
             StudyTrait::$STUDY                                              => Study::first(),
             'button_contact_host'                                           => true,
-            UserTrait::$USER                                                => User::find(3)
+            'user_test'                                                     => User::find(3)
         ]);
     }
 

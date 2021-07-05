@@ -48,7 +48,7 @@
 
                         <div class="title">Deelnemers</div>
 
-                        @include('block.user-large', ['role' => 'Porta Mosana College'])
+                        @include('block.user-large', ['user' => $user_test])
 
                     </div>
 
