@@ -73,7 +73,7 @@ class DebugController extends Controller {
 
         return view(Views::STUDY, [
 
-            Key::PAGE_TITLE                                                 => $study->getService->{ServiceTrait::$SERVICE_NAME},
+            Key::PAGE_TITLE                                                 => $study->getService()->{ServiceTrait::$SERVICE_NAME},
             StudyTrait::$STUDY                                              => $study,
             'button_contact_host'                                           => true,
             'user_test'                                                     => User::find(3)
