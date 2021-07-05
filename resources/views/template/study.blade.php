@@ -60,14 +60,6 @@
 
                             <div class="attribute">
 
-                                <div class="tag">Datum</div>
-
-                                <div class="value">{{ strftime('%A %e %B', $study->created_at) }}</div>
-
-                            </div>
-
-                            <div class="attribute">
-
                                 <div class="tag">Naam</div>
 
                                 <div class="value">789</div>
