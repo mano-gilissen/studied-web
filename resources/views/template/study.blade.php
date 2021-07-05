@@ -48,6 +48,12 @@
 
                         <div class="title">Deelnemers</div>
 
+                        @foreach($participants as $participant)
+
+                            @include('block.user-large', ['user' => $participant])
+
+                        @endforeach
+
                     </div>
 
                     <div class="block block-attributes">
