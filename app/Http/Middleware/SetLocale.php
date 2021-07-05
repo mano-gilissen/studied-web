@@ -10,7 +10,7 @@ class SetLocale {
 
     public function handle($request, Closure $next) {
 
-        setlocale(LC_TIME, 'nl_NL');
+        //setlocale(LC_TIME, 'nl_NL');
 
         return $next($request);
     }
