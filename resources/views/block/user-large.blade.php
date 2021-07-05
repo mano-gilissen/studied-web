@@ -14,7 +14,7 @@
 
         <div class="name">{{ \App\Http\Traits\UserTrait::getFullName($user) }}</div>
 
-        <div class="role">{{ \App\Http\Traits\UserTrait::getRoleName($user) }}</div>
+        <div class="role">{{ $role }}</div>
 
     </div>
 

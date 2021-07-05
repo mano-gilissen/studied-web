@@ -172,6 +172,7 @@ button:focus {
 
 .user {
     display:                            flex;
+    align-items:                        center;
 }
 
 .user .no-avatar {
@@ -185,6 +186,7 @@ button:focus {
 
 .user .values {
     height:                             72px;
+    width:                              100%;
     padding:                            0 16px 0 32px;
     background:                         #F8F8F8;
 }
