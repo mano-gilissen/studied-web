@@ -4,7 +4,7 @@
 
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-{{ setlocale(LC_TIME, 'nl-NL') }}
+{{ setlocale(LC_TIME, 'nl_NL') }}
 
 
 
