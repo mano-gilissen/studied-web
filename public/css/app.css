@@ -205,12 +205,20 @@ button:focus {
     color:                              #666666;
 }
 
+.user.large {
+    margin-bottom:                      0;
+}
+
 .user.large img,
 .user.large .no-avatar {
     width:                              96px;
     height:                             96px;
     margin:                             0 24px 0 0;
     border-radius:                      48px;
+}
+
+.user.regular {
+    margin-bottom:                      24px;
 }
 
 .user.regular img,
@@ -368,17 +376,16 @@ select::-ms-expand {
 
 
 
-.block {
-    margin-bottom:                      48px;
+.block-attributes {
+    margin:                             0 0 48px;
 }
 
-.block .title {
+.block-attributes .title {
     padding:                            0 0 16px 4px;
 }
 
 .block-attributes .list-attributes {
     padding:                            16px 0 8px 32px;
-    margin:                             0 0 48px;
     background:                         #F8F8F8;
 }
 
@@ -396,6 +403,18 @@ select::-ms-expand {
 
 .attribute .value {
 
+}
+
+
+
+
+
+.block-user {
+    margin:                             0 0 64px;
+}
+
+.block-user .title {
+    padding:                            0 0 24px 4px;
 }
 
 

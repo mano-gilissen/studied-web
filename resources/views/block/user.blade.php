@@ -1,4 +1,4 @@
-<div class="user large">
+<div class="user {{ $size ?? 'regular' }}">
 
     @if($user->getPerson->avatar)
 

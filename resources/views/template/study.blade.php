@@ -44,19 +44,27 @@
 
                 <div class="column left">
 
-                    <div class="block block-users">
+                    <div class="block-users">
+
+                        <div class="title">Student-docent</div>
+
+                        @include('block.user', ['user' => $host])
+
+                    </div>
+
+                    <div class="block-users">
 
                         <div class="title">Deelnemers</div>
 
                         @foreach($participants as $participant)
 
-                            @include('block.user-large', ['user' => $participant])
+                            @include('block.user', ['user' => $participant])
 
                         @endforeach
 
                     </div>
 
-                    <div class="block block-attributes">
+                    <div class="block-attributes">
 
                         <div class="title">Gegevens</div>
 
