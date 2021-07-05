@@ -4,6 +4,8 @@
 
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
+{{ setlocale(LC_TIME, 'NL_nl') }}
+
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
