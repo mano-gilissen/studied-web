@@ -12,6 +12,7 @@
     display:                            flex;
     align-items:                        flex-end;
     height:                             240px;
+    background-size:                    contain;
 }
 
 #banner .title {
