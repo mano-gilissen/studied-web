@@ -4,15 +4,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Traits\ServiceTrait;
+use App\Http\Traits\BaseTrait;
 use App\Models\Subject;
 use App\Models\Person;
 use App\Models\Study;
 use App\Models\User;
-use App\Http\Traits\PersonTrait;
-use App\Http\Traits\StudyTrait;
-use App\Http\Traits\SubjectTrait;
-use App\Http\Traits\UserTrait;
 use App\Http\Support\Key;
 use App\Http\Support\Views;
 use Illuminate\Http\Request;
@@ -24,8 +20,7 @@ class DebugController extends Controller {
 
 
 
-    use UserTrait;
-    use PersonTrait;
+    use BaseTrait;
 
 
 
@@ -35,7 +30,7 @@ class DebugController extends Controller {
             Views::LAB, [
 
                 Key::PAGE_TITLE                                             => 'The Lab',
-                UserTrait::$USER                                            => Auth::user()
+                self::$USER                                                 => Auth::user()
             ]);
     }
 
@@ -55,13 +50,13 @@ class DebugController extends Controller {
 
         return view(Views::FORM_TEST, [
 
-            UserTrait::$USER                                                => Auth::user(),
+            self::$USER                                                     => Auth::user(),
             Key::PAGE_TITLE                                                 => 'Formulier',
             Key::SUBMIT_ACTION                                              => 'Opslaan',
 
-            Key::AUTOCOMPLETE_DATA.'field_autocomplete'                     => implode('::', Person::all()->pluck(PersonTrait::$PERSON_FIRST_NAME)->toArray()),
-            Key::AUTOCOMPLETE_DATA.'field_autocomplete_reject'              => implode('::', Subject::all()->pluck(SubjectTrait::$SUBJECT_DESCRIPTION)->toArray()),
-            Key::AUTOCOMPLETE_DATA.'field_autocomplete_reject_show_all'     => implode('::', Subject::all()->pluck(SubjectTrait::$SUBJECT_DESCRIPTION)->toArray())
+            Key::AUTOCOMPLETE_DATA.'field_autocomplete'                     => implode('::', Person::all()->pluck(self::$PERSON_FIRST_NAME)->toArray()),
+            Key::AUTOCOMPLETE_DATA.'field_autocomplete_reject'              => implode('::', Subject::all()->pluck(self::$SUBJECT_DESCRIPTION)->toArray()),
+            Key::AUTOCOMPLETE_DATA.'field_autocomplete_reject_show_all'     => implode('::', Subject::all()->pluck(self::$SUBJECT_DESCRIPTION)->toArray())
         ]);
     }
 
@@ -73,8 +68,8 @@ class DebugController extends Controller {
 
         return view(Views::STUDY, [
 
-            Key::PAGE_TITLE                                                 => $study->getService()->{ServiceTrait::$SERVICE_NAME},
-            StudyTrait::$STUDY                                              => $study,
+            Key::PAGE_TITLE                                                 => 'aaa',/*$study->getService()->{self::$SERVICE_NAME},*/
+            self::$STUDY                                                    => $study,
             'button_contact_host'                                           => true,
             'user_test'                                                     => User::find(3)
         ]);
