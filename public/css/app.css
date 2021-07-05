@@ -409,11 +409,11 @@ select::-ms-expand {
 
 
 
-.block-user {
+.block-users {
     margin:                             0 0 64px;
 }
 
-.block-user .title {
+.block-users .title {
     padding:                            0 0 24px 4px;
 }
 
