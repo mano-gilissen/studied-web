@@ -24,22 +24,23 @@ class DebugController extends Controller {
 
 
 
+    public function landing() {
+
+        return view(Views::LANDING);
+
+    }
+
+
+
     public function lab() {
 
         return view(
             Views::LAB, [
 
                 Key::PAGE_TITLE                                             => 'The Lab',
+
                 self::$USER                                                 => Auth::user()
             ]);
-    }
-
-
-
-    public function landing() {
-
-        return view(Views::LANDING);
-
     }
 
 
@@ -50,13 +51,14 @@ class DebugController extends Controller {
 
         return view(Views::FORM_TEST, [
 
-            self::$USER                                                     => Auth::user(),
             Key::PAGE_TITLE                                                 => 'Formulier',
             Key::SUBMIT_ACTION                                              => 'Opslaan',
 
             Key::AUTOCOMPLETE_DATA.'field_autocomplete'                     => implode('::', Person::all()->pluck(self::$PERSON_FIRST_NAME)->toArray()),
             Key::AUTOCOMPLETE_DATA.'field_autocomplete_reject'              => implode('::', Subject::all()->pluck(self::$SUBJECT_DESCRIPTION)->toArray()),
-            Key::AUTOCOMPLETE_DATA.'field_autocomplete_reject_show_all'     => implode('::', Subject::all()->pluck(self::$SUBJECT_DESCRIPTION)->toArray())
+            Key::AUTOCOMPLETE_DATA.'field_autocomplete_reject_show_all'     => implode('::', Subject::all()->pluck(self::$SUBJECT_DESCRIPTION)->toArray()),
+
+            self::$USER                                                     => Auth::user()
         ]);
     }
 
@@ -68,10 +70,11 @@ class DebugController extends Controller {
 
         return view(Views::STUDY, [
 
-            Key::PAGE_TITLE                                                 => 'aaa',/*$study->getService()->{self::$SERVICE_NAME},*/
+            Key::PAGE_TITLE                                                 => 'ABAB',/*$study->getService()->{self::$SERVICE_NAME},*/
+
             self::$STUDY                                                    => $study,
+            self::$STUDY_PARTICIPANT                                        => User::find(3),
             'button_contact_host'                                           => true,
-            'user_test'                                                     => User::find(3)
         ]);
     }
 
