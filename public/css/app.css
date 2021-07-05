@@ -175,6 +175,10 @@ button:focus {
     align-items:                        center;
 }
 
+.user img {
+    object-fit:                         cover;
+}
+
 .user .no-avatar {
     background:                         #CCCCCC;
     color:                              white;
@@ -187,7 +191,7 @@ button:focus {
 .user .values {
     height:                             72px;
     width:                              100%;
-    padding:                            0 16px 0 32px;
+    padding:                            17px 16px 0 32px;
     background:                         #F8F8F8;
 }
 
