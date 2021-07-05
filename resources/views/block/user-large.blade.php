@@ -10,7 +10,7 @@
 
     @endif
 
-    <div style="display: grid">
+    <div class="values">
 
         <div class="name">{{ \App\Http\Traits\UserTrait::getFullName($user) }}</div>
 
