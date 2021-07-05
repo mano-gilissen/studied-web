@@ -56,11 +56,15 @@
 
                         <div class="title">Deelnemers</div>
 
-                        @foreach($participants as $participant)
+                        <div class="list-users">
 
-                            @include('block.user', ['user' => $participant])
+                            @foreach($participants as $participant)
 
-                        @endforeach
+                                @include('block.user', ['user' => $participant])
+
+                            @endforeach
+
+                        </div>
 
                     </div>
 
