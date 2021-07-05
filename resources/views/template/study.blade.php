@@ -48,8 +48,6 @@
 
                         <div class="title">Deelnemers</div>
 
-                        @include('block.user-large', ['user' => $user_test])
-
                     </div>
 
                     <div class="block block-attributes">
