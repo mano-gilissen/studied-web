@@ -44,6 +44,52 @@
 
                 <div class="column left">
 
+                    <div class="block-attributes">
+
+                        <div class="title">Gegevens</div>
+
+                        <div class="list-attributes">
+
+                            <div class="attribute">
+
+                                <div class="tag">Vak</div>
+
+                                <div class="value">{{ $study->getSubject_Defined ? $study->getSubject_Defined->code : $study->subject_text }}</div>
+
+                            </div>
+
+                            <div class="attribute">
+
+                                <div class="tag">Datum</div>
+
+                                <div class="value">{{ strftime('%A %e %B', $study->created_at) }}</div>
+
+                            </div>
+
+                            <div class="attribute">
+
+                                <div class="tag">Naam</div>
+
+                                <div class="value">789</div>
+
+                            </div>
+
+                            <div class="attribute">
+
+                                <div class="tag">Naam</div>
+
+                                <div class="value">789</div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="column right">
+
                     <div class="block-users">
 
                         <div class="title">Student-docent</div>
@@ -67,44 +113,6 @@
                         </div>
 
                     </div>
-
-                    <div class="block-attributes">
-
-                        <div class="title">Gegevens</div>
-
-                        <div class="list-attributes">
-
-                            <div class="attribute">
-
-                                <div class="tag">Email</div>
-
-                                <div class="value">123</div>
-
-                            </div>
-
-                            <div class="attribute">
-
-                                <div class="tag">Rol</div>
-
-                                <div class="value">456</div>
-
-                            </div>
-
-                            <div class="attribute">
-
-                                <div class="tag">Naam</div>
-
-                                <div class="value">789</div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="column right">
 
                     <div class="block block-attributes">
 
