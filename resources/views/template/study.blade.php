@@ -62,8 +62,7 @@
 
                                 <div class="tag">Datum</div>
 
-                                <div class="value">{{ strftime("%A %e %B", $study->created_at->format('U')) }}</div>
-                                <!--<div class="value">{{ $study->created_at->formatLocalized("%A %e %B") }}</div>-->
+                                {{ $study->created_at->formatLocalized("%A %e %B") }}
 
                             </div>
 
