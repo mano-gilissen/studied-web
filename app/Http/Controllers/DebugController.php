@@ -70,7 +70,7 @@ class DebugController extends Controller {
 
         return view(Views::STUDY, [
 
-            Key::PAGE_TITLE                                                 => $study->getService->name,/*()->{self::$SERVICE_NAME},*/
+            Key::PAGE_TITLE                                                 => $study->getService()->name,/*()->{self::$SERVICE_NAME},*/
 
             self::$STUDY                                                    => $study,
             self::$STUDY_PARTICIPANT                                        => User::find(3),
