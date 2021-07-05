@@ -62,7 +62,7 @@
 
                                 <div class="tag">Datum</div>
 
-                                <div class="value">{{ $study->created_at }}</div>
+                                <div class="value">{{ $study->created_at->format("%A %e %B") }}</div>
 
                             </div>
 
