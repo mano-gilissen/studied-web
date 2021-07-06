@@ -28,7 +28,7 @@
 
                 <div class="button icon">
 
-                    <img class="icon" src="images/contact.svg">
+                    <img class="icon" src="/images/contact.svg">
 
                     <div class="text">Contacteer {{ $study->getHost->getPerson->first_name }}</div>
 
