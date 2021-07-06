@@ -16,7 +16,7 @@
 
             <div class="name">Datum</div>
 
-            {{ \App\Http\Support\Format::datetime($study->created_at) }}
+            <div class="value">{{ \App\Http\Support\Format::datetime($study->created_at) }}</div>
 
         </div>
 

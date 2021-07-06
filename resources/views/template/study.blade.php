@@ -48,7 +48,7 @@
 
                         @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
 
-                            @include('block.study-participants-priveles')
+                            @include('block.study-host-priveles')
 
                             @include('block.study-details')
 
@@ -58,11 +58,15 @@
 
                             @include('block.study-details')
 
+                            @include('block.study-location')
+
                         @break
 
                         @case(\App\Http\Traits\ServiceTrait::$ID_COLLEGE)
 
                             @include('block.study-details')
+
+                            @include('block.study-location')
 
                     @endswitch
 
@@ -74,7 +78,9 @@
 
                         @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
 
-                            @include('block.study-host-priveles')
+                            @include('block.study-participants-priveles')
+
+                            @include('block.study-location')
 
                         @break
 

@@ -52,6 +52,7 @@ trait PersonTrait {
             return false;
 
         }
+
         $first_name             = $person->{self::$PERSON_FIRST_NAME};
         $last_name              = $person->{self::$PERSON_LAST_NAME};
 
