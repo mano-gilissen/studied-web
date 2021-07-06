@@ -44,7 +44,7 @@
 
                 <div class="column left">
 
-                    @switch($study->getService->id)
+                    @switch($study->service)
 
                         @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
 
@@ -70,7 +70,7 @@
 
                 <div class="column right">
 
-                    @switch($study->getService->id)
+                    @switch($study->service)
 
                         @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
 

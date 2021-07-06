@@ -18,10 +18,10 @@ trait ServiceTrait {
         $SERVICE_DESCRIPTION                            = 'description',
         $SERVICE_CODE                                   = 'code',
 
-        $ID_PRIVELES                                    = 0,
-        $ID_GROEPSLES                                   = 1,
-        $ID_COLLEGE                                     = 2,
-        $ID_TRAINING                                    = 3;
+        $ID_PRIVELES                                    = 1,
+        $ID_GROEPSLES                                   = 2,
+        $ID_COLLEGE                                     = 3,
+        $ID_TRAINING                                    = 4;
 
 
 
