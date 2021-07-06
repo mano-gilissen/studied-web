@@ -74,7 +74,7 @@
 
                         @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
 
-                            @include('block.study-participants-priveles')
+                            @include('block.study-host-priveles')
 
                         @break
 
