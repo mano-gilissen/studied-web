@@ -8,7 +8,7 @@
 
             <!-- TODO: CHANGE TO AVATAR GRID (LARGE AMOUNT OF PARTICIPANTS) -->
 
-            @include('block.user', ['user' => $participant])
+            @include('block.person', ['person' => $participant->getPerson])
 
         @endforeach
 

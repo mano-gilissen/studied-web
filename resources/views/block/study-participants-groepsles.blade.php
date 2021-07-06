@@ -6,7 +6,7 @@
 
         @foreach($participants as $participant)
 
-            @include('block.user', ['user' => $participant])
+            @include('block.person', ['person' => $participant->getPerson])
 
         @endforeach
 

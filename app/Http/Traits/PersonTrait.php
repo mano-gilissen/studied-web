@@ -25,4 +25,39 @@ trait PersonTrait {
 
 
 
+
+
+    public static function getFullName($person, $with_prefix = false) {
+
+        if (!$person) {
+
+            return false;
+
+        }
+
+        $prefix                 = $person->{self::$PERSON_PREFIX};
+        $first_name             = $person->{self::$PERSON_FIRST_NAME};
+        $middle_name            = $person->{self::$PERSON_MIDDLE_NAME};
+        $last_name              = $person->{self::$PERSON_LAST_NAME};
+
+        return ($with_prefix && $prefix ? $prefix . ' ': '') . $first_name . ' ' . ($middle_name ? $middle_name . ' ' : '') . $last_name;
+    }
+
+
+
+    public static function getInitials($person) {
+
+        if (!$person) {
+
+            return false;
+
+        }
+        $first_name             = $person->{self::$PERSON_FIRST_NAME};
+        $last_name              = $person->{self::$PERSON_LAST_NAME};
+
+        return substr($first_name, 0, 1) . substr($last_name, 0, 1) ;
+    }
+
+
+
 }

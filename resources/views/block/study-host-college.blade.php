@@ -2,6 +2,6 @@
 
     <div class="title">Spreker</div>
 
-    @include('block.user', ['user' => $host])
+    @include('block.person', ['person' => $study->getHost->getPerson])
 
 </div>

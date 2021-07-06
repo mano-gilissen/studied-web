@@ -4,6 +4,6 @@
 
     <div class="title page">{{ $page_title }}<span class="dot">.</span></div>
 
-    @include('block.user-header')
+    @include('block.header-user')
 
 </div>

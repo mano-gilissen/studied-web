@@ -1,10 +1,10 @@
 <div class="block-users">
 
-    <div class="title">Deelnemers</div>
+    <div class="title">Leerling</div>
 
     @foreach($participants as $participant)
 
-        @include('block.user', ['user' => $participant, 'size' => 'large'])
+        @include('block.person', ['person' => $participant->getPerson, 'size' => 'large'])
 
         @break
 
