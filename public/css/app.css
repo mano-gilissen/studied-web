@@ -33,29 +33,29 @@ html, body {
     margin:                             0 20px;
 }
 
-#header .user {
+#header .person {
     margin-left:                        auto;
 }
 
-#header .user img,
-#header .user .no-avatar {
+#header .person img,
+#header .person .no-avatar {
     width:                              40px;
     height:                             40px;
     margin:                             0 0 0 12px;
     border-radius:                      20px;
 }
 
-#header .user .no-avatar {
+#header .person .no-avatar {
     padding:                            11px 1px 0 0;
     font-size:                          14px;
     text-align:                         center;
 }
 
-#header .user .name {
+#header .person .name {
     margin:                             0 0 1px auto;
 }
 
-#header .user .role {
+#header .person .role {
     margin:                             0 0 0 auto;
 }
 
@@ -182,16 +182,16 @@ button:focus {
 
 
 
-.user {
+.person {
     display:                            flex;
     align-items:                        center;
 }
 
-.user img {
+.person img {
     object-fit:                         cover;
 }
 
-.user .no-avatar {
+.person .no-avatar {
     background:                         #CCCCCC;
     color:                              white;
     font-family:                        'Circular', serif;
@@ -200,41 +200,41 @@ button:focus {
     letter-spacing:                     -.7px;
 }
 
-.user .values {
+.person .values {
     height:                             72px;
     width:                              100%;
     padding:                            17px 16px 0 32px;
     background:                         #F8F8F8;
 }
 
-.user .name {
+.person .name {
     margin:                             0 0 1px 0;
     font-weight:                        600;
 }
 
-.user .role {
+.person .role {
     margin:                             0;
     color:                              #666666;
 }
 
-.user.large {
+.person.large {
     margin-bottom:                      0;
 }
 
-.user.large img,
-.user.large .no-avatar {
+.person.large img,
+.person.large .no-avatar {
     width:                              96px;
     height:                             96px;
     margin:                             0 24px 0 0;
     border-radius:                      48px;
 }
 
-.user.regular {
+.person.regular {
     margin-bottom:                      24px;
 }
 
-.user.regular img,
-.user.regular .no-avatar {
+.person.regular img,
+.person.regular .no-avatar {
     width:                              72px;
     height:                             72px;
     margin:                             0 24px 0 0;

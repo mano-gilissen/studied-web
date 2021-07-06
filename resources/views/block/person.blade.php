@@ -1,18 +1,18 @@
-<div class="user {{ $size ?? 'regular' }}">
+<div class="person {{ $size ?? 'regular' }}">
 
-    @if($user->getPerson->avatar)
+    @if($person->avatar)
 
-        <img src="{{ asset("storage/avatar/" . $user->getPerson->avatar) }}"/>
+        <img src="{{ asset("storage/avatar/" . $person->avatar) }}"/>
 
     @else
 
-        <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials($user->getPerson) }}</div>
+        <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials($person) }}</div>
 
     @endif
 
     <div class="values">
 
-        <div class="name">{{ \App\Http\Traits\PersonTrait::getFullName($user->getPerson) }}</div>
+        <div class="name">{{ \App\Http\Traits\PersonTrait::getFullName($person) }}</div>
 
         <div class="role">Porta Mosana College</div>
 

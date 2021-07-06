@@ -1,8 +1,8 @@
-<div class="user">
+<div class="person">
 
     <div style="display: grid">
 
-        <div class="name">{{ \App\Http\Traits\UserTrait::getFullName(Auth::user()) }}</div>
+        <div class="name">{{ \App\Http\Traits\PersonTrait::getFullName(Auth::user()->getPerson) }}</div>
 
         <div class="role">{{ \App\Http\Traits\UserTrait::getRoleName(Auth::user()) }}</div>
 
@@ -14,7 +14,7 @@
 
     @else
 
-        <div class="no-avatar">{{ \App\Http\Traits\UserTrait::getInitials(Auth::user()) }}</div>
+        <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials(Auth::user()->getPerson) }}</div>
 
     @endif
 
