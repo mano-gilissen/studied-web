@@ -18,9 +18,15 @@
 
             <div class="value">{{
 
-                $study->getLocation_Defined && $study->getLocation_Defined->getAddress ?
+                $study->getLocation_Defined ?
 
-                    \App\Http\Traits\AddressTrait::getFormatted($study->getLocation_Defined->getAddress, \App\Http\Traits\AddressTrait::$FORMAT_STUDY)
+                    ($study->getLocation_Defined->getAddress ?
+
+                        \App\Http\Traits\AddressTrait::getFormatted($study->getLocation_Defined->getAddress, \App\Http\Traits\AddressTrait::$FORMAT_STUDY)
+
+                        :
+
+                        "aa")
 
                     :
 
