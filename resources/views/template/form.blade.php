@@ -16,7 +16,7 @@
 
         <div class="wrap">
 
-            <img class="back" src="images/back.svg"/>
+            <img class="back" src="/images/back.svg"/>
 
             <div class="title page">{{ $page_title }}<span class="dot">.</span></div>
 

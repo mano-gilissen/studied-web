@@ -12,7 +12,7 @@
 
             @isset($required) required @endisset >
 
-        @isset($icon) <img class="icon" src="images/{{ $icon }}"> @endisset
+        @isset($icon) <img class="icon" src="/images/{{ $icon }}"> @endisset
 
     </div>
 
