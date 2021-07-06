@@ -44,119 +44,55 @@
 
                 <div class="column left">
 
-                    <div class="block-attributes">
+                    @switch($study->getService->id)
 
-                        <div class="title">Gegevens</div>
+                        @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
 
-                        <div class="list-attributes">
+                            @include('block.study-participants-priveles')
 
-                            <div class="attribute">
+                            @include('block.study-details')
 
-                                <div class="name">Vak</div>
+                        @break
 
-                                <div class="value">{{ $study->getSubject_Defined ? $study->getSubject_Defined->code : $study->subject_text }}</div>
+                        @case(\App\Http\Traits\ServiceTrait::$ID_GROEPSLES)
 
-                            </div>
+                            @include('block.study-details')
 
-                            <div class="attribute">
+                        @break
 
-                                <div class="name">Datum</div>
+                        @case(\App\Http\Traits\ServiceTrait::$ID_COLLEGE)
 
-                                {{ \App\Http\Support\Format::datetime($study->created_at) }}
+                            @include('block.study-details')
 
-                            </div>
-
-                            <div class="attribute">
-
-                                <div class="name">Tijdstip</div>
-
-                                <div class="value">{{ $study->start . ' - ' . $study->end  }}</div>
-
-                            </div>
-
-                            <div class="attribute">
-
-                                <div class="name">Status</div>
-
-                                <div class="value">
-
-                                    <div class="tag" style="background: {{\App\Http\Traits\StudyTrait::getStatusColor($study)}};color: {{\App\Http\Traits\StudyTrait::getStatusTextColor($study)}}">{{ \App\Http\Traits\StudyTrait::getStatus($study) }}</div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
+                    @endswitch
 
                 </div>
 
                 <div class="column right">
 
-                    <div class="block-users">
+                    @switch($study->getService->id)
 
-                        <div class="title">Student-docent</div>
+                        @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
 
-                        @include('block.user', ['user' => $host])
+                            @include('block.study-participants-priveles')
 
-                    </div>
+                        @break
 
-                    <div class="block-users">
+                        @case(\App\Http\Traits\ServiceTrait::$ID_GROEPSLES)
 
-                        <div class="title">Deelnemers</div>
+                            @include('block.study-host-groepsles')
 
-                        <div class="list-users">
+                            @include('block.study-participants-groepsles')
 
-                            @foreach($participants as $participant)
+                        @break
 
-                                @include('block.user', ['user' => $participant])
+                        @case(\App\Http\Traits\ServiceTrait::$ID_COLLEGE)
 
-                            @endforeach
+                            @include('block.study-host-college')
 
-                        </div>
+                            @include('block.study-participants-college')
 
-                    </div>
-
-                    <div class="block block-attributes">
-
-                        <div class="title">Gegevens</div>
-
-                        <div class="list-attributes">
-
-                            <div class="attribute">
-
-                                <div class="name">Email</div>
-
-                                <div class="value">123</div>
-
-                            </div>
-
-                            <div class="attribute">
-
-                                <div class="name">Rol</div>
-
-                                <div class="value">456</div>
-
-                            </div>
-
-                            <div class="attribute">
-
-                                <div class="name">Naam</div>
-
-                                <div class="value">789</div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="column wide">
-
-                    <div style="background: pink;height:200px"></div>
+                    @endswitch
 
                 </div>
 

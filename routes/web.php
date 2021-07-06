@@ -14,9 +14,11 @@ Route::get('/',                                 'DebugController@landing')->name
 
 Route::get('/lab',                              'DebugController@lab')->name('lab.view')->middleware('auth');
 
-Route::get('/studytest',                        'DebugController@study_test')->name('study_test.view')->middleware('auth');
-
 Route::get('/formtest',                         'DebugController@form_test')->name('form_test.view')->middleware('auth');
+
+
+
+Route::get('/study/{id}',                       'StudyController@view')->name('study.view')->middleware('auth');
 
 
 
