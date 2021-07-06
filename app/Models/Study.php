@@ -20,7 +20,7 @@ class Study extends Model {
 
     protected
 
-        $table                                  = 'study';
+        $table                                          = 'study';
 
 
 
@@ -68,6 +68,46 @@ class Study extends Model {
 
         return $this->{self::$STUDY_HOST_USER} ? self::$USER : ($this->{self::$STUDY_HOST_RELATION} ? self::$RELATION : null);
 
+    }
+
+
+
+    public function getParticipants_User() {
+
+        return self::getManyToMany(self::$USER, self::$STUDY_USER, self::$STUDY);
+
+    }
+
+
+
+    public function getParticipants_Participant() {
+
+        return self::getOneToMany(self::$STUDY_PARTICIPANT, self::$STUDY);
+
+    }
+
+
+
+    public function getParticipants_Person() {
+
+        $persons                                        = [];
+
+        $users                                          = self::getParticipants_User();
+        $participants                                   = self::getParticipants_Participant();
+
+        foreach ($users as $user) {
+
+            array_push($persons, $user->getPerson);
+
+        }
+
+        foreach ($participants as $participant) {
+
+            array_push($persons, $participant->getPerson);
+
+        }
+
+        return $persons;
     }
 
 

@@ -4,11 +4,11 @@
 
     <div class="list-users">
 
-        @foreach($participants as $participant)
+        @foreach($study->getParticipants_Person as $person)
 
             <!-- TODO: CHANGE TO AVATAR GRID (LARGE AMOUNT OF PARTICIPANTS) -->
 
-            @include('block.person', ['person' => $participant->getPerson])
+            @include('block.person', ['person' => $person])
 
         @endforeach
 

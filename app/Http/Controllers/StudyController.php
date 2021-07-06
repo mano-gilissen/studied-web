@@ -31,7 +31,6 @@ class StudyController extends Controller {
             Key::PAGE_TITLE                                                 => $study->getService->{self::$SERVICE_NAME},
 
             self::$STUDY                                                    => $study,
-            'participants'                                                  => [User::find(1), User::find(3)],
             'button_contact_host'                                           => true,
         ]);
     }

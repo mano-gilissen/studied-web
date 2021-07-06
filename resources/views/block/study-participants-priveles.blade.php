@@ -2,7 +2,7 @@
 
     <div class="title">Leerling</div>
 
-    @foreach($participants as $participant)
+    @foreach($study->getParticipants_User as $participant)
 
         @include('block.person', ['person' => $participant->getPerson, 'size' => 'large'])
 

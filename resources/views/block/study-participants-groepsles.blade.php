@@ -4,7 +4,7 @@
 
     <div class="list-users">
 
-        @foreach($participants as $participant)
+        @foreach($study->getParticipants_User as $participant)
 
             @include('block.person', ['person' => $participant->getPerson])
 
