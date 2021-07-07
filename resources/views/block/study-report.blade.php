@@ -2,11 +2,11 @@
 
     <div class="title">Rapportage</div>
 
-    <div class="report">
+    @foreach($study->getParticipants_User as $participant)
 
-        <div style="display:flex">
+        <div class="report">
 
-            @foreach($study->getParticipants_User as $participant)
+            <div style="display:flex">
 
                 @if($study->getHost->getPerson->avatar)
 
@@ -22,22 +22,22 @@
 
                 <div class="comment">{{ $study->getReport($participant)->content_verslag }}</div>
 
-                <div class="subjects">
+            </div>
 
-                    @foreach($study->getReport($participant)->getReport_Subjects as $report_subject)
+            <div class="subjects">
 
-                        <div>{{ $report_subject->getSubject->description_short }}</div>
+                @foreach($study->getReport($participant)->getReport_Subjects as $report_subject)
 
-                    @endforeach
+                    <div>{{ $report_subject->getSubject->description_short }}</div>
 
-                </div>
+                @endforeach
 
-                @break
-
-            @endforeach
+            </div>
 
         </div>
 
-    </div>
+        @break
+
+    @endforeach
 
 </div>
