@@ -66,14 +66,13 @@
 .report .comment {
     width:                              100%;
     padding:                            16px 32px;
-    background-color:                   #FFDD34;
-    opacity:                            .2;
+    background-color:                   #FFF7D1;
+    font-style:                         italic;
 }
 
 .report .comment-tail {
     height:                             0;
     width:                              0;
-    border-top:                         20px solid #FFDD34;
+    border-top:                         20px solid #FFF7D1;
     border-left:                        20px solid transparent;
-    opacity:                            .2;
 }
