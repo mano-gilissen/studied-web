@@ -6,19 +6,25 @@
 
         <div style="display:flex">
 
-            @if($study->getHost->getPerson->avatar)
+            @foreach($study->getParticipants_User as $participant)
 
-                <img src="{{ asset("storage/avatar/" . $study->getHost->getPerson->avatar) }}"/>
+                @if($study->getHost->getPerson->avatar)
 
-            @else
+                    <img src="{{ asset("storage/avatar/" . $study->getHost->getPerson->avatar) }}"/>
 
-                <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials($study->getHost->getPerson) }}</div>
+                @else
 
-            @endif
+                    <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials($study->getHost->getPerson) }}</div>
 
-            <div class="comment-tail"></div>
+                @endif
 
-            <div class="comment">Test rapport text alsjfawl ekf jwelf aj kajw kwjflkawjf klawjefa wek</div>
+                <div class="comment-tail"></div>
+
+                <div class="comment">{{ $study->getReport($participant)->content_verslag }}</div>
+
+                @break
+
+            @endforeach
 
         </div>
 

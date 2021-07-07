@@ -5,6 +5,9 @@
 namespace App\Models;
 
 use App\Http\Traits\BaseTrait;
+use App\Http\Traits\ReportTrait;
+use App\Http\Traits\StudyTrait;
+use App\Http\Traits\UserTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -123,6 +126,14 @@ class Study extends Model {
     public function getLocation_Defined() {
 
         return self::getThisToOne(self::$LOCATION, self::$STUDY_LOCATION_DEFINED);
+
+    }
+
+
+
+    public function getReport($user) {
+
+        return Report::where(self::$STUDY, $this->{self::$BASE_ID})->where(self::$USER, $user->{self::$BASE_ID})->first();
 
     }
 

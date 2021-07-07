@@ -6,7 +6,7 @@ namespace App\Http\Traits;
 
 use App\Http\Support\Key;
 use App\Http\Support\Color;
-
+use App\Models\Report;
 
 
 trait StudyTrait {
