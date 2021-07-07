@@ -20,7 +20,7 @@ trait Report_SubjectTrait {
 
     public static function getDurationReadable($report_subject) {
 
-        if (!$report_subject || $report_subject <= 0) {
+        if (!$report_subject || $report_subject->duration <= 0) {
 
             return false;
 
