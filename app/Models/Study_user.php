@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 
-class Student_Relation extends Model {
+class Study_user extends Model {
 
 
 
@@ -19,7 +19,7 @@ class Student_Relation extends Model {
 
     protected
 
-        $table                                  = 'student_relation';
+        $table                                  = 'study_user';
 
 
 

@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 
-class Report_Subject extends Model {
+class Report_subject extends Model {
 
 
 
