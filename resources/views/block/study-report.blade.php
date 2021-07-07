@@ -6,13 +6,13 @@
 
         <div style="display:flex">
 
-            @if($host->avatar)
+            @if($study->getHost->getPerson->avatar)
 
-                <img src="{{ asset("storage/avatar/" . $host->avatar) }}"/>
+                <img src="{{ asset("storage/avatar/" . $study->getHost->getPerson->avatar) }}"/>
 
             @else
 
-                <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials($host) }}</div>
+                <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials($study->getHost->getPerson) }}</div>
 
             @endif
 
