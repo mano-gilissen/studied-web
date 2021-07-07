@@ -82,3 +82,17 @@
     margin-top:                         24px;
     padding:                            16px 24px 16px 32px;
 }
+
+.report .subject {
+    height:                             50px;
+}
+
+.report .subject. .name {
+    width:                              100px;
+}
+
+.report .subject .duration {
+    width:                              64px;
+    font-weight:                        600;
+    text-align:                         end;
+}

@@ -28,7 +28,13 @@
 
                 @foreach($study->getReport($participant)->getReport_Subjects as $report_subject)
 
-                    <div>{{ $report_subject->getSubject->description_short }}</div>
+                    <div class="subject">
+
+                        <div class="name">{{ $report_subject->getSubject->description_short }}</div>
+
+                        <div class="duration">{{ \App\Http\Traits\Report_SubjectTrait::getDurationReadable($report_subject) }}</div>
+
+                    </div>
 
                 @endforeach
 
