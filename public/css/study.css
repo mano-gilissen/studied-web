@@ -50,3 +50,30 @@
 .content-columns .wide {
     grid-area:                          wide;
 }
+
+
+
+
+
+.report img,
+.report .no-avatar {
+    width:                              64px;
+    height:                             64px;
+    margin:                             0 8px 0 0;
+    border-radius:                      32px;
+}
+
+.report .comment {
+    width:                              100%;
+    padding:                            16px 32px;
+    background-color:                   #FFDD34;
+    opacity:                            .2;
+}
+
+.report .comment-tail {
+    height:                             0;
+    width:                              0;
+    border-top:                         20px solid #FFDD34;
+    border-left:                        20px solid transparent;
+    opacity:                            .2;
+}

@@ -1,40 +1,36 @@
-window.Vue = require('vue');
 
 
 
-const app = new Vue({
+const BUTTON_MENU                               = '#button-menu';
 
-    el                                          : '#app',
+const OBJECT_WRAP                               = '#wrap';
+const OBJECT_MENU                               = '#menu';
 
-    data : {
+var menu_open                                   = false;
 
-        menu_open                               : false,
 
-        OBJECT_WRAP                             : $('#wrap'),
-        OBJECT_MENU                             : $('#menu'),
 
-        CLASS_MENU_OPEN                         : 'menu-open'
+$(function(){
 
-    },
 
-    methods : {
 
-        menu_toggle : function (event) {
+    $(BUTTON_MENU).click(function() {
 
-            this.menu_open                      = !this.menu_open;
+        menu_open                               = !menu_open;
 
-            this.OBJECT_WRAP.classList.remove(this.CLASS_MENU_OPEN);
-            this.OBJECT_MENU.classList.remove(this.CLASS_MENU_OPEN);
+        if (this.menu_open) {
 
-            if (this.menu_open) {
+            $(OBJECT_WRAP).hide();
+            $(OBJECT_MENU).show();
 
-                this.OBJECT_WRAP.classList.add(this.CLASS_MENU_OPEN);
-                this.OBJECT_MENU.classList.add(this.CLASS_MENU_OPEN);
-            }
+        } else {
+
+            $(OBJECT_WRAP).show();
+            $(OBJECT_MENU).hide();
+
         }
+    });
 
-    }
+
 
 });
-
-
