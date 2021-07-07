@@ -22,6 +22,16 @@
 
                 <div class="comment">{{ $study->getReport($participant)->content_verslag }}</div>
 
+                <div class="subjects">
+
+                    @foreach($study->getReport($participant)->getReport_Subjects as $report_subject)
+
+                        <div>{{ $report_subject->getSubject->description_short }}</div>
+
+                    @endforeach
+
+                </div>
+
                 @break
 
             @endforeach

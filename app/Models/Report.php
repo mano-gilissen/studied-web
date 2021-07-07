@@ -41,4 +41,12 @@ class Report extends Model {
 
 
 
+    public function getReport_Subjects() {
+
+        return self::getOneToMany(self::$REPORT_SUBJECT, self::$REPORT);
+
+    }
+
+
+
 }
