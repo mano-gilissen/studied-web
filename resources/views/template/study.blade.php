@@ -108,7 +108,6 @@
 
                 <div class="column right">
 
-
                     @switch($study->status)
 
                         @case(\App\Http\Traits\StudyTrait::$STATUS_REPORTED)
@@ -128,6 +127,8 @@
                                 @break
 
                             @endswitch
+
+                        @break;
 
                         @default
 
