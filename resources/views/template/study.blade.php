@@ -136,8 +136,6 @@
 
                                 @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
 
-                                    @include('block.study-report')
-
                                     @include('block.study-participants-priveles')
 
                                     @include('block.study-location')
