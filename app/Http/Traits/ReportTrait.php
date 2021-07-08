@@ -22,7 +22,7 @@ trait ReportTrait {
 
 
 
-    public static function getTotalDuration($report) {
+    public static function getDurationTotal($report) {
 
         $report_subjects                            = $report->getReport_Subjects;
 
@@ -37,17 +37,11 @@ trait ReportTrait {
         return $duration_total;
     }
 
-    public static function getDurationDots_Total($report) {
+    public static function getDurationDots($report) {
 
-        $duration_total                             = self::getTotalDuration($report);
+        $duration_total                             = self::getDurationTotal($report);
 
         return (int) ($duration_total / .25);
-    }
-
-    public static function getDurationDots_Subject($report_subject) {
-
-        return (int) ($report_subject->duration / .25);
-
     }
 
 
