@@ -100,3 +100,15 @@
     font-weight:                        600;
     text-align:                         end;
 }
+
+.report .dots {
+    display:                            grid;
+    grid-auto-flow:                     column;
+    width:                              120px;
+}
+
+.report .dot {
+    width:                              9px;
+    height:                             9px;
+    border-radius:                      4.5px;
+}
