@@ -26,7 +26,6 @@ trait ReportTrait {
 
         $report_subjects                            = $report->getReport_Subjects();
 
-        return $report_subjects->first()->duration;
 
         $duration_total                             = (float) 0.0;
 
