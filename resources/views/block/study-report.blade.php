@@ -92,6 +92,8 @@
 
         </div>
 
+        @break
+
     @endforeach
 
 </div>
