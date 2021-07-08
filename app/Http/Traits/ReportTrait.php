@@ -39,7 +39,7 @@ trait ReportTrait {
 
     public static function getDurationDots_Total($report) {
 
-        $duration_total                             = 2;//self::getTotalDuration($report);
+        $duration_total                             = self::getTotalDuration($report);
 
         return (int) ($duration_total / .25);
     }
