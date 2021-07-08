@@ -24,8 +24,7 @@ trait ReportTrait {
 
     public static function getTotalDuration($report) {
 
-        $report_subjects                            = $report->getReport_Subjects();
-
+        $report_subjects                            = $report->getReport_Subjects;
 
         $duration_total                             = (float) 0.0;
 
