@@ -26,15 +26,15 @@ trait ReportTrait {
 
         $report_subjects                            = $report->getReport_Subjects;
 
-        $duration_total                             = 0.0;
+        $duration_total                             = (float) 0.0;
 
         foreach($report_subjects as $report_subject) {
 
-            $duration_total                         = $report_subject->duration;
+            $duration_total                         = (float) $report_subject->duration;
 
         }
 
-        return $duration_total;
+        return (float) $duration_total;
     }
 
     public static function getDurationDots_Total($report) {
