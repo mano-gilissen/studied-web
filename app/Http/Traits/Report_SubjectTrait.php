@@ -28,11 +28,11 @@ trait Report_SubjectTrait {
 
         return ($report_subject->{self::$REPORT_SUBJECT_DURATION} >= 1.0 && fmod($report_subject->{self::$REPORT_SUBJECT_DURATION}, 1) == 0) ?
 
-                ((int) ($report_subject->{self::$REPORT_SUBJECT_DURATION})) . ' uur'
+                ($report_subject->{self::$REPORT_SUBJECT_DURATION}) . ' uur'
 
-                    :
+                :
 
-                ((int) ($report_subject->{self::$REPORT_SUBJECT_DURATION} * 60.0)) . ' min';
+                ($report_subject->{self::$REPORT_SUBJECT_DURATION} * 60) . ' min';
     }
 
 
