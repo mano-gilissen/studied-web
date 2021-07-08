@@ -26,7 +26,7 @@ trait Report_SubjectTrait {
 
         }
 
-        return ($report_subject->{self::$REPORT_SUBJECT_DURATION} % 1 == 0) ?
+        return ($report_subject->{self::$REPORT_SUBJECT_DURATION} < 1 || $report_subject->{self::$REPORT_SUBJECT_DURATION} % 1 == 0) ?
 
                     ($report_subject->{self::$REPORT_SUBJECT_DURATION}) . ' uur'
 
