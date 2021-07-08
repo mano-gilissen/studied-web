@@ -58,6 +58,38 @@
 
             </div>
 
+            <div class="content">
+
+                <div class="item">
+
+                    <div>Voortgang</div>
+
+                    <img src="/images/chevron.svg">
+
+                </div>
+
+                <div class="seperator"></div>
+
+                <div class="item">
+
+                    <div>Volgende les</div>
+
+                    <img src="/images/chevron.svg">
+
+                </div>
+
+                <div class="seperator"></div>
+
+                <div class="item">
+
+                    <div>Uitdagingen</div>
+
+                    <img src="/images/chevron.svg">
+
+                </div>
+
+            </div>
+
         </div>
 
         @break

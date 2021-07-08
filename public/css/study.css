@@ -112,3 +112,30 @@
     height:                             9px;
     border-radius:                      4.5px;
 }
+
+.report .content {
+    background:                         #F8F8F8;
+    margin-top:                         24px;
+    padding:                            8px 0;
+}
+
+.report .content .item {
+    display:                            flex;
+    align-items:                        center;
+    height:                             64px;
+    width:                              100%;
+    padding:                            0 24px 0 32px;
+    color:                              #666666;
+}
+
+.report .content .item img {
+    width:                              24px;
+    height:                             24px;
+    margin-left:                        auto;
+}
+
+.report .content .seperator {
+    height:                             1px;
+    margin:                             4px 24px;
+    background:                         #E6E6E6;
+}
