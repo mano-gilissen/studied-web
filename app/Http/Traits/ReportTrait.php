@@ -28,9 +28,9 @@ trait ReportTrait {
 
         $duration_total                             = (float) 0.0;
 
-        foreach($report_subjects as $report_subject) {
+        return $report_subjects->count();
 
-            return "aaaa";
+        foreach($report_subjects as $report_subject) {
 
             $duration_total                         += (float) $report_subject->duration;
 
