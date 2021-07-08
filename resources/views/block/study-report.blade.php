@@ -34,7 +34,7 @@
 
                         <div class="dots">
 
-                            @for ($i = 0; $i < \App\Http\Traits\ReportTrait::getDurationDots($study->getReport($participant)); $i++)
+                            @for ($i = 0; $i < \App\Http\Traits\ReportTrait::getDurationDots_Total($study->getReport($participant)); $i++)
 
                                 @if($i < \App\Http\Traits\Report_SubjectTrait::getDurationDots($report_subject))
 
