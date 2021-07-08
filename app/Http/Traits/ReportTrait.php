@@ -26,9 +26,13 @@ trait ReportTrait {
 
         $report_subjects                            = $report->getReport_Subjects();
 
+        return $report_subjects->first()->duration;
+
+        $duration_total                             = (float) 0.0;
+
         foreach($report_subjects as $report_subject) {
 
-            return $report_subject->duration;
+            $duration_total                         = (float) $report_subject->duration;
 
         }
 
