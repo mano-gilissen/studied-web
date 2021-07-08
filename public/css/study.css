@@ -92,11 +92,10 @@
 
 .report .subject .name {
     width:                              100px;
-    margin-right:                       auto;
 }
 
 .report .subject .duration {
-    width:                              64px;
+    margin-left:                        auto;
     font-weight:                        600;
     text-align:                         end;
 }
@@ -104,7 +103,7 @@
 .report .dots {
     display:                            grid;
     grid-auto-flow:                     column;
-    width:                              120px;
+    width:                              112px;
     height:                             9px;
 }
 
