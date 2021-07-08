@@ -30,6 +30,8 @@ trait ReportTrait {
 
         foreach($report_subjects as $report_subject) {
 
+            return "aadfsdf";
+
             $duration_total                         += (float) $report_subject->duration;
 
         }
