@@ -34,10 +34,10 @@
 
                         <div class="dots">
 
-                            {{"aa"}}
+                            {{\App\Http\Traits\ReportTrait::getTotalDuration($study->getReport($participant))}}
 
-                            @for ($i = 0; $i < \App\Http\Traits\ReportTrait::getDurationDots_Total($study, $participant); $i++)
-                                {{$i}}
+                            @for ($i = 0; $i < \App\Http\Traits\ReportTrait::getDurationDots_Total($study->getReport($participant)); $i++)
+
                                 @if($i < \App\Http\Traits\ReportTrait::getDurationDots_Subject($report_subject))
 
                                     <div class="dot" style="background:#FFDD34"></div>
