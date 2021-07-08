@@ -26,7 +26,7 @@ trait ReportTrait {
 
         $report_subjects                            = $report->getReport_Subjects();
 
-        return sizeof($report_subjects);
+        return $report_subjects->count();
         $duration_total                             = 0;
 
         foreach($report_subjects as $report_subject) {
