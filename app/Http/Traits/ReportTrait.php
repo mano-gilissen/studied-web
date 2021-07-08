@@ -4,7 +4,9 @@
 
 namespace App\Http\Traits;
 
-use App\Http\Traits\BaseTrait;
+
+
+use App\Http\Traits\Report_SubjectTrait;
 
 
 
@@ -12,7 +14,7 @@ trait ReportTrait {
 
 
 
-    use BaseTrait;
+    use Report_SubjectTrait;
 
 
 
