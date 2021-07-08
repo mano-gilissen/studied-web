@@ -30,18 +30,18 @@ trait ReportTrait {
 
         foreach($report_subjects as $report_subject) {
 
-            return "aadfsdf";
+            return "aaaa";
 
             $duration_total                         += (float) $report_subject->duration;
 
         }
 
-        return $duration_total;
+        return "bbbb";//$duration_total;
     }
 
     public static function getDurationDots_Total($report) {
 
-        $duration_total                             = 5;//self::getTotalDuration($report);
+        $duration_total                             = 2;//self::getTotalDuration($report);
 
         return (int) ($duration_total / .25);
     }
