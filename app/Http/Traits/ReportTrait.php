@@ -30,6 +30,8 @@ trait ReportTrait {
 
         foreach($report_subjects as $report_subject) {
 
+            return $report_subject->duration;
+
             $duration_total                         += $report_subject->duration;
 
         }
