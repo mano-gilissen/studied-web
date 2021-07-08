@@ -20,13 +20,13 @@ trait Report_SubjectTrait {
 
     public static function getDurationReadable($report_subject) {
 
-        if (!$report_subject || $report_subject->duration <= 0) {
+        if (!$report_subject || $report_subject->{self::$REPORT_SUBJECT_DURATION} <= 0) {
 
             return false;
 
         }
 
-        return ($report_subject->{self::$REPORT_SUBJECT_DURATION} >= 1.0 && $report_subject->{self::$REPORT_SUBJECT_DURATION} % 1.0 == 0.0) ?
+        return ($report_subject->{self::$REPORT_SUBJECT_DURATION} >= 1.0 && $report_subject->{self::$REPORT_SUBJECT_DURATION} % 1 == 0) ?
 
                 ((int) ($report_subject->{self::$REPORT_SUBJECT_DURATION})) . ' uur'
 
@@ -39,7 +39,7 @@ trait Report_SubjectTrait {
 
     public static function getDurationDots($report_subject) {
 
-        return (int) ($report_subject->duration / .25);
+        return (int) ($report_subject->{self::$REPORT_SUBJECT_DURATION} / .25);
 
     }
 
