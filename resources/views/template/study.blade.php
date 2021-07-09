@@ -14,6 +14,8 @@
 
     @include('block.header')
 
+    @include('block.menu')
+
     <div id="wrap">
 
         <div id="banner" style="background-image:url({{url('images/study_banner_example.png')}})">

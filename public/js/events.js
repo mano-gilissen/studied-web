@@ -16,8 +16,6 @@ $(function(){
 
     $(BUTTON_MENU).click(function() {
 
-        console.log("a");
-
         menu_open                               = !menu_open;
 
         if (this.menu_open) {
