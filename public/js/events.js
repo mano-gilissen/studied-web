@@ -18,6 +18,8 @@ $(function(){
 
         menu_open                               = !menu_open;
 
+        console.log(menu_open ? "true" : "false");
+
         if (this.menu_open) {
 
             $(OBJECT_WRAP).hide();
