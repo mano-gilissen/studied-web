@@ -92,6 +92,10 @@ html, body {
 
 .dot {
     color:                              #FFDD34;
+    font-family:                        'Circular', serif;
+    font-weight:                        200;
+    font-size:                          30px;
+    letter-spacing:                     -1px;
 }
 
 
