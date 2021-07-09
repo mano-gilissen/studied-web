@@ -9,7 +9,7 @@ const OBJECT_PAGE_TITLE                         = '.page.title';
 const ICON_BACK                                 = "/images/back.svg";
 const ICON_MENU                                 = "/images/menu.svg";
 
-const TEXT_PAGE_TITLE_MENU                      = 'Studied.';
+const TEXT_PAGE_TITLE_MENU                      = 'Studied';
 
 var menu_open                                   = false;
 var page_title                                  = "";
@@ -31,7 +31,7 @@ $(function(){
 
             this.page_title                     = $(OBJECT_PAGE_TITLE).text();
 
-            $(OBJECT_PAGE_TITLE)                .html(TEXT_PAGE_TITLE_MENU + "<span class=\"dot\">.</span>");
+            $(OBJECT_PAGE_TITLE)                .text(TEXT_PAGE_TITLE_MENU);
             $(OBJECT_BUTTON_MENU)               .attr("src", ICON_BACK);
 
         } else {
@@ -39,7 +39,7 @@ $(function(){
             $(OBJECT_WRAP)                      .show();
             $(OBJECT_MENU)                      .hide();
 
-            $(OBJECT_PAGE_TITLE)                .html(this.page_title + "<span class=\"dot\">.</span>");
+            $(OBJECT_PAGE_TITLE)                .text(this.page_title);
             $(OBJECT_BUTTON_MENU)               .attr("src", ICON_MENU);
         }
     });
