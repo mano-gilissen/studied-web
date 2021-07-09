@@ -31,7 +31,7 @@ $(function(){
 
             this.page_title                     = $(OBJECT_PAGE_TITLE).text();
 
-            $(OBJECT_PAGE_TITLE)                .text(TEXT_PAGE_TITLE_MENU)
+            $(OBJECT_PAGE_TITLE)                .text(TEXT_PAGE_TITLE_MENU);
             $(OBJECT_BUTTON_MENU)               .attr("src", ICON_BACK);
 
         } else {
