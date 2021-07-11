@@ -13,6 +13,7 @@ trait BaseTrait {
     public static
 
         $BASE_ID                                = 'id',
+        $BASE_KEY                               = 'key',
         $BASE_CREATED_AT                        = 'created_at',
         $BASE_DELETED_AT                        = 'deleted_at',
 

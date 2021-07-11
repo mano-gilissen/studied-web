@@ -30,7 +30,32 @@ html, body {
 
 
 #menu {
+    position:                           fixed;
+    width:                              100vw;
+    height:                             100vh;
+    padding:                            145px 80px 0;
     z-index:                            2;
+}
+
+#menu .item {
+    height:                             32px;
+    margin-bottom:                      44px;
+    cursor:                             pointer;
+}
+
+#menu .item img {
+    height:                             32px;
+    width:                              32px;
+    border-radius:                      16px;
+    margin-left:                        16px;
+    background:                         #FFDD34;
+    visibility:                         hidden;
+    transition:                         all .3s ease-out;
+}
+
+#menu .item:hover img {
+    visibility:                         visible;
+    transform:                          translate(4px, 0);
 }
 
 

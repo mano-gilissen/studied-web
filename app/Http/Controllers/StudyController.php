@@ -22,9 +22,9 @@ class StudyController extends Controller {
 
 
 
-    public function view($id) {
+    public function view($key) {
 
-        $study = Study::findOrFail($id);
+        $study = Study::where(self::$BASE_KEY, $key)->firstOrFail();
 
         return view(Views::STUDY, [
 
@@ -33,6 +33,14 @@ class StudyController extends Controller {
             self::$STUDY                                                    => $study,
             'button_contact_host'                                           => true,
         ]);
+    }
+
+
+
+    public function list() {
+
+        return "study.list";
+
     }
 
 

@@ -18,7 +18,9 @@ Route::get('/formtest',                         'DebugController@form_test')->na
 
 
 
-Route::get('/study/{id}',                       'StudyController@view')->name('study.view')->middleware('auth');
+Route::get('/les',                              'StudyController@list')->name('study.list')->middleware('auth');
+
+Route::get('/les/{key}',                        'StudyController@view')->name('study.view')->middleware('auth');
 
 
 
