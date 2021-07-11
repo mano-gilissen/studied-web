@@ -259,7 +259,7 @@ button:focus {
 .person {
     display:                            flex;
     align-items:                        center;
-    pointer:                            cursor;
+    cursor:                             pointer;
 }
 
 .person img {
