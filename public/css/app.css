@@ -60,7 +60,7 @@ html, body {
     padding:                            8px;
     background:                         #FFDD34;
     visibility:                         hidden;
-    transition:                         all .2s linear;
+    transition:                         all 0s linear;
 }
 
 #menu .item:hover .label {
@@ -73,7 +73,7 @@ html, body {
 #menu .item:hover img {
     visibility:                         visible;
     transform:                          translate(4px, 0);
-    transition:                         all 0s linear;
+    transition:                         all .2s ease-out;
 }
 
 
