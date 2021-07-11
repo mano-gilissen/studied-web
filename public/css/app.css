@@ -46,7 +46,6 @@ html, body {
     font-family:                        'Circular', serif;
     font-weight:                        100;
     cursor:                             pointer;
-    transition:                         all .2s linear;
 }
 
 #menu .item img {
@@ -57,7 +56,7 @@ html, body {
     padding:                            8px;
     background:                         #FFDD34;
     visibility:                         hidden;
-    transform:                          rotate(180deg);
+    transition:                         all .3s linear;
 }
 
 #menu .item:hover {
@@ -66,7 +65,7 @@ html, body {
 
 #menu .item:hover img {
     visibility:                         visible;
-    transform:                          rotate(180deg) translate(4px, 0);
+    transform:                          translate(4px, 0);
 }
 
 
