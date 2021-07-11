@@ -1,4 +1,4 @@
-<div class="item" onclick="window.location.href='{{ $route ? route($route) : '' }}'" >
+<div class="item" onclick="window.location.href='{{ route($route ?? '') }}'" >
 
     <div class="label">{{ $label }}</div>
 
