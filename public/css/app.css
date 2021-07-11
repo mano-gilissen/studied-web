@@ -68,12 +68,12 @@ html, body {
     font-family:                        'Circular', serif;
     font-weight:                        100;
     color:                              #000000;
-    transition:                         all 0s;
 }
 
 #menu .item:hover img {
     visibility:                         visible;
     transform:                          translate(4px, 0);
+    transition:                         all 0s;
 }
 
 
