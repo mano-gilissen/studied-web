@@ -26,8 +26,8 @@ $(function(){
 
         if (this.menu_open) {
 
-            $(OBJECT_WRAP)                      .hide();
-            $(OBJECT_MENU)                      .show();
+            $(OBJECT_WRAP)                      .css('visibility', 'hidden');
+            $(OBJECT_MENU)                      .css('visibility', 'visible');
 
             this.page_title                     = $(OBJECT_PAGE_TITLE).text();
 
@@ -36,8 +36,8 @@ $(function(){
 
         } else {
 
-            $(OBJECT_WRAP)                      .show();
-            $(OBJECT_MENU)                      .hide();
+            $(OBJECT_WRAP)                      .css('visibility', 'visible');
+            $(OBJECT_MENU)                      .css('visibility', 'hidden');
 
             $(OBJECT_PAGE_TITLE)                .text(this.page_title);
             $(OBJECT_BUTTON_MENU)               .attr("src", ICON_MENU);
