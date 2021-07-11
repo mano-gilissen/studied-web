@@ -21,6 +21,16 @@ html, body {
     position:                           fixed;
     width:                              100vw;
     height:                             100vh;
+    overflow-y:                         scroll;
+    z-index:                            1;
+}
+
+
+
+
+
+#menu {
+    z-index:                            2;
 }
 
 
@@ -35,6 +45,7 @@ html, body {
     align-items:                        center;
     height:                             80px;
     padding-right:                      64px;
+    z-index:                            3;
 }
 
 #header .menu {
