@@ -22,7 +22,13 @@
 
             <div id="banner" style="background-image:url({{url('images/study_banner_example.png')}})">
 
-                <div class="title">{{ $study->getSubject_Defined ? $study->getSubject_Defined->description_short : $study->subject_text }}</div>
+                <div>
+
+                    <div class="title">{{ $study->getSubject_Defined ? $study->getSubject_Defined->description_subject : $study->subject_text }}</div>
+
+                    <div class="subtitle">{{ \App\Http\Support\Format::datetime($study->created_at) }}</div>
+
+                </div>
 
             </div>
 

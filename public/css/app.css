@@ -150,6 +150,12 @@ html, body {
     letter-spacing:                     -1px;
 }
 
+.subtitle {
+    font-size:                          14px;
+    font-family:                        'Circular', serif;
+    font-weight:                        100;
+}
+
 
 
 
