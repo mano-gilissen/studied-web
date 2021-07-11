@@ -38,6 +38,8 @@ html, body {
 }
 
 #menu .item {
+    display:                            flex;
+    align-items:                        center;
     height:                             32px;
     margin-bottom:                      44px;
     cursor:                             pointer;
@@ -48,14 +50,16 @@ html, body {
     width:                              32px;
     border-radius:                      16px;
     margin-left:                        16px;
+    padding:                            8px;
     background:                         #FFDD34;
     visibility:                         hidden;
+    transform:                          rotate(180deg);
     transition:                         all .3s ease-out;
 }
 
 #menu .item:hover img {
     visibility:                         visible;
-    transform:                          translate(4px, 0);
+    transform:                          rotate(180deg) translate(4px, 0);
 }
 
 
