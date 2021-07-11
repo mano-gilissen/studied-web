@@ -6,7 +6,7 @@
 
             @include('block.menu-item', ['label' => 'Mijn profiel'])
 
-            @include('block.menu-item', ['label' => 'Lessen', 'route' => ''])
+            @include('block.menu-item', ['label' => 'Lessen', 'route' => 'study.list'])
 
             @include('block.menu-item', ['label' => 'Medewerkers'])
 
