@@ -259,6 +259,7 @@ button:focus {
 .person {
     display:                            flex;
     align-items:                        center;
+    pointer:                            cursor;
 }
 
 .person img {
@@ -279,6 +280,10 @@ button:focus {
     width:                              100%;
     padding:                            17px 16px 0 32px;
     background:                         #F8F8F8;
+}
+
+.person:hover .values {
+    background:                         #F0F0F0;
 }
 
 .person .name {
