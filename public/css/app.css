@@ -33,19 +33,23 @@ html, body {
     position:                           fixed;
     width:                              100vw;
     height:                             100vh;
-    padding:                            145px 80px 0;
+    padding:                            123px 80px 0;
     z-index:                            2;
 }
 
 #menu .item {
     display:                            flex;
     align-items:                        center;
-    height:                             32px;
-    margin-bottom:                      44px;
+    height:                             76px;
+    padding:                            22px 0;
+    cursor:                             pointer;
+}
+
+#menu .item .label {
     font-size:                          14px;
     font-family:                        'Circular', serif;
     font-weight:                        100;
-    cursor:                             pointer;
+    color:                              #000000B3
 }
 
 #menu .item img {
@@ -56,11 +60,14 @@ html, body {
     padding:                            8px;
     background:                         #FFDD34;
     visibility:                         hidden;
-    transition:                         all .3s linear;
+    transition:                         all .2s ease-out;
 }
 
-#menu .item:hover {
-    font-weight:                        200;
+#menu .item:hover .label {
+    font-size:                          14px;
+    font-family:                        'Circular', serif;
+    font-weight:                        100;
+    color:                              #000000
 }
 
 #menu .item:hover img {
