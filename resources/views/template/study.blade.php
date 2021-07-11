@@ -18,31 +18,29 @@
 
     <div id="wrap">
 
-        <div id="column">
+        <div id="banner" style="background-image:url({{url('images/study_banner_example.png')}})">
 
-            <div id="banner" style="background-image:url({{url('images/study_banner_example.png')}})">
+            <div class="title">{{ $study->getSubject_Defined ? $study->getSubject_Defined->description_short : $study->subject_text }}</div>
 
-                <div class="title">{{ $study->getSubject_Defined ? $study->getSubject_Defined->description_short : $study->subject_text }}</div>
+        </div>
 
-            </div>
+        <div id="actions">
 
-            <div id="actions">
+            @if($button_contact_host ?? false)
 
-                @if($button_contact_host ?? false)
+                <div class="button icon">
 
-                    <div class="button icon">
+                    <img class="icon" src="/images/contact.svg">
 
-                        <img class="icon" src="/images/contact.svg">
+                    <div class="text">Contacteer {{ $study->getHost->getPerson->first_name }}</div>
 
-                        <div class="text">Contacteer {{ $study->getHost->getPerson->first_name }}</div>
+                </div>
 
-                    </div>
+            @endif
 
-                @endif
+        </div>
 
-            </div>
-
-            <div id="content">
+        <div id="content">
 
             <div class="content-columns">
 
@@ -167,8 +165,6 @@
                 </div>
 
             </div>
-
-        </div>
 
         </div>
 
