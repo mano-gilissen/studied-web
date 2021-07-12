@@ -20,13 +20,7 @@ class PersonController extends Controller {
 
 
 
-    public function profile($slug = null) {
-
-        if (!$slug) {
-
-            $slug = Auth::user()->{self::$PERSON_SLUG};
-
-        }
+    public function profile($slug) {
 
         $person = Person::where(self::$PERSON_SLUG, $slug)->firstOrFail();
 

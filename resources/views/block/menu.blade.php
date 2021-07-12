@@ -4,7 +4,7 @@
 
         @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
 
-            @include('block.menu-item', ['label' => 'Mijn profiel', 'route' => route('person.profile')])
+            @include('block.menu-item', ['label' => 'Mijn profiel', 'route' => route('person.profile', ['slug' => Auth::user()->slug])])
 
             @include('block.menu-item', ['label' => 'Lessen', 'route' => route('study.list')])
 
