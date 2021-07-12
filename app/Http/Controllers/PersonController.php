@@ -30,7 +30,7 @@ class PersonController extends Controller {
 
         $person = Person::where(self::$PERSON_SLUG, $slug)->firstOrFail();
 
-        return '<img style="width:200px;height:200px" src="/images/' . $person->avatar . '"/>';
+        return '<img style="width:200px;height:200px" src="/storage/avatar/' . $person->avatar . '"/>';
 
         return view(Views::PROFILE, [
             self::$PERSON                                                   => $person
