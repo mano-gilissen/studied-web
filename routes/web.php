@@ -24,6 +24,8 @@ Route::get('/les/{key}',                        'StudyController@view')->name('s
 
 
 
+Route::get('/profiel',                          'PersonController@profile')->name('person.profile')->middleware('auth');
+
 Route::get('/profiel/{slug}',                   'PersonController@profile')->name('person.profile')->middleware('auth');
 
 
