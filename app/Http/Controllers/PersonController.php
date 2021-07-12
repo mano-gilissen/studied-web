@@ -28,7 +28,7 @@ class PersonController extends Controller {
 
         }
 
-        $person = Person::where(self::$PERSON_SLUG, $slug->{self::$PERSON_SLUG})->firstOrFail();
+        $person = Person::where(self::$PERSON_SLUG, $slug)->firstOrFail();
 
         return $person->email;
 
