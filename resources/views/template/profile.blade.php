@@ -16,6 +16,10 @@
 
     @include('block.menu')
 
-    <img style="width:200px;height:200px;margin-top: 80px;" src="/storage/avatar/{{ $person->avatar }}"/>
+    <div id="wrap">
+
+        <img style="width:200px;height:200px;margin-top: 80px;" src="/storage/avatar/{{ $person->avatar }}"/>
+
+    </div>
 
 @endsection
