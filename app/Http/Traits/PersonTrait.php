@@ -14,6 +14,7 @@ trait PersonTrait {
 
         $PERSON                                         = 'person',
 
+        $PERSON_SLUG                                    = 'slug',
         $PERSON_FIRST_NAME                              = 'first_name',
         $PERSON_MIDDLE_NAME                             = 'middle_name',
         $PERSON_LAST_NAME                               = 'last_name',

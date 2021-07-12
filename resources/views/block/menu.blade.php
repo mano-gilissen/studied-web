@@ -4,9 +4,9 @@
 
         @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
 
-            @include('block.menu-item', ['label' => 'Mijn profiel'])
+            @include('block.menu-item', ['label' => 'Mijn profiel', 'route' => route('person.profile')])
 
-            @include('block.menu-item', ['label' => 'Lessen', 'route' => 'study.list'])
+            @include('block.menu-item', ['label' => 'Lessen', 'route' => route('study.list')])
 
             @include('block.menu-item', ['label' => 'Medewerkers'])
 

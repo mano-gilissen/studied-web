@@ -24,6 +24,10 @@ Route::get('/les/{key}',                        'StudyController@view')->name('s
 
 
 
+Route::get('/profiel/{slug}',                   'PersonController@profile')->name('person.profile')->middleware('auth');
+
+
+
 Route::get('/inloggen',                         'Auth\LoginController@view')->name('login.view');
 
 Route::get('/wachtwoordvergeten',               'Auth\ForgotPasswordController@forgot')->name('password.forgot');
