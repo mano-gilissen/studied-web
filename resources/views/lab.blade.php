@@ -100,7 +100,7 @@
 
 
 
-        <div class="button" onclick="window.location.href='{{ route('study.view', ['key' => '938244']) }}'" style="margin-bottom: 40px;">
+        <div class="button" onclick="window.location.href='{{ route('study.view', ['key' => '812689']) }}'" style="margin-bottom: 40px;">
 
             {{ __('Les pagina') }}
 
