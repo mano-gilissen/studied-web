@@ -25,6 +25,12 @@ class Person extends Model {
 
 
 
+    public function getUser() {
+
+        return self::getOneToThis(self::$USER, self::$PERSON);
+
+    }
+
     public function getAddress() {
 
         return self::getThisToOne(self::$ADDRESS);
