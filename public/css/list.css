@@ -1,5 +1,123 @@
 #content {
-    width:                              100%;
-    margin:                             120px 64px 0;
+    height:                             100%;
+    padding:                            120px 64px 0;
+}
+
+
+
+
+
+.top {
+    display:                            flex;
+    align-items:                        baseline;
+    margin-bottom:                      24px;
+}
+
+.list {
+    background:                         yellow;
+}
+
+
+
+
+
+.actions {
+    display:                            flex;
+    background:                         green;
+    margin-right:                       auto;
+}
+
+.actions .button {
+    margin-right:                       8px;
+}
+
+
+
+
+
+.counters {
+    display:                            flex;
     background:                         pink;
+}
+
+.counters .counter {
+    margin-left:                        56px;
+}
+
+.counters .counter .value {
+    font-family:                        'Circular', serif;
+    font-weight:                        300;
+    font-size:                          32px;
+}
+
+
+
+
+
+#headers {
+    display:                            grid;
+    grid-template-rows:                 48px;
+}
+
+#headers .header {
+    display:                            flex;
+    align-items:                        center;
+    padding-left:                       24px;
+    color:                              #808080
+}
+
+#headers .header:hover {
+    background:                         #F0F0F0;
+}
+
+#headers .header.sort-asc,
+#headers .header.sort-desc {
+    color:                              #000000;
+}
+
+
+
+
+
+#items {
+
+}
+
+#items .item {
+    display:                            grid;
+    grid-template-rows:                 64px;
+}
+
+#items .item.even {
+    background:                         #F8F8F8;
+}
+
+#items .item .attribute {
+    display:                            flex;
+    align-items:                        center;
+    padding-left:                       24px;
+}
+
+
+
+
+
+#button-filter-add {
+    color:                              white;
+    background:                         #4D4D4D;
+}
+
+
+
+
+
+
+
+
+
+/*   List-Study   */
+
+#button-plan {
+    color:                              black;
+    background:                         #E6E6E6;
 }

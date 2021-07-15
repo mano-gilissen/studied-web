@@ -24,7 +24,7 @@
 
             <div class="name">Tijdstip</div>
 
-            <div class="value">{{ $study->start . ' - ' . $study->end  }}</div>
+            <div class="value">{{ $study->start . ' - ' . $study->end }}</div>
 
         </div>
 

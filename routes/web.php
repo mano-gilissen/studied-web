@@ -16,8 +16,6 @@ Route::get('/lab',                              'DebugController@lab')->name('la
 
 Route::get('/form-test',                        'DebugController@form_test')->name('form_test.view')->middleware('auth');
 
-Route::get('/list-test',                        'DebugController@list_test')->name('list_test.view')->middleware('auth');
-
 
 
 Route::get('/lessen',                           'StudyController@list')->name('study.list')->middleware('auth');

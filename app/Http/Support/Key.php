@@ -15,6 +15,13 @@ class Key {
     const AUTOCOMPLETE_DATA                     = "ac_data_";
     const UNKNOWN                               = "unknown";
 
+    const LIST_COUNTER_LABEL                    = "label";
+    const LIST_COUNTER_VALUE                    = "value";
+
+    const LIST_COLUMN_LABEL                     = "label";
+    const LIST_COLUMN_SPACING                   = "spacing";
+    const LIST_COLUMN_TYPE                      = "type";
+
 
 
 }
