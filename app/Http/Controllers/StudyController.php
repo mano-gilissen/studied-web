@@ -72,7 +72,7 @@ class StudyController extends Controller {
             foreach ($columns as $column) {
 
                 $item[$column->label]                       = $this->getValue($object, $column);
-
+                $item[Key::LIST_ITEM_LINK]                  = $this->getLink($object);
             }
 
             array_push($items, (object) $item);
@@ -118,6 +118,12 @@ class StudyController extends Controller {
             self::column(self::$COLUMN_TIME, 1),
             self::column(self::$COLUMN_STATUS, 2)
         ];
+    }
+
+    public function getLink($study) {
+
+        return route('study.view', ['key' => $study->{self::$BASE_KEY}]);
+
     }
 
     public function getValue($study, $column) {
