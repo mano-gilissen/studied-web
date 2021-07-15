@@ -177,7 +177,7 @@ class StudyController extends Controller {
 
         foreach ($columns as $column) {
 
-            $column_spacing .= $column->Key::LIST_COLUMN_SPACING."fr ";
+            $column_spacing .= $column->{Key::LIST_COLUMN_SPACING}."fr ";
 
         }
 
