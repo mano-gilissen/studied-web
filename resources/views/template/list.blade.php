@@ -24,11 +24,11 @@
 
                 <div class="actions">
 
-                    <div id="button-filter-add" class="button icon-reverse">
-
-                        <div class="text">{{ __('Filter') }}</div>
+                    <div id="button-filter-add" class="button icon">
 
                         <img class="icon" src="/images/add.svg">
+
+                        <div class="text">{{ __('Filter') }}</div>
 
                     </div>
 
