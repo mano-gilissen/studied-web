@@ -50,7 +50,7 @@
 
                             <div class="label">{{ $counter->label }}</div>
 
-                            <div class="label">{{ $counter->value }}</div>
+                            <div class="value">{{ $counter->value }}</div>
 
                         </div>
 
