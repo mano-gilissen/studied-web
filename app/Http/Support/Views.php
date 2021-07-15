@@ -15,7 +15,9 @@ class Views {
     const LANDING                               = "landing";
     const STUDY                                 = "template.study";
     const PROFILE                               = "template.profile";
+
     const FORM_TEST                             = "form-test";
+    const LIST_TEST                             = "list-test";
 
 
 

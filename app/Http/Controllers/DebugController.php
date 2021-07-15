@@ -56,9 +56,18 @@ class DebugController extends Controller {
 
             Key::AUTOCOMPLETE_DATA.'field_autocomplete'                     => implode('::', Person::all()->pluck(self::$PERSON_FIRST_NAME)->toArray()),
             Key::AUTOCOMPLETE_DATA.'field_autocomplete_reject'              => implode('::', Subject::all()->pluck(self::$SUBJECT_DESCRIPTION_SHORT)->toArray()),
-            Key::AUTOCOMPLETE_DATA.'field_autocomplete_reject_show_all'     => implode('::', Subject::all()->pluck(self::$SUBJECT_DESCRIPTION_SHORT)->toArray()),
+            Key::AUTOCOMPLETE_DATA.'field_autocomplete_reject_show_all'     => implode('::', Subject::all()->pluck(self::$SUBJECT_DESCRIPTION_SHORT)->toArray())
+        ]);
+    }
 
-            self::$USER                                                     => Auth::user()
+
+
+    public function list_test() {
+
+        return view(Views::LIST_TEST, [
+
+            Key::PAGE_TITLE                                                 => 'Lessen'
+
         ]);
     }
 

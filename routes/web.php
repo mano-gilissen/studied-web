@@ -14,11 +14,13 @@ Route::get('/',                                 'DebugController@landing')->name
 
 Route::get('/lab',                              'DebugController@lab')->name('lab.view')->middleware('auth');
 
-Route::get('/formtest',                         'DebugController@form_test')->name('form_test.view')->middleware('auth');
+Route::get('/form-test',                        'DebugController@form_test')->name('form_test.view')->middleware('auth');
+
+Route::get('/list-test',                        'DebugController@list_test')->name('list_test.view')->middleware('auth');
 
 
 
-Route::get('/les',                              'StudyController@list')->name('study.list')->middleware('auth');
+Route::get('/lessen',                           'StudyController@list')->name('study.list')->middleware('auth');
 
 Route::get('/les/{key}',                        'StudyController@view')->name('study.view')->middleware('auth');
 
