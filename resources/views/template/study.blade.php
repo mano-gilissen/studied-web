@@ -26,7 +26,7 @@
 
                     <div class="title">{{ $study->getSubject_Defined ? $study->getSubject_Defined->description_subject : $study->subject_text }}</div>
 
-                    <div class="subtitle">{{ \App\Http\Support\Format::datetime($study->created_at) }}</div>
+                    <div class="subtitle">{{ \App\Http\Support\Format::datetime($study->created_at, \App\Http\Support\Format::$DATETIME_SINGLE) }}</div>
 
                 </div>
 

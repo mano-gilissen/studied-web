@@ -10,9 +10,16 @@ class Format {
 
 
 
-    public static function datetime($datetime) {
+    public static
 
-        return ucfirst($datetime->formatLocalized("%A %e %B"));
+            $DATETIME_LIST                      = "%e %b. %Y",
+            $DATETIME_SINGLE                    = "%A %e %B";
+
+
+
+    public static function datetime($datetime, $format) {
+
+        return ucfirst($datetime->formatLocalized($format));
 
     }
 

@@ -126,7 +126,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_DATE:
 
-                return Format::datetime($study->{self::$BASE_CREATED_AT});
+                return Format::datetime($study->{self::$BASE_CREATED_AT}, Format::$DATETIME_LIST);
 
             case self::$COLUMN_STUDENT:
 
