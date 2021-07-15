@@ -150,7 +150,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_STATUS:
 
-                return StudyTrait::getStatus($study->status);
+                return StudyTrait::getStatus($study);
 
             default:
 
