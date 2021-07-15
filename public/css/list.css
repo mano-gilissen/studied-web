@@ -63,7 +63,8 @@
     display:                            flex;
     align-items:                        center;
     padding-left:                       24px;
-    color:                              #808080
+    color:                              #808080;
+    cursor:                             pointer;
 }
 
 #headers .header:hover {
@@ -86,6 +87,11 @@
 #items .item {
     display:                            grid;
     grid-template-rows:                 64px;
+    cursor:                             pointer;
+}
+
+#items .item:hover {
+    background:                         #F0F0F0 !important;
 }
 
 #items .item.even {
