@@ -84,7 +84,7 @@ class StudyController extends Controller {
 
             'columns'                                       => $columns,
             'counters'                                      => $counters,
-            'spacing'                                       => $spacing,
+            'column_spacing'                                => $spacing,
             'items'                                         => $items,
         ]);
     }
