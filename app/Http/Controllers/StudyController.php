@@ -85,7 +85,6 @@ class StudyController extends Controller {
 
         $columns                                        = [];
 
-
         switch (self::getUserRole()) {
 
             default:
@@ -103,6 +102,8 @@ class StudyController extends Controller {
             case UserTrait::$ID_STUDENT:
             case UserTrait::$ID_CUSTOMER:
         }
+
+
 
         return [
             Table::column(self::$COLUMN_DATE, 2, true),
