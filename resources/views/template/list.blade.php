@@ -76,7 +76,7 @@
 
                     @foreach($items as $item)
 
-                        <div class="item @if($loop->even) even @endif" style="grid-template-columns: {{ $column_spacing }}" onclick="window.location.href='{{ $item->link ?? '' }}'">
+                        <div class="item @if($loop->odd) odd @endif" style="grid-template-columns: {{ $column_spacing }}" onclick="window.location.href='{{ $item->link ?? '' }}'">
 
                             @foreach($columns as $column)
 
