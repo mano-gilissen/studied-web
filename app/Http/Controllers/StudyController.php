@@ -83,7 +83,7 @@ class StudyController extends Controller {
     public function list_columns() {
 
         return [
-            Table::column(self::$COLUMN_DATE, 2),
+            Table::column(self::$COLUMN_DATE, 2, true),
             Table::column(self::$COLUMN_STUDENT, 4),
             Table::column(self::$COLUMN_HOST, 4),
             Table::column(self::$COLUMN_SERVICE, 2),
@@ -106,7 +106,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_DATE:
 
-                return Format::datetime($study->{self::$BASE_CREATED_AT}, Format::$DATETIME_LIST);
+                return "<div style='font-weight: 400'>" . Format::datetime($study->{self::$BASE_CREATED_AT}, Format::$DATETIME_LIST) . "</div>";
 
             case self::$COLUMN_STUDENT:
 
