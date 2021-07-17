@@ -187,7 +187,7 @@ class StudyController extends Controller {
 
         }
 
-        return $column_spacing;
+        return $column_spacing."auto";
     }
 
 
