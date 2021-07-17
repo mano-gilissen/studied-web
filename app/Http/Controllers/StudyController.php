@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\Http\Support\Format;
 use App\Http\Support\Table;
 use App\Http\Traits\BaseTrait;
+use App\Http\Traits\PersonTrait;
 use App\Http\Traits\StudyTrait;
 use App\Http\Traits\SubjectTrait;
 use App\Http\Traits\UserTrait;
@@ -82,6 +83,27 @@ class StudyController extends Controller {
 
     public function list_columns() {
 
+        $columns                                        = [];
+
+
+        switch (self::getUserRole()) {
+
+            default:
+                array_push($columns, Table::column(self::$COLUMN_DATE, 3, true));
+
+            case UserTrait::$ID_ADMINISTRATOR:
+            case UserTrait::$ID_BOARD:
+                array_push($columns, Table::column(self::$COLUMN_STUDENT, 4));
+                array_push($columns, Table::column(self::$COLUMN_HOST, 4));
+                array_push($columns, Table::column(self::$COLUMN_SERVICE, 3));  /* TODO: CHECK IF FILTERED ON SERVICE */
+                break;
+
+            case UserTrait::$ID_MANAGEMENT:
+            case UserTrait::$ID_EMPLOYEE:
+            case UserTrait::$ID_STUDENT:
+            case UserTrait::$ID_CUSTOMER:
+        }
+
         return [
             Table::column(self::$COLUMN_DATE, 3, true),
             Table::column(self::$COLUMN_STUDENT, 4),
@@ -91,6 +113,8 @@ class StudyController extends Controller {
             Table::column(self::$COLUMN_TIME, 3),
             Table::column(self::$COLUMN_STATUS, 3, true)
         ];
+
+        return $columns;
     }
 
     public function list_link($study) {
@@ -109,7 +133,15 @@ class StudyController extends Controller {
 
             case self::$COLUMN_STUDENT:
 
-                return 'Value Student';
+                $participants                           = $study->getParticipants_Person;
+
+                switch($participants->count()) {
+
+                    case 0:                             return "Geen deelnemers";
+                    case 1:                             return PersonTrait::getFullName($participants->first());
+                    case 2:                             return $participants->first()->{self::$PERSON_FIRST_NAME} . ", " . $participants->slice(2, 1)->{self::$PERSON_FIRST_NAME};
+                    default:                            return $participants->count() . " personen";
+                }
 
             case self::$COLUMN_HOST:
 

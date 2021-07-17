@@ -89,6 +89,14 @@ trait BaseTrait {
 
 
 
+    public function getUserRole() {
+
+        return Auth::user()->role;
+
+    }
+
+
+
     use AddressTrait, AgreementTrait, AreaTrait, CourseTrait, CustomerTrait, EmployeeTrait, EvaluationTrait, EventTrait,
         InvoiceTrait, LaborTrait, LocationTrait, LogTrait, PersonTrait, RelationTrait, ReportTrait, Report_SubjectTrait,
         RoleTrait, ServiceTrait, StudentTrait, Student_RelationTrait, StudyTrait, Study_ParticipantTrait,
