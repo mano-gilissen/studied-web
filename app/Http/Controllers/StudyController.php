@@ -142,7 +142,7 @@ class StudyController extends Controller {
                     case 0:                             return "Geen deelnemers";
                     case 1:                             return PersonTrait::getFullName($participants[0]);
                     //case 2:                             return PersonTrait::getFullName($participants[0]) . ", " . PersonTrait::getFullName($participants[1]);
-                    case 2:                             return $participants[0]->{self::$PERSON_FIRST_NAME} . ", " . $participants[1]->{self::$PERSON_FIRST_NAME};
+                    case 2:                             return $participants[0]->{self::$PERSON_FIRST_NAME} . " en " . $participants[1]->{self::$PERSON_FIRST_NAME};
                     case 3:                             return $participants[0]->{self::$PERSON_FIRST_NAME} . ", " . $participants[1]->{self::$PERSON_FIRST_NAME} . " en " . $participants[2]->{self::$PERSON_FIRST_NAME};
                     default:                            return count($participants) . " personen";
                 }
