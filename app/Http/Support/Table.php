@@ -23,6 +23,8 @@ class Table {
     const COLUMN_LABEL                          = "label";
     const COLUMN_SPACING                        = "spacing";
     const COLUMN_TYPE                           = "type";
+    const COLUMN_TYPE_TAG                       = "tag";
+
     const ITEM_LINK                             = "link";
 
     const WIDTH_END_ACTION                      = "48px";
