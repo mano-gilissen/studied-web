@@ -89,7 +89,8 @@
 
 #items .item {
     display:                            grid;
-    grid-template-rows:                 64px;
+    height:                             64px;
+    align-items:                        center;
     cursor:                             pointer;
 }
 
@@ -102,9 +103,12 @@
 }
 
 #items .item .attribute {
-    display:                            flex;
-    align-items:                        center;
     padding-left:                       24px;
+}
+
+#items .item .action {
+    width:                              48px;
+    padding:                            0 12px;
 }
 
 

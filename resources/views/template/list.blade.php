@@ -88,6 +88,8 @@
 
                             @endforeach
 
+                            <img class="action" src="{{ $action ?? '/images/chevron-right.svg' }}"/>
+
                         </div>
 
                     @endforeach

@@ -64,7 +64,7 @@
 
                     <div>Voortgang</div>
 
-                    <img src="/images/chevron.svg">
+                    <img src="/images/chevron-down.svg">
 
                 </div>
 
@@ -74,7 +74,7 @@
 
                     <div>Volgende les</div>
 
-                    <img src="/images/chevron.svg">
+                    <img src="/images/chevron-down.svg">
 
                 </div>
 
@@ -84,7 +84,7 @@
 
                     <div>Uitdagingen</div>
 
-                    <img src="/images/chevron.svg">
+                    <img src="/images/chevron-down.svg">
 
                 </div>
 
