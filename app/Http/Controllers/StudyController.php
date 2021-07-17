@@ -32,6 +32,7 @@ class StudyController extends Controller {
         $COLUMN_STUDENT                                     = 'Leerling',
         $COLUMN_HOST                                        = 'Student',
         $COLUMN_SUBJECT                                     = 'Vak',
+        $COLUMN_SERVICE                                     = 'Type',
         $COLUMN_LOCATION                                    = 'Locatie',
         $COLUMN_TIME                                        = 'Tijdstip',
         $COLUMN_STATUS                                      = 'Status';
@@ -82,13 +83,14 @@ class StudyController extends Controller {
     public function list_columns() {
 
         return [
-            Table::column(self::$COLUMN_DATE, 3),
+            Table::column(self::$COLUMN_DATE, 2),
             Table::column(self::$COLUMN_STUDENT, 4),
             Table::column(self::$COLUMN_HOST, 4),
+            Table::column(self::$COLUMN_SERVICE, 2),
             Table::column(self::$COLUMN_SUBJECT, 2),
-            Table::column(self::$COLUMN_LOCATION, 4),
+            Table::column(self::$COLUMN_LOCATION, 2),
             Table::column(self::$COLUMN_TIME, 3),
-            Table::column(self::$COLUMN_STATUS, 4, true)
+            Table::column(self::$COLUMN_STATUS, 3, true)
         ];
     }
 
@@ -113,6 +115,10 @@ class StudyController extends Controller {
             case self::$COLUMN_HOST:
 
                 return UserTrait::getFullName($study->getHost->getPerson);
+
+            case self::$COLUMN_SERVICE:
+
+                return $study->getService->{self::$SERVICE_NAME};
 
             case self::$COLUMN_SUBJECT:
 
