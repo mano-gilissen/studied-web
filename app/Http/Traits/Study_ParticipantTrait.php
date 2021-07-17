@@ -14,8 +14,8 @@ trait Study_ParticipantTrait {
 
         $STUDY_PARTICIPANT                          = 'study_participant',
 
-        $STUDY_PARTICIPANT_PAYMENT_REFERENCE        = 'study_participant_payment_reference',
-        $STUDY_PARTICIPANT_PAYMENT_RECEIVED         = 'study_participant_payment_received';
+        $STUDY_PARTICIPANT_PAYMENT_REFERENCE        = 'payment_reference',
+        $STUDY_PARTICIPANT_PAYMENT_RECEIVED         = 'payment_received';
 
 
 
