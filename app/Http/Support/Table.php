@@ -22,8 +22,7 @@ class Table {
 
     const COLUMN_LABEL                          = "label";
     const COLUMN_SPACING                        = "spacing";
-    const COLUMN_TYPE                           = "type";
-    const COLUMN_TYPE_TAG                       = "tag";
+    const COLUMN_HTML                           = "html";
 
     const ITEM_LINK                             = "link";
 
@@ -70,12 +69,12 @@ class Table {
 
 
 
-    public static function column($label, $spacing, $type = null) {
+    public static function column($label, $spacing, $html = false) {
 
         return (object) [
             self::COLUMN_LABEL                          => $label,
             self::COLUMN_SPACING                        => $spacing,
-            self::COLUMN_TYPE                           => $type
+            self::COLUMN_HTML                           => $html
         ];
     }
 
