@@ -93,7 +93,7 @@ trait BaseTrait {
 
     public function getUserRole() {
 
-        return Auth::user()->role->{self::$BASE_ID};
+        return Auth::user()->role;
 
     }
 

@@ -94,7 +94,7 @@ class StudyController extends Controller {
             case UserTrait::$ID_MANAGEMENT:
             case UserTrait::$ID_CUSTOMER:
 
-                array_merge($columns, [
+                array_push($columns,
                     Table::column(self::$COLUMN_DATE, 'Datum', 3, true),
                     Table::column(self::$COLUMN_STUDENT, 'Leerling', 4),
                     Table::column(self::$COLUMN_HOST, 'Student', 4),
@@ -103,12 +103,12 @@ class StudyController extends Controller {
                     Table::column(self::$COLUMN_LOCATION, 'Locatie', 3),
                     Table::column(self::$COLUMN_TIME, 'Tijdstip', 3),
                     Table::column(self::$COLUMN_STATUS, 'Status', 3, true)
-                ]);
+                );
                 break;
 
             case UserTrait::$ID_EMPLOYEE:
 
-                array_merge($columns, [
+                array_push($columns,
                     Table::column(self::$COLUMN_DATE, 'Datum', 2, true),
                     Table::column(self::$COLUMN_STUDENT, 'Leerling', 4),
                     Table::column(self::$COLUMN_SERVICE, 'Type', 2),
@@ -116,12 +116,12 @@ class StudyController extends Controller {
                     Table::column(self::$COLUMN_LOCATION, 'Locatie', 3),
                     Table::column(self::$COLUMN_TIME, 'Tijdstip', 3),
                     Table::column(self::$COLUMN_STATUS, 'Status', 3, true)
-                ]);
+                );
                 break;
 
             case UserTrait::$ID_STUDENT:
 
-                array_merge($columns, [
+                array_push($columns,
                     Table::column(self::$COLUMN_DATE, 'Datum', 2, true),
                     Table::column(self::$COLUMN_HOST, 'Student-docent', 4),
                     Table::column(self::$COLUMN_SERVICE, 'Type', 2),
@@ -129,7 +129,7 @@ class StudyController extends Controller {
                     Table::column(self::$COLUMN_LOCATION, 'Locatie', 3),
                     Table::column(self::$COLUMN_TIME, 'Tijdstip', 3),
                     Table::column(self::$COLUMN_STATUS, 'Status', 3, true)
-                ]);
+                );
                 break;
 
             default:
