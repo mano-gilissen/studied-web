@@ -70,6 +70,8 @@
 
                     @endforeach
 
+                    <div></div>
+
                 </div>
 
                 <div id="items">

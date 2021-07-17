@@ -111,11 +111,11 @@ class StudyController extends Controller {
 
         return [
             self::column(self::$COLUMN_DATE, 1),
-            self::column(self::$COLUMN_STUDENT, 2),
-            self::column(self::$COLUMN_HOST, 2),
+            self::column(self::$COLUMN_STUDENT, 3),
+            self::column(self::$COLUMN_HOST, 3),
             self::column(self::$COLUMN_SUBJECT, 1),
             self::column(self::$COLUMN_LOCATION, 2),
-            self::column(self::$COLUMN_TIME, 1),
+            self::column(self::$COLUMN_TIME, 2),
             self::column(self::$COLUMN_STATUS, 2)
         ];
     }
