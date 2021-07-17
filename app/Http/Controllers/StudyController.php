@@ -148,7 +148,7 @@ class StudyController extends Controller {
 
     public function list_value($study, $column) {
 
-        switch ($column->label) {
+        switch ($column->id) {
 
             case self::$COLUMN_DATE:
 
