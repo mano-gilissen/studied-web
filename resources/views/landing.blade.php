@@ -14,7 +14,7 @@
 
     <div class="wrap">
 
-        <a class="dot" href="{{route('debug.view')}}">
+        <a class="dot" href="{{route('login')}}">
 
         </a>
 
