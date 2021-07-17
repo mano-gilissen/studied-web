@@ -98,7 +98,7 @@ class Study extends Model {
         $users                                          = $this->getParticipants_User();
         $participants                                   = $this->getParticipants_Participant();
 
-        echo $users;
+        dd($users);
 
         foreach ($users as $user) {
 
