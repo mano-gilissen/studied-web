@@ -111,6 +111,7 @@ class StudyController extends Controller {
             Table::column(self::$COLUMN_HOST, 4),
             Table::column(self::$COLUMN_SERVICE, 3),
             Table::column(self::$COLUMN_SUBJECT, 3),
+            Table::column(self::$COLUMN_LOCATION, 3),
             Table::column(self::$COLUMN_TIME, 3),
             Table::column(self::$COLUMN_STATUS, 3, true)
         ];
