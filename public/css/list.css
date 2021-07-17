@@ -108,7 +108,7 @@
 
 #items .item .action {
     width:                              48px;
-    padding-left:                       8px;
+    padding:                            0 16px 0 8px;
 }
 
 
