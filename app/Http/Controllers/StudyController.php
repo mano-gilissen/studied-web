@@ -108,7 +108,7 @@ class StudyController extends Controller {
 
             case UserTrait::$ID_EMPLOYEE:
 
-                array_push($columns, [
+                array_merge($columns, [
                     Table::column(self::$COLUMN_DATE, 'Datum', 2, true),
                     Table::column(self::$COLUMN_STUDENT, 'Leerling', 4),
                     Table::column(self::$COLUMN_SERVICE, 'Type', 2),
@@ -121,7 +121,7 @@ class StudyController extends Controller {
 
             case UserTrait::$ID_STUDENT:
 
-                array_push($columns, [
+                array_merge($columns, [
                     Table::column(self::$COLUMN_DATE, 'Datum', 2, true),
                     Table::column(self::$COLUMN_HOST, 'Student-docent', 4),
                     Table::column(self::$COLUMN_SERVICE, 'Type', 2),
