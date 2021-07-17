@@ -84,7 +84,7 @@
 
                                 <div class="attribute">
 
-                                    <div>@if($column->html){!! $item->{$column->label} !!}@else{{ $item->{$column->label} }}@endif</div>
+                                    <div>@if($column->html){!! $item->{$column->id} !!}@else{{ $item->{$column->id} }}@endif</div>
 
                                 </div>
 

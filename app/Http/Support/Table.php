@@ -20,8 +20,9 @@ class Table {
     const COUNTER_LABEL                         = "label";
     const COUNTER_VALUE                         = "value";
 
-    const COLUMN_LABEL                          = "label";
+    const COLUMN_ID                             = "id";
     const COLUMN_SPACING                        = "spacing";
+    const COLUMN_LABEL                          = "label";
     const COLUMN_HTML                           = "html";
 
     const ITEM_LINK                             = "link";
@@ -47,7 +48,7 @@ class Table {
 
             foreach ($columns as $column) {
 
-                $item[$column->{self::COLUMN_LABEL}]        = $controller->list_value($object, $column);
+                $item[$column->{self::COLUMN_ID}]           = $controller->list_value($object, $column);
                 $item[self::ITEM_LINK]                      = $controller->list_link($object);
             }
 
@@ -69,12 +70,13 @@ class Table {
 
 
 
-    public static function column($label, $spacing, $html = false) {
+    public static function column($id, $spacing, $label, $html = false) {
 
         return (object) [
-            self::COLUMN_LABEL                          => $label,
-            self::COLUMN_SPACING                        => $spacing,
-            self::COLUMN_HTML                           => $html
+            self::COLUMN_ID                                 => $id,
+            self::COLUMN_SPACING                            => $spacing,
+            self::COLUMN_LABEL                              => $label,
+            self::COLUMN_HTML                               => $html
         ];
     }
 

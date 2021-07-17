@@ -29,14 +29,14 @@ class StudyController extends Controller {
 
     private static
 
-        $COLUMN_DATE                                        = 'Datum',
-        $COLUMN_STUDENT                                     = 'Leerling',
-        $COLUMN_HOST                                        = 'Student',
-        $COLUMN_SUBJECT                                     = 'Vak',
-        $COLUMN_SERVICE                                     = 'Soort',
-        $COLUMN_LOCATION                                    = 'Locatie',
-        $COLUMN_TIME                                        = 'Tijdstip',
-        $COLUMN_STATUS                                      = 'Status';
+        $COLUMN_DATE                                        = 1,
+        $COLUMN_STUDENT                                     = 2,
+        $COLUMN_HOST                                        = 3,
+        $COLUMN_SUBJECT                                     = 4,
+        $COLUMN_SERVICE                                     = 5,
+        $COLUMN_LOCATION                                    = 6,
+        $COLUMN_TIME                                        = 7,
+        $COLUMN_STATUS                                      = 8;
 
 
 
@@ -85,38 +85,57 @@ class StudyController extends Controller {
 
         $columns                                        = [];
 
-        switch (self::getUserRole()) {
+        /* TODO: REMOVE COLUMNS IF FILTERED */
 
-            default:
-                array_push($columns, Table::column(self::$COLUMN_DATE, 3, true));
+        switch (self::getUserRole()) {
 
             case UserTrait::$ID_ADMINISTRATOR:
             case UserTrait::$ID_BOARD:
-                array_push($columns, Table::column(self::$COLUMN_STUDENT, 4));
-                array_push($columns, Table::column(self::$COLUMN_HOST, 4));
-                array_push($columns, Table::column(self::$COLUMN_SERVICE, 3));  /* TODO: CHECK IF FILTERED ON SERVICE */
+            case UserTrait::$ID_MANAGEMENT:
+            case UserTrait::$ID_CUSTOMER:
+
+                array_push($columns, [
+                    Table::column(self::$COLUMN_DATE, 'Datum', 3, true),
+                    Table::column(self::$COLUMN_STUDENT, 'Leerling', 4),
+                    Table::column(self::$COLUMN_HOST, 'Student', 4),
+                    Table::column(self::$COLUMN_SERVICE, 'Onderwerp', 3),
+                    Table::column(self::$COLUMN_SUBJECT, 'Dienst', 2),
+                    Table::column(self::$COLUMN_LOCATION, 'Locatie', 3),
+                    Table::column(self::$COLUMN_TIME, 'Tijdstip', 3),
+                    Table::column(self::$COLUMN_STATUS, 'Status', 3, true)
+                ]);
                 break;
 
-            case UserTrait::$ID_MANAGEMENT:
             case UserTrait::$ID_EMPLOYEE:
+
+                array_push($columns, [
+                    Table::column(self::$COLUMN_DATE, 'Datum', 2, true),
+                    Table::column(self::$COLUMN_STUDENT, 'Leerling', 4),
+                    Table::column(self::$COLUMN_SERVICE, 'Type', 2),
+                    Table::column(self::$COLUMN_SUBJECT, 'Vak', 2),
+                    Table::column(self::$COLUMN_LOCATION, 'Locatie', 3),
+                    Table::column(self::$COLUMN_TIME, 'Tijdstip', 3),
+                    Table::column(self::$COLUMN_STATUS, 'Status', 3, true)
+                ]);
+                break;
+
             case UserTrait::$ID_STUDENT:
-            case UserTrait::$ID_CUSTOMER:
+
+                array_push($columns, [
+                    Table::column(self::$COLUMN_DATE, 'Datum', 2, true),
+                    Table::column(self::$COLUMN_HOST, 'Student-docent', 4),
+                    Table::column(self::$COLUMN_SERVICE, 'Type', 2),
+                    Table::column(self::$COLUMN_SUBJECT, 'Vak', 2),
+                    Table::column(self::$COLUMN_LOCATION, 'Locatie', 3),
+                    Table::column(self::$COLUMN_TIME, 'Tijdstip', 3),
+                    Table::column(self::$COLUMN_STATUS, 'Status', 3, true)
+                ]);
+                break;
+
+            default:
+
+                return [];
         }
-
-
-
-        return [
-            Table::column(self::$COLUMN_DATE, 2, true),
-            Table::column(self::$COLUMN_STUDENT, 4),
-            Table::column(self::$COLUMN_HOST, 4),
-            Table::column(self::$COLUMN_SERVICE, 2),
-            Table::column(self::$COLUMN_SUBJECT, 2),
-            Table::column(self::$COLUMN_LOCATION, 3),
-            Table::column(self::$COLUMN_TIME, 3),
-            Table::column(self::$COLUMN_STATUS, 3, true)
-        ];
-
-        return $columns;
     }
 
     public function list_link($study) {
