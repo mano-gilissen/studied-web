@@ -253,6 +253,7 @@ button:focus {
 
 .tag {
     height:                             24px;
+    width:                              min-content;
     border-radius:                      12px;
     padding:                            4px 12px;
     font-family:                        'Circular', serif;
