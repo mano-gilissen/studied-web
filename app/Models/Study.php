@@ -95,8 +95,8 @@ class Study extends Model {
 
         $persons                                        = [];
 
-        $users                                          = $this->getParticipants_User();
-        $participants                                   = $this->getParticipants_Participant();
+        $users                                          = $this->getParticipants_User()->get();
+        $participants                                   = $this->getParticipants_Participant()->get();
 
         dd($users);
 
