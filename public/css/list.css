@@ -14,7 +14,7 @@
 }
 
 .list {
-    background:                         yellow;
+
 }
 
 
@@ -23,7 +23,6 @@
 
 .actions {
     display:                            flex;
-    background:                         green;
     margin-right:                       auto;
 }
 
@@ -37,7 +36,6 @@
 
 .counters {
     display:                            flex;
-    background:                         pink;
 }
 
 .counters .counter {
