@@ -83,8 +83,8 @@ class StudyController extends Controller {
 
         return [
             Table::column(self::$COLUMN_DATE, 1),
-            Table::column(self::$COLUMN_STUDENT, 3),
-            Table::column(self::$COLUMN_HOST, 3),
+            Table::column(self::$COLUMN_STUDENT, 2),
+            Table::column(self::$COLUMN_HOST, 2),
             Table::column(self::$COLUMN_SUBJECT, 1),
             Table::column(self::$COLUMN_LOCATION, 2),
             Table::column(self::$COLUMN_TIME, 2),
