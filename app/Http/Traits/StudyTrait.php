@@ -38,6 +38,30 @@ trait StudyTrait {
 
 
 
+    public function getParticipants_Person($study) {
+
+        $persons                                        = [];
+
+        $users                                          = $study->getParticipants_User()->get();
+        $participants                                   = $study->getParticipants_Participant()->get();
+
+        foreach ($users as $user) {
+
+            array_push($persons, $user->getPerson);
+
+        }
+
+        foreach ($participants as $participant) {
+
+            array_push($persons, $participant->getPerson);
+
+        }
+
+        return $persons;
+    }
+
+
+
     public static function getStatus($study) {
 
         switch ($study->status) {

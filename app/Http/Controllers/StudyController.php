@@ -133,7 +133,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_STUDENT:
 
-                $participants                           = $study->getParticipants_Person;
+                $participants                           = StudyTrait::getParticipants_Person($study);
 
                 switch($participants->count()) {
 

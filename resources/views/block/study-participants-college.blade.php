@@ -4,7 +4,7 @@
 
     <div class="list-users">
 
-        @foreach($study->getParticipants_Person as $person)
+        @foreach(\App\Http\Traits\StudyTrait::getParticipants_Person($study) as $person)
 
             <!-- TODO: CHANGE TO AVATAR GRID (LARGE AMOUNT OF PARTICIPANTS) -->
 

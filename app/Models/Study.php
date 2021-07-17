@@ -91,30 +91,6 @@ class Study extends Model {
 
 
 
-    public function getParticipants_Person() {
-
-        $persons                                        = [];
-
-        $users                                          = $this->getParticipants_User()->get();
-        $participants                                   = $this->getParticipants_Participant()->get();
-
-        foreach ($users as $user) {
-
-            array_push($persons, $user->getPerson);
-
-        }
-
-        foreach ($participants as $participant) {
-
-            array_push($persons, $participant->getPerson);
-
-        }
-
-        return $persons;
-    }
-
-
-
     public function getSubject_Defined() {
 
         return self::getThisToOne(self::$SUBJECT, self::$STUDY_SUBJECT_DEFINED);
