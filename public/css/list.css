@@ -16,7 +16,8 @@
 }
 
 .list {
-
+    display:                            grid;
+    overflow:                           hidden;
 }
 
 
