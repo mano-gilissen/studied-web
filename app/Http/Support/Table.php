@@ -70,12 +70,12 @@ class Table {
 
 
 
-    public static function column($id, $spacing, $label, $html = false) {
+    public static function column($id, $label, $spacing, $html = false) {
 
         return (object) [
             self::COLUMN_ID                                 => $id,
-            self::COLUMN_SPACING                            => $spacing,
             self::COLUMN_LABEL                              => $label,
+            self::COLUMN_SPACING                            => $spacing,
             self::COLUMN_HTML                               => $html
         ];
     }
