@@ -134,8 +134,10 @@ class StudyController extends Controller {
 
             default:
 
-                return [];
+                break;
         }
+
+        return $columns;
     }
 
     public function list_link($study) {
