@@ -110,7 +110,7 @@ class StudyController extends Controller {
             Table::column(self::$COLUMN_STUDENT, 4),
             Table::column(self::$COLUMN_HOST, 4),
             Table::column(self::$COLUMN_SERVICE, 3),
-            Table::column(self::$COLUMN_SUBJECT, 3),
+            Table::column(self::$COLUMN_SUBJECT, 2),
             Table::column(self::$COLUMN_LOCATION, 3),
             Table::column(self::$COLUMN_TIME, 3),
             Table::column(self::$COLUMN_STATUS, 3, true)
@@ -141,7 +141,8 @@ class StudyController extends Controller {
 
                     case 0:                             return "Geen deelnemers";
                     case 1:                             return PersonTrait::getFullName($participants[0]);
-                    case 2:                             return PersonTrait::getFullName($participants[0]) . ", " . PersonTrait::getFullName($participants[1]);
+                    //case 2:                             return PersonTrait::getFullName($participants[0]) . ", " . PersonTrait::getFullName($participants[1]);
+                    case 2:                             return $participants[0]->{self::$PERSON_FIRST_NAME} . ", " . $participants[1]->{self::$PERSON_FIRST_NAME};
                     case 3:                             return $participants[0]->{self::$PERSON_FIRST_NAME} . ", " . $participants[1]->{self::$PERSON_FIRST_NAME} . " en " . $participants[2]->{self::$PERSON_FIRST_NAME};
                     default:                            return count($participants) . " personen";
                 }
