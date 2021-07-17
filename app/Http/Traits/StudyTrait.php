@@ -62,9 +62,9 @@ trait StudyTrait {
             case self::$STATUS_CANCELLED:
             case self::$STATUS_ABSENT:                  return Color::RED;
             case self::$STATUS_REPORTED:                return Color::GREEN;
+            case self::$STATUS_FINISHED:                return Color::ORANGE;
             case self::$STATUS_PLANNED:
-            case self::$STATUS_FINISHED:
-            default:                                    return Color::GREY_90;
+            default:                                    return Color::GREY_80;
         }
     }
 
@@ -77,9 +77,9 @@ trait StudyTrait {
             case self::$STATUS_CREATED:
             case self::$STATUS_CANCELLED:
             case self::$STATUS_REPORTED:
-            case self::$STATUS_ABSENT:                  return Color::WHITE;
+            case self::$STATUS_ABSENT:
             case self::$STATUS_PLANNED:
-            case self::$STATUS_FINISHED:
+            case self::$STATUS_FINISHED:                return Color::WHITE;
             default:                                    return Key::UNKNOWN;
         }
     }
