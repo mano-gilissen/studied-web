@@ -4,6 +4,8 @@
 
 namespace App\Http\Traits;
 
+use Auth;
+
 
 
 trait BaseTrait {
