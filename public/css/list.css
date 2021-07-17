@@ -109,6 +109,7 @@
 #items .item .action {
     width:                              48px;
     padding:                            0 16px 0 8px;
+    opacity:                            0;
 }
 
 

@@ -5,6 +5,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Support\Format;
+use App\Http\Support\Table;
 use App\Http\Traits\BaseTrait;
 use App\Http\Traits\StudyTrait;
 use App\Http\Traits\SubjectTrait;
@@ -52,53 +53,24 @@ class StudyController extends Controller {
 
 
 
-    /* TODO: REBUILD AS GENERIC LIST SETUP METHOD */
+
 
     public function list() {
 
-        $counters                                           = $this->list_counters();
-        $columns                                            = $this->list_columns();
+        return Table::view($this, Views::LIST_STUDY, 'Lessen', Study::all());
 
-        $spacing                                            = self::spacing($columns);
-
-        $objects                                            = Study::all();
-
-        $items                                              = [];
-
-        foreach ($objects as $object) {
-
-            $item                                           = [];
-
-            foreach ($columns as $column) {
-
-                $item[$column->label]                       = $this->getValue($object, $column);
-                $item[Key::LIST_ITEM_LINK]                  = $this->getLink($object);
-            }
-
-            array_push($items, (object) $item);
-        }
-
-        return view(Views::LIST_STUDY, [
-
-            Key::PAGE_TITLE                                 => 'Lessen',
-
-            'columns'                                       => $columns,
-            'counters'                                      => $counters,
-            'column_spacing'                                => $spacing,
-            'items'                                         => $items,
-        ]);
     }
 
     public function list_counters() {
 
         $COUNTER_PLANNED            = (object) [
-            Key::LIST_COUNTER_LABEL                         => 'Ingepland',
-            Key::LIST_COUNTER_VALUE                         => Study::where(self::$STUDY_STATUS, self::$STATUS_PLANNED)->count()
+            Table::COUNTER_LABEL                         => 'Ingepland',
+            Table::COUNTER_VALUE                         => Study::where(self::$STUDY_STATUS, self::$STATUS_PLANNED)->count()
         ];
 
         $COUNTER_REPORTED           = (object) [
-            Key::LIST_COUNTER_LABEL                         => 'Gerapporteerd',
-            Key::LIST_COUNTER_VALUE                         => Study::where(self::$STUDY_STATUS, self::$STATUS_REPORTED)->count()
+            Table::COUNTER_LABEL                         => 'Gerapporteerd',
+            Table::COUNTER_VALUE                         => Study::where(self::$STUDY_STATUS, self::$STATUS_REPORTED)->count()
         ];
 
         return [
@@ -110,23 +82,23 @@ class StudyController extends Controller {
     public function list_columns() {
 
         return [
-            self::column(self::$COLUMN_DATE, 1),
-            self::column(self::$COLUMN_STUDENT, 3),
-            self::column(self::$COLUMN_HOST, 3),
-            self::column(self::$COLUMN_SUBJECT, 1),
-            self::column(self::$COLUMN_LOCATION, 2),
-            self::column(self::$COLUMN_TIME, 2),
-            self::column(self::$COLUMN_STATUS, 2)
+            Table::column(self::$COLUMN_DATE, 1),
+            Table::column(self::$COLUMN_STUDENT, 3),
+            Table::column(self::$COLUMN_HOST, 3),
+            Table::column(self::$COLUMN_SUBJECT, 1),
+            Table::column(self::$COLUMN_LOCATION, 2),
+            Table::column(self::$COLUMN_TIME, 2),
+            Table::column(self::$COLUMN_STATUS, 2)
         ];
     }
 
-    public function getLink($study) {
+    public function list_link($study) {
 
         return route('study.view', ['key' => $study->{self::$BASE_KEY}]);
 
     }
 
-    public function getValue($study, $column) {
+    public function list_value($study, $column) {
 
         switch ($column->label) {
 
@@ -162,32 +134,6 @@ class StudyController extends Controller {
 
                 return 'No value';
         }
-    }
-
-
-
-    // TODO: EXPORT TO GENERIC LIST METHOD CLASS
-
-    public static function column($label, $spacing, $type = null) {
-
-        return (object) [
-            Key::LIST_COLUMN_LABEL                          => $label,
-            Key::LIST_COLUMN_SPACING                        => $spacing,
-            Key::LIST_COLUMN_TYPE                           => $type
-        ];
-    }
-
-    public static function spacing($columns) {
-
-        $column_spacing = '';
-
-        foreach ($columns as $column) {
-
-            $column_spacing .= $column->{Key::LIST_COLUMN_SPACING}."fr ";
-
-        }
-
-        return $column_spacing."auto";
     }
 
 
