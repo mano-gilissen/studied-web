@@ -58,11 +58,11 @@ trait StudyTrait {
 
         switch ($study->status) {
 
-            case self::$STATUS_CREATED:
             case self::$STATUS_CANCELLED:
             case self::$STATUS_ABSENT:                  return Color::RED;
             case self::$STATUS_REPORTED:                return Color::GREEN;
             case self::$STATUS_FINISHED:                return Color::ORANGE;
+            case self::$STATUS_CREATED:
             case self::$STATUS_PLANNED:
             default:                                    return Color::GREY_80;
         }
