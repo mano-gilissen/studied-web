@@ -128,7 +128,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_STATUS:
 
-                return "<div class='tag' style='background:" . StudyTrait::getStatusColor($study) . ";color:" . StudyTrait::getStatusTextColor() . "'>".StudyTrait::getStatus($study)."</div>";
+                return "<div class='tag' style='background:" . StudyTrait::getStatusColor($study) . ";color:" . StudyTrait::getStatusTextColor($study) . "'>".StudyTrait::getStatus($study)."</div>";
 
             default:
 
