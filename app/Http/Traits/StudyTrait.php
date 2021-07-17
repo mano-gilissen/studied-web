@@ -38,7 +38,7 @@ trait StudyTrait {
 
 
 
-    public function getParticipants_Person($study) {
+    public static function getParticipants_Person($study) {
 
         $persons                                        = [];
 
