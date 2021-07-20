@@ -28,7 +28,7 @@ class Table {
     const DATA_TYPE                             = "data_type";
     const DATA_SORT                             = "data_sort";
 
-    const SORT_MODE                             = "sort_mode";
+    const SORT_MODE                             = "mode";
 
     const ITEM_LINK                             = "link";
 
