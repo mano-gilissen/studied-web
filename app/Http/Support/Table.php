@@ -38,8 +38,6 @@ class Table {
 
     public static function load($controller, $objects, $sort) {
 
-        dd(json_encode($sort));
-
         $columns                                            = $controller->list_columns();
         $spacing                                            = self::spacing($columns);
         $items                                              = [];
