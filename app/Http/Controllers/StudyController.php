@@ -70,7 +70,9 @@ class StudyController extends Controller {
 
     public function list_load(Request $request) {
 
-        return Table::load($this, Study::all(), $request->input(Table::DATA_SORT, []));
+        return $request->input(Table::DATA_SORT) ?? 'aasddf';
+
+        return Table::load($this, Study::all(), []);
 
     }
 
