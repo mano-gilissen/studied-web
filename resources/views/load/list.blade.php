@@ -34,3 +34,4 @@
 
 </div>
 
+<div>{{ $data_sort['id'] ?? 'okok' }}</div>
