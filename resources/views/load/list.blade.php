@@ -1,3 +1,9 @@
+<script>
+
+    var data_sort                       = '{{ $data_sort }}';
+
+</script>
+
 <div id="headers" style="grid-template-columns: {{ $column_spacing }}">
 
     @foreach($columns as $column)

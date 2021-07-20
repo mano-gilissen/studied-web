@@ -26,6 +26,7 @@ class Table {
     const COLUMN_HTML                           = "html";
 
     const DATA_TYPE                             = "data_type";
+    const DATA_SORT                             = "data_sort";
 
     const ITEM_LINK                             = "link";
 
@@ -35,7 +36,7 @@ class Table {
 
 
 
-    public static function load($controller, $objects) {
+    public static function load($controller, $objects, $sort = []) {
 
         $columns                                            = $controller->list_columns();
         $spacing                                            = self::spacing($columns);
@@ -59,6 +60,8 @@ class Table {
             self::VIEW_COLUMNS                              => $columns,
             self::VIEW_SPACING                              => $spacing,
             self::VIEW_ITEMS                                => $items,
+
+            self::DATA_SORT                                 => $sort
         ]);
     }
 
