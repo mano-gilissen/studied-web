@@ -52,7 +52,7 @@ class Table {
             array_push($items, (object) $item);
         }
 
-        return view('load.list', [
+        return view(Views::LOAD_LIST, [
 
             self::VIEW_COLUMNS                              => $columns,
             self::VIEW_SPACING                              => $spacing,

@@ -11,13 +11,18 @@ class Views {
 
 
     const AUTH_LOGIN                            = "auth.login";
-    const LAB                                   = "lab";
-    const LANDING                               = "landing";
+
     const STUDY                                 = "template.study";
     const PROFILE                               = "template.profile";
 
+    const LIST_STUDY                            = "list.study";
+
     const FORM_TEST                             = "form-test";
-    const LIST_STUDY                            = "list-study";
+
+    const LOAD_LIST                             = "load.list";
+
+    const LAB                                   = "lab";
+    const LANDING                               = "landing";
 
 
 
