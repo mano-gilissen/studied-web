@@ -27,6 +27,7 @@ class Table {
 
     const DATA_TYPE                             = "data_type";
     const DATA_SORT                             = "data_sort";
+    const DATA_FILTER                           = "data_filter";
 
     const SORT_MODE                             = "mode";
 
@@ -38,7 +39,10 @@ class Table {
 
 
 
-    public static function load($controller, $sort) {
+    public static function load($controller, $request) {
+
+        $sort                                               = $request->input(Table::DATA_SORT, null);
+        $filter                                             = $request->input(Table::DATA_FILTER, null);
 
         $columns                                            = $controller->list_columns($sort);
         $spacing                                            = self::spacing($columns);

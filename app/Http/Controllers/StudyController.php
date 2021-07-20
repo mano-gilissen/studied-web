@@ -69,51 +69,23 @@ class StudyController extends Controller {
         ]);
     }
 
+
+
     public function list_load(Request $request) {
 
-        /*
-        $data_sort                                          = $request->input(Table::DATA_SORT, null);
-
-        $query                                              = Study::query();
-
-        if ($data_sort) {
-
-            switch ($data_sort[Table::COLUMN_ID]) {
-
-                case self::$COLUMN_DATE:
-
-                    $query->orderBy(self::$BASE_CREATED_AT, $data_sort[Table::SORT_MODE]);
-                    break;
-
-                case self::$COLUMN_STATUS:
-
-                    $query->orderBy(self::$STUDY_STATUS, $data_sort[Table::SORT_MODE]);
-                    break;
-
-                case self::$COLUMN_HOST:
-
-                    $query->join(self::$USER, self::$USER . '.' . self::$BASE_ID, '=', self::$STUDY . '.' . self::$STUDY_HOST_USER);
-                    $query->join(self::$PERSON, self::$PERSON . '.' . self::$BASE_ID, '=', self::$USER . '.' . self::$PERSON);
-                    $query->orderBy(self::$PERSON . '.' . self::$PERSON_FIRST_NAME, $data_sort[Table::SORT_MODE]);
-                    break;
-
-                default:
-
-                    break;
-            }
-        }
-
-        $objects                                            = $query->get();
-        */
-        return Table::load($this, $request->input(Table::DATA_SORT, null));
+        return Table::load($this, $request);
 
     }
+
+
 
     public function list_query() {
 
         return Study::query();
 
     }
+
+
 
     public function list_sort($query, $sort) {
 
@@ -138,6 +110,8 @@ class StudyController extends Controller {
         }
     }
 
+
+
     public function list_counters() {
 
         $COUNTER_PLANNED            = (object) [
@@ -155,6 +129,8 @@ class StudyController extends Controller {
             $COUNTER_REPORTED
         ];
     }
+
+
 
     public function list_columns($sort) {
 
@@ -215,11 +191,15 @@ class StudyController extends Controller {
         return $columns;
     }
 
+
+
     public function list_link($study) {
 
         return route('study.view', ['key' => $study->{self::$BASE_KEY}]);
 
     }
+
+
 
     public function list_value($study, $column) {
 
