@@ -21,9 +21,9 @@ $(function(){
         });
     }
 
-    function sort(id) {
+    function sort(e) {
 
-        this.data_sort['id']                    = id;
+        this.data_sort['id']                    = e.target.id;
         this.data_sort['mode']                  = 'asc';
 
         load();
@@ -33,7 +33,7 @@ $(function(){
 
     $(CLASS_HEADER).click(function(event) {
 
-        sort(event.target.id);
+        sort();
 
     });
 
