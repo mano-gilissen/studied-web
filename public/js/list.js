@@ -27,7 +27,7 @@ $(function(){
         this.data_sort_data['id']               = id;
         this.data_sort_data['mode']             = 'asc';
 
-        this.test                               = 'bbb';
+        this.test                               = id;
 
         load();
     }
