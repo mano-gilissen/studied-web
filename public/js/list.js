@@ -18,7 +18,7 @@ $(function(){
 
         $(OBJECT_LIST).load('/load/list/' + data_type, {
 
-            data_sort:                          data
+            data_sort:                          "asdfasdf"
 
         });
     }
