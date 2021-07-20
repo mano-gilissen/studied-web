@@ -24,7 +24,7 @@ $(function(){
     function sort(id) {
 
         this.data_sort['id']                    = id;
-        this.data_sort['mode']                  = 'asc';
+        this.data_sort['mode']                  = 'desc';
 
         load();
     }
