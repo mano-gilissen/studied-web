@@ -59,7 +59,17 @@ class StudyController extends Controller {
 
     public function list() {
 
-        return Table::view($this, Views::LIST_STUDY, 'Lessen', Study::all());
+        return view(Views::LIST_STUDY, [
+
+            Key::PAGE_TITLE                                                 => 'Lessen',
+
+            Table::VIEW_COUNTERS                                            => $this->list_counters()
+        ]);
+    }
+
+    public function list_load() {
+
+        return Table::load($this, Study::all());
 
     }
 

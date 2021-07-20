@@ -46,9 +46,9 @@ $(function(){
 
 
 
-    $("#filters").click(function() {
+    $("#list").click(function() {
 
-        $('#filters').load('load-test');
+        $('#list').load('load-study-list');
 
     });
 

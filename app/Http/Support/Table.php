@@ -33,13 +33,10 @@ class Table {
 
 
 
-    public static function view($controller, $view, $title, $objects) {
+    public static function load($controller, $objects) {
 
-        $counters                                           = $controller->list_counters();
         $columns                                            = $controller->list_columns();
-
         $spacing                                            = self::spacing($columns);
-
         $items                                              = [];
 
         foreach ($objects as $object) {
@@ -55,12 +52,9 @@ class Table {
             array_push($items, (object) $item);
         }
 
-        return view($view, [
-
-            Key::PAGE_TITLE                                 => $title,
+        return view('load.list', [
 
             self::VIEW_COLUMNS                              => $columns,
-            self::VIEW_COUNTERS                             => $counters,
             self::VIEW_SPACING                              => $spacing,
             self::VIEW_ITEMS                                => $items,
         ]);
