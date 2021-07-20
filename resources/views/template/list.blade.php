@@ -15,7 +15,7 @@
     <script>
 
         var data_type                       = '{{ $data_type }}';
-        var data_sort                       = '{{ $data_sort ?? '' }}';
+        var data_sort                       = '{{ $data_sort ?? 'absa' }}';
 
     </script>
 
