@@ -11,7 +11,7 @@ const ICON_MENU                                 = "/images/menu.svg";
 
 const TEXT_PAGE_TITLE_MENU                      = 'Studied';
 
-const HEADER_CSRF                               = "X-CSRF-Token";
+const HEADER_CSRF                               = "X-CSRF-TOKEN";
 
 var menu_open                                   = false;
 var page_title                                  = "";
@@ -48,6 +48,14 @@ $(function(){
 
 
 
+    $.ajaxSetup({
+
+        headers: {
+
+            HEADER_CSRF:                        $('meta[name="_token"]').attr('content')
+
+        }
+    });
 
 
 
