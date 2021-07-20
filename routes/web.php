@@ -37,6 +37,6 @@ Route::get('/wachtwoordvergeten',               'Auth\ForgotPasswordController@f
 
 Route::get('load-test', function() {
 
-    return View::make('load-test', ['data_test' => \App\Models\User::find(2)->{\App\Http\Traits\UserTrait::$USER_EMAIL}]);
+    return View::make('load-test', ['data_test' => \App\Models\User::find(3)->{\App\Http\Traits\UserTrait::$USER_EMAIL}]);
 
 });
