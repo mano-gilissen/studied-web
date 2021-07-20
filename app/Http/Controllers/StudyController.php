@@ -74,7 +74,7 @@ class StudyController extends Controller {
         $data_sort                                          = $request->input(Table::DATA_SORT, null);
 
 
-        $query                                              = DB::table(self::$STUDY)->get();
+        $query                                              = Study::all();//DB::table(self::$STUDY)->get();
 
         /*
         if ($data_sort) {
