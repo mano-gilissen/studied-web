@@ -19,7 +19,7 @@ class LoadController extends Controller {
 
 
 
-    public function list() {
+    public function list(Request $request) {
 
         return "a";
 
