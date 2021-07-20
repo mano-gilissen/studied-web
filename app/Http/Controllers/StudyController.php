@@ -91,10 +91,9 @@ class StudyController extends Controller {
 
                 case self::$COLUMN_HOST:
 
-
-                    $query->join('user', 'user.id', '=', 'study.host_user');
-                    $query->join('person', 'person.id', '=', 'user.person');
-                    $query->orderBy('person.first_name', 'DESC');
+                    $query->join(self::$USER, self::$USER . '.' . self::$BASE_ID, '=', self::$STUDY . '.' . self::$STUDY_HOST_USER);
+                    $query->join(self::$PERSON, self::$PERSON . '.' . self::$BASE_ID, '=', self::$USER . '.' . self::$PERSON);
+                    $query->orderBy(self::$PERSON . '.' . self::$PERSON_FIRST_NAME, $data_sort[Table::SORT_MODE]);
                     break;
 
                 default:
@@ -103,7 +102,7 @@ class StudyController extends Controller {
             }
         }
 
-        $objects                                            = $query->take(5)->get();
+        $objects                                            = $query->get();
 
         return Table::load($this, $objects, $data_sort);
 
