@@ -35,5 +35,3 @@
 </div>
 
 <div>{{ $data_sort['id'] ?? 'okok' }}</div>
-
-<script>listen()</script>

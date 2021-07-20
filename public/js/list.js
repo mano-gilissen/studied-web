@@ -30,14 +30,12 @@ $(function(){
     }
 
 
-    function listen() {
 
-        $(CLASS_HEADER).click(function(event) {
+    $(OBJECT_LIST).on('click', CLASS_HEADER, function() {
 
-            sort(event.target.id);
+        sort($(this).attr('id'));
 
-        });
-    }
+    });
 
 
 
