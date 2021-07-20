@@ -33,3 +33,10 @@ Route::get('/inloggen',                         'Auth\LoginController@view')->na
 Route::get('/wachtwoordvergeten',               'Auth\ForgotPasswordController@forgot')->name('password.forgot');
 
 
+
+
+Route::get('load-test', function() {
+
+    return View::make('load-test', ['data_test' => \App\Models\User::find(2)->{\App\Http\Traits\UserTrait::$USER_EMAIL}]);
+
+});

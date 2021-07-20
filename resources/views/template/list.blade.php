@@ -32,7 +32,7 @@
 
                     </div>
 
-                    <div id="filters">
+                    <div id="filters" style="width: 100px;background:green">
 
 
 

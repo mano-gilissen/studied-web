@@ -46,4 +46,12 @@ $(function(){
 
 
 
+    $("#filters").click(function() {
+
+        $('#filters').load('load-test');
+
+    });
+
+
+
 });
