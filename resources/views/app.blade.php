@@ -6,32 +6,21 @@
 
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="{{ asset('js/autocomplete.js') }}"></script>
-<script src="{{ asset('js/events.js') }}"></script>
-
-
-
-@yield('scripts')
-
-
-
 <head>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="_token" content="{{ csrf_token() }}">
 
-    <script>
-        $.ajaxSetup({
 
-            headers: {
 
-                "X-CSRF-TOKEN": $('meta[name="_token"]').attr('content')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ asset('js/autocomplete.js') }}"></script>
+    <script src="{{ asset('js/events.js') }}"></script>
 
-            }
-        });
-    </script>
+
+
+    @yield('scripts')
 
 
 
