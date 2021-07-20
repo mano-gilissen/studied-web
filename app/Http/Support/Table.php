@@ -38,10 +38,11 @@ class Table {
 
 
 
-    public static function load($controller, $objects, $sort) {
+    public static function load($controller, $sort) {
 
         $columns                                            = $controller->list_columns($sort);
         $spacing                                            = self::spacing($columns);
+        $objects                                            = self::objects($controller, $sort);
         $items                                              = [];
 
         foreach ($objects as $object) {
@@ -63,6 +64,22 @@ class Table {
             self::VIEW_SPACING                              => $spacing,
             self::VIEW_ITEMS                                => $items
         ]);
+    }
+
+
+
+
+    public static function objects($controller, $sort) {
+
+        $query                                              = $controller->list_query();
+
+        if ($sort) {
+
+            $controller->list_sort($query, $sort);
+
+        }
+
+        return $query->get();
     }
 
 

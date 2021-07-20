@@ -71,6 +71,7 @@ class StudyController extends Controller {
 
     public function list_load(Request $request) {
 
+        /*
         $data_sort                                          = $request->input(Table::DATA_SORT, null);
 
         $query                                              = Study::query();
@@ -103,9 +104,38 @@ class StudyController extends Controller {
         }
 
         $objects                                            = $query->get();
+        */
+        return Table::load($this, $request->input(Table::DATA_SORT, null));
 
-        return Table::load($this, $objects, $data_sort);
+    }
 
+    public function list_query() {
+
+        return Study::query();
+
+    }
+
+    public function list_sort($query, $sort) {
+
+        switch ($sort[Table::COLUMN_ID]) {
+
+            case self::$COLUMN_DATE:
+
+                $query->orderBy(self::$BASE_CREATED_AT, $sort[Table::SORT_MODE]);
+                break;
+
+            case self::$COLUMN_STATUS:
+
+                $query->orderBy(self::$STUDY_STATUS, $sort[Table::SORT_MODE]);
+                break;
+
+            case self::$COLUMN_HOST:
+
+                $query->join(self::$USER, self::$USER . '.' . self::$BASE_ID, '=', self::$STUDY . '.' . self::$STUDY_HOST_USER);
+                $query->join(self::$PERSON, self::$PERSON . '.' . self::$BASE_ID, '=', self::$USER . '.' . self::$PERSON);
+                $query->orderBy(self::$PERSON . '.' . self::$PERSON_FIRST_NAME, $sort[Table::SORT_MODE]);
+                break;
+        }
     }
 
     public function list_counters() {
