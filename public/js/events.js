@@ -11,8 +11,6 @@ const ICON_MENU                                 = "/images/menu.svg";
 
 const TEXT_PAGE_TITLE_MENU                      = 'Studied';
 
-const HEADER_CSRF                               = "X-CSRF-TOKEN";
-
 var menu_open                                   = false;
 var page_title                                  = "";
 
