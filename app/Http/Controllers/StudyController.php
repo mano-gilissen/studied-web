@@ -78,6 +78,8 @@ class StudyController extends Controller {
 
         $objects                                            = Study::hydrate($query);
 
+
+        dd($objects);
         /*
         if ($data_sort) {
 
