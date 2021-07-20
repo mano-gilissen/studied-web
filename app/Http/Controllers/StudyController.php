@@ -75,7 +75,6 @@ class StudyController extends Controller {
 
         $query                                              = Study::query();
 
-        /*
         if ($data_sort) {
 
             switch ($data_sort[Table::COLUMN_ID]) {
@@ -95,7 +94,7 @@ class StudyController extends Controller {
                     break;
             }
         }
-*/
+
         $objects                                            = $query->get();
 
         return Table::load($this, $objects, $data_sort);
