@@ -93,7 +93,8 @@ class StudyController extends Controller {
 
 
                     $query->join('user', 'user.id', '=', 'study.host_user');
-                    $query->orderBy('user.email', 'DESC');
+                    $query->join('person', 'person.id', '=', 'user.person');
+                    $query->orderBy('person.first_name', 'DESC');
                     break;
 
                 default:
