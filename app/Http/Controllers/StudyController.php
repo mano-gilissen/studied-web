@@ -75,10 +75,6 @@ class StudyController extends Controller {
 
         $query                                              = Study::query();
 
-        $objects = $query->get();
-
-        dd($objects);
-
         /*
         if ($data_sort) {
 
@@ -99,9 +95,8 @@ class StudyController extends Controller {
                     break;
             }
         }
-
+*/
         $objects                                            = $query->get();
-        */
 
         return Table::load($this, $objects, $data_sort);
 
