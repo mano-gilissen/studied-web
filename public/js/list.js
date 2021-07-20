@@ -14,11 +14,12 @@ $(function(){
 
     function load() {
 
-        console.log(data);
+        console.log(json(data));
+        console.log(data.serialize());
 
         $(OBJECT_LIST).load('/load/list/' + data_type, {
 
-            data_sort:                          "asdfasdf"
+            data_sort:                  json(data)
 
         });
     }
