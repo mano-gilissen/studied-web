@@ -4,7 +4,7 @@
 const OBJECT_LIST                               = '#list';
 const CLASS_HEADER                              = '.header';
 
-var data_sort                                   = [];
+var sortt                                        = [];
 
 
 
@@ -16,15 +16,15 @@ $(function(){
 
         $(OBJECT_LIST).load('/load/list/' + data_type, {
 
-            data_sort:                          this.data_sort
+            data_sort:                          this.sortt
 
         });
     }
 
     function sort(id) {
 
-        this.data_sort['id']                    = id;
-        this.data_sort['mode']                  = 'asc';
+        this.sortt['id']                         = id;
+        this.sortt['mode']                       = 'asc';
 
         load();
     }
