@@ -60,6 +60,15 @@ class StudyController extends Controller {
 
     public function list() {
 
+        $query = Study::query();
+
+        $query->join('user', 'user.id', '=', 'study.host');
+        $query->orderBy('user.email', 'DESC');
+
+        return $query->get();
+
+
+
         return view(Views::LIST_STUDY, [
 
             Key::PAGE_TITLE                                 => 'Lessen',
@@ -94,7 +103,6 @@ class StudyController extends Controller {
 
                     $query->join('user', 'user.id', '=', 'study.host');
                     $query->orderBy('user.email', 'DESC');
-                    $query->with(['user' => function ($q) {}]);
                     break;
 
                 default:
