@@ -68,7 +68,7 @@ class StudyController extends Controller {
         ]);
     }
 
-    public function list_load(Request $request) {
+    public function list_load() {
 
         return "absfas";
 
