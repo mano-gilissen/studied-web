@@ -36,7 +36,7 @@ class Table {
 
 
 
-    public static function load($controller, $objects, $sort = []) {
+    public static function load($controller, $objects, $sort) {
 
         $columns                                            = $controller->list_columns();
         $spacing                                            = self::spacing($columns);
@@ -61,7 +61,7 @@ class Table {
             self::VIEW_SPACING                              => $spacing,
             self::VIEW_ITEMS                                => $items,
 
-            self::DATA_SORT                                 => json_encode($sort)
+            self::DATA_SORT                                 => $sort
         ]);
     }
 

@@ -70,15 +70,8 @@ class StudyController extends Controller {
 
     public function list_load(Request $request) {
 
-        $sort = [];
+        return Table::load($this, Study::all(), $request->input(Table::DATA_SORT, []));
 
-        if($request->has(Table::DATA_SORT)) {
-
-            $request->input(Table::DATA_SORT);
-
-        }
-
-        return Table::load($this, Study::all(), $sort);
     }
 
     public function list_counters() {

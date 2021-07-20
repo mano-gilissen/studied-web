@@ -15,7 +15,6 @@
     <script>
 
         var data_type                       = '{{ $data_type }}';
-        var data_sort                       = JSON.parse('{{ $data_sort ?? '' }}');
 
     </script>
 
@@ -75,7 +74,7 @@
 
             </div>
 
-            <div id="list" onload="load('{{ $data_type }}')">
+            <div id="list">
 
             </div>
 

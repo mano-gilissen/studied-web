@@ -1,9 +1,3 @@
-<script>
-
-    var data_sort                       = JSON.parse('{{ $data_sort ?? '' }}');
-
-</script>
-
 <div id="headers" style="grid-template-columns: {{ $column_spacing }}">
 
     @foreach($columns as $column)
@@ -39,3 +33,5 @@
     @endforeach
 
 </div>
+
+<div>{{ $sort }}</div>
