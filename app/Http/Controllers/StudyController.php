@@ -75,7 +75,10 @@ class StudyController extends Controller {
 
         $query                                              = Study::query();
 
-        $query->orderBy(self::$BASE_CREATED_AT, 'desc');
+
+        if ($data_sort) {
+            $query->orderBy(self::$BASE_CREATED_AT, $data_sort[Table::SORT_MODE]);
+        }
 /*
         if ($data_sort) {
 
