@@ -52,7 +52,7 @@ $(function(){
 
         headers: {
 
-            "X-CSRF-TOKEN": $('meta[name="_token"]').attr('content')
+            HEADER_CSRF:                        $('meta[name="_token"]').attr('content')
 
         }
     });
