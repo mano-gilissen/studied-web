@@ -42,6 +42,8 @@ class Table {
         $spacing                                            = self::spacing($columns);
         $items                                              = [];
 
+        dd($sort);
+
         foreach ($objects as $object) {
 
             $item                                           = [];
