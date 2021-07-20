@@ -74,11 +74,11 @@ class StudyController extends Controller {
         $data_sort                                          = $request->input(Table::DATA_SORT, null);
 
 
+        /*
         $query                                              = DB::table(self::$STUDY)->get();
 
         $objects                                            = Study::hydrate($query);
 
-        /*
         if ($data_sort) {
 
             switch ($data_sort[Table::COLUMN_ID]) {
@@ -102,7 +102,7 @@ class StudyController extends Controller {
         $objects                                            = $query->get();
         */
 
-        return Table::load($this, $objects, $data_sort);
+        return Table::load($this, Study::where(StudyTrait::$STUDY_STATUS, 1)->get(), $data_sort);
 
     }
 
