@@ -21,24 +21,28 @@ $(function(){
         });
     }
 
-    function sort(e) {
+    function sort(id) {
 
-        this.data_sort['id']                    = e.target.id;
+        this.data_sort['id']                    = id;
         this.data_sort['mode']                  = 'asc';
 
         load();
     }
 
 
-/*
-    $(CLASS_HEADER).click(function(event) {
+    function listen() {
 
-        sort();
+        $(CLASS_HEADER).click(function(event) {
 
-    });
-*/
+            sort(event.target.id);
+
+        });
+    }
+
 
 
     load();
+
+
 
 });

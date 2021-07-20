@@ -2,7 +2,7 @@
 
     @foreach($columns as $column)
 
-        <div class="header {{ $column->state ?? '' }}" id="{{ $column->id }}" onclick="sort()">{{ $column->label }}</div>
+        <div class="header {{ $column->state ?? '' }}" id="{{ $column->id }}">{{ $column->label }}</div>
 
     @endforeach
 
@@ -35,3 +35,5 @@
 </div>
 
 <div>{{ $data_sort['id'] ?? 'okok' }}</div>
+
+<script>listen()</script>
