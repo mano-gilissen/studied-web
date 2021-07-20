@@ -48,14 +48,6 @@ $(function(){
 
 
 
-    $.ajaxSetup({
-
-        headers: {
-
-            HEADER_CSRF:                        $('meta[name="_token"]').attr('content')
-
-        }
-    });
 
 
 
