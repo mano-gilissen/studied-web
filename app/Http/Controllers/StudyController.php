@@ -72,9 +72,11 @@ class StudyController extends Controller {
 
         $data_sort                                          = $request->input(Table::DATA_SORT, null);
 
-        dd($data_sort);
+        if ($data_sort) {
+            dd($data_sort);
+        }
 
-        return Table::load($this, Study::all(), );
+        return Table::load($this, Study::all(), null);
 
     }
 
