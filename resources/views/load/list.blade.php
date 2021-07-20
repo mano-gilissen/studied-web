@@ -34,4 +34,4 @@
 
 </div>
 
-<div>{{ $sort }}</div>
+<div>{{ $data_sort }}</div>
