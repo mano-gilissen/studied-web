@@ -70,6 +70,8 @@ class StudyController extends Controller {
 
     public function list_load(Request $request) {
 
+        dd($request->all());
+
         return Table::load($this, Study::all(), $request->all());
 
     }
