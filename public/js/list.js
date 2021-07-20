@@ -30,13 +30,13 @@ $(function(){
     }
 
 
-
+/*
     $(CLASS_HEADER).click(function(event) {
 
         sort();
 
     });
-
+*/
 
 
     load();
