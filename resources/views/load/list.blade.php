@@ -33,5 +33,3 @@
     @endforeach
 
 </div>
-
-<div>{{ $data_sort ?? 'empty' }}</div>
