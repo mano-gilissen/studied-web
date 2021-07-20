@@ -40,7 +40,7 @@ class Table {
 
         if ($sort) {
 
-            dd($sort);
+            dd($sort['id']);
 
         }
 
