@@ -28,6 +28,8 @@ class Table {
     const DATA_TYPE                             = "data_type";
     const DATA_SORT                             = "data_sort";
 
+    const SORT_MODE                             = "sort_mode";
+
     const ITEM_LINK                             = "link";
 
     const WIDTH_END_ACTION                      = "48px";
@@ -38,7 +40,7 @@ class Table {
 
     public static function load($controller, $objects, $sort) {
 
-        $columns                                            = $controller->list_columns();
+        $columns                                            = $controller->list_columns($sort);
         $spacing                                            = self::spacing($columns);
         $items                                              = [];
 

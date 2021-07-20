@@ -16,6 +16,7 @@ use App\Http\Support\Key;
 use App\Http\Support\Views;
 use Illuminate\Http\Request;
 use Auth;
+use DB;
 
 
 
@@ -72,11 +73,31 @@ class StudyController extends Controller {
 
         $data_sort                                          = $request->input(Table::DATA_SORT, null);
 
+        $query                                              = DB::table(self::$STUDY);
+
         if ($data_sort) {
-            dd($data_sort);
+
+            switch ($data_sort[Table::COLUMN_ID]) {
+
+                case self::$COLUMN_DATE:
+
+                    $query->orderBy(self::$BASE_CREATED_AT, $data_sort[Table::SORT_MODE]);
+                    break;
+
+                case self::$COLUMN_STATUS:
+
+                    $query->orderBy(self::$STUDY_STATUS, $data_sort[Table::SORT_MODE]);
+                    break;
+
+                default:
+
+                    break;
+            }
         }
 
-        return Table::load($this, Study::all(), null);
+        $objects                                            = $query->get();
+
+        return Table::load($this, $objects, $data_sort);
 
     }
 
@@ -98,7 +119,7 @@ class StudyController extends Controller {
         ];
     }
 
-    public function list_columns() {
+    public function list_columns($sort) {
 
         $columns                                            = [];
 
