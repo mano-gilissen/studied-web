@@ -18,7 +18,7 @@ $(function(){
 
         $(OBJECT_LIST).load('/load/list/' + data_type, {
 
-            data_sort:                  json(data.serialize())
+            data_sort:                  data.serialize()
 
         });
     }
