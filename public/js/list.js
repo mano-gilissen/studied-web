@@ -14,19 +14,17 @@ $(function(){
 
     function load() {
 
-        console.log(data);
-
         $(OBJECT_LIST).load('/load/list/' + data_type, {
 
-            data_sort:                  data
+            data_sort:                          data
 
         });
     }
 
     function sort(id) {
 
-        this.data['id']               = id;
-        this.data['mode']             = 'asc';
+        this.data['id']                         = id;
+        this.data['mode']                       = 'asc';
 
         load();
     }
