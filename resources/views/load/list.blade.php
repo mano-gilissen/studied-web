@@ -34,4 +34,4 @@
 
 </div>
 
-<div>{{ $data_sort['id'] ?? 'okok' }}</div>
+<div>{{ $data_sort ?? 'okok' }}</div>
