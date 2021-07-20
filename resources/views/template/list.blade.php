@@ -68,7 +68,7 @@
 
             </div>
 
-            <div id="list">
+            <div id="list" onload="load('{{ $data_type }}')">
 
             </div>
 
