@@ -62,7 +62,7 @@ class StudyController extends Controller {
 
         $query = Study::query();
 
-        $query->join('user', 'user.id', '=', 'study.host');
+        $query->join('user', 'user.id', '=', 'study.host_user');
         $query->orderBy('user.email', 'DESC');
 
         return $query->get();
