@@ -14,7 +14,7 @@ $(function(){
 
     function load() {
 
-        Console.log(data);
+        console.log(data);
 
         $(OBJECT_LIST).load('/load/list/' + data_type, {
 
