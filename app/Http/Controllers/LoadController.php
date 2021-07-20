@@ -23,8 +23,6 @@ class LoadController extends Controller {
 
         $data_type                                      = $request->input(Table::DATA_TYPE);
 
-        return $data_type;
-
         switch($data_type) {
 
             case self::$STUDY:
