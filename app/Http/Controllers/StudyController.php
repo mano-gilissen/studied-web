@@ -89,6 +89,13 @@ class StudyController extends Controller {
                     $query->orderBy(self::$STUDY_STATUS, $data_sort[Table::SORT_MODE]);
                     break;
 
+                case self::$COLUMN_HOST:
+
+
+                    $query->join('user', 'user.id', '=', 'study.host');
+                    $query->orderBy('user.email', $data_sort[Table::SORT_MODE]);
+                    break;
+
                 default:
 
                     break;
