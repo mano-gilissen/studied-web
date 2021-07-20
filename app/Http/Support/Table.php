@@ -25,6 +25,8 @@ class Table {
     const COLUMN_LABEL                          = "label";
     const COLUMN_HTML                           = "html";
 
+    const DATA_TYPE                             = "data_type";
+
     const ITEM_LINK                             = "link";
 
     const WIDTH_END_ACTION                      = "48px";

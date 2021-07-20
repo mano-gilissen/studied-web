@@ -63,6 +63,7 @@ class StudyController extends Controller {
 
             Key::PAGE_TITLE                                                 => 'Lessen',
 
+            Table::DATA_TYPE                                                => self::$STUDY,
             Table::VIEW_COUNTERS                                            => $this->list_counters()
         ]);
     }
