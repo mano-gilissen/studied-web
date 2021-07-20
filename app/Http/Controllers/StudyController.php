@@ -46,10 +46,10 @@ class StudyController extends Controller {
 
         return view(Views::STUDY, [
 
-            Key::PAGE_TITLE                                                 => $study->getService->{self::$SERVICE_NAME},
+            Key::PAGE_TITLE                                 => $study->getService->{self::$SERVICE_NAME},
 
-            self::$STUDY                                                    => $study,
-            'button_contact_host'                                           => true,
+            self::$STUDY                                    => $study,
+            'button_contact_host'                           => true,
         ]);
     }
 
@@ -61,29 +61,36 @@ class StudyController extends Controller {
 
         return view(Views::LIST_STUDY, [
 
-            Key::PAGE_TITLE                                                 => 'Lessen',
+            Key::PAGE_TITLE                                 => 'Lessen',
 
-            Table::DATA_TYPE                                                => self::$STUDY,
-            Table::VIEW_COUNTERS                                            => $this->list_counters()
+            Table::DATA_TYPE                                => self::$STUDY,
+            Table::VIEW_COUNTERS                            => $this->list_counters()
         ]);
     }
 
     public function list_load(Request $request) {
 
-        return $request->input('data_sort');//Table::load($this, Study::all());
+        $sort = [];
 
+        if($request->has(Table::DATA_SORT)) {
+
+            $request->input(Table::DATA_SORT);
+
+        }
+
+        return Table::load($this, Study::all(), $sort);
     }
 
     public function list_counters() {
 
         $COUNTER_PLANNED            = (object) [
-            Table::COUNTER_LABEL                         => 'Ingepland',
-            Table::COUNTER_VALUE                         => Study::where(self::$STUDY_STATUS, self::$STATUS_PLANNED)->count()
+            Table::COUNTER_LABEL                            => 'Ingepland',
+            Table::COUNTER_VALUE                            => Study::where(self::$STUDY_STATUS, self::$STATUS_PLANNED)->count()
         ];
 
         $COUNTER_REPORTED           = (object) [
-            Table::COUNTER_LABEL                         => 'Gerapporteerd',
-            Table::COUNTER_VALUE                         => Study::where(self::$STUDY_STATUS, self::$STATUS_REPORTED)->count()
+            Table::COUNTER_LABEL                            => 'Gerapporteerd',
+            Table::COUNTER_VALUE                            => Study::where(self::$STUDY_STATUS, self::$STATUS_REPORTED)->count()
         ];
 
         return [
@@ -94,7 +101,7 @@ class StudyController extends Controller {
 
     public function list_columns() {
 
-        $columns                                        = [];
+        $columns                                            = [];
 
         /* TODO: REMOVE COLUMNS IF FILTERED */
 
@@ -167,15 +174,15 @@ class StudyController extends Controller {
 
             case self::$COLUMN_STUDENT:
 
-                $participants                           = StudyTrait::getParticipants_Person($study);
+                $participants                               = StudyTrait::getParticipants_Person($study);
 
                 switch(count($participants)) {
 
-                    case 0:                             return "Geen deelnemers";
-                    case 1:                             return PersonTrait::getFullName($participants[0]);
-                    case 2:                             return $participants[0]->{self::$PERSON_FIRST_NAME} . " en " . $participants[1]->{self::$PERSON_FIRST_NAME};
-                    case 3:                             return $participants[0]->{self::$PERSON_FIRST_NAME} . ", " . $participants[1]->{self::$PERSON_FIRST_NAME} . " en " . $participants[2]->{self::$PERSON_FIRST_NAME};
-                    default:                            return count($participants) . " deelnemers";
+                    case 0:                                 return "Geen deelnemers";
+                    case 1:                                 return PersonTrait::getFullName($participants[0]);
+                    case 2:                                 return $participants[0]->{self::$PERSON_FIRST_NAME} . " en " . $participants[1]->{self::$PERSON_FIRST_NAME};
+                    case 3:                                 return $participants[0]->{self::$PERSON_FIRST_NAME} . ", " . $participants[1]->{self::$PERSON_FIRST_NAME} . " en " . $participants[2]->{self::$PERSON_FIRST_NAME};
+                    default:                                return count($participants) . " deelnemers";
                 }
 
             case self::$COLUMN_HOST:

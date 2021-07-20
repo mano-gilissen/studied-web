@@ -61,7 +61,7 @@ class Table {
             self::VIEW_SPACING                              => $spacing,
             self::VIEW_ITEMS                                => $items,
 
-            self::DATA_SORT                                 => $sort
+            self::DATA_SORT                                 => json_encode($sort)
         ]);
     }
 

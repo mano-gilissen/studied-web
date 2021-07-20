@@ -1,6 +1,6 @@
 <script>
 
-    var data_sort                       = '{{ $data_sort }}';
+    var data_sort                       = JSON.parse('{{ $data_sort ?? '' }}');
 
 </script>
 
