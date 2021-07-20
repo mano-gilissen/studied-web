@@ -2,7 +2,7 @@
 
     @foreach($columns as $column)
 
-        <div class="header {{ $column->state ?? '' }}">{{ $column->label }}</div>
+        <div class="header {{ $column->state ?? '' }}" id="{{ $column->id }}">{{ $column->label }}</div>
 
     @endforeach
 
