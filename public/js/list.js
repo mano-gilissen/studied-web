@@ -4,7 +4,7 @@
 const OBJECT_LIST                               = '#list';
 const CLASS_HEADER                              = '.header';
 
-var data                                        = [];
+var data                                        = {};
 
 
 
@@ -14,11 +14,11 @@ $(function(){
 
     function load() {
 
-        console.log(data.serialize());
+        console.log(data);
 
         $(OBJECT_LIST).load('/load/list/' + data_type, {
 
-            data_sort:                  data.serialize()
+            data_sort:                  data
 
         });
     }
