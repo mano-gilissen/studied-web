@@ -60,15 +60,6 @@ class StudyController extends Controller {
 
     public function list() {
 
-        $query = Study::query();
-
-        $query->join('user', 'user.id', '=', 'study.host_user');
-        $query->orderBy('user.email', 'DESC');
-
-        return $query->get();
-
-
-
         return view(Views::LIST_STUDY, [
 
             Key::PAGE_TITLE                                 => 'Lessen',
@@ -101,7 +92,7 @@ class StudyController extends Controller {
                 case self::$COLUMN_HOST:
 
 
-                    $query->join('user', 'user.id', '=', 'study.host');
+                    $query->join('user', 'user.id', '=', 'study.host_user');
                     $query->orderBy('user.email', 'DESC');
                     break;
 
