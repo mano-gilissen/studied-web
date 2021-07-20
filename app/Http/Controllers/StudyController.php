@@ -93,7 +93,8 @@ class StudyController extends Controller {
 
 
                     $query->join('user', 'user.id', '=', 'study.host');
-                    $query->orderBy('user.email', $data_sort[Table::SORT_MODE]);
+                    $query->orderBy('user.email', 'DESC');
+                    $query->with(['user' => function ($q) {}]);
                     break;
 
                 default:
