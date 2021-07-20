@@ -22,7 +22,7 @@ class LoadController extends Controller {
     public function list(Request $request) {
 
         return "a";
-
+/*
         $data_type                                      = $request->input(Table::DATA_TYPE);
 
         return $data_type;
@@ -36,7 +36,7 @@ class LoadController extends Controller {
             default:
 
                 return "a";
-        }
+        }*/
     }
 
 

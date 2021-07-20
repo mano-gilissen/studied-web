@@ -22,13 +22,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="_token" content="{{ csrf_token() }}">
 
-
     <script>
         $.ajaxSetup({
 
             headers: {
 
-                HEADER_CSRF:                        $('meta[name="_token"]').attr('content')
+                "X-CSRF-TOKEN": $('meta[name="_token"]').attr('content')
 
             }
         });
