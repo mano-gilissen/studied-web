@@ -46,12 +46,4 @@ $(function(){
 
 
 
-    $("#list").click(function() {
-
-        $('#list').load('load-study-list');
-
-    });
-
-
-
 });
