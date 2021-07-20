@@ -68,9 +68,7 @@ class StudyController extends Controller {
         ]);
     }
 
-    public function list_load() {
-
-        return "absfas";
+    public function list_load(Request $request) {
 
         return $request->input('test');//Table::load($this, Study::all());
 

@@ -11,7 +11,9 @@ $(function(){
 
     $(OBJECT_LIST).click(function() {
 
-        $(OBJECT_LIST).load('/load/list', {data_type: 'study'});
+        $data_type = "study";
+
+        $(OBJECT_LIST).load('/load/list/' + $data_type, {test: '123454321'});
 
     });
 
