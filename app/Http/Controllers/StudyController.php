@@ -70,9 +70,7 @@ class StudyController extends Controller {
 
     public function list_load(Request $request) {
 
-        dd($request->input(Table::DATA_SORT . '.mode'));
-
-        return Table::load($this, Study::all(), $request->input(Table::DATA_SORT, ['empty' => 'empty']));
+        return Table::load($this, Study::all(), $request->all());
 
     }
 

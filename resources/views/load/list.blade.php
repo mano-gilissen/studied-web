@@ -34,4 +34,4 @@
 
 </div>
 
-<div>{{ $data_sort ?? 'okok' }}</div>
+<div>{{ $data_sort ?? 'empty' }}</div>
