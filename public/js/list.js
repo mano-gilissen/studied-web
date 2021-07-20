@@ -9,15 +9,15 @@ $(function(){
 
 
 
-    /*$(OBJECT_LIST).click(function() {*/
-
-
-
-    function load(data_type) {
+    function load() {
 
         $(OBJECT_LIST).load('/load/list/' + data_type, {test: '123454321'});
 
     }
+
+
+
+
 
 
 

@@ -12,6 +12,12 @@
 
 @section('scripts')
 
+    <script>
+
+        var data_type = '{{ $data_type }}';
+
+    </script>
+
     <script src="{{ asset('js/list.js') }}"></script>
 
 @endsection
