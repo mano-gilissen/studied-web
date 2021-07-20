@@ -27,7 +27,7 @@ class LoadController extends Controller {
 
             case self::$STUDY:
 
-                return redirect()->action([StudyController::class, 'list_load'], ['request', $request]);
+                return redirect()->action([StudyController::class, 'list_load']);
 
             default:
 
