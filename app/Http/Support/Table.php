@@ -38,12 +38,6 @@ class Table {
 
     public static function load($controller, $objects, $sort) {
 
-        if ($sort) {
-
-            dd($sort['id']);
-
-        }
-
         $columns                                            = $controller->list_columns();
         $spacing                                            = self::spacing($columns);
         $items                                              = [];

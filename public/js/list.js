@@ -14,17 +14,13 @@ $(function(){
 
     function load() {
 
-        $(OBJECT_LIST).load('/load/list/' + data_type, {
-
-            data_sort:                          data
-
-        });
+        $(OBJECT_LIST).load('/load/list/' + data_type, data);
     }
 
     function sort(id) {
 
-        this.data['id']                         = id;
-        this.data['mode']                       = 'asc';
+        this.data['data_sort']['id']            = id;
+        this.data['data_sort']['mode']          = 'asc';
 
         load();
     }
