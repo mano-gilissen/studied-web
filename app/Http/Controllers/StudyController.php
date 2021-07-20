@@ -103,7 +103,7 @@ class StudyController extends Controller {
             }
         }
 
-        $objects                                            = $query->get();
+        $objects                                            = $query->take(5)->get();
 
         return Table::load($this, $objects, $data_sort);
 
