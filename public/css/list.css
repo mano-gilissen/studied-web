@@ -79,16 +79,23 @@
 }
 
 #headers .header .sort {
+    opacity:                            0;
     width:                              10px;
     height:                             10px;
     background:                         pink;
 }
 
+#headers .header:hover .sort {
+    opacity:                            1;
+}
+
 #headers .header.asc .sort {
+    opacity:                            1;
     background:                         green;
 }
 
 #headers .header.desc .sort {
+    opacity:                            1;
     background:                         blue;
 }
 
