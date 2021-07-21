@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="10" height="14" viewBox="0 0 10 14">
     <g id="sort_down" transform="translate(-316 -313.912)">
         <path id="Path_72" d="M5,0l5,5H0Z" transform="translate(326 327.912) rotate(180)" fill="#666"/>
-        <path id="Path_74" d="M5,5l5-5H0Z" transform="translate(326 318.912) rotate(180)" fill="#ccc"/>
+        <path id="Path_74" d="M5,5l5-5H0Z" transform="translate(326 318.912) rotate(180)" fill="#e6e6e6"/>
     </g>
 </svg>
