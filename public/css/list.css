@@ -73,8 +73,8 @@
     background:                         #F0F0F0;
 }
 
-#headers .header.sort-asc,
-#headers .header.sort-desc {
+#headers .header.asc,
+#headers .header.desc {
     color:                              #000000;
 }
 
@@ -84,11 +84,11 @@
     background:                         pink;
 }
 
-#headers .header.sort-asc .sort {
+#headers .header.asc .sort {
     background:                         green;
 }
 
-#headers .header.sort-desc .sort {
+#headers .header.desc .sort {
     background:                         blue;
 }
 
