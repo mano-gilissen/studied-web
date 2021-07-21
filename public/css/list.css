@@ -79,10 +79,10 @@
 }
 
 #headers .header .sort {
-    opacity:                            0;
+    margin-left:                        10px;
     width:                              10px;
-    height:                             10px;
-    background:                         pink;
+    background-image:                   url('/images/sort.svg');
+    opacity:                            0;
 }
 
 #headers .header:hover .sort {
@@ -90,13 +90,13 @@
 }
 
 #headers .header.asc .sort {
+    background-image:                   url('/images/sort-up.svg');
     opacity:                            1;
-    background:                         green;
 }
 
 #headers .header.desc .sort {
+    background-image:                   url('/images/sort-down.svg');
     opacity:                            1;
-    background:                         blue;
 }
 
 
