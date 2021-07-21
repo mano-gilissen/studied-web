@@ -98,7 +98,7 @@ class Table {
             self::COLUMN_LABEL                              => $label,
             self::COLUMN_SPACING                            => $spacing,
             self::COLUMN_HTML                               => $html,
-            self::COLUMN_STATE                              => $sort[Table::COLUMN_ID] == $id ? $sort[Table::SORT_MODE] : ''
+            self::COLUMN_STATE                              => $sort && ($sort[Table::COLUMN_ID] == $id) ? $sort[Table::SORT_MODE] : ''
         ];
     }
 
