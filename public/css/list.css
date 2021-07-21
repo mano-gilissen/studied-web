@@ -78,6 +78,20 @@
     color:                              #000000;
 }
 
+#headers .header .sort {
+    width:                              10px;
+    height:                             10px;
+    background:                         pink;
+}
+
+#headers .header.sort-asc .sort {
+    background:                         green;
+}
+
+#headers .header.sort-desc .sort {
+    background:                         blue;
+}
+
 
 
 

@@ -146,14 +146,14 @@ class StudyController extends Controller {
             case UserTrait::$ID_CUSTOMER:
 
                 array_push($columns,
-                    Table::column(self::$COLUMN_DATE, 'Datum', 3, true),
-                    Table::column(self::$COLUMN_STUDENT, 'Leerling', 4),
-                    Table::column(self::$COLUMN_HOST, 'Student', 4),
-                    Table::column(self::$COLUMN_SERVICE, 'Onderwerp', 3),
-                    Table::column(self::$COLUMN_SUBJECT, 'Dienst', 2),
-                    Table::column(self::$COLUMN_LOCATION, 'Locatie', 3),
-                    Table::column(self::$COLUMN_TIME, 'Tijdstip', 3),
-                    Table::column(self::$COLUMN_STATUS, 'Status', 3, true)
+                    Table::column(self::$COLUMN_DATE, 'Datum', 3, $sort, true),
+                    Table::column(self::$COLUMN_STUDENT, 'Leerling', 4, $sort),
+                    Table::column(self::$COLUMN_HOST, 'Student', 4, $sort),
+                    Table::column(self::$COLUMN_SERVICE, 'Onderwerp', 3, $sort),
+                    Table::column(self::$COLUMN_SUBJECT, 'Dienst', 2, $sort),
+                    Table::column(self::$COLUMN_LOCATION, 'Locatie', 3, $sort),
+                    Table::column(self::$COLUMN_TIME, 'Tijdstip', 3, $sort),
+                    Table::column(self::$COLUMN_STATUS, 'Status', 3, $sort, true)
                 );
                 break;
 

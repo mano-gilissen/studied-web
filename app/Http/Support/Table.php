@@ -24,6 +24,7 @@ class Table {
     const COLUMN_SPACING                        = "spacing";
     const COLUMN_LABEL                          = "label";
     const COLUMN_HTML                           = "html";
+    const COLUMN_STATE                          = "state";
 
     const DATA_TYPE                             = "data_type";
     const DATA_SORT                             = "data_sort";
@@ -90,13 +91,14 @@ class Table {
 
 
 
-    public static function column($id, $label, $spacing, $html = false) {
+    public static function column($id, $label, $spacing, $sort, $html = false) {
 
         return (object) [
             self::COLUMN_ID                                 => $id,
             self::COLUMN_LABEL                              => $label,
             self::COLUMN_SPACING                            => $spacing,
-            self::COLUMN_HTML                               => $html
+            self::COLUMN_HTML                               => $html,
+            self::COLUMN_STATE                              => $sort[Table::COLUMN_ID] == $id ? $sort[Table::SORT_MODE] : ''
         ];
     }
 
