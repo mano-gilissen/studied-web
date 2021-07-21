@@ -80,6 +80,7 @@
 
 #headers .header .sort {
     margin-left:                        10px;
+    height:                             14px;
     width:                              10px;
     background-image:                   url('/images/sort.svg');
     opacity:                            0;
