@@ -51,8 +51,11 @@ $(function(){
 
     $(OBJECT_APP).on('mouseover', CLASS_HEADER, function() {
 
-        var x = $(this).clientX;
-        var y = $(this).clientY;
+        var x = event.clientX;
+        var y = event.clientY;
+
+        console.log($(this).clientX);
+        console.log(event.clientX);
 
         document.getElementById("tooltip").textContent = "sorteren " + $(this).attr('id');
         document.getElementById("tooltip").style.left = x + "px";
