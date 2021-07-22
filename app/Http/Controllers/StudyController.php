@@ -120,7 +120,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_SERVICE:
 
-                $query->join(self::$SERVICE, self::$SERVICE . '.' . self::$SERVICE_NAME, '=', self::$STUDY . '.' . self::$SERVICE);
+                $query->join(self::$SERVICE, self::$SERVICE . '.' . self::$BASE_ID, '=', self::$STUDY . '.' . self::$SERVICE);
                 $query->orderBy(self::$SERVICE . '.' . self::$SERVICE_NAME, $sort[Table::SORT_MODE]);
                 break;
         }
