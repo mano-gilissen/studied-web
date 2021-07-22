@@ -62,7 +62,7 @@ $(function(){
         $(OBJECT_TOOLTIP)                       .css({opacity: 1});
     });
 
-    $(OBJECT_APP).on('mouseexit', CLASS_HEADER, function(){
+    $(OBJECT_APP).on('mouseout', CLASS_HEADER, function(){
 
         $(OBJECT_TOOLTIP)                       .css({opacity: 0});
     });
