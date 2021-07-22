@@ -76,7 +76,7 @@
 }
 
 #headers .header.none:hover {
-    background:                         transparent;
+    color:                              #808080;
 }
 
 #headers .header .sort {
