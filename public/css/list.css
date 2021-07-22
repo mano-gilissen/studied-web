@@ -73,6 +73,10 @@
     background:                         #F8F8F8;
 }
 
+#headers .header.none:hover {
+    background:                         transparent;
+}
+
 #headers .header.asc,
 #headers .header.desc {
     color:                              #000000;
@@ -83,6 +87,9 @@
     height:                             14px;
     width:                              10px;
     background-image:                   url('/images/sort.svg');
+}
+
+#headers .header.none:hover .sort {
     opacity:                            0;
 }
 
