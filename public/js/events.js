@@ -52,11 +52,9 @@ $(function(){
 
     $(OBJECT_APP).on('mousemove', CLASS_HEADER, function() {
 
-        var tooltip                             = document.getElementById(OBJECT_TOOLTIP);
-
-        tooltip.textContent                     = "Sorteren " + $(this).attr('id');
-        tooltip.style.left                      = (30 + event.clientX) + "px";
-        tooltip.style.top                       = (30 + event.clientY) + "px";
+        $(OBJECT_TOOLTIP).textContent           = "Sorteren " + $(this).attr('id');
+        $(OBJECT_TOOLTIP).style.left            = (30 + event.clientX) + "px";
+        $(OBJECT_TOOLTIP).style.top             = (30 + event.clientY) + "px";
     });
 
 
