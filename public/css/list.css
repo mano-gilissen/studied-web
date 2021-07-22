@@ -77,7 +77,7 @@
 
 #headers .header.none:hover {
     color:                              #808080;
-    cursor:                             unset;
+    cursor:                             default;
 }
 
 #headers .header .sort {
