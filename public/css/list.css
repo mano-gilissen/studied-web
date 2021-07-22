@@ -66,7 +66,6 @@
     align-items:                        center;
     padding-left:                       24px;
     color:                              #808080;
-    cursor:                             pointer;
     overflow:                           hidden;
 }
 
@@ -74,6 +73,7 @@
 #headers .header.asc,
 #headers .header.desc {
     color:                              #000000;
+    cursor:                             pointer;
 }
 
 #headers .header.none:hover {
