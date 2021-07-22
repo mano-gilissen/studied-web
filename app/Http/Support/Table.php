@@ -87,7 +87,7 @@ class Table {
 
         }
 
-        return $query->get();
+        return $query->select('study.*')->get();
     }
 
 
