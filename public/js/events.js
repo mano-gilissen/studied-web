@@ -53,8 +53,8 @@ $(function(){
     $(OBJECT_APP).on('mousemove', CLASS_HEADER, function() {
 
         $(OBJECT_TOOLTIP).textContent           = "Sorteren " + $(this).attr('id');
-        $(OBJECT_TOOLTIP).style.left            = (30 + event.clientX) + "px";
-        $(OBJECT_TOOLTIP).style.top             = (30 + event.clientY) + "px";
+        $(OBJECT_TOOLTIP).css({left: (30 + event.clientX) + "px"});
+        $(OBJECT_TOOLTIP).css({top: (30 + event.clientY) + "px"});
     });
 
 
