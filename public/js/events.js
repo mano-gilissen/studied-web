@@ -49,12 +49,11 @@ $(function(){
 
 
 
-    $(OBJECT_APP).on('mouseover', CLASS_HEADER, function() {
+    $(OBJECT_APP).on('mousemove', CLASS_HEADER, function() {
 
         var x = event.clientX;
         var y = event.clientY;
 
-        console.log($(this).clientX);
         console.log(event.clientX);
 
         document.getElementById("tooltip").textContent = "sorteren " + $(this).attr('id');
