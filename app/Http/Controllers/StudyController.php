@@ -112,7 +112,7 @@ class StudyController extends Controller {
                     Table::column(self::$COLUMN_DATE, 'Datum', 3, true, $sort, true),
                     Table::column(self::$COLUMN_STUDENT, 'Leerling', 4, true, $sort),
                     Table::column(self::$COLUMN_HOST, 'Student', 4, true, $sort),
-                    Table::column(self::$COLUMN_SERVICE, 'Dienst', 3, true, $sort),
+                    Table::column(self::$COLUMN_SERVICE, 'Dienst', 2, true, $sort),
                     Table::column(self::$COLUMN_SUBJECT, 'Onderwerp', 2, false, $sort),
                     Table::column(self::$COLUMN_LOCATION, 'Locatie', 3, false, $sort),
                     Table::column(self::$COLUMN_TIME, 'Tijdstip', 3, true, $sort),
