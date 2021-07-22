@@ -18,6 +18,21 @@ html, body {
 
 
 
+#tooltip {
+    z-index:                            999;
+    background:                         black;
+    color:                              white;
+    font-weight:                        600;
+    padding:                            2px 4px;
+    border-radius:                      4px;
+    font-size:                          12px;
+    position:                           absolute;
+}
+
+
+
+
+
 #wrap {
     position:                           fixed;
     width:                              100vw;

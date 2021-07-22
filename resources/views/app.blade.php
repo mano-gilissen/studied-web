@@ -42,7 +42,7 @@
 
 <body>
 
-    <div id="tooltip" style="background: black;color:white;position:absolute">tooltip</div>
+    <div id="tooltip"></div>
 
     <div id="app">
 
