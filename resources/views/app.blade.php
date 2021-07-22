@@ -44,7 +44,7 @@
 
     <div id="app">
 
-        <div id="tooltip" style="background: black">tooltip</div>
+        <div id="tooltip" style="background: black;color:black;position:absolute">tooltip</div>
 
         @yield('content')
 
