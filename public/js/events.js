@@ -66,19 +66,19 @@ $(function(){
 
     });
 
-    $(OBJECT_APP).on('mousemove', CLASS_HEADER, function() {
+    $(OBJECT_APP).on('mousemove', CLASS_HEADER + ":not(" + CLASS_SORT_MODE_NONE + ")", function() {
 
         setTooltip("Sorteren");
 
     });
 
-    $(OBJECT_APP).on('mouseenter', CLASS_HEADER + ',' + CLASS_PERSON, function(){
+    $(OBJECT_APP).on('mouseenter', CLASS_HEADER + ":not(" + CLASS_SORT_MODE_NONE + ")" + ',' + CLASS_PERSON, function(){
 
         $(OBJECT_TOOLTIP)                       .css({opacity: 1});
 
     });
 
-    $(OBJECT_APP).on('mouseleave', CLASS_HEADER + ',' + CLASS_PERSON, function(){
+    $(OBJECT_APP).on('mouseleave', CLASS_HEADER + ":not(" + CLASS_SORT_MODE_NONE + ")" + ',' + CLASS_PERSON, function(){
 
         $(OBJECT_TOOLTIP)                       .css({opacity: 0});
 
