@@ -132,6 +132,7 @@
 
 #items .item .attribute {
     padding-left:                       24px;
+    overflow:                           hidden;
 }
 
 #items .item .action {

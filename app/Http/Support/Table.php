@@ -87,7 +87,7 @@ class Table {
 
         }
 
-        return $query->select('study.*')->get();
+        return $query->select($controller->list_type() . '.*')->get();
     }
 
 

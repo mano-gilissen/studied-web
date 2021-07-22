@@ -87,63 +87,10 @@ class StudyController extends Controller {
 
 
 
-    public function list_sort($query, $sort) {
+    public function list_type() {
 
-        switch ($sort[Table::COLUMN_ID]) {
+        return self::$STUDY;
 
-            case self::$COLUMN_DATE:
-
-                $query->orderBy(self::$BASE_CREATED_AT, $sort[Table::SORT_MODE]);
-                break;
-
-            case self::$COLUMN_STATUS:
-
-                $query->orderBy(self::$STUDY_STATUS, $sort[Table::SORT_MODE]);
-                break;
-
-            case self::$COLUMN_STUDENT:
-
-                // TODO: ENABLE ONLY IF FILTERED ON STUDY.SERVICE = PRIVELES
-                /*
-                $query->join(self::$STUDY_USER, self::$STUDY_USER . '.' . self::$STUDY, '=', self::$STUDY . '.' . self::$BASE_ID);
-                $query->join(self::$USER, self::$USER . '.' . self::$BASE_ID, '=', self::$STUDY_USER . '.' . self::$USER);
-                $query->join(self::$PERSON, self::$PERSON . '.' . self::$BASE_ID, '=', self::$USER . '.' . self::$PERSON);
-                $query->orderBy(self::$PERSON . '.' . self::$PERSON_FIRST_NAME, $sort[Table::SORT_MODE]);*/
-                break;
-
-            case self::$COLUMN_HOST:
-
-                $query->join(self::$USER, self::$USER . '.' . self::$BASE_ID, '=', self::$STUDY . '.' . self::$STUDY_HOST_USER);
-                $query->join(self::$PERSON, self::$PERSON . '.' . self::$BASE_ID, '=', self::$USER . '.' . self::$PERSON);
-                $query->orderBy(self::$PERSON . '.' . self::$PERSON_FIRST_NAME, $sort[Table::SORT_MODE]);
-                break;
-
-            case self::$COLUMN_SERVICE:
-
-                $query->join(self::$SERVICE, self::$SERVICE . '.' . self::$BASE_ID, '=', self::$STUDY . '.' . self::$SERVICE);
-                $query->orderBy(self::$SERVICE . '.' . self::$SERVICE_NAME, $sort[Table::SORT_MODE]);
-                break;
-        }
-    }
-
-
-
-    public function list_counters() {
-
-        $COUNTER_PLANNED            = (object) [
-            Table::COUNTER_LABEL                            => 'Ingepland',
-            Table::COUNTER_VALUE                            => Study::where(self::$STUDY_STATUS, self::$STATUS_PLANNED)->count()
-        ];
-
-        $COUNTER_REPORTED           = (object) [
-            Table::COUNTER_LABEL                            => 'Gerapporteerd',
-            Table::COUNTER_VALUE                            => Study::where(self::$STUDY_STATUS, self::$STATUS_REPORTED)->count()
-        ];
-
-        return [
-            $COUNTER_PLANNED,
-            $COUNTER_REPORTED
-        ];
     }
 
 
@@ -209,21 +156,13 @@ class StudyController extends Controller {
 
 
 
-    public function list_link($study) {
-
-        return route('study.view', ['key' => $study->{self::$BASE_KEY}]);
-
-    }
-
-
-
     public function list_value($study, $column) {
 
         switch ($column->{Table::COLUMN_ID}) {
 
             case self::$COLUMN_DATE:
 
-                return $study->id . " . " . "<div style='font-weight: 400'>" . Format::datetime($study->{self::$BASE_CREATED_AT}, Format::$DATETIME_LIST) . "</div>";
+                return "<div style='font-weight: 400'>" . Format::datetime($study->{self::$BASE_CREATED_AT}, Format::$DATETIME_LIST) . "</div>";
 
             case self::$COLUMN_STUDENT:
 
@@ -266,6 +205,75 @@ class StudyController extends Controller {
 
                 return 'No value';
         }
+    }
+
+
+
+    public function list_link($study) {
+
+        return route('study.view', ['key' => $study->{self::$BASE_KEY}]);
+
+    }
+
+
+
+    public function list_sort($query, $sort) {
+
+        switch ($sort[Table::COLUMN_ID]) {
+
+            case self::$COLUMN_DATE:
+
+                $query->orderBy(self::$BASE_CREATED_AT, $sort[Table::SORT_MODE]);
+                break;
+
+            case self::$COLUMN_STATUS:
+
+                $query->orderBy(self::$STUDY_STATUS, $sort[Table::SORT_MODE]);
+                break;
+
+            case self::$COLUMN_STUDENT:
+
+                // TODO: ENABLE ONLY IF FILTERED ON STUDY.SERVICE = PRIVELES
+                /*
+                $query->join(self::$STUDY_USER, self::$STUDY_USER . '.' . self::$STUDY, '=', self::$STUDY . '.' . self::$BASE_ID);
+                $query->join(self::$USER, self::$USER . '.' . self::$BASE_ID, '=', self::$STUDY_USER . '.' . self::$USER);
+                $query->join(self::$PERSON, self::$PERSON . '.' . self::$BASE_ID, '=', self::$USER . '.' . self::$PERSON);
+                $query->orderBy(self::$PERSON . '.' . self::$PERSON_FIRST_NAME, $sort[Table::SORT_MODE]);*/
+                break;
+
+            case self::$COLUMN_HOST:
+
+                $query->join(self::$USER, self::$USER . '.' . self::$BASE_ID, '=', self::$STUDY . '.' . self::$STUDY_HOST_USER);
+                $query->join(self::$PERSON, self::$PERSON . '.' . self::$BASE_ID, '=', self::$USER . '.' . self::$PERSON);
+                $query->orderBy(self::$PERSON . '.' . self::$PERSON_FIRST_NAME, $sort[Table::SORT_MODE]);
+                break;
+
+            case self::$COLUMN_SERVICE:
+
+                $query->join(self::$SERVICE, self::$SERVICE . '.' . self::$BASE_ID, '=', self::$STUDY . '.' . self::$SERVICE);
+                $query->orderBy(self::$SERVICE . '.' . self::$SERVICE_NAME, $sort[Table::SORT_MODE]);
+                break;
+        }
+    }
+
+
+
+    public function list_counters() {
+
+        $COUNTER_PLANNED            = (object) [
+            Table::COUNTER_LABEL                            => 'Ingepland',
+            Table::COUNTER_VALUE                            => Study::where(self::$STUDY_STATUS, self::$STATUS_PLANNED)->count()
+        ];
+
+        $COUNTER_REPORTED           = (object) [
+            Table::COUNTER_LABEL                            => 'Gerapporteerd',
+            Table::COUNTER_VALUE                            => Study::where(self::$STUDY_STATUS, self::$STATUS_REPORTED)->count()
+        ];
+
+        return [
+            $COUNTER_PLANNED,
+            $COUNTER_REPORTED
+        ];
     }
 
 
