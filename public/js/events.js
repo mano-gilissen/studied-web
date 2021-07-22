@@ -57,12 +57,12 @@ $(function(){
         $(OBJECT_TOOLTIP)                       .css({top: (10 + event.clientY) + "px"});
     });
 
-    $(CLASS_HEADER).on('mouseenter', function(){
+    $(OBJECT_APP).on('mouseenter', CLASS_HEADER, function(){
 
         $(OBJECT_TOOLTIP)                       .css({opacity: 1});
     });
 
-    $(CLASS_HEADER).on('mouseexit', function(){
+    $(OBJECT_APP).on('mouseexit', CLASS_HEADER, function(){
 
         $(OBJECT_TOOLTIP)                       .css({opacity: 0});
     });
