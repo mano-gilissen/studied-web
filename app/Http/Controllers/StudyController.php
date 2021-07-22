@@ -191,7 +191,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_LOCATION:
 
-                return $study->getLocation_Defined ? $study->getSubject_Defined->{self::$LOCATION_NAME} : $study->{self::$STUDY_LOCATION_TEXT};
+                return $study->getLocation_Defined ? $study->getLocation_Defined->{self::$LOCATION_NAME} : $study->{self::$STUDY_LOCATION_TEXT};
 
             case self::$COLUMN_TIME:
 
