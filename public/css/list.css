@@ -69,17 +69,14 @@
     cursor:                             pointer;
 }
 
-#headers .header:hover {
-    background:                         #F8F8F8;
+#headers .header:hover,
+#headers .header.asc,
+#headers .header.desc {
+    color:                              #000000;
 }
 
 #headers .header.none:hover {
     background:                         transparent;
-}
-
-#headers .header.asc,
-#headers .header.desc {
-    color:                              #000000;
 }
 
 #headers .header .sort {
@@ -90,12 +87,12 @@
     opacity:                            0;
 }
 
-#headers .header.none:hover .sort {
-    opacity:                            0;
-}
-
 #headers .header:hover .sort {
     opacity:                            1;
+}
+
+#headers .header.none:hover .sort {
+    opacity:                            0;
 }
 
 #headers .header.asc .sort {
