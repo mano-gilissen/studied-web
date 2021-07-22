@@ -101,6 +101,14 @@ class StudyController extends Controller {
                 $query->orderBy(self::$STUDY_STATUS, $sort[Table::SORT_MODE]);
                 break;
 
+            case self::$COLUMN_STUDENT:
+
+                $query->join(self::$STUDY_USER, self::$STUDY_USER . '.' . self::$STUDY, '=', self::$STUDY . '.' . self::$BASE_ID);
+                $query->join(self::$USER, self::$USER . '.' . self::$BASE_ID, '=', self::$STUDY_USER . '.' . self::$USER);
+                $query->join(self::$PERSON, self::$PERSON . '.' . self::$BASE_ID, '=', self::$USER . '.' . self::$PERSON);
+                $query->orderBy(self::$PERSON . '.' . self::$PERSON_FIRST_NAME, $sort[Table::SORT_MODE]);
+                break;
+
             case self::$COLUMN_HOST:
 
                 $query->join(self::$USER, self::$USER . '.' . self::$BASE_ID, '=', self::$STUDY . '.' . self::$STUDY_HOST_USER);
