@@ -67,6 +67,7 @@
     padding-left:                       24px;
     color:                              #808080;
     cursor:                             pointer;
+    overflow:                           hidden;
 }
 
 #headers .header:hover,
