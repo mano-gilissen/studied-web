@@ -3,6 +3,7 @@
 
 const OBJECT_LIST                               = '#list';
 const CLASS_HEADER                              = '.header';
+const CLASS_SORT_MODE_NONE                      = '.none';
 
 var data_sort                                   = {};
 
@@ -31,7 +32,7 @@ $(function(){
 
 
 
-    $(OBJECT_LIST).on('click', CLASS_HEADER, function() {
+    $(OBJECT_LIST).on('click', CLASS_HEADER + ":not(" + CLASS_SORT_MODE_NONE + ")", function() {
 
         sort($(this).attr('id'));
 

@@ -31,6 +31,9 @@ class Table {
     const DATA_FILTER                           = "data_filter";
 
     const SORT_MODE                             = "mode";
+    const SORT_MODE_ASC                         = "asc";
+    const SORT_MODE_DESC                        = "desc";
+    const SORT_MODE_NONE                        = "none";
 
     const ITEM_LINK                             = "link";
 
@@ -91,14 +94,14 @@ class Table {
 
 
 
-    public static function column($id, $label, $spacing, $sort, $html = false) {
+    public static function column($id, $label, $spacing, $sortable, $sort, $html = false) {
 
         return (object) [
             self::COLUMN_ID                                 => $id,
             self::COLUMN_LABEL                              => $label,
             self::COLUMN_SPACING                            => $spacing,
             self::COLUMN_HTML                               => $html,
-            self::COLUMN_STATE                              => $sort && ($sort[Table::COLUMN_ID] == $id) ? $sort[Table::SORT_MODE] : ''
+            self::COLUMN_STATE                              => $sortable ? ($sort && ($sort[Table::COLUMN_ID] == $id) ? $sort[Table::SORT_MODE] : '') : self::SORT_MODE_NONE
         ];
     }
 

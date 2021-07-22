@@ -146,40 +146,40 @@ class StudyController extends Controller {
             case UserTrait::$ID_CUSTOMER:
 
                 array_push($columns,
-                    Table::column(self::$COLUMN_DATE, 'Datum', 3, $sort, true),
-                    Table::column(self::$COLUMN_STUDENT, 'Leerling', 4, $sort),
-                    Table::column(self::$COLUMN_HOST, 'Student', 4, $sort),
-                    Table::column(self::$COLUMN_SERVICE, 'Onderwerp', 3, $sort),
-                    Table::column(self::$COLUMN_SUBJECT, 'Dienst', 2, $sort),
-                    Table::column(self::$COLUMN_LOCATION, 'Locatie', 3, $sort),
-                    Table::column(self::$COLUMN_TIME, 'Tijdstip', 3, $sort),
-                    Table::column(self::$COLUMN_STATUS, 'Status', 3, $sort, true)
+                    Table::column(self::$COLUMN_DATE, 'Datum', 3, true, $sort, true),
+                    Table::column(self::$COLUMN_STUDENT, 'Leerling', 4, true, $sort),
+                    Table::column(self::$COLUMN_HOST, 'Student', 4, true, $sort),
+                    Table::column(self::$COLUMN_SERVICE, 'Onderwerp', 3, false, $sort),
+                    Table::column(self::$COLUMN_SUBJECT, 'Dienst', 2, true, $sort),
+                    Table::column(self::$COLUMN_LOCATION, 'Locatie', 3, false, $sort),
+                    Table::column(self::$COLUMN_TIME, 'Tijdstip', 3, true, $sort),
+                    Table::column(self::$COLUMN_STATUS, 'Status', 3, true, $sort, true)
                 );
                 break;
 
             case UserTrait::$ID_EMPLOYEE:
 
                 array_push($columns,
-                    Table::column(self::$COLUMN_DATE, 'Datum', 2, $sort, true),
-                    Table::column(self::$COLUMN_STUDENT, 'Leerling', 3, $sort),
-                    Table::column(self::$COLUMN_SERVICE, 'Type', 2, $sort),
-                    Table::column(self::$COLUMN_SUBJECT, 'Vak', 2, $sort),
-                    Table::column(self::$COLUMN_LOCATION, 'Locatie', 3, $sort),
-                    Table::column(self::$COLUMN_TIME, 'Tijdstip', 3, $sort),
-                    Table::column(self::$COLUMN_STATUS, 'Status', 3, $sort, true)
+                    Table::column(self::$COLUMN_DATE, 'Datum', 2, true, $sort, true),
+                    Table::column(self::$COLUMN_STUDENT, 'Leerling', 3, true, $sort),
+                    Table::column(self::$COLUMN_SERVICE, 'Type', 2, true, $sort),
+                    Table::column(self::$COLUMN_SUBJECT, 'Vak', 2, false, $sort),
+                    Table::column(self::$COLUMN_LOCATION, 'Locatie', 3, false, $sort),
+                    Table::column(self::$COLUMN_TIME, 'Tijdstip', 3, true, $sort),
+                    Table::column(self::$COLUMN_STATUS, 'Status', 3, true, $sort, true)
                 );
                 break;
 
             case UserTrait::$ID_STUDENT:
 
                 array_push($columns,
-                    Table::column(self::$COLUMN_DATE, 'Datum', 2, $sort, true),
-                    Table::column(self::$COLUMN_HOST, 'Student-docent', 3, $sort),
-                    Table::column(self::$COLUMN_SERVICE, 'Type', 2, $sort),
-                    Table::column(self::$COLUMN_SUBJECT, 'Vak', 2, $sort),
-                    Table::column(self::$COLUMN_LOCATION, 'Locatie', 3, $sort),
-                    Table::column(self::$COLUMN_TIME, 'Tijdstip', 3, $sort),
-                    Table::column(self::$COLUMN_STATUS, 'Status', 3, $sort, true)
+                    Table::column(self::$COLUMN_DATE, 'Datum', 2, true, $sort, true),
+                    Table::column(self::$COLUMN_HOST, 'Student-docent', 3, true, $sort),
+                    Table::column(self::$COLUMN_SERVICE, 'Type', 2, true, $sort),
+                    Table::column(self::$COLUMN_SUBJECT, 'Vak', 2, false, $sort),
+                    Table::column(self::$COLUMN_LOCATION, 'Locatie', 3, false, $sort),
+                    Table::column(self::$COLUMN_TIME, 'Tijdstip', 3, true, $sort),
+                    Table::column(self::$COLUMN_STATUS, 'Status', 3, true, $sort, true)
                 );
                 break;
 
