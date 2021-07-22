@@ -57,6 +57,15 @@ $(function(){
         $(OBJECT_TOOLTIP)                       .css({top: (10 + event.clientY) + "px"});
     });
 
+    $(OBJECT_APP).on('mouseenter', CLASS_HEADER, function() {
+
+        $(OBJECT_TOOLTIP)                       .css({opacity: 1});
+    }
+
+    $(OBJECT_APP).on('mouseexit', CLASS_HEADER, function() {
+
+        $(OBJECT_TOOLTIP)                       .css({opacity: 0});
+    }
 
 
 
