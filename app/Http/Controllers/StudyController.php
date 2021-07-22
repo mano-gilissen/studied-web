@@ -223,7 +223,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_DATE:
 
-                return "<div style='font-weight: 400'>" . Format::datetime($study->{self::$BASE_CREATED_AT}, Format::$DATETIME_LIST) . "</div>";
+                return $study->id . " . " . "<div style='font-weight: 400'>" . Format::datetime($study->{self::$BASE_CREATED_AT}, Format::$DATETIME_LIST) . "</div>";
 
             case self::$COLUMN_STUDENT:
 
