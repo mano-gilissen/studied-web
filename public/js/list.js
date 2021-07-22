@@ -2,7 +2,6 @@
 
 
 const OBJECT_LIST                               = '#list';
-const CLASS_HEADER                              = '.header';
 const CLASS_SORT_MODE_NONE                      = '.none';
 
 var data_sort                                   = {};

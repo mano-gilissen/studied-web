@@ -8,6 +8,9 @@ const OBJECT_TOOLTIP                            = '#tooltip';
 const OBJECT_BUTTON_MENU                        = '#button-menu';
 const OBJECT_PAGE_TITLE                         = '.page.title';
 
+const CLASS_HEADER                              = '.header';
+const CLASS_PERSON                              = '.person';
+
 const ICON_BACK                                 = "/images/back.svg";
 const ICON_MENU                                 = "/images/menu.svg";
 
@@ -50,21 +53,35 @@ $(function(){
 
 
 
-    $(OBJECT_APP).on('mousemove', CLASS_HEADER, function() {
+    function setTooltip(text) {
 
-        $(OBJECT_TOOLTIP)                       .text("Sorteren");
+        $(OBJECT_TOOLTIP)                       .text(text);
         $(OBJECT_TOOLTIP)                       .css({left: (16 + event.clientX) + "px"});
         $(OBJECT_TOOLTIP)                       .css({top: (10 + event.clientY) + "px"});
+    }
+
+    $(OBJECT_APP).on('mousemove', CLASS_PERSON, function() {
+
+        setTooltip("Profiel bekijken");
+
     });
 
-    $(OBJECT_APP).on('mouseenter', CLASS_HEADER, function(){
+    $(OBJECT_APP).on('mousemove', CLASS_HEADER, function() {
+
+        setTooltip("Sorteren");
+
+    });
+
+    $(OBJECT_APP).on('mouseenter', CLASS_HEADER + ',' + CLASS_PERSON, function(){
 
         $(OBJECT_TOOLTIP)                       .css({opacity: 1});
+
     });
 
-    $(OBJECT_APP).on('mouseleave', CLASS_HEADER, function(){
+    $(OBJECT_APP).on('mouseleave', CLASS_HEADER + ',' + CLASS_PERSON, function(){
 
         $(OBJECT_TOOLTIP)                       .css({opacity: 0});
+
     });
 
 
