@@ -110,7 +110,7 @@ class StudyController extends Controller {
 
                 array_push($columns,
                     Table::column(self::$COLUMN_DATE, 'Datum', 3, true, $sort, true),
-                    Table::column(self::$COLUMN_STUDENT, 'Leerling', 4, true, $sort),
+                    Table::column(self::$COLUMN_STUDENT, 'Leerling', 4, false, $sort),
                     Table::column(self::$COLUMN_HOST, 'Student', 4, true, $sort),
                     Table::column(self::$COLUMN_SERVICE, 'Dienst', 3, true, $sort),
                     Table::column(self::$COLUMN_SUBJECT, 'Onderwerp', 3, false, $sort),
@@ -124,7 +124,7 @@ class StudyController extends Controller {
 
                 array_push($columns,
                     Table::column(self::$COLUMN_DATE, 'Datum', 2, true, $sort, true),
-                    Table::column(self::$COLUMN_STUDENT, 'Leerling', 3, true, $sort),
+                    Table::column(self::$COLUMN_STUDENT, 'Leerling', 3, false, $sort),
                     Table::column(self::$COLUMN_SERVICE, 'Type', 2, true, $sort),
                     Table::column(self::$COLUMN_SUBJECT, 'Vak', 2, false, $sort),
                     Table::column(self::$COLUMN_LOCATION, 'Locatie', 3, false, $sort),
