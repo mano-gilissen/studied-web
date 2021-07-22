@@ -4,6 +4,7 @@
 const OBJECT_APP                                = '#app';
 const OBJECT_WRAP                               = '#wrap';
 const OBJECT_MENU                               = '#menu';
+const OBJECT_TOOLTIP                            = '#tooltip';
 const OBJECT_BUTTON_MENU                        = '#button-menu';
 const OBJECT_PAGE_TITLE                         = '.page.title';
 
@@ -51,14 +52,11 @@ $(function(){
 
     $(OBJECT_APP).on('mousemove', CLASS_HEADER, function() {
 
-        var x = event.clientX;
-        var y = event.clientY;
+        tooltip                                 = document.getElementById(OBJECT_TOOLTIP)
 
-        console.log(event.clientX);
-
-        document.getElementById("tooltip").textContent = "sorteren " + $(this).attr('id');
-        document.getElementById("tooltip").style.left = x + "px";
-        document.getElementById("tooltip").style.top = y + "px";
+        tooltip.textContent                     = "Sorteren " + $(this).attr('id');
+        tooltip.style.left                      = (30 + event.clientX) + "px";
+        tooltip.style.top                       = (30 + event.clientY) + "px";
     });
 
 
