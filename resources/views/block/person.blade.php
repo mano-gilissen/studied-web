@@ -18,7 +18,7 @@
 
         <div class="name">{{ \App\Http\Traits\PersonTrait::getFullName($person) }}</div>
 
-        <div class="role">Porta Mosana College</div>
+        <div class="role">{{ \App\Http\Traits\PersonTrait::getSubtitle($person) }}</div>
 
     </div>
 
