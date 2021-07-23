@@ -74,17 +74,29 @@
 
         @endswitch
 
-        <div class="attribute">
+        @switch(Auth::user()->role)
 
-            <div class="name">Status</div>
+            @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
 
-            <div class="value">
+            @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
 
-                <div class="tag" style="background: {{ \App\Http\Support\Color::GREEN }};color: white">Actief</div>
+            @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
 
-            </div>
+                <div class="attribute">
 
-        </div>
+                    <div class="name">Status</div>
+
+                    <div class="value">
+
+                        <div class="tag" style="background: {{ \App\Http\Support\Color::GREEN }};color: white">Actief</div>
+
+                    </div>
+
+                </div>
+
+                @break
+
+        @endswitch
 
     </div>
 
