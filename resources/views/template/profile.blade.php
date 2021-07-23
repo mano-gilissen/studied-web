@@ -56,9 +56,144 @@
 
             </div>
 
-            <div class="actions">
+            <div id="actions">
 
+                <div class="button icon">
 
+                    <img class="icon" src="/images/contact.svg">
+
+                    <div class="text">Contacteer</div>
+
+                </div>
+
+                @switch($person->getUser->role)
+
+                    @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
+                    @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
+                    @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
+                    @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
+
+                        @switch(Auth::user()->role)
+
+                            @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
+                            @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
+                            @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
+                            @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
+
+                                <div id="button-studies" class="button icon" onclick="window.location.href='{{ route('study.list', ['host' => $person->getUser->id]) }}'">
+
+                                    <img class="icon" src="/images/search.svg">
+
+                                    <div class="text">Lessen</div>
+
+                                </div>
+
+                                @break
+
+                            @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
+                            @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
+
+                                <div class="button icon" onclick="window.location.href='{{ 'https://instagram.com/' . $person->social_instagram }}'">
+
+                                    <img class="icon" src="/images/social-instagram.svg">
+
+                                    <div class="text">Instagram</div>
+
+                                </div>
+
+                                @break
+
+                        @endswitch
+
+                        @break
+
+                    @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
+
+                        @switch(Auth::user()->role)
+
+                            @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
+                            @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
+                            @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
+                            @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
+
+                                <div id="button-studies" class="button icon" onclick="window.location.href='{{ route('study.list', ['participant' => $person->getUser->id]) }}'">
+
+                                    <img class="icon" src="/images/search.svg">
+
+                                    <div class="text">Lessen</div>
+
+                                </div>
+
+                                @break
+
+                            @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
+
+                                @if($person->getUser->id == Auth::user()->id)
+
+                                    <div id="button-studies" class="button icon" onclick="window.location.href='{{ route('study.list', ['participant' => $person->getUser->id]) }}'">
+
+                                        <img class="icon" src="/images/search.svg">
+
+                                        <div class="text">Lessen</div>
+
+                                    </div>
+
+                                @endif
+
+                                @break
+
+                            @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
+
+                                <!-- TODO: ADD IF $PERSON IS CUSTOMER_STUDENT OF AUTH -->
+
+                                @break;
+
+                        @endswitch
+
+                        @break
+
+                    @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
+
+                        @switch(Auth::user()->role)
+
+                            @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
+                            @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
+                            @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
+                            @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
+
+                                <div id="button-studies" class="button icon" onclick="window.location.href='{{ route('study.list', ['customer' => $person->getUser->id]) }}'">
+
+                                    <img class="icon" src="/images/search.svg">
+
+                                    <div class="text">Lessen</div>
+
+                                </div>
+
+                                @break
+
+                            @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
+
+                                @break
+
+                            @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
+
+                                @if($person->getUser->id == Auth::user()->id)
+
+                                    <div id="button-studies" class="button icon" onclick="window.location.href='{{ route('study.list', ['customer' => $person->getUser->id]) }}'">
+
+                                        <img class="icon" src="/images/search.svg">
+
+                                        <div class="text">Lessen</div>
+
+                                    </div>
+
+                                @endif
+
+                                @break
+
+                            @endswitch
+
+                @endswitch
 
             </div>
 

@@ -5,6 +5,12 @@
 
 
 
+#top {
+    display:                            grid;
+}
+
+
+
 #avatar {
     display:                            grid;
     grid-template-columns:              1fr auto 1fr;
@@ -47,4 +53,10 @@
 #actions {
     margin:                             32px 0 32px auto;
     background:                         pink;
+}
+
+#button-studies,
+#button-instagram {
+    color:                              black;
+    background:                         #E6E6E6;
 }
