@@ -18,7 +18,7 @@
 
                     <div class="name">{{ $person->getUser->getEmployee->school_current ? 'School' : 'Functie'}}</div>
 
-                    <div class="value">{{ $person->getUser->getEmployee->school_current ? $person->getUser->getEmployee->school_current : ($person->getUser->getEmployee->occupation ? $person->getUser->getEmployee->occupation : \App\Http\Support\Key::UNKNOWN)}}</div>
+                    <div class="value">{{ $person->getUser->getEmployee->school_current ?? \App\Http\Traits\UserTrait::getRoleName($person->getUser, true) }}</div>
 
                 </div>
 
