@@ -74,6 +74,18 @@
 
         @endswitch
 
+        <div class="attribute">
+
+            <div class="name">Status</div>
+
+            <div class="value">
+
+                <div class="tag" style="background: {{ \App\Http\Support\Color::GREEN }};color: white">Actief</div>
+
+            </div>
+
+        </div>
+
     </div>
 
 </div>
