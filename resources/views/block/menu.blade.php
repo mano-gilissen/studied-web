@@ -22,9 +22,9 @@
 
         @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
 
-            @include('block.menu-item', ['label' => 'Mijn profiel'])
+            @include('block.menu-item', ['label' => 'Mijn profiel', 'route' => route('person.profile', Auth::user()->getPerson->slug)])
 
-            @include('block.menu-item', ['label' => 'Lessen'])
+            @include('block.menu-item', ['label' => 'Lessen', 'route' => route('study.list')])
 
             @include('block.menu-item', ['label' => 'Medewerkers'])
 
@@ -38,9 +38,9 @@
 
         @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
-            @include('block.menu-item', ['label' => 'Mijn profiel'])
+            @include('block.menu-item', ['label' => 'Mijn profiel', 'route' => route('person.profile', Auth::user()->getPerson->slug)])
 
-            @include('block.menu-item', ['label' => 'Lessen'])
+            @include('block.menu-item', ['label' => 'Lessen', 'route' => route('study.list')])])
 
             @include('block.menu-item', ['label' => 'Leerlingen'])
 
@@ -50,15 +50,15 @@
 
         @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
 
-            @include('block.menu-item', ['label' => 'Mijn profiel'])
+            @include('block.menu-item', ['label' => 'Mijn profiel', 'route' => route('person.profile', Auth::user()->getPerson->slug)])
 
-            @include('block.menu-item', ['label' => 'Lessen'])
+            @include('block.menu-item', ['label' => 'Lessen', 'route' => route('study.list')])
 
             @break
 
         @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
 
-            @include('block.menu-item', ['label' => 'Lessen'])
+            @include('block.menu-item', ['label' => 'Lessen', 'route' => route('person.profile', Auth::user()->getPerson->slug)])
 
             @include('block.menu-item', ['label' => 'Leerlingen'])
 
