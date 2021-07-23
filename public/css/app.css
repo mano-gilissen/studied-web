@@ -321,15 +321,6 @@ button:focus {
     object-fit:                         cover;
 }
 
-.person .no-avatar {
-    background:                         #CCCCCC;
-    color:                              white;
-    font-family:                        'Circular', serif;
-    font-weight:                        200;
-    font-size:                          22px;
-    letter-spacing:                     -.7px;
-}
-
 .person .values {
     height:                             72px;
     width:                              100%;
@@ -373,6 +364,15 @@ button:focus {
     height:                             72px;
     margin:                             0 24px 0 0;
     border-radius:                      36px;
+}
+
+.no-avatar {
+    background:                         #CCCCCC;
+    color:                              white;
+    font-family:                        'Circular', serif;
+    font-weight:                        200;
+    font-size:                          22px;
+    letter-spacing:                     -.7px;
 }
 
 
