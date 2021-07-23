@@ -23,7 +23,8 @@ class Study extends Model {
 
     protected
 
-        $table                                          = 'study';
+        $table                                          = 'study',
+        $dates                                          = ['date'];
 
 
 

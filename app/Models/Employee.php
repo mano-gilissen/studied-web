@@ -21,7 +21,8 @@ class Employee extends Model {
 
     protected
 
-        $table                                  = 'employee';
+        $table                                  = 'employee',
+        $dates                                  = ['start_employment'];
 
 
 
