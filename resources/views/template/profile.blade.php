@@ -213,8 +213,6 @@
 
                     <div class="column right">
 
-                        @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
-
                         @switch($person->role)
 
                             @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
