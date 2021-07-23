@@ -58,14 +58,6 @@
 
             <div id="actions">
 
-                <div class="button icon">
-
-                    <img class="icon" src="/images/contact.svg">
-
-                    <div class="text">Contacteer</div>
-
-                </div>
-
                 @switch($person->getUser->role)
 
                     @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
@@ -80,7 +72,7 @@
                             @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
                             @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
-                                <div id="button-studies" class="button icon" onclick="window.location.href='{{ route('study.list', ['host' => $person->getUser->id]) }}'">
+                                <div class="button grey icon" onclick="window.location.href='{{ route('study.list', ['host' => $person->getUser->id]) }}'">
 
                                     <img class="icon" src="/images/search.svg">
 
@@ -93,7 +85,7 @@
                             @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
                             @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
 
-                                <div class="button icon" onclick="window.location.href='{{ 'https://instagram.com/' . $person->social_instagram }}'">
+                                <div class="button grey icon" onclick="window.location.href='{{ 'https://instagram.com/' . $person->social_instagram }}'">
 
                                     <img class="icon" src="/images/social-instagram.svg">
 
@@ -116,7 +108,7 @@
                             @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
                             @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
-                                <div id="button-studies" class="button icon" onclick="window.location.href='{{ route('study.list', ['participant' => $person->getUser->id]) }}'">
+                                <div class="button grey icon" onclick="window.location.href='{{ route('study.list', ['participant' => $person->getUser->id]) }}'">
 
                                     <img class="icon" src="/images/search.svg">
 
@@ -130,7 +122,7 @@
 
                                 @if($person->getUser->id == Auth::user()->id)
 
-                                    <div id="button-studies" class="button icon" onclick="window.location.href='{{ route('study.list', ['participant' => $person->getUser->id]) }}'">
+                                    <div class="button grey icon" onclick="window.location.href='{{ route('study.list', ['participant' => $person->getUser->id]) }}'">
 
                                         <img class="icon" src="/images/search.svg">
 
@@ -161,7 +153,7 @@
                             @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
                             @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
-                                <div id="button-studies" class="button icon" onclick="window.location.href='{{ route('study.list', ['customer' => $person->getUser->id]) }}'">
+                                <div id="button-studies" class="button grey icon" onclick="window.location.href='{{ route('study.list', ['customer' => $person->getUser->id]) }}'">
 
                                     <img class="icon" src="/images/search.svg">
 
@@ -179,7 +171,7 @@
 
                                 @if($person->getUser->id == Auth::user()->id)
 
-                                    <div id="button-studies" class="button icon" onclick="window.location.href='{{ route('study.list', ['customer' => $person->getUser->id]) }}'">
+                                    <div id="button-studies" class="button grey icon" onclick="window.location.href='{{ route('study.list', ['customer' => $person->getUser->id]) }}'">
 
                                         <img class="icon" src="/images/search.svg">
 
@@ -194,6 +186,14 @@
                             @endswitch
 
                 @endswitch
+
+                <div class="button icon">
+
+                    <img class="icon" src="/images/contact.svg">
+
+                    <div class="text">Contacteer</div>
+
+                </div>
 
             </div>
 

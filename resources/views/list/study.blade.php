@@ -4,7 +4,7 @@
 
 @section('actions')
 
-    <div id="button-plan" class="button icon">
+    <div class="button grey icon">
 
         <img class="icon" src="/images/add.svg">
 
