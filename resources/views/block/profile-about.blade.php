@@ -50,6 +50,22 @@
 
                 </div>
 
+                <div class="attribute">
+
+                    <div class="name">Leerjaar</div>
+
+                    <div class="value">{{ $person->getUser->getStudent->niveau . ' ' . $person->getUser->getStudent->leerjaar }}</div>
+
+                </div>
+
+                <div class="attribute">
+
+                    <div class="name">Profiel</div>
+
+                    <div class="value">{{ $person->getUser->getStudent->profile }}</div>
+
+                </div>
+
                 @break
 
             @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
