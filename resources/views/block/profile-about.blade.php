@@ -58,34 +58,6 @@
 
         @endswitch
 
-        <div class="attribute">
-
-            <div class="name">Datum</div>
-
-            <div class="value">{{ \App\Http\Support\Format::datetime($study->created_at, \App\Http\Support\Format::$DATETIME_SINGLE) }}</div>
-
-        </div>
-
-        <div class="attribute">
-
-            <div class="name">Tijdstip</div>
-
-            <div class="value">{{ $study->start . ' - ' . $study->end }}</div>
-
-        </div>
-
-        <div class="attribute">
-
-            <div class="name">Status</div>
-
-            <div class="value">
-
-                <div class="tag" style="background: {{\App\Http\Traits\StudyTrait::getStatusColor($study)}};color: {{\App\Http\Traits\StudyTrait::getStatusTextColor($study)}}">{{ \App\Http\Traits\StudyTrait::getStatus($study) }}</div>
-
-            </div>
-
-        </div>
-
     </div>
 
 </div>
