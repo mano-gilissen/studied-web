@@ -367,6 +367,9 @@ button:focus {
 }
 
 .no-avatar {
+    display:                            flex;
+    align-items:                        center;
+    justify-content:                    center;
     background:                         #CCCCCC;
     color:                              white;
     font-family:                        'Circular', serif;

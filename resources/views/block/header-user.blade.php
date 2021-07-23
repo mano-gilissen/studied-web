@@ -14,7 +14,11 @@
 
     @else
 
-        <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials(Auth::user()->getPerson) }}</div>
+        <div>
+
+            <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials(Auth::user()->getPerson) }}</div>
+
+        </div>
 
     @endif
 

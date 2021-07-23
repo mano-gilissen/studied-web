@@ -34,7 +34,11 @@
 
                         @else
 
-                            <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials($person) }}</div>
+                            <div>
+
+                                <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials($person) }}</div>
+
+                            </div>
 
                         @endif
 
