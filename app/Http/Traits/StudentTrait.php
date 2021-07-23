@@ -25,7 +25,7 @@ trait StudentTrait {
 
 
 
-    public function hasCustomer($student) {
+    public static function hasCustomer($student) {
 
         return $student->getCustomer->exists();
 
