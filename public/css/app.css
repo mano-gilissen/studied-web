@@ -5,16 +5,13 @@
 }
 
 html {
-    overscroll-behavior:                none;
-}
-
-body {
     background-color:                   white;
     color:                              black;
     font-size:                          14px;
     font-family:                        'Source Sans Pro', sans-serif;
     font-weight:                        300;
     -webkit-font-smoothing:             antialiased;
+    overscroll-behavior:                none;
 }
 
 
