@@ -4,7 +4,7 @@
 
 namespace App\Http\Traits;
 
-use App\Http\Traits\BaseTrait;
+use App\Http\Traits\UserTrait;
 
 
 
@@ -14,7 +14,7 @@ trait PersonTrait {
 
 
 
-    use BaseTrait;
+    use UserTrait;
 
 
 
