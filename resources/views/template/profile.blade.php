@@ -213,7 +213,7 @@
 
                     <div class="column right">
 
-                        @switch($person->role)
+                        @switch($person->getUser->role)
 
                             @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
                             @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
