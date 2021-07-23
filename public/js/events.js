@@ -4,6 +4,7 @@
 const OBJECT_APP                                = '#app';
 const OBJECT_WRAP                               = '#wrap';
 const OBJECT_MENU                               = '#menu';
+const OBJECT_LIST                               = '#list';
 const OBJECT_TOOLTIP                            = '#tooltip';
 const OBJECT_BUTTON_MENU                        = '#button-menu';
 const OBJECT_PAGE_TITLE                         = '.page.title';
@@ -13,6 +14,8 @@ const CLASS_PERSON                              = '.person';
 
 const ICON_BACK                                 = "/images/back.svg";
 const ICON_MENU                                 = "/images/menu.svg";
+
+const CLASS_SORT_MODE_NONE                      = '.none';
 
 const TEXT_PAGE_TITLE_MENU                      = 'Studied';
 

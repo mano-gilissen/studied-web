@@ -1,9 +1,6 @@
 
 
 
-const OBJECT_LIST                               = '#list';
-const CLASS_SORT_MODE_NONE                      = '.none';
-
 var data_sort                                   = {};
 
 
