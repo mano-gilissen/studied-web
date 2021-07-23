@@ -47,12 +47,6 @@ class Student extends Model {
 
 
 
-    public function hasCustomer() {
-
-        return $this->getCustomer()->exists();
-
-    }
-
     public function getCustomer() {
 
         return self::getThisToOne(self::$CUSTOMER);

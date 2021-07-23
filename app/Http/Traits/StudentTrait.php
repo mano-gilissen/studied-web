@@ -10,6 +10,8 @@ trait StudentTrait {
 
 
 
+
+
     public static
 
         $STUDENT                                        = 'student',
@@ -18,6 +20,18 @@ trait StudentTrait {
         $STUDENT_NIVEAU                                 = 'niveau',
         $STUDENT_LEERJAAR                               = 'leerjaar',
         $STUDENT_PROFILE                                = 'profile';
+
+
+
+
+
+    public function hasCustomer($student) {
+
+        return $student->getCustomer->exists();
+
+    }
+
+
 
 
 

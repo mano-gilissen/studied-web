@@ -8,7 +8,7 @@
 
             @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
 
-                @if($person->getUser->getStudent->hasCustomer)
+                @if(\App\Http\Traits\StudentTrait::hasCustomer($person->getUser->getStudent))
 
                     @include('block.person', ['person' => $person->getUser->getStudent->getCustomer->getUser->getPerson])
 
