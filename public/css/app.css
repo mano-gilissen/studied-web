@@ -280,6 +280,22 @@ button:focus {
 
 
 
+.comment {
+    width:                              100%;
+    padding:                            16px 32px;
+    background-color:                   #FFF7D1;
+    font-style:                         italic;
+}
+
+.comment-tail {
+    height:                             0;
+    width:                              0;
+    border-top:                         20px solid #FFF7D1;
+    border-left:                        20px solid transparent;
+}
+
+
+
 
 
 .person {

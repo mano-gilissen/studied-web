@@ -1,0 +1,25 @@
+#column {
+    width:                              712px;
+    margin:                             120px auto 128px;
+}
+
+#top {
+    display:                            grid;
+    grid-template-columns:              1fr auto 1fr;
+    margin-bottom:                      32px;
+}
+
+#avatar img,
+#avatar .no-avatar {
+    width:                              160px;
+    height:                             160px;
+    border-radius:                      80px;
+}
+
+#avatar .no-avatar {
+    font-size:                          56px;
+}
+
+#comment {
+    padding-left:                       32px;
+}
