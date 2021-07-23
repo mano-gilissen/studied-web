@@ -31,29 +31,11 @@
 
 
 
-#content {
-
-}
-
 .content-columns {
-    display:                            grid;
-    grid-template-columns:              1fr 64px 1fr;
     grid-template-rows:                 auto 64px auto;
     grid-template-areas:                "left . right"
                                         ". . ."
                                         "wide wide wide";
-}
-
-.content-columns .left {
-    grid-area:                          left;
-}
-
-.content-columns .right {
-    grid-area:                          right;
-}
-
-.content-columns .wide {
-    grid-area:                          wide;
 }
 
 

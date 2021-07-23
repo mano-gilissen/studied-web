@@ -56,3 +56,10 @@
 #actions {
     height:                             92px;
 }
+
+
+
+.content-columns {
+    grid-template-rows:                 auto;
+    grid-template-areas:                "left . right";
+}

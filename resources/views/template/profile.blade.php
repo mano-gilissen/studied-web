@@ -201,6 +201,26 @@
 
             </div>
 
+            <div id="content">
+
+                <div class="content-columns">
+
+                    <div class="column left">
+
+                        @include('block.profile-about')
+
+                    </div>
+
+                    <div class="column right">
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
 
     </div>

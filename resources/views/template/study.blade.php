@@ -50,131 +50,131 @@
 
             <div id="content">
 
-            <div class="content-columns">
+                <div class="content-columns">
 
-                <div class="column left">
+                    <div class="column left">
 
-                    @switch($study->status)
+                        @switch($study->status)
 
-                        @case(\App\Http\Traits\StudyTrait::$STATUS_REPORTED)
+                            @case(\App\Http\Traits\StudyTrait::$STATUS_REPORTED)
 
-                            @switch($study->service)
+                                @switch($study->service)
 
-                                @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
+                                    @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
 
-                                    @include('block.study-participants-priveles')
+                                        @include('block.study-participants-priveles')
 
-                                    @include('block.study-details')
+                                        @include('block.study-details')
 
-                                    @include('block.study-location')
+                                        @include('block.study-location')
 
-                                @break
+                                    @break
 
-                                @case(\App\Http\Traits\ServiceTrait::$ID_GROEPSLES)
+                                    @case(\App\Http\Traits\ServiceTrait::$ID_GROEPSLES)
 
-                                    @include('block.study-participants-groepsles')
+                                        @include('block.study-participants-groepsles')
 
-                                    @include('block.study-details')
+                                        @include('block.study-details')
 
-                                    @include('block.study-location')
+                                        @include('block.study-location')
 
-                                @break
+                                    @break
+
+                                @endswitch
+
+                            @break
+
+                            @default
+
+                                @switch($study->service)
+
+                                    @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
+
+                                        @include('block.study-host-priveles')
+
+                                        @include('block.study-details')
+
+                                    @break
+
+                                    @case(\App\Http\Traits\ServiceTrait::$ID_GROEPSLES)
+
+                                        @include('block.study-details')
+
+                                        @include('block.study-location')
+
+                                    @break
+
+                                    @case(\App\Http\Traits\ServiceTrait::$ID_COLLEGE)
+
+                                        @include('block.study-details')
+
+                                        @include('block.study-location')
 
                             @endswitch
-
-                        @break
-
-                        @default
-
-                            @switch($study->service)
-
-                                @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
-
-                                    @include('block.study-host-priveles')
-
-                                    @include('block.study-details')
-
-                                @break
-
-                                @case(\App\Http\Traits\ServiceTrait::$ID_GROEPSLES)
-
-                                    @include('block.study-details')
-
-                                    @include('block.study-location')
-
-                                @break
-
-                                @case(\App\Http\Traits\ServiceTrait::$ID_COLLEGE)
-
-                                    @include('block.study-details')
-
-                                    @include('block.study-location')
 
                         @endswitch
 
-                    @endswitch
+                    </div>
 
-                </div>
+                    <div class="column right">
 
-                <div class="column right">
+                        @switch($study->status)
 
-                    @switch($study->status)
+                            @case(\App\Http\Traits\StudyTrait::$STATUS_REPORTED)
 
-                        @case(\App\Http\Traits\StudyTrait::$STATUS_REPORTED)
+                                @switch($study->service)
 
-                            @switch($study->service)
+                                    @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
 
-                                @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
+                                        @include('block.study-report')
 
-                                    @include('block.study-report')
+                                    @break
 
-                                @break
+                                    @case(\App\Http\Traits\ServiceTrait::$ID_GROEPSLES)
 
-                                @case(\App\Http\Traits\ServiceTrait::$ID_GROEPSLES)
+                                        @include('block.study-report')
 
-                                    @include('block.study-report')
+                                    @break
 
-                                @break
+                                @endswitch
 
-                            @endswitch
+                            @break;
 
-                        @break;
+                            @default
 
-                        @default
+                                @switch($study->service)
 
-                            @switch($study->service)
+                                    @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
 
-                                @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
+                                        @include('block.study-participants-priveles')
 
-                                    @include('block.study-participants-priveles')
+                                        @include('block.study-location')
 
-                                    @include('block.study-location')
+                                    @break
 
-                                @break
+                                    @case(\App\Http\Traits\ServiceTrait::$ID_GROEPSLES)
 
-                                @case(\App\Http\Traits\ServiceTrait::$ID_GROEPSLES)
+                                        @include('block.study-host-groepsles')
 
-                                    @include('block.study-host-groepsles')
+                                        @include('block.study-participants-groepsles')
 
-                                    @include('block.study-participants-groepsles')
+                                    @break
 
-                                @break
+                                    @case(\App\Http\Traits\ServiceTrait::$ID_COLLEGE)
 
-                                @case(\App\Http\Traits\ServiceTrait::$ID_COLLEGE)
+                                        @include('block.study-host-college')
 
-                                    @include('block.study-host-college')
+                                        @include('block.study-participants-college')
 
-                                    @include('block.study-participants-college')
+                                @endswitch
 
-                            @endswitch
+                        @endswitch
 
-                    @endswitch
+                    </div>
 
                 </div>
 
             </div>
-
-        </div>
 
         </div>
 
