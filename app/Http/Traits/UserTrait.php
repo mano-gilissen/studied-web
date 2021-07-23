@@ -38,7 +38,7 @@ trait UserTrait {
 
 
 
-    public static function getRoleName($user) {
+    public static function getRoleName($user, $public = false) {
 
         $role                   = $user->getRole;
 
@@ -48,7 +48,7 @@ trait UserTrait {
 
         }
 
-        return $role->{self::$ROLE_LABEL};
+        return $public ? $role->{self::$ROLE_LABEL_PUBLIC} : $role->{self::$ROLE_LABEL};
     }
 
 

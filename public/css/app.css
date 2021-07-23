@@ -282,7 +282,7 @@ button:focus {
 
 .comment {
     width:                              100%;
-    padding:                            16px 32px;
+    padding:                            16px 24px 16px 32px;
     background-color:                   #FFF7D1;
     font-style:                         italic;
 }

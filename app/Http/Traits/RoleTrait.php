@@ -15,6 +15,7 @@ trait RoleTrait {
         $ROLE                                           = 'role',
 
         $ROLE_LABEL                                     = 'label',
+        $ROLE_LABEL_PUBLIC                              = 'label_public',
 
         $ID_ADMINISTRATOR                               = 1,
         $ID_BOARD                                       = 2,

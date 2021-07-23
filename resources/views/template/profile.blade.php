@@ -48,6 +48,16 @@
 
             </div>
 
+            <div class="name">{{ \App\Http\Traits\PersonTrait::getFullName($person) }}</div>
+
+            <div class="role">{{ \App\Http\Traits\UserTrait::getRoleName($person->getUser, true) }}</div>
+
+            <div class="actions">
+
+
+
+            </div>
+
         </div>
 
     </div>
