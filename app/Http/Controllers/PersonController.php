@@ -29,7 +29,7 @@ class PersonController extends Controller {
 
             self::$PERSON                                                   => $person,
 
-            Key::COMMENT                                                    => "Hoi ik ben een test comment voor de profielpagina van " . $person->{self::$PERSON_FIRST_NAME}
+            Key::COMMENT                                                    => "\"Hoi ik ben een test comment voor de profielpagina van " . $person->{self::$PERSON_FIRST_NAME} . " " . $person->{self::$PERSON_LAST_NAME} . "\""
         ]);
     }
 
