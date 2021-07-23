@@ -20,12 +20,13 @@ html, body {
 
 #tooltip {
     position:                           absolute;
-    padding:                            2px 4px 3px;
+    padding:                            2px 6px 3px;
     border-radius:                      4px;
     font-weight:                        600;
     font-size:                          12px;
     background:                         #000000CC;
     color:                              white;
+    opacity:                            0;
     z-index:                            999;
 }
 
