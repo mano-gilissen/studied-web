@@ -18,7 +18,9 @@ trait EmployeeTrait {
         $EMPLOYEE_EDUCATION_MIDDELBARE                  = 'education_middelbare',
         $EMPLOYEE_SCHOOL_CURRENT                        = 'school_current',
         $EMPLOYEE_SCHOOL_MIDDELBARE                     = 'school_middelbare',
+        $EMPLOYEE_PROFILE_CURRENT                       = 'profile_current',
         $EMPLOYEE_PROFILE_MIDDELBARE                    = 'profile_middelbare',
+        $EMPLOYEE_OCCUPATION                            = 'occupation',
 
         $EMPLOYEE_MOTIVATION                            = 'motivation',
         $EMPLOYEE_REFER                                 = 'refer',

@@ -14,7 +14,8 @@ class Key {
     const SUBMIT_ACTION                         = "submit_action";
     const AUTOCOMPLETE_DATA                     = "ac_data_";
     const COMMENT                               = "comment";
-    const UNKNOWN                               = "unknown";
+
+    const UNKNOWN                               = "Onbekend";
 
 
 
