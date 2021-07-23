@@ -6,9 +6,7 @@
 
         @foreach($person->getUser->getEmployee->getStudents as $student)
 
-            {{ 'aa ' . $student->id }}
-
-            @include('block.person', ['person' => $student->getPerson])
+            @include('block.person', ['person' => $student->getUser->getPerson])
 
         @endforeach
 
