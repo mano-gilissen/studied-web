@@ -4,17 +4,9 @@
 
 namespace App\Http\Traits;
 
-use App\Http\Traits\UserTrait;
-
 
 
 trait PersonTrait {
-
-
-
-
-
-    use UserTrait;
 
 
 
@@ -85,14 +77,14 @@ trait PersonTrait {
 
         switch($user->role) {
 
-            case self::$ID_ADMINISTRATOR:
-            case self::$ID_BOARD:
-            case self::$ID_MANAGEMENT:
-            case self::$ID_EMPLOYEE:
-                return $user->getEmployee->{self::$EMPLOYEE_SCHOOL_CURRENT} ?? UserTrait::getRoleName($user, true);
-            case self::$ID_STUDENT:
-                return $user->getStudent->{self::$STUDENT_SCHOOL};
-            case self::$ID_CUSTOMER:
+            case UserTrait::$ID_ADMINISTRATOR:
+            case UserTrait::$ID_BOARD:
+            case UserTrait::$ID_MANAGEMENT:
+            case UserTrait::$ID_EMPLOYEE:
+                return $user->getEmployee->{EmployeeTrait::$EMPLOYEE_SCHOOL_CURRENT} ?? UserTrait::getRoleName($user, true);
+            case UserTrait::$ID_STUDENT:
+                return $user->getStudent->{StudentTrait::$STUDENT_SCHOOL};
+            case UserTrait::$ID_CUSTOMER:
                 return UserTrait::getRoleName($user, true);
         }
     }
