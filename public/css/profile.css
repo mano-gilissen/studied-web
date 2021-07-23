@@ -21,5 +21,6 @@
 }
 
 #comment {
-    padding-left:                       32px;
+    display:                            flex;
+    margin:                             auto 0 0 32px;
 }
