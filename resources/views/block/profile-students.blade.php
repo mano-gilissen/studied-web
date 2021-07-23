@@ -4,7 +4,7 @@
 
     <div class="list-users">
 
-        @foreach($person->getUser->getStudents as $student)
+        @foreach($person->getUser->getEmployee->getStudents as $student)
 
             @include('block.person', ['person' => $student->getPerson])
 
