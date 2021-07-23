@@ -34,7 +34,7 @@
 
                     <div class="name">Werkzaam</div>
 
-                    <div class="value">{{ 'Sinds' . \App\Http\Support\Format::datetime($person->getUser->getEmployee->start_employment, \App\Http\Support\Format::$DATETIME_PROFILE) }}</div>
+                    <div class="value">{{ 'Sinds ' . \App\Http\Support\Format::datetime($person->getUser->getEmployee->start_employment, \App\Http\Support\Format::$DATETIME_PROFILE) }}</div>
 
                 </div>
 

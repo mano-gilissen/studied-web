@@ -42,4 +42,14 @@ class Employee extends Model {
 
 
 
+    public function getStudents() {
+
+        return self::getManyToMany(self::$STUDENT, self::$AGREEMENT, self::$EMPLOYEE);
+
+    }
+
+
+
+
+
 }
