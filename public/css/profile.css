@@ -3,7 +3,9 @@
     margin:                             120px auto 128px;
 }
 
-#top {
+
+
+#avatar {
     display:                            grid;
     grid-template-columns:              1fr auto 1fr;
     margin-bottom:                      32px;
@@ -28,14 +30,14 @@
 
 
 
-.name {
+#top .name {
     margin:                             0 auto 4px;
     font-size:                          40px;
     font-family:                        'Circular', serif;
     font-weight:                        300;
 }
 
-.role {
+#top .role {
     margin:                             0 auto;
     font-size:                          16px;
 }

@@ -22,35 +22,39 @@
 
             <div id="top">
 
-                <div></div>
-
                 <div id="avatar">
 
-                    @if($person->avatar)
+                    <div></div>
 
-                        <img src="{{ asset("storage/avatar/" . $person->avatar) }}"/>
+                    <div>
 
-                    @else
+                        @if($person->avatar)
 
-                        <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials($person) }}</div>
+                            <img src="{{ asset("storage/avatar/" . $person->avatar) }}"/>
 
-                    @endif
+                        @else
+
+                            <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials($person) }}</div>
+
+                        @endif
+
+                    </div>
+
+                    <div id="comment">
+
+                        <div class="comment-tail"></div>
+
+                        <div class="comment">{{ $comment }}</div>
+
+                    </div>
 
                 </div>
 
-                <div id="comment">
+                <div class="name">{{ \App\Http\Traits\PersonTrait::getFullName($person) }}</div>
 
-                    <div class="comment-tail"></div>
-
-                    <div class="comment">{{ $comment }}</div>
-
-                </div>
+                <div class="role">{{ \App\Http\Traits\UserTrait::getRoleName($person->getUser, true) }}</div>
 
             </div>
-
-            <div class="name">{{ \App\Http\Traits\PersonTrait::getFullName($person) }}</div>
-
-            <div class="role">{{ \App\Http\Traits\UserTrait::getRoleName($person->getUser, true) }}</div>
 
             <div class="actions">
 
