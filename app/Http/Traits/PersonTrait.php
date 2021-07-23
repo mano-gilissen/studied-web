@@ -10,6 +10,14 @@ trait PersonTrait {
 
 
 
+
+
+    use BaseTrait;
+
+
+
+
+
     public static
 
         $PERSON                                         = 'person',
