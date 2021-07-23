@@ -8,19 +8,23 @@
 
             <div style="display:flex">
 
-                @if($study->getHost->getPerson->avatar)
+                <div id="{{ $study->getHost->getPerson->first_name }}" class="person-report" onclick="window.location.href='{{ route('person.profile', ['slug' => $study->getHost->getPerson->slug]) }}'">
 
-                    <img src="{{ asset("storage/avatar/" . $study->getHost->getPerson->avatar) }}"/>
+                    @if($study->getHost->getPerson->avatar)
 
-                @else
+                        <img src="{{ asset("storage/avatar/" . $study->getHost->getPerson->avatar) }}"/>
 
-                    <div>
+                    @else
 
-                        <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials($study->getHost->getPerson) }}</div>
+                        <div>
 
-                    </div>
+                            <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials($study->getHost->getPerson) }}</div>
 
-                @endif
+                        </div>
+
+                    @endif
+
+                </div>
 
                 <div class="comment-tail"></div>
 

@@ -11,6 +11,7 @@ const OBJECT_PAGE_TITLE                         = '.page.title';
 
 const CLASS_HEADER                              = '.header';
 const CLASS_PERSON                              = '.person';
+const CLASS_PERSON_REPORT                       = '.person-report';
 
 const ICON_BACK                                 = "/images/back.svg";
 const ICON_MENU                                 = "/images/menu.svg";
@@ -63,9 +64,17 @@ $(function(){
         $(OBJECT_TOOLTIP)                       .css({top: (10 + event.clientY) + "px"});
     }
 
+
+
     $(OBJECT_APP).on('mousemove', CLASS_PERSON, function() {
 
         setTooltip("Profiel bekijken");
+
+    });
+
+    $(OBJECT_APP).on('mousemove', CLASS_PERSON_REPORT, function() {
+
+        setTooltip("Profiel van " + $(this).attr("id") + " bekijken");
 
     });
 
@@ -75,17 +84,33 @@ $(function(){
 
     });
 
-    $(OBJECT_APP).on('mouseenter', CLASS_HEADER + ":not(" + CLASS_SORT_MODE_NONE + ")" + ", " + CLASS_PERSON, function(){
 
-        $(OBJECT_TOOLTIP)                       .css({opacity: 1});
 
-    });
+    $(OBJECT_APP).on('mouseenter',
 
-    $(OBJECT_APP).on('mouseleave', CLASS_HEADER + ":not(" + CLASS_SORT_MODE_NONE + ")" + ", " + CLASS_PERSON, function(){
+        CLASS_HEADER + ":not(" + CLASS_SORT_MODE_NONE + ")" + ", " +
+        CLASS_PERSON_REPORT + ", " +
+        CLASS_PERSON,
 
-        $(OBJECT_TOOLTIP)                       .css({opacity: 0});
+        function() {
 
-    });
+            $(OBJECT_TOOLTIP)                       .css({opacity: 1});
+
+        }
+    );
+
+    $(OBJECT_APP).on('mouseleave',
+
+        CLASS_HEADER + ":not(" + CLASS_SORT_MODE_NONE + ")" + ", " +
+        CLASS_PERSON_REPORT + ", " +
+        CLASS_PERSON,
+
+        function(){
+
+            $(OBJECT_TOOLTIP)                       .css({opacity: 0});
+
+        }
+    );
 
 
 
