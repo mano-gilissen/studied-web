@@ -62,18 +62,6 @@
 
             <div id="actions">
 
-                @if($person->getUser->id == Auth::user()->id)
-
-                    <div class="button grey icon">
-
-                        <img class="icon" src="/images/edit.svg">
-
-                        <div class="text">Bewerken</div>
-
-                    </div>
-
-                @endif
-
                 @switch($person->getUser->role)
 
                     @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
@@ -95,8 +83,6 @@
                                     <div class="text">Lessen</div>
 
                                 </div>
-
-                                @break
 
                             @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
                             @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
@@ -203,13 +189,27 @@
 
                 @endswitch
 
-                <div class="button icon">
+                @if($person->getUser->id == Auth::user()->id)
 
-                    <img class="icon" src="/images/contact.svg">
+                    <div class="button icon">
 
-                    <div class="text">Contacteer</div>
+                        <img class="icon" src="/images/edit.svg">
 
-                </div>
+                        <div class="text">Bewerken</div>
+
+                    </div>
+
+                @else
+
+                    <div class="button icon">
+
+                        <img class="icon" src="/images/contact.svg">
+
+                        <div class="text">Contacteer</div>
+
+                    </div>
+
+                @endif
 
             </div>
 
