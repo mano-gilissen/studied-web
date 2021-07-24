@@ -62,6 +62,18 @@
 
             <div id="actions">
 
+                @if($person->getUser->id == Auth::user()->id)
+
+                    <div class="button grey icon">
+
+                        <img class="icon" src="/images/edit.svg">
+
+                        <div class="text">Bewerken</div>
+
+                    </div>
+
+                @endif
+
                 @switch($person->getUser->role)
 
                     @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
