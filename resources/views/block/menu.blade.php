@@ -66,4 +66,6 @@
 
     @endswitch
 
+    <div style="margin: auto 0 48px;width:100px;height:100px;background:pink"></div>
+
 </div>
