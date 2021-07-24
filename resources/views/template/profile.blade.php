@@ -84,6 +84,8 @@
 
                                 </div>
 
+                                @break
+
                             @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
                             @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
 
