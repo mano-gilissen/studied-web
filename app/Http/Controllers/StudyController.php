@@ -226,11 +226,6 @@ class StudyController extends Controller {
                 $query->orderBy(self::$BASE_CREATED_AT, $sort[Table::SORT_MODE]);
                 break;
 
-            case self::$COLUMN_STATUS:
-
-                $query->orderBy(self::$STUDY_STATUS, $sort[Table::SORT_MODE]);
-                break;
-
             case self::$COLUMN_STUDENT:
 
                 // TODO: ENABLE ONLY IF FILTERED ON STUDY.SERVICE = PRIVELES
@@ -252,6 +247,17 @@ class StudyController extends Controller {
 
                 $query->join(self::$SERVICE, self::$SERVICE . '.' . self::$BASE_ID, '=', self::$STUDY . '.' . self::$SERVICE);
                 $query->orderBy(self::$SERVICE . '.' . self::$SERVICE_NAME, $sort[Table::SORT_MODE]);
+                break;
+
+            case self::$COLUMN_TIME:
+
+                $query->orderBy(self::$STUDY_START, $sort[Table::SORT_MODE]);
+                $query->orderBy(self::$STUDY_END, $sort[Table::SORT_MODE]);
+                break;
+
+            case self::$COLUMN_STATUS:
+
+                $query->orderBy(self::$STUDY_STATUS, $sort[Table::SORT_MODE]);
                 break;
         }
     }
