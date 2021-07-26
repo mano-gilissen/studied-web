@@ -62,8 +62,11 @@ class StudyController extends Controller {
 
         return view(Views::FORM_STUDY, [
 
-            Key::PAGE_TITLE                                 => 'Les inplannen'
+            Key::PAGE_TITLE                                 => 'Les inplannen',
+            Key::SUBMIT_ACTION                              => 'Inplannen',
 
+            Key::AUTOCOMPLETE_DATA.'location'               => implode('::', Location::all()->pluck(self::$LOCATION_NAME)->toArray()),
+            Key::AUTOCOMPLETE_DATA.'subject'                => implode('::', Subject::all()->pluck(self::$SUBJECT_DESCRIPTION_SHORT)->toArray()),
         ]);
     }
 
