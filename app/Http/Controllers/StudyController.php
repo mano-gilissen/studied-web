@@ -58,7 +58,7 @@ class StudyController extends Controller {
 
 
 
-    public function form($key) {
+    public function form() {
 
         return view(Views::FORM_STUDY, [
 
