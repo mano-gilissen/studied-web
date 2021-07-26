@@ -9,7 +9,6 @@ use App\Http\Support\Table;
 use App\Http\Traits\BaseTrait;
 use App\Http\Traits\PersonTrait;
 use App\Http\Traits\StudyTrait;
-use App\Http\Traits\SubjectTrait;
 use App\Http\Traits\UserTrait;
 use App\Models\Location;
 use App\Models\Study;
