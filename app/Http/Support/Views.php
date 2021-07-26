@@ -18,6 +18,7 @@ class Views {
     const LIST_STUDY                            = "list.study";
 
     const FORM_TEST                             = "form-test";
+    const FORM_STUDY                            = "form-study";
 
     const LOAD_LIST                             = "load.list";
 

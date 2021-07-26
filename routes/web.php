@@ -22,6 +22,8 @@ Route::get('/lessen',                           'StudyController@list')->name('s
 
 Route::get('/les/{key}',                        'StudyController@view')->name('study.view')->middleware('auth');
 
+Route::get('/plannen',                          'StudyController@form')->name('study.form')->middleware('auth');
+
 
 
 Route::get('/profiel/{slug}',                   'PersonController@profile')->name('person.profile')->middleware('auth');

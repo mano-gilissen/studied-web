@@ -58,6 +58,19 @@ class StudyController extends Controller {
 
 
 
+    public function form($key) {
+
+        return view(Views::FORM_STUDY, [
+
+            Key::PAGE_TITLE                                 => 'Les inplannen'
+
+        ]);
+    }
+
+
+
+
+
     public function list() {
 
         return view(Views::LIST_STUDY, [
