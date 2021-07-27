@@ -9,6 +9,7 @@ use App\Http\Traits\PersonTrait;
 use App\Models\Person;
 use App\Http\Support\Views;
 use App\Http\Support\Key;
+use App\Http\Support\Model;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -28,7 +29,7 @@ class PersonController extends Controller {
 
         return view(Views::PROFILE, [
 
-            self::$PERSON                           => $person,
+            Model::$PERSON                          => $person,
 
             Key::PAGE_BACK                          => false,
             Key::COMMENT                            => PersonTrait::getProfileComment($person)
@@ -39,11 +40,11 @@ class PersonController extends Controller {
 
     public function view($slug) {
 
-        $person                                     = Person::where(self::$PERSON_SLUG, $slug)->firstOrFail();
+        $person                                     = Person::where(Model::$PERSON_SLUG, $slug)->firstOrFail();
 
         return view(Views::PROFILE, [
 
-            self::$PERSON                           => $person,
+            Model::$PERSON                          => $person,
 
             Key::PAGE_BACK                          => true,
             Key::COMMENT                            => PersonTrait::getProfileComment($person)

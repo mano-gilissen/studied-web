@@ -4,7 +4,9 @@
 
 namespace App\Models;
 
+use App\Http\Support\Model;
 use App\Http\Traits\BaseTrait;
+use App\Http\Traits\RoleTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -35,7 +37,7 @@ class User extends Authenticatable {
 
     public function getPerson() {
 
-        return self::getThisToOne(self::$PERSON);
+        return self::getThisToOne(Model::$PERSON);
 
     }
 
@@ -43,35 +45,35 @@ class User extends Authenticatable {
 
     public function getRole() {
 
-        return self::getThisToOne(self::$ROLE);
+        return self::getThisToOne(Model::$ROLE);
 
     }
 
 
 
-    public function isEmployee() {      return $this->{self::$ROLE} == self::$ID_EMPLOYEE;}
+    public function isEmployee() {      return $this->{Model::$ROLE} == RoleTrait::$ID_EMPLOYEE;}
 
-    public function isStudent() {       return $this->{self::$ROLE} == self::$ID_STUDENT;}
+    public function isStudent() {       return $this->{Model::$ROLE} == RoleTrait::$ID_STUDENT;}
 
-    public function isCustomer() {      return $this->{self::$ROLE} == self::$ID_CUSTOMER;}
+    public function isCustomer() {      return $this->{Model::$ROLE} == RoleTrait::$ID_CUSTOMER;}
 
 
 
     public function getEmployee() {
 
-        return self::getOneToThis(self::$EMPLOYEE, self::$USER);
+        return self::getOneToThis(Model::$EMPLOYEE, Model::$USER);
 
     }
 
     public function getStudent() {
 
-        return self::getOneToThis(self::$STUDENT, self::$USER);
+        return self::getOneToThis(Model::$STUDENT, Model::$USER);
 
     }
 
     public function getCustomer() {
 
-        return self::getOneToThis(self::$CUSTOMER, self::$USER);
+        return self::getOneToThis(Model::$CUSTOMER, Model::$USER);
 
     }
 
@@ -79,17 +81,17 @@ class User extends Authenticatable {
 
     public function hasStudies() {
 
-        return $this->{self::$ROLE} != self::$ID_CUSTOMER;
+        return $this->{Model::$ROLE} != RoleTrait::$ID_CUSTOMER;
 
     }
 
     public function getStudies() {
 
-        switch ($this->{self::$ROLE}) {
+        switch ($this->{Model::$ROLE}) {
 
-            case self::$ID_CUSTOMER:
+            case RoleTrait::$ID_CUSTOMER:
                 return null;
-            case self::$ID_STUDENT:
+            case RoleTrait::$ID_STUDENT:
                 return $this->getStudies_asParticipant();
             default:
                 return $this->getStudies_asHost();
@@ -98,13 +100,13 @@ class User extends Authenticatable {
 
     public function getStudies_asHost() {
 
-        return self::getOneToMany(self::$STUDY, self::$STUDY_HOST_USER);
+        return self::getOneToMany(Model::$STUDY, Model::$STUDY_HOST_USER);
 
     }
 
     public function getStudies_asParticipant() {
 
-        return self::getManyToMany(self::$STUDY, self::$STUDY_USER, self::$USER);
+        return self::getManyToMany(Model::$STUDY, Model::$STUDY_USER, Model::$USER);
 
     }
 

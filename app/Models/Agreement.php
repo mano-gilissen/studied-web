@@ -4,13 +4,14 @@
 
 namespace App\Models;
 
+use App\Http\Support\Model;
 use App\Http\Traits\BaseTrait;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as ModelClass;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 
-class Agreement extends Model {
+class Agreement extends ModelClass {
 
 
 
@@ -27,7 +28,7 @@ class Agreement extends Model {
 
     public function getStudent() {
 
-        return self::getThisToOne(self::$USER, self::$STUDENT);
+        return self::getThisToOne(Model::$USER, Model::$STUDENT);
 
     }
 
@@ -35,7 +36,7 @@ class Agreement extends Model {
 
     public function getEmployee() {
 
-        return self::getThisToOne(self::$USER, self::$STUDENT);
+        return self::getThisToOne(Model::$USER, Model::$STUDENT);
 
     }
 
@@ -43,7 +44,7 @@ class Agreement extends Model {
 
     public function getSubject() {
 
-        return self::getThisToOne(self::$SUBJECT);
+        return self::getThisToOne(Model::$SUBJECT);
 
     }
 
@@ -57,7 +58,7 @@ class Agreement extends Model {
 
     public function getTrial() {
 
-        return self::getThisToOne(self::$STUDY, self::$AGREEMENT_TRIAL);
+        return self::getThisToOne(Model::$STUDY, Model::$AGREEMENT_TRIAL);
 
     }
 

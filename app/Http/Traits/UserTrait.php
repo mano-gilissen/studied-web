@@ -6,33 +6,12 @@ namespace App\Http\Traits;
 
 
 
-use App\Models\User;
-use App\Http\Traits\PersonTrait;
-use App\Http\Traits\RoleTrait;
+use App\Http\Support\Model;
 use Auth;
 
 
 
 trait UserTrait {
-
-
-
-
-
-    use PersonTrait;
-    use RoleTrait;
-
-
-
-
-
-    public static
-
-        $USER                                           = 'user',
-
-        $USER_EMAIL                                     = 'email',
-        $USER_PASSWORD                                  = 'password',
-        $USER_NAME                                      = 'name';
 
 
 
@@ -48,7 +27,7 @@ trait UserTrait {
 
         }
 
-        return $public ? $role->{self::$ROLE_LABEL_PUBLIC} : $role->{self::$ROLE_LABEL};
+        return $public ? $role->{Model::$ROLE_LABEL_PUBLIC} : $role->{Model::$ROLE_LABEL};
     }
 
 

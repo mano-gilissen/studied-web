@@ -4,13 +4,14 @@
 
 namespace App\Models;
 
+use App\Http\Support\Model;
 use App\Http\Traits\BaseTrait;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as ModelClass;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 
-class Course extends Model {
+class Course extends ModelClass {
 
 
 
@@ -27,7 +28,7 @@ class Course extends Model {
 
     public function getHost() {
 
-        return self::getThisToOne(self::$PERSON);
+        return self::getThisToOne(Model::$PERSON);
 
     }
 

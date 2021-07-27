@@ -6,7 +6,6 @@ namespace App\Http\Traits;
 
 use App\Http\Support\Key;
 use App\Http\Support\Color;
-use App\Models\Report;
 
 
 trait StudyTrait {
@@ -16,20 +15,6 @@ trait StudyTrait {
 
 
     public static
-
-        $STUDY                                          = 'study',
-
-        $STUDY_STATUS                                   = 'status',
-        $STUDY_HOST_USER                                = 'host_user',
-        $STUDY_HOST_RELATION                            = 'host_relation',
-        $STUDY_SUBJECT_DEFINED                          = 'subject_defined',
-        $STUDY_SUBJECT_TEXT                             = 'subject_text',
-        $STUDY_LOCATION_DEFINED                         = 'location_defined',
-        $STUDY_LOCATION_TEXT                            = 'location_text',
-        $STUDY_DATE                                     = 'date',
-        $STUDY_START                                    = 'start',
-        $STUDY_END                                      = 'end',
-        $STUDY_TRIAL                                    = 'trial',
 
         $STATUS_CREATED                                 = 0,
         $STATUS_PLANNED                                 = 1,

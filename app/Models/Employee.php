@@ -4,13 +4,14 @@
 
 namespace App\Models;
 
+use App\Http\Support\Model;
 use App\Http\Traits\BaseTrait;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as ModelClass;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 
-class Employee extends Model {
+class Employee extends ModelClass {
 
 
 
@@ -28,7 +29,7 @@ class Employee extends Model {
 
     public function getUser() {
 
-        return self::getThisToOne(self::$USER);
+        return self::getThisToOne(Model::$USER);
 
     }
 
@@ -36,7 +37,7 @@ class Employee extends Model {
 
     public function getArea() {
 
-        return self::getThisToOne(self::$AREA);
+        return self::getThisToOne(Model::$AREA);
 
     }
 
@@ -44,7 +45,7 @@ class Employee extends Model {
 
     public function getStudents() {
 
-        return self::getManyToMany(self::$STUDENT, self::$AGREEMENT, self::$EMPLOYEE);
+        return self::getManyToMany(Model::$STUDENT, Model::$AGREEMENT, Model::$EMPLOYEE);
 
     }
 

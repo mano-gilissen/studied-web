@@ -14,11 +14,6 @@ trait BaseTrait {
 
     public static
 
-        $BASE_ID                                = 'id',
-        $BASE_KEY                               = 'key',
-        $BASE_CREATED_AT                        = 'created_at',
-        $BASE_DELETED_AT                        = 'deleted_at',
-
         $NAMESPACE_MODEL                        = "App\\Models\\";
 
 
@@ -98,11 +93,6 @@ trait BaseTrait {
     }
 
 
-
-    use AddressTrait, AgreementTrait, AreaTrait, CourseTrait, CustomerTrait, EmployeeTrait, EvaluationTrait, EventTrait,
-        InvoiceTrait, LaborTrait, LocationTrait, LogTrait, PersonTrait, RelationTrait, ReportTrait, Report_SubjectTrait,
-        RoleTrait, ServiceTrait, StudentTrait, Student_RelationTrait, StudyTrait, Study_ParticipantTrait,
-        Study_UserTrait, SubjectTrait, UserTrait;
 
 
 

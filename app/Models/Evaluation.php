@@ -4,13 +4,14 @@
 
 namespace App\Models;
 
+use App\Http\Support\Model;
 use App\Http\Traits\BaseTrait;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as ModelClass;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 
-class Evaluation extends Model {
+class Evaluation extends ModelClass {
 
 
 
@@ -27,7 +28,7 @@ class Evaluation extends Model {
 
     public function getHost() {
 
-        return self::getThisToOne(self::$USER, self::$EVALUATION_HOST);
+        return self::getThisToOne(Model::$USER, Model::$EVALUATION_HOST);
 
     }
 
@@ -35,7 +36,7 @@ class Evaluation extends Model {
 
     public function getEmployee() {
 
-        return self::getThisToOne(self::$USER, self::$EVALUATION_EMPLOYEE);
+        return self::getThisToOne(Model::$USER, Model::$EVALUATION_EMPLOYEE);
 
     }
 
@@ -43,7 +44,7 @@ class Evaluation extends Model {
 
     public function getStudent() {
 
-        return self::getThisToOne(self::$USER, self::$EVALUATION_STUDENT);
+        return self::getThisToOne(Model::$USER, Model::$EVALUATION_STUDENT);
 
     }
 
@@ -51,7 +52,7 @@ class Evaluation extends Model {
 
     public function getLocation_Defined() {
 
-        return self::getThisToOne(self::$LOCATION, self::$EVALUATION_LOCATION_DEFINED);
+        return self::getThisToOne(Model::$LOCATION, Model::$EVALUATION_LOCATION_DEFINED);
 
     }
 

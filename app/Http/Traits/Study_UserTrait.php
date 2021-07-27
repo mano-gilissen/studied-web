@@ -10,10 +10,6 @@ trait Study_UserTrait {
 
 
 
-    public static
-
-        $STUDY_USER                             = 'study_user';
-
 
 
 }

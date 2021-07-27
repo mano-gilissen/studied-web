@@ -10,10 +10,6 @@ trait InvoiceTrait {
 
 
 
-    public static
-
-        $INVOICE                                    = 'invoice';
-
 
 
 }

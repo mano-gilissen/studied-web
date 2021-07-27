@@ -4,28 +4,11 @@
 
 namespace App\Http\Traits;
 
+use App\Http\Support\Model;
+use App\Models\Role;
 
 
 trait PersonTrait {
-
-
-
-
-
-    public static
-
-        $PERSON                                         = 'person',
-
-        $PERSON_SLUG                                    = 'slug',
-        $PERSON_FIRST_NAME                              = 'first_name',
-        $PERSON_MIDDLE_NAME                             = 'middle_name',
-        $PERSON_LAST_NAME                               = 'last_name',
-        $PERSON_PREFIX                                  = 'prefix',
-        $PERSON_EMAIL                                   = 'email',
-        $PERSON_PHONE                                   = 'phone',
-        $PERSON_BIRTH_DATE                              = 'birth_date',
-        $PERSON_AVATAR                                  = 'avatar',
-        $PERSON_SOCIAL_INSTAGRAM                        = 'social_instagram';
 
 
 
@@ -39,10 +22,10 @@ trait PersonTrait {
 
         }
 
-        $prefix                 = $person->{self::$PERSON_PREFIX};
-        $first_name             = $person->{self::$PERSON_FIRST_NAME};
-        $middle_name            = $person->{self::$PERSON_MIDDLE_NAME};
-        $last_name              = $person->{self::$PERSON_LAST_NAME};
+        $prefix                 = $person->{Model::$PERSON_PREFIX};
+        $first_name             = $person->{Model::$PERSON_FIRST_NAME};
+        $middle_name            = $person->{Model::$PERSON_MIDDLE_NAME};
+        $last_name              = $person->{Model::$PERSON_LAST_NAME};
 
         return ($with_prefix && $prefix ? $prefix . ' ': '') . $first_name . ' ' . ($middle_name ? $middle_name . ' ' : '') . $last_name;
     }
@@ -57,8 +40,8 @@ trait PersonTrait {
 
         }
 
-        $first_name             = $person->{self::$PERSON_FIRST_NAME};
-        $last_name              = $person->{self::$PERSON_LAST_NAME};
+        $first_name             = $person->{Model::$PERSON_FIRST_NAME};
+        $last_name              = $person->{Model::$PERSON_LAST_NAME};
 
         return substr($first_name, 0, 1) . substr($last_name, 0, 1) ;
     }
@@ -77,14 +60,14 @@ trait PersonTrait {
 
         switch($user->role) {
 
-            case UserTrait::$ID_ADMINISTRATOR:
-            case UserTrait::$ID_BOARD:
-            case UserTrait::$ID_MANAGEMENT:
-            case UserTrait::$ID_EMPLOYEE:
-                return $user->getEmployee->{EmployeeTrait::$EMPLOYEE_SCHOOL_CURRENT} ?? UserTrait::getRoleName($user, true);
-            case UserTrait::$ID_STUDENT:
-                return $user->getStudent->{StudentTrait::$STUDENT_SCHOOL};
-            case UserTrait::$ID_CUSTOMER:
+            case RoleTrait::$ID_ADMINISTRATOR:
+            case RoleTrait::$ID_BOARD:
+            case RoleTrait::$ID_MANAGEMENT:
+            case RoleTrait::$ID_EMPLOYEE:
+                return $user->getEmployee->{Model::$EMPLOYEE_SCHOOL_CURRENT} ?? UserTrait::getRoleName($user, true);
+            case RoleTrait::$ID_STUDENT:
+                return $user->getStudent->{Model::$STUDENT_SCHOOL};
+            case RoleTrait::$ID_CUSTOMER:
                 return UserTrait::getRoleName($user, true);
             default:
                 return "Gebruiker";
@@ -95,7 +78,7 @@ trait PersonTrait {
 
     public static function getProfileComment($person) {
 
-        return "\"Hoi ik ben een test comment voor de profielpagina van " . $person->{self::$PERSON_FIRST_NAME} . " " . $person->{self::$PERSON_LAST_NAME} . "\"";
+        return "\"Hoi ik ben een test comment voor de profielpagina van " . $person->{Model::$PERSON_FIRST_NAME} . " " . $person->{Model::$PERSON_LAST_NAME} . "\"";
 
     }
 

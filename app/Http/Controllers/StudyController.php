@@ -8,13 +8,14 @@ use App\Http\Support\Format;
 use App\Http\Support\Table;
 use App\Http\Traits\BaseTrait;
 use App\Http\Traits\PersonTrait;
+use App\Http\Traits\RoleTrait;
 use App\Http\Traits\StudyTrait;
-use App\Http\Traits\UserTrait;
 use App\Models\Location;
 use App\Models\Study;
 use App\Models\Subject;
 use App\Http\Support\Key;
 use App\Http\Support\Views;
+use App\Http\Support\Model;
 use Illuminate\Http\Request;
 use Auth;
 use DB;
@@ -24,8 +25,6 @@ use DB;
 class StudyController extends Controller {
 
 
-
-    use BaseTrait;
 
 
 
@@ -44,14 +43,14 @@ class StudyController extends Controller {
 
     public function view($key) {
 
-        $study = Study::where(self::$BASE_KEY, $key)->firstOrFail();
+        $study = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
 
         return view(Views::STUDY, [
 
-            Key::PAGE_TITLE                                 => $study->getService->{self::$SERVICE_NAME},
+            Key::PAGE_TITLE                                 => $study->getService->{Model::$SERVICE_NAME},
             Key::PAGE_BACK                                  => true,
 
-            self::$STUDY                                    => $study,
+            Model::$STUDY                                   => $study,
             'button_contact_host'                           => true,
         ]);
     }
@@ -68,8 +67,8 @@ class StudyController extends Controller {
             Key::SUBMIT_ACTION                              => 'Inplannen',
             Key::SUBMIT_ROUTE                               => 'study.plan_submit',
 
-            Key::AUTOCOMPLETE_DATA.'location'               => implode('::', Location::all()->pluck(self::$LOCATION_NAME)->toArray()),
-            Key::AUTOCOMPLETE_DATA.'subject'                => implode('::', Subject::all()->pluck(self::$SUBJECT_DESCRIPTION_SHORT)->toArray()),
+            Key::AUTOCOMPLETE_DATA.'location'               => implode('::', Location::all()->pluck(Model::$LOCATION_NAME)->toArray()),
+            Key::AUTOCOMPLETE_DATA.'subject'                => implode('::', Subject::all()->pluck(Model::$SUBJECT_DESCRIPTION_SHORT)->toArray()),
         ]);
     }
 
@@ -110,7 +109,7 @@ class StudyController extends Controller {
 
             Key::PAGE_TITLE                                 => 'Lessen',
 
-            Table::DATA_TYPE                                => self::$STUDY,
+            Table::DATA_TYPE                                => Model::$STUDY,
             Table::VIEW_COUNTERS                            => $this->list_counters()
         ]);
     }
@@ -135,7 +134,7 @@ class StudyController extends Controller {
 
     public function list_type() {
 
-        return self::$STUDY;
+        return Model::$STUDY;
 
     }
 
@@ -147,12 +146,12 @@ class StudyController extends Controller {
 
         /* TODO: REMOVE COLUMNS IF FILTERED */
 
-        switch (self::getUserRole()) {
+        switch (BaseTrait::getUserRole()) {
 
-            case UserTrait::$ID_ADMINISTRATOR:
-            case UserTrait::$ID_BOARD:
-            case UserTrait::$ID_MANAGEMENT:
-            case UserTrait::$ID_CUSTOMER:
+            case RoleTrait::$ID_ADMINISTRATOR:
+            case RoleTrait::$ID_BOARD:
+            case RoleTrait::$ID_MANAGEMENT:
+            case RoleTrait::$ID_CUSTOMER:
 
                 array_push($columns,
                     Table::column(self::$COLUMN_DATE, 'Datum', 3, true, $sort, true),
@@ -166,7 +165,7 @@ class StudyController extends Controller {
                 );
                 break;
 
-            case UserTrait::$ID_EMPLOYEE:
+            case RoleTrait::$ID_EMPLOYEE:
 
                 array_push($columns,
                     Table::column(self::$COLUMN_DATE, 'Datum', 2, true, $sort, true),
@@ -179,7 +178,7 @@ class StudyController extends Controller {
                 );
                 break;
 
-            case UserTrait::$ID_STUDENT:
+            case RoleTrait::$ID_STUDENT:
 
                 array_push($columns,
                     Table::column(self::$COLUMN_DATE, 'Datum', 2, true, $sort, true),
@@ -208,7 +207,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_DATE:
 
-                return "<div style='font-weight: 400'>" . Format::datetime($study->{self::$BASE_CREATED_AT}, Format::$DATETIME_LIST) . "</div>";
+                return "<div style='font-weight: 400'>" . Format::datetime($study->{Model::$BASE_CREATED_AT}, Format::$DATETIME_LIST) . "</div>";
 
             case self::$COLUMN_STUDENT:
 
@@ -218,26 +217,26 @@ class StudyController extends Controller {
 
                     case 0:                                 return "Geen deelnemers";
                     case 1:                                 return PersonTrait::getFullName($participants[0]);
-                    case 2:                                 return $participants[0]->{self::$PERSON_FIRST_NAME} . " en " . $participants[1]->{self::$PERSON_FIRST_NAME};
-                    case 3:                                 return $participants[0]->{self::$PERSON_FIRST_NAME} . ", " . $participants[1]->{self::$PERSON_FIRST_NAME} . " en " . $participants[2]->{self::$PERSON_FIRST_NAME};
+                    case 2:                                 return $participants[0]->{Model::$PERSON_FIRST_NAME} . " en " . $participants[1]->{Model::$PERSON_FIRST_NAME};
+                    case 3:                                 return $participants[0]->{Model::$PERSON_FIRST_NAME} . ", " . $participants[1]->{Model::$PERSON_FIRST_NAME} . " en " . $participants[2]->{Model::$PERSON_FIRST_NAME};
                     default:                                return count($participants) . " deelnemers";
                 }
 
             case self::$COLUMN_HOST:
 
-                return UserTrait::getFullName($study->getHost->getPerson);
+                return PersonTrait::getFullName($study->getHost->getPerson);
 
             case self::$COLUMN_SERVICE:
 
-                return $study->getService->{self::$SERVICE_NAME};
+                return $study->getService->{Model::$SERVICE_NAME};
 
             case self::$COLUMN_SUBJECT:
 
-                return $study->getSubject_Defined ? $study->getSubject_Defined->{self::$SUBJECT_CODE} : $study->{self::$STUDY_SUBJECT_TEXT};
+                return $study->getSubject_Defined ? $study->getSubject_Defined->{Model::$SUBJECT_CODE} : $study->{Model::$STUDY_SUBJECT_TEXT};
 
             case self::$COLUMN_LOCATION:
 
-                return $study->getLocation_Defined ? $study->getLocation_Defined->{self::$LOCATION_NAME} : $study->{self::$STUDY_LOCATION_TEXT};
+                return $study->getLocation_Defined ? $study->getLocation_Defined->{Model::$LOCATION_NAME} : $study->{Model::$STUDY_LOCATION_TEXT};
 
             case self::$COLUMN_TIME:
 
@@ -257,7 +256,7 @@ class StudyController extends Controller {
 
     public function list_link($study) {
 
-        return route('study.view', ['key' => $study->{self::$BASE_KEY}]);
+        return route('study.view', ['key' => $study->{Model::$BASE_KEY}]);
 
     }
 
@@ -269,7 +268,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_DATE:
 
-                $query->orderBy(self::$BASE_CREATED_AT, $sort[Table::SORT_MODE]);
+                $query->orderBy(Model::$BASE_CREATED_AT, $sort[Table::SORT_MODE]);
                 break;
 
             case self::$COLUMN_STUDENT:
@@ -284,26 +283,26 @@ class StudyController extends Controller {
 
             case self::$COLUMN_HOST:
 
-                $query->join(self::$USER, self::$USER . '.' . self::$BASE_ID, '=', self::$STUDY . '.' . self::$STUDY_HOST_USER);
-                $query->join(self::$PERSON, self::$PERSON . '.' . self::$BASE_ID, '=', self::$USER . '.' . self::$PERSON);
-                $query->orderBy(self::$PERSON . '.' . self::$PERSON_FIRST_NAME, $sort[Table::SORT_MODE]);
+                $query->join(Model::$USER, Model::$USER . '.' . Model::$BASE_ID, '=', Model::$STUDY . '.' . Model::$STUDY_HOST_USER);
+                $query->join(Model::$PERSON, Model::$PERSON . '.' . Model::$BASE_ID, '=', Model::$USER . '.' . Model::$PERSON);
+                $query->orderBy(Model::$PERSON . '.' . Model::$PERSON_FIRST_NAME, $sort[Table::SORT_MODE]);
                 break;
 
             case self::$COLUMN_SERVICE:
 
-                $query->join(self::$SERVICE, self::$SERVICE . '.' . self::$BASE_ID, '=', self::$STUDY . '.' . self::$SERVICE);
-                $query->orderBy(self::$SERVICE . '.' . self::$SERVICE_NAME, $sort[Table::SORT_MODE]);
+                $query->join(Model::$SERVICE, Model::$SERVICE . '.' . Model::$BASE_ID, '=', Model::$STUDY . '.' . Model::$SERVICE);
+                $query->orderBy(Model::$SERVICE . '.' . Model::$SERVICE_NAME, $sort[Table::SORT_MODE]);
                 break;
 
             case self::$COLUMN_TIME:
 
-                $query->orderBy(self::$STUDY_START, $sort[Table::SORT_MODE]);
-                $query->orderBy(self::$STUDY_END, $sort[Table::SORT_MODE]);
+                $query->orderBy(Model::$STUDY_START, $sort[Table::SORT_MODE]);
+                $query->orderBy(Model::$STUDY_END, $sort[Table::SORT_MODE]);
                 break;
 
             case self::$COLUMN_STATUS:
 
-                $query->orderBy(self::$STUDY_STATUS, $sort[Table::SORT_MODE]);
+                $query->orderBy(Model::$STUDY_STATUS, $sort[Table::SORT_MODE]);
                 break;
         }
     }
@@ -314,12 +313,12 @@ class StudyController extends Controller {
 
         $COUNTER_PLANNED            = (object) [
             Table::COUNTER_LABEL                            => 'Ingepland',
-            Table::COUNTER_VALUE                            => Study::where(self::$STUDY_STATUS, self::$STATUS_PLANNED)->count()
+            Table::COUNTER_VALUE                            => Study::where(Model::$STUDY_STATUS, StudyTrait::$STATUS_PLANNED)->count()
         ];
 
         $COUNTER_REPORTED           = (object) [
             Table::COUNTER_LABEL                            => 'Gerapporteerd',
-            Table::COUNTER_VALUE                            => Study::where(self::$STUDY_STATUS, self::$STATUS_REPORTED)->count()
+            Table::COUNTER_VALUE                            => Study::where(Model::$STUDY_STATUS, StudyTrait::$STATUS_REPORTED)->count()
         ];
 
         return [

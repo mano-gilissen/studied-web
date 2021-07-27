@@ -4,13 +4,14 @@
 
 namespace App\Models;
 
+use App\Http\Support\Model;
 use App\Http\Traits\BaseTrait;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as ModelClass;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 
-class Event extends Model {
+class Event extends ModelClass {
 
 
 
@@ -27,7 +28,7 @@ class Event extends Model {
 
     public function getUser() {
 
-        return self::getThisToOne(self::$USER);
+        return self::getThisToOne(Model::$USER);
 
     }
 
@@ -35,7 +36,7 @@ class Event extends Model {
 
     public function getLocation() {
 
-        return self::getThisToOne(self::$LOCATION);
+        return self::getThisToOne(Model::$LOCATION);
 
     }
 

@@ -4,13 +4,14 @@
 
 namespace App\Models;
 
+use App\Http\Support\Model;
 use App\Http\Traits\BaseTrait;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as ModelClass;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 
-class Report extends Model {
+class Report extends ModelClass {
 
 
 
@@ -27,7 +28,7 @@ class Report extends Model {
 
     public function getStudy() {
 
-        return self::getThisToOne(self::$STUDY);
+        return self::getThisToOne(Model::$STUDY);
 
     }
 
@@ -35,7 +36,7 @@ class Report extends Model {
 
     public function getStudent() {
 
-        return self::getThisToOne(self::$USER, self::$STUDENT);
+        return self::getThisToOne(Model::$USER, Model::$STUDENT);
 
     }
 
@@ -43,7 +44,7 @@ class Report extends Model {
 
     public function getReport_Subjects() {
 
-        return self::getOneToMany(self::$REPORT_SUBJECT, self::$REPORT);
+        return self::getOneToMany(Model::$REPORT_SUBJECT, Model::$REPORT);
 
     }
 

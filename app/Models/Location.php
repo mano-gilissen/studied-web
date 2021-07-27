@@ -4,13 +4,14 @@
 
 namespace App\Models;
 
+use App\Http\Support\Model;
 use App\Http\Traits\BaseTrait;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as ModelClass;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 
-class Location extends Model {
+class Location extends ModelClass {
 
 
 
@@ -27,7 +28,7 @@ class Location extends Model {
 
     public function getAddress() {
 
-        return self::getThisToOne(self::$ADDRESS);
+        return self::getThisToOne(Model::$ADDRESS);
 
     }
 
@@ -35,7 +36,7 @@ class Location extends Model {
 
     public function getArea() {
 
-        return self::getThisToOne(self::$AREA);
+        return self::getThisToOne(Model::$AREA);
 
     }
 

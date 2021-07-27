@@ -4,15 +4,14 @@
 
 namespace App\Models;
 
+use App\Http\Support\Model;
 use App\Http\Traits\BaseTrait;
-use App\Http\Traits\ReportTrait;
-use App\Http\Traits\StudyTrait;
-use App\Http\Traits\UserTrait;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as ModelClass;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
-class Study extends Model {
+
+class Study extends ModelClass {
 
 
 
@@ -30,7 +29,7 @@ class Study extends Model {
 
     public function getService() {
 
-        return self::getThisToOne(self::$SERVICE);
+        return self::getThisToOne(Model::$SERVICE);
 
     }
 
@@ -38,7 +37,7 @@ class Study extends Model {
 
     public function getHost_User() {
 
-        return self::getThisToOne(self::$USER, self::$STUDY_HOST_USER);
+        return self::getThisToOne(Model::$USER, Model::$STUDY_HOST_USER);
 
     }
 
@@ -46,7 +45,7 @@ class Study extends Model {
 
     public function getHost_Relation() {
 
-        return self::getThisToOne(self::$RELATION, self::$STUDY_HOST_RELATION);
+        return self::getThisToOne(Model::$RELATION, Model::$STUDY_HOST_RELATION);
 
     }
 
@@ -56,9 +55,9 @@ class Study extends Model {
 
         switch ($this->getHost_Type()) {
 
-            case self::$USER:
+            case Model::$USER:
                 return $this->getHost_User();
-            case self::$RELATION:
+            case Model::$RELATION:
                 return $this->getHost_Relation();
             default:
                 return null;
@@ -70,7 +69,7 @@ class Study extends Model {
 
     public function getHost_Type() {
 
-        return $this->{self::$STUDY_HOST_USER} ? self::$USER : ($this->{self::$STUDY_HOST_RELATION} ? self::$RELATION : null);
+        return $this->{Model::$STUDY_HOST_USER} ? Model::$USER : ($this->{Model::$STUDY_HOST_RELATION} ? Model::$RELATION : null);
 
     }
 
@@ -78,7 +77,7 @@ class Study extends Model {
 
     public function getParticipants_User() {
 
-        return self::getManyToMany(self::$USER, self::$STUDY_USER, self::$STUDY);
+        return self::getManyToMany(Model::$USER, Model::$STUDY_USER, Model::$STUDY);
 
     }
 
@@ -86,7 +85,7 @@ class Study extends Model {
 
     public function getParticipants_Participant() {
 
-        return self::getOneToMany(self::$STUDY_PARTICIPANT, self::$STUDY);
+        return self::getOneToMany(Model::$STUDY_PARTICIPANT, Model::$STUDY);
 
     }
 
@@ -94,7 +93,7 @@ class Study extends Model {
 
     public function getSubject_Defined() {
 
-        return self::getThisToOne(self::$SUBJECT, self::$STUDY_SUBJECT_DEFINED);
+        return self::getThisToOne(Model::$SUBJECT, Model::$STUDY_SUBJECT_DEFINED);
 
     }
 
@@ -102,7 +101,7 @@ class Study extends Model {
 
     public function getLocation_Defined() {
 
-        return self::getThisToOne(self::$LOCATION, self::$STUDY_LOCATION_DEFINED);
+        return self::getThisToOne(Model::$LOCATION, Model::$STUDY_LOCATION_DEFINED);
 
     }
 
@@ -110,7 +109,7 @@ class Study extends Model {
 
     public function getReport($user) {
 
-        return Report::where(self::$STUDY, $this->{self::$BASE_ID})->where(self::$USER, $user->{self::$BASE_ID})->first();
+        return Report::where(Model::$STUDY, $this->{Model::$BASE_ID})->where(Model::$USER, $user->{Model::$BASE_ID})->first();
 
     }
 
@@ -118,7 +117,7 @@ class Study extends Model {
 
     public function getCourse() {
 
-        return self::getThisToOne(self::$COURSE);
+        return self::getThisToOne(Model::$COURSE);
 
     }
 

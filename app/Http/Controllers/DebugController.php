@@ -4,16 +4,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Support\Format;
-use App\Http\Traits\BaseTrait;
-use App\Http\Traits\UserTrait;
 use App\Models\Subject;
 use App\Models\Person;
-use App\Models\Study;
-use App\Models\User;
 use App\Http\Support\Key;
 use App\Http\Support\Views;
 use Illuminate\Http\Request;
+use App\Http\Support\Model;
 use Auth;
 
 
@@ -21,8 +17,6 @@ use Auth;
 class DebugController extends Controller {
 
 
-
-    use BaseTrait;
 
 
 
@@ -41,7 +35,7 @@ class DebugController extends Controller {
 
                 Key::PAGE_TITLE                                             => 'The Lab',
 
-                self::$USER                                                 => Auth::user()
+                Model::$USER                                                => Auth::user()
             ]);
     }
 
@@ -56,11 +50,13 @@ class DebugController extends Controller {
             Key::PAGE_TITLE                                                 => 'Formulier',
             Key::SUBMIT_ACTION                                              => 'Opslaan',
 
-            Key::AUTOCOMPLETE_DATA.'field_autocomplete'                     => implode('::', Person::all()->pluck(self::$PERSON_FIRST_NAME)->toArray()),
-            Key::AUTOCOMPLETE_DATA.'field_autocomplete_reject'              => implode('::', Subject::all()->pluck(self::$SUBJECT_DESCRIPTION_SHORT)->toArray()),
-            Key::AUTOCOMPLETE_DATA.'field_autocomplete_reject_show_all'     => implode('::', Subject::all()->pluck(self::$SUBJECT_DESCRIPTION_SHORT)->toArray())
+            Key::AUTOCOMPLETE_DATA.'field_autocomplete'                     => implode('::', Person::all()->pluck(Model::$PERSON_FIRST_NAME)->toArray()),
+            Key::AUTOCOMPLETE_DATA.'field_autocomplete_reject'              => implode('::', Subject::all()->pluck(Model::$SUBJECT_DESCRIPTION_SHORT)->toArray()),
+            Key::AUTOCOMPLETE_DATA.'field_autocomplete_reject_show_all'     => implode('::', Subject::all()->pluck(Model::$SUBJECT_DESCRIPTION_SHORT)->toArray())
         ]);
     }
+
+
 
 
 

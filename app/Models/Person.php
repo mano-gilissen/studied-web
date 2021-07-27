@@ -4,13 +4,14 @@
 
 namespace App\Models;
 
+use App\Http\Support\Model;
 use App\Http\Traits\BaseTrait;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as ModelClass;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 
-class Person extends Model {
+class Person extends ModelClass {
 
 
 
@@ -27,13 +28,13 @@ class Person extends Model {
 
     public function getUser() {
 
-        return self::getOneToThis(self::$USER, self::$PERSON);
+        return self::getOneToThis(Model::$USER, Model::$PERSON);
 
     }
 
     public function getAddress() {
 
-        return self::getThisToOne(self::$ADDRESS);
+        return self::getThisToOne(Model::$ADDRESS);
 
     }
 
