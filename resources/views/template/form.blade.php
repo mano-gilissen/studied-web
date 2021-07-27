@@ -16,7 +16,7 @@
 
         <div class="wrap">
 
-            @include('block.header-navigation', ['page_back', true])
+            @include('block.header-navigation', ['page_back', 'true'])
 
         </div>
 
