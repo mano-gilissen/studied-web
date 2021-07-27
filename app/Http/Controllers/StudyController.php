@@ -121,16 +121,10 @@ class StudyController extends Controller {
     }
 
 
-/*
+
     public function list_load(Request $request) {
 
         return Table::load($this, $request);
-
-    }*/
-
-    public function list_load() {
-
-        return Table::load($this);
 
     }
 

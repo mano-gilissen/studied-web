@@ -43,14 +43,10 @@ class Table {
 
 
 
-    public static function load($controller/*, $request*/) {
-/*
+    public static function load($controller, $request) {
+
         $sort                                               = $request->input(Table::DATA_SORT, null);
         $filter                                             = $request->input(Table::DATA_FILTER, null);
-*/
-
-        $sort = null;
-        $filter = null;
 
 
 
