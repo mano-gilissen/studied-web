@@ -38,7 +38,7 @@ Route::get('/wachtwoordvergeten',               'Auth\ForgotPasswordController@f
 
 
 
-
+//TODO:RETURN TO POST
 Route::get('/load/list/study',                 'StudyController@list_load')->middleware('auth');
 
 

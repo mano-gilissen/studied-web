@@ -52,7 +52,7 @@ trait BaseTrait {
 
     public function getOneToMany($foreign, $key_foreign, $key_local = null) {
 
-        return $this->hasMany(self::getModelClass($foreign), $key_foreign, $key_local ? $key_local : self::$BASE_ID);
+        return $this->hasMany(self::getModelClass($foreign), $key_foreign, $key_local ? $key_local : Model::$BASE_ID);
 
     }
 
