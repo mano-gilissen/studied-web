@@ -1,5 +1,6 @@
 #content {
     display:                            grid;
+    grid-template-rows:                 auto 1fr;
     height:                             100%;
     padding:                            120px 0 0;
     overflow:                           hidden;
