@@ -20,8 +20,8 @@ html {
 
 #tooltip {
     position:                           absolute;
-    padding:                            3px 6px 4px;
-    border-radius:                      0;
+    padding:                            3px 8px 4px;
+    border-radius:                      4px;
     font-weight:                        600;
     font-size:                          12px;
     background:                         #000000CC;
