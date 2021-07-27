@@ -43,6 +43,7 @@ html, body {
     animation-name:                     in_form;
     animation-duration:                 .5s;
     animation-delay:                    .5s;
+    opacity:                            0;
 }
 
 #buttons {
