@@ -1,5 +1,7 @@
 html, body {
     background:                         #E6E6E6;
+    animation-name: in_back;
+    animation-duration: .5s;
 }
 
 
