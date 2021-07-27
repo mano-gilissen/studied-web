@@ -14,7 +14,11 @@
 
     @include('block.header', ['page_title' => 'Profielpagina'])
 
-    @include('block.menu')
+    @empty($back)
+
+        @include('block.menu')
+
+    @endempty
 
     <div id="wrap">
 

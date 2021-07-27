@@ -27,9 +27,10 @@ class PersonController extends Controller {
 
         return view(Views::PROFILE, [
 
-            self::$PERSON                                                   => $person,
+            self::$PERSON                                   => $person,
+            Key::PAGE_BACK                                  => true,
 
-            Key::COMMENT                                                    => "\"Hoi ik ben een test comment voor de profielpagina van " . $person->{self::$PERSON_FIRST_NAME} . " " . $person->{self::$PERSON_LAST_NAME} . "\""
+            Key::COMMENT                                    => "\"Hoi ik ben een test comment voor de profielpagina van " . $person->{self::$PERSON_FIRST_NAME} . " " . $person->{self::$PERSON_LAST_NAME} . "\""
         ]);
     }
 

@@ -49,6 +49,7 @@ class StudyController extends Controller {
         return view(Views::STUDY, [
 
             Key::PAGE_TITLE                                 => $study->getService->{self::$SERVICE_NAME},
+            Key::PAGE_BACK                                  => true,
 
             self::$STUDY                                    => $study,
             'button_contact_host'                           => true,

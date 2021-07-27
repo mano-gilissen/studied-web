@@ -12,21 +12,17 @@
 
 @section('content')
 
+    @empty($back)
+
+        @include('block.menu')
+
+    @endempty
+
     <div id="left">
 
         <div class="wrap">
 
-            @isset($back)
-
-                <img class="back" src="/images/back.svg" onclick="window.location.href='{{ route($back) }}'"/>
-
-            @else
-
-                <img class="menu" id="button-menu" src="/images/menu.svg"/>
-
-            @endisset
-
-            <div class="title page">{{ $page_title }}<span class="dot">.</span></div>
+            @include('block.header-navigation')
 
         </div>
 
