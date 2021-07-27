@@ -38,11 +38,11 @@ html, body {
     margin-bottom:                      96px;
     padding:                            96px 130px;
     background:                         white;
-    -webkit-animation: fadein           2s;
-    -moz-animation: fadein              2s;
-    -ms-animation: fadein               2s;
-    -o-animation: fadein                2s;
-    animation: fadein                   2s;
+    -webkit-animation: fadein           1s;
+    -moz-animation: fadein              1s;
+    -ms-animation: fadein               1s;
+    -o-animation: fadein                1s;
+    animation: fadein                   1s;
 }
 
 #buttons {
@@ -59,24 +59,21 @@ html, body {
 
 
 @keyframes fadein {
-    from { opacity: 0; }
+    from { opacity: 0; transform: translateY(-40px) }
     to   { opacity: 1; }
 }
 
-/* Firefox < 16 */
 @-moz-keyframes fadein {
-    from { opacity: 0; }
+    from { opacity: 0; transform: translateY(-40px) }
     to   { opacity: 1; }
 }
 
-/* Safari, Chrome and Opera > 12.1 */
 @-webkit-keyframes fadein {
-    from { opacity: 0; }
+    from { opacity: 0; transform: translateY(-40px) }
     to   { opacity: 1; }
 }
 
-/* Internet Explorer */
 @-ms-keyframes fadein {
-    from { opacity: 0; }
+    from { opacity: 0; transform: translateY(-40px) }
     to   { opacity: 1; }
 }
