@@ -16,7 +16,15 @@
 
         <div class="wrap">
 
-            <img class="back" src="/images/back.svg"/>
+            @isset($back)
+
+                <img class="back" src="/images/back.svg" onclick="window.location.href='{{ route($back) }}'"/>
+
+            @else
+
+                <img class="menu" id="button-menu" src="/images/menu.svg"/>
+
+            @endisset
 
             <div class="title page">{{ $page_title }}<span class="dot">.</span></div>
 
