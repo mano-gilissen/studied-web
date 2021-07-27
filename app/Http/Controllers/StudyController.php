@@ -28,6 +28,12 @@ class StudyController extends Controller {
 
 
 
+    use BaseTrait;
+
+
+
+
+
     private static
 
         $COLUMN_DATE                                        = 1,
@@ -146,7 +152,7 @@ class StudyController extends Controller {
 
         /* TODO: REMOVE COLUMNS IF FILTERED */
 
-        switch (BaseTrait::getUserRole()) {
+        switch (self::getUserRole()) {
 
             case RoleTrait::$ID_ADMINISTRATOR:
             case RoleTrait::$ID_BOARD:
