@@ -1,6 +1,6 @@
 @if($page_back ?? false)
 
-    <img class="back" src="/images/back.svg" onclick="window.history.back();"/>
+    <img class="back" id="button-back" src="/images/back.svg" onclick="window.history.back();"/>
 
 @else
 

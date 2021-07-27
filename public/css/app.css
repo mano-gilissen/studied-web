@@ -93,7 +93,8 @@ html {
     transition:                         all .2s ease-out;
 }
 
-#button-menu {
+#button-menu,
+#button-back {
     width:                              40px;
     height:                             40px;
     margin:                             0 12px;
@@ -103,7 +104,8 @@ html {
     cursor:                             pointer;
 }
 
-#button-menu:hover {
+#button-menu:hover,
+#button-back:hover {
     background:                         #F0F0F0;
 }
 
