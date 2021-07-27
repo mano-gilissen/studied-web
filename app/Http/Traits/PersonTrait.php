@@ -86,8 +86,20 @@ trait PersonTrait {
                 return $user->getStudent->{StudentTrait::$STUDENT_SCHOOL};
             case UserTrait::$ID_CUSTOMER:
                 return UserTrait::getRoleName($user, true);
+            default:
+                return "Gebruiker";
         }
     }
+
+
+
+    public static function getProfileComment($person) {
+
+        return "\"Hoi ik ben een test comment voor de profielpagina van " . $person->{self::$PERSON_FIRST_NAME} . " " . $person->{self::$PERSON_LAST_NAME} . "\"";
+
+    }
+
+
 
 
 

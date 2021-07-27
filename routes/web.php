@@ -26,6 +26,8 @@ Route::get('/plannen',                          'StudyController@form')->name('s
 
 
 
+Route::get('/profiel',                          'PersonController@self')->name('person.self')->middleware('auth');
+
 Route::get('/profiel/{slug}',                   'PersonController@view')->name('person.view')->middleware('auth');
 
 

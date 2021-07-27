@@ -5,6 +5,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Traits\BaseTrait;
+use App\Http\Traits\PersonTrait;
 use App\Models\Person;
 use App\Http\Support\Views;
 use App\Http\Support\Key;
@@ -21,16 +22,31 @@ class PersonController extends Controller {
 
 
 
-    public function view($slug = null) {
+    public function self() {
 
-        $person = Person::where(self::$PERSON_SLUG, $slug ?? Auth::user()->getPerson->slug)->firstOrFail();
+        $person                                     = Auth::user()->getPerson;
 
         return view(Views::PROFILE, [
 
-            self::$PERSON                                   => $person,
-            Key::PAGE_BACK                                  => $slug != null,
+            self::$PERSON                           => $person,
 
-            Key::COMMENT                                    => "\"Hoi ik ben een test comment voor de profielpagina van " . $person->{self::$PERSON_FIRST_NAME} . " " . $person->{self::$PERSON_LAST_NAME} . "\""
+            Key::PAGE_BACK                          => false,
+            Key::COMMENT                            => PersonTrait::getProfileComment($person)
+        ]);
+    }
+
+
+
+    public function view($slug) {
+
+        $person                                     = Person::where(self::$PERSON_SLUG, $slug)->firstOrFail();
+
+        return view(Views::PROFILE, [
+
+            self::$PERSON                           => $person,
+
+            Key::PAGE_BACK                          => true,
+            Key::COMMENT                            => PersonTrait::getProfileComment($person)
         ]);
     }
 
