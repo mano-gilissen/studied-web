@@ -1,7 +1,7 @@
 html, body {
     background:                         #E6E6E6;
     animation-name:                     in_back;
-    animation-duration:                 .5s;
+    animation-duration:                 .2s;
 }
 
 
@@ -42,7 +42,7 @@ html, body {
     background:                         white;
     animation-name:                     in_form;
     animation-duration:                 .5s;
-    animation-delay:                    .5s;
+    animation-delay:                    .2s;
     animation-fill-mode:                forwards;
     opacity:                            0;
 }
