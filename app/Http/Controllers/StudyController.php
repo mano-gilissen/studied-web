@@ -83,8 +83,6 @@ class StudyController extends Controller {
         $study                                              = null;
         $data                                               = $request->all();
 
-        dd($data);
-
         self::plan_validate($data);
 
         StudyTrait::create($data, $study);
