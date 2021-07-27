@@ -13,6 +13,8 @@ trait StudyTrait {
 
 
 
+
+
     public static
 
         $STUDY                                          = 'study',
@@ -35,6 +37,16 @@ trait StudyTrait {
         $STATUS_REPORTED                                = 3,
         $STATUS_CANCELLED                               = 4,
         $STATUS_ABSENT                                  = 5;
+
+
+
+
+
+    public static function create(array $data, &$study) {
+
+
+
+    }
 
 
 

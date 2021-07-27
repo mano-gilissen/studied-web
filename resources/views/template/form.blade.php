@@ -26,7 +26,7 @@
 
         <div class="block-form">
 
-            <form method="POST" novalidate>
+            <form method="POST" action="{{ route($submit_route) }}" novalidate>
 
                 @csrf
 

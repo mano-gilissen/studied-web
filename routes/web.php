@@ -22,7 +22,7 @@ Route::get('/lessen',                           'StudyController@list')->name('s
 
 Route::get('/les/{key}',                        'StudyController@view')->name('study.view')->middleware('auth');
 
-Route::get('/plannen',                          'StudyController@form')->name('study.form')->middleware('auth');
+Route::get('/plannen',                          'StudyController@plan')->name('study.plan')->middleware('auth');
 
 
 
@@ -40,3 +40,8 @@ Route::get('/wachtwoordvergeten',               'Auth\ForgotPasswordController@f
 
 
 Route::post('/load/list/study',                 'StudyController@list_load')->middleware('auth');
+
+
+
+
+Route::post('/submit/study/plan',               'StudyController@plan_submit')->name('study.plan_submit')->middleware('auth');

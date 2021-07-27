@@ -60,16 +60,44 @@ class StudyController extends Controller {
 
 
 
-    public function form() {
+    public function plan() {
 
         return view(Views::FORM_STUDY, [
 
             Key::PAGE_TITLE                                 => 'Les inplannen',
             Key::SUBMIT_ACTION                              => 'Inplannen',
+            Key::SUBMIT_ROUTE                               => 'study.plan_submit',
 
             Key::AUTOCOMPLETE_DATA.'location'               => implode('::', Location::all()->pluck(self::$LOCATION_NAME)->toArray()),
             Key::AUTOCOMPLETE_DATA.'subject'                => implode('::', Subject::all()->pluck(self::$SUBJECT_DESCRIPTION_SHORT)->toArray()),
         ]);
+    }
+
+    public function plan_submit(Request $request) {
+
+        $study                                              = null;
+        $data                                               = $request->all();
+
+        dd($data);
+
+        self::plan_validate($data);
+
+        StudyTrait::create($data, $study);
+
+        return redirect()->route('study.list');/*.view', ['key', $study->{self::$BASE_KEY}]);*/
+    }
+
+    public function plan_validate(array $data) {
+
+        $messages = [
+            'subject.required'              => 'Vul een onderwerp in.',
+        ];
+
+        $validator = Validator::make($data, [
+            'subject'                       => ['bail', 'required'],
+        ], $messages);
+
+        $validator->validate();
     }
 
 
