@@ -12,17 +12,11 @@
 
 @section('content')
 
-    @empty($back)
-
-        @include('block.menu')
-
-    @endempty
-
     <div id="left">
 
         <div class="wrap">
 
-            @include('block.header-navigation')
+            @include('block.header-navigation', [\App\Http\Support\Key::PAGE_BACK, true])
 
         </div>
 

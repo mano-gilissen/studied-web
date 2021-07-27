@@ -1,4 +1,4 @@
-<div class="person {{ $size ?? 'regular' }}" onclick="window.location.href='{{ route('person.profile', ['slug' => $person->slug]) }}'">
+<div class="person {{ $size ?? 'regular' }}" onclick="window.location.href='{{ route('person.view', ['slug' => $person->slug]) }}'">
 
     @if($person->avatar)
 

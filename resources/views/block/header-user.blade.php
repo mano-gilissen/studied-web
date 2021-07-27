@@ -1,4 +1,4 @@
-<div class="person" onclick="window.location.href='{{ route('person.profile', ['slug' => Auth::user()->getPerson->slug]) }}'">
+<div class="person" onclick="window.location.href='{{ route('person.view', ['slug' => Auth::user()->getPerson->slug]) }}'">
 
     <div style="display: grid">
 

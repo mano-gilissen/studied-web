@@ -21,14 +21,14 @@ class PersonController extends Controller {
 
 
 
-    public function profile($slug) {
+    public function view($slug = null) {
 
-        $person = Person::where(self::$PERSON_SLUG, $slug)->firstOrFail();
+        $person = Person::where(self::$PERSON_SLUG, $slug ?? Auth::user()->getPerson->slug)->firstOrFail();
 
         return view(Views::PROFILE, [
 
             self::$PERSON                                   => $person,
-            Key::PAGE_BACK                                  => true,
+            Key::PAGE_BACK                                  => $slug != null,
 
             Key::COMMENT                                    => "\"Hoi ik ben een test comment voor de profielpagina van " . $person->{self::$PERSON_FIRST_NAME} . " " . $person->{self::$PERSON_LAST_NAME} . "\""
         ]);

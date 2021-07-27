@@ -14,12 +14,6 @@
 
     @include('block.header')
 
-    @empty($back)
-
-        @include('block.menu')
-
-    @endempty
-
     <div id="wrap">
 
         <div id="column">
