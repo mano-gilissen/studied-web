@@ -112,7 +112,7 @@
 
 
 #items {
-    overflow:                           scroll;
+    overflow:                           overlay;
     padding:                            0 64px;
 }
 
