@@ -4,7 +4,7 @@
 
 @section('actions')
 
-    <div class="button grey icon" onclick="window.location.href='{{ route('study.form') }}'">
+    <div class="button grey icon" onclick="window.location.href='{{ route('study.plan') }}'">
 
         <img class="icon" src="/images/add.svg">
 
