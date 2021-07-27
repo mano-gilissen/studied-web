@@ -48,6 +48,8 @@ class StudyController extends Controller {
 
 
 
+
+
     public function view($key) {
 
         $study = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
