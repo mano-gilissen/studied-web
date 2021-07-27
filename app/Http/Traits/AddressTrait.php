@@ -4,6 +4,8 @@
 
 namespace App\Http\Traits;
 
+use App\Http\Support\Model;
+
 
 
 trait AddressTrait {
