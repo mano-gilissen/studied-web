@@ -16,6 +16,7 @@ use App\Models\Subject;
 use App\Http\Support\Key;
 use App\Http\Support\Views;
 use App\Http\Support\Model;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Auth;
 use DB;
