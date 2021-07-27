@@ -12,41 +12,47 @@ class Table {
 
 
 
-    const VIEW_COLUMNS                          = "columns";
-    const VIEW_COUNTERS                         = "counters";
-    const VIEW_SPACING                          = "column_spacing";
-    const VIEW_ITEMS                            = "items";
+    const VIEW_COLUMNS                                      = "columns";
+    const VIEW_COUNTERS                                     = "counters";
+    const VIEW_SPACING                                      = "column_spacing";
+    const VIEW_ITEMS                                        = "items";
 
-    const COUNTER_LABEL                         = "label";
-    const COUNTER_VALUE                         = "value";
+    const COUNTER_LABEL                                     = "label";
+    const COUNTER_VALUE                                     = "value";
 
-    const COLUMN_ID                             = "id";
-    const COLUMN_SPACING                        = "spacing";
-    const COLUMN_LABEL                          = "label";
-    const COLUMN_HTML                           = "html";
-    const COLUMN_STATE                          = "state";
+    const COLUMN_ID                                         = "id";
+    const COLUMN_SPACING                                    = "spacing";
+    const COLUMN_LABEL                                      = "label";
+    const COLUMN_HTML                                       = "html";
+    const COLUMN_STATE                                      = "state";
 
-    const DATA_TYPE                             = "data_type";
-    const DATA_SORT                             = "data_sort";
-    const DATA_FILTER                           = "data_filter";
+    const DATA_TYPE                                         = "data_type";
+    const DATA_SORT                                         = "data_sort";
+    const DATA_FILTER                                       = "data_filter";
 
-    const SORT_MODE                             = "mode";
-    const SORT_MODE_ASC                         = "asc";
-    const SORT_MODE_DESC                        = "desc";
-    const SORT_MODE_NONE                        = "none";
+    const SORT_MODE                                         = "mode";
+    const SORT_MODE_ASC                                     = "asc";
+    const SORT_MODE_DESC                                    = "desc";
+    const SORT_MODE_NONE                                    = "none";
 
-    const ITEM_LINK                             = "link";
+    const ITEM_LINK                                         = "link";
 
-    const WIDTH_END_ACTION                      = "48px";
-
-
+    const WIDTH_END_ACTION                                  = "48px";
 
 
 
-    public static function load($controller, $request) {
 
+
+    public static function load($controller/*, $request*/) {
+/*
         $sort                                               = $request->input(Table::DATA_SORT, null);
         $filter                                             = $request->input(Table::DATA_FILTER, null);
+*/
+
+        $sort = null;
+        $filter = null;
+
+
 
         $columns                                            = $controller->list_columns($sort);
         $spacing                                            = self::spacing($columns);

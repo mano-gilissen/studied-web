@@ -39,7 +39,7 @@ Route::get('/wachtwoordvergeten',               'Auth\ForgotPasswordController@f
 
 
 
-Route::post('/load/list/study',                 'StudyController@list_load')->middleware('auth');
+Route::get('/load/list/study',                 'StudyController@list_load')->middleware('auth');
 
 
 
