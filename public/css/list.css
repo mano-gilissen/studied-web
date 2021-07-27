@@ -17,6 +17,8 @@
 
 #list {
     display:                            grid;
+    grid-template-rows:                 auto auto 1fr;
+    grid-template-areas:                "headers items .";
     overflow:                           hidden;
 }
 
@@ -56,6 +58,7 @@
 
 
 #headers {
+    grid-area:                          headers;
     display:                            grid;
     grid-template-rows:                 48px;
     padding:                            0 64px;
@@ -112,6 +115,7 @@
 
 
 #items {
+    grid-area:                          items;
     overflow:                           overlay;
     padding:                            0 64px;
 }
