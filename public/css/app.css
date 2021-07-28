@@ -455,6 +455,10 @@ input[type="date"] {
     margin-right:                       10px;
 }
 
+input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity:                            0.7;
+}
+
 .input-invalid {
     position:                           fixed;
     margin:                             6px 0 0 4px;
@@ -484,10 +488,6 @@ select:focus {
 
 select::-ms-expand {
     display:                            none;
-}
-
-::-webkit-calendar-picker-indicator {
-    filter:                             brightness(70%);
 }
 
 ::placeholder {                         color: #B3B3B3; opacity: 1; }
