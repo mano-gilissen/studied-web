@@ -53,7 +53,7 @@
             '{{ $show_all ?? false }}',
 
             /* Does the data contain database ID keys */
-            '{{ $id ?? false }}'
+            '{{ $uses_id ?? false }}'
         );
 
     </script>

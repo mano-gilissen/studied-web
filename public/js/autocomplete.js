@@ -1,7 +1,7 @@
 
 
 
-function autocomplete(input, data, additional, reject_other, show_all, id) {
+function autocomplete(input, data, additional, reject_other, show_all, uses_id) {
 
 
 
@@ -98,7 +98,7 @@ function autocomplete(input, data, additional, reject_other, show_all, id) {
 
         event.parentNode.parentNode.appendChild(list);
 
-        if (id) {
+        if (uses_id) {
 
             for (var key of Object.keys(data)) {
 
@@ -148,7 +148,7 @@ function autocomplete(input, data, additional, reject_other, show_all, id) {
 
                 autocompleted                   = true;
 
-                if (id) {
+                if (uses_id) {
 
                     input_id                    = document.getElementById("_" + input.name);
                     input_id.value              = key;
