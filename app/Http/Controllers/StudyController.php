@@ -141,9 +141,9 @@ class StudyController extends Controller {
 
 
 
-    public function list_load(Request $request) {
+    public function list_load(/*Request $request*/) {
 
-        return Table::load($this, $request);
+        return Table::load($this/*, $request*/);
 
     }
 
@@ -257,11 +257,11 @@ class StudyController extends Controller {
 
             case self::$COLUMN_SUBJECT:
 
-                return 'a';//$study->getSubject_Defined ? $study->getSubject_Defined->{Model::$SUBJECT_CODE} : $study->{Model::$STUDY_SUBJECT_TEXT};
+                return $study->getSubject_Defined ? $study->getSubject_Defined->{Model::$SUBJECT_CODE} : $study->{Model::$STUDY_SUBJECT_TEXT};
 
             case self::$COLUMN_LOCATION:
 
-                return 'b';//$study->getLocation_Defined ? $study->getLocation_Defined->{Model::$LOCATION_NAME} : $study->{Model::$STUDY_LOCATION_TEXT};
+                return $study->getLocation_Defined ? $study->getLocation_Defined->{Model::$LOCATION_NAME} : $study->{Model::$STUDY_LOCATION_TEXT};
 
             case self::$COLUMN_TIME:
 
