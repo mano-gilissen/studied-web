@@ -7,7 +7,7 @@ $(function(){
 
     $(OBJECT_FORM).on('click', OBJECT_INPUT_DATE, function() {
 
-        $(this).focus();//.datepicker("show");
+        $(OBJECT_INPUT_DATE).datepicker("show");
 
     });
 
