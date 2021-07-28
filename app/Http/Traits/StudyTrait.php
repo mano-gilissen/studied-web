@@ -6,6 +6,8 @@ namespace App\Http\Traits;
 
 use App\Http\Support\Key;
 use App\Http\Support\Color;
+use App\Http\Support\Model;
+use App\Models\Study;
 
 
 trait StudyTrait {
@@ -29,7 +31,22 @@ trait StudyTrait {
 
     public static function create(array $data, &$study) {
 
+        $study                                          = new Study;
 
+        $study->{Model::$STUDY_DATE}                    = date_create_from_format('y-m-d', strtotime($data[Model::$STUDY_DATE]));
+
+        dd($study);
+
+        $study->{Model::$STUDY_STATUS}                  = ;
+        $study->{Model::$STUDY_HOST_USER}               = ;
+        $study->{Model::$STUDY_HOST_RELATION}           = ;
+        $study->{Model::$STUDY_SUBJECT_DEFINED}         = ;
+        $study->{Model::$STUDY_SUBJECT_TEXT}            = ;
+        $study->{Model::$STUDY_LOCATION_DEFINED}        = ;
+        $study->{Model::$STUDY_LOCATION_TEXT}           = ;
+        $study->{Model::$STUDY_START}                   = ;
+        $study->{Model::$STUDY_END}                     = ;
+        $study->{Model::$STUDY_TRIAL}                   = ;
 
     }
 
