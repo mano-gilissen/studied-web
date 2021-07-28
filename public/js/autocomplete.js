@@ -106,7 +106,9 @@ function autocomplete(input, data, additional, reject_other, show_all) {
                 item                                = document.createElement("DIV");
                 item                                .setAttribute("class", "autocomplete-item");
 
-                item.innerHTML                      = val ? "<span style='color:black;font-weight:400'>" + data[index].substr(0, val.length) + "</span>" + data[index].substr(val.length) + (hasAdditional() ? " <span style='color:#0000004D'>" + additional[index] + "</span>" : "") : data[index];
+                additional                          = hasAdditional() ? "&nbsp;<span style='color:#333333'>" + additional[index] + "</span>" : "";
+
+                item.innerHTML                      = val ? "<span style='color:black;font-weight:400'>" + data[index].substr(0, val.length) + "</span>" + data[index].substr(val.length) + additional: data[index] + additional;
                 item.innerHTML                      += "<input type='hidden' value='" + index + "'>";
 
                 item.addEventListener("click", function(e) {
