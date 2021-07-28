@@ -88,6 +88,8 @@ class StudyController extends Controller {
 
         self::plan_validate($data);
 
+        dd($data);
+
         StudyTrait::create($data, $study);
 
         return redirect()->route('study.list');/*.view', ['key', $study->{self::$BASE_KEY}]);*/
