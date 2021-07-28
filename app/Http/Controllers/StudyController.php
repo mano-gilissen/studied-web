@@ -249,11 +249,11 @@ class StudyController extends Controller {
 
             case self::$COLUMN_HOST:
 
-                return PersonTrait::getFullName($study->getHost->getPerson);
+                return $study->host ? PersonTrait::getFullName($study->getHost->getPerson) : Key::UNKNOWN;
 
             case self::$COLUMN_SERVICE:
 
-                return $study->getService->{Model::$SERVICE_NAME};
+                return $study->service ? $study->getService->{Model::$SERVICE_NAME} : Key::UNKNOWN;
 
             case self::$COLUMN_SUBJECT:
 
@@ -265,11 +265,11 @@ class StudyController extends Controller {
 
             case self::$COLUMN_TIME:
 
-                return $study->start . ' - ' . $study->end;
+                return $study->start && $study->end ? $study->start . ' - ' . $study->end : Key::UNKNOWN;
 
             case self::$COLUMN_STATUS:
 
-                return "<div class='tag' style='background:" . StudyTrait::getStatusColor($study) . ";color:" . StudyTrait::getStatusTextColor($study) . "'>".StudyTrait::getStatus($study)."</div>";
+                return $study->status ? "<div class='tag' style='background:" . StudyTrait::getStatusColor($study) . ";color:" . StudyTrait::getStatusTextColor($study) . "'>".StudyTrait::getStatus($study)."</div>" : Key::UNKNOWN;
 
             default:
 
