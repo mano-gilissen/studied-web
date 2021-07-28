@@ -48,9 +48,10 @@ html {
 
 #menu {
     position:                           fixed;
-    width:                              100vw;
+    display:                            grid;
+    grid-template-rows:                 auto 1fr;
     height:                             100vh;
-    padding:                            123px 80px 0;
+    padding:                            123px 64px 0;
     z-index:                            2;
 }
 
@@ -58,7 +59,7 @@ html {
     display:                            flex;
     align-items:                        center;
     height:                             76px;
-    padding:                            22px 0;
+    padding:                            22px 0 22px 16px;
     cursor:                             pointer;
 }
 
@@ -91,6 +92,21 @@ html {
     visibility:                         visible;
     transform:                          translate(4px, 0);
     transition:                         all .2s ease-out;
+}
+
+#menu-actions {
+    display:                            flex;
+    margin:                             auto auto 48px 0;
+}
+
+#button-logout,
+#button-settings {
+    width:                              24px;
+    height:                             24px;
+}
+
+#button-logout {
+    margin-right:                       24px;
 }
 
 #button-menu,
