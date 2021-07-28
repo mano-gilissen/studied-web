@@ -9,9 +9,6 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id) 
         autocompleted                               = false;
 
 
-    console.log(Object.keys(data));
-
-
 
     input.addEventListener("input", function(e) {
 
