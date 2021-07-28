@@ -10,6 +10,7 @@ function autocomplete(input, data, additional, reject_other, show_all) {
 
 
     console.log(data);
+    console.log(data.length);
 
 
     return false;

@@ -18,6 +18,7 @@ html, body {
 
 #left {
     grid-area:                          left;
+    z-index:                            10;
 }
 
 #left .wrap {
