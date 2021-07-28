@@ -26,4 +26,12 @@ class Format {
 
 
 
+    public static function ac_data($collection) {
+
+        return implode('::', $collection);
+
+    }
+
+
+
 }

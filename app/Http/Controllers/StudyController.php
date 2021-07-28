@@ -70,16 +70,21 @@ class StudyController extends Controller {
 
     public function plan() {
 
+        $ac_data_location                                   = Location::all()->pluck(Model::$LOCATION_NAME)->toArray();
+        $ac_data_subject                                    = Subject::all()->pluck(Model::$SUBJECT_DESCRIPTION_SHORT)->toArray();
+
         return view(Views::FORM_STUDY, [
 
             Key::PAGE_TITLE                                 => 'Les inplannen',
             Key::SUBMIT_ACTION                              => 'Inplannen',
             Key::SUBMIT_ROUTE                               => 'study.plan_submit',
 
-            Key::AUTOCOMPLETE_DATA.'location'               => implode('::', Location::all()->pluck(Model::$LOCATION_NAME)->toArray()),
-            Key::AUTOCOMPLETE_DATA.'subject'                => implode('::', Subject::all()->pluck(Model::$SUBJECT_DESCRIPTION_SHORT)->toArray()),
+            Key::AUTOCOMPLETE_DATA.'location'               => Format::ac_data($ac_data_location),
+            Key::AUTOCOMPLETE_DATA.'subject'                => Format::ac_data($ac_data_subject),
         ]);
     }
+
+
 
     public function plan_submit(Request $request) {
 
@@ -95,14 +100,16 @@ class StudyController extends Controller {
         return redirect()->route('study.list');/*.view', ['key', $study->{self::$BASE_KEY}]);*/
     }
 
+
+
     public function plan_validate(array $data) {
 
         $messages = [
-            'subject.required'              => 'Vul een onderwerp in.',
+            'subject.required'                              => 'Vul een onderwerp in.',
         ];
 
         $validator = Validator::make($data, [
-            'subject'                       => ['bail', 'required'],
+            'subject'                                       => ['bail', 'required'],
         ], $messages);
 
         $validator->validate();

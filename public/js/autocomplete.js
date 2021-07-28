@@ -80,9 +80,9 @@ function autocomplete(input, values, reject_other, show_all) {
 
         if (received_input) {
 
-            input.parentNode.classList                  .remove("autocomplete");
+            input.parentNode.classList              .remove("autocomplete");
 
-            autocompleted                               = false;
+            autocompleted                           = false;
         }
 
         if (!val && !show_all) {
@@ -110,6 +110,8 @@ function autocomplete(input, values, reject_other, show_all) {
                 item.innerHTML                      += "<input type='hidden' value='" + values[index] + "'>";
 
                 item.addEventListener("click", function(e) {
+
+                    console.log(this.getElementsByTagName("input")[0].index);
 
                     input.value                     = this.getElementsByTagName("input")[0].value;
 

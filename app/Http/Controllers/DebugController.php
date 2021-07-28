@@ -8,6 +8,7 @@ use App\Models\Subject;
 use App\Models\Person;
 use App\Http\Support\Key;
 use App\Http\Support\Views;
+use App\Http\Support\Format;
 use Illuminate\Http\Request;
 use App\Http\Support\Model;
 use Auth;
@@ -50,9 +51,9 @@ class DebugController extends Controller {
             Key::PAGE_TITLE                                                 => 'Formulier',
             Key::SUBMIT_ACTION                                              => 'Opslaan',
 
-            Key::AUTOCOMPLETE_DATA.'field_autocomplete'                     => implode('::', Person::all()->pluck(Model::$PERSON_FIRST_NAME)->toArray()),
-            Key::AUTOCOMPLETE_DATA.'field_autocomplete_reject'              => implode('::', Subject::all()->pluck(Model::$SUBJECT_DESCRIPTION_SHORT)->toArray()),
-            Key::AUTOCOMPLETE_DATA.'field_autocomplete_reject_show_all'     => implode('::', Subject::all()->pluck(Model::$SUBJECT_DESCRIPTION_SHORT)->toArray())
+            Key::AUTOCOMPLETE_DATA.'field_autocomplete'                     => Format::ac_data(Person::all()->pluck(Model::$PERSON_FIRST_NAME)->toArray()),
+            Key::AUTOCOMPLETE_DATA.'field_autocomplete_reject'              => Format::ac_data(Subject::all()->pluck(Model::$SUBJECT_DESCRIPTION_SHORT)->toArray()),
+            Key::AUTOCOMPLETE_DATA.'field_autocomplete_reject_show_all'     => Format::ac_data(Subject::all()->pluck(Model::$SUBJECT_DESCRIPTION_SHORT)->toArray())
         ]);
     }
 
