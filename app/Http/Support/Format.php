@@ -28,7 +28,7 @@ class Format {
 
     public static function ac($collection) {
 
-        return implode('::', $collection);
+        return json_encode($collection);
 
     }
 
