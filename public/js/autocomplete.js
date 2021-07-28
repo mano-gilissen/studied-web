@@ -10,7 +10,22 @@ function autocomplete(input, data, additional, reject_other, show_all) {
 
 
     console.log(data);
-    console.log(data.length);
+    console.log(Object.keys(data));
+    console.log(Object.keys(data).length);
+    console.log(arrayLength(data));
+
+    for (var key of Object.keys(data)) {
+
+        console.log(key);
+        console.log(data[key]);
+    }
+
+
+    function arrayLength(array) {
+
+        return Object.keys(array).length;
+
+    }
 
 
     return false;
