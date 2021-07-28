@@ -7,6 +7,8 @@ const OBJECT_MENU                               = '#menu';
 const OBJECT_LIST                               = '#list';
 const OBJECT_TOOLTIP                            = '#tooltip';
 const OBJECT_BUTTON_MENU                        = '#button-menu';
+const OBJECT_BUTTON_LOGOUT                      = '#button-logout';
+const OBJECT_BUTTON_SETTINGS                    = '#button-settings';
 const OBJECT_PAGE_TITLE                         = '.page.title';
 
 const CLASS_HEADER                              = '.header';
@@ -84,13 +86,27 @@ $(function(){
 
     });
 
+    $(OBJECT_APP).on('mousemove', OBJECT_BUTTON_LOGOUT, function() {
+
+        setTooltip("Uitloggen");
+
+    });
+
+    $(OBJECT_APP).on('mousemove', OBJECT_BUTTON_SETTINGS, function() {
+
+        setTooltip("Instellingen");
+
+    });
+
 
 
     $(OBJECT_APP).on('mouseenter',
 
         CLASS_HEADER + ":not(" + CLASS_SORT_MODE_NONE + ")" + ", " +
         CLASS_PERSON_REPORT + ", " +
-        CLASS_PERSON,
+        CLASS_PERSON + ", " +
+        OBJECT_BUTTON_LOGOUT + ", " +
+        OBJECT_BUTTON_SETTINGS,
 
         function() {
 
@@ -103,7 +119,9 @@ $(function(){
 
         CLASS_HEADER + ":not(" + CLASS_SORT_MODE_NONE + ")" + ", " +
         CLASS_PERSON_REPORT + ", " +
-        CLASS_PERSON,
+        CLASS_PERSON + ", " +
+        OBJECT_BUTTON_LOGOUT + ", " +
+        OBJECT_BUTTON_SETTINGS,
 
         function(){
 
