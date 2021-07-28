@@ -22,7 +22,7 @@
 
 </div>
 
-@isset($data)
+@if($data ?? false)
 
     <script>
 
@@ -35,7 +35,15 @@
             '{{ ${'ac_data_'.$id} }}'.split('::'),
 
             /* Autocomplete additional data */
-            '{{ ${'ac_additional_'.$id} ?? '' }}'.split('::'),
+            @if($subvalues ?? false)
+
+                '{{ ${'ac_additional_'.$id} }}'.split('::'),
+
+            @else
+
+                null,
+
+            @endif
 
             /* Reject non-autocomplete input */
             '{{ $reject_other ?? false }}',
@@ -46,4 +54,4 @@
 
     </script>
 
-@endisset
+@endif
