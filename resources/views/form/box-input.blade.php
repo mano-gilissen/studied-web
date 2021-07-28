@@ -35,7 +35,7 @@
             '{{ ${'ac_data_'.$id} }}'.split('::'),
 
             /* Autocomplete additional data */
-            '{{ ${'ac_additional_'.$id} ?? array() }}'.split('::'),
+            '{{ ${'ac_additional_'.$id} ?? '' }}'.split('::'),
 
             /* Reject non-autocomplete input */
             '{{ $reject_other ?? false }}',
