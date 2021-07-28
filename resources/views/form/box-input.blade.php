@@ -35,7 +35,7 @@
             '{{ ${'ac_data_'.$id} }}'.split('::'),
 
             /* Autocomplete additional data */
-            @if($subvalues ?? false)
+            @if($additional ?? false)
 
                 '{{ ${'ac_additional_'.$id} }}'.split('::'),
 
