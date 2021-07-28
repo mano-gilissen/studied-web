@@ -249,11 +249,11 @@ class StudyController extends Controller {
 
             case self::$COLUMN_HOST:
 
-                return $study->{Model::$STUDY_HOST_USER} >= 0 || $study->{Model::$STUDY_HOST_RELATION} >= 0 ? PersonTrait::getFullName($study->getHost->getPerson) : Key::UNKNOWN;
+                return PersonTrait::getFullName($study->getHost->getPerson);
 
             case self::$COLUMN_SERVICE:
 
-                return $study->service >= 0 ? $study->getService->{Model::$SERVICE_NAME} : Key::UNKNOWN;
+                return $study->getService->{Model::$SERVICE_NAME};
 
             case self::$COLUMN_SUBJECT:
 
@@ -269,7 +269,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_STATUS:
 
-                return $study->status >= 0 ? "<div class='tag' style='background:" . StudyTrait::getStatusColor($study) . ";color:" . StudyTrait::getStatusTextColor($study) . "'>".StudyTrait::getStatus($study)."</div>" : Key::UNKNOWN;
+                return "<div class='tag' style='background:" . StudyTrait::getStatusColor($study) . ";color:" . StudyTrait::getStatusTextColor($study) . "'>".StudyTrait::getStatus($study)."</div>";
 
             default:
 
