@@ -36,7 +36,7 @@ trait StudyTrait {
         $study->{Model::$STUDY_DATE}                    = date_create_from_format('y-m-d', strtotime($data[Model::$STUDY_DATE]));
 
         dd($study);
-
+/*
         $study->{Model::$STUDY_STATUS}                  = ;
         $study->{Model::$STUDY_HOST_USER}               = ;
         $study->{Model::$STUDY_HOST_RELATION}           = ;
@@ -47,7 +47,7 @@ trait StudyTrait {
         $study->{Model::$STUDY_START}                   = ;
         $study->{Model::$STUDY_END}                     = ;
         $study->{Model::$STUDY_TRIAL}                   = ;
-
+*/
     }
 
 
