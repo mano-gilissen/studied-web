@@ -1,7 +1,7 @@
 
 
 
-function autocomplete(input, values, reject_other, show_all) {
+function autocomplete(input, data, additional, reject_other, show_all) {
 
 
 
@@ -99,21 +99,21 @@ function autocomplete(input, values, reject_other, show_all) {
 
         event.parentNode.parentNode.appendChild(list);
 
-        for (index = 0; index < values.length; index++) {
+        for (index = 0; index < data.length; index++) {
 
-            if ((show_all && !val) || values[index].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+            if ((show_all && !val) || data[index].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
 
                 item                                = document.createElement("DIV");
                 item                                .setAttribute("class", "autocomplete-item");
 
-                item.innerHTML                      = val ? "<span style='color:black;font-weight:400'>" + values[index].substr(0, val.length) + "</span>" + values[index].substr(val.length) : values[index];
+                item.innerHTML                      = val ? "<span style='color:black;font-weight:400'>" + data[index].substr(0, val.length) + "</span>" + data[index].substr(val.length) + (hasAdditional() ? " <span style='color:#0000004D'>" + additional[index] + "</span>" : "") : data[index];
                 item.innerHTML                      += "<input type='hidden' value='" + index + "'>";
 
                 item.addEventListener("click", function(e) {
 
-                    console.log(this.getElementsByTagName("input")[0].value);
+                    index_clicked                   = this.getElementsByTagName("input")[0].value;
 
-                    input.value                     = this.getElementsByTagName("input")[0].value;
+                    input.value                     = data[index_clicked];
 
                     input.parentNode.classList      .add("autocomplete");
 
@@ -189,6 +189,14 @@ function autocomplete(input, values, reject_other, show_all) {
             input.value                             = '';
 
         }
+    }
+
+
+
+    function hasAdditional() {
+
+        return additional.length > 0;
+
     }
 
 

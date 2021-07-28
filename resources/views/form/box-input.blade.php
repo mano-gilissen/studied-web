@@ -26,7 +26,23 @@
 
     <script>
 
-        autocomplete(document.getElementById('{{ $id }}'), '{{ ${'ac_data_'.$id} }}'.split('::'), '{{ $reject_other ?? false }}', '{{ $show_all ?? false }}');
+        autocomplete(
+
+            /* Input field ID */
+            document.getElementById('{{ $id }}'),
+
+            /* Autocomplete data */
+            '{{ ${'ac_data_'.$id} }}'.split('::'),
+
+            /* Autocomplete additional data */
+            '{{ ${'ac_additional_'.$id} ?? array() }}'.split('::'),
+
+            /* Reject non-autocomplete input */
+            '{{ $reject_other ?? false }}',
+
+            /* Show all autocomplete values on focus */
+            '{{ $show_all ?? false }}'
+        );
 
     </script>
 
