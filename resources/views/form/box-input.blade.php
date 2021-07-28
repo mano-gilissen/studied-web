@@ -20,6 +20,8 @@
 
     @error($id) <div class="input-invalid">{{ $message }}</div> @enderror
 
+    @if($data ?? false) <input id="ac_id_{{ $id }}" type="hidden"> @endif
+
 </div>
 
 @if($data ?? false)
@@ -35,15 +37,7 @@
             JSON.parse('{!! ${'ac_data_'.$id} !!}'),
 
             /* Autocomplete additional data */
-            @if($additional ?? false)
-
-                JSON.parse('{!! ${'ac_additional_'.$id} !!}'),
-
-            @else
-
-                null,
-
-            @endif
+            @if($additional ?? false) JSON.parse('{!! ${'ac_additional_'.$id} !!}'), @else null, @endif
 
             /* Reject non-autocomplete input */
             '{{ $reject_other ?? false }}',
