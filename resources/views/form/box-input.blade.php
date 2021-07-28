@@ -20,7 +20,7 @@
 
     @error($id) <div class="input-invalid">{{ $message }}</div> @enderror
 
-    @if($data ?? false)
+    @if($uses_id ?? false)
 
         <input
             id                                          = "_{{ $id }}"
