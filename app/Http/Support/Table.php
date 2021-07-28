@@ -43,13 +43,9 @@ class Table {
 
 
 
-    public static function load($controller, $request = null) {
-/*
+    public static function load($controller, $request) {
         $sort                                               = $request->input(Table::DATA_SORT, null);
         $filter                                             = $request->input(Table::DATA_FILTER, null);
-*/
-
-        $sort = null;
 
         $columns                                            = $controller->list_columns($sort);
         $spacing                                            = self::spacing($columns);

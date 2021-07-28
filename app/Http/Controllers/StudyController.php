@@ -141,9 +141,9 @@ class StudyController extends Controller {
 
 
 
-    public function list_load(/*Request $request*/) {
+    public function list_load(Request $request) {
 
-        return Table::load($this/*, $request*/);
+        return Table::load($this, $request);
 
     }
 
@@ -249,7 +249,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_HOST:
 
-                return $study->getHost ? PersonTrait::getFullName($study->getHost->getPerson) : Key::UNKNOWN;
+                return $study->{Model::$STUDY_HOST_USER} || $study->{Model::$STUDY_HOST_RELATION} ? PersonTrait::getFullName($study->getHost->getPerson) : Key::UNKNOWN;
 
             case self::$COLUMN_SERVICE:
 
