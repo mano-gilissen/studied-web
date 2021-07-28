@@ -20,7 +20,7 @@
 
     @error($id) <div class="input-invalid">{{ $message }}</div> @enderror
 
-    @if($data ?? false) <input id="ac_id_{{ $id }}" type="hidden"> @endif
+    @if($data ?? false) <input id="ac_id_{{ $id }}" type="hidden" value="aa"> @endif
 
 </div>
 
