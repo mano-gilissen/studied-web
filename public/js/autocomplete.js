@@ -111,7 +111,7 @@ function autocomplete(input, data, additional, reject_other, show_all) {
                 item                                .setAttribute("class", "autocomplete-item");
 
                 value_data                          = data[index];
-                value_additional                    = hasAdditional() ? "&nbsp;<span style='color:#333333'>" + additional[index] + "</span>" : "";
+                value_additional                    = hasAdditional() ? "&nbsp;&nbsp;<span style='color:#CCCCCC'>" + additional[index] + "</span>" : "";
 
                 item.innerHTML                      = current_value ? "<span style='color:black;font-weight:400'>" + value_data.substr(0, current_value.length) + "</span>" + value_data.substr(current_value.length) + value_additional : value_data + value_additional;
                 item.innerHTML                      += "<input type='hidden' value='" + index + "'>";
@@ -202,7 +202,7 @@ function autocomplete(input, data, additional, reject_other, show_all) {
 
     function hasAdditional() {
 
-        return additional.length > 0;
+        return additional && additional.length > 0;
 
     }
 
