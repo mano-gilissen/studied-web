@@ -35,6 +35,7 @@ trait StudyTrait {
         $study                                          = new Study;
 
         $study->{Model::$BASE_KEY}                      = rand(100000,999999); // TODO: MOVE TO DEFAULT METHOD
+        $study->{Model::$SERVICE}                       = 1; // TODO: ADD FIELD IN FORM AND SET FROM INPUT
         $study->{Model::$STUDY_DATE}                    = $data[Model::$STUDY_DATE];
         $study->{Model::$STUDY_STATUS}                  = self::$STATUS_PLANNED; // TODO: STATUS FINISHED IF DATE < NOW. TODO: STUDY WITH NO DATE (CREATED INSTEAD OF PLANNED)
         $study->{Model::$STUDY_HOST_USER}               = 2; //TODO: ADD FIELD IN FORM AND SET FROM INPUT
