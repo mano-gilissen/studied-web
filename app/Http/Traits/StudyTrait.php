@@ -34,6 +34,12 @@ trait StudyTrait {
 
         $study                                          = new Study;
 
+        $study->{Model::$STUDY_DATE}                    = $data[Model::$STUDY_DATE];
+
+        $study->save();
+
+        dd($study);
+
         dd(DateTime::createFromFormat("Y-m-d", $data[Model::$STUDY_DATE])->getTimestamp());
 
         $study->{Model::$STUDY_DATE}                    = DateTime::createFromFormat("Y-m-d", $data[Model::$STUDY_DATE])->getTimestamp();
