@@ -24,7 +24,7 @@ trait StudyTrait {
         $STATUS_FINISHED                                = 2,
         $STATUS_REPORTED                                = 3,
         $STATUS_CANCELLED                               = 4,
-        $STATUS_ABSENT                                  = 5;
+        $STATUS_ABSENT                                  = 5,
 
 
 
@@ -34,23 +34,21 @@ trait StudyTrait {
 
         $study                                          = new Study;
 
+        $study->{Model::$BASE_KEY}                      = rand(100000,999999); // TODO: MOVE TO DEFAULT METHOD
         $study->{Model::$STUDY_DATE}                    = $data[Model::$STUDY_DATE];
+        $study->{Model::$STUDY_STATUS}                  = self::$STATUS_PLANNED; // TODO: STATUS FINISHED IF DATE < NOW. TODO: STUDY WITH NO DATE (CREATED INSTEAD OF PLANNED)
+        $study->{Model::$STUDY_HOST_USER}               = 2; //TODO: ADD FIELD IN FORM AND SET FROM INPUT
+        // TODO: STUDY HOST RELATION
+        $study->{Model::$STUDY_SUBJECT_DEFINED}         = $data[Key::AUTOCOMPLETE_ID . Model::$SUBJECT];
+        // TODO: STUDY SUBJECT TEXT IF NO DEFINED
+        $study->{Model::$STUDY_LOCATION_DEFINED}        = $data[Key::AUTOCOMPLETE_ID . Model::$LOCATION];
+        // TODO: STUDY LOCATION TEXT IF NO DEFINED
+        $study->{Model::$STUDY_START}                   = $data[Model::$STUDY_START];
+        $study->{Model::$STUDY_END}                     = $data[Model::$STUDY_END];
 
         $study->save();
 
-        dd($study);
-/*
-        $study->{Model::$STUDY_STATUS}                  = ;
-        $study->{Model::$STUDY_HOST_USER}               = ;
-        $study->{Model::$STUDY_HOST_RELATION}           = ;
-        $study->{Model::$STUDY_SUBJECT_DEFINED}         = ;
-        $study->{Model::$STUDY_SUBJECT_TEXT}            = ;
-        $study->{Model::$STUDY_LOCATION_DEFINED}        = ;
-        $study->{Model::$STUDY_LOCATION_TEXT}           = ;
-        $study->{Model::$STUDY_START}                   = ;
-        $study->{Model::$STUDY_END}                     = ;
-        $study->{Model::$STUDY_TRIAL}                   = ;
-*/
+        return $study;
     }
 
 

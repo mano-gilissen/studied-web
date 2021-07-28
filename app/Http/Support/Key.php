@@ -20,6 +20,7 @@ class Key {
 
     const AUTOCOMPLETE_DATA                     = "ac_data_";
     const AUTOCOMPLETE_ADDITIONAL               = "ac_additional_";
+    const AUTOCOMPLETE_ID                       = "_";
 
     const UNKNOWN                               = "Onbekend";
 
