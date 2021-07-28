@@ -202,7 +202,7 @@ function autocomplete(input, data, additional, reject_other, show_all) {
 
     function hasAdditional() {
 
-        return additional.length > 0;
+        return additional != null;
 
     }
 
