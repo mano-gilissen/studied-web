@@ -74,7 +74,11 @@ function autocomplete(input, data, additional, reject_other, show_all) {
         var list,
             item,
             index,
-            val                                     = event.value;
+
+            value_data,
+            value_additional,
+
+            current_value                           = event.value;
 
         closeList();
 
@@ -85,7 +89,7 @@ function autocomplete(input, data, additional, reject_other, show_all) {
             autocompleted                           = false;
         }
 
-        if (!val && !show_all) {
+        if (!current_value && !show_all) {
 
             return false
 
@@ -101,7 +105,7 @@ function autocomplete(input, data, additional, reject_other, show_all) {
 
         for (index = 0; index < data.length; index++) {
 
-            if ((show_all && !val) || data[index].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+            if ((show_all && !current_value) || data[index].substr(0, current_value.length).toUpperCase() == current_value.toUpperCase()) {
 
                 item                                = document.createElement("DIV");
                 item                                .setAttribute("class", "autocomplete-item");
@@ -109,7 +113,7 @@ function autocomplete(input, data, additional, reject_other, show_all) {
                 value_data                          = data[index];
                 value_additional                    = hasAdditional() ? "&nbsp;<span style='color:#333333'>" + additional[index] + "</span>" : "";
 
-                item.innerHTML                      = val ? "<span style='color:black;font-weight:400'>" + value_data.substr(0, val.length) + "</span>" + value_data.substr(val.length) + value_additional : value_data + value_additional;
+                item.innerHTML                      = current_value ? "<span style='color:black;font-weight:400'>" + value_data.substr(0, current_value.length) + "</span>" + value_data.substr(current_value.length) + value_additional : value_data + value_additional;
                 item.innerHTML                      += "<input type='hidden' value='" + index + "'>";
 
                 item.addEventListener("click", function(e) {
