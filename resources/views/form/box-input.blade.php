@@ -50,7 +50,10 @@
             '{{ $reject_other ?? false }}',
 
             /* Show all autocomplete values on focus */
-            '{{ $show_all ?? false }}'
+            '{{ $show_all ?? false }}',
+
+            /* Does the data contain database ID keys */
+            '{{ $id ?? false }}'
         );
 
     </script>

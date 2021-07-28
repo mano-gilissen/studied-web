@@ -75,8 +75,8 @@ class StudyController extends Controller {
         $objects_location                                   = Location::all();
         $objects_subject                                    = Subject::all();
 
-        $ac_data_location                                   = $objects_location->pluck(Model::$LOCATION_NAME)->toArray();
-        $ac_data_subject                                    = $objects_subject->pluck(Model::$SUBJECT_DESCRIPTION_SHORT)->toArray();
+        $ac_data_location                                   = $objects_location->pluck(Model::$LOCATION_NAME, Model::$BASE_ID)->toArray();
+        $ac_data_subject                                    = $objects_subject->pluck(Model::$SUBJECT_DESCRIPTION_SHORT, Model::$BASE_ID)->toArray();
 
         $ac_additional_subject                              = $objects_subject->pluck(Model::$SUBJECT_CODE, Model::$BASE_ID)->toArray();
 

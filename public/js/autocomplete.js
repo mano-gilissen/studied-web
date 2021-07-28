@@ -10,13 +10,6 @@ function autocomplete(input, data, additional, reject_other, show_all, id) {
 
 
 
-    console.log(data);
-    console.log(Object.keys(data));
-
-    return false;
-
-
-
     input.addEventListener("input", function(e) {
 
         openList(this, true);
@@ -105,10 +98,21 @@ function autocomplete(input, data, additional, reject_other, show_all, id) {
 
         event.parentNode.parentNode.appendChild(list);
 
-        for (var key of Object.keys(data)) {
+        if (id) {
 
-            createItem(list, key, current_value)
+            for (var key of Object.keys(data)) {
 
+                createItem(list, key, current_value);
+
+            }
+
+        } else {
+
+            for (var index = 0; index < data.length; index++) {
+
+                createItem(list, index, current_value);
+
+            }
         }
     }
 
@@ -119,7 +123,9 @@ function autocomplete(input, data, additional, reject_other, show_all, id) {
         var item,
 
             value_data,
-            value_additional;
+            value_additional,
+
+            input_id;
 
         if ((show_all && !current_value) || data[key].substr(0, current_value.length).toUpperCase() == current_value.toUpperCase()) {
 
@@ -140,10 +146,14 @@ function autocomplete(input, data, additional, reject_other, show_all, id) {
 
                 input.parentNode.classList      .add("autocomplete");
 
-                input_id                        = document.getElementById("_" + input.name);
-                input_id.value                  = key;
-
                 autocompleted                   = true;
+
+                if (id) {
+
+                    input_id                    = document.getElementById("_" + input.name);
+                    input_id.value              = key;
+
+                }
 
                 closeList();
             });
