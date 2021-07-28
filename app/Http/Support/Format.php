@@ -26,7 +26,7 @@ class Format {
 
 
 
-    public static function ac_data($collection) {
+    public static function ac($collection) {
 
         return implode('::', $collection);
 

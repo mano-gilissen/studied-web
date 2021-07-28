@@ -70,8 +70,17 @@ class StudyController extends Controller {
 
     public function plan() {
 
-        $ac_data_location                                   = Location::all()->pluck(Model::$LOCATION_NAME)->toArray();
-        $ac_data_subject                                    = Subject::all()->pluck(Model::$SUBJECT_DESCRIPTION_SHORT)->toArray();
+
+
+        $objects_location                                   = Location::all();
+        $objects_subject                                    = Subject::all();
+
+        $ac_data_location                                   = $objects_location->pluck(Model::$LOCATION_NAME)->toArray();
+        $ac_data_subject                                    = $objects_subject->pluck(Model::$SUBJECT_DESCRIPTION_SHORT)->toArray();
+
+        $ac_additional_subject                              = $objects_subject->pluck(Model::$SUBJECT_CODE)->toArray();
+
+
 
         return view(Views::FORM_STUDY, [
 
@@ -79,8 +88,10 @@ class StudyController extends Controller {
             Key::SUBMIT_ACTION                              => 'Inplannen',
             Key::SUBMIT_ROUTE                               => 'study.plan_submit',
 
-            Key::AUTOCOMPLETE_DATA.'location'               => Format::ac_data($ac_data_location),
-            Key::AUTOCOMPLETE_DATA.'subject'                => Format::ac_data($ac_data_subject),
+            Key::AUTOCOMPLETE_DATA.'location'               => Format::ac($ac_data_location),
+            Key::AUTOCOMPLETE_DATA.'subject'                => Format::ac($ac_data_subject),
+
+            Key::AUTOCOMPLETE_ADDITIONAL.'subject'          => Format::ac($ac_additional_subject),
         ]);
     }
 
