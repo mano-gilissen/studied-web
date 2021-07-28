@@ -11,6 +11,7 @@ function autocomplete(input, data, additional, reject_other, show_all, id) {
 
 
     console.log(data);
+    console.log(Object.keys(data));
 
     return false;
 
