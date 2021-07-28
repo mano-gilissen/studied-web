@@ -232,7 +232,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_DATE:
 
-                return "<div style='font-weight: 400'>" . Format::datetime($study->{Model::$STUDY_DATE}, Format::$DATETIME_LIST) . "</div>";
+                return $study->{Model::$STUDY_DATE} != null ? "<div style='font-weight: 400'>" . Format::datetime($study->{Model::$STUDY_DATE}, Format::$DATETIME_LIST) . "</div>" : Key::UNKNOWN;
 
             case self::$COLUMN_STUDENT:
 
@@ -249,27 +249,27 @@ class StudyController extends Controller {
 
             case self::$COLUMN_HOST:
 
-                return $study->{Model::$STUDY_HOST_USER} || $study->{Model::$STUDY_HOST_RELATION} ? PersonTrait::getFullName($study->getHost->getPerson) : Key::UNKNOWN;
+                return $study->{Model::$STUDY_HOST_USER} != null || $study->{Model::$STUDY_HOST_RELATION} != null ? PersonTrait::getFullName($study->getHost->getPerson) : Key::UNKNOWN;
 
             case self::$COLUMN_SERVICE:
 
-                return $study->service ? $study->getService->{Model::$SERVICE_NAME} : Key::UNKNOWN;
+                return $study->service != null ? $study->getService->{Model::$SERVICE_NAME} : Key::UNKNOWN;
 
             case self::$COLUMN_SUBJECT:
 
-                return $study->getSubject_Defined ? $study->getSubject_Defined->{Model::$SUBJECT_CODE} : ($study->{Model::$STUDY_SUBJECT_TEXT} ? $study->{Model::$STUDY_SUBJECT_TEXT} : Key::UNKNOWN);
+                return $study->getSubject_Defined ? $study->getSubject_Defined->{Model::$SUBJECT_CODE} : ($study->{Model::$STUDY_SUBJECT_TEXT} != null ? $study->{Model::$STUDY_SUBJECT_TEXT} : Key::UNKNOWN);
 
             case self::$COLUMN_LOCATION:
 
-                return $study->getLocation_Defined ? $study->getLocation_Defined->{Model::$LOCATION_NAME} : ($study->{Model::$STUDY_LOCATION_TEXT} ? $study->{Model::$STUDY_LOCATION_TEXT} : Key::UNKNOWN);
+                return $study->getLocation_Defined ? $study->getLocation_Defined->{Model::$LOCATION_NAME} : ($study->{Model::$STUDY_LOCATION_TEXT} != null ? $study->{Model::$STUDY_LOCATION_TEXT} : Key::UNKNOWN);
 
             case self::$COLUMN_TIME:
 
-                return $study->start && $study->end ? $study->start . ' - ' . $study->end : Key::UNKNOWN;
+                return $study->start != null && $study->end != null ? $study->start . ' - ' . $study->end : Key::UNKNOWN;
 
             case self::$COLUMN_STATUS:
 
-                return $study->status ? "<div class='tag' style='background:" . StudyTrait::getStatusColor($study) . ";color:" . StudyTrait::getStatusTextColor($study) . "'>".StudyTrait::getStatus($study)."</div>" : Key::UNKNOWN;
+                return $study->status != null ? "<div class='tag' style='background:" . StudyTrait::getStatusColor($study) . ";color:" . StudyTrait::getStatusTextColor($study) . "'>".StudyTrait::getStatus($study)."</div>" : Key::UNKNOWN;
 
             default:
 
