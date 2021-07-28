@@ -10,6 +10,14 @@
 
 
 
+@section('scripts')
+
+    <script src="{{ asset('js/form.js') }}"></script>
+
+@endsection
+
+
+
 @section('content')
 
     <div id="left">

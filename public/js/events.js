@@ -6,9 +6,14 @@ const OBJECT_WRAP                               = '#wrap';
 const OBJECT_MENU                               = '#menu';
 const OBJECT_LIST                               = '#list';
 const OBJECT_TOOLTIP                            = '#tooltip';
+
+const OBJECT_FORM                               = '#form';
+const OBJECT_INPUT_DATE                         = '#date';
+
 const OBJECT_BUTTON_MENU                        = '#button-menu';
 const OBJECT_BUTTON_LOGOUT                      = '#button-logout';
 const OBJECT_BUTTON_SETTINGS                    = '#button-settings';
+
 const OBJECT_PAGE_TITLE                         = '.page.title';
 
 const CLASS_HEADER                              = '.header';
