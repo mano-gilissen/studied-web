@@ -106,7 +106,7 @@ class StudyController extends Controller {
 
         StudyTrait::create($data, $study);
 
-        return redirect()->route('study.view', ['key', $study->{Model::$BASE_KEY}]);
+        return redirect()->route('study.view', $study->{Model::$BASE_KEY});
     }
 
 
