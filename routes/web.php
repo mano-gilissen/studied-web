@@ -10,8 +10,6 @@ Auth::routes(['register' => false, 'verify' => false]);
 
 
 
-Route::get('/',                                 'DebugController@landing')->name('landing');
-
 Route::get('/lab',                              'DebugController@lab')->name('lab.view')->middleware('auth');
 
 Route::get('/form-test',                        'DebugController@form_test')->name('form_test.view')->middleware('auth');
@@ -43,3 +41,11 @@ Route::post('/load/list/study',                 'StudyController@list_load')->mi
 
 
 Route::post('/submit/study/plan',               'StudyController@plan_submit')->name('study.plan_submit')->middleware('auth');
+
+
+
+Route::get('/', function () {
+
+    return redirect('/lessen');
+
+});
