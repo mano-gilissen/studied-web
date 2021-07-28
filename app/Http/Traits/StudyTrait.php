@@ -33,7 +33,7 @@ trait StudyTrait {
 
         $study                                          = new Study;
 
-        $study->{Model::$STUDY_DATE}                    = date_create_from_format('y-m-d', strtotime($data[Model::$STUDY_DATE]));
+        $study->{Model::$STUDY_DATE}                    = date_create_from_format('y-m-d', $data[Model::$STUDY_DATE]);
 
         dd($study);
 /*
