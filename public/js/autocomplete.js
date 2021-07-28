@@ -101,25 +101,10 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id) 
 
         event.parentNode.parentNode.appendChild(list);
 
-        if (uses_id) {
+        for (var key of Object.keys(data)) {
 
-            for (var key of Object.keys(data)) {
+            createItem(list, key, current_value);
 
-                createItem(list, key, current_value);
-
-            }
-
-        } else {
-
-            console.log('a');
-
-            for (var index = 0; index < data.length; index++) {
-
-                console.log('b ' + index + ' ' + data[index]);
-
-                createItem(list, index, current_value);
-
-            }
         }
     }
 
