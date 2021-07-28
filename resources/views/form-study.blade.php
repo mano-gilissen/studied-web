@@ -16,7 +16,7 @@
 
     <div class="title">{{ __('Activiteit') }}</div>
 
-    @include('form.field-input', ['id' => 'subject', 'tag' => 'Onderwerp', 'icon' => 'search.svg', 'data' => true, 'reject_other' => true, 'additional' => true])
+    @include('form.field-input', ['id' => 'subject', 'tag' => 'Onderwerp', 'icon' => 'search.svg', 'data' => true, 'reject_other' => true, 'additional' => true, 'uses_id' => true])
 
     @include('form.field-input', ['id' => 'remark', 'tag' => 'Opmerking', 'required' => true])
 
