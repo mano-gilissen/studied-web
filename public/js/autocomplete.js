@@ -9,6 +9,11 @@ function autocomplete(input, data, additional, reject_other, show_all) {
         autocompleted                               = false;
 
 
+    console.log(data);
+
+
+    return false;
+
 
     input.addEventListener("input", function(e) {
 

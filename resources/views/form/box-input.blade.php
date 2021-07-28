@@ -32,12 +32,12 @@
             document.getElementById('{{ $id }}'),
 
             /* Autocomplete data */
-            '{{ ${'ac_data_'.$id} }}'.split('::'),
+            JSON.parse('{{ ${'ac_data_'.$id} }}'),
 
             /* Autocomplete additional data */
             @if($additional ?? false)
 
-                '{{ ${'ac_additional_'.$id} }}'.split('::'),
+                JSON.parse('{{ ${'ac_additional_'.$id} }}'),
 
             @else
 
