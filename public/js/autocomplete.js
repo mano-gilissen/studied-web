@@ -1,23 +1,12 @@
 
 
 
-function autocomplete(input, data, additional, reject_other, show_all) {
+function autocomplete(input, data, additional, reject_other, show_all, id) {
 
 
 
     var currentFocus,
         autocompleted                               = false;
-
-
-    console.log(data);
-    console.log(Object.keys(data));
-    console.log(arrayLength(data));
-
-    for (var key of Object.keys(data)) {
-
-        console.log(key);
-        console.log(data[key]);
-    }
 
 
 
@@ -83,10 +72,6 @@ function autocomplete(input, data, additional, reject_other, show_all) {
     function openList(event, received_input = false) {
 
         var list,
-            item,
-
-            value_data,
-            value_additional,
 
             current_value                           = event.value;
 
@@ -115,32 +100,48 @@ function autocomplete(input, data, additional, reject_other, show_all) {
 
         for (var key of Object.keys(data)) {
 
-            if ((show_all && !current_value) || data[key].substr(0, current_value.length).toUpperCase() == current_value.toUpperCase()) {
+            createItem(list, key, current_value)
 
-                item                                = document.createElement("DIV");
-                item                                .setAttribute("class", "autocomplete-item");
+        }
+    }
 
-                value_data                          = data[key];
-                value_additional                    = hasAdditional() ? "&nbsp;&nbsp;<span style='color:#CCCCCC'>" + additional[key] + "</span>" : "";
 
-                item.innerHTML                      = current_value ? "<span style='color:black;font-weight:400'>" + value_data.substr(0, current_value.length) + "</span>" + value_data.substr(current_value.length) + value_additional : value_data + value_additional;
-                item.innerHTML                      += "<input type='hidden' value='" + key + "'>";
 
-                item.addEventListener("click", function(e) {
+    function createItem(list, key, current_value) {
 
-                    key_clicked                     = this.getElementsByTagName("input")[0].value;
+        var item,
 
-                    input.value                     = data[key_clicked];
+            value_data,
+            value_additional;
 
-                    input.parentNode.classList      .add("autocomplete");
+        if ((show_all && !current_value) || data[key].substr(0, current_value.length).toUpperCase() == current_value.toUpperCase()) {
 
-                    autocompleted                   = true;
+            item                                = document.createElement("DIV");
+            item                                .setAttribute("class", "autocomplete-item");
 
-                    closeList();
-                });
+            value_data                          = data[key];
+            value_additional                    = hasAdditional() ? "&nbsp;&nbsp;<span style='color:#CCCCCC'>" + additional[key] + "</span>" : "";
 
-                list.appendChild(item);
-            }
+            item.innerHTML                      = current_value ? "<span style='color:black;font-weight:400'>" + value_data.substr(0, current_value.length) + "</span>" + value_data.substr(current_value.length) + value_additional : value_data + value_additional;
+            item.innerHTML                      += "<input type='hidden' value='" + key + "'>";
+
+            item.addEventListener("click", function(e) {
+
+                key                             = this.getElementsByTagName("input")[0].value;
+
+                input.value                     = data[key];
+
+                input.parentNode.classList      .add("autocomplete");
+
+                input_id                        = document.getElementById("ac_id_" + input.name);
+                input_id.value                  = key;
+
+                autocompleted                   = true;
+
+                closeList();
+            });
+
+            list.appendChild(item);
         }
     }
 
