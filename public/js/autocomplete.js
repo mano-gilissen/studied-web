@@ -10,7 +10,6 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id) 
 
 
     console.log(data);
-    console.log(uses_id);
 
 
 
@@ -112,7 +111,11 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id) 
 
         } else {
 
+            console.log('a');
+
             for (var index = 0; index < data.length; index++) {
+
+                console.log('b ' + index + ' ' + data[index]);
 
                 createItem(list, index, current_value);
 
