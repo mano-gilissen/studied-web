@@ -164,9 +164,7 @@ class Model {
         $LOG                                            = 'log',
 
         $LOG_ACTION                                     = 'action',
-        $LOG_DATA                                       = 'data',
-
-        $ACTION_LOGIN                                   = 'login';
+        $LOG_DATA                                       = 'data';
 
 
 

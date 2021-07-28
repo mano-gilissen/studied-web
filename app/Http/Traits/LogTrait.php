@@ -16,6 +16,14 @@ trait LogTrait {
 
 
 
+    public static
+
+        $ACTION_LOGIN                                   = 'login';
+
+
+
+
+
     public static function create($action, $data = null) {
 
         $log                                            = new Log;
