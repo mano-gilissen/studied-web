@@ -36,7 +36,7 @@ trait StudyTrait {
 
         dd(DateTime::createFromFormat('y-m-d', $data[Model::$STUDY_DATE])->getTimestamp());
 
-        $study->{Model::$STUDY_DATE}                    = DateTime::createFromFormat('y-m-d', $data[Model::$STUDY_DATE])->getTimestamp();
+        $study->{Model::$STUDY_DATE}                    = DateTime::createFromFormat("yyyy-mm-dd", $data[Model::$STUDY_DATE])->getTimestamp();
 /*
         $study->{Model::$STUDY_STATUS}                  = ;
         $study->{Model::$STUDY_HOST_USER}               = ;
