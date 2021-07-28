@@ -11,7 +11,6 @@ function autocomplete(input, data, additional, reject_other, show_all) {
 
     console.log(data);
     console.log(Object.keys(data));
-    console.log(Object.keys(data).length);
     console.log(arrayLength(data));
 
     for (var key of Object.keys(data)) {
@@ -20,15 +19,6 @@ function autocomplete(input, data, additional, reject_other, show_all) {
         console.log(data[key]);
     }
 
-
-    function arrayLength(array) {
-
-        return Object.keys(array).length;
-
-    }
-
-
-    return false;
 
 
     input.addEventListener("input", function(e) {
@@ -94,7 +84,6 @@ function autocomplete(input, data, additional, reject_other, show_all) {
 
         var list,
             item,
-            index,
 
             value_data,
             value_additional,
@@ -124,24 +113,24 @@ function autocomplete(input, data, additional, reject_other, show_all) {
 
         event.parentNode.parentNode.appendChild(list);
 
-        for (index = 0; index < data.length; index++) {
+        for (var key of Object.keys(data)) {
 
-            if ((show_all && !current_value) || data[index].substr(0, current_value.length).toUpperCase() == current_value.toUpperCase()) {
+            if ((show_all && !current_value) || data[key].substr(0, current_value.length).toUpperCase() == current_value.toUpperCase()) {
 
                 item                                = document.createElement("DIV");
                 item                                .setAttribute("class", "autocomplete-item");
 
-                value_data                          = data[index];
-                value_additional                    = hasAdditional() ? "&nbsp;&nbsp;<span style='color:#CCCCCC'>" + additional[index] + "</span>" : "";
+                value_data                          = data[key];
+                value_additional                    = hasAdditional() ? "&nbsp;&nbsp;<span style='color:#CCCCCC'>" + additional[key] + "</span>" : "";
 
                 item.innerHTML                      = current_value ? "<span style='color:black;font-weight:400'>" + value_data.substr(0, current_value.length) + "</span>" + value_data.substr(current_value.length) + value_additional : value_data + value_additional;
-                item.innerHTML                      += "<input type='hidden' value='" + index + "'>";
+                item.innerHTML                      += "<input type='hidden' value='" + key + "'>";
 
                 item.addEventListener("click", function(e) {
 
-                    index_clicked                   = this.getElementsByTagName("input")[0].value;
+                    key_clicked                     = this.getElementsByTagName("input")[0].value;
 
-                    input.value                     = data[index_clicked];
+                    input.value                     = data[key_clicked];
 
                     input.parentNode.classList      .add("autocomplete");
 
@@ -224,6 +213,14 @@ function autocomplete(input, data, additional, reject_other, show_all) {
     function hasAdditional() {
 
         return additional != null;
+
+    }
+
+
+
+    function arrayLength(array) {
+
+        return Object.keys(array).length;
 
     }
 
