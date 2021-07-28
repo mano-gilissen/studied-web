@@ -249,7 +249,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_HOST:
 
-                return $study->host ? PersonTrait::getFullName($study->getHost->getPerson) : Key::UNKNOWN;
+                return $study->getHost ? PersonTrait::getFullName($study->getHost->getPerson) : Key::UNKNOWN;
 
             case self::$COLUMN_SERVICE:
 
@@ -281,7 +281,7 @@ class StudyController extends Controller {
 
     public function list_link($study) {
 
-        return '';// route('study.view', ['key' => $study->{Model::$BASE_KEY}]);
+        return route('study.view', ['key' => $study->{Model::$BASE_KEY}]);
 
     }
 
