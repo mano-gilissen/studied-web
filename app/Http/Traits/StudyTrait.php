@@ -24,7 +24,7 @@ trait StudyTrait {
         $STATUS_FINISHED                                = 2,
         $STATUS_REPORTED                                = 3,
         $STATUS_CANCELLED                               = 4,
-        $STATUS_ABSENT                                  = 5,
+        $STATUS_ABSENT                                  = 5;
 
 
 
