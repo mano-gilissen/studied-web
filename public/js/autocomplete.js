@@ -107,11 +107,11 @@ function autocomplete(input, values, reject_other, show_all) {
                 item                                .setAttribute("class", "autocomplete-item");
 
                 item.innerHTML                      = val ? "<span style='color:black;font-weight:400'>" + values[index].substr(0, val.length) + "</span>" + values[index].substr(val.length) : values[index];
-                item.innerHTML                      += "<input type='hidden' value='" + values[index] + "'>";
+                item.innerHTML                      += "<input type='hidden' value='" + index + "'>";
 
                 item.addEventListener("click", function(e) {
 
-                    console.log(this.getElementsByTagName("input")[0].index);
+                    console.log(this.getElementsByTagName("input")[0].value);
 
                     input.value                     = this.getElementsByTagName("input")[0].value;
 
