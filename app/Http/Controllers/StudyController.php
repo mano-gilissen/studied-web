@@ -80,7 +80,7 @@ class StudyController extends Controller {
 
         $ac_additional_subject                              = $objects_subject->pluck(Model::$SUBJECT_CODE)->toArray();
 
-        dd(Format::ac($ac_data_subject));
+        dd(Format::ac($ac_additional_subject));
 
         return view(Views::FORM_STUDY, [
 
