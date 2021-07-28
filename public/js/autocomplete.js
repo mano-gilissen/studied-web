@@ -10,6 +10,12 @@ function autocomplete(input, data, additional, reject_other, show_all, id) {
 
 
 
+    console.log(data);
+
+    return false;
+
+
+
     input.addEventListener("input", function(e) {
 
         openList(this, true);
@@ -133,7 +139,7 @@ function autocomplete(input, data, additional, reject_other, show_all, id) {
 
                 input.parentNode.classList      .add("autocomplete");
 
-                input_id                        = document.getElementById("ac_id_" + input.name);
+                input_id                        = document.getElementById("_" + input.name);
                 input_id.value                  = key;
 
                 autocompleted                   = true;

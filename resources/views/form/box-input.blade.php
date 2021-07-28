@@ -23,8 +23,8 @@
     @if($data ?? false)
 
         <input
-            id                                          = "ac_id_{{ $id }}"
-            name                                        = "ac_id_{{ $id }}"
+            id                                          = "_{{ $id }}"
+            name                                        = "_{{ $id }}"
             type                                        = "hidden">
 
     @endif
