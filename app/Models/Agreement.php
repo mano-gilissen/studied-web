@@ -22,7 +22,8 @@ class Agreement extends ModelClass {
 
     protected
 
-        $table                                  = 'agreement';
+        $table                                  = 'agreement',
+        $dates                                  = ['end'];
 
 
 
