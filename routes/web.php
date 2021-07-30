@@ -38,6 +38,8 @@ Route::get('/wachtwoordvergeten',               'Auth\ForgotPasswordController@f
 
 Route::post('/load/list/study',                 'StudyController@list_load')->middleware('auth');
 
+Route::post('/load/agreements',                 'UserController@agreements_load')->middleware('auth');
+
 
 
 Route::post('/submit/study/plan',               'StudyController@plan_submit')->name('study.plan_submit')->middleware('auth');

@@ -61,6 +61,54 @@ html, body {
 
 
 
+.seperator {
+    height:                             88px;
+}
+
+
+
+
+
+.agreements {
+    margin-top:                         32px;
+}
+
+.agreement {
+    opacity:                            .3;
+}
+
+.agreement .selector {
+    width:                              32px;
+    height:                             32px;
+    border-right:                       16px;
+    padding:                            6px;
+    background:                         #E6E6E6;
+    opacity:                            0;
+}
+
+.agreement.active,
+.agreement.selected {
+    opacity:                            1;
+}
+
+.agreement.active:hover,
+.agreement.selected:hover {
+    background:                         #F0F0F0;
+}
+
+.agreement.active .selector,
+.agreement.selected .selector {
+    opacity:                            1;
+}
+
+.agreement.selected .selector {
+    background:                         #4CD976;
+}
+
+
+
+
+
 @keyframes in_form {
     from { opacity: 0; transform: translateY(40px) }
     to   { opacity: 1; }

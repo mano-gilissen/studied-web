@@ -80,8 +80,6 @@ class StudyController extends Controller {
 
         $ac_additional_subject                              = $objects_subject->pluck(Model::$SUBJECT_CODE, Model::$BASE_ID)->toArray();
 
-
-
         return view(Views::FORM_STUDY, [
 
             Key::PAGE_TITLE                                 => 'Les inplannen',

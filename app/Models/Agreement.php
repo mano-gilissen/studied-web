@@ -36,7 +36,7 @@ class Agreement extends ModelClass {
 
     public function getEmployee() {
 
-        return self::getThisToOne(Model::$USER, Model::$STUDENT);
+        return self::getThisToOne(Model::$USER, Model::$EMPLOYEE);
 
     }
 

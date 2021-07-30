@@ -112,4 +112,18 @@ class User extends Authenticatable {
 
 
 
+    public function getAgreements_asEmployee() {
+
+        return self::getOneToMany(Model::$AGREEMENT, Model::$EMPLOYEE);
+
+    }
+
+    public function getAgreements_asStudent() {
+
+        return self::getOneToMany(Model::$AGREEMENT, Model::$STUDENT);
+
+    }
+
+
+
 }
