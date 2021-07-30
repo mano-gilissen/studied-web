@@ -73,12 +73,12 @@ class StudyController extends Controller {
 
 
         $objects_location                                   = Location::all();
-        $objects_subject                                    = Subject::all();
+        $objects_host                                       = User::whereIn(Model::$ROLE, array(RoleTrait::$ID_EMPLOYEE, RoleTrait::$ID_MANAGEMENT, RoleTrait::$ID_BOARD))->with(Model::$PERSON)->get();
 
         $ac_data_location                                   = $objects_location->pluck(Model::$LOCATION_NAME, Model::$BASE_ID)->toArray();
-        $ac_data_subject                                    = $objects_subject->pluck(Model::$SUBJECT_DESCRIPTION_SHORT, Model::$BASE_ID)->toArray();
+        $ac_data_host                                       = $objects_host->pluck(Model::$PERSON . '.' . Model::$PERSON_FIRST_NAME, Model::$BASE_ID)->toArray();
 
-        $ac_additional_subject                              = $objects_subject->pluck(Model::$SUBJECT_CODE, Model::$BASE_ID)->toArray();
+        $ac_additional_host                                 = $objects_host->pluck(Model::$PERSON . '.' . Model::$PERSON_SLUG, Model::$BASE_ID)->toArray();
 
         return view(Views::FORM_STUDY, [
 
@@ -87,9 +87,9 @@ class StudyController extends Controller {
             Key::SUBMIT_ROUTE                               => 'study.plan_submit',
 
             Key::AUTOCOMPLETE_DATA.'location'               => Format::ac($ac_data_location),
-            Key::AUTOCOMPLETE_DATA.'subject'                => Format::ac($ac_data_subject),
+            Key::AUTOCOMPLETE_DATA.'host'                   => Format::ac($ac_data_host),
 
-            Key::AUTOCOMPLETE_ADDITIONAL.'subject'          => Format::ac($ac_additional_subject),
+            Key::AUTOCOMPLETE_ADDITIONAL.'host'             => Format::ac($ac_additional_host),
         ]);
     }
 
