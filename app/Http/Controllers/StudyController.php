@@ -12,7 +12,7 @@ use App\Http\Traits\RoleTrait;
 use App\Http\Traits\StudyTrait;
 use App\Models\Location;
 use App\Models\Study;
-use App\Models\Subject;
+use App\Models\User;
 use App\Http\Support\Key;
 use App\Http\Support\Views;
 use App\Http\Support\Model;
