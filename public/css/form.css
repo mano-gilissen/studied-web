@@ -75,6 +75,7 @@ html, body {
 
 .agreement {
     opacity:                            .3;
+    line-height:                        24px;
 }
 
 .agreement .selector {
@@ -103,6 +104,16 @@ html, body {
 
 .agreement.selected .selector {
     background:                         #4CD976;
+}
+
+.agreement .top,
+.agreement .bottom {
+    display:                            flex;
+    align-items:                        center;
+}
+
+.agreement .bottom {
+    margin:                             16px 48px 0 0;
 }
 
 .agreement img,
