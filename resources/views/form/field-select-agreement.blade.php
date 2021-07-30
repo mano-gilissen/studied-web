@@ -2,7 +2,7 @@
 
     @if($host ?? false)
 
-        @include('load.field-select-agreement', ['user' => $host])
+        @include('load.agreements', ['user' => $host])
 
     @endif
 

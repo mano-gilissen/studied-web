@@ -42,7 +42,7 @@
 
                 @include('block.menu-item', ['label' => 'Mijn profiel', 'route' => route('person.self')])
 
-                @include('block.menu-item', ['label' => 'Lessen', 'route' => route('study.list')])])
+                @include('block.menu-item', ['label' => 'Lessen', 'route' => route('study.list')])
 
                 @include('block.menu-item', ['label' => 'Leerlingen'])
 
