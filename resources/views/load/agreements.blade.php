@@ -26,7 +26,7 @@
 
             @endif
 
-            <div>{{ \App\Http\Traits\AgreementTrait::getDescription($agreement, true) }}</div>
+            <div>{!! \App\Http\Traits\AgreementTrait::getDescription($agreement, true) !!}</div>
 
         </div>
 
