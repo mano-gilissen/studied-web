@@ -26,7 +26,7 @@
 
         @include('form.field-hidden', ['id' => '_host', 'value' => Auth::user()->id])
 
-        @include('form.field-select-agreement', ['host' => Auth::user()->id])
+        @include('form.field-select-agreement', ['host' => Auth::user()])
 
     @else
 
