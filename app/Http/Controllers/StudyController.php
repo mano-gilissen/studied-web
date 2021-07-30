@@ -73,7 +73,7 @@ class StudyController extends Controller {
 
 
         $objects_location                                   = Location::all();
-        $objects_host                                       = User::whereIn(Model::$ROLE, array(RoleTrait::$ID_EMPLOYEE, RoleTrait::$ID_MANAGEMENT, RoleTrait::$ID_BOARD))->with('getPerson.')->get();
+        $objects_host                                       = User::whereIn(Model::$ROLE, array(RoleTrait::$ID_EMPLOYEE, RoleTrait::$ID_MANAGEMENT, RoleTrait::$ID_BOARD))->with('getPerson')->get();
 
         $ac_data_location                                   = $objects_location->pluck(Model::$LOCATION_NAME, Model::$BASE_ID)->toArray();
         $ac_data_host                                       = $objects_host->pluck('getPerson.' . Model::$PERSON_FIRST_NAME, Model::$BASE_ID)->toArray();
