@@ -151,7 +151,7 @@ html, body {
     border-radius:                      16px;
     padding:                            8px;
     background:                         #E6E6E6;
-    opacity:                            0;
+    display:                            none;
     pointer-events:                     all;
 }
 
@@ -160,7 +160,7 @@ html, body {
 }
 
 .agreements .buttons .button.visible {
-    opacity:                            1;
+    display:                            unset;
 }
 
 .agreements .buttons .button.solo {
