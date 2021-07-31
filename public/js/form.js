@@ -55,9 +55,9 @@ function agreements_set_active(index) {
     button_previous                             = $(OBJECT_BUTTON_PREVIOUS);
     button_next                                 = $(OBJECT_BUTTON_NEXT);
 
-    agreements                                  .removeClass('.active');
-    buttons                                     .removeClass('.visible');
-    buttons                                     .removeClass('.solo');
+    agreements                                  .removeClass('active');
+    buttons                                     .removeClass('visible');
+    buttons                                     .removeClass('solo');
 
     switch (agreements.length) {
 
@@ -66,22 +66,22 @@ function agreements_set_active(index) {
             break;
 
         case 1:
-            agreements.first()                  .addClass('.active');
+            agreements.first()                  .addClass('active');
             break;
 
         default:
             agreement                           = agreements.get(index);
-            agreement                           .classList.add('.active');
+            agreement                           .classList.add('active');
 
             if (index === 0) {
-                button_next                     .addClass('.visible');
-                button_next                     .addClass('.solo');
+                button_next                     .addClass('visible');
+                button_next                     .addClass('solo');
             } else if (index === agreements.length - 1) {
-                button_previous                 .addClass('.visible');
-                button_previous                 .addClass('.solo');
+                button_previous                 .addClass('visible');
+                button_previous                 .addClass('solo');
             } else {
-                button_previous                 .addClass('.visible');
-                button_next                     .addClass('.visible');
+                button_previous                 .addClass('visible');
+                button_next                     .addClass('visible');
             }
 
             break;
