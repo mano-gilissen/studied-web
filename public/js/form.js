@@ -70,7 +70,8 @@ function agreements_set_active(index) {
             break;
 
         default:
-            agreements[index]                   .addClass('active');
+            agreement                           = agreements.get(index);
+            agreement                           .addClass('active');
 
             if (index === 0) {
                 button_next                     .addClass('visible');
