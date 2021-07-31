@@ -44,7 +44,7 @@ function agreements_load(id, host) {
 function agreement_toggle(identifier) {
 
     console.log(identifier);
-    $('#' . identifier).toggleClass('selected');
+    $('#' + identifier).toggleClass('selected');
 
 }
 
