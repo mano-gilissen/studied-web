@@ -11,6 +11,8 @@ $(function(){
 
     $(OBJECT_FORM).on('input', '#_host', function() {
 
+        console.out('á');
+
         agreements_load($(this).attr('value'))
 
     });
@@ -46,8 +48,6 @@ $(function(){
 
 
 function agreements_load(id, host) {
-
-    console.out('á');
 
     if (host > 0) {
 
