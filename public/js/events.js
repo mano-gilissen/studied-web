@@ -10,6 +10,8 @@ const OBJECT_TOOLTIP                            = '#tooltip';
 const OBJECT_BUTTON_MENU                        = '#button-menu';
 const OBJECT_BUTTON_LOGOUT                      = '#button-logout';
 const OBJECT_BUTTON_SETTINGS                    = '#button-settings';
+const OBJECT_BUTTON_PREVIOUS                    = '#button-previous';
+const OBJECT_BUTTON_NEXT                        = '#button-next';
 
 const OBJECT_FORM                               = '#form';
 const OBJECT_AGREEMENTS                         = '#agreements';
@@ -20,6 +22,7 @@ const CLASS_HEADER                              = '.header';
 const CLASS_PERSON                              = '.person';
 const CLASS_PERSON_REPORT                       = '.person-report';
 const CLASS_AGREEMENT                           = '.agreement';
+const CLASS_BUTTON                              = '.button';
 
 const ICON_BACK                                 = "/images/back.svg";
 const ICON_MENU                                 = "/images/menu.svg";

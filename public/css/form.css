@@ -151,11 +151,24 @@ html, body {
     border-radius:                      16px;
     padding:                            8px;
     background:                         #E6E6E6;
+    opacity:                            0;
     pointer-events:                     all;
 }
 
 .agreements .buttons .button:hover {
     background:                         #EBEBEB;
+}
+
+.agreements .buttons .button.visible {
+    opacity:                            1;
+}
+
+.agreements .buttons .button.solo {
+    background:                         #FFDD34;
+}
+
+.agreements .buttons .button.solo:hover {
+    background:                         #FFE45B;
 }
 
 #button-previous {
