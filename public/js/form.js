@@ -39,7 +39,7 @@ $(function(){
 
 function agreements_load(host) {
 
-    $('.agreements').hide().load('/load/agreements', {
+    $('.agreements').fadeOut('500').load('/load/agreements', {
 
         user:                               host
 
