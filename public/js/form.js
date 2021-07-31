@@ -98,14 +98,6 @@ function agreements_set_active(index) {
                 button_next                     .addClass(ATTR_VISIBLE);
             }
 
-            var translate_position              = 0;
-
-            for (var i = 0; i < index; i++) {
-
-                translate_position              += agreements[i].width();
-
-            }
-
             $(OBJECT_AGREEMENTS)                .css({"-webkit-transform":"translate(100px,100px)"});​
 
             break;
