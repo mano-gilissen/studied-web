@@ -142,6 +142,8 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id) 
                     input_id                    = document.getElementById("_" + input.name);
                     input_id.value              = key;
 
+                    var event = new Event('input');
+                    input_id.dispatchEvent(event);
                 }
 
                 closeList();

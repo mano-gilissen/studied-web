@@ -9,9 +9,7 @@ $(function(){
 
 
 
-    $(OBJECT_FORM).on('click', '#host', function() {
-
-        console.out('á');
+    $(OBJECT_FORM).on('input', '#_host', function() {
 
         agreements_load($(this).attr('value'))
 
