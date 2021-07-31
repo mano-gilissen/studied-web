@@ -28,7 +28,7 @@ $(function(){
 
 
 
-    $(OBJECT_LIST).on('click', CLASS_HEADER + ":not(" + CLASS_SORT_MODE_NONE + ")", function() {
+    $(OBJECT_LIST).on('click', CLASS_HEADER + ":not(" + ATTR_NONE + ")", function() {
 
         sort($(this).attr('id'));
 
