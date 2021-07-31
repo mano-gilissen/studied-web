@@ -149,6 +149,7 @@ html, body {
     width:                              32px;
     height:                             32px;
     border-radius:                      16px;
+    margin-left:                        24px;
     padding:                            8px;
     background:                         #E6E6E6;
     display:                            none;
@@ -164,15 +165,12 @@ html, body {
 }
 
 .agreements .buttons .button.solo {
+    margin-left:                        auto;
     background:                         #FFDD34;
 }
 
 .agreements .buttons .button.solo:hover {
     background:                         #FFE45B;
-}
-
-#button-next {
-    margin-left:                        24px;
 }
 
 
