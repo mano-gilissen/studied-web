@@ -131,7 +131,7 @@ function agreement_toggle_selected(identifier) {
 
                 if ($(CLASS_AGREEMENT + '.' + ATTR_SELECTED).length == 0) {
 
-                    $(this)                     .prop('disabled', false);
+                    //$(this)                     .prop('disabled', false);
                     $(this)                     .removeClass('disabled');
                 }
             });
@@ -144,13 +144,15 @@ function agreement_toggle_selected(identifier) {
 
                 if ($(this).attr('data-subject') != agreement.attr('data-subject')) {
 
-                    $(this)                     .prop('disabled', true);
+                   // $(this)                     .prop('disabled', true);
                     $(this)                     .addClass('disabled');
 
                 }
             });
         }
     }
+
+    agreements_render();
 }
 
 
