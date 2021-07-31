@@ -6,6 +6,7 @@ namespace App\Models;
 
 use App\Http\Support\Model;
 use App\Http\Traits\BaseTrait;
+use App\Http\Traits\PersonTrait;
 use Illuminate\Database\Eloquent\Model as ModelClass;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -35,6 +36,14 @@ class Person extends ModelClass {
     public function getAddress() {
 
         return self::getThisToOne(Model::$ADDRESS);
+
+    }
+
+
+
+    public function getFullNameAttribute() {
+
+        return PersonTrait::getFullName($this);
 
     }
 
