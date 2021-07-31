@@ -78,10 +78,6 @@ html, body {
     overflow-x:                         hidden;
 }
 
-#agreements {
-    width:                              512px;
-}
-
 .agreement {
     opacity:                            .3;
 }
