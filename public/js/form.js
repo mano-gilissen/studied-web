@@ -118,6 +118,8 @@ function agreement_toggle(identifier) {
 
         if (agreement.hasClass(ATTR_SELECTED)) {
 
+            agreement                           .removeClass(ATTR_SELECTED);
+
             $(CLASS_AGREEMENT).each(function( index ) {
 
                 if ($(CLASS_AGREEMENT + '.' + ATTR_SELECTED).length == 0) {
@@ -126,8 +128,10 @@ function agreement_toggle(identifier) {
                     $(this)                     .removeClass('disabled');
                 }
             });
+
         } else {
 
+            agreement                           .addClass(ATTR_SELECTED);
 
             $(CLASS_AGREEMENT).each(function( index ) {
 
@@ -139,8 +143,6 @@ function agreement_toggle(identifier) {
                 }
             });
         }
-
-        agreement                               .toggleClass(ATTR_SELECTED);
     }
 }
 
