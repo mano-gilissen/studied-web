@@ -179,7 +179,7 @@ html, body {
 }
 
 .agreement #selector-disabled {
-    background:                         #FF9999;
+    background:                         #FF7F7F;
     display:                            none;
 }
 
