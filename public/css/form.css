@@ -74,7 +74,7 @@ html, body {
 }
 
 .agreements .wrap {
-    width:                              100%;
+    width:                              512px;
     overflow-x:                         hidden;
 }
 
@@ -83,9 +83,7 @@ html, body {
 }
 
 .agreement {
-    width:                              max-content;
     opacity:                            .3;
-    line-height:                        24px;
 }
 
 .agreement .selector {
