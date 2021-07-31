@@ -30,7 +30,7 @@
 
     @else
 
-        @include('form.field-input', ['id' => 'host', 'tag' => 'Student-docent', 'icon' => 'search.svg', 'placeholder' => 'Zoek een medewerker', 'required' => true, 'data' => true, 'show_all' => false, 'reject_other' => true, 'uses_id' => true])
+        @include('form.field-input', ['id' => 'host', 'tag' => 'Student-docent', 'icon' => 'search.svg', 'placeholder' => 'Zoek een medewerker', 'required' => true, 'data' => true, 'show_all' => false, 'reject_other' => true, 'uses_id' => true, 'trigger' => 'agreements'])
 
         @include('form.field-select-agreement')
 

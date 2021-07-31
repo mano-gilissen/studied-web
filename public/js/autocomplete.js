@@ -1,7 +1,11 @@
 
 
 
-function autocomplete(input, data, additional, reject_other, show_all, uses_id) {
+const TRIGGER_AGREEMENTS                            = "agreements";
+
+
+
+function autocomplete(input, data, additional, reject_other, show_all, uses_id, trigger = null) {
 
 
 
@@ -142,8 +146,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id) 
                     input_id                    = document.getElementById("_" + input.name);
                     input_id.value              = key;
 
-                    var event = new Event('input');
-                    input_id.dispatchEvent(event);
+                    callTrigger(key);
                 }
 
                 closeList();
@@ -214,6 +217,18 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id) 
 
             input.value                             = '';
 
+        }
+    }
+
+
+
+    function callTrigger(key) {
+
+        switch (trigger) {
+
+            case TRIGGER_AGREEMENTS:
+                agreements_load(key);
+                break;
         }
     }
 

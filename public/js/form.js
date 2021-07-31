@@ -9,15 +9,6 @@ $(function(){
 
 
 
-    $(OBJECT_FORM).on('input', '#_host', function() {
-
-        console.log('â');
-        agreements_load($(this).attr('value'))
-
-    });
-
-
-
     $(OBJECT_AGREEMENTS).on('click', CLASS_AGREEMENT, function() {
 
         agreement_toggle($(this).attr('id'))
