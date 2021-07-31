@@ -11,6 +11,7 @@ $(function(){
 
     $(OBJECT_FORM).on('input', '#_host', function() {
 
+        console.log('â');
         agreements_load($(this).attr('value'))
 
     });
