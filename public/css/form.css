@@ -86,7 +86,7 @@ html, body {
 }
 
 .agreement {
-    opacity:                            .3;
+    opacity:                            .5;
     transition:                         opacity .4s ease;
 }
 
