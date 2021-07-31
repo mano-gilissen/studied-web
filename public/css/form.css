@@ -95,7 +95,7 @@ html, body {
 }
 
 .agreement.disabled {
-
+    display:                            none;
 }
 
 .agreement.active:hover,
