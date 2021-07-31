@@ -112,6 +112,8 @@ function agreements_set_active(index) {
 
 function agreement_toggle(identifier) {
 
+    console.log('a');
+
     agreement                                   = $('#' + identifier);
 
     if (agreement.hasClass(ATTR_ACTIVE)) {
