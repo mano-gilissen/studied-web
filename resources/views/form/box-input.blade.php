@@ -53,7 +53,10 @@
             '{{ $show_all ?? false }}',
 
             /* Does the data contain database ID keys */
-            '{{ $uses_id ?? false }}'
+            '{{ $uses_id ?? false }}',
+
+            /* Which function needs to be called after setting an ID */
+            '{{ $trigger ?? false }}'
         );
 
     </script>

@@ -5,7 +5,7 @@ const TRIGGER_AGREEMENTS                            = "agreements";
 
 
 
-function autocomplete(input, data, additional, reject_other, show_all, uses_id, trigger = null) {
+function autocomplete(input, data, additional, reject_other, show_all, uses_id, trigger) {
 
 
 
