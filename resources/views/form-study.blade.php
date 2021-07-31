@@ -28,9 +28,9 @@
 
     @else
 
-        <div class="title">{{ __('Student-docent') }}</div>
+        <div class="title">{{ __('Medewerker') }}</div>
 
-        @include('form.field-input', ['id' => 'host', 'tag' => 'Student-docent', 'icon' => 'search.svg', 'placeholder' => 'Zoek een medewerker', 'required' => true, 'data' => true, 'additional' => true, 'show_all' => false, 'reject_other' => true, 'uses_id' => true, 'trigger' => 'agreements'])
+        @include('form.field-input', ['id' => 'host', 'tag' => 'Student-docent', 'icon' => 'search.svg', 'placeholder' => 'Zoek een medewerker', 'required' => true, 'data' => true, 'additional' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true, 'trigger' => 'agreements'])
 
         <div class="seperator"></div>
 
