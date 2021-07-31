@@ -90,15 +90,6 @@ html, body {
     transition:                         opacity .4s ease;
 }
 
-.agreement .selector {
-    width:                              32px;
-    height:                             32px;
-    margin-left:                        auto;
-    padding:                            6px;
-    border-radius:                      16px;
-    background:                         #E6E6E6;
-}
-
 .agreement.active {
     opacity:                            1;
 }
@@ -108,7 +99,7 @@ html, body {
     background:                         #F0F0F0;
 }
 
-.agreement.selected .selector {
+.agreement.selected #selector-enabled {
     background:                         #4CD976;
 }
 
@@ -169,6 +160,31 @@ html, body {
 .agreements .buttons #button-next.solo,
 .agreements .buttons #button-previous {
     margin-left:                        auto;
+}
+
+.agreement .selector {
+    width:                              32px;
+    height:                             32px;
+    margin-left:                        auto;
+    padding:                            6px;
+    border-radius:                      16px;
+}
+
+.agreement #selector-enabled {
+    background:                         #E6E6E6;
+}
+
+.agreement #selector-disabled {
+    background:                         #FF4C4C;
+    display:                            none;
+}
+
+.agreement.disabled #selector-enabled {
+    display:                            none;
+}
+
+.agreement.disabled #selector-disabled {
+    display:                            unset;
 }
 
 .agreements .note {

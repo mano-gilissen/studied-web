@@ -22,7 +22,9 @@
 
                             <div class="title">{{ $agreement->identifier }}</div>
 
-                            <img class="selector" src="/images/check-white.svg"/>
+                            <img class="selector" id="selector-enabled" src="/images/check-white.svg"/>
+
+                            <img class="selector" id="selector-disabled" src="/images/cross-white.svg"/>
 
                         </div>
 
