@@ -79,6 +79,7 @@ html, body {
 }
 
 #agreements {
+    display:                            flex;
     width:                              max-content;
 }
 
