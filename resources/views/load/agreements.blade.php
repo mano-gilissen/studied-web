@@ -1,6 +1,6 @@
 @foreach($user->getAgreements_asEmployee as $agreement)
 
-    <div class="agreement">
+    <div class="agreement" id="{{ $agreement->identifier }}">
 
         <div class="top">
 

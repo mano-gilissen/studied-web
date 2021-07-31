@@ -13,6 +13,14 @@ $(function(){
 
 
 
+    $(OBJECT_AGREEMENTS).on('click', '.agreement', function() {
+
+        agreement_toggle($(this).attr('id'))
+
+    });
+
+
+
 });
 
 
@@ -29,6 +37,14 @@ function agreements_load(id, host) {
 
         });
     }
+}
+
+
+
+function agreement_toggle(identifier) {
+
+    $('#' . identifier).classList.toggle(CLASS_SELECTED);
+
 }
 
 
