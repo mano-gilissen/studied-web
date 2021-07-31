@@ -164,8 +164,8 @@ function agreement_toggle_selected(identifier) {
 
                 if ($(CLASS_AGREEMENT + '.' + ATTR_SELECTED).length == 0) {
 
-                    //$(this)                     .prop(ATTR_DISABLED, false);
                     $(this)                     .removeClass(ATTR_DISABLED);
+
                 }
             });
 
@@ -177,7 +177,6 @@ function agreement_toggle_selected(identifier) {
 
                 if ($(this).attr('data-subject') != agreement.attr('data-subject')) {
 
-                    //$(this)                     .prop(ATTR_DISABLED, true);
                     $(this)                     .addClass(ATTR_DISABLED);
 
                 }

@@ -103,11 +103,11 @@ html, body {
     background:                         #F0F0F0;
 }
 
-.agreement.active.disabled:hover {
+.agreement.disabled:hover {
     background:                         #F8F8F8;
 }
 
-.agreement.selected #selector-enabled {
+.agreement.selected .selector {
     background:                         #4CD976;
 }
 
@@ -176,23 +176,7 @@ html, body {
     margin-left:                        auto;
     padding:                            6px;
     border-radius:                      16px;
-}
-
-.agreement #selector-enabled {
     background:                         #E6E6E6;
-}
-
-.agreement #selector-disabled {
-    background:                         #FF7F7F;
-    display:                            none;
-}
-
-.agreement.disabled #selector-enabled {
-    display:                            none;
-}
-
-.agreement.disabled #selector-disabled {
-    display:                            unset;
 }
 
 .agreements .note {
