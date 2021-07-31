@@ -120,7 +120,7 @@ function agreement_toggle(identifier) {
 
             $(CLASS_AGREEMENT).each(function( index ) {
 
-                if (!$(CLASS_AGREEMENT + '.' + ATTR_SELECTED).length) {
+                if ($(CLASS_AGREEMENT + '.' + ATTR_SELECTED).length == 0) {
 
                     $(this)                     .prop('disabled', false);
                     $(this)                     .removeClass('disabled');
