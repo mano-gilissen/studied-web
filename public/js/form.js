@@ -52,9 +52,7 @@ function agreements_set_active(index) {
     agreements                                  = $(CLASS_AGREEMENT);
 
     agreements                                  .removeClass('active');
-
-    console.log(agreements);
-    console.log(agreements[0]);
+    agreements[0]                               .addClass('active');
 }
 
 
