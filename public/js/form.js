@@ -102,8 +102,11 @@ function agreements_set_active(index) {
 
             for (var i = 0; i < index; i++) {
 
+                console.log(agreements[index].offsetWidth);
+
                 translate_position              += agreements[index].offsetWidth;
 
+                console.log(translate_position);
             }
 
             $(OBJECT_AGREEMENTS)                .css({"transform": "translate(-" + translate_position + "px)"});
