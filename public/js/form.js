@@ -53,8 +53,8 @@ function agreements_set_active(index) {
 
     agreements                                  .removeClass('active');
 
-    console.log(agreements.index);
-    console.log(agreements.index[0]);
+    console.log(agreements);
+    console.log(agreements[0]);
 }
 
 
