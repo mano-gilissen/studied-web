@@ -14,15 +14,13 @@
 
     @include('form.field-input', ['id' => 'location', 'tag' => 'Locatie', 'icon' => 'search.svg', 'placeholder' => 'Zoek een locatie', 'required' => true, 'data' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true])
 
-
-
     <div class="seperator"></div>
 
 
 
-    <div class="title">{{ __('Activiteit') }}</div>
-
     @if(Auth::user()->role == \App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
+
+        <div class="title">{{ __('Activiteit') }}</div>
 
         @include('form.field-hidden', ['id' => '_host', 'value' => Auth::user()->id])
 
@@ -30,14 +28,19 @@
 
     @else
 
+        <div class="title">{{ __('Student-docent') }}</div>
+
         @include('form.field-input', ['id' => 'host', 'tag' => 'Student-docent', 'icon' => 'search.svg', 'placeholder' => 'Zoek een medewerker', 'required' => true, 'data' => true, 'show_all' => false, 'reject_other' => true, 'uses_id' => true, 'trigger' => 'agreements'])
+
+        <div class="seperator"></div>
+
+
+
+        <div class="title">{{ __('Activiteit') }}</div>
 
         @include('form.field-select-agreement')
 
     @endisset
-
-
-
 
     <div class="seperator"></div>
 

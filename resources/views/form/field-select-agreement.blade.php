@@ -16,6 +16,10 @@
 
                 @include('load.agreements', ['user' => $host])
 
+            @else
+
+                <div>Selecteer eerst een Student-docent voor deze les</div>
+
             @endif
 
         </div>
