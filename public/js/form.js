@@ -117,13 +117,13 @@ function agreements_render(movement = false) {
         translate_position                      += agreements[i].offsetWidth + SPACING_AGREEMENT;
 
     }
-
+/*
     if (!movement && (!agreement_is_selected() || agreements_index_active > 0)) {
 
         translate_position                      -= SPACING_AGREEMENT;
 
     }
-
+*/
     if (!movement) {
 
         $(OBJECT_AGREEMENTS)                    .css({"transition": "none"});
