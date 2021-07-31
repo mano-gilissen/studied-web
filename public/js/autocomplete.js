@@ -2,6 +2,7 @@
 
 
 const TRIGGER_AGREEMENTS                            = "agreements";
+const KEY_NONE                                      = "";
 
 
 
@@ -10,7 +11,8 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
     var currentFocus,
-        autocompleted                               = false;
+        autocompleted                               = false,
+        lastTriggerNoInput                          = false;
 
 
 
@@ -217,12 +219,12 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
         if (reject_other && !autocompleted) {
 
-            input.value                             = '';
+            input.value                             = KEY_NONE;
 
             if (uses_id) {
 
                 input_id                            = document.getElementById("_" + input.name);
-                input_id.value                      = '';
+                input_id.value                      = KEY_NONE;
 
                 callTrigger('');
             }
@@ -232,6 +234,14 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
     function callTrigger(key) {
+
+        if (key == KEY_NONE && lastTriggerNoInput) {
+
+            return false;
+
+        }
+
+        lastTriggerNoInput                          = key == KEY_NONE;
 
         switch (trigger) {
 
