@@ -2,9 +2,9 @@
 
     <div class="buttons">
 
-        <div class="button" id="button-previous"></div>
+        <img class="button" id="button-previous" src="/images/back.svg"/>
 
-        <div class="button" id="button-next"></div>
+        <img class="button" id="button-next" src="/images/forward.svg"/>
 
     </div>
 
