@@ -103,7 +103,7 @@ function agreements_set_active(index) {
             for (var i = 0; i < index; i++) {
 
                 agreement                       = agreements.get(index);
-                translate_position              += agreement.width();
+                translate_position              += agreement.offsetWidth;
 
             }
 
