@@ -118,7 +118,7 @@ function agreements_render(movement = false) {
 
     }
 
-    if (!movement && agreements_index_active > 0) {
+    if (!movement && (agreements_index_active > 0 || !agreement_is_selected())) {
 
         translate_position                      -= SPACING_AGREEMENT;
 
@@ -153,7 +153,7 @@ function agreement_toggle_selected(identifier) {
 
             $(CLASS_AGREEMENT).each(function( index ) {
 
-                if ($(CLASS_AGREEMENT + '.' + ATTR_SELECTED).length == 0) {
+                if (agreement_is_selected()) {
 
                     //$(this)                     .prop('disabled', false);
                     $(this)                     .removeClass('disabled');
@@ -177,6 +177,14 @@ function agreement_toggle_selected(identifier) {
     }
 
     agreements_render();
+}
+
+
+
+function agreement_is_selected() {
+
+    return $(CLASS_AGREEMENT + '.' + ATTR_SELECTED).length == 0;
+
 }
 
 
