@@ -99,7 +99,7 @@ function agreements_render() {
 
     for (var x = 0; x < agreements_index_active; x++) {
 
-        if (agreements[x].hasClass(ATTR_DISABLED)) {
+        if (agreements[x].classList.contains(ATTR_DISABLED)) {
 
             agreements_enabled_index_active--;
 
