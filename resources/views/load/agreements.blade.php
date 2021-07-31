@@ -36,6 +36,6 @@
 
 <script>
 
-    agreements_position();
+    agreements_set_active(0);
 
 </script>

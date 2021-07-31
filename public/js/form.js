@@ -45,7 +45,9 @@ function agreements_load(id, host) {
 
 
 
-function agreements_set_active() {
+function agreements_set_active(index) {
+
+    agreements_index_active                     = index;
 
     agreements                                  = $(CLASS_AGREEMENT);
 
