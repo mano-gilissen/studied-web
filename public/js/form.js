@@ -153,7 +153,7 @@ function agreement_toggle_selected(identifier) {
 
             $(CLASS_AGREEMENT).each(function( index ) {
 
-                if (agreement_is_selected()) {
+                if (!agreement_is_selected()) {
 
                     //$(this)                     .prop('disabled', false);
                     $(this)                     .removeClass('disabled');
@@ -183,7 +183,7 @@ function agreement_toggle_selected(identifier) {
 
 function agreement_is_selected() {
 
-    return $(CLASS_AGREEMENT + '.' + ATTR_SELECTED).length == 0;
+    return $(CLASS_AGREEMENT + '.' + ATTR_SELECTED).length > 0;
 
 }
 
