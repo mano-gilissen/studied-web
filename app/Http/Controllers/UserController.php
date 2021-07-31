@@ -19,7 +19,13 @@ class UserController extends Controller {
     public function agreements_load(Request $request) {
 
         $user_id                                            = $request->input(Model::$USER, null);
-        $user                                               = User::find($user_id);
+        $user                                               = null;
+
+        if ($user_id > 0) {
+
+            $user                                           = User::find($user_id);
+
+        }
 
         return view(Views::LOAD_AGREEMENTS, [
 

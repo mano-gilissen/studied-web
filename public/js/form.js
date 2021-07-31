@@ -39,14 +39,11 @@ $(function(){
 
 function agreements_load(host) {
 
-    if (host > 0) {
+    $('#agreements').load('/load/agreements', {
 
-        $('#agreements').load('/load/agreements', {
+        user:                               host
 
-            user:                               host
-
-        });
-    }
+    });
 }
 
 

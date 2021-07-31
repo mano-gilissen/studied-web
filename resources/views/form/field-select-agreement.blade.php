@@ -12,15 +12,7 @@
 
         <div id="agreements">
 
-            @if($host ?? false)
-
-                @include('load.agreements', ['user' => $host])
-
-            @else
-
-                <div>Selecteer eerst een Student-docent voor deze les</div>
-
-            @endif
+            @include('load.agreements', ['user' => $host ?? false])
 
         </div>
 

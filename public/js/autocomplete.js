@@ -211,12 +211,21 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
     function closeListAndReject() {
 
+        var input_id;
+
         closeList();
 
         if (reject_other && !autocompleted) {
 
             input.value                             = '';
 
+            if (uses_id) {
+
+                input_id                            = document.getElementById("_" + input.name);
+                input_id.value                      = '';
+
+                callTrigger('');
+            }
         }
     }
 
