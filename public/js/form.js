@@ -153,9 +153,9 @@ function agreements_render(movement = false) {
 
 
 
-function agreement_toggle_selected(identifier) {
+function agreement_toggle_selected(id) {
 
-    agreement                                   = $('#' + identifier);
+    agreement                                   = $('#' + id);
 
     if (agreement.hasClass(ATTR_ACTIVE)) {
 

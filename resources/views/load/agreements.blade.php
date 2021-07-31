@@ -16,7 +16,7 @@
 
                 @foreach($user->getAgreements_asEmployee as $agreement)
 
-                    <div class="agreement" id="{{ $agreement->identifier }}" data-subject="{{ $agreement->subject }}">
+                    <div class="agreement" id="{{ $agreement->id }}" data-subject="{{ $agreement->subject }}">
 
                         <div class="top">
 
@@ -47,7 +47,7 @@
                         </div>
 
                         <input
-                            id                                          = "_agreement"
+                            id                                          = "_agreement_{{ $agreement->id }}"
                             name                                        = "_agreement"
                             type                                        = "hidden">
 
