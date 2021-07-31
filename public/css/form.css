@@ -94,13 +94,13 @@ html, body {
     opacity:                            1;
 }
 
-.agreement.active.disabled {
-    opacity:                            .5;
-}
-
 .agreement.active:hover,
 .agreement.selected:hover {
     background:                         #F0F0F0;
+}
+
+.agreement.active.disabled:hover {
+    background:                         #F8F8F8;
 }
 
 .agreement.selected #selector-enabled {
@@ -179,7 +179,7 @@ html, body {
 }
 
 .agreement #selector-disabled {
-    background:                         #FF7F7F;
+    background:                         #FF9999;
     display:                            none;
 }
 
