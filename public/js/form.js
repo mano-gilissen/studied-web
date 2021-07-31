@@ -11,6 +11,8 @@ $(function(){
 
     $(OBJECT_AGREEMENTS).on('click', CLASS_AGREEMENT, function() {
 
+        console.log('a');
+
         agreement_toggle($(this).attr('id'))
 
     });
@@ -111,8 +113,6 @@ function agreements_set_active(index) {
 
 
 function agreement_toggle(identifier) {
-
-    console.log('a');
 
     agreement                                   = $('#' + identifier);
 
