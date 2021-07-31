@@ -31,6 +31,8 @@ trait StudyTrait {
 
     public static function create(array $data, &$study) {
 
+        dd($data);
+
         $study                                          = new Study;
 
         $study->{Model::$BASE_KEY}                      = rand(100000,999999); // TODO: MOVE TO DEFAULT METHOD
