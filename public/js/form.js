@@ -93,12 +93,26 @@ function agreements_set_active(index) {
 
 function agreements_render() {
 
-    if (agreements_index_active === 0) {
+    agreements_enabled                          = $(CLASS_AGREEMENT + ':not(.' + ATTR_DISABLED + ')');
+
+    agreements_enabled_index_active             = agreements_index_active;
+
+    for (var x = 0; x < agreements_index_active; x++) {
+
+        if (agreements[x].hasClass(ATTR_DISABLED)) {
+
+            agreements_enabled_index_active--;
+
+        }
+    }
+
+
+    if (agreements_enabled_index_active === 0) {
 
         button_next                             .addClass(ATTR_VISIBLE);
         button_next                             .addClass(ATTR_SOLO);
 
-    } else if (agreements_index_active === agreements.length - 1) {
+    } else if (agreements_enabled_index_active === agreements_enabled.length - 1) {
 
         button_previous                         .addClass(ATTR_VISIBLE);
         button_previous                         .addClass(ATTR_SOLO);
@@ -112,9 +126,9 @@ function agreements_render() {
 
     var translate_position                      = 0;
 
-    for (var i = 0; i < agreements_index_active; i++) {
+    for (var i = 0; i < agreements_enabled_index_active; i++) {
 
-        translate_position                      += agreements[i].offsetWidth + SPACING_AGREEMENT;
+        translate_position                      += agreements_enabled[i].offsetWidth + SPACING_AGREEMENT;
 
     }
 
@@ -137,7 +151,7 @@ function agreement_toggle_selected(identifier) {
 
                 if ($(CLASS_AGREEMENT + '.' + ATTR_SELECTED).length == 0) {
 
-                    $(this)                     .prop(ATTR_DISABLED, false);
+                    //$(this)                     .prop(ATTR_DISABLED, false);
                     $(this)                     .removeClass(ATTR_DISABLED);
                 }
             });
@@ -150,13 +164,15 @@ function agreement_toggle_selected(identifier) {
 
                 if ($(this).attr('data-subject') != agreement.attr('data-subject')) {
 
-                    $(this)                     .prop(ATTR_DISABLED, true);
+                    //$(this)                     .prop(ATTR_DISABLED, true);
                     $(this)                     .addClass(ATTR_DISABLED);
 
                 }
             });
         }
     }
+
+    agreements_render()
 }
 
 
