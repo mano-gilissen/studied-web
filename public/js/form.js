@@ -39,12 +39,12 @@ $(function(){
 
 function agreements_load(host) {
 
-    $agreements                                 = $('.agreements');
-    $agreements                                 .fadeOut('500');
+    agreements                                  = $('.agreements');
+    agreements                                  .fadeOut('500');
 
     setTimeout(function(){
 
-        $agreements.load('/load/agreements', {
+        agreements.load('/load/agreements', {
 
             user:                               host
 
