@@ -124,6 +124,11 @@ function agreements_render() {
 
     }
 
+    console.log(agreements_index_active);
+    console.log(agreements_enabled_index_active);
+    console.log(agreements);
+    console.log(agreements_enabled);
+
     var translate_position                      = 0;
 
     for (var i = 0; i < agreements_enabled_index_active; i++) {
