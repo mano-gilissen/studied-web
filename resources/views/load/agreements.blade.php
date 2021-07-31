@@ -48,7 +48,7 @@
 
                         <input
                             id                                          = "_agreement_{{ $agreement->id }}"
-                            name                                        = "_agreement"
+                            name                                        = "_agreement_{{ $agreement->id }}"
                             type                                        = "hidden">
 
                     </div>
