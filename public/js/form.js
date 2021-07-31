@@ -102,7 +102,8 @@ function agreements_set_active(index) {
 
             for (var i = 0; i < index; i++) {
 
-                translate_position              += agreements[i].width();
+                agreement                       = agreements.get(index);
+                translate_position              += agreement.width();
 
             }
 
