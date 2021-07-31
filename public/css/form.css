@@ -92,6 +92,7 @@ html, body {
 
 .agreement.active {
     opacity:                            1;
+    cursor:                             pointer;
 }
 
 .agreement.disabled {
