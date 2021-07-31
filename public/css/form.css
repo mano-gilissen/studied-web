@@ -73,7 +73,17 @@ html, body {
     margin-top:                         32px;
 }
 
+.agreements .wrap {
+    width:                              100%;
+    overflow-x:                         hidden;
+}
+
+#agreements {
+    width:                              max-content;
+}
+
 .agreement {
+    width:                              max-content;
     opacity:                            .3;
     line-height:                        24px;
 }

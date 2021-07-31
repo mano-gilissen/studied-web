@@ -1,9 +1,17 @@
-<div id="agreements" class="agreements">
+<div class="agreements">
 
-    @if($host ?? false)
+    <div class="wrap">
 
-        @include('load.agreements', ['user' => $host])
+        <div id="agreements">
 
-    @endif
+            @if($host ?? false)
+
+                @include('load.agreements', ['user' => $host])
+
+            @endif
+
+        </div>
+
+    </div>
 
 </div>
