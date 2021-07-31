@@ -39,7 +39,7 @@ $(function(){
 
 function agreements_load(host) {
 
-    $('#agreements').load('/load/agreements', {
+    $('.agreements').load('/load/agreements', {
 
         user:                               host
 
