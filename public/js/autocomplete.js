@@ -224,12 +224,10 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
     function callTrigger(key) {
 
-        console.log(key);
-        console.log(trigger);
-
         switch (trigger) {
 
             case TRIGGER_AGREEMENTS:
+                console.log(key);
                 agreements_load(key);
                 break;
         }
