@@ -39,6 +39,8 @@ $(function(){
 
 function agreements_load(id, host) {
 
+    console.log('a');
+
     if (host > 0) {
 
         $('#agreements').load('/load/agreements', {
