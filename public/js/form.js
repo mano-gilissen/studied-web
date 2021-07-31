@@ -37,9 +37,7 @@ $(function(){
 
 
 
-function agreements_load(id, host) {
-
-    console.log('a');
+function agreements_load(host) {
 
     if (host > 0) {
 
