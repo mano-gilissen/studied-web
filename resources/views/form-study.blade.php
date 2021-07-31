@@ -3,7 +3,9 @@
 
 
 @section('fields')
-
+    @if($errors->any())
+        {{ implode('', $errors->all('<div>:message</div>')) }}
+    @endif
 
 
     <div class="title">{{ __('Tijd en locatie') }}</div>
