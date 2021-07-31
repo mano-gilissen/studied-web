@@ -25,13 +25,13 @@ $(function(){
 
 
 
-    $(OBJECT_AGREEMENTS).on('click', OBJECT_BUTTON_PREVIOUS, function() {
+    $(OBJECT_FORM).on('click', OBJECT_BUTTON_PREVIOUS, function() {
 
         agreements_set_active(agreements_index_active - 1);
 
     });
 
-    $(OBJECT_AGREEMENTS).on('click', OBJECT_BUTTON_NEXT, function() {
+    $(OBJECT_FORM).on('click', OBJECT_BUTTON_NEXT, function() {
 
         agreements_set_active(agreements_index_active + 1);
 
