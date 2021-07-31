@@ -175,8 +175,7 @@ function agreement_toggle_selected(identifier) {
         } else {
 
             agreement                           .addClass(ATTR_SELECTED);
-
-            console.log(agreement.find('input'));
+            agreement.find('input')[0].value    = agreement.attr('id');
 
             $(CLASS_AGREEMENT).each(function( index ) {
 
