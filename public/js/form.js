@@ -11,8 +11,6 @@ $(function(){
 
     $(OBJECT_FORM).on('click', CLASS_AGREEMENT, function() {
 
-        console.log('a');
-
         agreement_toggle($(this).attr('id'))
 
     });
@@ -118,8 +116,29 @@ function agreement_toggle(identifier) {
 
     if (agreement.hasClass(ATTR_ACTIVE)) {
 
-        agreement                               .toggleClass('selected');
+        if (agreement.hasClass(ATTR_SELECTED)) {
 
+            $(CLASS_AGREEMENT).each(function( index ) {
+
+                $(this)                         .prop('disabled', false);
+                $(this)                         .removeClass('disabled');
+
+            });
+        } else {
+
+
+            $(CLASS_AGREEMENT).each(function( index ) {
+
+                if ($(this).attr('data-subject') != agreement.attr('data-subject')) {
+
+                    $(this)                     .prop('disabled', true);
+                    $(this)                     .addClass('disabled');
+
+                }
+            });
+        }
+
+        agreement                               .toggleClass(ATTR_SELECTED);
     }
 }
 
