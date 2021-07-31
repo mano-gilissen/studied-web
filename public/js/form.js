@@ -114,7 +114,7 @@ function agreements_render(movement = false) {
 
     for (var i = 0; i < agreements_index_active; i++) {
 
-        if (!agreements[i].hasClass(ATTR_DISABLED)) {
+        if (!agreements[i].classList.contains(ATTR_DISABLED)) {
 
             translate_position                      += agreements[i].offsetWidth + SPACING_AGREEMENT;
 
