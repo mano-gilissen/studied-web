@@ -721,6 +721,20 @@ select::-ms-expand {
 
 
 
+/*   REMOVE ABILITY TO SELECT FROM ELEMENTS   */
+
+.agreement {
+    -webkit-user-select:                none;
+    -khtml-user-select:                 none;
+    -moz-user-select:                   -moz-none;
+    -o-user-select:                     none;
+    user-select:                        none;
+}
+
+
+
+
+
 /*   REMOVE CLEAR CROSS FROM INPUT FIELDS IN IE AND CHROME   */
 
 input[type=search]::-ms-clear {  display: none; width : 0; height: 0; }
