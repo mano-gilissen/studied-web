@@ -46,9 +46,11 @@
 
 
 
-    <div class="title">{{ __('Activiteit') }}</div>
+    <div class="title">{{ __('Details') }}</div>
 
-    @include('form.field-input', ['id' => 'remark', 'tag' => 'Opmerking', 'required' => true])
+    @include('form.field-input', ['id' => 'remark', 'tag' => 'Opmerking'])
+
+    @include('form.field-input', ['id' => 'trial', 'tag' => 'Proefles'])
 
 
 
