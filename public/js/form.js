@@ -60,14 +60,7 @@ function agreements_set_active(index) {
     agreements_index_active                     = index;
 
     agreements                                  = $(CLASS_AGREEMENT);
-    buttons                                     = $(CLASS_BUTTON);
-
-    button_previous                             = $(OBJECT_BUTTON_PREVIOUS);
-    button_next                                 = $(OBJECT_BUTTON_NEXT);
-
     agreements                                  .removeClass(ATTR_ACTIVE);
-    buttons                                     .removeClass(ATTR_VISIBLE);
-    buttons                                     .removeClass(ATTR_SOLO);
 
     switch (agreements.length) {
 
@@ -91,7 +84,15 @@ function agreements_set_active(index) {
 
 
 
-function agreements_render() {
+function agreements_render(movement = false) {
+
+    buttons                                     = $(CLASS_BUTTON);
+
+    button_previous                             = $(OBJECT_BUTTON_PREVIOUS);
+    button_next                                 = $(OBJECT_BUTTON_NEXT);
+
+    buttons                                     .removeClass(ATTR_VISIBLE);
+    buttons                                     .removeClass(ATTR_SOLO);
 
     agreements_enabled                          = $(CLASS_AGREEMENT + ':not(.' + ATTR_DISABLED + ')');
 
@@ -124,11 +125,6 @@ function agreements_render() {
 
     }
 
-    console.log(agreements_index_active);
-    console.log(agreements_enabled_index_active);
-    console.log(agreements);
-    console.log(agreements_enabled);
-
     var translate_position                      = 0;
 
     for (var i = 0; i < agreements_enabled_index_active; i++) {
@@ -137,7 +133,19 @@ function agreements_render() {
 
     }
 
+    if (!movement) {
+
+        $(OBJECT_AGREEMENTS)                    .css({"transition": "none"});
+
+    }
+
     $(OBJECT_AGREEMENTS)                        .css({"transform": "translate(-" + translate_position + "px)"});
+
+    if (!movement) {
+
+        $(OBJECT_AGREEMENTS)                    .css({"transition": "opacity .4s ease"});
+
+    }
 }
 
 
