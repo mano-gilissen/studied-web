@@ -94,6 +94,10 @@ html, body {
     opacity:                            1;
 }
 
+.agreement.disabled {
+    display:                            none;
+}
+
 .agreement.active:hover,
 .agreement.selected:hover {
     background:                         #F0F0F0;
