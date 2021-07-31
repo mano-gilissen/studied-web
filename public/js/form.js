@@ -106,7 +106,7 @@ function agreements_set_active(index) {
 
             }
 
-            $(OBJECT_AGREEMENTS)                .css("-webkit-transform", "translate(100px,100px)");​
+            $(OBJECT_AGREEMENTS)                .addclass('a');//.css("-webkit-transform", "translate(100px,100px)");​
 
             break;
     }
