@@ -37,15 +37,20 @@ html, body {
 
 #form {
     grid-area:                          form;
+    width:                              772px;
     margin-top:                         40px;
     margin-bottom:                      96px;
-    padding:                            96px 130px;
+    padding:                            96px 0;
     background:                         white;
     animation-name:                     in_form;
     animation-duration:                 .5s;
     animation-delay:                    .2s;
     animation-fill-mode:                forwards;
     opacity:                            0;
+}
+
+#form .block-form {
+
 }
 
 #buttons {
