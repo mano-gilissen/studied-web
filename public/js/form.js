@@ -83,7 +83,7 @@ function agreements_set_active(index) {
             agreement                           = agreements.get(index);
             agreement                           .classList.add(ATTR_ACTIVE);
 
-            agreements_render();
+            agreements_render(true);
 
             break;
     }
@@ -91,7 +91,7 @@ function agreements_set_active(index) {
 
 
 
-function agreements_render() {
+function agreements_render(movement = false) {
 
     if (agreements_index_active === 0) {
         button_next                     .addClass(ATTR_VISIBLE);
@@ -112,7 +112,19 @@ function agreements_render() {
 
     }
 
+    if (!movement) {
+
+        $(OBJECT_AGREEMENTS)            .css({"transition": "none"});
+
+    }
+
     $(OBJECT_AGREEMENTS)                .css({"transform": "translate(-" + translate_position + "px)"});
+
+    if (!movement) {
+
+        $(OBJECT_AGREEMENTS)            .css({"transition": "opacity .4s ease"});
+
+    }
 }
 
 
