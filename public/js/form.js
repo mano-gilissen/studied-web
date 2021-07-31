@@ -25,6 +25,20 @@ $(function(){
 
 
 
+    $(OBJECT_AGREEMENTS).on('click', OBJECT_BUTTON_PREVIOUS, function() {
+
+        agreements_set_active(agreements_index_active - 1);
+
+    });
+
+    $(OBJECT_AGREEMENTS).on('click', OBJECT_BUTTON_NEXT, function() {
+
+        agreements_set_active(agreements_index_active + 1);
+
+    });
+
+
+
 });
 
 
@@ -55,9 +69,9 @@ function agreements_set_active(index) {
     button_previous                             = $(OBJECT_BUTTON_PREVIOUS);
     button_next                                 = $(OBJECT_BUTTON_NEXT);
 
-    agreements                                  .removeClass('active');
-    buttons                                     .removeClass('visible');
-    buttons                                     .removeClass('solo');
+    agreements                                  .removeClass(ATTR_ACTIVE);
+    buttons                                     .removeClass(ATTR_VISIBLE);
+    buttons                                     .removeClass(ATTR_SOLO);
 
     switch (agreements.length) {
 
@@ -66,22 +80,22 @@ function agreements_set_active(index) {
             break;
 
         case 1:
-            agreements.first()                  .addClass('active');
+            agreements.first()                  .addClass(ATTR_ACTIVE);
             break;
 
         default:
             agreement                           = agreements.get(index);
-            agreement                           .classList.add('active');
+            agreement                           .classList.add(ATTR_ACTIVE);
 
             if (index === 0) {
-                button_next                     .addClass('visible');
-                button_next                     .addClass('solo');
+                button_next                     .addClass(ATTR_VISIBLE);
+                button_next                     .addClass(ATTR_SOLO);
             } else if (index === agreements.length - 1) {
-                button_previous                 .addClass('visible');
-                button_previous                 .addClass('solo');
+                button_previous                 .addClass(ATTR_VISIBLE);
+                button_previous                 .addClass(ATTR_SOLO);
             } else {
-                button_previous                 .addClass('visible');
-                button_next                     .addClass('visible');
+                button_previous                 .addClass(ATTR_VISIBLE);
+                button_next                     .addClass(ATTR_VISIBLE);
             }
 
             break;

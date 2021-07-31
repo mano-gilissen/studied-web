@@ -27,7 +27,10 @@ const CLASS_BUTTON                              = '.button';
 const ICON_BACK                                 = "/images/back.svg";
 const ICON_MENU                                 = "/images/menu.svg";
 
-const CLASS_SORT_MODE_NONE                      = '.none';
+const ATTR_NONE                                 = 'none';
+const ATTR_VISIBLE                              = 'visible';
+const ATTR_ACTIVE                               = 'active';
+const ATTR_SOLO                                 = 'solo';
 
 const TEXT_PAGE_TITLE_MENU                      = 'Studied';
 
@@ -89,7 +92,7 @@ $(function(){
 
     });
 
-    $(OBJECT_APP).on('mousemove', CLASS_HEADER + ":not(" + CLASS_SORT_MODE_NONE + ")", function() {
+    $(OBJECT_APP).on('mousemove', CLASS_HEADER + ":not(." + ATTR_NONE + ")", function() {
 
         setTooltip("Sorteren");
 
