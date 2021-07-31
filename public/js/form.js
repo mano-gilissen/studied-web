@@ -176,6 +176,8 @@ function agreement_toggle_selected(identifier) {
 
             agreement                           .addClass(ATTR_SELECTED);
 
+            console.log(agreement.find('input'));
+
             $(CLASS_AGREEMENT).each(function( index ) {
 
                 if ($(this).attr('data-subject') != agreement.attr('data-subject')) {

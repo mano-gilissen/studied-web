@@ -36,7 +36,7 @@
 
 
 
-        <div class="title">{{ __('Activiteit') }}</div>
+        <div class="title">{{ __('Activiteit(en)') }}</div>
 
         @include('form.field-select-agreement')
 

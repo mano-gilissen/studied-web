@@ -46,6 +46,11 @@
 
                         </div>
 
+                        <input
+                            id                                          = "_agreement"
+                            name                                        = "_agreement"
+                            type                                        = "hidden">
+
                     </div>
 
                 @endforeach
