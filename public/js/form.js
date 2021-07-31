@@ -76,7 +76,7 @@ function agreements_set_active(index) {
             agreement                           = agreements.get(agreements_index_active);
             agreement                           .classList.add(ATTR_ACTIVE);
 
-            agreements_render();
+            agreements_render(true);
 
             break;
     }
