@@ -143,7 +143,7 @@ function agreements_render(movement = false) {
 
     if (!movement) {
 
-        $(OBJECT_AGREEMENTS)                    .css({"transition": "opacity .4s ease"});
+        $(OBJECT_AGREEMENTS)                    .css({"transition": "transform .4s ease"});
 
     }
 }
