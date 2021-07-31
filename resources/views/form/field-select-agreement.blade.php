@@ -1,5 +1,13 @@
 <div class="agreements">
 
+    <div class="buttons">
+
+        <div class="button" id="button-previous"></div>
+
+        <div class="button" id="button-next"></div>
+
+    </div>
+
     <div class="wrap">
 
         <div id="agreements">

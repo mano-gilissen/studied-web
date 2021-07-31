@@ -136,6 +136,21 @@ html, body {
     border-radius:                      28px;
 }
 
+.agreements .buttons {
+    position:                           absolute;
+    display:                            flex;
+    align-items:                        end;
+    padding-top:                        70px;
+}
+
+.agreements .buttons .button {
+    width:                              32px;
+    height:                             32px;
+    border-radius:                      16px;
+    background:                         #E6E6E6;
+    margin-right:                       24px;
+}
+
 
 
 
