@@ -148,7 +148,14 @@ html, body {
     height:                             32px;
     border-radius:                      16px;
     background:                         #E6E6E6;
-    margin-right:                       24px;
+}
+
+#button-previous {
+    margin-left:                        auto;
+}
+
+#button-next {
+    margin-left:                        24px;
 }
 
 
