@@ -13,7 +13,7 @@ $(function(){
 
 
 
-    $(OBJECT_AGREEMENTS).on('click', '.agreement', function() {
+    $(OBJECT_AGREEMENTS).on('click', CLASS_AGREEMENT, function() {
 
         agreement_toggle($(this).attr('id'))
 
@@ -43,6 +43,7 @@ function agreements_load(id, host) {
 
 function agreement_toggle(identifier) {
 
+    console.log(identifier);
     $('#' . identifier).classList.toggle(CLASS_SELECTED);
 
 }
