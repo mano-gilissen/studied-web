@@ -24,7 +24,7 @@
 
                             <img class="selector" id="selector-enabled" src="/images/check-white.svg"/>
 
-                            <img class="selector" id="selector-disabled" src="/images/cross-white.svg"/>
+                            <img class="selector" id="selector-disabled" src="/images/close-white.svg"/>
 
                         </div>
 
