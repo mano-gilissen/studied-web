@@ -120,9 +120,11 @@ function agreement_toggle(identifier) {
 
             $(CLASS_AGREEMENT).each(function( index ) {
 
-                $(this)                         .prop('disabled', false);
-                $(this)                         .removeClass('disabled');
+                if ($(CLASS_AGREEMENT + '.' + ATTR_SELECTED).length) {
 
+                    $(this)                         .prop('disabled', false);
+                    $(this)                         .removeClass('disabled');
+                }
             });
         } else {
 
