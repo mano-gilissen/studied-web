@@ -116,8 +116,13 @@ function agreements_set_active(index) {
 
 function agreement_toggle(identifier) {
 
-    $('#' + identifier)                         .toggleClass('selected');
+    agreement                                   = $('#' + identifier);
 
+    if (agreement.classList.contains(ATTR_ACTIVE)) {
+
+        agreement                               .toggleClass('selected');
+
+    }
 }
 
 
