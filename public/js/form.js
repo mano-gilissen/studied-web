@@ -118,7 +118,7 @@ function agreement_toggle(identifier) {
 
     agreement                                   = $('#' + identifier);
 
-    if (agreement.classList.contains(ATTR_ACTIVE)) {
+    if (agreement.hasClass(ATTR_ACTIVE)) {
 
         agreement                               .toggleClass('selected');
 
