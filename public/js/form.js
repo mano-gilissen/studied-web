@@ -11,7 +11,7 @@ $(function(){
 
     $(OBJECT_FORM).on('click', CLASS_AGREEMENT, function() {
 
-        agreement_toggle($(this).attr('id'))
+        agreement_toggle_selected($(this).attr('id'))
 
     });
 
@@ -83,26 +83,7 @@ function agreements_set_active(index) {
             agreement                           = agreements.get(index);
             agreement                           .classList.add(ATTR_ACTIVE);
 
-            if (index === 0) {
-                button_next                     .addClass(ATTR_VISIBLE);
-                button_next                     .addClass(ATTR_SOLO);
-            } else if (index === agreements.length - 1) {
-                button_previous                 .addClass(ATTR_VISIBLE);
-                button_previous                 .addClass(ATTR_SOLO);
-            } else {
-                button_previous                 .addClass(ATTR_VISIBLE);
-                button_next                     .addClass(ATTR_VISIBLE);
-            }
-
-            var translate_position              = 0;
-
-            for (var i = 0; i < index; i++) {
-
-                translate_position              += agreements[i].offsetWidth + SPACING_AGREEMENT;
-
-            }
-
-            $(OBJECT_AGREEMENTS)                .css({"transform": "translate(-" + translate_position + "px)"});
+            agreements_render();
 
             break;
     }
@@ -110,7 +91,33 @@ function agreements_set_active(index) {
 
 
 
-function agreement_toggle(identifier) {
+function agreements_render() {
+
+    if (agreements_index_active === 0) {
+        button_next                     .addClass(ATTR_VISIBLE);
+        button_next                     .addClass(ATTR_SOLO);
+    } else if (agreements_index_active === agreements.length - 1) {
+        button_previous                 .addClass(ATTR_VISIBLE);
+        button_previous                 .addClass(ATTR_SOLO);
+    } else {
+        button_previous                 .addClass(ATTR_VISIBLE);
+        button_next                     .addClass(ATTR_VISIBLE);
+    }
+
+    var translate_position              = 0;
+
+    for (var i = 0; i < agreements_index_active; i++) {
+
+        translate_position              += agreements[i].offsetWidth + SPACING_AGREEMENT;
+
+    }
+
+    $(OBJECT_AGREEMENTS)                .css({"transform": "translate(-" + translate_position + "px)"});
+}
+
+
+
+function agreement_toggle_selected(identifier) {
 
     agreement                                   = $('#' + identifier);
 
