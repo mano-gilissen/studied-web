@@ -108,7 +108,7 @@ function agreements_set_active(index) {
             }
 
             object_agreements                   = $(OBJECT_AGREEMENTS);
-            object_agreements                   .addClass('a');//.css("-webkit-transform", "translate(100px,100px)");​
+            object_agreements                   .css("-webkit-transform", "translate(100px,100px)");​
 
             break;
     }
