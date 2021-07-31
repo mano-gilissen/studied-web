@@ -78,7 +78,7 @@ class StudyController extends Controller {
         $ac_data_location                                   = $objects_location->pluck(Model::$LOCATION_NAME, Model::$BASE_ID)->toArray();
         $ac_data_host                                       = $objects_host->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
 
-        $ac_additional_host                                 = $objects_host->pluck('getPerson.' . Model::$PERSON_SLUG, Model::$BASE_ID)->toArray();
+        $ac_additional_host                                 = $objects_host->pluck(Model::$USER_EMAIL, Model::$BASE_ID)->toArray();
 
         return view(Views::FORM_STUDY, [
 
