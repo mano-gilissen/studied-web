@@ -31,6 +31,7 @@ const ATTR_NONE                                 = 'none';
 const ATTR_VISIBLE                              = 'visible';
 const ATTR_ACTIVE                               = 'active';
 const ATTR_SELECTED                             = 'selected';
+const ATTR_DISABLED                             = 'disabled';
 const ATTR_SOLO                                 = 'solo';
 
 const SPACING_AGREEMENT                         = 40;

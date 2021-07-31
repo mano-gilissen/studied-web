@@ -117,13 +117,13 @@ function agreements_render(movement = false) {
         translate_position                      += agreements[i].offsetWidth + SPACING_AGREEMENT;
 
     }
-/*
-    if (!movement && (!agreement_is_selected() || agreements_index_active > 0)) {
+
+    if (agreement_is_disabled() && agreements_index_active > 0) {
 
         translate_position                      -= SPACING_AGREEMENT;
 
     }
-*/
+
     if (!movement) {
 
         $(OBJECT_AGREEMENTS)                    .css({"transition": "none"});
@@ -156,7 +156,7 @@ function agreement_toggle_selected(identifier) {
                 if (!agreement_is_selected()) {
 
                     //$(this)                     .prop('disabled', false);
-                    $(this)                     .removeClass('disabled');
+                    $(this)                     .removeClass(ATTR_DISABLED);
                 }
             });
 
@@ -169,7 +169,7 @@ function agreement_toggle_selected(identifier) {
                 if ($(this).attr('data-subject') != agreement.attr('data-subject')) {
 
                    // $(this)                     .prop('disabled', true);
-                    $(this)                     .addClass('disabled');
+                    $(this)                     .addClass(ATTR_DISABLED);
 
                 }
             });
@@ -184,6 +184,14 @@ function agreement_toggle_selected(identifier) {
 function agreement_is_selected() {
 
     return $(CLASS_AGREEMENT + '.' + ATTR_SELECTED).length > 0;
+
+}
+
+
+
+function agreement_is_disabled() {
+
+    return $(CLASS_AGREEMENT + '.' + ATTR_DISABLED).length > 0;
 
 }
 
