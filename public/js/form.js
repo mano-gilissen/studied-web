@@ -93,8 +93,6 @@ function agreements_set_active(index) {
 
 function agreements_render(movement = false) {
 
-    agreements                                  = $(CLASS_AGREEMENT + ':not(.' + ATTR_DISABLED + ')');
-
     if (agreements_index_active === 0) {
 
         button_next                             .addClass(ATTR_VISIBLE);
@@ -116,8 +114,11 @@ function agreements_render(movement = false) {
 
     for (var i = 0; i < agreements_index_active; i++) {
 
-        translate_position                      += agreements[i].offsetWidth + SPACING_AGREEMENT;
+        if (!agreements[i].hasClass(ATTR_DISABLED)) {
 
+            translate_position                      += agreements[i].offsetWidth + SPACING_AGREEMENT;
+
+        }
     }
 
     if (!movement) {
