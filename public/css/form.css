@@ -159,12 +159,16 @@ html, body {
 }
 
 .agreements .buttons .button.solo {
-    margin-left:                        auto;
     background:                         #FFDD34;
 }
 
 .agreements .buttons .button.solo:hover {
     background:                         #FFE45B;
+}
+
+.agreements .buttons #button-next.solo,
+.agreements .buttons #button-previous {
+    margin-left:                        auto;
 }
 
 
