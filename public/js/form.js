@@ -9,7 +9,7 @@ $(function(){
 
 
 
-    $(OBJECT_FORM).on('click', '#_host', function() {
+    $(OBJECT_FORM).on('click', '#host', function() {
 
         console.out('á');
 
