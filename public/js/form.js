@@ -102,7 +102,7 @@ function agreements_set_active(index) {
 
             for (var i = 0; i < index; i++) {
 
-                translate_position              += agreements[i].offsetWidth;
+                translate_position              += agreements[i].offsetWidth + SPACING_AGREEMENT;
 
             }
 

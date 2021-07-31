@@ -32,6 +32,8 @@ const ATTR_VISIBLE                              = 'visible';
 const ATTR_ACTIVE                               = 'active';
 const ATTR_SOLO                                 = 'solo';
 
+const SPACING_AGREEMENT                         = 40;
+
 const TEXT_PAGE_TITLE_MENU                      = 'Studied';
 
 var menu_open                                   = false;

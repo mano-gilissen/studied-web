@@ -434,7 +434,7 @@ button:focus {
 .agreement {
     width:                              max-content;
     padding:                            22px 24px 46px 32px;
-    margin-right:                       48px;
+    margin-right:                       40px;
     line-height:                        24px;
     background:                         #F8F8F8;
     cursor:                             pointer;
