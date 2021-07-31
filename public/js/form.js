@@ -93,6 +93,8 @@ function agreements_set_active(index) {
 
 function agreements_render(movement = false) {
 
+    agreements                                  = $(CLASS_AGREEMENT + ':not(.' + ATTR_DISABLED + ')');
+
     if (agreements_index_active === 0) {
 
         button_next                             .addClass(ATTR_VISIBLE);
@@ -115,12 +117,6 @@ function agreements_render(movement = false) {
     for (var i = 0; i < agreements_index_active; i++) {
 
         translate_position                      += agreements[i].offsetWidth + SPACING_AGREEMENT;
-
-    }
-
-    if (agreement_is_disabled() && agreements_index_active > 0) {
-
-        translate_position                      -= SPACING_AGREEMENT;
 
     }
 
@@ -184,14 +180,6 @@ function agreement_toggle_selected(identifier) {
 function agreement_is_selected() {
 
     return $(CLASS_AGREEMENT + '.' + ATTR_SELECTED).length > 0;
-
-}
-
-
-
-function agreement_is_disabled() {
-
-    return $(CLASS_AGREEMENT + '.' + ATTR_DISABLED).length > 0;
 
 }
 
