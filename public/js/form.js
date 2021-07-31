@@ -39,11 +39,18 @@ $(function(){
 
 function agreements_load(host) {
 
-    $('.agreements').fadeOut('500').load('/load/agreements', {
+    $agreements                                 = $('.agreements');
+    $agreements                                 .fadeOut('500');
 
-        user:                               host
+    setTimeout(function(){
 
-    }).fadeIn('500');
+        $agreements.load('/load/agreements', {
+
+            user:                               host
+
+        }).fadeIn('500');
+
+    }, 500);
 }
 
 
