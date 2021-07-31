@@ -156,6 +156,7 @@ html {
 #header .person .no-avatar {
     font-size:                          14px;
     text-align:                         center;
+    padding-right:                      1px;
 }
 
 #header .person .name {
