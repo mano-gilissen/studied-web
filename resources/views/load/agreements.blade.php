@@ -33,3 +33,9 @@
     </div>
 
 @endforeach
+
+<script>
+
+    agreements_position();
+
+</script>

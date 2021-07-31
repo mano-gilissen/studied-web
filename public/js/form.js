@@ -1,6 +1,10 @@
 
 
 
+var agreements_index_active                     = 0;
+
+
+
 $(function(){
 
 
@@ -41,10 +45,19 @@ function agreements_load(id, host) {
 
 
 
+function agreements_set_active() {
+
+    agreements                                  = $(CLASS_AGREEMENT);
+
+    agreements                                  .removeClass('active');
+    agreements[agreements_index_active]         .addClass('active');
+}
+
+
+
 function agreement_toggle(identifier) {
 
-    console.log(identifier);
-    $('#' + identifier).toggleClass('selected');
+    $('#' + identifier)                         .toggleClass('selected');
 
 }
 
