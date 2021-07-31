@@ -79,8 +79,7 @@ html, body {
 }
 
 #agreements {
-    display:                            flex;
-    width:                              max-content;
+    width:                              512px;
 }
 
 .agreement {
@@ -92,8 +91,9 @@ html, body {
 .agreement .selector {
     width:                              32px;
     height:                             32px;
-    border-right:                       16px;
+    margin-left:                        auto;
     padding:                            6px;
+    border-radius:                      16px;
     background:                         #E6E6E6;
     opacity:                            0;
 }
@@ -127,8 +127,8 @@ html, body {
     margin:                             16px 48px 0 0;
 }
 
-.agreement img,
-.agreement .no-avatar {
+.agreement .bottom img,
+.agreement .bottom .no-avatar {
     width:                              56px;
     height:                             56px;
     margin:                             0 26px 0 0;
