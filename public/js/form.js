@@ -118,7 +118,7 @@ function agreements_render(movement = false) {
 
     }
 
-    if (!movement && (agreements_index_active > 0 || !agreement_is_selected())) {
+    if (!movement && (!agreement_is_selected() || agreements_index_active > 0)) {
 
         translate_position                      -= SPACING_AGREEMENT;
 
