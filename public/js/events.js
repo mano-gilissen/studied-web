@@ -24,8 +24,6 @@ const CLASS_AGREEMENT                           = '.agreement';
 const ICON_BACK                                 = "/images/back.svg";
 const ICON_MENU                                 = "/images/menu.svg";
 
-const CLASS_SELECTED                            = '.selected';
-const CLASS_ACTIVE                              = '.active';
 const CLASS_SORT_MODE_NONE                      = '.none';
 
 const TEXT_PAGE_TITLE_MENU                      = 'Studied';
