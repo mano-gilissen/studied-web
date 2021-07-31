@@ -80,10 +80,10 @@ function agreements_set_active(index) {
             break;
 
         default:
-            agreement                           = agreements.get(index);
+            agreement                           = agreements.get(agreements_index_active);
             agreement                           .classList.add(ATTR_ACTIVE);
 
-            agreements_render(true);
+            agreements_render();
 
             break;
     }
@@ -91,7 +91,7 @@ function agreements_set_active(index) {
 
 
 
-function agreements_render(movement = false) {
+function agreements_render() {
 
     if (agreements_index_active === 0) {
 
@@ -114,26 +114,11 @@ function agreements_render(movement = false) {
 
     for (var i = 0; i < agreements_index_active; i++) {
 
-        if (!agreements[i].classList.contains(ATTR_DISABLED)) {
-
-            translate_position                      += agreements[i].offsetWidth + SPACING_AGREEMENT;
-
-        }
-    }
-
-    if (!movement) {
-
-        $(OBJECT_AGREEMENTS)                    .css({"transition": "none"});
+        translate_position                      += agreements[i].offsetWidth + SPACING_AGREEMENT;
 
     }
 
     $(OBJECT_AGREEMENTS)                        .css({"transform": "translate(-" + translate_position + "px)"});
-
-    if (!movement) {
-
-        $(OBJECT_AGREEMENTS)                    .css({"transition": "opacity .4s ease"});
-
-    }
 }
 
 
@@ -150,9 +135,9 @@ function agreement_toggle_selected(identifier) {
 
             $(CLASS_AGREEMENT).each(function( index ) {
 
-                if (!agreement_is_selected()) {
+                if ($(CLASS_AGREEMENT + '.' + ATTR_SELECTED).length == 0) {
 
-                    //$(this)                     .prop('disabled', false);
+                    $(this)                     .prop(ATTR_DISABLED, false);
                     $(this)                     .removeClass(ATTR_DISABLED);
                 }
             });
@@ -165,23 +150,13 @@ function agreement_toggle_selected(identifier) {
 
                 if ($(this).attr('data-subject') != agreement.attr('data-subject')) {
 
-                   // $(this)                     .prop('disabled', true);
+                    $(this)                     .prop(ATTR_DISABLED, true);
                     $(this)                     .addClass(ATTR_DISABLED);
 
                 }
             });
         }
     }
-
-    agreements_render();
-}
-
-
-
-function agreement_is_selected() {
-
-    return $(CLASS_AGREEMENT + '.' + ATTR_SELECTED).length > 0;
-
 }
 
 
