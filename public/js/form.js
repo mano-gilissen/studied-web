@@ -107,7 +107,7 @@ function agreements_set_active(index) {
 
             }
 
-            $('#agreements').css({"transform": "translate(100px)"});
+            $(OBJECT_AGREEMENTS)                .css({"transform": "translate(100px)"});
 
             break;
     }
