@@ -114,7 +114,7 @@ $(function(){
 
     $(OBJECT_APP).on('mouseenter',
 
-        CLASS_HEADER + ":not(" + CLASS_SORT_MODE_NONE + ")" + ", " +
+        CLASS_HEADER + ":not(" + ATTR_NONE + ")" + ", " +
         CLASS_PERSON_REPORT + ", " +
         CLASS_PERSON + ", " +
         OBJECT_BUTTON_LOGOUT + ", " +
@@ -129,7 +129,7 @@ $(function(){
 
     $(OBJECT_APP).on('mouseleave',
 
-        CLASS_HEADER + ":not(" + CLASS_SORT_MODE_NONE + ")" + ", " +
+        CLASS_HEADER + ":not(" + ATTR_NONE + ")" + ", " +
         CLASS_PERSON_REPORT + ", " +
         CLASS_PERSON + ", " +
         OBJECT_BUTTON_LOGOUT + ", " +
