@@ -47,6 +47,8 @@ $(function(){
 
 function agreements_load(id, host) {
 
+    console.out('á');
+
     if (host > 0) {
 
         $('#agreements').load('/load/agreements', {
