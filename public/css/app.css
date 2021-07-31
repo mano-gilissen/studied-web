@@ -429,6 +429,7 @@ button:focus {
 #agreements {
     display:                            flex;
     width:                              max-content;
+    transition:                         transform .4s ease;
 }
 
 .agreement {

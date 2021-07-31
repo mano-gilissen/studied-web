@@ -87,6 +87,7 @@ html, body {
 
 .agreement {
     opacity:                            .3;
+    transition:                         opacity .4s ease;
 }
 
 .agreement .selector {
@@ -99,8 +100,7 @@ html, body {
     opacity:                            0;
 }
 
-.agreement.active,
-.agreement.selected {
+.agreement.active {
     opacity:                            1;
 }
 
