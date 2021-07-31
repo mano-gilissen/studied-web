@@ -162,6 +162,7 @@ function agreement_toggle_selected(identifier) {
         if (agreement.hasClass(ATTR_SELECTED)) {
 
             agreement                           .removeClass(ATTR_SELECTED);
+            agreement.find('input')[0].value    = '';
 
             $(CLASS_AGREEMENT).each(function( index ) {
 
