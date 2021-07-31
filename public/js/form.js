@@ -9,7 +9,7 @@ $(function(){
 
 
 
-    $(OBJECT_AGREEMENTS).on('click', CLASS_AGREEMENT, function() {
+    $(OBJECT_FORM).on('click', CLASS_AGREEMENT, function() {
 
         console.log('a');
 
