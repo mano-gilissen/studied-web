@@ -1,57 +1,73 @@
-@if($user ?? false)
+<div class="buttons">
 
-    @if($user->getAgreements_asEmployee->count() > 0)
+    <img class="button" id="button-previous" src="/images/back.svg"/>
 
-        @foreach($user->getAgreements_asEmployee as $agreement)
+    <img class="button" id="button-next" src="/images/forward.svg"/>
 
-            <div class="agreement" id="{{ $agreement->identifier }}">
+</div>
 
-                <div class="top">
+<div class="wrap">
 
-                    <div class="title">{{ $agreement->identifier }}</div>
+    <div id="agreements">
 
-                    <img class="selector" src="/images/check-white.svg"/>
+        @if($user ?? false)
 
-                </div>
+            @if($user->getAgreements_asEmployee->count() > 0)
 
-                <div class="bottom">
+                @foreach($user->getAgreements_asEmployee as $agreement)
 
-                    @if($agreement->getStudent->getPerson->avatar)
+                    <div class="agreement" id="{{ $agreement->identifier }}">
 
-                        <img src="{{ asset("storage/avatar/" . $agreement->getStudent->getPerson->avatar) }}"/>
+                        <div class="top">
 
-                    @else
+                            <div class="title">{{ $agreement->identifier }}</div>
 
-                        <div>
-
-                            <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials($agreement->getStudent->getPerson) }}</div>
+                            <img class="selector" src="/images/check-white.svg"/>
 
                         </div>
 
-                    @endif
+                        <div class="bottom">
 
-                    <div>{!! \App\Http\Traits\AgreementTrait::getDescription($agreement, true) !!}</div>
+                            @if($agreement->getStudent->getPerson->avatar)
 
-                </div>
+                                <img src="{{ asset("storage/avatar/" . $agreement->getStudent->getPerson->avatar) }}"/>
 
-            </div>
+                            @else
 
-        @endforeach
+                                <div>
 
-        <script>
+                                    <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials($agreement->getStudent->getPerson) }}</div>
 
-            agreements_set_active(0);
+                                </div>
 
-        </script>
+                            @endif
 
-    @else
+                            <div>{!! \App\Http\Traits\AgreementTrait::getDescription($agreement, true) !!}</div>
 
-        <div class="note">Deze Student-docent heeft geen actieve vakafspraken.</div>
+                        </div>
 
-    @endif
+                    </div>
 
-@else
+                @endforeach
 
-    <div class="note">Selecteer eerst een Student-docent.</div>
+                <script>
 
-@endif
+                    agreements_set_active(0);
+
+                </script>
+
+            @else
+
+                <div class="note">Deze Student-docent heeft geen actieve vakafspraken.</div>
+
+            @endif
+
+        @else
+
+            <div class="note">Selecteer eerst een Student-docent.</div>
+
+        @endif
+
+    </div>
+
+</div>
