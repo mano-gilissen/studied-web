@@ -40,7 +40,7 @@ html, body {
     width:                              772px;
     margin-top:                         40px;
     margin-bottom:                      96px;
-    padding:                            96px 0;
+    padding:                            96px 130px;
     background:                         white;
     animation-name:                     in_form;
     animation-duration:                 .5s;
@@ -79,8 +79,10 @@ html, body {
 }
 
 .agreements .wrap {
-    width:                              512px;
+    width:                              772px;
     overflow-x:                         hidden;
+    margin-left:                        -130px;
+    padding-left:                       130px;
 }
 
 .agreement {
