@@ -107,7 +107,7 @@ function agreements_set_active(index) {
 
             }
 
-            $('#agreements').css({"backgroundColor": "black", "color": "white"});
+            $('#agreements').css({"transform": "translate(100px)"});
 
             break;
     }
