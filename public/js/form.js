@@ -40,7 +40,7 @@ $(function(){
 function agreements_load(host) {
 
     agreements                                  = $('.agreements');
-    agreements                                  .animate({opacity: 0}, 500);
+    agreements                                  .animate({opacity: 0}, 300);
 
     setTimeout(function(){
 
@@ -48,9 +48,9 @@ function agreements_load(host) {
 
             user:                               host
 
-        }).animate({opacity: 1}, 500);
+        }).animate({opacity: 1}, 300);
 
-    }, 500);
+    }, 300);
 }
 
 
