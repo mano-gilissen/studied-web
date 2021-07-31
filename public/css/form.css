@@ -139,8 +139,9 @@ html, body {
 .agreements .buttons {
     position:                           absolute;
     display:                            flex;
-    align-items:                        end;
-    padding-top:                        70px;
+    width:                              642px;
+    padding:                            70px 48px 0 0;
+    z-index:                            10;
 }
 
 .agreements .buttons .button {
