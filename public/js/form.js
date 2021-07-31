@@ -94,35 +94,47 @@ function agreements_set_active(index) {
 function agreements_render(movement = false) {
 
     if (agreements_index_active === 0) {
-        button_next                     .addClass(ATTR_VISIBLE);
-        button_next                     .addClass(ATTR_SOLO);
+
+        button_next                             .addClass(ATTR_VISIBLE);
+        button_next                             .addClass(ATTR_SOLO);
+
     } else if (agreements_index_active === agreements.length - 1) {
-        button_previous                 .addClass(ATTR_VISIBLE);
-        button_previous                 .addClass(ATTR_SOLO);
+
+        button_previous                         .addClass(ATTR_VISIBLE);
+        button_previous                         .addClass(ATTR_SOLO);
+
     } else {
-        button_previous                 .addClass(ATTR_VISIBLE);
-        button_next                     .addClass(ATTR_VISIBLE);
+
+        button_previous                         .addClass(ATTR_VISIBLE);
+        button_next                             .addClass(ATTR_VISIBLE);
+
     }
 
-    var translate_position              = 0;
+    var translate_position                      = 0;
 
     for (var i = 0; i < agreements_index_active; i++) {
 
-        translate_position              += agreements[i].offsetWidth + SPACING_AGREEMENT;
+        translate_position                      += agreements[i].offsetWidth + SPACING_AGREEMENT;
+
+    }
+
+    if (!movement && agreements_index_active > 0) {
+
+        translate_position                      -= SPACING_AGREEMENT;
 
     }
 
     if (!movement) {
 
-        $(OBJECT_AGREEMENTS)            .css({"transition": "none"});
+        $(OBJECT_AGREEMENTS)                    .css({"transition": "none"});
 
     }
 
-    $(OBJECT_AGREEMENTS)                .css({"transform": "translate(-" + translate_position + "px)"});
+    $(OBJECT_AGREEMENTS)                        .css({"transform": "translate(-" + translate_position + "px)"});
 
     if (!movement) {
 
-        $(OBJECT_AGREEMENTS)            .css({"transition": "opacity .4s ease"});
+        $(OBJECT_AGREEMENTS)                    .css({"transition": "opacity .4s ease"});
 
     }
 }
