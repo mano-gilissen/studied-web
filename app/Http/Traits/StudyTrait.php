@@ -52,10 +52,7 @@ trait StudyTrait {
 
         foreach ($data as $key => $value) {
 
-            echo($key . ' / ' . '_' . Model::$AGREEMENT . '<br>');
-            echo(str_contains('_' . Model::$AGREEMENT, $key . '<br>'));
-
-            if (str_contains('_' . Model::$AGREEMENT, $key)) {
+            if (Func::contains($key, '_' . Model::$AGREEMENT)) {
 
                 dd($key . ' ' . $value);
 

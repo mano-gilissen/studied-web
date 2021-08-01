@@ -21,7 +21,13 @@ class Func {
 
     public static function generate_key() {
 
-        return rand(100000,999999);
+        return rand(100000, 999999);
+
+    }
+
+    public static function contains($haystack, $needle) {
+
+        return strpos($haystack, $needle) !== false;
 
     }
 
