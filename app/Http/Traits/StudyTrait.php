@@ -50,6 +50,8 @@ trait StudyTrait {
 
         // TODO: EXTRACT AGREEMENTS AND SET HOST AND PARTICIPANTS AND SERVICE AND SUBJECT
 
+        dd($data);
+
         foreach ($data as $key => $value) {
 
             if (str_contains('_' . Model::$AGREEMENT, $key)) {
