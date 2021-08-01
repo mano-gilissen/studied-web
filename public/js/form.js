@@ -106,23 +106,24 @@ function agreements_render(movement = false) {
         }
     }
 
+    if(agreements_enabled.length > 1) {
 
+        if (agreements_enabled_index_active === 0) {
 
-    if (agreements_enabled.length > 1 && agreements_enabled_index_active === 0) {
+            button_next                             .addClass(ATTR_VISIBLE);
+            button_next                             .addClass(ATTR_SOLO);
 
-        button_next                             .addClass(ATTR_VISIBLE);
-        button_next                             .addClass(ATTR_SOLO);
+        } else if (agreements_enabled_index_active === agreements_enabled.length - 1) {
 
-    } else if (agreements_enabled_index_active === agreements_enabled.length - 1) {
+            button_previous                         .addClass(ATTR_VISIBLE);
+            button_previous                         .addClass(ATTR_SOLO);
 
-        button_previous                         .addClass(ATTR_VISIBLE);
-        button_previous                         .addClass(ATTR_SOLO);
+        } else {
 
-    } else {
+            button_previous                         .addClass(ATTR_VISIBLE);
+            button_next                             .addClass(ATTR_VISIBLE);
 
-        button_previous                         .addClass(ATTR_VISIBLE);
-        button_next                             .addClass(ATTR_VISIBLE);
-
+        }
     }
 
     var translate_position                      = 0;
