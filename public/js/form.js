@@ -108,7 +108,7 @@ function agreements_render(movement = false) {
 
 
 
-    if (agreements_enabled.length > 0 && agreements_enabled_index_active === 0) {
+    if (agreements_enabled.length > 1 && agreements_enabled_index_active === 0) {
 
         button_next                             .addClass(ATTR_VISIBLE);
         button_next                             .addClass(ATTR_SOLO);
