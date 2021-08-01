@@ -50,12 +50,21 @@ trait StudyTrait {
 
         // TODO: EXTRACT AGREEMENTS AND SET HOST AND PARTICIPANTS AND SERVICE AND SUBJECT
 
+        foreach ($data as $key => $value) {
+
+            if (str_contains('_' . Model::$AGREEMENT, $key)) {
+
+                dd($key . ' ' . $value);
+
+            }
+        }
 
 
+/*
         $study->{Model::$SERVICE}                       = ;
         $study->{Model::$STUDY_HOST_USER}               = ;
         $study->{Model::$STUDY_SUBJECT_DEFINED}         = $data[Key::AUTOCOMPLETE_ID . Model::$SUBJECT];
-
+*/
 
 
         /*   FOR PUBLIC SERVICES (COLLEGE/GROEPSLES):
