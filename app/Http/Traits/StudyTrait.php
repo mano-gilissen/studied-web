@@ -78,6 +78,7 @@ trait StudyTrait {
         */
 
 
+        dd($study);
 
         $study->save();
 
