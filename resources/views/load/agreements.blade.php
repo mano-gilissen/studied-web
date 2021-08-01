@@ -12,6 +12,8 @@
 
         @if($user ?? false)
 
+            <!-- TODO: ONLY SHOW ACTIVE AGREEMENTS -->
+
             @if($user->getAgreements_asEmployee->count() > 0)
 
                 @foreach($user->getAgreements_asEmployee as $agreement)

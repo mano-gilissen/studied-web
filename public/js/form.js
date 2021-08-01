@@ -95,7 +95,6 @@ function agreements_render(movement = false) {
     buttons                                     .removeClass(ATTR_SOLO);
 
     agreements_enabled                          = $(CLASS_AGREEMENT + ':not(.' + ATTR_DISABLED + ')');
-
     agreements_enabled_index_active             = agreements_index_active;
 
     for (var x = 0; x < agreements_index_active; x++) {
@@ -106,7 +105,6 @@ function agreements_render(movement = false) {
 
         }
     }
-
 
     if (agreements_enabled_index_active === 0) {
 

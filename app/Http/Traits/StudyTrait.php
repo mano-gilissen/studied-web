@@ -7,6 +7,7 @@ namespace App\Http\Traits;
 use App\Http\Support\Key;
 use App\Http\Support\Color;
 use App\Http\Support\Model;
+use App\Http\Support\Func;
 use App\Models\Study;
 
 
@@ -31,22 +32,43 @@ trait StudyTrait {
 
     public static function create(array $data, &$study) {
 
-        dd($data);
+
 
         $study                                          = new Study;
 
-        $study->{Model::$BASE_KEY}                      = rand(100000,999999); // TODO: MOVE TO DEFAULT METHOD
-        $study->{Model::$SERVICE}                       = 1; // TODO: ADD FIELD IN FORM AND SET FROM INPUT
+        $study->{Model::$BASE_KEY}                      = Func::generate_key();
         $study->{Model::$STUDY_DATE}                    = $data[Model::$STUDY_DATE];
-        $study->{Model::$STUDY_STATUS}                  = self::$STATUS_PLANNED; // TODO: STATUS FINISHED IF DATE < NOW. TODO: STUDY WITH NO DATE (CREATED INSTEAD OF PLANNED)
-        $study->{Model::$STUDY_HOST_USER}               = 2; //TODO: ADD FIELD IN FORM AND SET FROM INPUT
-        // TODO: STUDY HOST RELATION
-        $study->{Model::$STUDY_SUBJECT_DEFINED}         = $data[Key::AUTOCOMPLETE_ID . Model::$SUBJECT];
-        // TODO: STUDY SUBJECT TEXT IF NO DEFINED
-        $study->{Model::$STUDY_LOCATION_DEFINED}        = $data[Key::AUTOCOMPLETE_ID . Model::$LOCATION];
-        // TODO: STUDY LOCATION TEXT IF NO DEFINED
         $study->{Model::$STUDY_START}                   = $data[Model::$STUDY_START];
         $study->{Model::$STUDY_END}                     = $data[Model::$STUDY_END];
+
+
+
+        $study->{Model::$STUDY_LOCATION_DEFINED}        = $data[Key::AUTOCOMPLETE_ID . Model::$LOCATION];
+        // TODO: STUDY LOCATION TEXT IF NO DEFINED
+
+
+
+        // TODO: EXTRACT AGREEMENTS AND SET HOST AND PARTICIPANTS AND SERVICE AND SUBJECT
+
+
+
+        $study->{Model::$SERVICE}                       = ;
+        $study->{Model::$STUDY_HOST_USER}               = ;
+        $study->{Model::$STUDY_SUBJECT_DEFINED}         = $data[Key::AUTOCOMPLETE_ID . Model::$SUBJECT];
+
+
+
+        /*   FOR PUBLIC SERVICES (COLLEGE/GROEPSLES):
+
+        $study->{Model::$SERVICE}                       = ;
+        $study->{Model::$STUDY_STATUS}                  = self::$STATUS_PLANNED; // TODO: STATUS FINISHED IF DATE < NOW. TODO: STUDY WITH NO DATE (CREATED INSTEAD OF PLANNED)
+        $study->{Model::$STUDY_HOST_USER}               = ;
+        $study->{Model::$STUDY_SUBJECT_DEFINED}         = $data[Key::AUTOCOMPLETE_ID . Model::$SUBJECT];
+        // TODO: STUDY SUBJECT TEXT IF NO DEFINED
+
+        */
+
+
 
         $study->save();
 
