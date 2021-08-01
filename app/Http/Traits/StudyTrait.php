@@ -52,7 +52,8 @@ trait StudyTrait {
 
         foreach ($data as $key => $value) {
 
-            dd($key . ' / ' . '_' . Model::$AGREEMENT);
+            echo($key . ' / ' . '_' . Model::$AGREEMENT);
+            echo(str_contains('_' . Model::$AGREEMENT, $key));
 
             if (str_contains('_' . Model::$AGREEMENT, $key)) {
 
