@@ -81,6 +81,8 @@ trait StudyTrait {
 
 
 
+        dd($study);
+
         $study->save();
 
 
@@ -90,10 +92,6 @@ trait StudyTrait {
             Study_UserTrait::create($study, $agreement);
 
         }
-
-
-
-        dd($study);
 
 
 
