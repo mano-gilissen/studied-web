@@ -32,17 +32,41 @@
 
             <div id="actions">
 
-                @if($button_contact_host ?? false)
+                @switch($study)
 
-                    <div class="button icon">
+                    @case(\App\Http\Traits\StudyTrait::$STATUS_CREATED)
 
-                        <img class="icon" src="/images/contact.svg">
+                        @if(\App\Http\Traits\StudyTrait::hasFinished($study))
 
-                        <div class="text">Contacteer {{ $study->getHost->getPerson->first_name }}</div>
 
-                    </div>
 
-                @endif
+                        @endif
+
+                        @if(Auth::user()->id != $study->getHost)
+
+                            <div class="button icon">
+
+                                <img class="icon" src="/images/contact.svg">
+
+                                <div class="text">Contacteer {{ $study->getHost->getPerson->first_name }}</div>
+
+                            </div>
+
+                        @else
+
+                            <div class="button icon">
+
+                                <img class="icon" src="/images/edit.svg">
+
+                                <div class="text">Bewerken</div>
+
+                            </div>
+
+                        @endif
+
+                        @break
+
+                @endswitch
 
             </div>
 

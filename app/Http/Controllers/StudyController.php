@@ -52,6 +52,10 @@ class StudyController extends Controller {
 
     public function view($key) {
 
+        $study = Study::first();
+
+        return StudyTrait::hasFinished($study) . '  ' . date('Y-m-d H:i:s', time()) . '  ' . $study->date . '  ' . $study->end;
+
         $study = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
 
         return view(Views::STUDY, [
@@ -59,8 +63,7 @@ class StudyController extends Controller {
             Key::PAGE_TITLE                                 => $study->getService->{Model::$SERVICE_NAME},
             Key::PAGE_BACK                                  => true,
 
-            Model::$STUDY                                   => $study,
-            'button_contact_host'                           => true,
+            Model::$STUDY                                   => $study
         ]);
     }
 

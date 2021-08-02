@@ -170,4 +170,28 @@ trait StudyTrait {
 
 
 
+    public static function hasFinished($study) {
+
+        $date_study                     = substr($study->date, 0, 10);
+        $date_now                       = strtotime(date('Y-m-d', time()));
+
+        if ($date_study < $date_now) {
+
+            return true;
+
+        } else if ($date_study > $date_now) {
+
+            return false;
+
+        } else {
+
+            $time_study                 = substr($study->end, 11, 8);
+            $time_now                   = strtotime(date('H:i:s', time()));
+
+            return $time_study < $time_now;
+        }
+    }
+
+
+
 }
