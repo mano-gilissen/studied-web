@@ -175,6 +175,8 @@ trait StudyTrait {
         $date_study                     = strtotime(substr($study->date, 0, 10));
         $date_now                       = strtotime(date('Y-m-d', time()));
 
+        dd($date_study . '/' . $date_now);
+
         if ($date_study < $date_now) {
 
             return 3; //true;
