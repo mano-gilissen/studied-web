@@ -188,9 +188,7 @@ trait StudyTrait {
             $time_study                 = strtotime($study->end);
             $time_now                   = strtotime(date('H:i:s', time()));
 
-            dd($time_study . ' / ' . $time_now);
-
-            return $time_study < $time_now;
+            return $time_study < $time_now ? '5' : '6';
         }
     }
 
