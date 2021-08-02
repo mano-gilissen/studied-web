@@ -32,7 +32,7 @@
 
             <div id="actions">
 
-                @switch($study)
+                @switch($study->status)
 
                     @case(\App\Http\Traits\StudyTrait::$STATUS_CREATED)
 
