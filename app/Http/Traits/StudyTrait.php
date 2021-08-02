@@ -128,7 +128,7 @@ trait StudyTrait {
         switch ($study->status) {
 
             case self::$STATUS_CREATED:                     return "Aangemaakt";
-            case self::$STATUS_PLANNED:                     return self::hasFinished($study) ? "Afgelopen" : "Ingepland";
+            case self::$STATUS_PLANNED:                     return self::hasStarted($study) ? (self::hasFinished($study) ? "Afgelopen" : "Bezig") : "Ingepland";
             case self::$STATUS_FINISHED:                    return "Afgelopen";
             case self::$STATUS_REPORTED:                    return "Gerapporteerd";
             case self::$STATUS_CANCELLED:                   return "Geannuleerd";
@@ -147,7 +147,7 @@ trait StudyTrait {
             case self::$STATUS_ABSENT:                      return Color::RED;
             case self::$STATUS_REPORTED:                    return Color::GREEN;
             case self::$STATUS_FINISHED:                    return Color::ORANGE;
-            case self::$STATUS_PLANNED:                     return self::hasFinished($study) ? Color::ORANGE : Color::GREY_80;
+            case self::$STATUS_PLANNED:                     return self::hasStarted($study) ? Color::ORANGE : Color::GREY_80;
             case self::$STATUS_CREATED:
             default:                                        return Color::GREY_80;
         }
