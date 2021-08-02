@@ -325,6 +325,8 @@ class StudyController extends Controller {
             case self::$COLUMN_STATUS:
 
                 $query->orderBy(Model::$STUDY_STATUS, $sort[Table::SORT_MODE]);
+                $query->orderBy(Model::$STUDY_DATE, $sort[Table::SORT_MODE]);
+                $query->orderBy(Model::$STUDY_START, $sort[Table::SORT_MODE]);
                 break;
         }
     }
