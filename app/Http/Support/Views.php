@@ -19,6 +19,7 @@ class Views {
 
     const FORM_TEST                             = "form-test";
     const FORM_STUDY                            = "form-study";
+    const FORM_REPORT                           = "form-report";
 
     const LOAD_LIST                             = "load.list";
     const LOAD_AGREEMENTS                       = "load.agreements";
