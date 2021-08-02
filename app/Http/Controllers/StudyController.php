@@ -54,8 +54,6 @@ class StudyController extends Controller {
 
         $study                                              = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
 
-        return (StudyTrait::hasStarted($study) ? 'a' : 'b') . '<br>date: ' . $study->date . '<br>now: ' . date('Y-m-d H:i:s', time()) . '<br>start: ' . $study->start . '<br>end: ' . $study->end;
-
         return view(Views::STUDY, [
 
             Key::PAGE_TITLE                                 => $study->getService->{Model::$SERVICE_NAME},
