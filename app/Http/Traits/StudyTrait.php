@@ -183,7 +183,7 @@ trait StudyTrait {
 
         } else if ($date_study > $date_now) {
 
-            return false;
+            return 4; //false;
 
         } else {
 
