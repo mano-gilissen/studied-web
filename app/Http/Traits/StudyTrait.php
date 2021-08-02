@@ -10,6 +10,7 @@ use App\Http\Support\Model;
 use App\Http\Support\Func;
 use App\Models\Agreement;
 use App\Models\Study;
+use Auth;
 
 
 trait StudyTrait {
@@ -170,25 +171,64 @@ trait StudyTrait {
 
 
 
+    public static function canEdit($study, $user = null) {
+
+        if (!$user) {
+
+            $user                                           = Auth::user();
+
+        }
+
+        return $user->role <= RoleTrait::$ID_MANAGEMENT || $user->id == $study->{Model::$STUDY_HOST_USER};
+    }
+
+
+
+    public static function canReport($study, $user = null) {
+
+        if (!$user) {
+
+            $user                                           = Auth::user();
+
+        }
+
+        return $user->role <= RoleTrait::$ID_MANAGEMENT || $user->id == $study->{Model::$STUDY_HOST_USER};
+    }
+
+
+
+    public static function canReport_Edit($study, $user = null) {
+
+        if (!$user) {
+
+            $user                                           = Auth::user();
+
+        }
+
+        return $user->role <= RoleTrait::$ID_MANAGEMENT;
+    }
+
+
+
     public static function hasFinished($study) {
 
-        $date_study                     = strtotime(substr($study->date, 0, 10));
-        $date_now                       = strtotime(date('Y-m-d', time()));
+        $date_study                                         = strtotime(substr($study->date, 0, 10));
+        $date_now                                           = strtotime(date('Y-m-d', time()));
 
         if ($date_study < $date_now) {
 
-            return 3; //true;
+            return true;
 
         } else if ($date_study > $date_now) {
 
-            return 4; //false;
+            return false;
 
         } else {
 
-            $time_study                 = strtotime($study->end);
-            $time_now                   = strtotime(date('H:i:s', time()));
+            $time_study                                     = strtotime($study->end);
+            $time_now                                       = strtotime(date('H:i:s', time()));
 
-            return $time_study < $time_now ? '5' : '6';
+            return $time_study < $time_now;
         }
     }
 

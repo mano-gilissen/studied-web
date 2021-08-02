@@ -266,12 +266,20 @@ html {
 }
 
 .button.grey {
-    color:                              black;
     background:                         #E6E6E6;
 }
 
 .button.grey:hover {
     background:                         #EBEBEB;
+}
+
+.button.red {
+    color:                              white;
+    background:                         #FF6666;
+}
+
+.button.red:hover {
+    background:                         #FF7F7F;
 }
 
 .button.large {

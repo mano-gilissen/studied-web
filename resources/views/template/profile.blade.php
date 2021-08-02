@@ -128,7 +128,7 @@
 
                             @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
 
-                                @if($person->getUser->id == Auth::user()->id)
+                                @if($person->getUser->id == Auth::id())
 
                                     <div class="button grey icon" onclick="window.location.href='{{ route('study.list', ['participant' => $person->getUser->id]) }}'">
 
@@ -177,7 +177,7 @@
 
                             @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
 
-                                @if($person->getUser->id == Auth::user()->id)
+                                @if($person->getUser->id == Auth::id())
 
                                     <div id="button-studies" class="button grey icon" onclick="window.location.href='{{ route('study.list', ['customer' => $person->getUser->id]) }}'">
 
@@ -195,7 +195,7 @@
 
                 @endswitch
 
-                @if($person->getUser->id == Auth::user()->id)
+                @if($person->getUser->id == Auth::id())
 
                     <div class="button icon">
 

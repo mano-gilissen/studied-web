@@ -52,11 +52,7 @@ class StudyController extends Controller {
 
     public function view($key) {
 
-        $study = Study::first();
-
-        return StudyTrait::hasFinished($study) . '<br>' . date('Y-m-d H:i:s', time()) . '<br>' . $study->date . '<br>' . $study->end;
-
-        $study = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
+        $study                                              = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
 
         return view(Views::STUDY, [
 

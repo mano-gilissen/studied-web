@@ -21,7 +21,7 @@
 
         <div class="title">{{ __('Activiteit') }}</div>
 
-        @include('form.field-hidden', ['id' => '_host', 'value' => Auth::user()->id])
+        @include('form.field-hidden', ['id' => '_host', 'value' => Auth::id()])
 
         @include('form.field-select-agreement', ['host' => Auth::user()])
 

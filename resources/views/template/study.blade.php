@@ -38,11 +38,73 @@
 
                         @if(\App\Http\Traits\StudyTrait::hasFinished($study))
 
+                            @if(\App\Http\Traits\StudyTrait::canReport($study))
 
+                                <div class="button icon">
+
+                                    <img class="icon" src="/images/edit.svg">
+
+                                    <div class="text">Rapporteren</div>
+
+                                </div>
+
+                            @else
+
+                                <div class="button icon">
+
+                                    <img class="icon" src="/images/contact.svg">
+
+                                    <div class="text">Contacteer {{ $study->getHost->getPerson->first_name }}</div>
+
+                                </div>
+
+                            @endif
+
+                        @else
+
+                            @if(\App\Http\Traits\StudyTrait::canEdit($study))
+
+                                <div class="button icon">
+
+                                    <img class="icon" src="/images/edit.svg">
+
+                                    <div class="text">Bewerken</div>
+
+                                </div>
+
+                            @else
+
+                                <div class="button icon">
+
+                                    <img class="icon" src="/images/contact.svg">
+
+                                    <div class="text">Contacteer {{ $study->getHost->getPerson->first_name }}</div>
+
+                                </div>
+
+                            @endif
 
                         @endif
 
-                        @if(Auth::user()->id != $study->getHost)
+                        @break
+
+                    @case(\App\Http\Traits\StudyTrait::$STATUS_REPORTED)
+
+                        @if(\App\Http\Traits\StudyTrait::canReport_Edit($study))
+
+                            <div class="button icon">
+
+                                <img class="icon" src="/images/edit.svg">
+
+                                <div class="text">Rapport wijzigen</div>
+
+                            </div>
+
+                        @elseif($study->{\App\Http\Support\Model::$STUDY_HOST_USER} == Auth::id())
+
+
+
+                        @else
 
                             <div class="button icon">
 
@@ -52,19 +114,23 @@
 
                             </div>
 
-                        @else
+                        @endif
 
-                            <div class="button icon">
+                        @break
 
-                                <img class="icon" src="/images/edit.svg">
+                    @case(\App\Http\Traits\StudyTrait::$STATUS_CANCELLED)
 
-                                <div class="text">Bewerken</div>
+                        @if(\App\Http\Traits\StudyTrait::canReport_Edit($study))
+
+                            <div class="button icon red">
+
+                                <img class="icon" src="/images/trash-white.svg">
+
+                                <div class="text">Verwijderen</div>
 
                             </div>
 
                         @endif
-
-                        @break
 
                 @endswitch
 
