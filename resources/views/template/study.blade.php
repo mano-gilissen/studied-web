@@ -40,7 +40,7 @@
 
                             @if(\App\Http\Traits\StudyTrait::canReport($study))
 
-                                <div class="button icon" onclick="window.location.href='{{ route('study.report') }}'">
+                                <div class="button icon" onclick="window.location.href='{{ route('study.report', $study->key) }}'">
 
                                     <img class="icon" src="/images/edit.svg">
 
