@@ -36,7 +36,7 @@
 
                     @case(\App\Http\Traits\StudyTrait::$STATUS_PLANNED)
 
-                        @if(\App\Http\Traits\StudyTrait::hasFinished($study))
+                        @if(\App\Http\Traits\StudyTrait::hasStarted($study))
 
                             @if(\App\Http\Traits\StudyTrait::canReport($study))
 
@@ -48,41 +48,29 @@
 
                                 </div>
 
-                            @else
-
-                                <div class="button icon">
-
-                                    <img class="icon" src="/images/contact.svg">
-
-                                    <div class="text">Contacteer {{ $study->getHost->getPerson->first_name }}</div>
-
-                                </div>
-
                             @endif
+
+                        @endif
+
+                        @if(\App\Http\Traits\StudyTrait::canEdit($study))
+
+                            <div class="button icon">
+
+                                <img class="icon" src="/images/edit.svg">
+
+                                <div class="text">Bewerken</div>
+
+                            </div>
 
                         @else
 
-                            @if(\App\Http\Traits\StudyTrait::canEdit($study))
+                            <div class="button icon">
 
-                                <div class="button icon">
+                                <img class="icon" src="/images/contact.svg">
 
-                                    <img class="icon" src="/images/edit.svg">
+                                <div class="text">Contacteer {{ $study->getHost->getPerson->first_name }}</div>
 
-                                    <div class="text">Bewerken</div>
-
-                                </div>
-
-                            @else
-
-                                <div class="button icon">
-
-                                    <img class="icon" src="/images/contact.svg">
-
-                                    <div class="text">Contacteer {{ $study->getHost->getPerson->first_name }}</div>
-
-                                </div>
-
-                            @endif
+                            </div>
 
                         @endif
 
