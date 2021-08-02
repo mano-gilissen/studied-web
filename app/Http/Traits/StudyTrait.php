@@ -128,7 +128,7 @@ trait StudyTrait {
         switch ($study->status) {
 
             case self::$STATUS_CREATED:                     return "Aangemaakt";
-            case self::$STATUS_PLANNED:                     return "Ingepland";
+            case self::$STATUS_PLANNED:                     return self::hasFinished($study) ? "Afgelopen" : "Ingepland";
             case self::$STATUS_FINISHED:                    return "Afgelopen";
             case self::$STATUS_REPORTED:                    return "Gerapporteerd";
             case self::$STATUS_CANCELLED:                   return "Geannuleerd";
@@ -147,8 +147,8 @@ trait StudyTrait {
             case self::$STATUS_ABSENT:                      return Color::RED;
             case self::$STATUS_REPORTED:                    return Color::GREEN;
             case self::$STATUS_FINISHED:                    return Color::ORANGE;
+            case self::$STATUS_PLANNED:                     return self::hasFinished($study) ? Color::ORANGE : Color::GREY_80;
             case self::$STATUS_CREATED:
-            case self::$STATUS_PLANNED:
             default:                                        return Color::GREY_80;
         }
     }
@@ -164,8 +164,32 @@ trait StudyTrait {
             case self::$STATUS_REPORTED:
             case self::$STATUS_ABSENT:
             case self::$STATUS_PLANNED:
-            case self::$STATUS_FINISHED:                    return Color::WHITE;
-            default:                                        return Key::UNKNOWN;
+            case self::$STATUS_FINISHED:
+            default:                                        return Color::WHITE;
+        }
+    }
+
+
+
+    public static function hasFinished($study) {
+
+        $date_study                                         = strtotime(substr($study->date, 0, 10));
+        $date_now                                           = strtotime(date('Y-m-d', time()));
+
+        if ($date_study < $date_now) {
+
+            return true;
+
+        } else if ($date_study > $date_now) {
+
+            return false;
+
+        } else {
+
+            $time_study                                     = strtotime($study->end);
+            $time_now                                       = strtotime(date('H:i:s', time()));
+
+            return $time_study < $time_now;
         }
     }
 
@@ -210,26 +234,15 @@ trait StudyTrait {
 
 
 
-    public static function hasFinished($study) {
+    public static function canDelete($study, $user = null) {
 
-        $date_study                                         = strtotime(substr($study->date, 0, 10));
-        $date_now                                           = strtotime(date('Y-m-d', time()));
+        if (!$user) {
 
-        if ($date_study < $date_now) {
+            $user                                           = Auth::user();
 
-            return true;
-
-        } else if ($date_study > $date_now) {
-
-            return false;
-
-        } else {
-
-            $time_study                                     = strtotime($study->end);
-            $time_now                                       = strtotime(date('H:i:s', time()));
-
-            return $time_study < $time_now;
         }
+
+        return $user->role <= RoleTrait::$ID_MANAGEMENT;
     }
 
 

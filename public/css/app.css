@@ -275,11 +275,11 @@ html {
 
 .button.red {
     color:                              white;
-    background:                         #FF6666;
+    background:                         #FF5F5F;
 }
 
 .button.red:hover {
-    background:                         #FF7F7F;
+    background:                         #FF6F6F;
 }
 
 .button.large {

@@ -120,17 +120,41 @@
 
                     @case(\App\Http\Traits\StudyTrait::$STATUS_CANCELLED)
 
-                        @if(\App\Http\Traits\StudyTrait::canReport_Edit($study))
+                        @if(\App\Http\Traits\StudyTrait::canEdit($study))
 
-                            <div class="button icon red">
+                            <div class="button icon">
 
-                                <img class="icon" src="/images/trash-white.svg">
+                                <img class="icon" src="/images/edit.svg">
 
-                                <div class="text">Verwijderen</div>
+                                <div class="text">Bewerken</div>
+
+                            </div>
+
+                            @if(\App\Http\Traits\StudyTrait::canDelete($study))
+
+                                <div class="button icon red">
+
+                                    <img class="icon" src="/images/trash-white.svg">
+
+                                    <div class="text">Verwijderen</div>
+
+                                </div>
+
+                            @endif
+
+                        @else
+
+                            <div class="button icon">
+
+                                <img class="icon" src="/images/contact.svg">
+
+                                <div class="text">Contacteer {{ $study->getHost->getPerson->first_name }}</div>
 
                             </div>
 
                         @endif
+
+                        @break
 
                 @endswitch
 
