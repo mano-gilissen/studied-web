@@ -32,9 +32,9 @@
 
             <div id="actions">
 
-                @switch($study->status)
+                @switch($study->{\App\Http\Support\Model::$STUDY_STATUS})
 
-                    @case(\App\Http\Traits\StudyTrait::$STATUS_CREATED)
+                    @case(\App\Http\Traits\StudyTrait::$STATUS_PLANNED)
 
                         @if(\App\Http\Traits\StudyTrait::hasFinished($study))
 
