@@ -336,9 +336,9 @@ class StudyController extends Controller {
 
     public function list_counters() {
 
-        $COUNTER_PLANNED            = (object) [
-            Table::COUNTER_LABEL                            => 'Ingepland',
-            Table::COUNTER_VALUE                            => Study::where(Model::$STUDY_STATUS, StudyTrait::$STATUS_PLANNED)->count()
+        $COUNTER_TOTAL              = (object) [
+            Table::COUNTER_LABEL                            => 'Totaal',
+            Table::COUNTER_VALUE                            => Study::all()->count()
         ];
 
         $COUNTER_REPORTED           = (object) [
@@ -347,7 +347,7 @@ class StudyController extends Controller {
         ];
 
         return [
-            $COUNTER_PLANNED,
+            $COUNTER_TOTAL,
             $COUNTER_REPORTED
         ];
     }
