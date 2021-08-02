@@ -20,6 +20,8 @@ Route::get('/lessen',                           'StudyController@list')->name('s
 
 Route::get('/les/{key}',                        'StudyController@view')->name('study.view')->middleware('auth');
 
+Route::get('/les/{key}/rapporteren',            'StudyController@report')->name('study.report')->middleware('auth');
+
 Route::get('/plannen',                          'StudyController@plan')->name('study.plan')->middleware('auth');
 
 
@@ -43,6 +45,8 @@ Route::post('/load/agreements',                 'UserController@agreements_load'
 
 
 Route::post('/submit/study/plan',               'StudyController@plan_submit')->name('study.plan_submit')->middleware('auth');
+
+Route::post('/submit/study/report',             'StudyController@report_submit')->name('study.report_submit')->middleware('auth');
 
 
 

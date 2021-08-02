@@ -94,6 +94,24 @@ class StudyController extends Controller {
 
 
 
+
+
+    public function report() {
+
+
+
+        return view(Views::FORM_REPORT, [
+
+            Key::PAGE_TITLE                                 => 'Les rapporteren',
+            Key::SUBMIT_ACTION                              => 'Rapporteren',
+            Key::SUBMIT_ROUTE                               => 'study.report_submit'
+        ]);
+    }
+
+
+
+
+
     public function plan_submit(Request $request) {
 
         $study                                              = null;
