@@ -42,6 +42,7 @@ trait StudyTrait {
         $study->{Model::$STUDY_START}                       = $data[Model::$STUDY_START];
         $study->{Model::$STUDY_END}                         = $data[Model::$STUDY_END];
 
+        $study->{Model::$STUDY_STATUS}                      = $data[Model::$STUDY_DATE] ? self::$STATUS_PLANNED : self::$STATUS_CREATED;
         $study->{Model::$STUDY_LOCATION_DEFINED}            = $data[Key::AUTOCOMPLETE_ID . Model::$LOCATION]; // TODO: STUDY LOCATION TEXT IF NO DEFINED
 
 
@@ -74,7 +75,6 @@ trait StudyTrait {
         /*   FOR PUBLIC SERVICES (COLLEGE/GROEPSLES):
 
         $study->{Model::$SERVICE}                           = ;
-        $study->{Model::$STUDY_STATUS}                      = self::$STATUS_PLANNED; // TODO: STATUS FINISHED IF DATE < NOW. TODO: STUDY WITH NO DATE (CREATED INSTEAD OF PLANNED)
         $study->{Model::$STUDY_HOST_USER}                   = ;
         $study->{Model::$STUDY_SUBJECT_DEFINED}             = $data[Key::AUTOCOMPLETE_ID . Model::$SUBJECT]; // TODO: STUDY SUBJECT TEXT IF NO DEFINED
 
