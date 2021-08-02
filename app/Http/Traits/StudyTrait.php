@@ -177,7 +177,7 @@ trait StudyTrait {
 
         if ($date_study < $date_now) {
 
-            return true;
+            return 3; //true;
 
         } else if ($date_study > $date_now) {
 
