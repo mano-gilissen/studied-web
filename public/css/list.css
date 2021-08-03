@@ -91,7 +91,7 @@
     cursor:                             pointer;
 }
 
-#headers .header.none:hover {
+#headers .header.no_sort:hover {
     color:                              #808080;
     cursor:                             default;
 }
@@ -108,7 +108,7 @@
     opacity:                            1;
 }
 
-#headers .header.none:hover .sort {
+#headers .header.no_sort:hover .sort {
     opacity:                            0;
 }
 
