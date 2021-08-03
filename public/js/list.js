@@ -42,7 +42,7 @@ $(function(){
 
 
 
-    $(OBJECT_LIST).on('click', CLASS_HEADER + ":not(" + ATTR_NO_SORT + ")", function() {
+    $(OBJECT_LIST).on('click', CLASS_HEADER + ":not(." + ATTR_NO_SORT + ")", function() {
 
         if (!filters_select_active) {
 
