@@ -128,7 +128,9 @@
 }
 
 #headers .header.select_filter:hover {
+    color:                              black;
     background:                         #F0F0F0;
+    cursor:                             pointer;
 }
 
 #headers .header.no_filter.select_filter {
