@@ -44,7 +44,7 @@ $(function(){
 
     $('#button-filter-add').on('click', function() {
 
-        filter(8, 3);
+        //
 
     });
 
