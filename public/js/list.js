@@ -70,6 +70,8 @@ $(function(){
 
     function filters_open() {
 
+        filters_select_active                   = true;
+
         $(CLASS_HEADER).addClass(ATTR_SELECT_FILTER);
 
         $(OBJECT_ITEMS).addClass(ATTR_SELECT_FILTER);
@@ -78,6 +80,8 @@ $(function(){
     }
 
     function filters_close() {
+
+        filters_select_active                   = false;
 
         $(CLASS_HEADER).removeClass(ATTR_SELECT_FILTER);
 

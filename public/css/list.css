@@ -38,7 +38,7 @@
     margin-right:                       8px;
 }
 
-#actions.select_filter div:not(#button-filter-add) {
+#actions.select_filter .button:not(#button-filter-add) {
     pointer-events:                     none;
     opacity:                            .2;
 }
