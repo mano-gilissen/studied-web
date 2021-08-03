@@ -22,10 +22,7 @@ $(function(){
 
     function sort(id) {
 
-        this.data_sort[id]                      = this.data_sort[id] ? (this.data_sort[id] == 'desc' ? 'asc' : 'desc') : 'desc';
-
-      //this.data_sort['mode']                  = this.data_sort['id'] == id ? (this.data_sort['mode'] == 'desc' ? 'asc' : 'desc'): 'desc';
-      //this.data_sort['id']                    = id;
+        this.data_sort                          = {id : this.data_sort[id] ? (this.data_sort[id] == 'desc' ? 'asc' : 'desc') : 'desc'};
 
       //this.data_filter['host_user']           = id;
 
