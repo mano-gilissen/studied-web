@@ -102,12 +102,6 @@ class Table {
 
     public static function column($id, $label, $spacing, $sortable, $sort, $html = false) {
 
-        if ($sort) {
-
-            dd($sort);
-
-        }
-
         return (object) [
             self::COLUMN_ID                                 => $id,
             self::COLUMN_LABEL                              => $label,
