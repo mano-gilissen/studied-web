@@ -89,7 +89,15 @@ class Table {
 */
         if ($sort) {
 
-            dd($sort);
+            $a = '';
+
+            foreach ($sort as $column => $value) {
+
+                $a .= (' / key: ' . $column . ' value: ' . $value);
+
+            }
+
+            dd($a);
 
             $controller->list_sort($query, $sort);
 
