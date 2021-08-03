@@ -102,7 +102,11 @@ class Table {
 
     public static function column($id, $label, $spacing, $sortable, $sort, $html = false) {
 
-        dd($sort);
+        if ($sort) {
+
+            dd($sort);
+
+        }
 
         return (object) [
             self::COLUMN_ID                                 => $id,
