@@ -86,13 +86,13 @@ class Table {
             $controller->list_filter($query, $filter);
 
         }
-*/
+*//*
         if ($sort) {
 
             $controller->list_sort($query, $sort);
 
         }
-
+*/
         return $query->select($controller->list_type() . '.*')->get();
     }
 
