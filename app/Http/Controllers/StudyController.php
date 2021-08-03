@@ -352,6 +352,44 @@ class StudyController extends Controller {
 
 
 
+    public function list_filter($query, $filter) {
+
+
+
+
+        foreach ($filter as $column => $value) {
+
+            switch ($column) {
+
+                case self::$COLUMN_DATE:
+
+                    break;
+/*
+                case self::$COLUMN_STUDENT:
+
+                    break;
+
+                case self::$COLUMN_HOST:
+
+                    break;
+
+                case self::$COLUMN_SERVICE:
+
+                    break;
+
+                case self::$COLUMN_TIME:
+
+                    break;
+
+                case self::$COLUMN_STATUS:
+
+                    break;*/
+            }
+        }
+    }
+
+
+
     public function list_counters() {
 
         $COUNTER_TOTAL              = (object) [
@@ -369,6 +407,8 @@ class StudyController extends Controller {
             $COUNTER_REPORTED
         ];
     }
+
+
 
 
 

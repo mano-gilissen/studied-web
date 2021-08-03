@@ -50,7 +50,7 @@ class Table {
 
         $columns                                            = $controller->list_columns($sort);
         $spacing                                            = self::spacing($columns);
-        $objects                                            = self::objects($controller, $sort);
+        $objects                                            = self::objects($controller, $sort, $filter);
         $items                                              = [];
 
         foreach ($objects as $object) {
@@ -77,9 +77,17 @@ class Table {
 
 
 
-    public static function objects($controller, $sort) {
+    public static function objects($controller, $sort, $filter) {
+
+        dd($sort);
 
         $query                                              = $controller->list_query();
+
+        if ($filter) {
+
+            $controller->list_filter($query, $filter);
+
+        }
 
         if ($sort) {
 
