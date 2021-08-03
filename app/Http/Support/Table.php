@@ -103,7 +103,7 @@ class Table {
     public static function column($id, $label, $spacing, $sortable, $sort, $html = false) {
 
         if ($sort){
-            dd($sort[$id] ? 'a' : 'b');
+            dd(array_key_exists($id, $sort) ? 'a' : 'b');
         }
 
         return (object) [
