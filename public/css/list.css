@@ -39,6 +39,7 @@
 }
 
 #actions.select_filter div:not(#button-filter-add) {
+    pointer-events:                     none;
     opacity:                            .2;
 }
 
@@ -130,8 +131,12 @@
     background:                         #F0F0F0;
 }
 
-#headers .header.no_filter.select_filter,
-#headers .header.select_filter .sort{
+#headers .header.no_filter.select_filter {
+    pointer-events:                     none;
+    opacity:                            0;
+}
+
+#headers .header.select_filter .sort {
     opacity:                            0;
 }
 
@@ -147,6 +152,7 @@
 
 #items.select_filter {
     opacity:                            .2;
+    pointer-events:                     none;
 }
 
 #items .item {
