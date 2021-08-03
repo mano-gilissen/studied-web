@@ -107,7 +107,7 @@ class Table {
             self::COLUMN_LABEL                              => $label,
             self::COLUMN_SPACING                            => $spacing,
             self::COLUMN_HTML                               => $html,
-            self::COLUMN_STATE                              => $sortable && $sort && $sort[$id] ? $sort[$id] : self::SORT_MODE_NONE
+            self::COLUMN_STATE                              => $sortable ? ($sort ? $sort[$id] : '') : self::SORT_MODE_NONE
         ];
     }
 
