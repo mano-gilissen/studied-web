@@ -80,13 +80,13 @@ class Table {
     public static function objects($controller, $sort, $filter) {
 
         $query                                              = $controller->list_query();
-/*
+
         if ($filter) {
 
             $controller->list_filter($query, $filter);
 
         }
-*/
+
         if ($sort) {
 
             $controller->list_sort($query, $sort);
