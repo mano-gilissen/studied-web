@@ -103,7 +103,7 @@ class Table {
     public static function column($id, $label, $spacing, $sortable, $sort, $html = false) {
 
         if ($sort){
-            dd($sort[$id]);
+            dd($sort[$id] ? 'a' : 'b');
         }
 
         return (object) [
