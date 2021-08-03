@@ -107,7 +107,7 @@ class Table {
             self::COLUMN_LABEL                              => $label,
             self::COLUMN_SPACING                            => $spacing,
             self::COLUMN_HTML                               => $html,
-            self::COLUMN_STATE                              => $sortable ? ($sort && ($sort[Table::COLUMN_ID] == $id) ? $sort[Table::SORT_MODE] : '') : self::SORT_MODE_NONE
+            self::COLUMN_STATE                              => $sortable && $sort && $sort[$id] ? $sort[$id] : self::SORT_MODE_NONE
         ];
     }
 
@@ -121,7 +121,7 @@ class Table {
 
         foreach ($columns as $column) {
 
-            $column_spacing .= $column->{self::COLUMN_SPACING}."fr ";
+            $column_spacing .= $column->{self::COLUMN_SPACING} . "fr ";
 
         }
 
