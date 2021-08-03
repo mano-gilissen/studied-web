@@ -131,20 +131,22 @@
     opacity:                            1;
 }
 
-#headers .header.select_filter:hover {
+#headers .header.select_filter .sort {
+    opacity:                            0;
+}
+
+#headers .header.select_filter:hover,
+#headers .header.no_sort.select_filter:hover {
     color:                              black;
     background:                         #F0F0F0;
     cursor:                             pointer;
     pointer-events:                     all;
 }
 
-#headers .header.no_filter.select_filter {
+#headers .header.no_filter.select_filter,
+#headers .header.no_filter.select_filter:hover {
     opacity:                            0;
     pointer-events:                     none;
-}
-
-#headers .header.select_filter .sort {
-    opacity:                            0;
 }
 
 
