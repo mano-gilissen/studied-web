@@ -20,11 +20,16 @@ $(function(){
         });
     }
 
-    function sort(id) {
+    function sort(column) {
 
-        this.data_sort                          = {[id] : (this.data_sort[id] ? (this.data_sort[id] == 'desc' ? 'asc' : 'desc') : 'desc')};
+        this.data_sort                          = {[column] : (this.data_sort[column] ? (this.data_sort[column] == 'desc' ? 'asc' : 'desc') : 'desc')};
 
-        this.data_filter[3]                     = id;
+        load();
+    }
+
+    function filter(column, value) {
+
+        this.data_filter[column]                = value;
 
         load();
     }
@@ -34,6 +39,12 @@ $(function(){
     $(OBJECT_LIST).on('click', CLASS_HEADER + ":not(" + ATTR_NONE + ")", function() {
 
         sort($(this).attr('id'));
+
+    });
+
+    $('#button-filter-add').on('click', function() {
+
+        filter(8, 3);
 
     });
 
