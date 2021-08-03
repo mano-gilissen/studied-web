@@ -15,17 +15,19 @@ $(function(){
         $(OBJECT_LIST).load('/load/list/' + data_type, {
 
             data_sort:                          data_sort,
-            //data_filter:                        data_filter
+          //data_filter:                        data_filter
 
         });
     }
 
     function sort(id) {
 
-        this.data_sort['mode']                  = this.data_sort['id'] == id ? (this.data_sort['mode'] == 'desc' ? 'asc' : 'desc'): 'desc';
-        this.data_sort['id']                    = id;
+        this.data_sort[id]                      = this.data_sort[id] ? (this.data_sort[id] == 'desc' ? 'asc' : 'desc') : 'desc';
 
-        // this.data_filter['host_user']           = id;
+      //this.data_sort['mode']                  = this.data_sort['id'] == id ? (this.data_sort['mode'] == 'desc' ? 'asc' : 'desc'): 'desc';
+      //this.data_sort['id']                    = id;
+
+      //this.data_filter['host_user']           = id;
 
         load();
     }
