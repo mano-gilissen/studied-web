@@ -354,25 +354,19 @@ class StudyController extends Controller {
 
     public function list_filter($query, $filter) {
 
-
-
-
         foreach ($filter as $column => $value) {
 
             switch ($column) {
 
                 case self::$COLUMN_DATE:
-
-                    break;
-/*
                 case self::$COLUMN_STUDENT:
 
                     break;
 
                 case self::$COLUMN_HOST:
-
+                    $query->where(Model::$STUDY_HOST_USER, $value);
                     break;
-
+/*
                 case self::$COLUMN_SERVICE:
 
                     break;
