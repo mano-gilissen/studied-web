@@ -31,6 +31,22 @@
 
 
 
+#actions {
+    display:                            flex;
+    align-items:                        center;
+    height:                             60px;
+    width:                              max-content;
+    margin-left:                        auto;
+}
+
+#actions .button {
+    margin-left:                        10px;
+}
+
+
+
+
+
 .content-columns {
     grid-template-rows:                 auto 64px auto;
     grid-template-areas:                "left . right"

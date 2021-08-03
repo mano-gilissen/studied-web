@@ -36,7 +36,7 @@
 
             <div class="top">
 
-                <div class="actions">
+                <div id="actions">
 
                     <div id="button-filter-add" class="button icon">
 
@@ -56,7 +56,7 @@
 
                 </div>
 
-                <div class="counters">
+                <div id="counters">
 
                     @foreach($counters as $counter)
 

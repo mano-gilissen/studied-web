@@ -33,7 +33,9 @@ class Table {
     const SORT_MODE                                         = "mode";
     const SORT_MODE_ASC                                     = "asc";
     const SORT_MODE_DESC                                    = "desc";
-    const SORT_MODE_NONE                                    = "none";
+
+    const NO_SORT                                           = "no_sort";
+    const NO_FILTER                                         = "no_filter";
 
     const ITEM_LINK                                         = "link";
 
@@ -107,7 +109,7 @@ class Table {
             self::COLUMN_LABEL                              => $label,
             self::COLUMN_SPACING                            => $spacing,
             self::COLUMN_HTML                               => $html,
-            self::COLUMN_STATE                              => $sortable ? ($sort && array_key_exists($id, $sort) ? $sort[$id] : '') : self::SORT_MODE_NONE
+            self::COLUMN_STATE                              => $sortable ? ($sort && array_key_exists($id, $sort) ? $sort[$id] : '') : self::NO_SORT
         ];
     }
 

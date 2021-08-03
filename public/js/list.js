@@ -4,6 +4,8 @@
 var data_sort                                   = {};
 var data_filter                                 = {};
 
+var filters_select_active                       = false;
+
 
 
 $(function(){
@@ -20,12 +22,16 @@ $(function(){
         });
     }
 
+
+
     function sort(column) {
 
         this.data_sort                          = {[column] : (this.data_sort[column] ? (this.data_sort[column] == 'desc' ? 'asc' : 'desc') : 'desc')};
 
         load();
     }
+
+
 
     function filter(column, value) {
 
@@ -36,17 +42,49 @@ $(function(){
 
 
 
-    $(OBJECT_LIST).on('click', CLASS_HEADER + ":not(" + ATTR_NONE + ")", function() {
+    $(OBJECT_LIST).on('click', CLASS_HEADER + ":not(" + ATTR_NO_SORT + ")", function() {
 
-        sort($(this).attr('id'));
+        if (!filters_select_active) {
 
+            sort($(this).attr('id'));
+
+        }
     });
 
-    $('#button-filter-add').on('click', function() {
 
-        //
 
+    $(OBJECT_BUTTON_FILTER_ADD).on('click', function() {
+
+        if (!filters_select_active) {
+
+            filters_open();
+
+        } else {
+
+            filters_close();
+
+        }
     });
+
+
+
+    function filters_open() {
+
+        $(CLASS_HEADER).addClass(ATTR_SELECT_FILTER);
+
+        $(OBJECT_ITEMS).addClass(ATTR_SELECT_FILTER);
+        $(OBJECT_ACTIONS).addClass(ATTR_SELECT_FILTER);
+        $(OBJECT_COUNTERS).addClass(ATTR_SELECT_FILTER);
+    }
+
+    function filters_close() {
+
+        $(CLASS_HEADER).removeClass(ATTR_SELECT_FILTER);
+
+        $(OBJECT_ITEMS).removeClass(ATTR_SELECT_FILTER);
+        $(OBJECT_ACTIONS).removeClass(ATTR_SELECT_FILTER);
+        $(OBJECT_COUNTERS).removeClass(ATTR_SELECT_FILTER);
+    }
 
 
 

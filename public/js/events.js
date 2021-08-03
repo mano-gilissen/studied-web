@@ -4,7 +4,6 @@
 const OBJECT_APP                                = '#app';
 const OBJECT_WRAP                               = '#wrap';
 const OBJECT_MENU                               = '#menu';
-const OBJECT_LIST                               = '#list';
 const OBJECT_TOOLTIP                            = '#tooltip';
 
 const OBJECT_BUTTON_MENU                        = '#button-menu';
@@ -12,6 +11,12 @@ const OBJECT_BUTTON_LOGOUT                      = '#button-logout';
 const OBJECT_BUTTON_SETTINGS                    = '#button-settings';
 const OBJECT_BUTTON_PREVIOUS                    = '#button-previous';
 const OBJECT_BUTTON_NEXT                        = '#button-next';
+const OBJECT_BUTTON_FILTER_ADD                  = '#button-filter-add';
+
+const OBJECT_LIST                               = '#list';
+const OBJECT_ITEMS                              = '#items';
+const OBJECT_COUNTERS                           = '#counters';
+const OBJECT_ACTIONS                            = '#actions';
 
 const OBJECT_FORM                               = '#form';
 const OBJECT_AGREEMENTS                         = '#agreements';
@@ -27,10 +32,14 @@ const CLASS_BUTTON                              = '.button';
 const ICON_BACK                                 = "/images/back.svg";
 const ICON_MENU                                 = "/images/menu.svg";
 
-const ATTR_NONE                                 = 'none';
+const ATTR_NO_SORT                              = 'no_sort';
+const ATTR_NO_FILTER                            = 'no_filter';
+const ATTR_SELECT_FILTER                        = 'select_filter';
+
 const ATTR_VISIBLE                              = 'visible';
 const ATTR_ACTIVE                               = 'active';
 const ATTR_SELECTED                             = 'selected';
+const ATTR_FILTERED                             = 'filtered';
 const ATTR_DISABLED                             = 'disabled';
 const ATTR_SOLO                                 = 'solo';
 
@@ -96,7 +105,7 @@ $(function(){
 
     });
 
-    $(OBJECT_APP).on('mousemove', CLASS_HEADER + ":not(." + ATTR_NONE + ")", function() {
+    $(OBJECT_APP).on('mousemove', CLASS_HEADER + ":not(." + ATTR_NO_SORT + ")", function() {
 
         setTooltip("Sorteren");
 
@@ -118,7 +127,7 @@ $(function(){
 
     $(OBJECT_APP).on('mouseenter',
 
-        CLASS_HEADER + ":not(." + ATTR_NONE + ")" + ", " +
+        CLASS_HEADER + ":not(." + ATTR_NO_SORT + ")" + ", " +
         CLASS_PERSON_REPORT + ", " +
         CLASS_PERSON + ", " +
         OBJECT_BUTTON_LOGOUT + ", " +
@@ -133,7 +142,7 @@ $(function(){
 
     $(OBJECT_APP).on('mouseleave',
 
-        CLASS_HEADER + ":not(." + ATTR_NONE + ")" + ", " +
+        CLASS_HEADER + ":not(." + ATTR_NO_SORT + ")" + ", " +
         CLASS_PERSON_REPORT + ", " +
         CLASS_PERSON + ", " +
         OBJECT_BUTTON_LOGOUT + ", " +

@@ -29,28 +29,36 @@
 
 
 
-.actions {
+#actions {
     display:                            flex;
     margin-right:                       auto;
 }
 
-.actions .button {
+#actions .button {
     margin-right:                       8px;
 }
 
+#actions.select_filter div:not(#button-filter-add) {
+    opacity:                            .2;
+}
 
 
 
 
-.counters {
+
+#counters {
     display:                            flex;
 }
 
-.counters .counter {
+#counters.select_filter {
+    opacity:                            .2;
+}
+
+#counters .counter {
     margin-left:                        56px;
 }
 
-.counters .counter .value {
+#counters .counter .value {
     font-family:                        'Circular', serif;
     font-weight:                        300;
     font-size:                          32px;
@@ -113,6 +121,20 @@
     opacity:                            1;
 }
 
+#headers .header.select_filter {
+    color:                              black;
+    opacity:                            1;
+}
+
+#headers .header.select_filter:hover {
+    background:                         #F0F0F0;
+}
+
+#headers .header.no_filter.select_filter,
+#headers .header.select_filter .sort{
+    opacity:                            0;
+}
+
 
 
 
@@ -121,6 +143,10 @@
     grid-area:                          items;
     overflow:                           overlay;
     padding:                            0 64px;
+}
+
+#items.select_filter {
+    opacity:                            .2;
 }
 
 #items .item {
