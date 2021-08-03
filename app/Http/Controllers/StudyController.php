@@ -377,10 +377,10 @@ class StudyController extends Controller {
                 case self::$COLUMN_TIME:
 
                     break;
-
+*/
                 case self::$COLUMN_STATUS:
-
-                    break;*/
+                    $query->where(Model::$STUDY_STATUS, $value);
+                    break;
             }
         }
     }
