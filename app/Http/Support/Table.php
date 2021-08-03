@@ -79,17 +79,17 @@ class Table {
 
     public static function objects($controller, $sort, $filter) {
 
-        dd($sort);
-
         $query                                              = $controller->list_query();
-
+/*
         if ($filter) {
 
             $controller->list_filter($query, $filter);
 
         }
-
+*/
         if ($sort) {
+
+            dd($sort);
 
             $controller->list_sort($query, $sort);
 
