@@ -91,10 +91,6 @@
     cursor:                             pointer;
 }
 
-#headers .header.no_sort {
-    pointer-events:                     none;
-}
-
 #headers .header.no_sort:hover {
     color:                              #808080;
     cursor:                             default;
@@ -140,13 +136,11 @@
     color:                              black;
     background:                         #F0F0F0;
     cursor:                             pointer;
-    pointer-events:                     all;
 }
 
 #headers .header.no_filter.select_filter,
 #headers .header.no_filter.select_filter:hover {
     opacity:                            0;
-    pointer-events:                     none;
 }
 
 
