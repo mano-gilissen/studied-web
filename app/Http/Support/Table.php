@@ -102,16 +102,12 @@ class Table {
 
     public static function column($id, $label, $spacing, $sortable, $sort, $html = false) {
 
-        if (!$sort){
-            dd(array_key_exists($id, $sort) ? 'a' : 'b');
-        }
-
         return (object) [
             self::COLUMN_ID                                 => $id,
             self::COLUMN_LABEL                              => $label,
             self::COLUMN_SPACING                            => $spacing,
             self::COLUMN_HTML                               => $html,
-            //self::COLUMN_STATE                              => $sortable ? ($sort ? $sort[$id] : '') : self::SORT_MODE_NONE
+            self::COLUMN_STATE                              => $sortable ? ($sort && array_key_exists($id, $sort) ? $sort[$id] : '') : self::SORT_MODE_NONE
         ];
     }
 
