@@ -82,7 +82,6 @@ class Table {
 
             array_push($items, (object) $item);
         }
-        dd('a');
 
         $view_data[self::VIEW_COLUMNS]                      = $columns;
         $view_data[self::VIEW_SPACING]                      = $spacing;
