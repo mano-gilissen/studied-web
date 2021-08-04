@@ -65,7 +65,7 @@ class Table {
             if ($column->{self::COLUMN_FILTER} != self::FILTER_DISABLED) {
 
                 $data_name                                  = Key::AUTOCOMPLETE_DATA . Key::FILTER_INPUT . $column->{self::COLUMN_ID};
-                $view_data[$data_name]                      = $controller->list_filter_data($query, $column);
+                $view_data[$data_name]                      = Format::encode($controller->list_filter_data($query, $column));
 
             }
         }
@@ -86,8 +86,6 @@ class Table {
         $view_data[self::VIEW_COLUMNS]                      = $columns;
         $view_data[self::VIEW_SPACING]                      = $spacing;
         $view_data[self::VIEW_ITEMS]                        = $items;
-
-        dd($view_data);
 
         return view(Views::LOAD_LIST, $view_data);
     }
