@@ -275,7 +275,7 @@ function autocomplete(input, data, additional, reject_other, show_all, show_alwa
             }
         });
     }
-
+/*
 
 
     if (show_always) {
@@ -284,6 +284,6 @@ function autocomplete(input, data, additional, reject_other, show_all, show_alwa
 
     }
 
-
+*/
 
 }
