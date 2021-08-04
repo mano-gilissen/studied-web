@@ -9,8 +9,9 @@
             placeholder                                 = "{{ $placeholder ?? '' }}"
             value                                       = "{{ $value ?? '' }}"
             autocomplete                                = "{{ $autocomplete ?? 'off' }}"
+            data-identifier                             = "{{ $identifier ?? '' }}"
 
-            @isset($required) required @endisset >
+            @isset($required) required @endisset>
 
         @isset($icon) <img class="icon" src="/images/{{ $icon }}"> @endisset
 
@@ -56,10 +57,7 @@
             '{{ $uses_id ?? false }}',
 
             /* Which function needs to be called after setting an ID */
-            '{{ $trigger ?? false }}',
-
-            /* Is the input field part of a form page */
-            '{{ $form ?? true }}'
+            '{{ $trigger ?? false }}'
 
         );
 

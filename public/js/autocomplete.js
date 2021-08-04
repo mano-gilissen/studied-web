@@ -2,17 +2,16 @@
 
 
 const TRIGGER_AGREEMENTS                            = "agreements";
-const KEY_NONE                                      = "";
+const TRIGGER_FILTER                                = "filter";
 
 
 
-function autocomplete(input, data, additional, reject_other, show_all, uses_id, trigger, form) {
+function autocomplete(input, data, additional, reject_other, show_all, uses_id, trigger) {
 
 
 
     var currentFocus,
-        autocompleted                               = false,
-        lastTriggerNoInput                          = false;
+        autocompleted                               = false;
 
 
 
@@ -148,7 +147,9 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
                     input_id                    = document.getElementById("_" + input.name);
                     input_id.value              = key;
 
-                    callTrigger(key);
+                    console.log(input.dataset.identifier);
+
+                    callTrigger(key, input.dataset.identifier);
                 }
 
                 closeList();
@@ -219,12 +220,12 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
         if (reject_other && !autocompleted) {
 
-            input.value                             = KEY_NONE;
+            input.value                             = '';
 
             if (uses_id) {
 
                 input_id                            = document.getElementById("_" + input.name);
-                input_id.value                      = KEY_NONE;
+                input_id.value                      = '';
 
                 callTrigger('');
             }
@@ -233,20 +234,16 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
 
-    function callTrigger(key) {
-
-        if (key == KEY_NONE && lastTriggerNoInput) {
-
-            return false;
-
-        }
-
-        lastTriggerNoInput                          = key == KEY_NONE;
+    function callTrigger(key, identifier) {
 
         switch (trigger) {
 
             case TRIGGER_AGREEMENTS:
                 agreements_load(key);
+                break;
+
+            case TRIGGER_FILTER:
+                filter(key, identifier);
                 break;
         }
     }

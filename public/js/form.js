@@ -1,7 +1,10 @@
 
 
 
+const HOST_NONE                                 = "";
+
 var agreements_index_active                     = 0;
+var lastTriggerNoInput                          = false;
 
 
 
@@ -38,6 +41,14 @@ $(function(){
 
 
 function agreements_load(host) {
+
+    if (host == HOST_NONE && lastTriggerNoInput) {
+
+        return false;
+
+    }
+
+    lastTriggerNoInput                          = host == HOST_NONE;
 
     agreements                                  = $('.agreements');
     agreements                                  .animate({opacity: 0}, 200);
