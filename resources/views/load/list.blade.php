@@ -2,11 +2,17 @@
 
     @foreach($columns as $column)
 
-        <div class="header {{ $column->state ?? '' }}" id="{{ $column->id }}">
+        <div>
 
-            {{ $column->label }}
+            <div class="header {{ $column->state ?? '' }}" id="{{ $column->id }}">
 
-            <div class="sort"></div>
+                {{ $column->label }}
+
+                <div class="sort"></div>
+
+            </div>
+
+            <div style="height:40px;width:40px;background:pink"></div>
 
         </div>
 
