@@ -421,6 +421,7 @@ class StudyController extends Controller {
                     switch ($value) {
 
                         case StudyTrait::$STATUS_ACTIVE:
+
                             $query->where(Model::$STUDY_STATUS, StudyTrait::$STATUS_PLANNED);
                             $query->where(Model::$STUDY_DATE, date(Format::$DATABASE_DATE));
                             $query->where(Model::$STUDY_START, '<', date(Format::$DATABASE_TIME, time()));
