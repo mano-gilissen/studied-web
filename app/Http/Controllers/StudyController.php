@@ -158,8 +158,6 @@ class StudyController extends Controller {
 
     public function list_load(Request $request) {
 
-        dd($request);
-
         return Table::load($this, $request);
 
     }

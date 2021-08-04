@@ -70,13 +70,13 @@ class Table {
             array_push($items, (object) $item);
         }
 
+        dd($objects);
+
         $view_data                                          = [
             self::VIEW_COLUMNS                              => $columns,
             self::VIEW_SPACING                              => $spacing,
             self::VIEW_ITEMS                                => $items
         ];
-
-        dd($objects);
 /*
         foreach ($columns as $column) {
 
