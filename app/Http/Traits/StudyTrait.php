@@ -23,10 +23,11 @@ trait StudyTrait {
 
         $STATUS_CREATED                                     = 0,
         $STATUS_PLANNED                                     = 1,
-        $STATUS_FINISHED                                    = 2,
-        $STATUS_REPORTED                                    = 3,
-        $STATUS_CANCELLED                                   = 4,
-        $STATUS_ABSENT                                      = 5;
+        $STATUS_ACTIVE                                      = 2,
+        $STATUS_FINISHED                                    = 3,
+        $STATUS_REPORTED                                    = 4,
+        $STATUS_CANCELLED                                   = 5,
+        $STATUS_ABSENT                                      = 6;
 
 
 
@@ -127,8 +128,20 @@ trait StudyTrait {
 
         switch ($study->status) {
 
+            case self::$STATUS_PLANNED:                     return self::hasStarted($study) ? (self::hasFinished($study) ? self::$STATUS_FINISHED : self::$STATUS_ACTIVE) : self::$STATUS_PLANNED;
+            default:                                        return $study->status;
+        }
+    }
+
+
+
+    public static function getStatusText($status) {
+
+        switch ($status) {
+
             case self::$STATUS_CREATED:                     return "Aangemaakt";
-            case self::$STATUS_PLANNED:                     return self::hasStarted($study) ? (self::hasFinished($study) ? "Afgelopen" : "Bezig") : "Ingepland";
+            case self::$STATUS_PLANNED:                     return "Ingepland";
+            case self::$STATUS_ACTIVE:                      return "Bezig";
             case self::$STATUS_FINISHED:                    return "Afgelopen";
             case self::$STATUS_REPORTED:                    return "Gerapporteerd";
             case self::$STATUS_CANCELLED:                   return "Geannuleerd";
@@ -139,15 +152,16 @@ trait StudyTrait {
 
 
 
-    public static function getStatusColor($study) {
+    public static function getStatusColor($status) {
 
-        switch ($study->status) {
+        switch ($status) {
 
             case self::$STATUS_CANCELLED:
             case self::$STATUS_ABSENT:                      return Color::RED;
             case self::$STATUS_REPORTED:                    return Color::GREEN;
+            case self::$STATUS_ACTIVE:
             case self::$STATUS_FINISHED:                    return Color::ORANGE;
-            case self::$STATUS_PLANNED:                     return self::hasStarted($study) ? Color::ORANGE : Color::GREY_80;
+            case self::$STATUS_PLANNED:
             case self::$STATUS_CREATED:
             default:                                        return Color::GREY_80;
         }
@@ -161,12 +175,28 @@ trait StudyTrait {
 
             case self::$STATUS_CREATED:
             case self::$STATUS_CANCELLED:
+            case self::$STATUS_ACTIVE:
             case self::$STATUS_REPORTED:
             case self::$STATUS_ABSENT:
             case self::$STATUS_PLANNED:
             case self::$STATUS_FINISHED:
             default:                                        return Color::WHITE;
         }
+    }
+
+
+
+    public static function getStatusFilterData() {
+
+        return [
+            StudyTrait::$STATUS_CREATED                     => StudyTrait::getStatusText(StudyTrait::$STATUS_CREATED),
+            StudyTrait::$STATUS_PLANNED                     => StudyTrait::getStatusText(StudyTrait::$STATUS_CREATED),
+            StudyTrait::$STATUS_ACTIVE                      => StudyTrait::getStatusText(StudyTrait::$STATUS_CREATED),
+            StudyTrait::$STATUS_FINISHED                    => StudyTrait::getStatusText(StudyTrait::$STATUS_CREATED),
+            StudyTrait::$STATUS_REPORTED                    => StudyTrait::getStatusText(StudyTrait::$STATUS_CREATED),
+            StudyTrait::$STATUS_CANCELLED                   => StudyTrait::getStatusText(StudyTrait::$STATUS_CREATED),
+            StudyTrait::$STATUS_ABSENT                      => StudyTrait::getStatusText(StudyTrait::$STATUS_CREATED)
+        ];
     }
 
 

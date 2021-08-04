@@ -34,7 +34,7 @@
 
             <div class="value">
 
-                <div class="tag" style="background: {{\App\Http\Traits\StudyTrait::getStatusColor($study)}};color: {{\App\Http\Traits\StudyTrait::getStatusTextColor($study)}}">{{ \App\Http\Traits\StudyTrait::getStatus($study) }}</div>
+                <div class="tag" style="background: {{\App\Http\Traits\StudyTrait::getStatusColor(\App\Http\Traits\StudyTrait::getStatus($study))}};color: {{\App\Http\Traits\StudyTrait::getStatusTextColor($study)}}">{{ \App\Http\Traits\StudyTrait::getStatusText(\App\Http\Traits\StudyTrait::getStatus($study)) }}</div>
 
             </div>
 

@@ -38,7 +38,7 @@ class Func {
     public static function has_passed($date, $time) {
 
         $date_event                                         = strtotime(substr($date, 0, 10));
-        $date_now                                           = strtotime(date('Y-m-d', time()));
+        $date_now                                           = strtotime(date(Format::$DATABASE_DATE, time()));
 
         if ($date_event < $date_now) {
 
@@ -51,7 +51,7 @@ class Func {
         } else {
 
             $time_event                                     = strtotime($time);
-            $time_now                                       = strtotime(date('H:i:s', time()));
+            $time_now                                       = strtotime(date(Format::$DATABASE_TIME, time()));
 
             return $time_event < $time_now;
         }

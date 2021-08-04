@@ -335,7 +335,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_STATUS:
 
-                return "<div class='tag' style='background:" . StudyTrait::getStatusColor($study) . ";color:" . StudyTrait::getStatusTextColor($study) . "'>".StudyTrait::getStatus($study)."</div>";
+                return "<div class='tag' style='background:" . StudyTrait::getStatusColor(StudyTrait::getStatus($study)) . ";color:" . StudyTrait::getStatusTextColor($study) . "'>".StudyTrait::getStatusText(StudyTrait::getStatus($study))."</div>";
 
             default:
 
@@ -417,7 +417,31 @@ class StudyController extends Controller {
                     break;
 
                 case self::$COLUMN_STATUS:
-                    $query->where(Model::$STUDY_STATUS, $value);
+
+                    switch ($value) {
+
+                        case StudyTrait::$STATUS_ACTIVE:
+                            $query->where(Model::$STUDY_STATUS, StudyTrait::$STATUS_PLANNED);
+                            $query->filter(function ($study) {
+
+                                return StudyTrait::hasStarted($study) && !StudyTrait::hasFinished($study);
+
+                            });
+                            break;
+
+                        case StudyTrait::$STATUS_FINISHED:
+                            $query->where(Model::$STUDY_STATUS, StudyTrait::$STATUS_PLANNED);
+                            $query->filter(function ($study) {
+
+                                return StudyTrait::hasFinished($study);
+
+                            });
+                            break;
+
+                        default:
+                            $query->where(Model::$STUDY_STATUS, $value);
+                            break;
+                    }
                     break;
             }
         }
@@ -431,12 +455,11 @@ class StudyController extends Controller {
 
             case self::$COLUMN_HOST:
 
-                dd( $query->with('getHost_User.getPerson')->get()->pluck('getHost_User.getPerson.' . 'fullName', 'getHost_User.getPerson.' . Model::$BASE_ID)->toArray());
-                return [];
+                return $query->with('getHost_User.getPerson')->get()->pluck('getHost_User.getPerson.' . 'fullName', 'getHost_User.getPerson.' . Model::$BASE_ID)->toArray();
 
             case self::$COLUMN_STATUS:
 
-
+                return StudyTrait::getStatusFilterData();
 
             default:
 
@@ -465,6 +488,10 @@ class StudyController extends Controller {
 
                 case self::$COLUMN_HOST:
                     $display                                = PersonTrait::getFullName(Person::find($value));
+                    break;
+
+                case self::$COLUMN_STATUS:
+                    $display                                = StudyTrait::getStatusText($value);
                     break;
             }
 
