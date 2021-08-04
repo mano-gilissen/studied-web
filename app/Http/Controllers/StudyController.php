@@ -35,16 +35,16 @@ class StudyController extends Controller {
 
 
 
-    private static
+    public static
 
-        $COLUMN_DATE                                        = 1,
-        $COLUMN_STUDENT                                     = 2,
-        $COLUMN_HOST                                        = 3,
-        $COLUMN_SUBJECT                                     = 4,
-        $COLUMN_SERVICE                                     = 5,
-        $COLUMN_LOCATION                                    = 6,
-        $COLUMN_TIME                                        = 7,
-        $COLUMN_STATUS                                      = 8;
+        $COLUMN_DATE                                        = 101,
+        $COLUMN_STUDENT                                     = 102,
+        $COLUMN_HOST                                        = 103,
+        $COLUMN_SUBJECT                                     = 104,
+        $COLUMN_SERVICE                                     = 105,
+        $COLUMN_LOCATION                                    = 106,
+        $COLUMN_TIME                                        = 107,
+        $COLUMN_STATUS                                      = 108;
 
 
 
@@ -382,6 +382,20 @@ class StudyController extends Controller {
                     $query->where(Model::$STUDY_STATUS, $value);
                     break;
             }
+        }
+    }
+
+
+
+    public function list_filter_data($objects, $column) {
+
+        dd($objects);
+
+        switch ($column->{Model::$BASE_ID}) {
+
+            case self::$COLUMN_HOST:
+
+                break;
         }
     }
 

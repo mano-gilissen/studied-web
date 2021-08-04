@@ -22,6 +22,8 @@ class Key {
     const AUTOCOMPLETE_ADDITIONAL               = "ac_additional_";
     const AUTOCOMPLETE_ID                       = "_";
 
+    const FILTER_INPUT                          = "filter_input_";
+
     const UNKNOWN                               = "Onbekend";
 
 

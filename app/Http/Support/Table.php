@@ -24,7 +24,8 @@ class Table {
     const COLUMN_SPACING                                    = "spacing";
     const COLUMN_LABEL                                      = "label";
     const COLUMN_HTML                                       = "html";
-    const COLUMN_STATE                                      = "state";
+    const COLUMN_SORT                                       = "sort";
+    const COLUMN_FILTER                                     = "filter";
 
     const DATA_TYPE                                         = "data_type";
     const DATA_SORT                                         = "data_sort";
@@ -33,9 +34,10 @@ class Table {
     const SORT_MODE                                         = "mode";
     const SORT_MODE_ASC                                     = "asc";
     const SORT_MODE_DESC                                    = "desc";
+    const SORT_DISABLED                                     = "no_sort";
 
-    const NO_SORT                                           = "no_sort";
-    const NO_FILTER                                         = "no_filter";
+    const FILTER_ACTIVE                                     = "filtered";
+    const FILTER_DISABLED                                   = "no_filter";
 
     const ITEM_LINK                                         = "link";
 
@@ -68,12 +70,20 @@ class Table {
             array_push($items, (object) $item);
         }
 
-        return view(Views::LOAD_LIST, [
-
+        $view_data                                          = [
             self::VIEW_COLUMNS                              => $columns,
             self::VIEW_SPACING                              => $spacing,
             self::VIEW_ITEMS                                => $items
-        ]);
+        ];
+
+        foreach ($columns as $column) {
+
+            $data_name                                      = Key::AUTOCOMPLETE_DATA . Key::FILTER_INPUT . $column->{self::COLUMN_ID};
+            $view_data[$data_name]                          = $controller->list_filter_data($objects, $column);
+
+        }
+
+        return view(Views::LOAD_LIST, $view_data);
     }
 
 
@@ -102,14 +112,15 @@ class Table {
 
 
 
-    public static function column($id, $label, $spacing, $sortable, $sort, $html = false) {
+    public static function column($id, $label, $spacing, $sortable, $sort, $filterable, $filter, $html = false) {
 
         return (object) [
             self::COLUMN_ID                                 => $id,
             self::COLUMN_LABEL                              => $label,
             self::COLUMN_SPACING                            => $spacing,
             self::COLUMN_HTML                               => $html,
-            self::COLUMN_STATE                              => $sortable ? ($sort && array_key_exists($id, $sort) ? $sort[$id] : '') : self::NO_SORT
+            self::COLUMN_SORT                               => $sortable ? ($sort && array_key_exists($id, $sort) ? $sort[$id] : '') : self::SORT_DISABLED,
+            self::COLUMN_FILTER                             => $filterable ? ($filter && array_key_exists($id, $filter) ? self::FILTER_ACTIVE : '') : self::FILTER_DISABLED,
         ];
     }
 

@@ -74,11 +74,13 @@
     display:                            grid;
     grid-template-rows:                 48px;
     padding:                            0 64px;
+    z-index:                            5;
 }
 
 #headers .header {
     display:                            flex;
     align-items:                        center;
+    height:                             48px;
     padding-left:                       24px;
     color:                              #808080;
     overflow:                           hidden;
@@ -141,6 +143,14 @@
 #headers .header.no_filter.select_filter,
 #headers .header.no_filter.select_filter:hover {
     opacity:                            0;
+}
+
+
+
+
+
+.filter {
+    /*display:                            none;*/
 }
 
 

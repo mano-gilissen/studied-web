@@ -4,7 +4,7 @@
 
         <div>
 
-            <div class="header {{ $column->state ?? '' }}" id="{{ $column->id }}">
+            <div class="header {{ $column->sort }} {{ $column->filter }}" id="{{ $column->id }}">
 
                 {{ $column->label }}
 
@@ -12,7 +12,19 @@
 
             </div>
 
-            <div style="height:40px;width:40px;background:pink"></div>
+            <div class="filter" id="filter_{{ $column->id }}">
+
+                @switch($column->id)
+
+                    @case(\App\Http\Controllers\StudyController::$COLUMN_HOST)
+
+                        @include('form.box-input', ['id' => 'filter_input_' . $column->id, 'required' => true, 'data' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true])
+
+                        @break
+
+                @endswitch
+
+            </div>
 
         </div>
 
