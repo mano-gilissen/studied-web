@@ -389,7 +389,7 @@ class StudyController extends Controller {
 
     public function list_filter_data($query, $column) {
 
-        dd($query->with('getHost_User.getPerson')->get()->pluck('getHost_User.getPerson.' . 'fullName', Model::$BASE_ID)->toArray());
+        dd($query->with('getHost_User.getPerson')->get()->pluck('getHost_User.getPerson.' . 'fullName', 'getHost_User.getPerson.' . Model::$BASE_ID)->toArray());
 
         switch ($column->{Model::$BASE_ID}) {
 
