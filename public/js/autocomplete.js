@@ -6,7 +6,7 @@ const TRIGGER_FILTER                                = "filter";
 
 
 
-function autocomplete(input, data, additional, reject_other, show_all, show_always, uses_id, trigger, form) {
+function autocomplete(input, data, additional, reject_other, show_all, uses_id, trigger, form) {
 
 
 

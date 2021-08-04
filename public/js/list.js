@@ -128,5 +128,6 @@ function filters_close() {
 function filter_input(id) {
 
     $('#filter_' + id).show();
+    $('#filter_input_' + id).focus();
 
 }
