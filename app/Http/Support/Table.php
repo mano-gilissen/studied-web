@@ -53,7 +53,7 @@ class Table {
         $filter                                             = $request->input(Table::DATA_FILTER, null);
 
 
-        dd($objects);
+        dd('a');
 
         $columns                                            = $controller->list_columns($sort);
         $spacing                                            = self::spacing($columns);
