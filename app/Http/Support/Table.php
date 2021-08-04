@@ -70,6 +70,8 @@ class Table {
             }
         }
 
+        dd('a');
+
         foreach ($objects as $object) {
 
             $item                                           = [];
