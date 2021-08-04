@@ -40,24 +40,32 @@
 
 <div id="items">
 
-    @foreach($items as $item)
+    @empty($items)
 
-        <div class="item @if($loop->odd) odd @endif" style="grid-template-columns: {{ $column_spacing }}" onclick="window.location.href='{{ $item->link ?? '' }}'">
+        sdfjasklfjasl;dk fjas;ld k
 
-            @foreach($columns as $column)
+    @else
 
-                <div class="attribute">
+        @foreach($items as $item)
 
-                    <div>@if($column->html){!! $item->{$column->id} !!}@else{{ $item->{$column->id} }}@endif</div>
+            <div class="item @if($loop->odd) odd @endif" style="grid-template-columns: {{ $column_spacing }}" onclick="window.location.href='{{ $item->link ?? '' }}'">
 
-                </div>
+                @foreach($columns as $column)
 
-            @endforeach
+                    <div class="attribute">
 
-            <img class="action" src="{{ $action ?? '/images/chevron-right.svg' }}"/>
+                        <div>@if($column->html){!! $item->{$column->id} !!}@else{{ $item->{$column->id} }}@endif</div>
 
-        </div>
+                    </div>
 
-    @endforeach
+                @endforeach
+
+                <img class="action" src="{{ $action ?? '/images/chevron-right.svg' }}"/>
+
+            </div>
+
+        @endforeach
+
+    @endempty
 
 </div>
