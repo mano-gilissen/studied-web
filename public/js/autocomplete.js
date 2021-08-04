@@ -264,7 +264,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
 
-    if (!form) {
+    if (form) {
 
         document.addEventListener("click", function (event) {
 
