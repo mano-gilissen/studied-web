@@ -143,6 +143,7 @@
 #headers .header.no_filter.select_filter,
 #headers .header.no_filter.select_filter:hover {
     opacity:                            0;
+    cursor:                             unset;
 }
 
 
@@ -150,7 +151,7 @@
 
 
 .filter {
-    /*display:                            none;*/
+    display:                            none;
 }
 
 
