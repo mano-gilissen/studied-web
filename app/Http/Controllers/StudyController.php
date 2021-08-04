@@ -9,7 +9,6 @@ use App\Http\Support\Table;
 use App\Http\Traits\BaseTrait;
 use App\Http\Traits\PersonTrait;
 use App\Http\Traits\RoleTrait;
-use App\Http\Traits\ServiceTrait;
 use App\Http\Traits\StudyTrait;
 use App\Models\Location;
 use App\Models\Person;
@@ -416,7 +415,7 @@ class StudyController extends Controller {
                     $query->where(Model::$STUDY_HOST_USER, $value);
                     break;
 
-                case self::$COLUMN_STATUS:
+                case self::$COLUMN_SERVICE:
                     $query->where(Model::$SERVICE, $value);
                     break;
 
