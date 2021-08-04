@@ -112,7 +112,7 @@ $(function(){
 
     });
 
-    $(OBJECT_APP).on('mousemove', CLASS_HEADER + "." + ATTR_SELECT_FILTER, function() {
+    $(OBJECT_APP).on('mousemove', CLASS_HEADER + "." + ATTR_SELECT_FILTER + ":not(." + ATTR_NO_FILTER + ")", function() {
 
         setTooltip("Filteren");
 
@@ -135,7 +135,7 @@ $(function(){
     $(OBJECT_APP).on('mouseenter',
 
         CLASS_HEADER + ":not(." + ATTR_NO_SORT + ",." + ATTR_SELECT_FILTER + ")" + ", " +
-        CLASS_HEADER + "." + ATTR_SELECT_FILTER + ", " +
+        CLASS_HEADER + "." + ATTR_SELECT_FILTER + ":not(." + ATTR_NO_FILTER + ")" + ", " +
         CLASS_PERSON_REPORT + ", " +
         CLASS_PERSON + ", " +
         OBJECT_BUTTON_LOGOUT + ", " +
@@ -151,7 +151,7 @@ $(function(){
     $(OBJECT_APP).on('mouseleave',
 
         CLASS_HEADER + ":not(." + ATTR_NO_SORT + ",." + ATTR_SELECT_FILTER + ")" + ", " +
-        CLASS_HEADER + "." + ATTR_SELECT_FILTER + ", " +
+        CLASS_HEADER + "." + ATTR_SELECT_FILTER + ":not(." + ATTR_NO_FILTER + ")" + ", " +
         CLASS_PERSON_REPORT + ", " +
         CLASS_PERSON + ", " +
         OBJECT_BUTTON_LOGOUT + ", " +
