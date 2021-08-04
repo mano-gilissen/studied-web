@@ -61,7 +61,7 @@ class Table {
         $objects                                            = self::objects($controller, $query);
         $items                                              = [];
 
-        dd($query);
+        dd($objects);
 
         foreach ($columns as $column) {
 
