@@ -147,8 +147,6 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
                     input_id                    = document.getElementById("_" + input.name);
                     input_id.value              = key;
 
-                    console.log(input.dataset.identifier);
-
                     callTrigger(key, input.dataset.identifier);
                 }
 

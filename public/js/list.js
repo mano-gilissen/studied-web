@@ -75,7 +75,7 @@ function sort(column) {
 
 function filter(value, column) {
 
-    if (value != '') {
+    if (value !== '') {
 
         this.data_filter[column]            = value;
 
