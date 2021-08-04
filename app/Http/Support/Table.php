@@ -54,9 +54,9 @@ class Table {
 
         $columns                                            = $controller->list_columns($sort, $filter);
         $spacing                                            = self::spacing($columns);
-        dd('á');
         $objects                                            = self::objects($controller, $sort, $filter);
         $items                                              = [];
+        dd('á');
 
         foreach ($objects as $object) {
 
