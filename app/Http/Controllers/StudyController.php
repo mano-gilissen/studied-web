@@ -242,7 +242,7 @@ class StudyController extends Controller {
 
 
 
-    public function list_column_label($column) {
+    public static function list_column_label($column) {
 
         switch (self::getUserRole()) {
 
@@ -467,16 +467,18 @@ class StudyController extends Controller {
 
         foreach ($data_filter as $column => $value) {
 
-            $display                                        = '';
+            $filter                                         = [];
+            $filter[Table::COLUMN_ID]                       = $column;
+            $filter[Table::FILTER_COLUMN]                   = self::list_column_label($column);
 
             switch ($column) {
 
                 case self::$COLUMN_HOST:
-                    $display                                = PersonTrait::getFullName(Person::find($value));
+                    $filter[Table::FILTER_VALUE]            = PersonTrait::getFullName(Person::find($value));
                     break;
             }
 
-            $filters[self::list_column_label($column)]      = $display;
+            array_push($filters, $filter);
         }
 
         return view(Views::LOAD_FILTERS, [

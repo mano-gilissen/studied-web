@@ -1,10 +1,10 @@
-@foreach($filters as $column => $value)
+@foreach($filters as $filter)
 
-    <div id="{{ $column }}" class="button icon filter">
+    <div id="{{ $filter->id }}" class="button icon filter">
 
         <img class="icon" src="/images/close.svg">
 
-        <div class="text">{{ $column }}:{{ $value }}</div>
+        <div class="text">{{ $filter->column }}:{{ $filter->value }}</div>
 
     </div>
 

@@ -37,6 +37,8 @@ class Table {
     const SORT_MODE_DESC                                    = "desc";
     const SORT_DISABLED                                     = "no_sort";
 
+    const FILTER_COLUMN                                     = "column";
+    const FILTER_VALUE                                      = "value";
     const FILTER_ACTIVE                                     = "filtered";
     const FILTER_DISABLED                                   = "no_filter";
 
