@@ -52,6 +52,9 @@ class Table {
         $sort                                               = $request->input(Table::DATA_SORT, null);
         $filter                                             = $request->input(Table::DATA_FILTER, null);
 
+
+        dd($objects);
+
         $columns                                            = $controller->list_columns($sort);
         $spacing                                            = self::spacing($columns);
         $objects                                            = self::objects($controller, $sort, $filter);
@@ -69,8 +72,6 @@ class Table {
 
             array_push($items, (object) $item);
         }
-
-        dd($objects);
 
         $view_data                                          = [
             self::VIEW_COLUMNS                              => $columns,
