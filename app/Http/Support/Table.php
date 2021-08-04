@@ -69,7 +69,6 @@ class Table {
 
             array_push($items, (object) $item);
         }
-        dd('á');
 
         $view_data                                          = [
             self::VIEW_COLUMNS                              => $columns,
@@ -84,6 +83,7 @@ class Table {
 
         }*/
 
+        dd('á');
         return view(Views::LOAD_LIST, $view_data);
     }
 
