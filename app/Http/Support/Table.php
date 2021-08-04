@@ -52,9 +52,6 @@ class Table {
         $sort                                               = $request->input(Table::DATA_SORT, null);
         $filter                                             = $request->input(Table::DATA_FILTER, null);
 
-
-        dd('b');
-
         $columns                                            = $controller->list_columns($sort);
 
         dd('a');
