@@ -132,7 +132,7 @@ function filters_close() {
 
     filters_select_active                   = false;
 
-    $(CLASS_FILTER).hide();
+    $(OBJECT_HEADERS + ' ' + CLASS_FILTER).hide();
 
     $(CLASS_HEADER).removeClass(ATTR_SELECT_FILTER);
 
@@ -154,11 +154,7 @@ function filter_remove(column) {
 
 function filter_input(column) {
 
-    console.log($(CLASS_FILTER));
-    console.log(':not(#filter_' + column + ')');
-
     $(OBJECT_HEADERS + ' ' + CLASS_FILTER + ':not(#filter_' + column + ')').hide();
     $('#filter_' + column).show();
     $('#filter_input_' + column).focus();
-
 }

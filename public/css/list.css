@@ -43,8 +43,9 @@
     opacity:                            .2;
 }
 
-#actions .filter {
-
+#actions .filter .autocomplete-item {
+    color:                              #666666;
+    padding-left:                       24px;
 }
 
 
@@ -156,7 +157,7 @@
 
 #headers .filter {
     display:                            none;
-    margin-right:                       -64px;
+    margin-right:                       -48px;
     background:                         #F8F8F8;
 }
 
