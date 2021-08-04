@@ -68,7 +68,9 @@ class Table {
             array_push($items, (object) $item);
         }
 
-        dd(Format::encode($sort));
+        if ($sort) {
+            dd(Format::encode($sort));
+        }
 
         return view(Views::LOAD_LIST, [
 
