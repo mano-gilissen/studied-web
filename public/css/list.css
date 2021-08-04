@@ -157,7 +157,8 @@
 }
 
 .filter .box-input {
-
+    height:                             0;
+    border:                             0;
 }
 
 
