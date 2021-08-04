@@ -467,18 +467,20 @@ class StudyController extends Controller {
 
         foreach ($data_filter as $column => $value) {
 
-            $filter                                         = [];
-            $filter[Table::COLUMN_ID]                       = $column;
-            $filter[Table::FILTER_COLUMN]                   = self::list_column_label($column);
+            $display                                        = '';
 
             switch ($column) {
 
                 case self::$COLUMN_HOST:
-                    $filter[Table::FILTER_VALUE]            = PersonTrait::getFullName(Person::find($value));
+                    $display                                = PersonTrait::getFullName(Person::find($value));
                     break;
             }
 
-            array_push($filters, $filter);
+            array_push($filters, (object) [
+                Table::COLUMN_ID                            => $column,
+                Table::FILTER_COLUMN                        => self::list_column_label($column),
+                Table::FILTER_VALUE                         => $display
+            ]);
         }
 
         return view(Views::LOAD_FILTERS, [
