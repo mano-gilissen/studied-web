@@ -154,7 +154,7 @@ function filter_remove(column) {
 
 function filter_input(column) {
 
-    $(OBJECT_HEADERS + '.' + CLASS_FILTER + ':not(#filter_' + column + ')').hide();
+    $(OBJECT_HEADERS + CLASS_FILTER + ':not(#filter_' + column + ')').hide();
     $('#filter_' + column).show();
     $('#filter_input_' + column).focus();
 
