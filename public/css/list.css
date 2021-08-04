@@ -221,6 +221,16 @@
 
 
 
+.no-items {
+    text-align:                         center;
+    color:                              #666666;
+    background:                         #F8F8F8;
+}
+
+
+
+
+
 #button-filter-add {
     color:                              white;
     background:                         #4D4D4D;

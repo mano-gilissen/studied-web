@@ -42,7 +42,7 @@
 
     @empty($items)
 
-        sdfjasklfjasl;dk fjas;ld k
+        <div class="no-items">Er zijn geen resultaten gevonden.</div>
 
     @else
 
