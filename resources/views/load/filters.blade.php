@@ -1,6 +1,6 @@
-@foreach($filters as $column => $value) {
+@foreach($filters as $column => $value)
 
-    <div class="button icon-reverse">
+    <div class="button icon">
 
         <img class="icon" src="/images/close.svg">
 
