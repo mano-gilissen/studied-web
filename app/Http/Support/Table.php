@@ -62,9 +62,12 @@ class Table {
 
         foreach ($columns as $column) {
 
-            $data_name                                      = Key::AUTOCOMPLETE_DATA . Key::FILTER_INPUT . $column->{self::COLUMN_ID};
-            $view_data[$data_name]                          = $controller->list_filter_data($query, $column);
+            if ($column->{self::COLUMN_FILTER} != self::FILTER_DISABLED) {
 
+                $data_name                                  = Key::AUTOCOMPLETE_DATA . Key::FILTER_INPUT . $column->{self::COLUMN_ID};
+                $view_data[$data_name]                      = $controller->list_filter_data($query, $column);
+
+            }
         }
 
         foreach ($objects as $object) {
