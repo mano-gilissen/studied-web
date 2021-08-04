@@ -75,6 +75,8 @@ class Table {
             self::VIEW_SPACING                              => $spacing,
             self::VIEW_ITEMS                                => $items
         ];
+
+        dd($objects);
 /*
         foreach ($columns as $column) {
 
