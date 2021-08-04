@@ -15,6 +15,7 @@ const OBJECT_BUTTON_FILTER_ADD                  = '#button-filter-add';
 
 const OBJECT_LIST                               = '#list';
 const OBJECT_ITEMS                              = '#items';
+const OBJECT_FILTERS                            = '#filters';
 const OBJECT_COUNTERS                           = '#counters';
 const OBJECT_ACTIONS                            = '#actions';
 

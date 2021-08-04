@@ -11,6 +11,7 @@ use App\Http\Traits\PersonTrait;
 use App\Http\Traits\RoleTrait;
 use App\Http\Traits\StudyTrait;
 use App\Models\Location;
+use App\Models\Person;
 use App\Models\Study;
 use App\Models\User;
 use App\Http\Support\Key;
@@ -194,40 +195,40 @@ class StudyController extends Controller {
             case RoleTrait::$ID_CUSTOMER:
 
                 array_push($columns,
-                    Table::column(self::$COLUMN_DATE, 'Datum', 3, true, $sort, false, $filter, true),
-                    Table::column(self::$COLUMN_STUDENT, 'Leerling', 4, false, $sort, false, $filter),
-                    Table::column(self::$COLUMN_HOST, 'Student', 4, true, $sort, true, $filter),
-                    Table::column(self::$COLUMN_SERVICE, 'Dienst', 3, true, $sort, false, $filter),
-                    Table::column(self::$COLUMN_SUBJECT, 'Onderwerp', 3, false, $sort, false, $filter),
-                    Table::column(self::$COLUMN_LOCATION, 'Locatie', 4, false, $sort, false, $filter),
-                    Table::column(self::$COLUMN_TIME, 'Tijdstip', 3, true, $sort, false, $filter),
-                    Table::column(self::$COLUMN_STATUS, 'Status', 3, true, $sort, false, $filter, true)
+                    Table::column(self::$COLUMN_DATE, self::list_column_label(self::$COLUMN_DATE), 3, true, $sort, false, $filter, true),
+                    Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 4, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_HOST, self::list_column_label(self::$COLUMN_HOST), 4, true, $sort, true, $filter),
+                    Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 3, true, $sort, false, $filter),
+                    Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 3, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_LOCATION, self::list_column_label(self::$COLUMN_LOCATION), 4, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_TIME, self::list_column_label(self::$COLUMN_TIME), 3, true, $sort, false, $filter),
+                    Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 3, true, $sort, false, $filter, true)
                 );
                 break;
 
             case RoleTrait::$ID_EMPLOYEE:
 
                 array_push($columns,
-                    Table::column(self::$COLUMN_DATE, 'Datum', 2, true, $sort, false, $filter, true),
-                    Table::column(self::$COLUMN_STUDENT, 'Leerling', 3, false, $sort, false, $filter),
-                    Table::column(self::$COLUMN_SERVICE, 'Type', 2, true, $sort, false, $filter),
-                    Table::column(self::$COLUMN_SUBJECT, 'Vak', 2, false, $sort, false, $filter),
-                    Table::column(self::$COLUMN_LOCATION, 'Locatie', 3, false, $sort, false, $filter),
-                    Table::column(self::$COLUMN_TIME, 'Tijdstip', 3, true, $sort, false, $filter),
-                    Table::column(self::$COLUMN_STATUS, 'Status', 3, true, $sort, false, $filter, true)
+                    Table::column(self::$COLUMN_DATE, self::list_column_label(self::$COLUMN_DATE), 2, true, $sort, false, $filter, true),
+                    Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 3, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 2, true, $sort, false, $filter),
+                    Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 2, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_LOCATION, self::list_column_label(self::$COLUMN_LOCATION), 3, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_TIME, self::list_column_label(self::$COLUMN_TIME), 3, true, $sort, false, $filter),
+                    Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 3, true, $sort, false, $filter, true)
                 );
                 break;
 
             case RoleTrait::$ID_STUDENT:
 
                 array_push($columns,
-                    Table::column(self::$COLUMN_DATE, 'Datum', 2, true, $sort, false, $filter, true),
-                    Table::column(self::$COLUMN_HOST, 'Student-docent', 3, true, $sort, true, $filter),
-                    Table::column(self::$COLUMN_SERVICE, 'Type', 2, true, $sort, false, $filter),
-                    Table::column(self::$COLUMN_SUBJECT, 'Vak', 2, false, $sort, false, $filter),
-                    Table::column(self::$COLUMN_LOCATION, 'Locatie', 3, false, $sort, false, $filter),
-                    Table::column(self::$COLUMN_TIME, 'Tijdstip', 3, true, $sort, false, $filter),
-                    Table::column(self::$COLUMN_STATUS, 'Status', 3, true, $sort, false, $filter, true)
+                    Table::column(self::$COLUMN_DATE, self::list_column_label(self::$COLUMN_DATE), 2, true, $sort, false, $filter, true),
+                    Table::column(self::$COLUMN_HOST, self::list_column_label(self::$COLUMN_HOST), 3, true, $sort, true, $filter),
+                    Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 2, true, $sort, false, $filter),
+                    Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 2, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_LOCATION, self::list_column_label(self::$COLUMN_LOCATION), 3, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_TIME, self::list_column_label(self::$COLUMN_TIME), 3, true, $sort, false, $filter),
+                    Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 3, true, $sort, false, $filter, true)
                 );
                 break;
 
@@ -237,6 +238,56 @@ class StudyController extends Controller {
         }
 
         return $columns;
+    }
+
+
+
+    public function list_column_label($column) {
+
+        switch (self::getUserRole()) {
+
+            case RoleTrait::$ID_ADMINISTRATOR:
+            case RoleTrait::$ID_BOARD:
+            case RoleTrait::$ID_MANAGEMENT:
+            case RoleTrait::$ID_CUSTOMER:
+                switch ($column) {
+                    case self::$COLUMN_DATE:                return 'Datum';
+                    case self::$COLUMN_STUDENT:             return 'Leerling';
+                    case self::$COLUMN_HOST:                return 'Student';
+                    case self::$COLUMN_SERVICE:             return 'Dienst';
+                    case self::$COLUMN_SUBJECT:             return 'Onderwerp';
+                    case self::$COLUMN_LOCATION:            return 'Locatie';
+                    case self::$COLUMN_TIME:                return 'Tijdstip';
+                    case self::$COLUMN_STATUS:              return 'Status';
+                }
+                break;
+
+            case RoleTrait::$ID_EMPLOYEE:
+                switch ($column) {
+                    case self::$COLUMN_DATE:                return 'Datum';
+                    case self::$COLUMN_STUDENT:             return 'Leerling';
+                    case self::$COLUMN_SERVICE:             return 'Type';
+                    case self::$COLUMN_SUBJECT:             return 'Vak';
+                    case self::$COLUMN_LOCATION:            return 'Locatie';
+                    case self::$COLUMN_TIME:                return 'Tijdstip';
+                    case self::$COLUMN_STATUS:              return 'Status';
+                }
+                break;
+
+            case RoleTrait::$ID_STUDENT:
+                switch ($column) {
+                    case self::$COLUMN_DATE:                return 'Datum';
+                    case self::$COLUMN_HOST:                return 'Student-docent';
+                    case self::$COLUMN_SERVICE:             return 'Type';
+                    case self::$COLUMN_SUBJECT:             return 'Vak';
+                    case self::$COLUMN_LOCATION:            return 'Locatie';
+                    case self::$COLUMN_TIME:                return 'Tijdstip';
+                    case self::$COLUMN_STATUS:              return 'Status';
+                }
+                break;
+        }
+
+        return 'Onbekend';
     }
 
 
@@ -399,6 +450,36 @@ class StudyController extends Controller {
 
                 return [];
         }
+    }
+
+
+
+    public function list_filter_load(Request $request) {
+
+        $data_filter                                        = $request->input(Table::DATA_FILTER, null);
+        $filters                                            = [];
+
+        foreach ($data_filter as $column => $value) {
+
+            $display                                        = '';
+
+            switch ($column) {
+
+                case self::$COLUMN_HOST:
+                    $display                                = Person::find($value)->pluck('fullName');
+
+                    dd($display);
+                    break;
+            }
+
+            $filters[self::list_column_label($column)]      = $display;
+        }
+
+        return view(Views::LOAD_FILTERS, [
+
+            Table::DATA_FILTER                              => $filters
+
+        ]);
     }
 
 

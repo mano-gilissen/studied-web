@@ -22,6 +22,7 @@ class Views {
     const FORM_REPORT                           = "form-report";
 
     const LOAD_LIST                             = "load.list";
+    const LOAD_FILTERS                          = "load.filters";
     const LOAD_AGREEMENTS                       = "load.agreements";
 
     const LAB                                   = "lab";

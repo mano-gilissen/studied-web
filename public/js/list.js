@@ -12,7 +12,7 @@ var filters_select_active                       = false;
 
 
 
-$(function(){
+$(function() {
 
 
 
@@ -72,6 +72,12 @@ function load() {
         data_filter:                        data_filter
 
     });
+
+    $(OBJECT_FILTERS).load('/load/list/filters', {
+
+        data_filter:                        data_filter
+
+    });
 }
 
 
@@ -115,6 +121,8 @@ function filters_open() {
 function filters_close() {
 
     filters_select_active                   = false;
+
+    $(CLASS_FILTER).hide();
 
     $(CLASS_HEADER).removeClass(ATTR_SELECT_FILTER);
 
