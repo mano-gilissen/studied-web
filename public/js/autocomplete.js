@@ -275,12 +275,12 @@ function autocomplete(input, data, additional, reject_other, show_all, show_alwa
             }
         });
     }
+
+    openList(this);
+
 /*
-
-
     if (show_always) {
 
-        openList(this);
 
     }
 
