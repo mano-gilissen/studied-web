@@ -68,10 +68,6 @@ class Table {
             array_push($items, (object) $item);
         }
 
-        if ($sort) {
-            dd(Format::encode($sort));
-        }
-
         return view(Views::LOAD_LIST, [
 
             self::VIEW_COLUMNS                              => $columns,
