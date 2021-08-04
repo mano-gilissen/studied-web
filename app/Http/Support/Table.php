@@ -53,11 +53,11 @@ class Table {
         $filter                                             = $request->input(Table::DATA_FILTER, null);
 
         $columns                                            = $controller->list_columns($sort);
+
+        dd($columns);
         $spacing                                            = self::spacing($columns);
         $objects                                            = self::objects($controller, $sort, $filter);
         $items                                              = [];
-
-        dd('a');
 
         foreach ($objects as $object) {
 
