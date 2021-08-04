@@ -419,7 +419,6 @@ class StudyController extends Controller {
                     switch ($value) {
 
                         case StudyTrait::$STATUS_ACTIVE:
-
                             $query->where(Model::$STUDY_STATUS, StudyTrait::$STATUS_PLANNED);
                             $query->where(Model::$STUDY_START, '<', date(Format::$DATABASE_DATETIME, time()));
                             $query->where(Model::$STUDY_END, '>', date(Format::$DATABASE_DATETIME, time()));
@@ -428,6 +427,11 @@ class StudyController extends Controller {
                         case StudyTrait::$STATUS_FINISHED:
                             $query->where(Model::$STUDY_STATUS, StudyTrait::$STATUS_PLANNED);
                             $query->where(Model::$STUDY_END, '<', date(Format::$DATABASE_DATETIME, time()));
+                            break;
+
+                        case StudyTrait::$STATUS_PLANNED:
+                            $query->where(Model::$STUDY_STATUS, StudyTrait::$STATUS_PLANNED);
+                            $query->where(Model::$STUDY_START, '>', date(Format::$DATABASE_DATETIME, time()));
                             break;
 
                         default:
