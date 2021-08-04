@@ -4,7 +4,7 @@
 
         <img class="icon" src="/images/close.svg">
 
-        <div class="text">{{ $filter->column }}:{{ $filter->value }}</div>
+        <div class="text">{{ $column }}:{{ $value }}</div>
 
     </div>
 
