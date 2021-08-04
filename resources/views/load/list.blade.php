@@ -9,8 +9,6 @@
         console.log({});
 
     @endisset
-
-    @endisset
 /*
     var data_sort                       = '{{ $data_sort }}';
     var data_filter                     = '{{ $data_filter }}';
