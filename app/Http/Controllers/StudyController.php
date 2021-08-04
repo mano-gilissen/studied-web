@@ -202,7 +202,7 @@ class StudyController extends Controller {
                     Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 3, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_LOCATION, self::list_column_label(self::$COLUMN_LOCATION), 4, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_TIME, self::list_column_label(self::$COLUMN_TIME), 3, true, $sort, false, $filter),
-                    Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 3, true, $sort, false, $filter, true)
+                    Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 3, true, $sort, true, $filter, true)
                 );
                 break;
 
@@ -215,7 +215,7 @@ class StudyController extends Controller {
                     Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 2, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_LOCATION, self::list_column_label(self::$COLUMN_LOCATION), 3, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_TIME, self::list_column_label(self::$COLUMN_TIME), 3, true, $sort, false, $filter),
-                    Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 3, true, $sort, false, $filter, true)
+                    Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 3, true, $sort, true, $filter, true)
                 );
                 break;
 
@@ -228,7 +228,7 @@ class StudyController extends Controller {
                     Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 2, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_LOCATION, self::list_column_label(self::$COLUMN_LOCATION), 3, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_TIME, self::list_column_label(self::$COLUMN_TIME), 3, true, $sort, false, $filter),
-                    Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 3, true, $sort, false, $filter, true)
+                    Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 3, true, $sort, true, $filter, true)
                 );
                 break;
 
@@ -412,23 +412,10 @@ class StudyController extends Controller {
 
             switch ($column) {
 
-                case self::$COLUMN_DATE:
-                case self::$COLUMN_STUDENT:
-
-                    break;
-
                 case self::$COLUMN_HOST:
                     $query->where(Model::$STUDY_HOST_USER, $value);
                     break;
-/*
-                case self::$COLUMN_SERVICE:
 
-                    break;
-
-                case self::$COLUMN_TIME:
-
-                    break;
-*/
                 case self::$COLUMN_STATUS:
                     $query->where(Model::$STUDY_STATUS, $value);
                     break;
@@ -444,7 +431,12 @@ class StudyController extends Controller {
 
             case self::$COLUMN_HOST:
 
-                return $query->with('getHost_User.getPerson')->get()->pluck('getHost_User.getPerson.' . 'fullName', 'getHost_User.getPerson.' . Model::$BASE_ID)->toArray();
+                dd( $query->with('getHost_User.getPerson')->get()->pluck('getHost_User.getPerson.' . 'fullName', 'getHost_User.getPerson.' . Model::$BASE_ID)->toArray());
+                return [];
+
+            case self::$COLUMN_STATUS:
+
+
 
             default:
 
