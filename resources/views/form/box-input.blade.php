@@ -31,6 +31,8 @@
 
 </div>
 
+{!! $id !!}
+
 @if($data ?? false)
 
     <script>
