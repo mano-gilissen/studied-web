@@ -472,10 +472,7 @@ class StudyController extends Controller {
             switch ($column) {
 
                 case self::$COLUMN_HOST:
-                    dd($value);
                     $display                                = PersonTrait::getFullName(Person::find($value));
-
-                    dd($display);
                     break;
             }
 
