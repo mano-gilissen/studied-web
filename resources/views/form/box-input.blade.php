@@ -57,7 +57,10 @@
             '{{ $uses_id ?? false }}',
 
             /* Which function needs to be called after setting an ID */
-            '{{ $trigger ?? false }}'
+            '{{ $trigger ?? false }}',
+
+            /* Is the input field part of a form */
+            '{{ $form ?? true }}'
 
         );
 
