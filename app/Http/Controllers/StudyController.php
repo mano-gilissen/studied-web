@@ -298,7 +298,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_DATE:
 
-                return $study->{Model::$STUDY_DATE} != null ? "<div style='font-weight: 400'>" . Format::datetime($study->{Model::$STUDY_DATE}, Format::$DATETIME_LIST) . "</div>" : Key::UNKNOWN;
+                return $study->{Model::$STUDY_START} != null ? "<div style='font-weight: 400'>" . Format::datetime($study->{Model::$STUDY_START}, Format::$DATETIME_LIST) . "</div>" : Key::UNKNOWN;
 
             case self::$COLUMN_STUDENT:
 
@@ -361,7 +361,6 @@ class StudyController extends Controller {
 
                 case self::$COLUMN_DATE:
 
-                    $query->orderBy(Model::$STUDY_DATE, $mode);
                     $query->orderBy(Model::$STUDY_START, $mode);
                     break;
 
@@ -397,7 +396,6 @@ class StudyController extends Controller {
                 case self::$COLUMN_STATUS:
 
                     $query->orderBy(Model::$STUDY_STATUS, $mode);
-                    $query->orderBy(Model::$STUDY_DATE, $mode == Table::SORT_MODE_DESC ? TABLE::SORT_MODE_ASC : Table::SORT_MODE_DESC);
                     $query->orderBy(Model::$STUDY_START, $mode == Table::SORT_MODE_DESC ? TABLE::SORT_MODE_ASC : Table::SORT_MODE_DESC);
                     break;
             }
@@ -423,29 +421,13 @@ class StudyController extends Controller {
                         case StudyTrait::$STATUS_ACTIVE:
 
                             $query->where(Model::$STUDY_STATUS, StudyTrait::$STATUS_PLANNED);
-                            $query->where(Model::$STUDY_DATE, date(Format::$DATABASE_DATE));
-                            $query->where(Model::$STUDY_START, '<', date(Format::$DATABASE_TIME, time()));
-                            $query->where(Model::$STUDY_END, '>', date(Format::$DATABASE_TIME, time()));
-
-                            /*
-                            $query->filter(function ($study) {
-
-                                return StudyTrait::hasStarted($study) && !StudyTrait::hasFinished($study);
-
-                            });*/
+                            $query->where(Model::$STUDY_START, '<', date(Format::$DATABASE_DATETIME, time()));
+                            $query->where(Model::$STUDY_END, '>', date(Format::$DATABASE_DATETIME, time()));
                             break;
 
                         case StudyTrait::$STATUS_FINISHED:
                             $query->where(Model::$STUDY_STATUS, StudyTrait::$STATUS_PLANNED);
-                            $query->where(Model::$STUDY_DATE, date(Format::$DATABASE_DATE));
-                            $query->where(Model::$STUDY_END, '<', date(Format::$DATABASE_TIME, time()));
-
-                            /*
-                            $query->filter(function ($study) {
-
-                                return StudyTrait::hasFinished($study);
-
-                            });*/
+                            $query->where(Model::$STUDY_END, '<', date(Format::$DATABASE_DATETIME, time()));
                             break;
 
                         default:
