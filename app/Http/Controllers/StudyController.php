@@ -394,9 +394,11 @@ class StudyController extends Controller {
             case self::$COLUMN_HOST:
 
                 return $query->with('getHost_User.getPerson')->get()->pluck('getHost_User.getPerson.' . 'fullName', 'getHost_User.getPerson.' . Model::$BASE_ID)->toArray();
-        }
 
-        return;
+            default:
+
+                return [];
+        }
     }
 
 
