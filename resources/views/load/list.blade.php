@@ -1,10 +1,6 @@
 <script>
 
-    @isset($data_sort)
-
-        data_sort                       = JSON.parse('{!! $data_sort !!}');
-
-    @endisset
+    data_sort                           = JSON.parse('{!! $data_sort !!}');
 /*
     var data_sort                       = '{{ $data_sort }}';
     var data_filter                     = '{{ $data_filter }}';

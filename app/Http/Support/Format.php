@@ -27,9 +27,9 @@ class Format {
 
 
 
-    public static function encode($collection) {
+    public static function encode($data) {
 
-        return json_encode($collection);
+        return $data ? json_encode($data) : '{}';
 
     }
 
