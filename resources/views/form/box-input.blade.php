@@ -31,6 +31,8 @@
 
 </div>
 
+{!! ${'ac_data_' . $id} !!}
+
 @if($data ?? false)
 
     <script>
