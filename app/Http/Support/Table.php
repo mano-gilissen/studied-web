@@ -53,8 +53,8 @@ class Table {
         $filter                                             = $request->input(Table::DATA_FILTER, null);
 
         $columns                                            = $controller->list_columns($sort, $filter);
-        dd('á');
         $spacing                                            = self::spacing($columns);
+        dd('á');
         $objects                                            = self::objects($controller, $sort, $filter);
         $items                                              = [];
 
