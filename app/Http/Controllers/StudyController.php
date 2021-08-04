@@ -422,20 +422,29 @@ class StudyController extends Controller {
 
                         case StudyTrait::$STATUS_ACTIVE:
                             $query->where(Model::$STUDY_STATUS, StudyTrait::$STATUS_PLANNED);
+                            $query->where(Model::$STUDY_DATE, date(Format::$DATABASE_DATE));
+                            $query->where(Model::$STUDY_START, '<', date(Format::$DATABASE_TIME, time()));
+                            $query->where(Model::$STUDY_END, '>', date(Format::$DATABASE_TIME, time()));
+
+                            /*
                             $query->filter(function ($study) {
 
                                 return StudyTrait::hasStarted($study) && !StudyTrait::hasFinished($study);
 
-                            });
+                            });*/
                             break;
 
                         case StudyTrait::$STATUS_FINISHED:
                             $query->where(Model::$STUDY_STATUS, StudyTrait::$STATUS_PLANNED);
+                            $query->where(Model::$STUDY_DATE, date(Format::$DATABASE_DATE));
+                            $query->where(Model::$STUDY_END, '<', date(Format::$DATABASE_TIME, time()));
+
+                            /*
                             $query->filter(function ($study) {
 
                                 return StudyTrait::hasFinished($study);
 
-                            });
+                            });*/
                             break;
 
                         default:

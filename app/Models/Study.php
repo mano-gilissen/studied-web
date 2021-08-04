@@ -123,4 +123,14 @@ class Study extends ModelClass {
 
 
 
+    private function scopeHasStarted($query) {
+
+
+
+    }
+
+
+
+
+
 }
