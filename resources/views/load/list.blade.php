@@ -18,7 +18,7 @@
 
                     @case(\App\Http\Controllers\StudyController::$COLUMN_HOST)
 
-                        @include('form.box-input', ['id' => 'filter_input_' . $column->id, 'required' => true, 'data' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true])
+                        @include('form.box-input', ['id' => 'filter_input_' . $column->id, 'required' => true, 'data' => false, 'show_all' => true, 'reject_other' => true, 'uses_id' => true])
 
                         @break
 

@@ -83,7 +83,6 @@ class Table {
 
         }*/
 
-        dd('á');
         return view(Views::LOAD_LIST, $view_data);
     }
 
