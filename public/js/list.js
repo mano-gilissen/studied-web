@@ -31,6 +31,18 @@ $(function(){
 
 
 
+    $(OBJECT_LIST).on('click', CLASS_HEADER + ":not(." + ATTR_NO_FILTER + ")", function() {
+
+
+        if (filters_select_active) {
+
+            filter_input($(this).attr('id'));
+
+        }
+    });
+
+
+
     $(OBJECT_BUTTON_FILTER_ADD).on('click', function() {
 
         if (!filters_select_active) {
@@ -53,8 +65,6 @@ $(function(){
 
 
 function load() {
-
-    //$(CLASS_FILTER).find("*").off();
 
     $(OBJECT_LIST).load('/load/list/' + data_type, {
 
@@ -109,4 +119,12 @@ function filters_close() {
     $(OBJECT_ITEMS).removeClass(ATTR_SELECT_FILTER);
     $(OBJECT_ACTIONS).removeClass(ATTR_SELECT_FILTER);
     $(OBJECT_COUNTERS).removeClass(ATTR_SELECT_FILTER);
+}
+
+
+
+function filter_input(id) {
+
+    $('#filter_' + id).show();
+
 }

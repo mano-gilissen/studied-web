@@ -152,6 +152,8 @@
 
 .filter {
     display:                            none;
+    margin-right:                       -64px;
+    background:                         #F8F8F8;
 }
 
 
