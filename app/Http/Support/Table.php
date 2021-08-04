@@ -75,13 +75,13 @@ class Table {
             self::VIEW_SPACING                              => $spacing,
             self::VIEW_ITEMS                                => $items
         ];
-
+/*
         foreach ($columns as $column) {
 
             $data_name                                      = Key::AUTOCOMPLETE_DATA . Key::FILTER_INPUT . $column->{self::COLUMN_ID};
             $view_data[$data_name]                          = $controller->list_filter_data($objects, $column);
 
-        }
+        }*/
 
         return view(Views::LOAD_LIST, $view_data);
     }
