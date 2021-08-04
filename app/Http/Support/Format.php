@@ -27,7 +27,7 @@ class Format {
 
 
 
-    public static function ac($collection) {
+    public static function encode($collection) {
 
         return json_encode($collection);
 

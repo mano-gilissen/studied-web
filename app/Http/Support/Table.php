@@ -74,8 +74,8 @@ class Table {
             self::VIEW_SPACING                              => $spacing,
             self::VIEW_ITEMS                                => $items,
 
-            self::DATA_SORT                                 => $sort,
-            self::DATA_FILTER                               => $filter
+            self::DATA_SORT                                 => Format::encode($sort),
+            self::DATA_FILTER                               => Format::encode($filter)
         ]);
     }
 
