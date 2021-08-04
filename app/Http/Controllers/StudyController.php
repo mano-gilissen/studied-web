@@ -13,6 +13,7 @@ use App\Http\Traits\ServiceTrait;
 use App\Http\Traits\StudyTrait;
 use App\Models\Location;
 use App\Models\Person;
+use App\Models\Service;
 use App\Models\Study;
 use App\Models\User;
 use App\Http\Support\Key;
@@ -496,7 +497,7 @@ class StudyController extends Controller {
                     break;
 
                 case self::$COLUMN_SERVICE:
-                    $display                                = ServiceTrait::find($value)->{Model::$SERVICE_NAME};
+                    $display                                = Service::find($value)->{Model::$SERVICE_NAME};
                     break;
 
                 case self::$COLUMN_STATUS:
