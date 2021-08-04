@@ -48,6 +48,10 @@
     padding-left:                       24px;
 }
 
+#actions #filters {
+    display:                            flex;
+}
+
 
 
 
