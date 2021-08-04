@@ -33,7 +33,6 @@ $(function() {
 
     $(OBJECT_LIST).on('click', CLASS_HEADER + ":not(." + ATTR_NO_FILTER + ")", function() {
 
-
         if (filters_select_active) {
 
             filter_input($(this).attr('id'));
@@ -155,6 +154,8 @@ function filter_remove(column) {
 
 function filter_input(column) {
 
+    $(CLASS_HEADER + ':not(#' + column + ')').removeClass(ATTR_SELECT_FILTER);
+    $(OBJECT_HEADERS + '.' + CLASS_FILTER + ':not(#filter_' + column + ')').hide();
     $('#filter_' + column).show();
     $('#filter_input_' + column).focus();
 
