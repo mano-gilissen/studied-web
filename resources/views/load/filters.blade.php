@@ -1,6 +1,6 @@
 @foreach($filters as $column => $value)
 
-    <div class="button icon filter">
+    <div id="{{ $column }}" class="button icon filter">
 
         <img class="icon" src="/images/close.svg">
 
