@@ -72,7 +72,10 @@ class Table {
 
             self::VIEW_COLUMNS                              => $columns,
             self::VIEW_SPACING                              => $spacing,
-            self::VIEW_ITEMS                                => $items
+            self::VIEW_ITEMS                                => $items,
+
+            self::DATA_SORT                                 => $sort,
+            self::DATA_FILTER                               => $filter
         ]);
     }
 
