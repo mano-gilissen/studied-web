@@ -26,6 +26,8 @@ $(function(){
 
     function sort(column) {
 
+        console.log(this.data_sort);
+
         this.data_sort                          = {[column] : (this.data_sort[column] ? (this.data_sort[column] == 'desc' ? 'asc' : 'desc') : 'desc')};
 
         load();
