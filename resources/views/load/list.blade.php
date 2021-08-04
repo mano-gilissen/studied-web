@@ -2,13 +2,7 @@
 
     @isset($data_sort)
 
-        console.log(JSON.parse('{!! $data_sort !!}'));
-
-    @else
-
-        var a = {};
-
-        console.log(a);
+        data_sort                       = JSON.parse('{!! $data_sort !!}');
 
     @endisset
 /*
