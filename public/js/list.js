@@ -91,6 +91,8 @@ function filter(value, column) {
 
         this.data_filter[column]            = value;
 
+        filters_close();
+
         load();
     }
 }

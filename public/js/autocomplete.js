@@ -136,12 +136,6 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
                 key                             = this.getElementsByTagName("input")[0].value;
 
-                input.value                     = data[key];
-
-                input.parentNode.classList      .add("autocomplete");
-
-                autocompleted                   = true;
-
                 if (uses_id) {
 
                     input_id                    = document.getElementById("_" + input.name);
@@ -149,6 +143,12 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
                     callTrigger(key, input.dataset.identifier);
                 }
+
+                input.value                     = data[key];
+
+                input.parentNode.classList      .add("autocomplete");
+
+                autocompleted                   = true;
 
                 closeList();
             });
