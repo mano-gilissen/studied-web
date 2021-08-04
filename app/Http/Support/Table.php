@@ -16,6 +16,7 @@ class Table {
     const VIEW_COUNTERS                                     = "counters";
     const VIEW_SPACING                                      = "column_spacing";
     const VIEW_ITEMS                                        = "items";
+    const VIEW_FILTERS                                      = "filters";
 
     const COUNTER_LABEL                                     = "label";
     const COUNTER_VALUE                                     = "value";
