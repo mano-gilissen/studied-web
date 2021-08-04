@@ -57,16 +57,13 @@ class Table {
         $columns                                            = $controller->list_columns($sort, $filter);
         $spacing                                            = self::spacing($columns);
         $query                                              = self::query($controller, $sort, $filter);
-
         $objects                                            = self::objects($controller, $query);
         $items                                              = [];
-
-        dd($objects);
 
         foreach ($columns as $column) {
 
             $data_name                                      = Key::AUTOCOMPLETE_DATA . Key::FILTER_INPUT . $column->{self::COLUMN_ID};
-            $view_data[$data_name]                          = $controller->list_filter_data($objects, $column);
+            $view_data[$data_name]                          = $controller->list_filter_data($query, $column);
 
         }
 
