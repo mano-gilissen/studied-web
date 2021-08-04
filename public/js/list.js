@@ -43,6 +43,17 @@ $(function() {
 
 
 
+    $(OBJECT_FILTERS).on('click', CLASS_FILTER, function() {
+
+       if (!filters_select_active) {
+
+           filter_remove($(this).attr('id'));
+
+       }
+    });
+
+
+
     $(OBJECT_BUTTON_FILTER_ADD).on('click', function() {
 
         if (!filters_select_active) {
@@ -133,9 +144,18 @@ function filters_close() {
 
 
 
-function filter_input(id) {
+function filter_remove(column) {
 
-    $('#filter_' + id).show();
-    $('#filter_input_' + id).focus();
+    delete this.data_filter[column];
+
+    load();
+}
+
+
+
+function filter_input(column) {
+
+    $('#filter_' + column).show();
+    $('#filter_input_' + column).focus();
 
 }
