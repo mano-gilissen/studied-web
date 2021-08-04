@@ -23,7 +23,7 @@ class Study extends ModelClass {
     protected
 
         $table                                          = 'study',
-        $dates                                          = ['date'];
+        $dates                                          = ['start', 'end'];
 
 
 

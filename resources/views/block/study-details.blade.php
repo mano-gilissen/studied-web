@@ -16,7 +16,7 @@
 
             <div class="name">Datum</div>
 
-            <div class="value">{{ \App\Http\Support\Format::datetime($study->date, \App\Http\Support\Format::$DATETIME_SINGLE) }}</div>
+            <div class="value">{{ \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE) }}</div>
 
         </div>
 

@@ -39,12 +39,10 @@ trait StudyTrait {
 
         $study->{Model::$BASE_KEY}                          = Func::generate_key();
 
-        dd($data[Model::$STUDY_DATE] . ' ' . $data[Model::$STUDY_START] . ':00');
+        $study->{Model::$STUDY_START}                       = $data['date'] . ' ' . $data[Model::$STUDY_START] . ':00';
+        $study->{Model::$STUDY_END}                         = $data['date'] . ' ' . $data[Model::$STUDY_END] . ':00';
 
-        $study->{Model::$STUDY_START}                       = $data[Model::$STUDY_START];
-        $study->{Model::$STUDY_END}                         = $data[Model::$STUDY_END];
-
-        $study->{Model::$STUDY_STATUS}                      = $data[Model::$STUDY_DATE] ? self::$STATUS_PLANNED : self::$STATUS_CREATED;
+        $study->{Model::$STUDY_STATUS}                      = self::$STATUS_CREATED;
         $study->{Model::$STUDY_LOCATION_DEFINED}            = $data[Key::AUTOCOMPLETE_ID . Model::$LOCATION]; // TODO: STUDY LOCATION TEXT IF NO DEFINED
 
 
@@ -204,7 +202,7 @@ trait StudyTrait {
 
     public static function hasStarted($study) {
 
-        return Func::has_passed($study->date, $study->start);
+        return Func::has_passed($study->start);
 
     }
 
@@ -212,7 +210,7 @@ trait StudyTrait {
 
     public static function hasFinished($study) {
 
-        return Func::has_passed($study->date, $study->end);
+        return Func::has_passed($study->end);
 
     }
 
