@@ -1,3 +1,13 @@
+<script>
+
+    console.log('asdf');
+    console.log({{ $data_sort }});
+
+    var data_sort                       = '{{ $data_sort }}';
+    var data_filter                     = '{{ $data_filter }}';
+
+</script>
+
 <div id="headers" style="grid-template-columns: {{ $column_spacing }}">
 
     @foreach($columns as $column)

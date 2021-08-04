@@ -1,13 +1,3 @@
-<script>
-
-    console.log('asdf');
-    console.log({{ $data_sort }});
-
-    var data_sort                       = '{{ $data_sort }}';
-    var data_filter                     = '{{ $data_filter }}';
-
-</script>
-
 <div class="buttons">
 
     <img class="button" id="button-previous" src="/images/back.svg"/>
