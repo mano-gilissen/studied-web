@@ -58,8 +58,6 @@ class Table {
         $spacing                                            = self::spacing($columns);
         $query                                              = self::query($controller, $sort, $filter);
 
-
-        dd($query);
         $objects                                            = self::objects($controller, $query);
         $items                                              = [];
 
