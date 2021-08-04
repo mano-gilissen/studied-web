@@ -53,6 +53,9 @@
             /* Show all autocomplete values on focus */
             '{{ $show_all ?? false }}',
 
+            /* Show all autocomplete values without focus */
+            '{{ $show_always ?? false }}',
+
             /* Does the data contain database ID keys */
             '{{ $uses_id ?? false }}',
 

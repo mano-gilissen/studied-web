@@ -156,6 +156,10 @@
     background:                         #F8F8F8;
 }
 
+.filter .box-input {
+    display:                            none;
+}
+
 
 
 
