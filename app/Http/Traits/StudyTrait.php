@@ -42,7 +42,7 @@ trait StudyTrait {
         $study->{Model::$STUDY_START}                       = $data['date'] . ' ' . $data[Model::$STUDY_START] . ':00';
         $study->{Model::$STUDY_END}                         = $data['date'] . ' ' . $data[Model::$STUDY_END] . ':00';
 
-        $study->{Model::$STUDY_STATUS}                      = self::$STATUS_CREATED;
+        $study->{Model::$STUDY_STATUS}                      = self::$STATUS_PLANNED;
         $study->{Model::$STUDY_LOCATION_DEFINED}            = $data[Key::AUTOCOMPLETE_ID . Model::$LOCATION]; // TODO: STUDY LOCATION TEXT IF NO DEFINED
 
 

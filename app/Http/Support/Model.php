@@ -53,7 +53,8 @@ class Model {
         $AGREEMENT_MIN                              = 'min',
         $AGREEMENT_MAX                              = 'max',
         $AGREEMENT_REMARK                           = 'remark',
-        $AGREEMENT_TRIAL                            = 'trial';
+        $AGREEMENT_TRIAL                            = 'trial',
+        $AGREEMENT_EXTENSION                        = 'extension';
 
 
 

@@ -9,6 +9,7 @@ use App\Http\Support\Table;
 use App\Http\Traits\BaseTrait;
 use App\Http\Traits\PersonTrait;
 use App\Http\Traits\RoleTrait;
+use App\Http\Traits\ServiceTrait;
 use App\Http\Traits\StudyTrait;
 use App\Models\Location;
 use App\Models\Person;
@@ -415,6 +416,10 @@ class StudyController extends Controller {
                     break;
 
                 case self::$COLUMN_STATUS:
+                    $query->where(Model::$SERVICE, $value);
+                    break;
+
+                case self::$COLUMN_STATUS:
 
                     switch ($value) {
 
@@ -453,6 +458,10 @@ class StudyController extends Controller {
 
                 return $query->with('getHost_User.getPerson')->get()->pluck('getHost_User.getPerson.' . 'fullName', 'getHost_User.getPerson.' . Model::$BASE_ID)->toArray();
 
+            case self::$COLUMN_SERVICE:
+
+                return $query->with('getService')->get()->pluck('getService' . Model::$SERVICE_NAME, 'getService' . Model::$BASE_ID)->toArray();
+
             case self::$COLUMN_STATUS:
 
                 return StudyTrait::getStatusFilterData();
@@ -484,6 +493,10 @@ class StudyController extends Controller {
 
                 case self::$COLUMN_HOST:
                     $display                                = PersonTrait::getFullName(Person::find($value));
+                    break;
+
+                case self::$COLUMN_SERVICE:
+                    $display                                = ServiceTrait::find($value)->{Model::$SERVICE_NAME};
                     break;
 
                 case self::$COLUMN_STATUS:
