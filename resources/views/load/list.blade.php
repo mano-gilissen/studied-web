@@ -1,6 +1,6 @@
 <script>
 
-    data_sort                           = JSON.parse('{!! $data_sort ?? '{}' !!}');
+    console.log(JSON.parse('{!! $data_sort ?? '{}' !!}'));
 /*
     var data_sort                       = '{{ $data_sort }}';
     var data_filter                     = '{{ $data_filter }}';
