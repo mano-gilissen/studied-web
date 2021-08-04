@@ -66,14 +66,14 @@ $(function() {
 
 function load() {
 
-    $(OBJECT_LIST).load('/load/list/' + data_type, {
+    $(OBJECT_LIST).load('/load/' + data_type + '/list', {
 
         data_sort:                          data_sort,
         data_filter:                        data_filter
 
     });
 
-    $(OBJECT_FILTERS).load('/load/list/filters', {
+    $(OBJECT_FILTERS).load('/load/' + data_type + '/filter', {
 
         data_filter:                        data_filter
 
