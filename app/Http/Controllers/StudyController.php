@@ -389,7 +389,7 @@ class StudyController extends Controller {
 
     public function list_filter_data($objects, $column) {
 
-        dd($objects);
+        dd($objects->getHost);
 
         switch ($column->{Model::$BASE_ID}) {
 
