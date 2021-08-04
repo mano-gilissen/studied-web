@@ -52,10 +52,25 @@ class Table {
         $sort                                               = $request->input(Table::DATA_SORT, null);
         $filter                                             = $request->input(Table::DATA_FILTER, null);
 
+        $view_data                                          = [];
+
         $columns                                            = $controller->list_columns($sort, $filter);
         $spacing                                            = self::spacing($columns);
-        $objects                                            = self::objects($controller, $sort, $filter);
+        $query                                              = self::query($controller, $sort, $filter);
+
+
+        dd($query);
+        $objects                                            = self::objects($controller, $query);
         $items                                              = [];
+
+        dd($query);
+
+        foreach ($columns as $column) {
+
+            $data_name                                      = Key::AUTOCOMPLETE_DATA . Key::FILTER_INPUT . $column->{self::COLUMN_ID};
+            $view_data[$data_name]                          = $controller->list_filter_data($objects, $column);
+
+        }
 
         foreach ($objects as $object) {
 
@@ -70,18 +85,9 @@ class Table {
             array_push($items, (object) $item);
         }
 
-        $view_data                                          = [
-            self::VIEW_COLUMNS                              => $columns,
-            self::VIEW_SPACING                              => $spacing,
-            self::VIEW_ITEMS                                => $items
-        ];
-
-        foreach ($columns as $column) {
-
-            $data_name                                      = Key::AUTOCOMPLETE_DATA . Key::FILTER_INPUT . $column->{self::COLUMN_ID};
-            $view_data[$data_name]                          = $controller->list_filter_data($objects, $column);
-
-        }
+        $view_data[self::VIEW_COLUMNS]                      = $columns;
+        $view_data[self::VIEW_SPACING]                      = $spacing;
+        $view_data[self::VIEW_ITEMS]                        = $items;
 
         return view(Views::LOAD_LIST, $view_data);
     }
@@ -89,7 +95,7 @@ class Table {
 
 
 
-    public static function objects($controller, $sort, $filter) {
+    public static function query($controller, $sort, $filter) {
 
         $query                                              = $controller->list_query();
 
@@ -105,7 +111,16 @@ class Table {
 
         }
 
+        return $query;
+    }
+
+
+
+
+    public static function objects($controller, $query) {
+
         return $query->select($controller->list_type() . '.*')->get();
+
     }
 
 
