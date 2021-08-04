@@ -459,12 +459,6 @@ class StudyController extends Controller {
         $data_filter                                        = $request->input(Table::DATA_FILTER, null);
         $filters                                            = [];
 
-        if (!$data_filter) {
-
-            return false;
-
-        }
-
         foreach ($data_filter as $column => $value) {
 
             $display                                        = '';
