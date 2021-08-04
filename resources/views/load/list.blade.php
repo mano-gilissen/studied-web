@@ -6,7 +6,7 @@
 
     @else
 
-        console.log({});
+        console.log(Object.create());
 
     @endisset
 /*
