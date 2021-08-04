@@ -87,8 +87,6 @@ class Table {
         $view_data[self::VIEW_SPACING]                      = $spacing;
         $view_data[self::VIEW_ITEMS]                        = $items;
 
-        dd($view_data);
-
         return view(Views::LOAD_LIST, $view_data);
     }
 
