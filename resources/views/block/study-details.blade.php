@@ -24,7 +24,7 @@
 
             <div class="name">Tijdstip</div>
 
-            <div class="value">{{ $study->start . ' - ' . $study->end }}</div>
+            <div class="value">{{ \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$TIME_SINGLE) . ' - ' . \App\Http\Support\Format::datetime($study->end, \App\Http\Support\Format::$TIME_SINGLE) }}</div>
 
         </div>
 

@@ -331,7 +331,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_TIME:
 
-                return $study->start != null && $study->end != null ? $study->start . ' - ' . $study->end : Key::UNKNOWN;
+                return $study->start != null && $study->end != null ? Format::datetime($study->start, Format::$TIME_SINGLE) . ' - ' . Format::datetime($study->end, Format::$TIME_SINGLE) : Key::UNKNOWN;
 
             case self::$COLUMN_STATUS:
 
