@@ -18,6 +18,8 @@
 
                     @case(\App\Http\Controllers\StudyController::$COLUMN_HOST)
 
+                    @case(\App\Http\Controllers\StudyController::$COLUMN_STATUS)
+
                         @include('form.box-input', ['id' => 'filter_input_' . $column->id, 'identifier' => $column->id, 'data' => true, 'show_all' => true, 'show_always' => true, 'reject_other' => true, 'uses_id' => true, 'form' => false, 'trigger' => 'filter'])
 
                         @break
