@@ -43,6 +43,10 @@
     opacity:                            .2;
 }
 
+#actions .filter {
+
+}
+
 
 
 
@@ -150,13 +154,13 @@
 
 
 
-.filter {
+#headers .filter {
     display:                            none;
     margin-right:                       -64px;
     background:                         #F8F8F8;
 }
 
-.filter .box-input {
+#headers .filter .box-input {
     height:                             0;
     border:                             0;
 }
