@@ -54,6 +54,8 @@ $(function(){
 
 function load() {
 
+    $(CLASS_FILTER).find("*").off();
+
     $(OBJECT_LIST).load('/load/list/' + data_type, {
 
         data_sort:                          data_sort,

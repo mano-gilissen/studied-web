@@ -24,6 +24,7 @@ const OBJECT_AGREEMENTS                         = '#agreements';
 const OBJECT_PAGE_TITLE                         = '.page.title';
 
 const CLASS_HEADER                              = '.header';
+const CLASS_FILTER                              = '.filter';
 const CLASS_PERSON                              = '.person';
 const CLASS_PERSON_REPORT                       = '.person-report';
 const CLASS_AGREEMENT                           = '.agreement';
