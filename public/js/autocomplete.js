@@ -15,7 +15,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
         lastTriggerNoInput                          = false;
 
 
-/*
+
     input.addEventListener("input", function(e) {
 
         openList(this, true);
@@ -269,18 +269,15 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
 
-    if (form) {
+    document.addEventListener("click", function (event) {
 
-        document.addEventListener("click", function (event) {
+        if (event.target != input) {
 
-            if (event.target != input) {
+            closeListAndReject();
 
-                closeListAndReject();
+        }
+    });
 
-            }
-        });
-    }
-*/
 
 
 }
