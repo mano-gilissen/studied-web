@@ -6,7 +6,7 @@ const KEY_NONE                                      = "";
 
 
 
-function autocomplete(input, data, additional, reject_other, show_all, uses_id, trigger) {
+function autocomplete(input, data, additional, reject_other, show_all, uses_id, trigger, form) {
 
 
 
@@ -15,7 +15,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
         lastTriggerNoInput                          = false;
 
 
-
+/*
     input.addEventListener("input", function(e) {
 
         openList(this, true);
@@ -269,15 +269,18 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
 
-    document.addEventListener("click", function (event) {
+    if (form) {
 
-        if (event.target != input) {
+        document.addEventListener("click", function (event) {
 
-            closeListAndReject();
+            if (event.target != input) {
 
-        }
-    });
+                closeListAndReject();
 
+            }
+        });
+    }
+*/
 
 
 }

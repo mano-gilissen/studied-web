@@ -41,10 +41,10 @@
             document.getElementById('{{ $id }}'),
 
             /* Autocomplete data */
-            JSON.parse('{!! ${'ac_data_'.$id} !!}'),
+            JSON.parse('{!! ${'ac_data_' . $id} !!}'),
 
             /* Autocomplete additional data */
-            @if($additional ?? false) JSON.parse('{!! ${'ac_additional_'.$id} !!}'), @else null, @endif
+            @if($additional ?? false) JSON.parse('{!! ${'ac_additional_' . $id} !!}'), @else null, @endif
 
             /* Reject non-autocomplete input */
             '{{ $reject_other ?? false }}',
@@ -56,7 +56,11 @@
             '{{ $uses_id ?? false }}',
 
             /* Which function needs to be called after setting an ID */
-            '{{ $trigger ?? false }}'
+            '{{ $trigger ?? false }}',
+
+            /* Is the input field part of a form page */
+            '{{ $form ?? true }}'
+
         );
 
     </script>
