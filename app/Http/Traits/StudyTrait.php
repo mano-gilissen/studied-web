@@ -190,12 +190,12 @@ trait StudyTrait {
 
         return [
             StudyTrait::$STATUS_CREATED                     => StudyTrait::getStatusText(StudyTrait::$STATUS_CREATED),
-            StudyTrait::$STATUS_PLANNED                     => StudyTrait::getStatusText(StudyTrait::$STATUS_CREATED),
-            StudyTrait::$STATUS_ACTIVE                      => StudyTrait::getStatusText(StudyTrait::$STATUS_CREATED),
-            StudyTrait::$STATUS_FINISHED                    => StudyTrait::getStatusText(StudyTrait::$STATUS_CREATED),
-            StudyTrait::$STATUS_REPORTED                    => StudyTrait::getStatusText(StudyTrait::$STATUS_CREATED),
-            StudyTrait::$STATUS_CANCELLED                   => StudyTrait::getStatusText(StudyTrait::$STATUS_CREATED),
-            StudyTrait::$STATUS_ABSENT                      => StudyTrait::getStatusText(StudyTrait::$STATUS_CREATED)
+            StudyTrait::$STATUS_PLANNED                     => StudyTrait::getStatusText(StudyTrait::$STATUS_PLANNED),
+            StudyTrait::$STATUS_ACTIVE                      => StudyTrait::getStatusText(StudyTrait::$STATUS_ACTIVE),
+            StudyTrait::$STATUS_FINISHED                    => StudyTrait::getStatusText(StudyTrait::$STATUS_FINISHED),
+            StudyTrait::$STATUS_REPORTED                    => StudyTrait::getStatusText(StudyTrait::$STATUS_REPORTED),
+            StudyTrait::$STATUS_CANCELLED                   => StudyTrait::getStatusText(StudyTrait::$STATUS_CANCELLED),
+            StudyTrait::$STATUS_ABSENT                      => StudyTrait::getStatusText(StudyTrait::$STATUS_ABSENT)
         ];
     }
 
