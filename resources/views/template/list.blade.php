@@ -16,6 +16,9 @@
 
         var data_type                       = '{{ $data_type }}';
 
+        data_sort                           = JSON.parse('{!! $data_sort !!}');
+        data_filter                         = JSON.parse('{!! $data_filter !!}');
+
     </script>
 
     <script src="{{ asset('js/list.js') }}"></script>
