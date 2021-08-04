@@ -52,9 +52,7 @@ class Table {
         $sort                                               = $request->input(Table::DATA_SORT, null);
         $filter                                             = $request->input(Table::DATA_FILTER, null);
 
-        $columns                                            = $controller->list_columns($sort);
-
-        dd('a');
+        $columns                                            = $controller->list_columns($sort, $filter);
         $spacing                                            = self::spacing($columns);
         $objects                                            = self::objects($controller, $sort, $filter);
         $items                                              = [];

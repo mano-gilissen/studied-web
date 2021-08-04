@@ -180,7 +180,7 @@ class StudyController extends Controller {
 
 
 
-    public function list_columns($sort) {
+    public function list_columns($sort, $filter) {
 
         $columns                                            = [];
 
@@ -194,40 +194,40 @@ class StudyController extends Controller {
             case RoleTrait::$ID_CUSTOMER:
 
                 array_push($columns,
-                    Table::column(self::$COLUMN_DATE, 'Datum', 3, true, $sort, true),
-                    Table::column(self::$COLUMN_STUDENT, 'Leerling', 4, false, $sort),
-                    Table::column(self::$COLUMN_HOST, 'Student', 4, true, $sort),
-                    Table::column(self::$COLUMN_SERVICE, 'Dienst', 3, true, $sort),
-                    Table::column(self::$COLUMN_SUBJECT, 'Onderwerp', 3, false, $sort),
-                    Table::column(self::$COLUMN_LOCATION, 'Locatie', 4, false, $sort),
-                    Table::column(self::$COLUMN_TIME, 'Tijdstip', 3, true, $sort),
-                    Table::column(self::$COLUMN_STATUS, 'Status', 3, true, $sort, true)
+                    Table::column(self::$COLUMN_DATE, 'Datum', 3, true, $sort, true, $filter, true),
+                    Table::column(self::$COLUMN_STUDENT, 'Leerling', 4, false, $sort, true, $filter),
+                    Table::column(self::$COLUMN_HOST, 'Student', 4, true, $sort, true, $filter),
+                    Table::column(self::$COLUMN_SERVICE, 'Dienst', 3, true, $sort, true, $filter),
+                    Table::column(self::$COLUMN_SUBJECT, 'Onderwerp', 3, false, $sort, true, $filter),
+                    Table::column(self::$COLUMN_LOCATION, 'Locatie', 4, false, $sort, true, $filter),
+                    Table::column(self::$COLUMN_TIME, 'Tijdstip', 3, true, $sort, true, $filter),
+                    Table::column(self::$COLUMN_STATUS, 'Status', 3, true, $sort, true, $filter, true)
                 );
                 break;
 
             case RoleTrait::$ID_EMPLOYEE:
 
                 array_push($columns,
-                    Table::column(self::$COLUMN_DATE, 'Datum', 2, true, $sort, true),
-                    Table::column(self::$COLUMN_STUDENT, 'Leerling', 3, false, $sort),
-                    Table::column(self::$COLUMN_SERVICE, 'Type', 2, true, $sort),
-                    Table::column(self::$COLUMN_SUBJECT, 'Vak', 2, false, $sort),
-                    Table::column(self::$COLUMN_LOCATION, 'Locatie', 3, false, $sort),
-                    Table::column(self::$COLUMN_TIME, 'Tijdstip', 3, true, $sort),
-                    Table::column(self::$COLUMN_STATUS, 'Status', 3, true, $sort, true)
+                    Table::column(self::$COLUMN_DATE, 'Datum', 2, true, $sort, true, $filter, true),
+                    Table::column(self::$COLUMN_STUDENT, 'Leerling', 3, false, $sort, true, $filter),
+                    Table::column(self::$COLUMN_SERVICE, 'Type', 2, true, $sort, true, $filter),
+                    Table::column(self::$COLUMN_SUBJECT, 'Vak', 2, false, $sort, true, $filter),
+                    Table::column(self::$COLUMN_LOCATION, 'Locatie', 3, false, $sort, true, $filter),
+                    Table::column(self::$COLUMN_TIME, 'Tijdstip', 3, true, $sort, true, $filter),
+                    Table::column(self::$COLUMN_STATUS, 'Status', 3, true, $sort, true, $filter, true)
                 );
                 break;
 
             case RoleTrait::$ID_STUDENT:
 
                 array_push($columns,
-                    Table::column(self::$COLUMN_DATE, 'Datum', 2, true, $sort, true),
-                    Table::column(self::$COLUMN_HOST, 'Student-docent', 3, true, $sort),
-                    Table::column(self::$COLUMN_SERVICE, 'Type', 2, true, $sort),
-                    Table::column(self::$COLUMN_SUBJECT, 'Vak', 2, false, $sort),
-                    Table::column(self::$COLUMN_LOCATION, 'Locatie', 3, false, $sort),
-                    Table::column(self::$COLUMN_TIME, 'Tijdstip', 3, true, $sort),
-                    Table::column(self::$COLUMN_STATUS, 'Status', 3, true, $sort, true)
+                    Table::column(self::$COLUMN_DATE, 'Datum', 2, true, $sort, true, $filter, true),
+                    Table::column(self::$COLUMN_HOST, 'Student-docent', 3, true, $sort, true, $filter),
+                    Table::column(self::$COLUMN_SERVICE, 'Type', 2, true, $sort, true, $filter),
+                    Table::column(self::$COLUMN_SUBJECT, 'Vak', 2, false, $sort, true, $filter),
+                    Table::column(self::$COLUMN_LOCATION, 'Locatie', 3, false, $sort, true, $filter),
+                    Table::column(self::$COLUMN_TIME, 'Tijdstip', 3, true, $sort, true, $filter),
+                    Table::column(self::$COLUMN_STATUS, 'Status', 3, true, $sort, true, $filter, true)
                 );
                 break;
 
