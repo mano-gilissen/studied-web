@@ -242,7 +242,7 @@ class StudyController extends Controller {
 
 
 
-    public static function list_column_label($column) {
+    public function list_column_label($column) {
 
         switch (self::getUserRole()) {
 
