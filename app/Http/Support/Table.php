@@ -56,7 +56,6 @@ class Table {
         $spacing                                            = self::spacing($columns);
         $objects                                            = self::objects($controller, $sort, $filter);
         $items                                              = [];
-        dd('á');
 
         foreach ($objects as $object) {
 
@@ -70,6 +69,7 @@ class Table {
 
             array_push($items, (object) $item);
         }
+        dd('á');
 
         $view_data                                          = [
             self::VIEW_COLUMNS                              => $columns,
