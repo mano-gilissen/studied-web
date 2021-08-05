@@ -481,7 +481,20 @@ class StudyController extends Controller {
 
             case self::$COLUMN_STUDENT:
 
-                return User::where(Model::$ROLE, RoleTrait::$ID_STUDENT)->with('getPerson')->get()->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
+                switch (Auth::user()->role) {
+
+                    // TODO: ADD AREA FILTER FOR MANAGEMENT
+
+                    case RoleTrait::$ID_BOARD:
+                    case RoleTrait::$ID_MANAGEMENT:
+
+                        return User::where(Model::$ROLE, RoleTrait::$ID_STUDENT)->with('getPerson')->get()->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
+
+                    case RoleTrait::$ID_EMPLOYEE:
+
+                        return Auth::user()->getStudents->with('getPerson')->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
+
+                }
 
               //return $query->with('getParticipants_User.getPerson')->get()->pluck('getParticipants_User.getPerson.' . 'fullName', 'getParticipants_User.' . Model::$BASE_ID)->toArray();
 
