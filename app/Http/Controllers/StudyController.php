@@ -160,8 +160,6 @@ class StudyController extends Controller {
 
         }
 
-        dd($data_filter);
-
         return view(Views::LIST_STUDY, [
 
             Key::PAGE_TITLE                                 => 'Lessen',
