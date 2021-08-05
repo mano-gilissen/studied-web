@@ -46,7 +46,9 @@ class StudyController extends Controller {
         $COLUMN_SERVICE                                     = 105,
         $COLUMN_LOCATION                                    = 106,
         $COLUMN_TIME                                        = 107,
-        $COLUMN_STATUS                                      = 108;
+        $COLUMN_STATUS                                      = 108,
+
+        $PARAMETER_HOST                                     = "host";
 
 
 
@@ -150,20 +152,21 @@ class StudyController extends Controller {
         $parameters                                         = $request->all();
 
         $data_filter                                        = (object)[];
+/*
+        if (array_key_exists(self::$PARAMETER_HOST, $parameters)) {
 
-        if (array_key_exists('host', $parameters)) {
-
-            $data_filter->{self::$COLUMN_HOST}              = $parameters['host'];
+            $data_filter->{self::$COLUMN_HOST}              = $parameters[self::$PARAMETER_HOST];
 
         }
 
         dd($data_filter);
-
+*/
         return view(Views::LIST_STUDY, [
 
             Key::PAGE_TITLE                                 => 'Lessen',
 
             Table::DATA_TYPE                                => Model::$STUDY,
+            Table::DATA_FILTER                              => $data_filter,
             Table::VIEW_COUNTERS                            => $this->list_counters()
         ]);
     }
