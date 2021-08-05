@@ -149,7 +149,7 @@ class StudyController extends Controller {
 
         $parameters                                         = $request->all();
 
-        if (array_key_exists(Model::$STUDY_HOST_USER, $parameters)) {
+        if (array_key_exists('host', $parameters)) {
 
             dd($parameters);
 
