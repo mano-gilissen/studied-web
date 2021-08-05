@@ -237,3 +237,7 @@
     color:                              white;
     background:                         #4D4D4D;
 }
+
+#button-filter-add:hover {
+    background:                         #666666;
+}
