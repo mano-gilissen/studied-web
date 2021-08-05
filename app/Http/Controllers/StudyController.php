@@ -167,8 +167,8 @@ class StudyController extends Controller {
             Key::PAGE_TITLE                                 => 'Lessen',
 
             Table::DATA_TYPE                                => Model::$STUDY,
-            Table::DATA_SORT                                => $data_sort,
-            Table::DATA_FILTER                              => $data_filter,
+            Table::DATA_SORT                                => Format::encode($data_sort),
+            Table::DATA_FILTER                              => Format::encode($data_filter),
             Table::VIEW_COUNTERS                            => $this->list_counters()
         ]);
     }
