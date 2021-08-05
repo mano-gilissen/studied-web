@@ -80,7 +80,7 @@
                             @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
                             @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
-                                <div class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_HOST => $person->getUser->id]) }}'">
+                                <div class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_HOST => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">
 
                                     <img class="icon" src="/images/search.svg">
 
