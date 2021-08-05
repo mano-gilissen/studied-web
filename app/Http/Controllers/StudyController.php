@@ -481,11 +481,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_STUDENT:
 
-                dd(User::whereHas('getAgreements_asStudent', function ($query) {
-
-                    $query->where(Model::$EMPLOYEE, Auth::id());
-
-                })->with('getPerson')->get()->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray());
+                dd(User::where(Model::$ROLE, RoleTrait::$ID_STUDENT)->with('getPerson')->get()->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray());
 
                 switch (Auth::user()->role) {
 
