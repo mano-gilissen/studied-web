@@ -65,9 +65,9 @@ trait BaseTrait {
 
     #   PILOT->getManyToMany(self::$PLANE, self::$PLANE_PILOT, self::$PILOT);
 
-    public function getManyToMany($foreign, $pivot, $local) {
+    public function getManyToMany($foreign, $pivot, $local, $key_foreign = null, $key_local = null) {
 
-        return $this->belongsToMany(self::getModelClass($foreign), $pivot, $local, $foreign);
+        return $this->belongsToMany(self::getModelClass($foreign), $pivot, $key_local ? $key_local : $local, $key_foreign ? $key_foreign : $foreign);
 
     }
 

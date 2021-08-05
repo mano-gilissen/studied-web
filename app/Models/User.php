@@ -126,4 +126,12 @@ class User extends Authenticatable {
 
 
 
+    public function getStudents() {
+
+        return self::getManyToMany(Model::$USER, Model::$AGREEMENT, Model::$EMPLOYEE, MODEL::$STUDENT);
+
+    }
+
+
+
 }
