@@ -216,7 +216,7 @@ class StudyController extends Controller {
 
                 array_push($columns,
                     Table::column(self::$COLUMN_DATE, self::list_column_label(self::$COLUMN_DATE), 3, true, $sort, false, $filter, true),
-                    Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 4, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 4, false, $sort, true, $filter),
                     Table::column(self::$COLUMN_HOST, self::list_column_label(self::$COLUMN_HOST), 4, true, $sort, true, $filter),
                     Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 3, true, $sort, true, $filter),
                     Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 3, false, $sort, false, $filter),
@@ -230,7 +230,7 @@ class StudyController extends Controller {
 
                 array_push($columns,
                     Table::column(self::$COLUMN_DATE, self::list_column_label(self::$COLUMN_DATE), 2, true, $sort, false, $filter, true),
-                    Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 3, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 3, false, $sort, true, $filter),
                     Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 2, true, $sort, false, $filter),
                     Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 2, false, $sort, true, $filter),
                     Table::column(self::$COLUMN_LOCATION, self::list_column_label(self::$COLUMN_LOCATION), 3, false, $sort, false, $filter),
@@ -430,6 +430,12 @@ class StudyController extends Controller {
 
             switch ($column) {
 
+                case self::$COLUMN_STUDENT:
+                    $query->whereHas('getParticipants_User', function (Builder $query, $value) {
+                        $query->where(Model::$BASE_ID, $value);
+                    })->get();
+                    break;
+
                 case self::$COLUMN_HOST:
                     $query->where(Model::$STUDY_HOST_USER, $value);
                     break;
@@ -473,9 +479,13 @@ class StudyController extends Controller {
 
         switch ($column->{Model::$BASE_ID}) {
 
+            case self::$COLUMN_STUDENT:
+
+                return $query->with('getParticipants_User.getPerson')->get()->pluck('getParticipants_User.getPerson.' . 'fullName', 'getParticipants_User.' . Model::$BASE_ID);
+
             case self::$COLUMN_HOST:
 
-                return $query->with('getHost_User.getPerson')->get()->pluck('getHost_User.getPerson.' . 'fullName', 'getHost_User.getPerson.' . Model::$BASE_ID)->toArray();
+                return $query->with('getHost_User.getPerson')->get()->pluck('getHost_User.getPerson.' . 'fullName', 'getHost_User.' . Model::$BASE_ID)->toArray();
 
             case self::$COLUMN_SERVICE:
 
@@ -510,8 +520,9 @@ class StudyController extends Controller {
 
             switch ($column) {
 
+                case self::$COLUMN_STUDENT:
                 case self::$COLUMN_HOST:
-                    $display                                = PersonTrait::getFullName(Person::find($value));
+                    $display                                = PersonTrait::getFullName(User::find($value)->getPerson);
                     break;
 
                 case self::$COLUMN_SERVICE:
