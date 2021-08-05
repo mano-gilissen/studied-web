@@ -481,7 +481,9 @@ class StudyController extends Controller {
 
             case self::$COLUMN_STUDENT:
 
-                return $query->with('getParticipants_User.getPerson')->get()->pluck('getParticipants_User.getPerson.' . 'fullName', 'getParticipants_User.' . Model::$BASE_ID)->toArray();
+                return User::where(Model::$ROLE, RoleTrait::$ID_STUDENT)->with('getPerson')->get()->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
+
+              //return $query->with('getParticipants_User.getPerson')->get()->pluck('getParticipants_User.getPerson.' . 'fullName', 'getParticipants_User.' . Model::$BASE_ID)->toArray();
 
             case self::$COLUMN_HOST:
 
