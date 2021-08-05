@@ -20,7 +20,6 @@
 
                     @case(\App\Http\Controllers\StudyController::$COLUMN_HOST)
 
-                    @case(\App\Http\Controllers\StudyController::$COLUMN_SERVICE)
 
                     @case(\App\Http\Controllers\StudyController::$COLUMN_STATUS)
 
