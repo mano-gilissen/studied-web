@@ -154,10 +154,14 @@ class StudyController extends Controller {
         $data_sort                                          = (object)[];
         $data_filter                                        = (object)[];
 
-        if (array_key_exists(self::$PARAMETER_HOST, $parameters)) {
+        foreach ($parameters as $parameter => $value) {
 
-            $data_filter->{self::$COLUMN_HOST}              = $parameters[self::$PARAMETER_HOST];
+            switch ($parameter) {
 
+                case self::$PARAMETER_HOST:
+                    $data_filter->{self::$COLUMN_HOST}      = Person::where(Model::$PERSON_SLUG, $value)->firstOrFail();
+                    break;
+            }
         }
 
         return view(Views::LIST_STUDY, [
