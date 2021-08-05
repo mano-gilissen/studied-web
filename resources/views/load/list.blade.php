@@ -16,6 +16,8 @@
 
                 @switch($column->id)
 
+                    @case(\App\Http\Controllers\StudyController::$COLUMN_STUDENT)
+
                     @case(\App\Http\Controllers\StudyController::$COLUMN_HOST)
 
                     @case(\App\Http\Controllers\StudyController::$COLUMN_SERVICE)
