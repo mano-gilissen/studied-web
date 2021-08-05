@@ -160,7 +160,9 @@ class StudyController extends Controller {
 
                 case self::$PARAMETER_HOST:
 
-                    dd(Person::where(Model::$PERSON_SLUG, $value)->firstOrFail()->getUser);
+                    $a = Person::where(Model::$PERSON_SLUG, $value)->firstOrFail();
+
+                    dd($a->getUser);
 
                     $data_filter->{self::$COLUMN_HOST}      = Person::where(Model::$PERSON_SLUG, $value)->firstOrFail()->getUser->{Model::$BASE_ID};
                     break;
