@@ -491,13 +491,16 @@ class StudyController extends Controller {
                         return User::where(Model::$ROLE, RoleTrait::$ID_STUDENT)->with('getPerson')->get()->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
 
                     case RoleTrait::$ID_EMPLOYEE:
-/*
-                        User::whereHas('getAgreements_asStudent', function ($query) {
 
-                            $query->where('user_id', Auth::id());
+                        $persons = User::whereHas('getAgreements_asStudent', function ($query) {
+
+                            $query->where(Model::$EMPLOYEE, Auth::id());
 
                         })->with('getPerson')->get()->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
 
+                        return $persons;
+
+                        /*
                         $persons =
 
                         foreach (Auth::user()->getStudents as $student) {
@@ -505,9 +508,9 @@ class StudyController extends Controller {
 
 
                         }
-*/
-                        dd(User::where(Model::$BASE_ID, Auth::id())->with('getAgreements_asEmployee.getStudent.getPerson')->get()->pluck('getAgreements_asEmployee.getStudent.getPerson.' . 'fullName', 'getAgreements_asEmployee.' . Model::$BASE_ID)->toArray());
 
+                        dd(User::where(Model::$BASE_ID, Auth::id())->with('getAgreements_asEmployee.getStudent.getPerson')->get()->pluck('getAgreements_asEmployee.getStudent.getPerson.' . 'fullName', 'getAgreements_asEmployee.' . Model::$BASE_ID)->toArray());
+*/
                         return Auth::user()->getAgreements_asEmployee->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
 
                 }
