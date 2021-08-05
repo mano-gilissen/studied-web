@@ -485,12 +485,17 @@ class StudyController extends Controller {
 
                     // TODO: ADD AREA FILTER FOR MANAGEMENT
 
+                    case RoleTrait::$ID_ADMINISTRATOR:
                     case RoleTrait::$ID_BOARD:
                     case RoleTrait::$ID_MANAGEMENT:
+
+                        dd('a');
 
                         return User::where(Model::$ROLE, RoleTrait::$ID_STUDENT)->with('getPerson')->get()->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
 
                     case RoleTrait::$ID_EMPLOYEE:
+
+                        dd('b');
 
                         return User::whereHas('getAgreements_asStudent', function ($query) {
 
@@ -499,7 +504,7 @@ class StudyController extends Controller {
                         })->with('getPerson')->get()->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
                 }
 
-                break;
+                dd('c');
 
               //return $query->with('getParticipants_User.getPerson')->get()->pluck('getParticipants_User.getPerson.' . 'fullName', 'getParticipants_User.' . Model::$BASE_ID)->toArray();
 
