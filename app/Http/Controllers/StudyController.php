@@ -148,13 +148,13 @@ class StudyController extends Controller {
     public function list(Request $request) {
 
         $parameters                                         = $request->all();
-/*
-        if ($parameters[Model::$STUDY_HOST_USER]) {
 
+        if (array_key_exists(Model::$STUDY_HOST_USER, $parameters)) {
 
+            dd($parameters);
 
         }
-*/
+
         return view(Views::LIST_STUDY, [
 
             Key::PAGE_TITLE                                 => 'Lessen',
