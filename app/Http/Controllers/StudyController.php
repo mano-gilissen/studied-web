@@ -481,8 +481,6 @@ class StudyController extends Controller {
 
             case self::$COLUMN_STUDENT:
 
-                dd(User::where(Model::$ROLE, RoleTrait::$ID_STUDENT)->with('getPerson')->get()->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray());
-
                 switch (Auth::user()->role) {
 
                     // TODO: ADD AREA FILTER FOR MANAGEMENT
@@ -490,10 +488,11 @@ class StudyController extends Controller {
                     case RoleTrait::$ID_ADMINISTRATOR:
                     case RoleTrait::$ID_BOARD:
                     case RoleTrait::$ID_MANAGEMENT:
+                    case RoleTrait::$ID_EMPLOYEE:
 
                         return User::where(Model::$ROLE, RoleTrait::$ID_STUDENT)->with('getPerson')->get()->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
 
-                    case RoleTrait::$ID_EMPLOYEE:
+                    case 12:
 
                         $a = User::whereHas('getAgreements_asStudent', function ($query) {
 
