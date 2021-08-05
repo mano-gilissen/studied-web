@@ -153,7 +153,7 @@ class StudyController extends Controller {
 
         $data_sort                                          = (object)[];
         $data_filter                                        = (object)[];
-/*
+
         if (array_key_exists(self::$PARAMETER_HOST, $parameters)) {
 
             $data_filter->{self::$COLUMN_HOST}              = $parameters[self::$PARAMETER_HOST];
@@ -161,7 +161,7 @@ class StudyController extends Controller {
         }
 
         dd($data_filter);
-*/
+
         return view(Views::LIST_STUDY, [
 
             Key::PAGE_TITLE                                 => 'Lessen',
