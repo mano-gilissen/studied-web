@@ -151,6 +151,7 @@ class StudyController extends Controller {
 
         $parameters                                         = $request->all();
 
+        $data_sort                                          = (object)[];
         $data_filter                                        = (object)[];
 /*
         if (array_key_exists(self::$PARAMETER_HOST, $parameters)) {
@@ -166,6 +167,7 @@ class StudyController extends Controller {
             Key::PAGE_TITLE                                 => 'Lessen',
 
             Table::DATA_TYPE                                => Model::$STUDY,
+            Table::DATA_SORT                                => $data_sort,
             Table::DATA_FILTER                              => $data_filter,
             Table::VIEW_COUNTERS                            => $this->list_counters()
         ]);
