@@ -433,7 +433,7 @@ class StudyController extends Controller {
                 case self::$COLUMN_STUDENT:
                     $query->whereHas('getParticipants_User', function (Builder $query, $value) {
                         $query->where(Model::$BASE_ID, $value);
-                    })->get();
+                    });
                     break;
 
                 case self::$COLUMN_HOST:
@@ -488,24 +488,21 @@ class StudyController extends Controller {
                     case RoleTrait::$ID_ADMINISTRATOR:
                     case RoleTrait::$ID_BOARD:
                     case RoleTrait::$ID_MANAGEMENT:
-                    case RoleTrait::$ID_EMPLOYEE:
 
                         return User::where(Model::$ROLE, RoleTrait::$ID_STUDENT)->with('getPerson')->get()->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
 
-                    case 12:
+                    case RoleTrait::$ID_EMPLOYEE:
 
-                        $a = User::whereHas('getAgreements_asStudent', function ($query) {
+                        return User::whereHas('getAgreements_asStudent', function ($query) {
 
                             $query->where(Model::$EMPLOYEE, Auth::id());
 
                         })->with('getPerson')->get()->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
 
-                        dd($a);
+                    default:
 
-                        return $a;
+                        return [];
                 }
-
-              //return $query->with('getParticipants_User.getPerson')->get()->pluck('getParticipants_User.getPerson.' . 'fullName', 'getParticipants_User.' . Model::$BASE_ID)->toArray();
 
             case self::$COLUMN_HOST:
 
