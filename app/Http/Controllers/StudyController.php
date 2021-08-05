@@ -151,9 +151,9 @@ class StudyController extends Controller {
 
         $data_filter                                        = (object)[];
 
-        if (array_key_exists(self::$COLUMN_HOST, $parameters)) {
+        if (array_key_exists('host', $parameters)) {
 
-            $data_filter->{self::$COLUMN_HOST}              = $parameters[self::$COLUMN_HOST];
+            $data_filter->{self::$COLUMN_HOST}              = $parameters['host'];
 
         }
 
