@@ -159,11 +159,6 @@ class StudyController extends Controller {
             switch ($parameter) {
 
                 case self::$PARAMETER_HOST:
-
-                    $a = Person::where(Model::$PERSON_SLUG, $value)->firstOrFail();
-
-                    dd($a->getUser);
-
                     $data_filter->{self::$COLUMN_HOST}      = Person::where(Model::$PERSON_SLUG, $value)->firstOrFail()->getUser->{Model::$BASE_ID};
                     break;
             }
