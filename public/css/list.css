@@ -43,11 +43,6 @@
     opacity:                            .2;
 }
 
-#actions .autocomplete-item {
-    color:                              #666666;
-    padding-left:                       24px;
-}
-
 #actions #filters {
     display:                            flex;
 }
@@ -168,6 +163,11 @@
 #headers .filter .box-input {
     height:                             0;
     border:                             0;
+}
+
+#headers .autocomplete-item {
+    color:                              #666666;
+    padding-left:                       24px;
 }
 
 
