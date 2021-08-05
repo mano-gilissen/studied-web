@@ -149,11 +149,15 @@ class StudyController extends Controller {
 
         $parameters                                         = $request->all();
 
-        if (array_key_exists('host', $parameters)) {
+        $data_filter                                        = (object)[];
 
-            dd($parameters);
+        if (array_key_exists(self::$COLUMN_HOST, $parameters)) {
+
+            $data_filter[self::$COLUMN_HOST]                = $parameters[self::$COLUMN_HOST];
 
         }
+
+        dd($data_filter);
 
         return view(Views::LIST_STUDY, [
 

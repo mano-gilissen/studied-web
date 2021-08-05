@@ -3,9 +3,6 @@
 
 
 
-var data_sort                                   = {};
-var data_filter                                 = {};
-
 var filters_select_active                       = false;
 
 

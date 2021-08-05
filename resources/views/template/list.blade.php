@@ -15,6 +15,8 @@
     <script>
 
         var data_type                       = '{{ $data_type }}';
+        var data_sort                       = '{{ $data_sort }}';
+        var data_filter                     = '{{ $data_filter }}';
 
     </script>
 
