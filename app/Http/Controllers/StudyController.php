@@ -492,28 +492,14 @@ class StudyController extends Controller {
 
                     case RoleTrait::$ID_EMPLOYEE:
 
-                        $persons = User::whereHas('getAgreements_asStudent', function ($query) {
+                        return User::whereHas('getAgreements_asStudent', function ($query) {
 
                             $query->where(Model::$EMPLOYEE, Auth::id());
 
                         })->with('getPerson')->get()->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
-
-                        dd($persons);
-
-                        /*
-                        $persons =
-
-                        foreach (Auth::user()->getStudents as $student) {
-
-
-
-                        }
-
-                        dd(User::where(Model::$BASE_ID, Auth::id())->with('getAgreements_asEmployee.getStudent.getPerson')->get()->pluck('getAgreements_asEmployee.getStudent.getPerson.' . 'fullName', 'getAgreements_asEmployee.' . Model::$BASE_ID)->toArray());
-*/
-                        return Auth::user()->getAgreements_asEmployee->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
-
                 }
+
+                break;
 
               //return $query->with('getParticipants_User.getPerson')->get()->pluck('getParticipants_User.getPerson.' . 'fullName', 'getParticipants_User.' . Model::$BASE_ID)->toArray();
 
