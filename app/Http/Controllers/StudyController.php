@@ -498,7 +498,7 @@ class StudyController extends Controller {
 
                         })->with('getPerson')->get()->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
 
-                        return $persons;
+                        dd($persons);
 
                         /*
                         $persons =
