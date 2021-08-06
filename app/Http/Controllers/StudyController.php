@@ -433,7 +433,7 @@ class StudyController extends Controller {
             switch ($column) {
 
                 case self::$COLUMN_STUDENT:
-                    $query->whereHas('getParticipants_User', function (Builder $query, $value) {
+                    $query->whereHas('getParticipants_User', function (Builder $query) use ($value) {
                         $query->where(Model::$BASE_ID, $value);
                     });
                     break;
