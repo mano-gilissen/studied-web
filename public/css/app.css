@@ -656,7 +656,7 @@ select::-ms-expand {
 
 .block-users .list-users.grid {
     display:                            grid;
-    grid-template-rows:                 repeat(4, auto);
+    grid-template-columns:              repeat(4, auto);
     padding-top:                        0;
 }
 
