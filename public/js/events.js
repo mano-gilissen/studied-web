@@ -45,6 +45,7 @@ const ATTR_SELECTED                             = 'selected';
 const ATTR_FILTERED                             = 'filtered';
 const ATTR_DISABLED                             = 'disabled';
 const ATTR_SOLO                                 = 'solo';
+const ATTR_GRID                                 = 'grid';
 
 const SPACING_AGREEMENT                         = 40;
 
@@ -102,7 +103,7 @@ $(function(){
 
     });
 
-    $(OBJECT_APP).on('mousemove', CLASS_PERSON_REPORT, function() {
+    $(OBJECT_APP).on('mousemove', CLASS_PERSON_REPORT + "," + CLASS_PERSON + "." + ATTR_GRID, function() {
 
         setTooltip("Profiel van " + $(this).attr("id") + " bekijken");
 
