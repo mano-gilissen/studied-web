@@ -50,4 +50,12 @@ class LoginController extends Controller {
 
 
 
+    public function encrypt($value) {
+
+        return bcrypt($value);
+
+    }
+
+
+
 }

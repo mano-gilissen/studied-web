@@ -4,9 +4,16 @@
 
 namespace App\Http\Support;
 
+use App\Http\Traits\BaseTrait;
+use App\Models\Person;
 
 
 class Table {
+
+
+
+
+    use BaseTrait;
 
 
 
@@ -96,9 +103,25 @@ class Table {
 
 
 
+
+    public static function view($controller, $request) {
+
+        return view($controller->list_view(), [
+
+            Key::PAGE_TITLE                                 => $controller->list_title(),
+            Table::DATA_TYPE                                => $controller->list_type(),
+            Table::DATA_FILTER                              => self::filter($controller, $request)
+        ]);
+    }
+
+
+
+
     public static function query($controller, $sort, $filter) {
 
-        $query                                              = $controller->list_query();
+        $query                                              = self::getModelClass($controller->list_type())::query();
+
+        $controller->list_filter_default($query);
 
         if ($filter) {
 
@@ -109,6 +132,10 @@ class Table {
         if ($sort) {
 
             $controller->list_sort($query, $sort);
+
+        } else {
+
+            $controller->list_sort_default($query);
 
         }
 
@@ -122,6 +149,23 @@ class Table {
 
         return $query->select($controller->list_type() . '.*')->get();
 
+    }
+
+
+
+
+
+    public static function filter($controller, $parameters) {
+
+        $data_filter                                        = (object)[];
+
+        foreach ($parameters->all() as $parameter => $value) {
+
+            $controller->list_filter_parameter($data_filter, $parameter, $value);
+
+        }
+
+        return Format::encode($data_filter);
     }
 
 

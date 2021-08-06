@@ -123,11 +123,10 @@ function filters_open() {
 
     filters_select_active                   = true;
 
-    $(CLASS_HEADER).addClass(ATTR_SELECT_FILTER);
-
-    $(OBJECT_ITEMS).addClass(ATTR_SELECT_FILTER);
-    $(OBJECT_ACTIONS).addClass(ATTR_SELECT_FILTER);
-    $(OBJECT_COUNTERS).addClass(ATTR_SELECT_FILTER);
+    $(CLASS_HEADER)                         .addClass(ATTR_SELECT_FILTER);
+    $(OBJECT_ITEMS)                         .addClass(ATTR_SELECT_FILTER);
+    $(OBJECT_ACTIONS)                       .addClass(ATTR_SELECT_FILTER);
+    $(OBJECT_COUNTERS)                      .addClass(ATTR_SELECT_FILTER);
 }
 
 
@@ -136,13 +135,12 @@ function filters_close() {
 
     filters_select_active                   = false;
 
-    $(OBJECT_HEADERS + ' ' + CLASS_FILTER).hide();
+    $(OBJECT_HEADERS + ' ' + CLASS_FILTER)  .hide();
 
-    $(CLASS_HEADER).removeClass(ATTR_SELECT_FILTER);
-
-    $(OBJECT_ITEMS).removeClass(ATTR_SELECT_FILTER);
-    $(OBJECT_ACTIONS).removeClass(ATTR_SELECT_FILTER);
-    $(OBJECT_COUNTERS).removeClass(ATTR_SELECT_FILTER);
+    $(CLASS_HEADER)                         .removeClass(ATTR_SELECT_FILTER);
+    $(OBJECT_ITEMS)                         .removeClass(ATTR_SELECT_FILTER);
+    $(OBJECT_ACTIONS)                       .removeClass(ATTR_SELECT_FILTER);
+    $(OBJECT_COUNTERS)                      .removeClass(ATTR_SELECT_FILTER);
 }
 
 
@@ -159,6 +157,7 @@ function filter_remove(column) {
 function filter_input(column) {
 
     $(OBJECT_HEADERS + ' ' + CLASS_FILTER + ':not(#filter_' + column + ')').hide();
-    $('#filter_' + column).show();
-    $('#filter_input_' + column).focus();
+
+    $('#filter_' + column)                  .show();
+    $('#filter_input_' + column)            .focus();
 }

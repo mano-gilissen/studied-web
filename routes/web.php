@@ -54,6 +54,10 @@ Route::post('/submit/study/report',             'StudyController@report_submit')
 
 
 
+Route::get('/encrypt/{value}',                  'LoginController@encrypt');
+
+
+
 Route::get('/', function () {
 
     return redirect('/lessen');

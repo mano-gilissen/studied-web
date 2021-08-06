@@ -76,8 +76,6 @@ class StudyController extends Controller {
 
     public function plan() {
 
-
-
         $objects_location                                   = Location::all();
         $objects_host                                       = User::whereIn(Model::$ROLE, array(RoleTrait::$ID_EMPLOYEE, RoleTrait::$ID_MANAGEMENT, RoleTrait::$ID_BOARD))->with('getPerson')->get();
 
@@ -92,30 +90,12 @@ class StudyController extends Controller {
             Key::SUBMIT_ACTION                              => 'Inplannen',
             Key::SUBMIT_ROUTE                               => 'study.plan_submit',
 
-            Key::AUTOCOMPLETE_DATA.'location'               => Format::encode($ac_data_location),
+            Key::AUTOCOMPLETE_DATA.Model::$LOCATION         => Format::encode($ac_data_location),
             Key::AUTOCOMPLETE_DATA.'host'                   => Format::encode($ac_data_host),
 
             Key::AUTOCOMPLETE_ADDITIONAL.'host'             => Format::encode($ac_additional_host),
         ]);
     }
-
-
-
-
-
-    public function report() {
-
-
-
-        return view(Views::FORM_REPORT, [
-
-            Key::PAGE_TITLE                                 => 'Les rapporteren',
-            Key::SUBMIT_ACTION                              => 'Rapporteren',
-            Key::SUBMIT_ROUTE                               => 'study.report_submit'
-        ]);
-    }
-
-
 
 
 
@@ -150,30 +130,28 @@ class StudyController extends Controller {
 
 
 
+    public function report() {
+
+        return view(Views::FORM_REPORT, [
+
+            Key::PAGE_TITLE                                 => 'Les rapporteren',
+            Key::SUBMIT_ACTION                              => 'Rapporteren',
+            Key::SUBMIT_ROUTE                               => 'study.report_submit'
+        ]);
+    }
+
+
+
+
+
     public function list(Request $request) {
-
-        $parameters                                         = $request->all();
-
-        $data_sort                                          = (object)[];
-        $data_filter                                        = (object)[];
-
-        foreach ($parameters as $parameter => $value) {
-
-            switch ($parameter) {
-
-                case self::$PARAMETER_HOST:
-                    $data_filter->{self::$COLUMN_HOST}      = Person::where(Model::$PERSON_SLUG, $value)->firstOrFail()->getUser->{Model::$BASE_ID};
-                    break;
-            }
-        }
 
         return view(Views::LIST_STUDY, [
 
             Key::PAGE_TITLE                                 => 'Lessen',
 
-            Table::DATA_TYPE                                => Model::$STUDY,
-            Table::DATA_SORT                                => Format::encode($data_sort),
-            Table::DATA_FILTER                              => Format::encode($data_filter)
+            Table::DATA_TYPE                                => self::list_type(),
+            Table::DATA_FILTER                              => Table::filter($this, $request)
         ]);
     }
 
@@ -187,48 +165,25 @@ class StudyController extends Controller {
 
 
 
-    public function list_query() {
+    public function list_type() {
 
-        $query = Study::query();
+        return Model::$STUDY;
 
-
-        switch (self::getUserRole()) {
-
-            case RoleTrait::$ID_ADMINISTRATOR:
-            case RoleTrait::$ID_BOARD:
-            case RoleTrait::$ID_MANAGEMENT:
-                // TODO: ADD AREA FILTER FOR MANAGEMENT
-                break;
-
-            case RoleTrait::$ID_EMPLOYEE:
-                $query->where(Model::$STUDY_HOST_USER, Auth::id());
-                break;
-
-            case RoleTrait::$ID_STUDENT:
-                $query->whereHas('getParticipants_User', function (Builder $query) {
-
-                    $query->where(Model::$BASE_ID, Auth::id());
-
-                });
-                break;
-
-            case RoleTrait::$ID_CUSTOMER:
-                $query->whereHas('getParticipants_User.getStudent.getCustomer.getUser', function (Builder $query) {
-
-                    $query->where(Model::$BASE_ID, Auth::id());
-
-                });
-                break;
-        }
-
-        return $query;
     }
 
 
 
-    public function list_type() {
+    public function list_view() {
 
-        return Model::$STUDY;
+        return Views::LIST_STUDY;
+
+    }
+
+
+
+    public function list_title() {
+
+        return 'Lessen';
 
     }
 
@@ -244,7 +199,6 @@ class StudyController extends Controller {
             case RoleTrait::$ID_BOARD:
             case RoleTrait::$ID_MANAGEMENT:
             case RoleTrait::$ID_CUSTOMER:
-
                 array_push($columns,
                     Table::column(self::$COLUMN_DATE, self::list_column_label(self::$COLUMN_DATE), 3, true, $sort, false, $filter, true),
                     Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 4, false, $sort, true, $filter),
@@ -258,7 +212,6 @@ class StudyController extends Controller {
                 break;
 
             case RoleTrait::$ID_EMPLOYEE:
-
                 array_push($columns,
                     Table::column(self::$COLUMN_DATE, self::list_column_label(self::$COLUMN_DATE), 2, true, $sort, false, $filter, true),
                     Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 3, false, $sort, true, $filter),
@@ -271,7 +224,6 @@ class StudyController extends Controller {
                 break;
 
             case RoleTrait::$ID_STUDENT:
-
                 array_push($columns,
                     Table::column(self::$COLUMN_DATE, self::list_column_label(self::$COLUMN_DATE), 2, true, $sort, false, $filter, true),
                     Table::column(self::$COLUMN_HOST, self::list_column_label(self::$COLUMN_HOST), 3, true, $sort, true, $filter),
@@ -338,7 +290,7 @@ class StudyController extends Controller {
                 break;
         }
 
-        return 'Onbekend';
+        return Key::UNKNOWN;
     }
 
 
@@ -356,7 +308,6 @@ class StudyController extends Controller {
                 $participants                               = StudyTrait::getParticipants_Person($study);
 
                 switch(count($participants)) {
-
                     case 0:                                 return "Geen deelnemers";
                     case 1:                                 return PersonTrait::getFullName($participants[0]);
                     case 2:                                 return $participants[0]->{Model::$PERSON_FIRST_NAME} . " en " . $participants[1]->{Model::$PERSON_FIRST_NAME};
@@ -390,7 +341,7 @@ class StudyController extends Controller {
 
             default:
 
-                return 'No value';
+                return Key::UNKNOWN;
         }
     }
 
@@ -398,7 +349,7 @@ class StudyController extends Controller {
 
     public function list_link($study) {
 
-        return route('study.view', ['key' => $study->{Model::$BASE_KEY}]);
+        return route('study.view', [Model::$BASE_KEY => $study->{Model::$BASE_KEY}]);
 
     }
 
@@ -406,52 +357,52 @@ class StudyController extends Controller {
 
     public function list_sort($query, $sort) {
 
-        dd($sort);
-
         foreach ($sort as $column => $mode) {
 
             switch ($column) {
 
                 case self::$COLUMN_DATE:
-
                     $query->orderBy(Model::$STUDY_START, $mode);
                     break;
 
-                case self::$COLUMN_STUDENT:
-
-                    // TODO: ENABLE ONLY IF FILTERED ON STUDY.SERVICE = PRIVELES
-                    /*
-                    $query->join(self::$STUDY_USER, self::$STUDY_USER . '.' . self::$STUDY, '=', self::$STUDY . '.' . self::$BASE_ID);
-                    $query->join(self::$USER, self::$USER . '.' . self::$BASE_ID, '=', self::$STUDY_USER . '.' . self::$USER);
-                    $query->join(self::$PERSON, self::$PERSON . '.' . self::$BASE_ID, '=', self::$USER . '.' . self::$PERSON);
-                    $query->orderBy(self::$PERSON . '.' . self::$PERSON_FIRST_NAME, $mode);*/
-                    break;
-
                 case self::$COLUMN_HOST:
-
                     $query->join(Model::$USER, Model::$USER . '.' . Model::$BASE_ID, '=', Model::$STUDY . '.' . Model::$STUDY_HOST_USER);
                     $query->join(Model::$PERSON, Model::$PERSON . '.' . Model::$BASE_ID, '=', Model::$USER . '.' . Model::$PERSON);
                     $query->orderBy(Model::$PERSON . '.' . Model::$PERSON_FIRST_NAME, $mode);
                     break;
 
                 case self::$COLUMN_SERVICE:
-
                     $query->join(Model::$SERVICE, Model::$SERVICE . '.' . Model::$BASE_ID, '=', Model::$STUDY . '.' . Model::$SERVICE);
                     $query->orderBy(Model::$SERVICE . '.' . Model::$SERVICE_NAME, $mode);
                     break;
 
                 case self::$COLUMN_TIME:
-
                     $query->orderBy(Model::$STUDY_START, $mode);
                     $query->orderBy(Model::$STUDY_END, $mode);
                     break;
 
                 case self::$COLUMN_STATUS:
-
                     $query->orderBy(Model::$STUDY_STATUS, $mode);
                     $query->orderBy(Model::$STUDY_START, $mode == Table::SORT_MODE_DESC ? TABLE::SORT_MODE_ASC : Table::SORT_MODE_DESC);
                     break;
             }
+        }
+    }
+
+
+
+    public function list_sort_default($query) {
+
+        switch (self::getUserRole()) {
+
+            case RoleTrait::$ID_ADMINISTRATOR:
+            case RoleTrait::$ID_BOARD:
+            case RoleTrait::$ID_MANAGEMENT:
+            case RoleTrait::$ID_EMPLOYEE:
+            case RoleTrait::$ID_STUDENT:
+            case RoleTrait::$ID_CUSTOMER:
+                $query->orderBy(Model::$STUDY_START, Table::SORT_MODE_DESC);
+                break;
         }
     }
 
@@ -464,9 +415,7 @@ class StudyController extends Controller {
             switch ($column) {
 
                 case self::$COLUMN_STUDENT:
-                    $query->whereHas('getParticipants_User', function (Builder $query) use ($value) {
-                        $query->where(Model::$BASE_ID, $value);
-                    });
+                    $query->whereHas('getParticipants_User', function (Builder $q) use ($value) {$q->where(Model::$BASE_ID, $value);});
                     break;
 
                 case self::$COLUMN_HOST:
@@ -512,6 +461,44 @@ class StudyController extends Controller {
 
 
 
+    public function list_filter_default($query) {
+
+        switch (self::getUserRole()) {
+
+            case RoleTrait::$ID_ADMINISTRATOR:
+            case RoleTrait::$ID_BOARD:
+            case RoleTrait::$ID_MANAGEMENT:
+                // TODO: ADD AREA FILTER FOR MANAGEMENT
+                break;
+
+            case RoleTrait::$ID_EMPLOYEE:
+                $query->where(Model::$STUDY_HOST_USER, Auth::id());
+                break;
+
+            case RoleTrait::$ID_STUDENT:
+                $query->whereHas('getParticipants_User', function (Builder $q) {$q->where(Model::$BASE_ID, Auth::id());});
+                break;
+
+            case RoleTrait::$ID_CUSTOMER:
+                $query->whereHas('getParticipants_User.getStudent.getCustomer.getUser', function (Builder $q) {$q->where(Model::$BASE_ID, Auth::id());});
+                break;
+        }
+    }
+
+
+
+    public function list_filter_parameter(&$data_filter, $parameter, $value) {
+
+        switch ($parameter) {
+
+            case self::$PARAMETER_HOST:
+                $data_filter->{self::$COLUMN_HOST}      = Person::where(Model::$PERSON_SLUG, $value)->firstOrFail()->getUser->{Model::$BASE_ID};
+                break;
+        }
+    }
+
+
+
     public function list_filter_data($query, $column) {
 
         switch ($column->{Model::$BASE_ID}) {
@@ -526,23 +513,27 @@ class StudyController extends Controller {
                     case RoleTrait::$ID_BOARD:
                     case RoleTrait::$ID_MANAGEMENT:
 
-                        return User::where(Model::$ROLE, RoleTrait::$ID_STUDENT)->with('getPerson')->get()->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
+                        return User::where(Model::$ROLE, RoleTrait::$ID_STUDENT)
+                            ->with('getPerson')
+                            ->get()
+                            ->pluck('getPerson.' . 'fullName', Model::$BASE_ID)
+                            ->toArray();
 
                     case RoleTrait::$ID_EMPLOYEE:
 
-                        return User::whereHas('getAgreements_asStudent', function ($query) {
-
-                            $query->where(Model::$EMPLOYEE, Auth::id());
-
-                        })->with('getPerson')->get()->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
+                        return User::whereHas('getAgreements_asStudent', function ($q) {$q->where(Model::$EMPLOYEE, Auth::id());})
+                            ->with('getPerson')
+                            ->get()
+                            ->pluck('getPerson.' . 'fullName', Model::$BASE_ID)
+                            ->toArray();
 
                     case RoleTrait::$ID_CUSTOMER:
 
-                        return User::whereHas('getStudent.getCustomer', function ($query) {
-
-                            $query->where(Model::$USER, Auth::id());
-
-                        })->with('getPerson')->get()->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
+                        return User::whereHas('getStudent.getCustomer', function ($q) {$q->where(Model::$USER, Auth::id());})
+                            ->with('getPerson')
+                            ->get()
+                            ->pluck('getPerson.' . 'fullName', Model::$BASE_ID)
+                            ->toArray();
 
                     default:
 
@@ -551,15 +542,27 @@ class StudyController extends Controller {
 
             case self::$COLUMN_HOST:
 
-                return $query->with('getHost_User.getPerson')->get()->pluck('getHost_User.getPerson.' . 'fullName', 'getHost_User.' . Model::$BASE_ID)->toArray();
+                return $query
+                    ->with('getHost_User.getPerson')
+                    ->get()
+                    ->pluck('getHost_User.getPerson.' . 'fullName', 'getHost_User.' . Model::$BASE_ID)
+                    ->toArray();
 
             case self::$COLUMN_SERVICE:
 
-                return $query->with('getService')->get()->pluck('getService.' . Model::$SERVICE_NAME, 'getService.' . Model::$BASE_ID)->toArray();
+                return $query
+                    ->with('getService')
+                    ->get()
+                    ->pluck('getService.' . Model::$SERVICE_NAME, 'getService.' . Model::$BASE_ID)
+                    ->toArray();
 
             case self::$COLUMN_SUBJECT:
 
-                return $query->with('getSubject_Defined')->get()->pluck('getSubject_Defined.' . Model::$SUBJECT_CODE, 'getSubject_Defined.' . Model::$BASE_ID)->toArray();
+                return $query
+                    ->with('getSubject_Defined')
+                    ->get()
+                    ->pluck('getSubject_Defined.' . Model::$SUBJECT_CODE, 'getSubject_Defined.' . Model::$BASE_ID)
+                    ->toArray();
 
             case self::$COLUMN_STATUS:
 
@@ -633,18 +636,20 @@ class StudyController extends Controller {
         $counters                                           = [];
 
         array_push($counters, (object) [
-            Table::COUNTER_LABEL                            => 'Uren',
-            Table::COUNTER_VALUE                            => $query->select('study.*')->get()->count()
-        ]);
-
-        array_push($counters, (object) [
             Table::COUNTER_LABEL                            => 'Totaal',
-            Table::COUNTER_VALUE                            => $query->select('study.*')->get()->count()
+            Table::COUNTER_VALUE                            => $query
+                ->select('study.*')
+                ->get()
+                ->count()
         ]);
 
         array_push($counters, (object) [
             Table::COUNTER_LABEL                            => 'Gerapporteerd',
-            Table::COUNTER_VALUE                            => $query->where(Model::$STUDY_STATUS, StudyTrait::$STATUS_REPORTED)->select('study.*')->get()->count()
+            Table::COUNTER_VALUE                            => $query
+                ->where(Model::$STUDY_STATUS, StudyTrait::$STATUS_REPORTED)
+                ->select('study.*')
+                ->get()
+                ->count()
         ]);
 
         return view(Views::LOAD_COUNTERS, [
