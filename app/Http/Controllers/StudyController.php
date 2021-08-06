@@ -173,8 +173,7 @@ class StudyController extends Controller {
 
             Table::DATA_TYPE                                => Model::$STUDY,
             Table::DATA_SORT                                => Format::encode($data_sort),
-            Table::DATA_FILTER                              => Format::encode($data_filter),
-            Table::VIEW_COUNTERS                            => $this->list_counters()
+            Table::DATA_FILTER                              => Format::encode($data_filter)
         ]);
     }
 
@@ -625,22 +624,29 @@ class StudyController extends Controller {
 
 
 
-    public function list_counters() {
+    public function list_counters_load(Request $request) {
 
-        $COUNTER_TOTAL              = (object) [
+        $sort                                               = $request->input(Table::DATA_SORT, null);
+        $filter                                             = $request->input(Table::DATA_FILTER, null);
+
+        $query                                              = self::query($this, $sort, $filter);
+        $counters                                            = [];
+
+        array_push($counters, (object) [
             Table::COUNTER_LABEL                            => 'Totaal',
-            Table::COUNTER_VALUE                            => Study::all()->count()
-        ];
+            Table::COUNTER_VALUE                            => $query->select('study.*')->get()->count()
+        ]);
 
-        $COUNTER_REPORTED           = (object) [
+        array_push($counters, (object) [
             Table::COUNTER_LABEL                            => 'Gerapporteerd',
-            Table::COUNTER_VALUE                            => Study::where(Model::$STUDY_STATUS, StudyTrait::$STATUS_REPORTED)->count()
-        ];
+            Table::COUNTER_VALUE                            => $query->where(Model::$STUDY_STATUS, StudyTrait::$STATUS_REPORTED)->select('study.*')->get()->count()
+        ]);
 
-        return [
-            $COUNTER_TOTAL,
-            $COUNTER_REPORTED
-        ];
+        return view(Views::LOAD_COUNTERS, [
+
+            Table::VIEW_FILTERS                             => $counters
+
+        ]);
     }
 
 
