@@ -272,15 +272,20 @@
                             @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
                             @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
                             @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
-                            @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
 
-                                @include('block.profile-students')
+                                @include('block.profile-students-of-employee')
 
                                 @break
 
                             @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
 
                                 @include('block.profile-connections')
+
+                                @break
+
+                            @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
+
+                                @include('block.profile-students-of-customer')
 
                                 @break
 
