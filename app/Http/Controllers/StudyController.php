@@ -238,8 +238,6 @@ class StudyController extends Controller {
 
         $columns                                            = [];
 
-        /* TODO: REMOVE COLUMNS IF FILTERED */
-
         switch (self::getUserRole()) {
 
             case RoleTrait::$ID_ADMINISTRATOR:
@@ -407,6 +405,8 @@ class StudyController extends Controller {
 
 
     public function list_sort($query, $sort) {
+
+        dd($sort);
 
         foreach ($sort as $column => $mode) {
 
@@ -631,6 +631,11 @@ class StudyController extends Controller {
 
         $query                                              = Table::query($this, $sort, $filter);
         $counters                                           = [];
+
+        array_push($counters, (object) [
+            Table::COUNTER_LABEL                            => 'Uren',
+            Table::COUNTER_VALUE                            => $query->select('study.*')->get()->count()
+        ]);
 
         array_push($counters, (object) [
             Table::COUNTER_LABEL                            => 'Totaal',
