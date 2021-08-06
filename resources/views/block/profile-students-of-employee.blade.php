@@ -6,7 +6,7 @@
 
         @foreach($person->getUser->getStudents as $student)
 
-            @include('block.person', ['person' => $student->getPerson])
+            @include('block.person', ['person' => $student->getUser->getPerson])
 
         @endforeach
 
