@@ -78,7 +78,6 @@
                             @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
                             @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
                             @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
-                            @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
                                 <div class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_HOST => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">
 
@@ -87,6 +86,32 @@
                                     <div class="text">Lessen</div>
 
                                 </div>
+
+                                @break
+
+                            @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
+
+                                @if($person->getUser->id == Auth::id())
+
+                                    <div class="button grey icon" onclick="window.location.href='{{ route('study.list') }}'">
+
+                                        <img class="icon" src="/images/search.svg">
+
+                                        <div class="text">Lessen</div>
+
+                                    </div>
+
+                                @else
+
+                                    <div class="button grey icon" onclick="window.location.href='{{ 'https://instagram.com/' . $person->social_instagram }}'">
+
+                                        <img class="icon" src="/images/social-instagram.svg">
+
+                                        <div class="text">Instagram</div>
+
+                                    </div>
+
+                                @endif
 
                                 @break
 
