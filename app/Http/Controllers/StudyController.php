@@ -517,7 +517,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_SERVICE:
 
-                return $query->with('getService')->get()->pluck('getService.' . Model::$SERVICE_NAME, Model::$SERVICE)->toArray();
+                return $query->with('getService')->get()->pluck('getService.' . Model::$SERVICE_NAME, 'getService.' . Model::$BASE_ID)->toArray();
 
             case self::$COLUMN_SUBJECT:
 
