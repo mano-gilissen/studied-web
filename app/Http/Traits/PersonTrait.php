@@ -78,7 +78,7 @@ trait PersonTrait {
 
     public static function getProfileComment($person) {
 
-        return "\"Hoi ik ben een test comment voor de profielpagina van " . $person->{Model::$PERSON_FIRST_NAME} . " " . $person->{Model::$PERSON_LAST_NAME} . "\"";
+        return "Hoi ik ben een test comment voor de profielpagina van " . $person->{Model::$PERSON_FIRST_NAME} . " " . $person->{Model::$PERSON_LAST_NAME};
 
     }
 
