@@ -14,7 +14,7 @@
 
     @endif
 
-    @if($size != 'grid')
+    @if(($size ?? 'regular') != 'grid')
 
         <div class="values">
 
