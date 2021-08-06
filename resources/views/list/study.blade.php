@@ -4,12 +4,26 @@
 
 @section('actions')
 
-    <div class="button grey icon" onclick="window.location.href='{{ route('study.plan') }}'">
+    @switch(Auth::user()->role)
 
-        <img class="icon" src="/images/add.svg">
+        @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
 
-        <div class="text">{{ __('Inplannen') }}</div>
+        @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
 
-    </div>
+        @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
+
+        @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
+
+            <div class="button grey icon" onclick="window.location.href='{{ route('study.plan') }}'">
+
+                <img class="icon" src="/images/add.svg">
+
+                <div class="text">{{ __('Inplannen') }}</div>
+
+            </div>
+
+            @break
+
+    @endswitch
 
 @endsection
