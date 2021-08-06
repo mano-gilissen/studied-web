@@ -51,6 +51,7 @@ class StudyController extends Controller {
         $COLUMN_TIME                                        = 107,
         $COLUMN_STATUS                                      = 108,
 
+        $PARAMETER_PARTICIPANT                              = "participant",
         $PARAMETER_HOST                                     = "host";
 
 
@@ -490,6 +491,10 @@ class StudyController extends Controller {
     public function list_filter_parameter(&$data_filter, $parameter, $value) {
 
         switch ($parameter) {
+
+            case self::$PARAMETER_PARTICIPANT:
+                $data_filter->{self::$COLUMN_STUDENT}   = Person::where(Model::$PERSON_SLUG, $value)->firstOrFail()->getUser->{Model::$BASE_ID};
+                break;
 
             case self::$PARAMETER_HOST:
                 $data_filter->{self::$COLUMN_HOST}      = Person::where(Model::$PERSON_SLUG, $value)->firstOrFail()->getUser->{Model::$BASE_ID};
