@@ -644,7 +644,7 @@ class StudyController extends Controller {
 
         return view(Views::LOAD_COUNTERS, [
 
-            Table::VIEW_FILTERS                             => $counters
+            Table::VIEW_COUNTERS                            => $counters
 
         ]);
     }
