@@ -51,6 +51,7 @@ class StudyController extends Controller {
         $COLUMN_TIME                                        = 107,
         $COLUMN_STATUS                                      = 108,
 
+        $PARAMETER_CUSTOMER                                 = "customer",
         $PARAMETER_PARTICIPANT                              = "participant",
         $PARAMETER_HOST                                     = "host";
 

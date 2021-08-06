@@ -141,7 +141,7 @@
                             @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
                             @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
-                                <div class="button grey icon" onclick="window.location.href='{{ route('study.list', ['participant' => $person->getUser->id]) }}'">
+                                <div class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_PARTICIPANT => $person->slug]) }}'">
 
                                     <img class="icon" src="/images/search.svg">
 
@@ -171,7 +171,7 @@
 
                                 @if(Auth::user()->getCustomer->isStudent($person->getUser->getStudent))
 
-                                    <div class="button grey icon" onclick="window.location.href='{{ route('study.list', ['participant' => $person->getUser->id]) }}'">
+                                    <div class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_PARTICIPANT => $person->slug]) }}'">
 
                                         <img class="icon" src="/images/search.svg">
 
@@ -196,7 +196,7 @@
                             @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
                             @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
-                                <div id="button-studies" class="button grey icon" onclick="window.location.href='{{ route('study.list', ['customer' => $person->getUser->id]) }}'">
+                                <div id="button-studies" class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_CUSTOMER => $person->slug]) }}'">
 
                                     <img class="icon" src="/images/search.svg">
 
