@@ -216,6 +216,14 @@ trait StudyTrait {
 
 
 
+    public static function hasReporting($study) {
+
+        return !in_array($study->{Model::$SERVICE}, [ServiceTrait::$ID_COLLEGE, ServiceTrait::$ID_TRAINING]);
+
+    }
+
+
+
     public static function canEdit($study, $user = null) {
 
         if (!$user) {
@@ -237,7 +245,7 @@ trait StudyTrait {
 
         }
 
-        return $user->role <= RoleTrait::$ID_MANAGEMENT || $user->id == $study->{Model::$STUDY_HOST_USER};
+        return ($user->role <= RoleTrait::$ID_MANAGEMENT || $user->id == $study->{Model::$STUDY_HOST_USER}) && self::hasReporting($study);
     }
 
 
@@ -250,7 +258,7 @@ trait StudyTrait {
 
         }
 
-        return $user->role <= RoleTrait::$ID_MANAGEMENT;
+        return $user->role <= RoleTrait::$ID_MANAGEMENT && self::hasReporting($study);
     }
 
 
