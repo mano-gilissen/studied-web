@@ -28,7 +28,7 @@
 
                 <div class="comment-tail"></div>
 
-                <div class="comment">{{ $study->getReport($participant)->content_verslag }}</div>
+                <div class="comment">"{{ $study->getReport($participant)->content_verslag }}"</div>
 
             </div>
 

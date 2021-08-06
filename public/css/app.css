@@ -343,6 +343,13 @@ button:focus {
     border-left:                        20px solid transparent;
 }
 
+.comment-tail.up {
+    height:                             0;
+    width:                              0;
+    border-top:                         20px solid transparent;
+    border-left:                        20px solid #FFF7D1;
+}
+
 
 
 
@@ -400,6 +407,14 @@ button:focus {
     height:                             72px;
     margin:                             0 24px 0 0;
     border-radius:                      36px;
+}
+
+.person.grid img,
+.person.grid .no-avatar {
+    width:                              64px;
+    height:                             64px;
+    margin:                             0 16px 16px 0;
+    border-radius:                      32px;
 }
 
 .no-avatar {
@@ -637,6 +652,12 @@ select::-ms-expand {
 
 .block-users .list-users {
     padding-top:                        8px;
+}
+
+.block-users .list-users.grid {
+    display:                            grid;
+    grid-template-rows:                 repeat(4, auto);
+    padding-top:                        0;
 }
 
 

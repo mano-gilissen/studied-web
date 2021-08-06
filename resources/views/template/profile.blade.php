@@ -52,7 +52,7 @@
 
                         <div class="comment-tail"></div>
 
-                        <div class="comment">{{ $comment }}</div>
+                        <div class="comment">"{{ $comment }}"</div>
 
                     </div>
 

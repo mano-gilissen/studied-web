@@ -14,12 +14,16 @@
 
     @endif
 
-    <div class="values">
+    @if($size != 'grid')
 
-        <div class="name">{{ \App\Http\Traits\PersonTrait::getFullName($person) }}</div>
+        <div class="values">
 
-        <div class="role">{{ \App\Http\Traits\PersonTrait::getSubtitle($person) }}</div>
+            <div class="name">{{ \App\Http\Traits\PersonTrait::getFullName($person) }}</div>
 
-    </div>
+            <div class="role">{{ \App\Http\Traits\PersonTrait::getSubtitle($person) }}</div>
+
+        </div>
+
+    @endif
 
 </div>

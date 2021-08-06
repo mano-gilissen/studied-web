@@ -123,6 +123,18 @@ trait StudyTrait {
 
 
 
+    public static function countParticipants($study) {
+
+        $total                                              = 0;
+
+        $total                                             += $study->getParticipants_User()->count();
+        $total                                             += $study->getParticipants_Participant()->count();
+
+        return $total;
+    }
+
+
+
     public static function getStatus($study) {
 
         switch ($study->status) {

@@ -1,12 +1,10 @@
 <div class="block-users">
 
-    <div class="title">Deelnemers</div>
+    <div class="title">Deelnemers ({{\App\Http\Traits\StudyTrait::countParticipants($study)}})</div>
 
-    <div class="list-users">
+    <div class="list-users grid">
 
         @foreach(\App\Http\Traits\StudyTrait::getParticipants_Person($study) as $person)
-
-            <!-- TODO: CHANGE TO AVATAR GRID (LARGE AMOUNT OF PARTICIPANTS) -->
 
             @include('block.person', ['person' => $person])
 
