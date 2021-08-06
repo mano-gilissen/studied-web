@@ -45,7 +45,7 @@ class Customer extends ModelClass {
 
     public function isStudent($student) {
 
-        return in_array($student->{Model::$USER}, Auth::user()->getCustomer->getStudents->pluck(Model::$BASE_ID)->toArray());
+        return in_array($student->{Model::$BASE_ID}, Auth::user()->getCustomer->getStudents->pluck(Model::$BASE_ID)->toArray());
 
     }
 
