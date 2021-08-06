@@ -190,8 +190,39 @@ class StudyController extends Controller {
 
     public function list_query() {
 
-        return Study::query();
+        $query = Study::query();
 
+
+        switch (self::getUserRole()) {
+
+            case RoleTrait::$ID_ADMINISTRATOR:
+            case RoleTrait::$ID_BOARD:
+            case RoleTrait::$ID_MANAGEMENT:
+                // TODO: ADD AREA FILTER FOR MANAGEMENT
+                break;
+
+            case RoleTrait::$ID_EMPLOYEE:
+                $query->where(Model::$STUDY_HOST_USER, Auth::id());
+                break;
+
+            case RoleTrait::$ID_STUDENT:
+                $query->whereHas('getParticipants_User', function (Builder $query) {
+
+                    $query->where(Model::$BASE_ID, Auth::id());
+
+                });
+                break;
+
+            case RoleTrait::$ID_CUSTOMER:
+                $query->whereHas('getParticipants_User.getStudent.getCustomer.getUser', function (Builder $query) {
+
+                    $query->where(Model::$BASE_ID, Auth::id());
+
+                });
+                break;
+        }
+
+        return $query;
     }
 
 
@@ -488,7 +519,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_STUDENT:
 
-                switch (Auth::user()->role) {
+                switch (self::getUserRole()) {
 
                     // TODO: ADD AREA FILTER FOR MANAGEMENT
 
