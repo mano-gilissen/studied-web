@@ -155,7 +155,7 @@
 
                                 @if($person->getUser->id == Auth::id())
 
-                                    <div class="button grey icon" onclick="window.location.href='{{ route('study.list', ['participant' => $person->getUser->id]) }}'">
+                                    <div class="button grey icon" onclick="window.location.href='{{ route('study.list') }}'">
 
                                         <img class="icon" src="/images/search.svg">
 
@@ -169,9 +169,19 @@
 
                             @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
 
-                                <!-- TODO: ADD IF $PERSON IS CUSTOMER_STUDENT OF AUTH -->
+                                @if(Auth::user()->getCustomer->isStudent($person->getUser->getStudent))
 
-                                @break;
+                                    <div class="button grey icon" onclick="window.location.href='{{ route('study.list', ['participant' => $person->getUser->id]) }}'">
+
+                                        <img class="icon" src="/images/search.svg">
+
+                                        <div class="text">Lessen</div>
+
+                                    </div>
+
+                                @endif
+
+                                @break
 
                         @endswitch
 
@@ -204,7 +214,7 @@
 
                                 @if($person->getUser->id == Auth::id())
 
-                                    <div id="button-studies" class="button grey icon" onclick="window.location.href='{{ route('study.list', ['customer' => $person->getUser->id]) }}'">
+                                    <div id="button-studies" class="button grey icon" onclick="window.location.href='{{ route('study.list') }}'">
 
                                         <img class="icon" src="/images/search.svg">
 
