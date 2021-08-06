@@ -15,7 +15,7 @@
     <script>
 
         var data_type                       = '{{ $data_type }}';
-        var data_sort                       = JSON.parse('{!! $data_sort !!}');
+        var data_sort                       = {};
         var data_filter                     = JSON.parse('{!! $data_filter !!}');
 
     </script>
