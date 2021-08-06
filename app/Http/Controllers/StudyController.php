@@ -537,6 +537,14 @@ class StudyController extends Controller {
 
                         })->with('getPerson')->get()->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
 
+                    case RoleTrait::$ID_CUSTOMER:
+
+                        return User::whereHas('getStudent.getCustomer', function ($query) {
+
+                            $query->where(Model::$USER, Auth::id());
+
+                        })->with('getPerson')->get()->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
+
                     default:
 
                         return [];
