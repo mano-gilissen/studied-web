@@ -629,8 +629,8 @@ class StudyController extends Controller {
         $sort                                               = $request->input(Table::DATA_SORT, null);
         $filter                                             = $request->input(Table::DATA_FILTER, null);
 
-        $query                                              = self::query($this, $sort, $filter);
-        $counters                                            = [];
+        $query                                              = Table::query($this, $sort, $filter);
+        $counters                                           = [];
 
         array_push($counters, (object) [
             Table::COUNTER_LABEL                            => 'Totaal',
