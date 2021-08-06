@@ -4,7 +4,7 @@
 
     @include('block.person', ['person' => $study->getHost->getPerson, 'size' => 'large'])
 
-    @if(strlen($study->{\App\Http\Support\Model::$STUDY_SUBJECT_DESCRIPTION} > 0))
+    @if(strlen($study->{\App\Http\Support\Model::$STUDY_SUBJECT_DESCRIPTION}) > 0)
 
         <div class="comment-tail up"></div>
 
