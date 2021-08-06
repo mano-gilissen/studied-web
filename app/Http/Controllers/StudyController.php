@@ -20,6 +20,7 @@ use App\Http\Support\Views;
 use App\Http\Support\Model;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Auth;
 use DB;
 
