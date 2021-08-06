@@ -80,14 +80,14 @@ function load() {
 
     });
 
-    $(OBJECT_FILTERS).load('/load/' + data_type + '/counters', {
+    $(OBJECT_COUNTERS).load('/load/' + data_type + '/counters', {
 
         data_sort:                          data_sort,
         data_filter:                        data_filter
 
     });
 
-    $(OBJECT_COUNTERS).load('/load/' + data_type + '/filter', {
+    $(OBJECT_FILTERS).load('/load/' + data_type + '/filter', {
 
         data_filter:                        data_filter
 
