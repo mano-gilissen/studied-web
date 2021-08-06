@@ -521,7 +521,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_SUBJECT:
 
-                return $query->with('getSubject')->get()->pluck('getSubject.' . Model::$SUBJECT_CODE, Model::$SUBJECT)->toArray();
+                return $query->with('getSubject_Defined')->get()->pluck('getSubject_Defined.' . Model::$SUBJECT_CODE, Model::$SUBJECT)->toArray();
 
             case self::$COLUMN_STATUS:
 
