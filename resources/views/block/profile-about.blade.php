@@ -54,7 +54,7 @@
 
                     <div class="name">Leerjaar</div>
 
-                    <div class="value">{{ $person->getUser->getStudent->niveau . ' ' . $person->getUser->getStudent->leerjaar }}</div>
+                    <div class="value">{{ \App\Http\Traits\UserTrait::getNiveauText($person->getUser->getStudent->niveau) . ' ' . $person->getUser->getStudent->leerjaar }}</div>
 
                 </div>
 
