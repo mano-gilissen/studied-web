@@ -30,7 +30,7 @@ class StudentController extends Controller {
 
 
 
-    public function list_column_label($column) {
+    public static function list_column_label($column) {
 
         switch (self::getUserRole()) {
 

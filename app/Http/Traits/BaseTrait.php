@@ -87,7 +87,7 @@ trait BaseTrait {
 
 
 
-    public function getUserRole() {
+    public static function getUserRole() {
 
         return Auth::user()->role;
 
