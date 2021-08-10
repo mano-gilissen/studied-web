@@ -209,7 +209,7 @@ class StudentController extends Controller {
 
             case self::$COLUMN_CUSTOMER:
 
-                return StudentTrait::hasCustomer($student) ? PersonTrait::getFullName($student->getCustomer->getUser->getPerson) : "Geen klant gekoppeld";
+                return StudentTrait::hasCustomer($student) ? PersonTrait::getFullName($student->getCustomer->getUser->getPerson) : "Geen klant";
 
             default:
 
