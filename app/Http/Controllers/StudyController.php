@@ -458,6 +458,10 @@ class StudyController extends Controller {
                             break;
                     }
                     break;
+
+                case StudentController::$COLUMN_CUSTOMER:
+                    $query->whereHas('getParticipants_User.getStudent.getCustomer.getUser', function (Builder $q) use ($value) {$q->where(Model::$BASE_ID, $value);});
+                    break;
             }
         }
     }
