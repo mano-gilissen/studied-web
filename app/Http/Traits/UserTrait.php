@@ -48,9 +48,9 @@ trait UserTrait {
 
         switch ($status) {
 
-            case 1:                                         return "Basis";
-            case 2:                                         return "Kader";
-            case 3:                                         return "VMBO-T";
+            case 1:                                         return "VMBO Basis";
+            case 2:                                         return "VMBO Kader";
+            case 3:                                         return "VMBO TL";
             case 4:                                         return "HAVO";
             case 5:                                         return "Atheneum";
             case 6:                                         return "Gymnasium";
