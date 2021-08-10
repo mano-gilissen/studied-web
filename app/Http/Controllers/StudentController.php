@@ -438,6 +438,19 @@ class StudentController extends Controller {
 
 
 
+    public function list_filter_label($filter) {
+
+        switch ($filter) {
+
+            default:
+
+                return self::list_column_label($filter);
+        }
+
+    }
+
+
+
     public function list_counters_load(Request $request) {
 
         $sort                                               = $request->input(Table::DATA_SORT, null);
