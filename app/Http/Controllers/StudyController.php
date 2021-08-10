@@ -13,6 +13,7 @@ use App\Http\Traits\StudyTrait;
 use App\Models\Location;
 use App\Models\Person;
 use App\Models\Service;
+use App\Models\Student;
 use App\Models\Subject;
 use App\Models\Study;
 use App\Models\User;
@@ -51,8 +52,8 @@ class StudyController extends Controller {
         $COLUMN_TIME                                        = 107,
         $COLUMN_STATUS                                      = 108,
 
-        $PARAMETER_CUSTOMER                                 = "customer",
-        $PARAMETER_PARTICIPANT                              = "participant",
+        $PARAMETER_CUSTOMER                                 = "klant",
+        $PARAMETER_PARTICIPANT                              = "deelnemer",
         $PARAMETER_HOST                                     = "host";
 
 
@@ -491,14 +492,20 @@ class StudyController extends Controller {
 
     public function list_filter_parameter(&$data_filter, $parameter, $value) {
 
+        $id_person                                                  = Person::where(Model::$PERSON_SLUG, $value)->firstOrFail()->getUser->{Model::$BASE_ID};
+
         switch ($parameter) {
 
+            case self::$PARAMETER_CUSTOMER:
+                $data_filter->{StudentController::$COLUMN_CUSTOMER} = $id_person;
+                break;
+
             case self::$PARAMETER_PARTICIPANT:
-                $data_filter->{self::$COLUMN_STUDENT}   = Person::where(Model::$PERSON_SLUG, $value)->firstOrFail()->getUser->{Model::$BASE_ID};
+                $data_filter->{self::$COLUMN_STUDENT}               = $id_person;
                 break;
 
             case self::$PARAMETER_HOST:
-                $data_filter->{self::$COLUMN_HOST}      = Person::where(Model::$PERSON_SLUG, $value)->firstOrFail()->getUser->{Model::$BASE_ID};
+                $data_filter->{self::$COLUMN_HOST}                  = $id_person;
                 break;
         }
     }
@@ -593,14 +600,15 @@ class StudyController extends Controller {
 
         }
 
-        foreach ($data_filter as $column => $value) {
+        foreach ($data_filter as $filter => $value) {
 
             $display                                        = '';
 
-            switch ($column) {
+            switch ($filter) {
 
                 case self::$COLUMN_STUDENT:
                 case self::$COLUMN_HOST:
+                case StudentController::$COLUMN_CUSTOMER:
                     $display                                = PersonTrait::getFullName(User::find($value)->getPerson);
                     break;
 
@@ -618,8 +626,8 @@ class StudyController extends Controller {
             }
 
             array_push($filters, (object) [
-                Table::COLUMN_ID                            => $column,
-                Table::FILTER_COLUMN                        => self::list_column_label($column),
+                Table::COLUMN_ID                            => $filter,
+                Table::FILTER_COLUMN                        => self::list_filter_label($filter),
                 Table::FILTER_VALUE                         => $display
             ]);
         }
@@ -629,6 +637,23 @@ class StudyController extends Controller {
             Table::VIEW_FILTERS                             => $filters
 
         ]);
+    }
+
+
+
+    public function list_filter_label($filter) {
+
+        switch ($filter) {
+
+            case StudentController::$COLUMN_CUSTOMER:
+
+                return StudentController::list_column_label($filter);
+
+            default:
+
+                return self::list_column_label($filter);
+        }
+
     }
 
 
