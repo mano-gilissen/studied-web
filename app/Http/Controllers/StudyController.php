@@ -149,13 +149,8 @@ class StudyController extends Controller {
 
     public function list(Request $request) {
 
-        return view(Views::LIST_STUDY, [
+        return Table::view($this, $request);
 
-            Key::PAGE_TITLE                                 => 'Lessen',
-
-            Table::DATA_TYPE                                => self::list_type(),
-            Table::DATA_FILTER                              => Table::filter($this, $request)
-        ]);
     }
 
 

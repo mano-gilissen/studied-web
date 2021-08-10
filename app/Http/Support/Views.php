@@ -16,6 +16,7 @@ class Views {
     const PROFILE                               = "template.profile";
 
     const LIST_STUDY                            = "list.study";
+    const LIST_STUDENT                          = "list.student";
 
     const FORM_TEST                             = "form-test";
     const FORM_STUDY                            = "form-study";

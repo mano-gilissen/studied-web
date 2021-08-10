@@ -24,6 +24,7 @@ class Model {
     public static
 
         $USER                                           = 'user',
+        $USER_STATUS                                    = 'status',
         $USER_EMAIL                                     = 'email',
         $USER_PASSWORD                                  = 'password',
         $USER_NAME                                      = 'name';

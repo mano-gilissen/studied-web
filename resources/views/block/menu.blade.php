@@ -12,7 +12,7 @@
 
                 @include('block.menu-item', ['label' => 'Agenda'])
 
-                @include('block.menu-item', ['label' => 'Leerlingen'])
+                @include('block.menu-item', ['label' => 'Leerlingen', 'route' => route('student.list')])
 
                 @include('block.menu-item', ['label' => 'Klanten'])
 
@@ -28,7 +28,7 @@
 
                 @include('block.menu-item', ['label' => 'Agenda'])
 
-                @include('block.menu-item', ['label' => 'Leerlingen'])
+                @include('block.menu-item', ['label' => 'Leerlingen', 'route' => route('student.list')])
 
                 @include('block.menu-item', ['label' => 'Klanten'])
 
@@ -44,7 +44,7 @@
 
                 @include('block.menu-item', ['label' => 'Agenda'])
 
-                @include('block.menu-item', ['label' => 'Mijn leerlingen'])
+                @include('block.menu-item', ['label' => 'Mijn leerlingen', 'route' => route('student.list')])
 
                 @include('block.menu-item', ['label' => 'Mijn profiel', 'route' => route('person.self')])
 
@@ -62,7 +62,7 @@
 
                 @include('block.menu-item', ['label' => 'Lesoverzicht', 'route' => route('person.view', Auth::user()->getPerson->slug)])
 
-                @include('block.menu-item', ['label' => 'Mijn leerlingen'])
+                @include('block.menu-item', ['label' => 'Mijn leerlingen', 'route' => route('student.list')])
 
                 @include('block.menu-item', ['label' => 'Mijn profiel', 'route' => route('person.self')])
 
