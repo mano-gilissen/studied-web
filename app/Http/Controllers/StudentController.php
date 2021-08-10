@@ -181,11 +181,11 @@ class StudentController extends Controller {
 
             case self::$COLUMN_EMAIL:
 
-                return $student->getUser->getPerson->{Model::$PERSON_EMAIL};
+                return "aaa"; //$student->getUser->getPerson->{Model::$PERSON_EMAIL};
 
             case self::$COLUMN_PHONE:
 
-                return $student->getUser->getPerson->{Model::$PERSON_PHONE};
+                return "bbb"; //$student->getUser->getPerson->{Model::$PERSON_PHONE};
 
             case self::$COLUMN_NIVEAU:
 
