@@ -221,7 +221,7 @@ class StudentController extends Controller {
 
     public function list_link($student) {
 
-        return route('person.view', [Model::$BASE_KEY => $student->getUser->getPerson->{Model::$PERSON_SLUG}]);
+        return route('person.view', [Model::$PERSON_SLUG => $student->getUser->getPerson->{Model::$PERSON_SLUG}]);
 
     }
 
