@@ -472,6 +472,14 @@ class StudentController extends Controller {
         $query                                              = Table::query($this, $sort, $filter);
         $counters                                           = [];
 
+        array_push($counters, (object) [
+            Table::COUNTER_LABEL                            => 'Totaal',
+            Table::COUNTER_VALUE                            => $query
+                ->select('student.*')
+                ->get()
+                ->count()
+        ]);
+
         return view(Views::LOAD_COUNTERS, [
 
             Table::VIEW_COUNTERS                            => $counters
