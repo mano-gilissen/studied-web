@@ -189,7 +189,7 @@ class StudentController extends Controller {
 
             case self::$COLUMN_NIVEAU:
 
-                return $student->{Model::$STUDENT_NIVEAU};
+                return UserTrait::getNiveauText($student->{Model::$STUDENT_NIVEAU});
 
             case self::$COLUMN_LEERJAAR:
 
