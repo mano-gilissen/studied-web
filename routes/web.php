@@ -52,6 +52,14 @@ Route::post('/load/agreements',                 'UserController@agreements_load'
 
 
 
+Route::post('/load/student/list',               'StudentController@list_load')->middleware('auth');
+
+Route::post('/load/student/counters',           'StudentController@list_counters_load')->middleware('auth');
+
+Route::post('/load/student/filter',             'StudentController@list_filter_load')->middleware('auth');
+
+
+
 Route::post('/submit/study/plan',               'StudyController@plan_submit')->name('study.plan_submit')->middleware('auth');
 
 Route::post('/submit/study/report',             'StudyController@report_submit')->name('study.report_submit')->middleware('auth');
