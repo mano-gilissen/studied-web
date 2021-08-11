@@ -339,7 +339,7 @@ class StudentController extends Controller {
                 break;
 
             case RoleTrait::$ID_EMPLOYEE:
-                $query->whereHas('getAgreements_asStudent.getEmployee', function (Builder $q) {$q->where(Model::$BASE_ID, Auth::id());});
+                $query->whereHas('getUser.getAgreements_asStudent.getEmployee', function (Builder $q) {$q->where(Model::$BASE_ID, Auth::id());});
                 break;
 
             case RoleTrait::$ID_CUSTOMER:
