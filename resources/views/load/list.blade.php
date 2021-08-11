@@ -14,7 +14,7 @@
 
             <div class="filter" id="filter_{{ $column->id }}">
 
-                @if($column->filter != \App\Http\Support\Table::SORT_DISABLED)
+                @if($column->filter != \App\Http\Support\Table::FILTER_DISABLED)
 
                     @switch($column->id)
 
