@@ -177,7 +177,7 @@ class EmployeeController extends Controller {
 
                 $students                                   = $employee->getUser->getStudents;
 
-                switch ($students->count) {
+                switch (count($students)) {
                     case 0:                                 return "Geen leerlingen";
                     case 1:                                 return PersonTrait::getFullName($students[0]->getPerson);
                     default:                                return implode(", ", $students->with('getPerson')->get()->pluck('getPerson.' . Model::$PERSON_FIRST_NAME)->toArray());
