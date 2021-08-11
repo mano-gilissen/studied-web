@@ -329,7 +329,7 @@ class EmployeeController extends Controller {
 
                 foreach ($employees as $employee) {
 
-                    foreach ($employee->getAgreements_asEmployee as $agreement) {
+                    foreach ($employee->getUser->getAgreements_asEmployee as $agreement) {
 
                         $students[$agreement->student] = $agreement->getStudent->getPerson->first_name;
                     }
