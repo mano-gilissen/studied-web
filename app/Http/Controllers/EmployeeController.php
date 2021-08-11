@@ -274,7 +274,7 @@ class EmployeeController extends Controller {
                     break;
 
                 case self::$COLUMN_STUDENTS:
-                    $query->whereHas('getUser.getStudents', function (Builder $q) use ($value) {$q->where(Model::$BASE_ID, $value);});
+                    $query->whereHas('getUser.getStudents', function (Builder $q) use ($value) {$q->where(Model::$USER . '.' . Model::$BASE_ID, $value);});
                     break;
 
                 case self::$COLUMN_AGREEMENTS:
