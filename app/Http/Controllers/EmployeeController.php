@@ -324,11 +324,18 @@ class EmployeeController extends Controller {
 
                 // return Employee::with('getPerson')->get()->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
 
-                dd($query
-                    ->with('getUser.getAgreements_asEmployee.getStudent.getPerson')
-                    ->get()
-                    ->pluck('getUser.getAgreements_asEmployee.getStudent.getPerson.' . 'fullName', 'getUser.getAgreements_asEmployee.getStudent.' . Model::$BASE_ID)
-                    ->toArray());
+                $employees = $query->get();
+                $students = [];
+
+                foreach ($employees as $employee) {
+
+                    foreach ($employee->getAgreements_asEmployee as $agreement) {
+
+                        $students[$agreement->student] = $agreement->getStudent->getPerson->first_name;
+                    }
+                }
+
+                dd($students);
 
                 return $query
                     ->with('getUser.getStudents.getPerson')
