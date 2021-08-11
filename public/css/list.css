@@ -88,6 +88,7 @@
     padding-left:                       24px;
     color:                              #808080;
     overflow:                           hidden;
+    word-break:                         break-all;
 }
 
 #headers .header:hover,
