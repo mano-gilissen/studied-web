@@ -188,6 +188,12 @@ class EmployeeController extends Controller {
                 $agreements                                 = $employee->getUser->getAgreements_asEmployee;
                 $subjects                                   = [];
 
+                if (count($agreements) == 0) {
+
+                    return "Geen actief";
+
+                }
+
                 foreach ($agreements as $agreement) {
 
                     array_push($subjects, $agreement->getSubject->{Model::$SUBJECT_CODE});
@@ -201,6 +207,12 @@ class EmployeeController extends Controller {
                 $agreements                                 = $employee->getUser->getAgreements_asEmployee;
                 $min                                        = 0;
                 $max                                        = 0;
+
+                if (count($agreements) == 0) {
+
+                    return "Geen actief";
+
+                }
 
                 foreach ($agreements as $agreement) {
 

@@ -213,6 +213,12 @@ class StudentController extends Controller {
                 $agreements                                 = $student->getUser->getAgreements_asStudent;
                 $subjects                                   = [];
 
+                if (count($agreements) == 0) {
+
+                    return "Geen actief";
+
+                }
+
                 foreach ($agreements as $agreement) {
 
                     array_push($subjects, $agreement->getSubject->{Model::$SUBJECT_CODE});
@@ -226,6 +232,12 @@ class StudentController extends Controller {
                 $agreements                                 = $student->getUser->getAgreements_asStudent;
                 $min                                        = 0;
                 $max                                        = 0;
+
+                if (count($agreements) == 0) {
+
+                    return "Geen actief";
+
+                }
 
                 foreach ($agreements as $agreement) {
 
