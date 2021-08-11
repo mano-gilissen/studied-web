@@ -367,7 +367,7 @@ class EmployeeController extends Controller {
 
                 case self::$COLUMN_SUBJECTS:
                 case self::$COLUMN_AGREEMENTS:
-                    $display                                = SubjectTrait::find($value)->{Model::$SUBJECT_CODE};
+                    $display                                = Subject::find($value)->{Model::$SUBJECT_CODE};
                     break;
 
                 case self::$COLUMN_STUDENTS:
