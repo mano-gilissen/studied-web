@@ -320,7 +320,7 @@ class StudentController extends Controller {
                     break;
 
                 case self::$COLUMN_EMPLOYEE:
-                    $query->whereHas('getAgreements_asStudent.getEmployee', function (Builder $q) use ($value) {$q->where(Model::$BASE_ID, $value);});
+                    $query->whereHas('getUser.getAgreements_asStudent.getEmployee', function (Builder $q) use ($value) {$q->where(Model::$BASE_ID, $value);});
                     break;
             }
         }
