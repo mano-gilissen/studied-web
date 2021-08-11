@@ -189,7 +189,7 @@ class EmployeeController extends Controller {
 
             case self::$COLUMN_MIN_MAX:
 
-                $agreements                                 = $employee->getAgreements_asEmployee;
+                $agreements                                 = $employee->getUser->getAgreements_asEmployee;
                 $min                                        = 0;
                 $max                                        = 0;
 
