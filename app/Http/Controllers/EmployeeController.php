@@ -193,6 +193,8 @@ class EmployeeController extends Controller {
                 $min                                        = 0;
                 $max                                        = 0;
 
+                dd($agreements);
+
                 foreach ($agreements as $agreement) {
 
                     $min                                   += $agreement->{Model::$AGREEMENT_MIN};
