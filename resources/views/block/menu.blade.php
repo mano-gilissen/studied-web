@@ -62,7 +62,15 @@
 
                 @include('block.menu-item', ['label' => 'Lesoverzicht', 'route' => route('person.view', Auth::user()->getPerson->slug)])
 
-                @include('block.menu-item', ['label' => 'Mijn leerlingen', 'route' => route('student.list')])
+                @if(\App\Http\Traits\CustomerTrait::hasMultipleStudents(Auth::user()->getCustomer))
+
+                    @include('block.menu-item', ['label' => 'Mijn leerlingen', 'route' => route('student.list')])
+
+                @else
+
+                    @include('block.menu-item', ['label' => 'Mijn leerling', 'route' => route('person.view', Auth::user()->getCustomer->getStudents->first()->getUser->getPerson->slug)])
+
+                @endif
 
                 @include('block.menu-item', ['label' => 'Mijn profiel', 'route' => route('person.self')])
 

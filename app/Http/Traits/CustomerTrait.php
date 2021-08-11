@@ -10,6 +10,12 @@ trait CustomerTrait {
 
 
 
+    public static function hasMultipleStudents($customer) {
+
+        return $customer->getStudents->count() > 1;
+
+    }
+
 
 
 }

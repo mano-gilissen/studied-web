@@ -4,6 +4,7 @@
 
 namespace App\Http\Traits;
 
+use App\Http\Support\Key;
 use App\Http\Support\Model;
 use App\Models\Role;
 

@@ -202,7 +202,7 @@ class StudentController extends Controller {
 
             case self::$COLUMN_NIVEAU:
 
-                return UserTrait::getNiveauText($student->{Model::$STUDENT_NIVEAU});
+                return StudentTrait::getNiveauText($student->{Model::$STUDENT_NIVEAU});
 
             case self::$COLUMN_LEERJAAR:
 
@@ -374,11 +374,11 @@ class StudentController extends Controller {
 
             case self::$COLUMN_NIVEAU:
 
-                return UserTrait::getNiveauFilterData();
+                return StudentTrait::getNiveauFilterData();
 
             case self::$COLUMN_LEERJAAR:
 
-                return UserTrait::getLeerjaarFilterData();
+                return StudentTrait::getLeerjaarFilterData();
 
             case self::$COLUMN_AGREEMENTS:
 
@@ -418,7 +418,7 @@ class StudentController extends Controller {
                     break;
 
                 case self::$COLUMN_NIVEAU:
-                    $display                                = UserTrait::getNiveauText($value);
+                    $display                                = StudentTrait::getNiveauText($value);
                     break;
 
                 case self::$COLUMN_AGREEMENTS:
