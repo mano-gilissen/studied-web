@@ -30,6 +30,10 @@ Route::get('/leerlingen',                       'StudentController@list')->name(
 
 
 
+Route::get('/medewerkers',                      'EmployeeController@list')->name('employee.list')->middleware('auth');
+
+
+
 Route::get('/profiel',                          'PersonController@self')->name('person.self')->middleware('auth');
 
 Route::get('/profiel/{slug}',                   'PersonController@view')->name('person.view')->middleware('auth');
@@ -57,6 +61,14 @@ Route::post('/load/student/list',               'StudentController@list_load')->
 Route::post('/load/student/counters',           'StudentController@list_counters_load')->middleware('auth');
 
 Route::post('/load/student/filter',             'StudentController@list_filter_load')->middleware('auth');
+
+
+
+Route::post('/load/employee/list',              'EmployeeController@list_load')->middleware('auth');
+
+Route::post('/load/employee/counters',          'EmployeeController@list_counters_load')->middleware('auth');
+
+Route::post('/load/employee/filter',            'EmployeeController@list_filter_load')->middleware('auth');
 
 
 

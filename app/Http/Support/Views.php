@@ -17,6 +17,7 @@ class Views {
 
     const LIST_STUDY                            = "list.study";
     const LIST_STUDENT                          = "list.student";
+    const LIST_EMPLOYEE                         = "list.employee";
 
     const FORM_TEST                             = "form-test";
     const FORM_STUDY                            = "form-study";

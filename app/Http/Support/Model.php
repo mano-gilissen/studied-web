@@ -97,7 +97,7 @@ class Model {
 
         $EMPLOYEE_MOTIVATION                            = 'motivation',
         $EMPLOYEE_REFER                                 = 'refer',
-        $EMPLOYEE_AVAILABILITY                          = 'availability',
+        $EMPLOYEE_CAPACITY                              = 'capacity',
         $EMPLOYEE_CV                                    = 'cv',
         $EMPLOYEE_DIPLOMA                               = 'diploma',
         $EMPLOYEE_IDENTIFICATION                        = 'identification',

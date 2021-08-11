@@ -264,10 +264,6 @@ class StudentController extends Controller {
                     $query->join(Model::$USER, Model::$USER . '.' . Model::$BASE_ID, '=', Model::$STUDENT . '.' . Model::$USER);
                     $query->orderBy(Model::$USER . '.' . Model::$USER_STATUS, $mode);
                     break;
-
-                default:
-
-                    return Key::UNKNOWN;
             }
         }
     }
