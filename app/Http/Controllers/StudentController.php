@@ -335,7 +335,7 @@ class StudentController extends Controller {
                     break;
 
                 case self::$COLUMN_AGREEMENTS:
-
+                    $query->whereHas('getUser.getAgreements_asStudent.getSubject', function (Builder $q) use ($value) {$q->where(Model::$BASE_ID, $value);});
                     break;
 
                 case self::$COLUMN_STATUS:
@@ -409,7 +409,7 @@ class StudentController extends Controller {
 
             case self::$COLUMN_AGREEMENTS:
 
-                break;
+                return Subject::all()->pluck(Model::$SUBJECT_CODE, Model::$BASE_ID)->toArray();
 
             case self::$COLUMN_STATUS:
 
