@@ -16,7 +16,7 @@
 
                 @include('block.menu-item', ['label' => 'Klanten'])
 
-                @include('block.menu-item', ['label' => 'Medewerkers'])
+                @include('block.menu-item', ['label' => 'Medewerkers', 'route' => route('employee.list')])
 
                 @include('block.menu-item', ['label' => 'Mijn profiel', 'route' => route('person.self')])
 
@@ -32,7 +32,7 @@
 
                 @include('block.menu-item', ['label' => 'Klanten'])
 
-                @include('block.menu-item', ['label' => 'Medewerkers'])
+                @include('block.menu-item', ['label' => 'Medewerkers', 'route' => route('employee.list')])
 
                 @include('block.menu-item', ['label' => 'Mijn profiel', 'route' => route('person.self')])
 
