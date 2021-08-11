@@ -210,11 +210,30 @@ class StudentController extends Controller {
 
             case self::$COLUMN_AGREEMENTS:
 
-                return "a";
+                $agreements                                 = $student->getUser->getAgreements_asStudent;
+                $subjects                                   = [];
+
+                foreach ($agreements as $agreement) {
+
+                    array_push($subjects, $agreement->getSubject->{Model::$SUBJECT_CODE});
+
+                }
+
+                return implode(", ", $subjects);
 
             case self::$COLUMN_MIN_MAX:
 
-                return "b";
+                $agreements                                 = $student->getUser->getAgreements_asStudent;
+                $min                                        = 0;
+                $max                                        = 0;
+
+                foreach ($agreements as $agreement) {
+
+                    $min                                   += $agreement->{Model::$AGREEMENT_MIN};
+                    $max                                   += $agreement->{Model::$AGREEMENT_MAX};
+                }
+
+                return $min . " tot " . $max . " uur";
 
             case self::$COLUMN_STATUS:
 
