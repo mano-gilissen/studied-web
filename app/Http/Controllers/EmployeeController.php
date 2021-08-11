@@ -180,7 +180,7 @@ class EmployeeController extends Controller {
                 switch (count($students)) {
                     case 0:                                 return "Geen leerlingen";
                     case 1:                                 return PersonTrait::getFullName($students[0]->getPerson);
-                    default:                                return implode(", ", $students->get()->pluck('getPerson.' . Model::$PERSON_FIRST_NAME)->toArray());
+                    default:                                return implode(", ", $students->pluck('getPerson.' . Model::$PERSON_FIRST_NAME)->toArray());
                 }
 
             case self::$COLUMN_AGREEMENTS:
