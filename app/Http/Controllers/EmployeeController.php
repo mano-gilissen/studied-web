@@ -185,7 +185,7 @@ class EmployeeController extends Controller {
 
             case self::$COLUMN_AGREEMENTS:
 
-                return implode(", ", $employee->with('getAgreements_asEmployee.getSubject')->get()->pluck('getAgreements_asEmployee.getSubject.' . Model::$SUBJECT_CODE)->toArray());;
+                return implode(", ", $employee->with('getUser.getAgreements_asEmployee.getSubject')->get()->pluck('getUser.getAgreements_asEmployee.getSubject.' . Model::$SUBJECT_CODE)->toArray());;
 
             case self::$COLUMN_MIN_MAX:
 
