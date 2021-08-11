@@ -190,7 +190,7 @@ class EmployeeController extends Controller {
 
                 foreach ($agreements as $agreement) {
 
-                    $subjects                              += $agreement->getSubject->{Model::$SUBJECT_CODE};
+                    $subjects                              .= $agreement->getSubject->{Model::$SUBJECT_CODE};
 
                 }
 
