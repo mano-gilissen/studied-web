@@ -323,9 +323,9 @@ class EmployeeController extends Controller {
             case self::$COLUMN_STUDENTS:
 
                 dd($query
-                    ->with('getUser.getStudents.getPerson')
+                    ->with('getUser.getStudents')
                     ->get()
-                    ->pluck('getUser.getStudents.getPerson.' . 'fullName', 'getUser.getStudents.' . Model::$BASE_ID)
+                    ->pluck('getUser.getStudents.' . Model::$BASE_ID, 'getUser.getStudents.' . Model::$BASE_ID)
                     ->toArray());
 
                 return $query
