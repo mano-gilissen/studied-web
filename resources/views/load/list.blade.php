@@ -14,31 +14,35 @@
 
             <div class="filter" id="filter_{{ $column->id }}">
 
-                @switch($column->id)
+                @if($column->filter != \App\Http\Support\Table::SORT_DISABLED)
 
-                    @case(\App\Http\Controllers\StudyController::$COLUMN_STUDENT)
+                    @switch($column->id)
 
-                    @case(\App\Http\Controllers\StudyController::$COLUMN_HOST)
+                        @case(\App\Http\Controllers\StudyController::$COLUMN_STUDENT)
 
-                    @case(\App\Http\Controllers\StudyController::$COLUMN_SERVICE)
+                        @case(\App\Http\Controllers\StudyController::$COLUMN_HOST)
 
-                    @case(\App\Http\Controllers\StudyController::$COLUMN_SUBJECT)
+                        @case(\App\Http\Controllers\StudyController::$COLUMN_SERVICE)
 
-                    @case(\App\Http\Controllers\StudyController::$COLUMN_STATUS)
+                        @case(\App\Http\Controllers\StudyController::$COLUMN_SUBJECT)
 
-                    @case(\App\Http\Controllers\StudentController::$COLUMN_NIVEAU)
+                        @case(\App\Http\Controllers\StudyController::$COLUMN_STATUS)
 
-                    @case(\App\Http\Controllers\StudentController::$COLUMN_LEERJAAR)
+                        @case(\App\Http\Controllers\StudentController::$COLUMN_NIVEAU)
 
-                    @case(\App\Http\Controllers\StudentController::$COLUMN_AGREEMENTS)
+                        @case(\App\Http\Controllers\StudentController::$COLUMN_LEERJAAR)
 
-                    @case(\App\Http\Controllers\StudentController::$COLUMN_STATUS)
+                        @case(\App\Http\Controllers\StudentController::$COLUMN_AGREEMENTS)
 
-                        @include('form.box-input', ['id' => 'filter_input_' . $column->id, 'identifier' => $column->id, 'data' => true, 'show_all' => true, 'show_always' => true, 'reject_other' => true, 'uses_id' => true, 'form' => false, 'trigger' => 'filter'])
+                        @case(\App\Http\Controllers\StudentController::$COLUMN_STATUS)
 
-                        @break
+                            @include('form.box-input', ['id' => 'filter_input_' . $column->id, 'identifier' => $column->id, 'data' => true, 'show_all' => true, 'show_always' => true, 'reject_other' => true, 'uses_id' => true, 'form' => false, 'trigger' => 'filter'])
 
-                @endswitch
+                            @break
+
+                    @endswitch
+
+                @endif
 
             </div>
 
