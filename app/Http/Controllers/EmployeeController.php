@@ -317,15 +317,14 @@ class EmployeeController extends Controller {
         switch ($column->{Model::$BASE_ID}) {
 
             case self::$COLUMN_SUBJECTS:
+            case self::$COLUMN_AGREEMENTS:
 
                 return Subject::all()->pluck(Model::$SUBJECT_CODE, Model::$BASE_ID)->toArray();
 
             case self::$COLUMN_STUDENTS:
 
-                // return Employee::with('getPerson')->get()->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
-
-                $employees = $query->get();
-                $students = [];
+                $employees                                  = $query->get();
+                $students                                   = [];
 
                 foreach ($employees as $employee) {
 
@@ -335,21 +334,7 @@ class EmployeeController extends Controller {
                     }
                 }
 
-                dd($students);
-
-                return $query
-                    ->with('getUser.getStudents.getPerson')
-                    ->get()
-                    ->pluck('getUser.getStudents.getPerson.' . 'fullName', 'getUser.getStudents.' . Model::$BASE_ID)
-                    ->toArray();
-
-            case self::$COLUMN_AGREEMENTS:
-
-                return $query
-                    ->with('getUser.getAgreements_asEmployee.getSubject')
-                    ->get()
-                    ->pluck('getUser.getAgreements_asEmployee.getSubject.' . Model::$SUBJECT_CODE, 'getUser.getAgreements_asEmployee.getSubject.' . Model::$BASE_ID)
-                    ->toArray();
+                return $students;
 
             case self::$COLUMN_STATUS:
 
