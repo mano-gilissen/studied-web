@@ -52,7 +52,13 @@ trait StudentTrait {
             3                                               => self::getNiveauText(3),
             4                                               => self::getNiveauText(4),
             5                                               => self::getNiveauText(5),
-            6                                               => self::getNiveauText(6)
+            6                                               => self::getNiveauText(6),
+            7                                               => self::getNiveauText(7),
+            8                                               => self::getNiveauText(8),
+            9                                               => self::getNiveauText(9),
+            10                                              => self::getNiveauText(10),
+            11                                              => self::getNiveauText(11),
+            12                                              => self::getNiveauText(12)
         ];
     }
 
