@@ -144,7 +144,7 @@ class EmployeeController extends Controller {
 
             case self::$COLUMN_SUBJECTS:
 
-                return "a";
+                return "Geen gekoppeld";
 
             case self::$COLUMN_STUDENTS:
 
