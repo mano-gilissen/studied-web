@@ -4,15 +4,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Support\Format;
 use App\Http\Support\Table;
 use App\Http\Traits\BaseTrait;
 use App\Http\Traits\PersonTrait;
 use App\Http\Traits\RoleTrait;
+use App\Http\Traits\StudentTrait;
+use App\Http\Traits\StudyTrait;
+use App\Http\Traits\SubjectTrait;
 use App\Http\Traits\UserTrait;
+use App\Models\Agreement;
+use App\Models\Employee;
+use App\Models\Person;
 use App\Http\Support\Views;
 use App\Http\Support\Key;
 use App\Http\Support\Model;
 use Illuminate\Database\Eloquent\Builder;
+use App\Models\Service;
 use App\Models\Subject;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -20,7 +28,7 @@ use Auth;
 
 
 
-class EmployeeController extends Controller {
+class CustomerController extends Controller {
 
 
 
@@ -34,15 +42,14 @@ class EmployeeController extends Controller {
 
     public static
 
-        $COLUMN_NAME                                        = 301,
-        $COLUMN_EMAIL                                       = 302,
-        $COLUMN_PHONE                                       = 303,
-        $COLUMN_SUBJECTS                                    = 304,
-        $COLUMN_STUDENTS                                    = 305,
-        $COLUMN_AGREEMENTS                                  = 306,
-        $COLUMN_MIN_MAX                                     = 307,
-        $COLUMN_CAPACITY                                    = 308,
-        $COLUMN_STATUS                                      = 309;
+        $COLUMN_NAME                                        = 401,
+        $COLUMN_EMAIL                                       = 402,
+        $COLUMN_PHONE                                       = 403,
+        $COLUMN_STUDENTS                                    = 404,
+        $COLUMN_EMPLOYEES                                   = 405,
+        $COLUMN_AGREEMENTS                                  = 406,
+        $COLUMN_MIN_MAX                                     = 407,
+        $COLUMN_STATUS                                      = 408;
 
 
 
@@ -65,7 +72,7 @@ class EmployeeController extends Controller {
 
     public function list_type() {
 
-        return Model::$EMPLOYEE;
+        return Model::$CUSTOMER;
 
     }
 
@@ -73,7 +80,7 @@ class EmployeeController extends Controller {
 
     public function list_view() {
 
-        return Views::LIST_EMPLOYEE;
+        return Views::LIST_CUSTOMER;
 
     }
 
@@ -81,7 +88,7 @@ class EmployeeController extends Controller {
 
     public function list_title() {
 
-        return 'Medewerkers';
+        return 'Klanten';
 
     }
 
@@ -95,11 +102,11 @@ class EmployeeController extends Controller {
             Table::column(self::$COLUMN_NAME, self::list_column_label(self::$COLUMN_NAME), 3, true, $sort, false, $filter),
             Table::column(self::$COLUMN_EMAIL, self::list_column_label(self::$COLUMN_EMAIL), 3, false, $sort, false, $filter),
             Table::column(self::$COLUMN_PHONE, self::list_column_label(self::$COLUMN_PHONE), 3, false, $sort, false, $filter),
-            Table::column(self::$COLUMN_SUBJECTS, self::list_column_label(self::$COLUMN_SUBJECTS), 3, false, $sort, true, $filter),
+            Table::column(self::$COLUMN_STUDENTS, self::list_column_label(self::$COLUMN_STUDENTS), 3, false, $sort, false, $filter),
+            Table::column(self::$COLUMN_EMPLOYEES, self::list_column_label(self::$COLUMN_EMPLOYEES), 3, false, $sort, false, $filter),
             Table::column(self::$COLUMN_AGREEMENTS, self::list_column_label(self::$COLUMN_AGREEMENTS), 3, false, $sort, true, $filter),
             Table::column(self::$COLUMN_MIN_MAX, self::list_column_label(self::$COLUMN_MIN_MAX), 2, false, $sort, false, $filter),
-            Table::column(self::$COLUMN_CAPACITY, self::list_column_label(self::$COLUMN_CAPACITY), 2, false, $sort, false, $filter),
-            Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 2, true, $sort, true, $filter)
+            Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 2, true, $sort, true, $filter),
         );
 
         return $columns;
@@ -113,11 +120,10 @@ class EmployeeController extends Controller {
             case self::$COLUMN_NAME:                return "Naam";
             case self::$COLUMN_EMAIL:               return "E-mailadres";
             case self::$COLUMN_PHONE:               return "Telefoonnummer";
-            case self::$COLUMN_SUBJECTS:            return "Vakken";
             case self::$COLUMN_STUDENTS:            return "Leerling(en)";
+            case self::$COLUMN_EMPLOYEES:           return "Student-docent(en)";
             case self::$COLUMN_AGREEMENTS:          return "Vakafspraken";
             case self::$COLUMN_MIN_MAX:             return "MIN/MAX";
-            case self::$COLUMN_CAPACITY:            return "Capaciteit";
             case self::$COLUMN_STATUS:              return "Status";
         }
 
@@ -126,39 +132,49 @@ class EmployeeController extends Controller {
 
 
 
-    public function list_value($employee, $column) {
+    public function list_value($customer, $column) {
 
         switch ($column->{Table::COLUMN_ID}) {
 
             case self::$COLUMN_NAME:
 
-                return PersonTrait::getFullName($employee->getUser->getPerson);
+                return PersonTrait::getFullName($customer->getUser->getPerson);
 
             case self::$COLUMN_EMAIL:
 
-                return $employee->getUser->{Model::$USER_EMAIL};
+                return $customer->getUser->{Model::$USER_EMAIL};
 
             case self::$COLUMN_PHONE:
 
-                return $employee->getUser->getPerson->{Model::$PERSON_PHONE};
-
-            case self::$COLUMN_SUBJECTS:
-
-                return "a";
+                return $customer->getUser->getPerson->{Model::$PERSON_PHONE};
 
             case self::$COLUMN_STUDENTS:
 
-                $students                                   = $employee->getUser->getStudents;
+                $students                                   = $customer->getStudents;
 
                 switch (count($students)) {
                     case 0:                                 return "Geen leerlingen";
-                    case 1:                                 return PersonTrait::getFullName($students[0]->getPerson);
-                    default:                                return implode(", ", $students->pluck('getPerson.' . Model::$PERSON_FIRST_NAME)->toArray());
+                    case 1:                                 return PersonTrait::getFullName($students[0]->getUser->getPerson);
+                    default:                                return implode(", ", $students->getUser->pluck('getPerson.' . Model::$PERSON_FIRST_NAME)->toArray());
+                }
+
+            case self::$COLUMN_EMPLOYEES:
+
+                $employees = User::whereHas('getAgreements_asEmployee.getStudent.getStudent', function ($q) use ($customer) {$q->where(Model::$CUSTOMER, $customer->{Model::$BASE_ID});})
+                    ->with('getPerson')
+                    ->get();
+
+                switch (count($employees)) {
+                    case 0:                                 return "Geen leerlingen";
+                    case 1:                                 return PersonTrait::getFullName($employees[0]->getPerson);
+                    default:                                return implode(", ", $employees->pluck('getPerson.' . Model::$PERSON_FIRST_NAME)->toArray());
                 }
 
             case self::$COLUMN_AGREEMENTS:
 
-                $agreements                                 = $employee->getUser->getAgreements_asEmployee;
+                $agreements = Agreement::whereHas('getStudent.getStudent', function ($q) use ($customer) {$q->where(Model::$CUSTOMER, $customer->{Model::$BASE_ID});})
+                    ->with('getSubject')
+                    ->get();
 
                 switch (count($agreements)) {
                     case 0:                                 return "Geen actief";
@@ -169,7 +185,10 @@ class EmployeeController extends Controller {
 
             case self::$COLUMN_MIN_MAX:
 
-                $agreements                                 = $employee->getUser->getAgreements_asEmployee;
+                $agreements = Agreement::whereHas('getStudent.getStudent', function ($q) use ($customer) {$q->where(Model::$CUSTOMER, $customer->{Model::$BASE_ID});})
+                    ->with('getSubject')
+                    ->get();
+
                 $min                                        = 0;
                 $max                                        = 0;
 
@@ -187,13 +206,9 @@ class EmployeeController extends Controller {
 
                 return $min . " tot " . $max . " uur";
 
-            case self::$COLUMN_CAPACITY:
-
-                return $employee->{Model::$EMPLOYEE_CAPACITY} . " uur";
-
             case self::$COLUMN_STATUS:
 
-                return UserTrait::getStatusText($employee->getUser->{Model::$USER_STATUS});
+                return UserTrait::getStatusText($customer->getUser->{Model::$USER_STATUS});
 
             default:
 
@@ -218,13 +233,13 @@ class EmployeeController extends Controller {
             switch ($column) {
 
                 case self::$COLUMN_NAME:
-                    $query->join(Model::$USER, Model::$USER . '.' . Model::$BASE_ID, '=', Model::$EMPLOYEE . '.' . Model::$USER);
+                    $query->join(Model::$USER, Model::$USER . '.' . Model::$BASE_ID, '=', Model::$CUSTOMER . '.' . Model::$USER);
                     $query->join(Model::$PERSON, Model::$PERSON . '.' . Model::$BASE_ID, '=', Model::$USER . '.' . Model::$PERSON);
                     $query->orderBy(Model::$PERSON . '.' . Model::$PERSON_FIRST_NAME, $mode);
                     break;
 
                 case self::$COLUMN_STATUS:
-                    $query->join(Model::$USER, Model::$USER . '.' . Model::$BASE_ID, '=', Model::$EMPLOYEE . '.' . Model::$USER);
+                    $query->join(Model::$USER, Model::$USER . '.' . Model::$BASE_ID, '=', Model::$CUSTOMER . '.' . Model::$USER);
                     $query->orderBy(Model::$USER . '.' . Model::$USER_STATUS, $mode);
                     break;
             }
@@ -235,7 +250,7 @@ class EmployeeController extends Controller {
 
     public function list_sort_default($query) {
 
-        $query->join(Model::$USER, Model::$USER . '.' . Model::$BASE_ID, '=', Model::$EMPLOYEE . '.' . Model::$USER);
+        $query->join(Model::$USER, Model::$USER . '.' . Model::$BASE_ID, '=', Model::$CUSTOMER . '.' . Model::$USER);
         $query->join(Model::$PERSON, Model::$PERSON . '.' . Model::$BASE_ID, '=', Model::$USER . '.' . Model::$PERSON);
         $query->orderBy(Model::$PERSON . '.' . Model::$PERSON_FIRST_NAME, Table::SORT_MODE_ASC);
     }
@@ -248,16 +263,8 @@ class EmployeeController extends Controller {
 
             switch ($column) {
 
-                case self::$COLUMN_SUBJECTS:
-
-                    break;
-
-                case self::$COLUMN_STUDENTS:
-                    $query->whereHas('getUser.getAgreements_asEmployee.getStudent', function (Builder $q) use ($value) {$q->where(Model::$USER . '.' . Model::$BASE_ID, $value);});
-                    break;
-
                 case self::$COLUMN_AGREEMENTS:
-                    $query->whereHas('getUser.getAgreements_asEmployee.getSubject', function (Builder $q) use ($value) {$q->where(Model::$BASE_ID, $value);});
+                    $query->whereHas('getStudents.getUser.getAgreements_asStudent.getSubject', function (Builder $q) use ($value) {$q->where(Model::$BASE_ID, $value);});
                     break;
 
                 case self::$COLUMN_STATUS:
@@ -297,25 +304,9 @@ class EmployeeController extends Controller {
 
         switch ($column->{Model::$BASE_ID}) {
 
-            case self::$COLUMN_SUBJECTS:
             case self::$COLUMN_AGREEMENTS:
 
                 return Subject::all()->pluck(Model::$SUBJECT_CODE, Model::$BASE_ID)->toArray();
-
-            case self::$COLUMN_STUDENTS:
-
-                $employees                                  = $query->get();
-                $students                                   = [];
-
-                foreach ($employees as $employee) {
-
-                    foreach ($employee->getUser->getAgreements_asEmployee as $agreement) {
-
-                        $students[$agreement->student] = $agreement->getStudent->getPerson->first_name;
-                    }
-                }
-
-                return $students;
 
             case self::$COLUMN_STATUS:
 
@@ -346,13 +337,8 @@ class EmployeeController extends Controller {
 
             switch ($filter) {
 
-                case self::$COLUMN_SUBJECTS:
                 case self::$COLUMN_AGREEMENTS:
                     $display                                = Subject::find($value)->{Model::$SUBJECT_CODE};
-                    break;
-
-                case self::$COLUMN_STUDENTS:
-                    $display                                = PersonTrait::getFullName(User::find($value)->getPerson);
                     break;
 
                 case self::$COLUMN_STATUS:
@@ -400,7 +386,7 @@ class EmployeeController extends Controller {
         array_push($counters, (object) [
             Table::COUNTER_LABEL                            => 'Totaal',
             Table::COUNTER_VALUE                            => $query
-                ->select('employee.*')
+                ->select('customer.*')
                 ->get()
                 ->count()
         ]);

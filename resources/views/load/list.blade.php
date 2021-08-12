@@ -44,6 +44,10 @@
 
                         @case(\App\Http\Controllers\EmployeeController::$COLUMN_STATUS)
 
+                        @case(\App\Http\Controllers\CustomerController::$COLUMN_AGREEMENTS)
+
+                        @case(\App\Http\Controllers\CustomerController::$COLUMN_STATUS)
+
                             @include('form.box-input', ['id' => 'filter_input_' . $column->id, 'identifier' => $column->id, 'data' => true, 'show_all' => true, 'show_always' => true, 'reject_other' => true, 'uses_id' => true, 'form' => false, 'trigger' => 'filter'])
 
                             @break

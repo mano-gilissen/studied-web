@@ -28,9 +28,9 @@ Route::get('/plannen',                          'StudyController@plan')->name('s
 
 Route::get('/leerlingen',                       'StudentController@list')->name('student.list')->middleware('auth');
 
-
-
 Route::get('/medewerkers',                      'EmployeeController@list')->name('employee.list')->middleware('auth');
+
+Route::get('/klanten',                          'CustomerController@list')->name('customer.list')->middleware('auth');
 
 
 
@@ -69,6 +69,14 @@ Route::post('/load/employee/list',              'EmployeeController@list_load')-
 Route::post('/load/employee/counters',          'EmployeeController@list_counters_load')->middleware('auth');
 
 Route::post('/load/employee/filter',            'EmployeeController@list_filter_load')->middleware('auth');
+
+
+
+Route::post('/load/customer/list',              'CustomerController@list_load')->middleware('auth');
+
+Route::post('/load/customer/counters',          'CustomerController@list_counters_load')->middleware('auth');
+
+Route::post('/load/customer/filter',            'CustomerController@list_filter_load')->middleware('auth');
 
 
 
