@@ -8,20 +8,6 @@
 
             @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
 
-                @include('block.menu-item', ['label' => 'Lesoverzicht', 'route' => route('study.list')])
-
-                @include('block.menu-item', ['label' => 'Agenda'])
-
-                @include('block.menu-item', ['label' => 'Leerlingen', 'route' => route('student.list')])
-
-                @include('block.menu-item', ['label' => 'Klanten'])
-
-                @include('block.menu-item', ['label' => 'Medewerkers', 'route' => route('employee.list')])
-
-                @include('block.menu-item', ['label' => 'Mijn profiel', 'route' => route('person.self')])
-
-                @break
-
             @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
 
                 @include('block.menu-item', ['label' => 'Lesoverzicht', 'route' => route('study.list')])
@@ -30,7 +16,7 @@
 
                 @include('block.menu-item', ['label' => 'Leerlingen', 'route' => route('student.list')])
 
-                @include('block.menu-item', ['label' => 'Klanten'])
+                @include('block.menu-item', ['label' => 'Klanten', 'route' => route('customer.list')])
 
                 @include('block.menu-item', ['label' => 'Medewerkers', 'route' => route('employee.list')])
 
