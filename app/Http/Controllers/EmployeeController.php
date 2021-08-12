@@ -185,21 +185,13 @@ class EmployeeController extends Controller {
             case self::$COLUMN_AGREEMENTS:
 
                 $agreements                                 = $employee->getUser->getAgreements_asEmployee;
-                $subjects                                   = [];
 
-                if (count($agreements) == 0) {
-
-                    return "Geen actief";
-
+                switch (count($agreements)) {
+                    case 0:                                 return "Geen actief";
+                    case 1:                                 return $agreements[0]->getSubject->{Model::$SUBJECT_CODE};
+                    case 2:                                 return $agreements[0]->getSubject->{Model::$SUBJECT_CODE} . ", " . $agreements[1]->getSubject->{Model::$SUBJECT_CODE};
+                    default:                                return $agreements[0]->getSubject->{Model::$SUBJECT_CODE} . ", " . $agreements[1]->getSubject->{Model::$SUBJECT_CODE} . " en nog " . (count($agreements) - 2);
                 }
-
-                foreach ($agreements as $agreement) {
-
-                    array_push($subjects, $agreement->getSubject->{Model::$SUBJECT_CODE});
-
-                }
-
-                return implode(", ", $subjects);
 
             case self::$COLUMN_MIN_MAX:
 
