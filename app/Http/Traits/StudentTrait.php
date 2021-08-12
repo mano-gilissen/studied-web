@@ -26,12 +26,18 @@ trait StudentTrait {
 
         switch ($status) {
 
-            case 1:                                         return "VMBO Basis";
-            case 2:                                         return "VMBO Kader";
-            case 3:                                         return "VMBO TL";
-            case 4:                                         return "HAVO";
-            case 5:                                         return "Atheneum";
-            case 6:                                         return "Gymnasium";
+            case 1:                                         return "Vmbo-bb";
+            case 2:                                         return "Vmbo-kb";
+            case 3:                                         return "Vmbo-gl";
+            case 4:                                         return "Vmbo-tl";
+            case 5:                                         return "Tl-Havo";
+            case 6:                                         return "Havo";
+            case 7:                                         return "Havo/vwo";
+            case 8:                                         return "Vwo";
+            case 9:                                         return "Gymnasium";
+            case 10:                                        return "TTO havo";
+            case 11:                                        return "TTO vwo";
+            case 12:                                        return "TTO gymnasium";
             default:                                        return Key::UNKNOWN;
         }
     }
