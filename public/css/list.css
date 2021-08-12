@@ -204,6 +204,7 @@
 #items .item .attribute {
     padding-left:                       24px;
     overflow:                           hidden;
+    white-space:                        nowrap;
 }
 
 #items .item .action {
