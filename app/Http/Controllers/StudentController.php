@@ -253,7 +253,9 @@ class StudentController extends Controller {
 
             case self::$COLUMN_CUSTOMER:
 
-                return StudentTrait::hasCustomer($student) ? PersonTrait::getFullName($student->getCustomer->getUser->getPerson) : "Geen klant";
+                $status = $student->getUser->{Model::$USER_STATUS};
+
+                return "<div class='tag' style='background:" . UserTrait::getStatusColor($status) . ";color:" . UserTrait::getStatusTextColor($status) . "'>".UserTrait::getStatusText($status)."</div>";
 
             default:
 

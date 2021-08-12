@@ -6,6 +6,7 @@ namespace App\Http\Traits;
 
 
 
+use App\Http\Support\Color;
 use App\Http\Support\Key;
 use App\Http\Support\Model;
 use Auth;
@@ -53,6 +54,34 @@ trait UserTrait {
             case self::$STATUS_PASSIVE:                     return "Passief";
             case self::$STATUS_ENDED:                       return "Beëindigd";
             default:                                        return Key::UNKNOWN;
+        }
+    }
+
+
+
+    public static function getStatusColor($status) {
+
+        switch ($status) {
+
+            case self::$STATUS_INTAKE:
+            case self::$STATUS_PASSIVE:                     return Color::ORANGE;
+            case self::$STATUS_ACTIVE:                      return Color::GREEN;
+            case self::$STATUS_ENDED:
+            default:                                        return Color::RED;
+        }
+    }
+
+
+
+    public static function getStatusTextColor($status) {
+
+        switch ($status) {
+
+            case self::$STATUS_INTAKE:
+            case self::$STATUS_ACTIVE:
+            case self::$STATUS_PASSIVE:
+            case self::$STATUS_ENDED:
+            default:                                        return Color::WHITE;
         }
     }
 

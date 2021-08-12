@@ -106,7 +106,7 @@ class CustomerController extends Controller {
             Table::column(self::$COLUMN_EMPLOYEES, self::list_column_label(self::$COLUMN_EMPLOYEES), 3, false, $sort, false, $filter),
             Table::column(self::$COLUMN_AGREEMENTS, self::list_column_label(self::$COLUMN_AGREEMENTS), 3, false, $sort, true, $filter),
             Table::column(self::$COLUMN_MIN_MAX, self::list_column_label(self::$COLUMN_MIN_MAX), 2, false, $sort, false, $filter),
-            Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 2, true, $sort, true, $filter),
+            Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 2, true, $sort, true, $filter, true)
         );
 
         return $columns;
@@ -212,7 +212,9 @@ class CustomerController extends Controller {
 
             case self::$COLUMN_STATUS:
 
-                return UserTrait::getStatusText($customer->getUser->{Model::$USER_STATUS});
+                $status = $customer->getUser->{Model::$USER_STATUS};
+
+                return "<div class='tag' style='background:" . UserTrait::getStatusColor($status) . ";color:" . UserTrait::getStatusTextColor($status) . "'>".UserTrait::getStatusText($status)."</div>";
 
             default:
 

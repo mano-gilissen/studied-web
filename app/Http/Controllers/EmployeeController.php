@@ -193,7 +193,9 @@ class EmployeeController extends Controller {
 
             case self::$COLUMN_STATUS:
 
-                return UserTrait::getStatusText($employee->getUser->{Model::$USER_STATUS});
+                $status = $employee->getUser->{Model::$USER_STATUS};
+
+                return "<div class='tag' style='background:" . UserTrait::getStatusColor($status) . ";color:" . UserTrait::getStatusTextColor($status) . "'>".UserTrait::getStatusText($status)."</div>";
 
             default:
 
