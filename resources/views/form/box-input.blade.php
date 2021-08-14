@@ -1,6 +1,6 @@
 <div>
 
-    <div class="box-input @error($id) invalid @enderror" @isset($id_box) id="{{ $id_box }}" @endisset @if($locked ?? false) disabled @endif>
+    <div class="box-input @error($id) invalid @enderror" @isset($id_box) id="{{ $id_box }}" @endisset>
 
         <input
             id                                          = "{{ $id }}"
@@ -11,7 +11,9 @@
             autocomplete                                = "{{ $autocomplete ?? 'off' }}"
             data-identifier                             = "{{ $identifier ?? '' }}"
 
-            @isset($required) required @endisset>
+            @isset($required) required @endisset
+
+            @if($locked ?? false) disabled @endif>
 
         @isset($icon) <img class="icon" src="/images/{{ $icon }}"> @endisset
 
