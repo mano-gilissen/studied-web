@@ -166,11 +166,6 @@
     border:                             0;
 }
 
-#headers .autocomplete-list {
-    max-height:                         456px;
-    overflow:                           scroll;
-}
-
 #headers .autocomplete-item {
     color:                              #666666;
     padding-left:                       24px;

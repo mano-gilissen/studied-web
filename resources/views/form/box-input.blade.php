@@ -1,6 +1,6 @@
 <div>
 
-    <div class="box-input @error($id) invalid @enderror" @isset($id_box) id="{{ $id_box }}" @endisset >
+    <div class="box-input @error($id) invalid @enderror" @isset($id_box) id="{{ $id_box }}" @endisset @if($locked ?? false) disabled @endif>
 
         <input
             id                                          = "{{ $id }}"
@@ -55,6 +55,12 @@
 
             /* Does the data contain database ID keys */
             '{{ $uses_id ?? false }}',
+
+            /* Set a default value by ID */
+            '{{ $set_id ?? false }}',
+
+            /* Lock the input field form user input */
+            '{{ $locked ?? false }}',
 
             /* Which function needs to be called after setting an ID */
             '{{ $trigger ?? false }}',

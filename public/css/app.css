@@ -529,11 +529,17 @@ select::-ms-expand {
 :-ms-input-placeholder {                color: #B3B3B3;}
 
 
+
+.box-clear,
+.box-input,
+.box-select {
+    width:                              100%;
+    height:                             40px;
+}
+
 .box-input {
     display:                            flex;
     align-items:                        center;
-    width:                              100%;
-    height:                             40px;
     border-bottom:                      1px solid #CCCCCC;
 }
 
@@ -562,8 +568,6 @@ select::-ms-expand {
 }
 
 .box-select {
-    width:                              100%;
-    height:                             40px;
     background:                         #F8F8F8;
 }
 
@@ -573,9 +577,6 @@ select::-ms-expand {
 
 
 
-
-/** TEST - TO BE ALTERED **/
-
 .autocomplete {
 
 }
@@ -584,6 +585,8 @@ select::-ms-expand {
     position:                           absolute;
     z-index:                            99;
     width:                              312px;
+    max-height:                         456px;
+    overflow:                           scroll;
 }
 
 .autocomplete-item {

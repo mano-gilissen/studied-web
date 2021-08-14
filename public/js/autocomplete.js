@@ -6,7 +6,7 @@ const TRIGGER_FILTER                                = "filter";
 
 
 
-function autocomplete(input, data, additional, reject_other, show_all, uses_id, trigger, form) {
+function autocomplete(input, data, additional, reject_other, show_all, uses_id, set_id, locked, trigger, form) {
 
 
 
@@ -15,62 +15,88 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
 
-    input.addEventListener("input", function(e) {
-
-        openList(this, true);
-
-    });
+    if (!locked) {
 
 
 
-    input.addEventListener("focus", function(e) {
+        input.addEventListener("input", function(e) {
 
-        openList(this);
+            openList(this, true);
 
-    });
+        });
 
 
 
-    input.addEventListener("keydown", function(e) {
+        input.addEventListener("focus", function(e) {
 
-        var list                                    = document.getElementById(this.id + "-autocomplete-list");
+            openList(this);
 
-        if (list) {
+        });
 
-            list                                    = list.getElementsByTagName("div");
 
-        }
 
-        if (e.keyCode == 40) {
+        input.addEventListener("keydown", function(e) {
 
-            currentFocus++;
+            var list                                    = document.getElementById(this.id + "-autocomplete-list");
 
-            addActive(list);
+            if (list) {
 
-        } else if (e.keyCode == 38) {
+                list                                    = list.getElementsByTagName("div");
 
-            currentFocus--;
+            }
 
-            addActive(list);
+            if (e.keyCode == 40) {
 
-        } else if (e.keyCode == 13) {
+                currentFocus++;
 
-            e.preventDefault();
+                addActive(list);
 
-            if (currentFocus > -1) {
+            } else if (e.keyCode == 38) {
 
-                if (list) {
+                currentFocus--;
 
-                    list[currentFocus].click();
+                addActive(list);
+
+            } else if (e.keyCode == 13) {
+
+                e.preventDefault();
+
+                if (currentFocus > -1) {
+
+                    if (list) {
+
+                        list[currentFocus].click();
+
+                    }
+                }
+            } else if (e.keyCode == 9) {
+
+                closeListAndReject();
+
+            }
+        });
+
+
+
+        if (form) {
+
+            document.addEventListener("click", function (event) {
+
+                if (event.target != input) {
+
+                    closeListAndReject();
 
                 }
-            }
-        } else if (e.keyCode == 9) {
-
-            closeListAndReject();
-
+            });
         }
-    });
+
+
+
+    } else {
+
+        setValue(set_id);
+
+    }
 
 
 
@@ -117,9 +143,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
         var item,
 
             value_data,
-            value_additional,
-
-            input_id;
+            value_additional;
 
         if ((show_all && !current_value) || data[key].substr(0, current_value.length).toUpperCase() == current_value.toUpperCase()) {
 
@@ -136,24 +160,33 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
                 key                             = this.getElementsByTagName("input")[0].value;
 
-                input.value                     = data[key];
-
-                input.parentNode.classList      .add("autocomplete");
-
-                autocompleted                   = true;
-
-                if (uses_id) {
-
-                    input_id                    = document.getElementById("_" + input.name);
-                    input_id.value              = key;
-
-                    callTrigger(key, input.dataset.identifier);
-                }
+                setValue(key);
 
                 closeList();
             });
 
             list.appendChild(item);
+        }
+    }
+
+
+
+    function setValue(key) {
+
+        var input_id;
+
+        input.value                     = data[key];
+
+        input.parentNode.classList      .add("autocomplete");
+
+        autocompleted                   = true;
+
+        if (uses_id) {
+
+            input_id                    = document.getElementById("_" + input.name);
+            input_id.value              = key;
+
+            callTrigger(key, input.dataset.identifier);
         }
     }
 
@@ -260,20 +293,6 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
         return Object.keys(array).length;
 
-    }
-
-
-
-    if (form) {
-
-        document.addEventListener("click", function (event) {
-
-            if (event.target != input) {
-
-                closeListAndReject();
-
-            }
-        });
     }
 
 
