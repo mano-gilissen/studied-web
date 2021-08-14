@@ -17,7 +17,13 @@
 
             >
 
-            <option value="07:00" @if(($study_set ?? false) && \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$TIME_SINGLE) == "07:00") @endif>07:00</option>
+            @for($i = 420; $i <= 1440; $i += 15)
+
+                <option value="{{ $i / 60 }}:{{ $i % 60 }}"  >{{ $i / 60 }}:{{ $i % 60 }}</option>
+
+            @endfor
+<!--
+            <option value="07:00">07:00</option>
             <option value="07:15">07:15</option>
             <option value="07:30">07:30</option>
             <option value="07:45">07:45</option>
@@ -86,7 +92,7 @@
             <option value="23:30">23:30</option>
             <option value="23:45">23:45</option>
             <option value="00:00">00:00</option>
-
+-->
         </select>
 
     </div>
