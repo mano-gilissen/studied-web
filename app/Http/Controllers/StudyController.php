@@ -44,18 +44,18 @@ class StudyController extends Controller {
 
     public static
 
-        $COLUMN_DATE                                        = 101,
-        $COLUMN_STUDENT                                     = 102,
-        $COLUMN_HOST                                        = 103,
-        $COLUMN_SUBJECT                                     = 104,
-        $COLUMN_SERVICE                                     = 105,
-        $COLUMN_LOCATION                                    = 106,
-        $COLUMN_TIME                                        = 107,
-        $COLUMN_STATUS                                      = 108,
+        $COLUMN_DATE                                                        = 101,
+        $COLUMN_STUDENT                                                     = 102,
+        $COLUMN_HOST                                                        = 103,
+        $COLUMN_SUBJECT                                                     = 104,
+        $COLUMN_SERVICE                                                     = 105,
+        $COLUMN_LOCATION                                                    = 106,
+        $COLUMN_TIME                                                        = 107,
+        $COLUMN_STATUS                                                      = 108,
 
-        $PARAMETER_CUSTOMER                                 = "klant",
-        $PARAMETER_PARTICIPANT                              = "deelnemer",
-        $PARAMETER_HOST                                     = "host";
+        $PARAMETER_CUSTOMER                                                 = "klant",
+        $PARAMETER_PARTICIPANT                                              = "deelnemer",
+        $PARAMETER_HOST                                                     = "host";
 
 
 
@@ -63,14 +63,14 @@ class StudyController extends Controller {
 
     public function view($key) {
 
-        $study                                              = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
+        $study                                                              = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
 
         return view(Views::STUDY, [
 
-            Key::PAGE_TITLE                                 => $study->getService->{Model::$SERVICE_NAME},
-            Key::PAGE_BACK                                  => true,
+            Key::PAGE_TITLE                                                 => $study->getService->{Model::$SERVICE_NAME},
+            Key::PAGE_BACK                                                  => true,
 
-            Model::$STUDY                                   => $study
+            Model::$STUDY                                                   => $study
         ]);
     }
 
@@ -80,24 +80,24 @@ class StudyController extends Controller {
 
     public function plan() {
 
-        $objects_location                                   = Location::all();
-        $objects_host                                       = User::whereIn(Model::$ROLE, array(RoleTrait::$ID_EMPLOYEE, RoleTrait::$ID_MANAGEMENT, RoleTrait::$ID_BOARD))->with('getPerson')->get();
+        $objects_location                                                   = Location::all();
+        $objects_host                                                       = User::whereIn(Model::$ROLE, array(RoleTrait::$ID_EMPLOYEE, RoleTrait::$ID_MANAGEMENT, RoleTrait::$ID_BOARD))->with('getPerson')->get();
 
-        $ac_data_location                                   = $objects_location->pluck(Model::$LOCATION_NAME, Model::$BASE_ID)->toArray();
-        $ac_data_host                                       = $objects_host->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
+        $ac_data_location                                                   = $objects_location->pluck(Model::$LOCATION_NAME, Model::$BASE_ID)->toArray();
+        $ac_data_host                                                       = $objects_host->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
 
-        $ac_additional_host                                 = $objects_host->pluck(Model::$USER_EMAIL, Model::$BASE_ID)->toArray();
+        $ac_additional_host                                                 = $objects_host->pluck(Model::$USER_EMAIL, Model::$BASE_ID)->toArray();
 
         return view(Views::FORM_STUDY, [
 
-            Key::PAGE_TITLE                                 => 'Les inplannen',
-            Key::SUBMIT_ACTION                              => 'Inplannen',
-            Key::SUBMIT_ROUTE                               => 'study.plan_submit',
+            Key::PAGE_TITLE                                                 => 'Les inplannen',
+            Key::SUBMIT_ACTION                                              => 'Inplannen',
+            Key::SUBMIT_ROUTE                                               => 'study.plan_submit',
 
-            Key::AUTOCOMPLETE_DATA.Model::$LOCATION         => Format::encode($ac_data_location),
-            Key::AUTOCOMPLETE_DATA.'host'                   => Format::encode($ac_data_host),
+            Key::AUTOCOMPLETE_DATA.Model::$LOCATION                         => Format::encode($ac_data_location),
+            Key::AUTOCOMPLETE_DATA.'host'                                   => Format::encode($ac_data_host),
 
-            Key::AUTOCOMPLETE_ADDITIONAL.'host'             => Format::encode($ac_additional_host),
+            Key::AUTOCOMPLETE_ADDITIONAL.'host'                             => Format::encode($ac_additional_host),
         ]);
     }
 
@@ -105,8 +105,8 @@ class StudyController extends Controller {
 
     public function plan_submit(Request $request) {
 
-        $study                                              = null;
-        $data                                               = $request->all();
+        $study                                                              = null;
+        $data                                                               = $request->all();
 
         // self::plan_validate($data);
 
@@ -120,11 +120,11 @@ class StudyController extends Controller {
     public function plan_validate(array $data) {
 
         $messages = [
-            'subject.required'                              => 'Vul een onderwerp in.',
+            'subject.required'                                              => 'Vul een onderwerp in.',
         ];
 
         $validator = Validator::make($data, [
-            'subject'                                       => ['bail', 'required'],
+            'subject'                                                       => ['bail', 'required'],
         ], $messages);
 
         $validator->validate();
@@ -136,15 +136,15 @@ class StudyController extends Controller {
 
     public function report($key) {
 
-        $study                                              = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
+        $study                                                              = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
 
         return view(Views::FORM_REPORT, [
 
-            Key::PAGE_TITLE                                 => 'Les rapporteren',
-            Key::SUBMIT_ACTION                              => 'Rapporteren',
-            Key::SUBMIT_ROUTE                               => 'study.report_submit',
+            Key::PAGE_TITLE                                                 => 'Les rapporteren',
+            Key::SUBMIT_ACTION                                              => 'Rapporteren',
+            Key::SUBMIT_ROUTE                                               => 'study.report_submit',
 
-            Model::$STUDY                                   => $study
+            Model::$STUDY                                                   => $study
         ]);
     }
 
@@ -152,23 +152,30 @@ class StudyController extends Controller {
 
     public function form_report_subjects_load(Request $request) {
 
-        $time_available                                     = $request->input('time_available', null);
-        $study_id                                           = $request->input(Model::$STUDY, null);
-        $study                                              = Study::find($study_id);
+        $time_available                                                     = $request->input('time_available', null);
+        $study_id                                                           = $request->input(Model::$STUDY, null);
+        $study                                                              = Study::find($study_id);
 
-        $objects_subject                                    = Subject::all(); // SubjectTrait::getActivities();
+        $objects_subject_primary                                            = Subject::all();
+        $objects_subject_secondary                                          = SubjectTrait::getActivities();
 
-        $ac_data_subject                                    = $objects_subject->pluck(Model::$SUBJECT_DESCRIPTION_SHORT, Model::$BASE_ID)->toArray();
-        $ac_additional_subject                              = $objects_subject->pluck(Model::$SUBJECT_CODE, Model::$BASE_ID)->toArray();
+        $ac_data_subject_primary                                            = $objects_subject_primary->pluck(Model::$SUBJECT_DESCRIPTION_SHORT, Model::$BASE_ID)->toArray();
+        $ac_additional_subject_primary                                      = $objects_subject_primary->pluck(Model::$SUBJECT_CODE, Model::$BASE_ID)->toArray();
+
+        $ac_data_subject_secondary                                          = $objects_subject_secondary->pluck(Model::$SUBJECT_DESCRIPTION_SHORT, Model::$BASE_ID)->toArray();
+        $ac_additional_subject_secondary                                    = $objects_subject_secondary->pluck(Model::$SUBJECT_CODE, Model::$BASE_ID)->toArray();
 
         return view(Views::LOAD_SUBJECTS, [
 
-            Model::$STUDY                                   => $study,
+            Model::$STUDY                                                   => $study,
 
-            'time_available'                                => $time_available,
+            'time_available'                                                => $time_available,
 
-            Key::AUTOCOMPLETE_DATA.Model::$SUBJECT          => Format::encode($ac_data_subject),
-            Key::AUTOCOMPLETE_ADDITIONAL.Model::$SUBJECT    => Format::encode($ac_additional_subject)
+            Key::AUTOCOMPLETE_DATA . Model::$SUBJECT . '_primary'           => Format::encode($ac_data_subject_primary),
+            Key::AUTOCOMPLETE_ADDITIONAL . Model::$SUBJECT . '_primary'     => Format::encode($ac_additional_subject_primary),
+
+            Key::AUTOCOMPLETE_DATA . Model::$SUBJECT . '_secondary'         => Format::encode($ac_data_subject_secondary),
+            Key::AUTOCOMPLETE_ADDITIONAL . Model::$SUBJECT . '_secondary'   => Format::encode($ac_additional_subject_secondary)
         ]);
     }
 
