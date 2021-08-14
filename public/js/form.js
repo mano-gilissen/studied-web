@@ -244,7 +244,7 @@ function subjects_load() {
     let start                                       = $("#start").val();
     let end                                         = $("#end").val();
 
-    var time_available                              = ((end.substr(0, 2) * 60) + end.substr(3, 2)) - ((start.substr(0, 1) * 60) + start.substr(3, 2));
+    var time_available                              = ((end.substr(0, 2) * 60) + (1 * end.substr(3, 2))) - ((start.substr(0, 1) * 60) + (1 * start.substr(3, 2)));
 
     console.log(end.substr(3, 2));
 }
