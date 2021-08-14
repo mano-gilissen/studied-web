@@ -2,4 +2,4 @@
 
 @include('form.field-select-duration', ['id' => $id, 'available' => $available])
 
-@include('form.field-input', ['id' => 'lesverslag_'. $id, 'tag' => 'Beschrijf de les', 'required' => true, 'placeholder' => 'Typ het lesverslag'])
+@include('form.field-input', ['id' => 'lesverslag_'. $id, 'tag' => 'Beschrijf de les', 'required' => true, 'placeholder' => 'Typ het lesverslag', 'locked' => false])
