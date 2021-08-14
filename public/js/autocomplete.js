@@ -233,6 +233,8 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
         var list                                    = input.parent().parent().find(".autocomplete-list");
 
+        console.log(list);
+
         if (list) {
 
             list.parent()                           .remove(list);
@@ -254,7 +256,6 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
             if (uses_id) {
 
-              //input_id                            = document.getElementById();
                 input_id                            = input.parent().parent().find('#_' + input.attr('name'));
                 input_id.value                      = '';
             }
