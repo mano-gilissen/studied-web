@@ -8,6 +8,12 @@
             id                                          = "start"
             name                                        = "start">
 
+            @if($set_study ?? false)
+
+                <option value="" selected disabled hidden>{{ \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATABASE_TIME) }}</option>
+
+            @endif
+
             <option value="07:00">07:00</option>
             <option value="07:15">07:15</option>
             <option value="07:30">07:30</option>
