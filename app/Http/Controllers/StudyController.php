@@ -138,21 +138,13 @@ class StudyController extends Controller {
 
         $study                                              = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
 
-        $objects_subject                                    = Subject::all(); // SubjectTrait::getActivities();
-
-        $ac_data_subject                                    = $objects_subject->pluck(Model::$SUBJECT_DESCRIPTION_SHORT, Model::$BASE_ID)->toArray();
-        $ac_additional_subject                              = $objects_subject->pluck(Model::$SUBJECT_CODE, Model::$BASE_ID)->toArray();
-
         return view(Views::FORM_REPORT, [
 
             Key::PAGE_TITLE                                 => 'Les rapporteren',
             Key::SUBMIT_ACTION                              => 'Rapporteren',
             Key::SUBMIT_ROUTE                               => 'study.report_submit',
 
-            Model::$STUDY                                   => $study,
-
-            Key::AUTOCOMPLETE_DATA.Model::$SUBJECT          => Format::encode($ac_data_subject),
-            Key::AUTOCOMPLETE_ADDITIONAL.Model::$SUBJECT    => Format::encode($ac_additional_subject)
+            Model::$STUDY                                   => $study
         ]);
     }
 
@@ -162,19 +154,21 @@ class StudyController extends Controller {
 
         $time_available                                     = $request->input('time_available', null);
         $study_id                                           = $request->input(Model::$STUDY, null);
-        $study                                              = null;
+        $study                                              = Study::find($study_id);
 
-        if ($study_id > 0) {
+        $objects_subject                                    = Subject::all(); // SubjectTrait::getActivities();
 
-            $study                                          = Study::find($study_id);
-
-        }
+        $ac_data_subject                                    = $objects_subject->pluck(Model::$SUBJECT_DESCRIPTION_SHORT, Model::$BASE_ID)->toArray();
+        $ac_additional_subject                              = $objects_subject->pluck(Model::$SUBJECT_CODE, Model::$BASE_ID)->toArray();
 
         return view(Views::LOAD_SUBJECTS, [
 
             Model::$STUDY                                   => $study,
-            'time_available'                                => $time_available
 
+            'time_available'                                => $time_available,
+
+            Key::AUTOCOMPLETE_DATA.Model::$SUBJECT          => Format::encode($ac_data_subject),
+            Key::AUTOCOMPLETE_ADDITIONAL.Model::$SUBJECT    => Format::encode($ac_additional_subject)
         ]);
     }
 
