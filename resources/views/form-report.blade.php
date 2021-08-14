@@ -42,11 +42,11 @@
 
     <div class="title">{{ __('Hoe verloopt de begeleiding?') }}</div>
 
-    @include('form.field-input', ['id' => 'volgende_les', 'tag' => 'Volgende les', 'required' => true])
+    @include('form.field-input', ['id' => 'volgende_les', 'tag' => 'Volgende les', 'required' => true, 'multiline' => true])
 
-    @include('form.field-input', ['id' => 'uitdagingen', 'tag' => 'Uitdagingen', 'required' => true])
+    @include('form.field-input', ['id' => 'uitdagingen', 'tag' => 'Uitdagingen', 'required' => true, 'multiline' => true])
 
-    @include('form.field-input', ['id' => 'voortgang', 'tag' => 'Voortgang', 'required' => true])
+    @include('form.field-input', ['id' => 'voortgang', 'tag' => 'Voortgang', 'required' => true, 'multiline' => true])
 
 
 
