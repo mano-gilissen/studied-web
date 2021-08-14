@@ -14,8 +14,6 @@
 
     <script src="{{ asset('js/form.js') }}"></script>
 
-    @yield('scripts')
-
 @endsection
 
 

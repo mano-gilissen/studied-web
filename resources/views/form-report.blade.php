@@ -10,6 +10,8 @@
 
     </script>
 
+    <script src="{{ asset('js/form.js') }}"></script>
+
 @endsection
 
 
