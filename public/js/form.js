@@ -236,7 +236,7 @@ function dot_click(dot) {
     var time_selected                           = dot.index() * 15;
 
     dot.parent()                                .addClass(ATTR_SELECTED);
-    dot.parent().parent().find('.time')[0]      .text(time_selected_text(time_selected));
+    dot.parent().parent().find('.time')         .text(time_selected_text(time_selected));
     dot.parent().parent().find('input')[0]      .value(time_selected);
 }
 
