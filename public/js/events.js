@@ -12,6 +12,7 @@ const OBJECT_BUTTON_SETTINGS                    = '#button-settings';
 const OBJECT_BUTTON_PREVIOUS                    = '#button-previous';
 const OBJECT_BUTTON_NEXT                        = '#button-next';
 const OBJECT_BUTTON_FILTER_ADD                  = '#button-filter-add';
+const OBJECT_BUTTON_SUBJECT_ADD                 = '#button-subject-add';
 
 const OBJECT_LIST                               = '#list';
 const OBJECT_ITEMS                              = '#items';

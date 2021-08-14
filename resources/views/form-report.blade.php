@@ -36,5 +36,18 @@
 
     </div>
 
+    <div style="height:104px"></div>
+
+
+
+    <div class="title">{{ __('Hoe verloopt de begeleiding?') }}</div>
+
+    @include('form.field-input', ['id' => 'volgende_les', 'tag' => 'Volgende les', 'required' => true])
+
+    @include('form.field-input', ['id' => 'uitdagingen', 'tag' => 'Uitdagingen', 'required' => true])
+
+    @include('form.field-input', ['id' => 'voortgang', 'tag' => 'Voortgang', 'required' => true])
+
+
 
 @endsection
