@@ -4,9 +4,6 @@
 const TRIGGER_AGREEMENTS                            = "agreements";
 const TRIGGER_FILTER                                = "filter";
 
-var document_click_listener_set                     = false;
-var inputs                                          = [];
-
 
 function autocomplete(input, data, additional, reject_other, show_all, uses_id, set_id, locked, trigger, form) {
 
@@ -14,10 +11,6 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
     var currentFocus,
         autocompleted                               = false;
-
-
-
-    inputs.push(input);
 
 
 
@@ -84,24 +77,11 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
 
-        if (form && !document_click_listener_set) {
-
-            document_click_listener_set             = true;
+        if (form) {
 
             document.addEventListener("click", function (event) {
 
-                input_clicked                       = false;
-
-                for (let i = 0; i < inputs.length; i++) {
-
-                    if (event.target == inputs[i]) {
-
-                        input_clicked               = true;
-
-                    }
-                }
-
-                if (!input_clicked) {
+                if (event.target != input) {
 
                     close_list_and_reject();
 
@@ -251,7 +231,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
     function close_list() {
 
-        var list                                    = document.getElementById(input.id + "-autocomplete-list");
+        var list                                    = input.parent().parent().find(".autocomplete-list");
 
         if (list) {
 
@@ -270,14 +250,13 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
         if (reject_other && !autocompleted) {
 
-            input.value                             = '';
+            input.value                       = '';
 
             if (uses_id) {
 
-                input_id                            = document.getElementById("_" + input.name);
+              //input_id                            = document.getElementById();
+                input_id                            = input.parent().parent().find('#_' + input.name);
                 input_id.value                      = '';
-
-                call_trigger('');
             }
         }
     }
