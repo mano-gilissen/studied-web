@@ -81,11 +81,11 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
             document.addEventListener("click", function (event) {
 
-                console.log(event.target);
-                console.log(input);
-                console.log(event.target != input ? 'aa' : 'bb');
+                console.log(event.target.id);
+                console.log(input.attr('id'));
+                console.log(event.target.id != input.attr('id') ? 'aa' : 'bb');
 
-                if (event.target != input) {
+                if (event.target.id != input.attr('id')) {
 
                     close_list_and_reject();
 
