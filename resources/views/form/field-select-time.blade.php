@@ -28,13 +28,11 @@
 
                 @endphp
 
-                <script> console.log('{{ $i . '  ' . $is_selected }}'); console.log({{ $study_set ?? false }}) </script>
-
                 <option
 
                     value = "{{ $hours }}:{{ $minutes }}"
 
-                    @if(($study_set ?? false) && $is_selected) selected @endif>
+                    @if(($set_study ?? false) && $is_selected) selected @endif>
 
                     {{ $hours }}:{{ $minutes }}
 
