@@ -226,8 +226,11 @@ function dot_enter(dot) {
 
     dots                                        = dot.parent().children(CLASS_DOT);
 
-    dots.addClass(ATTR_ACTIVE);
+    for (var i = 0; i < dot.index(); i++) {
 
+        dots.eq(i)                              .addClass(ATTR_ACTIVE);;
+
+    }
 }
 
 
@@ -237,7 +240,6 @@ function dot_leave(dot) {
     dots                                        = dot.parent().children(CLASS_DOT);
 
     dots.removeClass(ATTR_ACTIVE);
-
 }
 
 
