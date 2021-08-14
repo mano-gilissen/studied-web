@@ -5,7 +5,7 @@ const HOST_NONE                                 = "";
 
 var agreements_index_active                     = 0;
 var lastTriggerNoInput                          = false;
-var dots_selected;
+var dots_selected                               = {};
 
 
 
