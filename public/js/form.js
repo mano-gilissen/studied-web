@@ -241,7 +241,7 @@ function agreement_toggle_selected(id) {
 
 function subjects_load() {
 
-    var time_available                              = $("#start").value;
+    var time_available                              = $("#start").val();
 
     console.log(time_available);
 }
