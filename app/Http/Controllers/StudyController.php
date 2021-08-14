@@ -135,11 +135,19 @@ class StudyController extends Controller {
 
     public function report() {
 
+        $objects_subject                                    = Subject::all();
+
+        $ac_data_subject                                    = $objects_subject->pluck(Model::$SUBJECT_DESCRIPTION_SHORT, Model::$BASE_ID)->toArray();
+        $ac_additional_subject                              = $objects_subject->pluck(Model::$SUBJECT_CODE, Model::$BASE_ID)->toArray();
+
         return view(Views::FORM_REPORT, [
 
             Key::PAGE_TITLE                                 => 'Les rapporteren',
             Key::SUBMIT_ACTION                              => 'Rapporteren',
-            Key::SUBMIT_ROUTE                               => 'study.report_submit'
+            Key::SUBMIT_ROUTE                               => 'study.report_submit',
+
+            Key::AUTOCOMPLETE_DATA.Model::$SUBJECT          => Format::encode($ac_data_subject),
+            Key::AUTOCOMPLETE_ADDITIONAL.Model::$SUBJECT    => Format::encode($ac_additional_subject)
         ]);
     }
 
