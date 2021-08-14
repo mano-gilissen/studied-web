@@ -24,7 +24,7 @@
                     $hours                              = str_pad((int) ($i / 60), 2, "0", STR_PAD_LEFT);
                     $minutes                            = str_pad($i % 60, 2, "0", STR_PAD_LEFT);
 
-                    if ($set_study && $study) {
+                    if ($set_study ?? false) {
 
                         $is_selected                    = App\Http\Support\Format::datetime($study->start, App\Http\Support\Format::$TIME_SINGLE) == ($hours . ':' . $minutes);
 
@@ -72,7 +72,7 @@
                     $hours                              = str_pad((int) ($i / 60), 2, "0", STR_PAD_LEFT);
                     $minutes                            = str_pad($i % 60, 2, "0", STR_PAD_LEFT);
 
-                    if ($set_study && $study) {
+                    if ($set_study ?? false) {
 
                         $is_selected                    = App\Http\Support\Format::datetime($study->end, App\Http\Support\Format::$TIME_SINGLE) == ($hours . ':' . $minutes);
 
