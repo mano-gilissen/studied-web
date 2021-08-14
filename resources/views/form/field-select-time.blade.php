@@ -19,14 +19,24 @@
 
             @for($i = 420; $i <= 1440; $i += 15)
 
+                @php
+
+                    use App\Http\Support\Format;
+
+                    $hours                              = str_pad((int) ($i / 60), 2, "0", STR_PAD_LEFT);
+                    $minutes                            = str_pad($i % 60, 2, "0", STR_PAD_LEFT);
+
+                    $is_selected                        = Format::datetime($study->start, Format::$TIME_SINGLE) == $hours . ':' . $minutes;
+
+                @endphp
+
                 <option
 
-                    value = "{{ str_pad((int) ($i / 60), 2, "0", STR_PAD_LEFT) }}:{{ str_pad($i % 60, 2, "0", STR_PAD_LEFT) }}"
+                    value = "{{ $hours }}:{{ $minutes }}"
 
-                    @if(($study_set ?? false) && \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$TIME_SINGLE)
-                         == (str_pad((int) ($i / 60), 2, "0", STR_PAD_LEFT) . ':' . str_pad($i % 60, 2, "0", STR_PAD_LEFT))) selected @endif>
+                    @if(($study_set ?? false) && $is_selected) selected @endif>
 
-                    {{ str_pad((int) ($i / 60), 2, "0", STR_PAD_LEFT) }}:{{ str_pad($i % 60, 2, "0", STR_PAD_LEFT) }}
+                    {{ $hours }}:{{ $minutes }}
 
                 </option>
 
