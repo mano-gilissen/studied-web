@@ -231,8 +231,13 @@ function agreement_toggle_selected(id) {
 
 function dot_click(dot) {
 
-    dots_selected[dot.parent().parent().attr('id')]     = dot.index();
-    dot.parent()                                        .addClass(ATTR_SELECTED);
+    dots_selected[dot.parent().attr('id')]      = dot.index();
+
+    var time_selected                           = dot.index() * 15;
+
+    dot.parent()                                .addClass(ATTR_SELECTED);
+    dot.parent().parent().find(".time")         .text(time_selected_text(time_selected));
+    dot.parent().parent().find("input")         .value(time_selected);
 }
 
 
@@ -247,7 +252,7 @@ function dot_enter(dot) {
 
 function dot_leave(dot) {
 
-    var dots                                            = dot.parent().children(CLASS_DOT);
+    var dots                                    = dot.parent().children(CLASS_DOT);
 
     if (dot.parent().hasClass(ATTR_SELECTED)) {
 
@@ -264,16 +269,23 @@ function dot_leave(dot) {
 
 function dots_set_active(dot, clicked = false) {
 
-    var dots                                            = dot.parent().children(CLASS_DOT);
-    var count                                           = clicked ? dots_selected[dot.parent().parent().attr('id')] : dot.index();
+    var dots                                    = dot.parent().children(CLASS_DOT);
+    var count                                   = clicked ? dots_selected[dot.parent().attr('id')] : dot.index();
 
-    dots.removeClass(ATTR_ACTIVE);
+    dots                                        .removeClass(ATTR_ACTIVE);
 
     for (let i = 0; i <= count; i++) {
 
-        dots.eq(i)                                      .addClass(ATTR_ACTIVE);
+        dots.eq(i)                              .addClass(ATTR_ACTIVE);
 
     }
+}
+
+
+function time_selected_text(time) {
+
+    return (time % 60 === 0) ? time + " uur" : time + " min";
+
 }
 
 

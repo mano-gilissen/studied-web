@@ -4,9 +4,9 @@
 
     <div class="box-clear">
 
-        <div class="duration" id="duration_{{ $id }}">
+        <div class="duration">
 
-            <div class="dots">
+            <div class="dots" id="{{ $id }}">
 
                 @for ($i = 0; $i < ($available / 15); $i++)
 
