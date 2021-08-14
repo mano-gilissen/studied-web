@@ -267,6 +267,8 @@ function dots_set_active(dot, clicked = false) {
     var dots                                            = dot.parent().children(CLASS_DOT);
     var count                                           = clicked ? dots_selected[dot.parent().parent().attr('id')] : dot.index();
 
+    dots.removeClass(ATTR_ACTIVE);
+
     for (let i = 0; i <= count; i++) {
 
         dots.eq(i)                                      .addClass(ATTR_ACTIVE);
