@@ -41,8 +41,8 @@
 
             let dot                                         = $("#dots_{{ $id }} .dot").last();
 
-            dot_click(dot);
-            dot_leave(dot);
+            report_dot_click(dot);
+            report_dot_leave(dot);
         });
 
     </script>

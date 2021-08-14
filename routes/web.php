@@ -52,7 +52,7 @@ Route::post('/load/study/counters',             'StudyController@list_counters_l
 
 Route::post('/load/study/filter',               'StudyController@list_filter_load')->middleware('auth');
 
-Route::post('/load/agreements',                 'UserController@agreements_load')->middleware('auth');
+Route::post('/load/study/agreements',           'UserController@form_study_agreements_load')->middleware('auth');
 
 
 

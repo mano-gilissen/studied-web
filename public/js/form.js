@@ -17,7 +17,7 @@ $(function(){
 
     $(OBJECT_FORM).on('click', CLASS_AGREEMENT, function() {
 
-        agreement_toggle_selected($(this).attr('id'))
+        study_agreement_toggle_selected($(this).attr('id'))
 
     });
 
@@ -25,13 +25,13 @@ $(function(){
 
     $(OBJECT_FORM).on('click', OBJECT_BUTTON_PREVIOUS, function() {
 
-        agreements_set_active(agreements_index_active - 1);
+        study_agreements_set_active(agreements_index_active - 1);
 
     });
 
     $(OBJECT_FORM).on('click', OBJECT_BUTTON_NEXT, function() {
 
-        agreements_set_active(agreements_index_active + 1);
+        study_agreements_set_active(agreements_index_active + 1);
 
     });
 
@@ -47,19 +47,19 @@ $(function(){
 
     $(OBJECT_FORM).on('click', CLASS_DOT, function() {
 
-        dot_click($(this));
+        report_dot_click($(this));
 
     });
 
     $(OBJECT_FORM).on('mouseenter', CLASS_DOT, function() {
 
-        dot_enter($(this));
+        report_dot_enter($(this));
 
     });
 
     $(OBJECT_FORM).on('mouseleave', CLASS_DOT, function() {
 
-        dot_leave($(this));
+        report_dot_leave($(this));
 
     });
 
@@ -71,7 +71,7 @@ $(function(){
 
 
 
-function agreements_load(host) {
+function study_agreements_load(host) {
 
     if (host == HOST_NONE && lastTriggerNoInput) {
 
@@ -86,7 +86,7 @@ function agreements_load(host) {
 
     setTimeout(function(){
 
-        agreements.load('/load/agreements', {
+        agreements.load('/load/study/agreements', {
 
             user:                               host
 
@@ -97,7 +97,7 @@ function agreements_load(host) {
 
 
 
-function agreements_set_active(index) {
+function study_agreements_set_active(index) {
 
     agreements_index_active                     = index;
 
@@ -118,7 +118,7 @@ function agreements_set_active(index) {
             agreement                           = agreements.get(agreements_index_active);
             agreement                           .classList.add(ATTR_ACTIVE);
 
-            agreements_render(true);
+            study_agreements_render(true);
 
             break;
     }
@@ -126,7 +126,7 @@ function agreements_set_active(index) {
 
 
 
-function agreements_render(movement = false) {
+function study_agreements_render(movement = false) {
 
     buttons                                     = $(CLASS_BUTTON);
 
@@ -196,7 +196,7 @@ function agreements_render(movement = false) {
 
 
 
-function agreement_toggle_selected(id) {
+function study_agreement_toggle_selected(id) {
 
     agreement                                   = $('#' + id);
 
@@ -232,28 +232,44 @@ function agreement_toggle_selected(id) {
         }
     }
 
-    agreements_render()
+    study_agreements_render()
 }
 
 
 
 
 
-function subjects_load() {
+function report_subjects_load() {
 
-    let start                                       = $("#start").val();
-    let end                                         = $("#end").val();
+    let start                                   = $("#start").val();
+    let end                                     = $("#end").val();
 
-    var time_available                              = ((end.substr(0, 2) * 60) + (1 * end.substr(3, 2))) - ((start.substr(0, 2) * 60) + (1 * start.substr(3, 2)));
+    var time_available                          = ((end.substr(0, 2) * 60) + (1 * end.substr(3, 2))) - ((start.substr(0, 2) * 60) + (1 * start.substr(3, 2)));
 
-    console.log(time_available);
+    if (time_available > 0) {
+
+        agreements                              = $('.agreements');
+        agreements                              .animate({opacity: 0}, 200);
+
+        setTimeout(function(){
+
+            agreements.load('/load/report/subjects', {
+
+                time_available:                 time_available
+
+            }).animate({opacity: 1}, 200);
+
+        }, 200);
+
+    }
+
 }
 
 
 
 
 
-function dot_click(dot) {
+function report_dot_click(dot) {
 
     dots_selected[dot.parent().attr('id')]          = dot.index();
 
@@ -263,36 +279,36 @@ function dot_click(dot) {
 
 
 
-function dot_enter(dot) {
+function report_dot_enter(dot) {
 
-    dots_set_active(dot);
+    report_dots_set_active(dot);
 
 }
 
 
 
-function dot_leave(dot) {
+function report_dot_leave(dot) {
 
     if (dot.parent().hasClass(ATTR_SELECTED)) {
 
-        dots_set_active(dot, true);
+        report_dots_set_active(dot, true);
 
     } else {
 
-        dots_set_inactive(dot);
+        report_dots_set_inactive(dot);
 
     }
 }
 
 
 
-function dots_set_active(dot, clicked = false) {
+function report_dots_set_active(dot, clicked = false) {
 
     var dots                                        = dot.parent().children(CLASS_DOT);
     var count                                       = clicked ? dots_selected[dot.parent().attr('id')] : dot.index();
     var time                                        = (count + 1) * 15;
 
-    dot.parent().parent().find('.time')             .text(time_selected_text(time));
+    dot.parent().parent().find('.time')             .text(report_time_selected_text(time));
 
     dots                                            .removeClass(ATTR_ACTIVE);
 
@@ -305,7 +321,7 @@ function dots_set_active(dot, clicked = false) {
 
 
 
-function dots_set_inactive(dot) {
+function report_dots_set_inactive(dot) {
 
     var dots                                        = dot.parent().children(CLASS_DOT);
 
@@ -315,7 +331,7 @@ function dots_set_inactive(dot) {
 
 
 
-function time_selected_text(time) {
+function report_time_selected_text(time) {
 
     return (time % 60 === 0) ? time / 60 + " uur" : time + " min";
 
@@ -332,7 +348,7 @@ function select_trigger(select) {
     switch(trigger) {
 
         case TRIGGER_REPORT:
-            subjects_load();
+            report_subjects_load();
             break;
     }
 }

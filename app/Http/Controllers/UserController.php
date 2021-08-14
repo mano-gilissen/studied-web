@@ -16,7 +16,7 @@ class UserController extends Controller {
 
 
 
-    public function agreements_load(Request $request) {
+    public function form_study_agreements_load(Request $request) {
 
         $user_id                                            = $request->input(Model::$USER, null);
         $user                                               = null;

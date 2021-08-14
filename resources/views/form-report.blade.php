@@ -16,12 +16,11 @@
 
     <div class="title">{{ __('Wat is er behandeld?') }}</div>
 
-    @include('form.field-report-subject', ['id' => 1, 'time_available' => 75, 'primary' => true])
+    <div id="subjects">
 
-    <div style="height: 64px"></div>
+        @include('load.subjects')
 
-    @include('form.field-report-subject', ['id' => 2, 'time_available' => 75, 'primary' => false])
-
+    </div>
 
 
 @endsection

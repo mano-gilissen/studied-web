@@ -57,6 +57,8 @@ var page_title                                  = "";
 
 
 
+
+
 $(function(){
 
 
@@ -87,9 +89,7 @@ $(function(){
 
 
 
-
-
-    function setTooltip(text) {
+    function set_tooltip(text) {
 
         $(OBJECT_TOOLTIP)                       .text(text);
         $(OBJECT_TOOLTIP)                       .css({left: (16 + event.clientX) + "px"});
@@ -100,37 +100,37 @@ $(function(){
 
     $(OBJECT_APP).on('mousemove', CLASS_PERSON, function() {
 
-        setTooltip("Profiel bekijken");
+        set_tooltip("Profiel bekijken");
 
     });
 
     $(OBJECT_APP).on('mousemove', CLASS_PERSON_REPORT + "," + CLASS_PERSON + "." + ATTR_GRID, function() {
 
-        setTooltip("Profiel van " + $(this).attr("id") + " bekijken");
+        set_tooltip("Profiel van " + $(this).attr("id") + " bekijken");
 
     });
 
     $(OBJECT_APP).on('mousemove', CLASS_HEADER + ":not(." + ATTR_NO_SORT + ",." + ATTR_SELECT_FILTER + ")", function() {
 
-        setTooltip("Sorteren");
+        set_tooltip("Sorteren");
 
     });
 
     $(OBJECT_APP).on('mousemove', CLASS_HEADER + "." + ATTR_SELECT_FILTER + ":not(." + ATTR_NO_FILTER + ")", function() {
 
-        setTooltip("Filteren");
+        set_tooltip("Filteren");
 
     });
 
     $(OBJECT_APP).on('mousemove', OBJECT_BUTTON_LOGOUT, function() {
 
-        setTooltip("Uitloggen");
+        set_tooltip("Uitloggen");
 
     });
 
     $(OBJECT_APP).on('mousemove', OBJECT_BUTTON_SETTINGS, function() {
 
-        setTooltip("Instellingen");
+        set_tooltip("Instellingen");
 
     });
 

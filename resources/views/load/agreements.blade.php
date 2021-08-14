@@ -59,7 +59,7 @@
 
                 <script>
 
-                    agreements_set_active(0);
+                    study_agreements_set_active(0);
 
                 </script>
 

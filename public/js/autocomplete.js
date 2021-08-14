@@ -21,7 +21,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
         input.addEventListener("input", function(e) {
 
-            openList(this, true);
+            open_list(this, true);
 
         });
 
@@ -29,7 +29,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
         input.addEventListener("focus", function(e) {
 
-            openList(this);
+            open_list(this);
 
         });
 
@@ -49,13 +49,13 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
                 currentFocus++;
 
-                addActive(list);
+                add_active(list);
 
             } else if (e.keyCode == 38) {
 
                 currentFocus--;
 
-                addActive(list);
+                add_active(list);
 
             } else if (e.keyCode == 13) {
 
@@ -71,7 +71,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
                 }
             } else if (e.keyCode == 9) {
 
-                closeListAndReject();
+                close_list_and_reject();
 
             }
         });
@@ -84,7 +84,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
                 if (event.target != input) {
 
-                    closeListAndReject();
+                    close_list_and_reject();
 
                 }
             });
@@ -94,19 +94,19 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
     } else {
 
-        setValue(set_id);
+        set_value(set_id);
 
     }
 
 
 
-    function openList(event, received_input = false) {
+    function open_list(event, received_input = false) {
 
         var list,
 
             current_value                           = event.value;
 
-        closeList();
+        close_list();
 
         if (received_input) {
 
@@ -131,14 +131,14 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
         for (var key of Object.keys(data)) {
 
-            createItem(list, key, current_value);
+            create_item(list, key, current_value);
 
         }
     }
 
 
 
-    function createItem(list, key, current_value) {
+    function create_item(list, key, current_value) {
 
         var item,
 
@@ -151,7 +151,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
             item                                .setAttribute("class", "autocomplete-item");
 
             value_data                          = data[key];
-            value_additional                    = hasAdditional() ? "&nbsp;&nbsp;<span style='color:#CCCCCC'>" + additional[key] + "</span>" : "";
+            value_additional                    = has_additional() ? "&nbsp;&nbsp;<span style='color:#CCCCCC'>" + additional[key] + "</span>" : "";
 
             item.innerHTML                      = current_value ? "<span style='color:black;font-weight:400'>" + value_data.substr(0, current_value.length) + "</span>" + value_data.substr(current_value.length) + value_additional : value_data + value_additional;
             item.innerHTML                      += "<input type='hidden' value='" + key + "'>";
@@ -160,9 +160,9 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
                 key                             = this.getElementsByTagName("input")[0].value;
 
-                setValue(key);
+                set_value(key);
 
-                closeList();
+                close_list();
             });
 
             list.appendChild(item);
@@ -171,7 +171,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
 
-    function setValue(key) {
+    function set_value(key) {
 
         var input_id;
 
@@ -186,13 +186,13 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
             input_id                    = document.getElementById("_" + input.name);
             input_id.value              = key;
 
-            callTrigger(key, input.dataset.identifier);
+            call_trigger(key, input.dataset.identifier);
         }
     }
 
 
 
-    function addActive(list) {
+    function add_active(list) {
 
         if (!list) {
 
@@ -200,7 +200,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
         }
 
-        removeActive(list);
+        remove_active(list);
 
         if (currentFocus >= list.length) {
 
@@ -219,7 +219,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
 
-    function removeActive(list) {
+    function remove_active(list) {
 
         for (var index = 0; index < list.length; index++) {
 
@@ -230,7 +230,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
 
-    function closeList() {
+    function close_list() {
 
         var list                                    = document.getElementById(input.id + "-autocomplete-list");
 
@@ -243,11 +243,11 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
 
-    function closeListAndReject() {
+    function close_list_and_reject() {
 
         var input_id;
 
-        closeList();
+        close_list();
 
         if (reject_other && !autocompleted) {
 
@@ -258,19 +258,19 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
                 input_id                            = document.getElementById("_" + input.name);
                 input_id.value                      = '';
 
-                callTrigger('');
+                call_trigger('');
             }
         }
     }
 
 
 
-    function callTrigger(key, identifier) {
+    function call_trigger(key, identifier) {
 
         switch (trigger) {
 
             case TRIGGER_AGREEMENTS:
-                agreements_load(key);
+                study_agreements_load(key);
                 break;
 
             case TRIGGER_FILTER:
@@ -281,7 +281,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
 
-    function hasAdditional() {
+    function has_additional() {
 
         return additional != null;
 
@@ -289,7 +289,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
 
-    function arrayLength(array) {
+    function array_length(array) {
 
         return Object.keys(array).length;
 
