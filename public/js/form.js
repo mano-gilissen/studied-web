@@ -237,7 +237,7 @@ function dot_click(dot) {
 
     dot.parent()                                .addClass(ATTR_SELECTED);
     dot.parent().parent().find('.time')         .text(time_selected_text(time_selected));
-    dot.parent().parent().find('input')[0]      .value(time_selected);
+    dot.parent().parent().find('input')         .value(time_selected);
 }
 
 
