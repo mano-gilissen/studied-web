@@ -14,7 +14,7 @@
 
     <div class="title">{{ __('Wat is er behandeld?') }}</div>
 
-    @include('form.field-report-subject', ['id' => 'primary', 'available' => 75, 'locked' => false3])
+    @include('form.field-report-subject', ['id' => 'primary', 'available' => 75, 'locked' => false])
 
 
 
