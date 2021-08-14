@@ -70,7 +70,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
                 }
             } else if (e.keyCode == 9) {
 
-                close_list_and_reject(1);
+                close_list_and_reject();
 
             }
         });
@@ -81,9 +81,12 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
             document.addEventListener("click", function (event) {
 
+                console.log(event.target);
+                console.log(input);
+
                 if (event.target != input) {
 
-                    close_list_and_reject(2);
+                    close_list_and_reject();
 
                 }
             });
@@ -229,9 +232,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
 
-    function close_list(a) {
-
-        console.log(input.attr('id') + ' ' + ((a > 0) ? a : ''));
+    function close_list() {
 
         var list                                    = input.parent().parent().find(".autocomplete-list");
 
@@ -244,11 +245,11 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
 
-    function close_list_and_reject(a) {
+    function close_list_and_reject() {
 
         var input_id;
 
-        close_list(a);
+        close_list();
 
         if (reject_other && !autocompleted) {
 
