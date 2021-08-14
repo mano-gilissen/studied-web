@@ -231,10 +231,10 @@ function agreement_toggle_selected(id) {
 
 function dot_click(dot) {
 
-    dots_selected[dot.parent().attr('id')]      = dot.index();
+    dots_selected[dot.parent().attr('id')]          = dot.index();
 
-    dot.parent().parent().find('input').value   = (dot.index() + 1) * 15;
-    dot.parent()                                .addClass(ATTR_SELECTED);
+    dot.parent().parent().find('input')[0].value    = (dot.index() + 1) * 15;
+    dot.parent()                                    .addClass(ATTR_SELECTED);
 }
 
 
@@ -264,17 +264,17 @@ function dot_leave(dot) {
 
 function dots_set_active(dot, clicked = false) {
 
-    var dots                                    = dot.parent().children(CLASS_DOT);
-    var count                                   = clicked ? dots_selected[dot.parent().attr('id')] : dot.index();
-    var time                                    = (count + 1) * 15;
+    var dots                                        = dot.parent().children(CLASS_DOT);
+    var count                                       = clicked ? dots_selected[dot.parent().attr('id')] : dot.index();
+    var time                                        = (count + 1) * 15;
 
-    dot.parent().parent().find('.time')         .text(time_selected_text(time));
+    dot.parent().parent().find('.time')             .text(time_selected_text(time));
 
-    dots                                        .removeClass(ATTR_ACTIVE);
+    dots                                            .removeClass(ATTR_ACTIVE);
 
     for (let i = 0; i <= count; i++) {
 
-        dots.eq(i)                              .addClass(ATTR_ACTIVE);
+        dots.eq(i)                                  .addClass(ATTR_ACTIVE);
 
     }
 }
@@ -283,10 +283,10 @@ function dots_set_active(dot, clicked = false) {
 
 function dots_set_inactive(dot) {
 
-    var dots                                    = dot.parent().children(CLASS_DOT);
+    var dots                                        = dot.parent().children(CLASS_DOT);
 
-    dots                                        .removeClass(ATTR_ACTIVE);
-    dot.parent().parent().find('.time')         .text('');
+    dots                                            .removeClass(ATTR_ACTIVE);
+    dot.parent().parent().find('.time')             .text('');
 }
 
 
