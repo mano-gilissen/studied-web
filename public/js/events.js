@@ -23,7 +23,7 @@ const OBJECT_ACTIONS                            = '#actions';
 const OBJECT_FORM                               = '#form';
 const OBJECT_AGREEMENTS                         = '#agreements';
 
-const OBJECT_PAGE_TITLE                         = '.page.title';
+const OBJECT_PAGE_TITLE                         = '.page.title:not(.dot)';
 
 const CLASS_HEADER                              = '.header';
 const CLASS_FILTER                              = '.filter';
