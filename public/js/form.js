@@ -226,7 +226,7 @@ function dot_enter(dot) {
 
     dots                                        = dot.parent().children(CLASS_DOT);
 
-    for (var i = 0; i < dot.index(); i++) {
+    for (var i = 0; i <= dot.index(); i++) {
 
         dots.eq(i)                              .addClass(ATTR_ACTIVE);;
 
