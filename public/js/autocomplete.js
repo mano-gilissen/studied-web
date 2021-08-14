@@ -18,7 +18,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
 
-        input.addEventListener("input", function(e) {
+        input.on("input", function(e) {
 
             open_list(this, true);
 
@@ -26,7 +26,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
 
-        input.addEventListener("focus", function(e) {
+        input.on("focus", function(e) {
 
             open_list(this);
 
@@ -34,7 +34,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
 
-        input.addEventListener("keydown", function(e) {
+        input.on("keydown", function(e) {
 
             var list                                    = document.getElementById(this.id + "-autocomplete-list");
 
@@ -109,7 +109,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
         if (received_input) {
 
-            input.parentNode.classList              .remove("autocomplete");
+            input.parent()                          .removeClass("autocomplete");
 
             autocompleted                           = false;
         }
@@ -174,18 +174,18 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
         var input_id;
 
-        input.value                     = data[key];
+        input                           .val(data[key]);
 
-        input.parentNode.classList      .add("autocomplete");
+        input.parent()                  .addClass("autocomplete");
 
         autocompleted                   = true;
 
         if (uses_id) {
 
-            input_id                    = document.getElementById("_" + input.name);
+            input_id                    = document.getElementById("_" + input.attr('name'));
             input_id.value              = key;
 
-            call_trigger(key, input.dataset.identifier);
+            call_trigger(key, input.data('identifier'));
         }
     }
 
@@ -231,7 +231,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
     function close_list() {
 
-        var list                                    = input.parentNode.parentNode.find(".autocomplete-list");
+        var list                                    = input.parent().parent().find(".autocomplete-list");
 
         if (list) {
 
@@ -250,12 +250,12 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
         if (reject_other && !autocompleted) {
 
-            input.value                       = '';
+            input                                   .val('');
 
             if (uses_id) {
 
               //input_id                            = document.getElementById();
-                input_id                            = input.parent().parent().find('#_' + input.name);
+                input_id                            = input.parent().parent().find('#_' + input.attr('name'));
                 input_id.value                      = '';
             }
         }
