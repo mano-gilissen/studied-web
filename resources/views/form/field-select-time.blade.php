@@ -17,13 +17,7 @@
 
             >
 
-            @if($set_study ?? false)
-
-                <option value="" selected disabled hidden>{{ \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$TIME_SINGLE) }}</option>
-
-            @endif
-
-            <option value="07:00" @if(\App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$TIME_SINGLE) == "07:00") @endif>07:00</option>
+            <option value="07:00" @if(($study_set ?? false) && \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$TIME_SINGLE) == "07:00") @endif>07:00</option>
             <option value="07:15">07:15</option>
             <option value="07:30">07:30</option>
             <option value="07:45">07:45</option>
