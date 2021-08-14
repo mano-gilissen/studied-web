@@ -237,7 +237,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
         if (list) {
 
-            list.parent()                           .remove(list);
+            list                                    .remove();
 
         }
     }
