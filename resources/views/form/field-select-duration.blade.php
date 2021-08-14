@@ -37,7 +37,13 @@
 
     <script>
 
-            dot_click($("#dots_{{ $id }} .dot").last());
+        $(function(){
+
+            let dot                                         = $("#dots_{{ $id }} .dot").last();
+
+            dot_click(dot);
+            dot_leave(dot);
+        });
 
     </script>
 
