@@ -22,7 +22,7 @@
 
                 str_pad($input, 2, "0", STR_PAD_LEFT)
 
-                <option value="{{ str_pad((int) ($i / 60), 2, "0", STR_PAD_LEFT) }}:{{ $i % 60 }}"  >{{ str_pad((int) ($i / 60), 2, "0", STR_PAD_LEFT) }}:{{ $i % 60 }}</option>
+                <option value="{{ str_pad((int) ($i / 60), 2, "0", STR_PAD_LEFT) }}:{{ str_pad($i % 60, 2, "0", STR_PAD_LEFT) }}"  >{{ str_pad((int) ($i / 60), 2, "0", STR_PAD_LEFT) }}:{{ str_pad($i % 60, 2, "0", STR_PAD_LEFT) }}</option>
 
             @endfor
 <!--
