@@ -10,7 +10,7 @@
 
             @if($set_study ?? false)
 
-                <option value="" selected disabled hidden>{{ \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATABASE_TIME) }}</option>
+                <option value="" selected disabled hidden>{{ \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$TIME_SINGLE) }}</option>
 
             @endif
 
