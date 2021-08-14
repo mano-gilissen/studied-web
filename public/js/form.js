@@ -37,7 +37,7 @@ $(function(){
 
 
 
-    $(OBJECT_FORM).on('change', ':select.trigger', function() {
+    $(OBJECT_FORM).on('change', ':select', function() {
 
         console.log('b');
         select_trigger($(this));
