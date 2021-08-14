@@ -49,9 +49,49 @@ html, body {
     opacity:                            0;
 }
 
-#form .block-form {
 
+
+.block-form .title {
+    padding-bottom:                     8px;
 }
+
+.block-form .field {
+    margin:                             32px 0 0 16px;
+}
+
+.field {
+    display:                            flex;
+}
+
+.field .name,
+.field .note {
+    display:                            flex;
+    align-items:                        center;
+    height:                             40px;
+    color:                              #666666;
+}
+
+.field .name {
+    width:                              200px;
+}
+
+.field .note {
+    justify-content:                    center;
+}
+
+.field .box-input,
+.field .box-select,
+.field .box-clear {
+    width:                              312px;
+}
+
+.block-form .width-third {
+    width:                              104px;
+}
+
+
+
+
 
 #buttons {
     display:                            flex;
@@ -187,6 +227,35 @@ html, body {
     text-align:                         center;
     color:                              #666666;
     background:                         #F8F8F8;
+}
+
+
+
+
+
+.duration {
+
+}
+
+.duration .dots {
+    display:                            flex;
+    align-items:                        center;
+}
+
+.duration .dot {
+    width:                              12px;
+    height:                             12px;
+    margin-right:                       20px;
+    color:                              #F0F0F0;
+}
+
+.duration .dot.selected {
+    color:                              #FFDD34;
+}
+
+.duration .time {
+    margin-left:                        auto;
+    font-weight:                        600;
 }
 
 

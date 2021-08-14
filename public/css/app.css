@@ -659,47 +659,6 @@ select::-ms-expand {
 
 
 
-.block-form .title {
-    padding-bottom:                     8px;
-}
-
-.block-form .field {
-    margin:                             32px 0 0 16px;
-}
-
-.field {
-    display:                            flex;
-}
-
-.field .name,
-.field .note {
-    display:                            flex;
-    align-items:                        center;
-    height:                             40px;
-    color:                              #666666;
-}
-
-.field .name {
-    width:                              200px;
-}
-
-.field .note {
-    justify-content:                    center;
-}
-
-.field .box-input,
-.field .box-select {
-    width:                              312px;
-}
-
-.block-form .width-third {
-    width:                              104px;
-}
-
-
-
-
-
 @font-face {
     font-family:                        'Circular';
     src:                                url('/fonts/circular-book.otf') format("opentype");
