@@ -96,6 +96,12 @@
             id                                          = "end"
             name                                        = "end">
 
+            @if($set_study ?? false)
+
+                <option value="" selected disabled hidden>{{ \App\Http\Support\Format::datetime($study->end, \App\Http\Support\Format::$TIME_SINGLE) }}</option>
+
+            @endif
+
             <option value="07:00">07:00</option>
             <option value="07:15">07:15</option>
             <option value="07:30">07:30</option>
