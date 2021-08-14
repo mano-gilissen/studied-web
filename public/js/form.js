@@ -239,6 +239,17 @@ function agreement_toggle_selected(id) {
 
 
 
+function subjects_load() {
+
+    var time_available                              = $("#start").value;
+
+    console.log(time_available);
+}
+
+
+
+
+
 function dot_click(dot) {
 
     dots_selected[dot.parent().attr('id')]          = dot.index();
@@ -318,7 +329,7 @@ function select_trigger(select) {
     switch(trigger) {
 
         case TRIGGER_REPORT:
-            console.log('a');
+            subjects_load();
             break;
     }
 }
