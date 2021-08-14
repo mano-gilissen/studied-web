@@ -6,7 +6,7 @@
 
         <div class="duration">
 
-            <div class="dots" id="{{ $id }}">
+            <div class="dots" id="dots_{{ $id }}">
 
                 @for ($i = 0; $i < ($available / 15); $i++)
 
@@ -32,3 +32,13 @@
     </div>
 
 </div>
+
+@if($set_max ?? false)
+
+    <script>
+
+        dot_click($("#dots_{{ $id }} .dot").last())
+
+    </script>
+
+@endif
