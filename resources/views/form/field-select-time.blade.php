@@ -19,7 +19,7 @@
 
             @for($i = 420; $i <= 1440; $i += 15)
 
-                <option value="{{ (int) ($i / 60) }}:{{ $i % 60 }}" @if(($study_set ?? false) && \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$TIME_SINGLE) == ((int) ($i / 60) . ':' . ($i % 60))) selected @endif >{{ (int) ($i / 60) }}:{{ $i % 60 }}</option>
+                <option value="{{ (int) ($i / 60) }}:{{ $i % 60 }}"  >{{ (int) ($i / 60) }}:{{ $i % 60 }}</option>
 
             @endfor
 <!--
