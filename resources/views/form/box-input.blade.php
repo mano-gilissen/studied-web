@@ -41,7 +41,7 @@
         autocomplete(
 
             /* Input field ID */
-            document.getElementById('{{ $id }}'),
+            $('#{{ $id }}'),
 
             /* Autocomplete data */
             JSON.parse('{!! ${'ac_data_' . ($ac_data ?? false ? $ac_data : $id)} !!}'),
