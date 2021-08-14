@@ -284,7 +284,7 @@ function dots_set_active(dot, clicked = false) {
 
 function time_selected_text(time) {
 
-    return (time % 60 === 0) ? time + " uur" : time + " min";
+    return (time % 60 === 0) ? time / 60 + " uur" : time + " min";
 
 }
 
