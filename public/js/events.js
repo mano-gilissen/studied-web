@@ -31,6 +31,7 @@ const CLASS_PERSON                              = '.person';
 const CLASS_PERSON_REPORT                       = '.person-report';
 const CLASS_AGREEMENT                           = '.agreement';
 const CLASS_BUTTON                              = '.button';
+const CLASS_DOT                                 = '.dot';
 
 const ICON_BACK                                 = "/images/back.svg";
 const ICON_MENU                                 = "/images/menu.svg";

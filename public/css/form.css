@@ -241,17 +241,18 @@ html, body {
 
 .duration .dots {
     display:                            flex;
+    padding-left:                       4px;
 }
 
 .duration .dot {
     width:                              12px;
     height:                             12px;
-    margin-right:                       20px;
+    padding:                            10px 16px 10px 4px;
     border-radius:                      6px;
     background:                         #F0F0F0;
 }
 
-.duration .dot.selected {
+.duration .dot.active {
     color:                              #FFDD34;
 }
 

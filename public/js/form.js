@@ -34,6 +34,20 @@ $(function(){
 
 
 
+    $(OBJECT_FORM).on('mouseenter', CLASS_DOT, function() {
+
+        dot_enter($(this));
+
+    });
+
+    $(OBJECT_FORM).on('mouseleave', CLASS_DOT, function() {
+
+        dot_leave($(this));
+
+    });
+
+
+
 });
 
 
@@ -202,6 +216,28 @@ function agreement_toggle_selected(id) {
     }
 
     agreements_render()
+}
+
+
+
+
+
+function dot_enter(dot) {
+
+    dots                                        = dot.parent().children(CLASS_DOT);
+
+    dots.addClass(ATTR_ACTIVE);
+
+}
+
+
+
+function dot_leave(dot) {
+
+    dots                                        = dot.parent().children(CLASS_DOT);
+
+    dots.removeClass(ATTR_ACTIVE);
+
 }
 
 
