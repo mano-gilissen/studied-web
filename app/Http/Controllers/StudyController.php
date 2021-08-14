@@ -136,7 +136,7 @@ class StudyController extends Controller {
 
     public function report() {
 
-        $objects_subject                                    = SubjectTrait::getActivities();
+        $objects_subject                                    = Subject::all(); // SubjectTrait::getActivities();
 
         $ac_data_subject                                    = $objects_subject->pluck(Model::$SUBJECT_DESCRIPTION_SHORT, Model::$BASE_ID)->toArray();
         $ac_additional_subject                              = $objects_subject->pluck(Model::$SUBJECT_CODE, Model::$BASE_ID)->toArray();
