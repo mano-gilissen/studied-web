@@ -10,6 +10,7 @@ use App\Http\Traits\BaseTrait;
 use App\Http\Traits\PersonTrait;
 use App\Http\Traits\RoleTrait;
 use App\Http\Traits\StudyTrait;
+use App\Http\Traits\SubjectTrait;
 use App\Models\Location;
 use App\Models\Person;
 use App\Models\Service;
@@ -135,7 +136,7 @@ class StudyController extends Controller {
 
     public function report() {
 
-        $objects_subject                                    = Subject::all();
+        $objects_subject                                    = SubjectTrait::getActivities();
 
         $ac_data_subject                                    = $objects_subject->pluck(Model::$SUBJECT_DESCRIPTION_SHORT, Model::$BASE_ID)->toArray();
         $ac_additional_subject                              = $objects_subject->pluck(Model::$SUBJECT_CODE, Model::$BASE_ID)->toArray();
