@@ -83,6 +83,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
                 console.log(event.target);
                 console.log(input);
+                console.log(event.target != input ? 'aa' : 'bb');
 
                 if (event.target != input) {
 
