@@ -4,6 +4,8 @@
 const TRIGGER_AGREEMENTS                            = "agreements";
 const TRIGGER_FILTER                                = "filter";
 
+var document_click_listener_set                     = false;
+
 
 
 function autocomplete(input, data, additional, reject_other, show_all, uses_id, set_id, locked, trigger, form) {
@@ -78,7 +80,9 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
 
-        if (form) {
+        if (form && !document_click_listener_set) {
+
+            document_click_listener_set             = true;
 
             document.addEventListener("click", function (event) {
 
