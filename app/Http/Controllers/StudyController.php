@@ -134,7 +134,9 @@ class StudyController extends Controller {
 
 
 
-    public function report() {
+    public function report($key) {
+
+        $study                                              = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
 
         $objects_subject                                    = Subject::all(); // SubjectTrait::getActivities();
 
@@ -146,6 +148,8 @@ class StudyController extends Controller {
             Key::PAGE_TITLE                                 => 'Les rapporteren',
             Key::SUBMIT_ACTION                              => 'Rapporteren',
             Key::SUBMIT_ROUTE                               => 'study.report_submit',
+
+            Model::$STUDY                                   => $study,
 
             Key::AUTOCOMPLETE_DATA.Model::$SUBJECT          => Format::encode($ac_data_subject),
             Key::AUTOCOMPLETE_ADDITIONAL.Model::$SUBJECT    => Format::encode($ac_additional_subject)
