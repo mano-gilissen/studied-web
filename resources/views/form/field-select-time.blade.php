@@ -19,7 +19,10 @@
 
             @for($i = 420; $i <= 1440; $i += 15)
 
-                <option value="{{ (int) ($i / 60) }}:{{ $i % 60 }}"  >{{ (int) ($i / 60) }}:{{ $i % 60 }}</option>
+
+                str_pad($input, 2, "0", STR_PAD_LEFT)
+
+                <option value="{{ str_pad((int) ($i / 60), 2, "0", STR_PAD_LEFT) }}:{{ $i % 60 }}"  >{{ str_pad((int) ($i / 60), 2, "0", STR_PAD_LEFT) }}:{{ $i % 60 }}</option>
 
             @endfor
 <!--
