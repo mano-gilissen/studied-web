@@ -105,7 +105,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
             current_value                           = event.value;
 
-        close_list();
+        close_list(1);
 
         if (received_input) {
 
@@ -161,7 +161,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
                 set_value(key);
 
-                close_list();
+                close_list(2);
             });
 
             list.appendChild(item);
@@ -229,9 +229,9 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
 
-    function close_list() {
+    function close_list(a) {
 
-        console.log(input.attr('id'));
+        console.log(input.attr('id') + ' ' + a);
 
         var list                                    = input.parent().parent().find(".autocomplete-list");
 
@@ -248,7 +248,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
         var input_id;
 
-        close_list();
+        close_list(3);
 
         if (reject_other && !autocompleted) {
 
