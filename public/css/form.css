@@ -244,7 +244,7 @@ html, body {
     padding-left:                       4px;
 }
 
-.duration .dot {
+.duration .dot div {
     width:                              12px;
     height:                             12px;
     padding:                            10px 16px 10px 4px;
@@ -252,8 +252,8 @@ html, body {
     background:                         #F0F0F0;
 }
 
-.duration .dot.active {
-    color:                              #FFDD34;
+.duration .dot.active div{
+    background:                         #FFDD34;
 }
 
 .duration .time {

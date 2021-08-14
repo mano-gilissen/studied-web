@@ -10,7 +10,11 @@
 
                 @for ($i = 0; $i < ($available / 15); $i++)
 
-                    <div class="dot" id="dot_{{ $id }}_{{ $i }}"></div>
+                    <div class="dot" id="dot_{{ $id }}_{{ $i }}">
+
+                        <div></div>
+
+                    </div>
 
                 @endfor
 
