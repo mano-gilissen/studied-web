@@ -59,7 +59,7 @@
             '{{ $uses_id ?? false }}',
 
             /* Set a default value by ID */
-            '{{ $set_id ?? false }}',
+            '{{ $set_id ?? -1 }}',
 
             /* Lock the input field form user input */
             '{{ $locked ?? false }}',

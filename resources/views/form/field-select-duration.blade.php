@@ -8,7 +8,7 @@
 
             <div class="dots" id="dots_{{ $id }}">
 
-                @for ($i = 0; $i < ($available / 15); $i++)
+                @for ($i = 0; $i < ($time_available / 15); $i++)
 
                     <div class="dot" id="dot_{{ $id }}_{{ $i }}">
 
