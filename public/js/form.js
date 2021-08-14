@@ -5,6 +5,7 @@ const HOST_NONE                                 = "";
 
 var agreements_index_active                     = 0;
 var lastTriggerNoInput                          = false;
+var dots_selected;
 
 
 
@@ -33,6 +34,12 @@ $(function(){
     });
 
 
+
+    $(OBJECT_FORM).on('click', CLASS_DOT, function() {
+
+        dot_click($(this));
+
+    });
 
     $(OBJECT_FORM).on('mouseenter', CLASS_DOT, function() {
 
@@ -222,24 +229,50 @@ function agreement_toggle_selected(id) {
 
 
 
+function dot_click(dot) {
+
+    dot_selected[dot.parent().parent().attr('id')]      = dot.index();
+
+    dots_set_active(dot, true);
+}
+
+
+
 function dot_enter(dot) {
 
-    dots                                        = dot.parent().children(CLASS_DOT);
+    dots_set_active(dot);
 
-    for (var i = 0; i <= dot.index(); i++) {
-
-        dots.eq(i)                              .addClass(ATTR_ACTIVE);;
-
-    }
 }
 
 
 
 function dot_leave(dot) {
 
-    dots                                        = dot.parent().children(CLASS_DOT);
+    dots                                                = dot.parent().children(CLASS_DOT);
 
-    dots.removeClass(ATTR_ACTIVE);
+    if (dots.hasClass(ATTR_SELECTED)) {
+
+        dots_set_active(dot, true)
+
+    } else {
+
+        dots.removeClass(ATTR_ACTIVE);
+
+    }
+}
+
+
+
+function dots_set_active(dot, clicked = false) {
+
+    var dots                                            = dot.parent().children(CLASS_DOT);
+    var count                                           = clicked ? dot_selected[dot.parent().parent().attr('id')] : dot.index();
+
+    for (let i = 0; i <= count; i++) {
+
+        dots.eq(i)                                      .addClass(ATTR_ACTIVE);
+
+    }
 }
 
 
