@@ -236,6 +236,7 @@ html, body {
 .duration {
     display:                            flex;
     align-items:                        center;
+    height:                             inherit;
 }
 
 .duration .dots {
