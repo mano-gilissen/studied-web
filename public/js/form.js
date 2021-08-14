@@ -286,6 +286,7 @@ function dots_set_inactive(dot) {
     var dots                                    = dot.parent().children(CLASS_DOT);
 
     dots                                        .removeClass(ATTR_ACTIVE);
+    dot.parent().parent().find('.time')         .text('');
 }
 
 
