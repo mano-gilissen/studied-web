@@ -231,9 +231,9 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
     function close_list() {
 
-        var list                                    = input.parent().parent().find(".autocomplete-list");
+        console.log(input.attr('id'));
 
-        console.log(list);
+        var list                                    = input.parent().parent().find(".autocomplete-list");
 
         if (list) {
 
