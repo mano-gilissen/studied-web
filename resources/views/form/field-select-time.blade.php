@@ -28,7 +28,7 @@
 
                 @endphp
 
-                <script> console.log({{ $i }}); console.log({{ $is_selected }}); </script>
+                <script> console.log({{ $i . '  ' . $is_selected . '  ' . ($study_set ?? false) }}); </script>
 
                 <option
 
