@@ -70,7 +70,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
                 }
             } else if (e.keyCode == 9) {
 
-                close_list_and_reject();
+                close_list_and_reject(1);
 
             }
         });
@@ -83,7 +83,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
                 if (event.target != input) {
 
-                    close_list_and_reject();
+                    close_list_and_reject(2);
 
                 }
             });
@@ -105,7 +105,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
             current_value                           = event.value;
 
-        close_list(1);
+        close_list();
 
         if (received_input) {
 
@@ -161,7 +161,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
                 set_value(key);
 
-                close_list(2);
+                close_list();
             });
 
             list.appendChild(item);
@@ -231,7 +231,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
     function close_list(a) {
 
-        console.log(input.attr('id') + ' ' + a);
+        console.log(input.attr('id') + ' ' + ((a > 0) ? a : ''));
 
         var list                                    = input.parent().parent().find(".autocomplete-list");
 
@@ -244,11 +244,11 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
 
-    function close_list_and_reject() {
+    function close_list_and_reject(a) {
 
         var input_id;
 
-        close_list(3);
+        close_list(a);
 
         if (reject_other && !autocompleted) {
 
