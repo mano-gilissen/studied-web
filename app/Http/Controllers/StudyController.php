@@ -158,6 +158,19 @@ class StudyController extends Controller {
 
 
 
+    public function form_report_subjects_load(Request $request) {
+
+        $time_available                                     = $request->input('time_available', null);
+
+        return view(Views::LOAD_SUBJECTS, [
+
+            'time_available'                                => $time_available
+
+        ]);
+    }
+
+
+
 
 
     public function list(Request $request) {

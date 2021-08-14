@@ -246,22 +246,18 @@ function report_subjects_load() {
 
     var time_available                          = ((end.substr(0, 2) * 60) + (1 * end.substr(3, 2))) - ((start.substr(0, 2) * 60) + (1 * start.substr(3, 2)));
 
-    if (time_available > 0) {
+    subjects                                    = $('#subjects');
+    subjects                                    .animate({opacity: 0}, 200);
 
-        agreements                              = $('.agreements');
-        agreements                              .animate({opacity: 0}, 200);
+    setTimeout(function(){
 
-        setTimeout(function(){
+        subjects.load('/load/report/subjects', {
 
-            agreements.load('/load/report/subjects', {
+            time_available:                     time_available
 
-                time_available:                 time_available
+        }).animate({opacity: 1}, 200);
 
-            }).animate({opacity: 1}, 200);
-
-        }, 200);
-
-    }
+    }, 200);
 
 }
 

@@ -54,6 +54,8 @@ Route::post('/load/study/filter',               'StudyController@list_filter_loa
 
 Route::post('/load/study/agreements',           'UserController@form_study_agreements_load')->middleware('auth');
 
+Route::post('/load/study/subjects',             'StudyController@form_report_subjects_load')->middleware('auth');
+
 
 
 Route::post('/load/student/list',               'StudentController@list_load')->middleware('auth');
