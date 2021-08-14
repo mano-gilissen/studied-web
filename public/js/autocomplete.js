@@ -5,7 +5,7 @@ const TRIGGER_AGREEMENTS                            = "agreements";
 const TRIGGER_FILTER                                = "filter";
 
 var document_click_listener_set                     = false;
-
+var inputs                                          = [];
 
 
 function autocomplete(input, data, additional, reject_other, show_all, uses_id, set_id, locked, trigger, form) {
@@ -14,6 +14,10 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
     var currentFocus,
         autocompleted                               = false;
+
+
+
+    inputs.push(input);
 
 
 
@@ -86,7 +90,18 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
             document.addEventListener("click", function (event) {
 
-                if (event.target != input) {
+                input_clicked                       = false;
+
+                for (let i = 0; i < inputs.length; i++) {
+
+                    if (event.target == inputs[i]) {
+
+                        input_clicked               = true;
+
+                    }
+                }
+
+                if (!input_clicked) {
 
                     close_list_and_reject();
 
