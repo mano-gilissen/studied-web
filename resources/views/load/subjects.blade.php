@@ -6,7 +6,7 @@
 
         <div style="height:64px"></div>
 
-        <div id="subject_secondary">
+        <div id="secondary" style="display: none">
 
             @include('form.field-report-subject', ['id' => 2, 'time_available' => $time_available, 'primary' => false])
 
@@ -34,7 +34,7 @@
 
             $(OBJECT_BUTTON_SUBJECT_ADD).hide();
 
-            $('#subject_secondary').show();
+            $('#secondary').show();
         });
     });
 
