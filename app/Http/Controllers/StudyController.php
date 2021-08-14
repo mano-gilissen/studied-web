@@ -161,9 +161,18 @@ class StudyController extends Controller {
     public function form_report_subjects_load(Request $request) {
 
         $time_available                                     = $request->input('time_available', null);
+        $study_id                                           = $request->input(Model::$STUDY, null);
+        $study                                              = null;
+
+        if ($study_id > 0) {
+
+            $study                                          = Study::find($study_id);
+
+        }
 
         return view(Views::LOAD_SUBJECTS, [
 
+            Model::$STUDY                                   => $study,
             'time_available'                                => $time_available
 
         ]);

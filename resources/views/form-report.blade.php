@@ -2,6 +2,18 @@
 
 
 
+@section('scripts')
+
+    <script>
+
+        var study                       = '{{ $study->id }}';
+
+    </script>
+
+@endsection
+
+
+
 @section('fields')
 
 

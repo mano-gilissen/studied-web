@@ -253,6 +253,7 @@ function report_subjects_load() {
 
         subjects.load('/load/study/subjects', {
 
+            study:                              study,
             time_available:                     time_available
 
         }).animate({opacity: 1}, 200);
