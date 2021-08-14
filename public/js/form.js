@@ -246,7 +246,7 @@ function subjects_load() {
 
     var time_available                              = ((end.substr(0, 2) * 60) + end.substr(3, 2)) - ((start.substr(0, 1) * 60) + start.substr(3, 2));
 
-    console.log(end.substr(0, 2));
+    console.log(end.substr(3, 2));
 }
 
 
