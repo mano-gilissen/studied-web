@@ -231,7 +231,7 @@ function agreement_toggle_selected(id) {
 
 function dot_click(dot) {
 
-    dot_selected[dot.parent().parent().attr('id')]      = dot.index();
+    dots_selected[dot.parent().parent().attr('id')]     = dot.index();
 
     dots_set_active(dot, true);
 }
@@ -266,7 +266,7 @@ function dot_leave(dot) {
 function dots_set_active(dot, clicked = false) {
 
     var dots                                            = dot.parent().children(CLASS_DOT);
-    var count                                           = clicked ? dot_selected[dot.parent().parent().attr('id')] : dot.index();
+    var count                                           = clicked ? dots_selected[dot.parent().parent().attr('id')] : dot.index();
 
     for (let i = 0; i <= count; i++) {
 
