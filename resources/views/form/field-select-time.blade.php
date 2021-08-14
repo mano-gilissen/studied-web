@@ -19,7 +19,7 @@
 
             @for($i = 420; $i <= 1440; $i += 15)
 
-                <option value="{{ $i / 60 }}:{{ $i % 60 }}"  >{{ $i / 60 }}:{{ $i % 60 }}</option>
+                <option value="{{ (int) $i / 60 }}:{{ (int) $i % 60 }}" >{{ (int) $i / 60 }}:{{ (int) $i % 60 }}</option>
 
             @endfor
 <!--
