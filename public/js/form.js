@@ -7,6 +7,8 @@ var agreements_index_active                     = 0;
 var lastTriggerNoInput                          = false;
 var dots_selected                               = {};
 
+const TRIGGER_REPORT                            = "report";
+
 
 
 $(function(){
@@ -30,6 +32,14 @@ $(function(){
     $(OBJECT_FORM).on('click', OBJECT_BUTTON_NEXT, function() {
 
         agreements_set_active(agreements_index_active + 1);
+
+    });
+
+
+
+    $(OBJECT_FORM).on('change', 'select.trigger', function() {
+
+        select_trigger($(this));
 
     });
 
@@ -295,6 +305,22 @@ function time_selected_text(time) {
 
     return (time % 60 === 0) ? time / 60 + " uur" : time + " min";
 
+}
+
+
+
+
+
+function select_trigger(select) {
+
+    var trigger                                     = select.data("trigger");
+
+    switch(trigger) {
+
+        case TRIGGER_REPORT:
+            console.log('a');
+            break;
+    }
 }
 
 

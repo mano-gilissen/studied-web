@@ -6,7 +6,16 @@
 
         <select
             id                                          = "start"
-            name                                        = "start">
+            name                                        = "start"
+
+            @if($trigger ?? false)
+
+                class                                   = "trigger"
+                data-trigger                            = "{{ $trigger }}"
+
+            @endif
+
+            >
 
             @if($set_study ?? false)
 
@@ -94,7 +103,16 @@
 
         <select
             id                                          = "end"
-            name                                        = "end">
+            name                                        = "end"
+
+            @if($trigger ?? false)
+
+                class                                   = "trigger"
+                data-trigger                            = "{{ $trigger }}"
+
+            @endif
+
+            >
 
             @if($set_study ?? false)
 
