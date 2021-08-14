@@ -12,6 +12,6 @@
 
     <div class="title page">{{ $page_title }}</div>
 
-    <div class="dot">.</div>
+    <div class="title page dot">.</div>
 
 </div>
