@@ -20,7 +20,7 @@
 
             </div>
 
-            <div class="time"></div>
+            <div class="time">0 min</div>
 
             <input
                 id                                          = "_duration_{{ $id }}"

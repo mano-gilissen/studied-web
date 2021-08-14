@@ -233,11 +233,8 @@ function dot_click(dot) {
 
     dots_selected[dot.parent().attr('id')]      = dot.index();
 
-    var time_selected                           = dot.index() * 15;
-
+    dot.parent().parent().find('input').value   = (dot.index() + 1) * 15;
     dot.parent()                                .addClass(ATTR_SELECTED);
-    dot.parent().parent().find('.time')         .text(time_selected_text(time_selected));
-    dot.parent().parent().find('input').value   = time_selected;
 }
 
 
@@ -252,15 +249,13 @@ function dot_enter(dot) {
 
 function dot_leave(dot) {
 
-    var dots                                    = dot.parent().children(CLASS_DOT);
-
     if (dot.parent().hasClass(ATTR_SELECTED)) {
 
-        dots_set_active(dot, true)
+        dots_set_active(dot, true);
 
     } else {
 
-        dots.removeClass(ATTR_ACTIVE);
+        dots_set_inactive(dot);
 
     }
 }
@@ -271,6 +266,9 @@ function dots_set_active(dot, clicked = false) {
 
     var dots                                    = dot.parent().children(CLASS_DOT);
     var count                                   = clicked ? dots_selected[dot.parent().attr('id')] : dot.index();
+    var time                                    = (count + 1) * 15;
+
+    dot.parent().parent().find('.time')         .text(time_selected_text(time));
 
     dots                                        .removeClass(ATTR_ACTIVE);
 
@@ -280,6 +278,16 @@ function dots_set_active(dot, clicked = false) {
 
     }
 }
+
+
+
+function dots_set_inactive(dot) {
+
+    var dots                                    = dot.parent().children(CLASS_DOT);
+
+    dots                                        .removeClass(ATTR_ACTIVE);
+}
+
 
 
 function time_selected_text(time) {
