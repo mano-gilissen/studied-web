@@ -65,13 +65,13 @@
 
             @else
 
-                <div class="note">Deze Student-docent heeft geen actieve vakafspraken.</div>
+                <div class="block-note">Deze Student-docent heeft geen actieve vakafspraken.</div>
 
             @endif
 
         @else
 
-            <div class="note">Selecteer eerst een Student-docent.</div>
+            <div class="block-note">Selecteer eerst een Student-docent.</div>
 
         @endif
 

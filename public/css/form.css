@@ -114,6 +114,19 @@ html, body {
 
 
 
+.block-note {
+    width:                              528px;
+    height:                             172px;
+    padding-top:                        80px;
+    text-align:                         center;
+    color:                              #666666;
+    background:                         #F8F8F8;
+}
+
+
+
+
+
 .agreements {
     margin-top:                         32px;
 }
@@ -218,19 +231,6 @@ html, body {
     padding:                            6px;
     border-radius:                      16px;
     background:                         #E6E6E6;
-}
-
-
-
-
-
-.note {
-    width:                              528px;
-    height:                             172px;
-    padding-top:                        80px;
-    text-align:                         center;
-    color:                              #666666;
-    background:                         #F8F8F8;
 }
 
 

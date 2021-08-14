@@ -10,12 +10,12 @@
 
     @else
 
-        <div class="note">Selecteer een eind tijdstip dat eerder is als het start tijdstip.</div>
+        <div class="block-note">Selecteer een eind tijdstip dat eerder is als het start tijdstip.</div>
 
     @endif
 
 @else
 
-    <div class="note">Selecteer eerst de exacte start en eind tijdstip bovenaan.</div>
+    <div class="block-note">Selecteer eerst de exacte start en eind tijdstip bovenaan.</div>
 
 @endif
