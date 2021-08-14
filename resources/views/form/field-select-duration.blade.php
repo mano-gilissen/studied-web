@@ -8,9 +8,11 @@
 
             <div class="dots" id="dots_{{ $id }}">
 
-                @for ($i = 0; $i < ($time_available / 15); $i++)
+                @php $dots = $time_available / 15 @endphp
 
-                    <div class="dot" id="dot_{{ $id }}_{{ $i }}">
+                @for ($i = 0; $i < $dots; $i++)
+
+                    <div class="dot @if($dots > 8) narrow @endif" id="dot_{{ $id }}_{{ $i }}">
 
                         <div></div>
 
