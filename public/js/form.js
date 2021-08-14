@@ -81,12 +81,12 @@ function study_agreements_load(host) {
 
     lastTriggerNoInput                          = host == HOST_NONE;
 
-    agreements                                  = $('.agreements');
-    agreements                                  .animate({opacity: 0}, 200);
+    $('.agreements *')                          .off();
+    $('.agreements')                            .animate({opacity: 0}, 200);
 
     setTimeout(function(){
 
-        agreements.load('/load/study/agreements', {
+        $('.agreements').load('/load/study/agreements', {
 
             user:                               host
 
@@ -246,12 +246,12 @@ function report_subjects_load() {
 
     var time_available                          = ((end.substr(0, 2) * 60) + (1 * end.substr(3, 2))) - ((start.substr(0, 2) * 60) + (1 * start.substr(3, 2)));
 
-    subjects                                    = $('#subjects');
-    subjects                                    .animate({opacity: 0}, 200);
+    $('#subjects *')                            .off();
+    $('#subjects')                              .animate({opacity: 0}, 200);
 
     setTimeout(function(){
 
-        subjects.load('/load/study/subjects', {
+        $('#subjects').load('/load/study/subjects', {
 
             study:                              study,
             time_available:                     time_available
