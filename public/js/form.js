@@ -39,6 +39,7 @@ $(function(){
 
     $(OBJECT_FORM).on('change', 'select.trigger', function() {
 
+        console.log('a');
         select_trigger($(this));
 
     });
@@ -240,8 +241,6 @@ function study_agreement_toggle_selected(id) {
 
 
 function report_subjects_load() {
-
-    console.log('a');
 
     let start                                   = $("#start").val();
     let end                                     = $("#end").val();
