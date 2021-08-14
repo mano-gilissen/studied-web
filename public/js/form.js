@@ -251,7 +251,7 @@ function report_subjects_load() {
 
     setTimeout(function(){
 
-        subjects.load('/load/report/subjects', {
+        subjects.load('/load/study/subjects', {
 
             time_available:                     time_available
 
