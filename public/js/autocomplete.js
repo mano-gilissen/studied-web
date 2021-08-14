@@ -18,7 +18,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
 
-        input.addEventListener("input", function(e) {
+        input.on("input", function(e) {
 
             open_list(this, true);
 
@@ -26,7 +26,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
 
-        input.addEventListener("focus", function(e) {
+        input.on("focus", function(e) {
 
             open_list(this);
 
@@ -34,7 +34,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
 
-        input.addEventListener("keydown", function(e) {
+        input.on("keydown", function(e) {
 
             var list                                    = document.getElementById(this.id + "-autocomplete-list");
 
@@ -176,7 +176,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
         input.value                     = data[key];
 
-        input.parentNode.classList      .add("autocomplete");
+        input.parent()                  .addClass("autocomplete");
 
         autocompleted                   = true;
 
