@@ -237,6 +237,10 @@ html, body {
 
 
 
+#subjects {
+    margin-top:                         32px;
+}
+
 .duration {
     display:                            flex;
     align-items:                        center;
