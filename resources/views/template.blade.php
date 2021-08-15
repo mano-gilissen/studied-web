@@ -34,9 +34,9 @@
 
 
 
-<div id="column">
+<div id="wrap">
 
-    <div id="content">
+    <div id="column">
 
 
 

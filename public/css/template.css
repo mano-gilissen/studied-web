@@ -17,17 +17,17 @@ html {
 
 
 #wrap {
-    display:                    grid;
-    grid-template-columns:      1fr 700px 1fr;
-    grid-template-rows:         120px auto 120px;
-    grid-template-areas:        ". . ."
-                                ". content ."
-                                ". . .";
-    background:                 #E6E6E6;
+    display:                            grid;
+    grid-template-columns:              1fr 700px 1fr;
+    grid-template-rows:                 120px auto 120px;
+    grid-template-areas:                ". . ."
+                                        ". content ."
+                                        ". . .";
+    background:                         #E6E6E6;
 }
 
-#content {
-    grid-area:                  content;
-    background:                 white;
-    height:                     200px;
+#column {
+    grid-area:                          content;
+    background:                         white;
+    height:                             200px;
 }
