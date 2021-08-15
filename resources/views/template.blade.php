@@ -1,8 +1,7 @@
 <!doctype html>
 
 
-
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html>
 
 
 
@@ -38,7 +37,11 @@
 
     <div id="column">
 
+        <div class="title">Dit is een titel</div>
 
+        <div class="subtitle">Dit is een subtitel</div>
+
+        <p>Dit is een paragraaf</p>
 
     </div>
 
