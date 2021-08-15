@@ -34,15 +34,11 @@
 
 
 
-<div id="wrap">
+<div id="column">
 
-    <div id="column">
-
-        <div id="content">
+    <div id="content">
 
 
-
-        </div>
 
     </div>
 
