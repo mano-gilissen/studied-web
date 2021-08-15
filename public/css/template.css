@@ -17,14 +17,14 @@ html {
 
 
 .title {
-    font-size:                          18px;
-    font-weight:                        400;
+    font-size:                          24px;
+    font-weight:                        600;
     margin-bottom:                      30px;
 }
 
 .subtitle {
-    font-size:                          14px;
-    font-weight:                        300;
+    font-size:                          18px;
+    font-weight:                        400;
     margin-bottom:                      30px;
 }
 
@@ -44,6 +44,6 @@ html {
 #column {
     grid-area:                          content;
     background:                         white;
-    height:                             200px;
     padding:                            120px;
+    height:                             max-content;
 }
