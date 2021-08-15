@@ -2,6 +2,8 @@
 
     @if ($time_available > 0)
 
+        @if ($time_available <= 600)
+
         @include('form.field-report-subject', ['id' => 1, 'time_available' => $time_available, 'primary' => true])
 
         <div style="height:64px"></div>

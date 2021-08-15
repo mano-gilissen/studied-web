@@ -41,6 +41,15 @@ class DebugController extends Controller {
     }
 
 
+    public function template() {
+
+        return view(
+            'template', [
+
+        ]);
+    }
+
+
 
     public function form_test() {
 
