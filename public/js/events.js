@@ -193,9 +193,12 @@ $(function(){
 
         console.log(Math.min($(this).prop('scrollHeight'), 100) + 20);
 
-        $(this).css("height", "");
-        $(this).css("height", (Math.min($(this).prop('scrollHeight'), 100) + 20) + "px");
+        $h = (Math.min($(this).prop('scrollHeight'), 100) + 20);
 
+        if ($h > 60) {
+            $(this).css("height", "");
+            $(this).css("height",  + "px");
+        }
     });
 
 
