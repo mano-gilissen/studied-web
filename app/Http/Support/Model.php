@@ -201,7 +201,8 @@ class Model {
 
         $REPORT_SUBJECT                             = 'report_subject',
 
-        $REPORT_SUBJECT_DURATION                    = 'duration';
+        $REPORT_SUBJECT_DURATION                    = 'duration',
+        $REPORT_SUBJECT_VERSLAG                     = 'content_verslag';
 
 
 
@@ -211,7 +212,6 @@ class Model {
 
         $REPORT_START                               = 'start',
         $REPORT_END                                 = 'end',
-        $REPORT_CONTENT_VERSLAG                     = 'content_verslag',
         $REPORT_CONTENT_VOLGENDE_LES                = 'content_volgende_les',
         $REPORT_CONTENT_UITDAGINGEN                 = 'content_uitdagingen',
         $REPORT_CONTENT_VOORTGANG                   = 'content_voortgang',

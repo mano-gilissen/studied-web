@@ -4,13 +4,27 @@
 
 namespace App\Http\Traits;
 
-
-
 use App\Http\Support\Model;
+use App\Models\Report_subject;
 
 
 
 trait Report_SubjectTrait {
+
+
+
+    public static function create($data, $key, $report) {
+
+        $report_subject                                             = new Report_subject;
+
+        $report_subject->{Model::$REPORT}                           = $report->{Model::$BASE_ID};
+
+        $report_subject->{Model::$SUBJECT}                          = $data[$key];
+        $report_subject->{Model::$REPORT_SUBJECT_DURATION}          = $data[$key . '_duration'];
+        $report_subject->{Model::$REPORT_SUBJECT_VERSLAG}           = $data[$key . '_verslag'];
+
+        $report_subject->save();
+    }
 
 
 
