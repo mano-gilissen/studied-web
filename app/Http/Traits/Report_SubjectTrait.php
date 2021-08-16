@@ -36,20 +36,20 @@ trait Report_SubjectTrait {
 
         }
 
-        return ($report_subject->{Model::$REPORT_SUBJECT_DURATION} >= 1.0 && fmod($report_subject->{Model::$REPORT_SUBJECT_DURATION}, 1) == 0) ?
+        return ($report_subject->{Model::$REPORT_SUBJECT_DURATION} >= 60 && fmod($report_subject->{Model::$REPORT_SUBJECT_DURATION}, 60) == 0) ?
 
-                ($report_subject->{Model::$REPORT_SUBJECT_DURATION}) . ' uur'
+                ($report_subject->{Model::$REPORT_SUBJECT_DURATION} / 60) . ' uur'
 
                 :
 
-                ($report_subject->{Model::$REPORT_SUBJECT_DURATION} * 60) . ' min';
+                ($report_subject->{Model::$REPORT_SUBJECT_DURATION}) . ' min';
     }
 
 
 
     public static function getDurationDots($report_subject) {
 
-        return (int) ($report_subject->{Model::$REPORT_SUBJECT_DURATION} / .25);
+        return (int) ($report_subject->{Model::$REPORT_SUBJECT_DURATION} / 15);
 
     }
 
