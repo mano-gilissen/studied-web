@@ -110,6 +110,14 @@ html, body {
     height:                             88px;
 }
 
+.seperator.small {
+    height:                             64px;
+}
+
+.seperator.large {
+    height:                             104px;
+}
+
 
 
 

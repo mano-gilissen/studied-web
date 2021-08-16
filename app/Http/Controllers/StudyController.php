@@ -8,6 +8,7 @@ use App\Http\Support\Format;
 use App\Http\Support\Table;
 use App\Http\Traits\BaseTrait;
 use App\Http\Traits\PersonTrait;
+use App\Http\Traits\ReportTrait;
 use App\Http\Traits\RoleTrait;
 use App\Http\Traits\StudyTrait;
 use App\Http\Traits\SubjectTrait;
@@ -146,6 +147,21 @@ class StudyController extends Controller {
 
             Model::$STUDY                                                   => $study
         ]);
+    }
+
+
+
+    public function report_submit(Request $request) {
+
+        $data                                                               = $request->all();
+
+        $study                                                              = Study::find($data['_' . Model::$STUDY]);
+
+        // self::report_validate($data);
+
+        ReportTrait::create($data, $study);
+
+        return redirect()->route('study.view', $study->{Model::$BASE_KEY});
     }
 
 

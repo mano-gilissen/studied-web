@@ -5,6 +5,7 @@ const OBJECT_APP                                = '#app';
 const OBJECT_WRAP                               = '#wrap';
 const OBJECT_MENU                               = '#menu';
 const OBJECT_TOOLTIP                            = '#tooltip';
+const OBJECT_FORM                               = '#form';
 
 const OBJECT_BUTTON_MENU                        = '#button-menu';
 const OBJECT_BUTTON_LOGOUT                      = '#button-logout';
@@ -20,11 +21,12 @@ const OBJECT_HEADERS                            = '#headers';
 const OBJECT_FILTERS                            = '#filters';
 const OBJECT_COUNTERS                           = '#counters';
 const OBJECT_ACTIONS                            = '#actions';
-
-const OBJECT_FORM                               = '#form';
 const OBJECT_AGREEMENTS                         = '#agreements';
 
 const OBJECT_PAGE_TITLE                         = '.page.title:not(.dot)';
+
+const ELEMENT_SELECT                            = 'select';
+const ELEMENT_TEXTAREA                          = 'textarea';
 
 const CLASS_HEADER                              = '.header';
 const CLASS_FILTER                              = '.filter';
@@ -173,7 +175,7 @@ $(function(){
 
 
 
-    // ADD CSRF TO AJAX POST:
+    /* Add CSRF token to Ajax POST: */
 
     $.ajaxSetup({headers: {"X-CSRF-TOKEN": $('meta[name="_token"]').attr('content')}});
 
@@ -181,18 +183,18 @@ $(function(){
 
 
 
-    $(OBJECT_APP).on('input change cut paste', 'textarea', function() {
+    /* Auto resize textarea elements */
 
-        const MIN_HEIGHT                                    = 18;
+    $(OBJECT_APP).on('input change cut paste', ELEMENT_TEXTAREA, function() {
 
         $(this)                                             .css("height", "unset");
 
-        $height                                             = ($(this).prop('scrollHeight'));
+        let height                                          = $(this).prop('scrollHeight');
+        let height_min                                      = 18;
 
+        if (height > height_min) {
 
-        if ($height > MIN_HEIGHT) {
-
-            $(this)                                         .css("height", $height + "px");
+            $(this)                                         .css("height", height + "px");
 
         }
     });

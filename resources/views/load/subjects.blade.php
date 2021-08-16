@@ -6,7 +6,7 @@
 
             @include('form.field-report-subject', ['id' => 1, 'time_available' => $time_available, 'primary' => true])
 
-            <div style="height:64px"></div>
+            <div class="seperator small"></div>
 
             <div id="secondary" style="display: none">
 
