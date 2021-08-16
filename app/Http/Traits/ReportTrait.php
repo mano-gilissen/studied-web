@@ -72,7 +72,7 @@ trait ReportTrait {
 
             foreach ($report_subjects as $report_subject) {
 
-                $text                                                       .= " " . $report_subject->{Model::$REPORT_SUBJECT_VERSLAG};
+                $text                                                       .= $report_subject->{Model::$REPORT_SUBJECT_VERSLAG} . " ";
 
             }
 
@@ -86,7 +86,7 @@ trait ReportTrait {
 
         $report_subjects                                                    = $report->getReport_Subjects;
 
-        $duration_total                                                     = 0.0;
+        $duration_total                                                     = 0;
 
         foreach($report_subjects as $report_subject) {
 
@@ -101,7 +101,7 @@ trait ReportTrait {
 
         $duration_total                                                     = self::getDurationTotal($report);
 
-        return (int) ($duration_total / .25);
+        return (int) ($duration_total / 60);
     }
 
 
