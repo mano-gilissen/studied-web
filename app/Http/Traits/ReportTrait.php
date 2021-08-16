@@ -58,6 +58,29 @@ trait ReportTrait {
 
 
 
+    public static function getVerslagText($report) {
+
+        $report_subjects                                                    = $report->getReport_Subjects;
+
+        if (count($report_subjects) == 1) {
+
+            return $report_subjects[0]->{Model::$REPORT_SUBJECT_VERSLAG};
+
+        } else {
+
+            $text                                                           = "";
+
+            foreach ($report_subjects as $report_subject) {
+
+                $text                                                       .= " " . $report_subject->{Model::$REPORT_SUBJECT_VERSLAG};
+
+            }
+
+            return $text;
+        }
+    }
+
+
 
     public static function getDurationTotal($report) {
 

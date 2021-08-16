@@ -159,7 +159,11 @@ class StudyController extends Controller {
 
         // self::report_validate($data);
 
-        ReportTrait::create($data, $study);
+        if (ReportTrait::create($data, $study)) {
+
+            $study->{Model::$STUDY_STATUS}                                  = StudyTrait::$STATUS_REPORTED;
+
+        }
 
         return redirect()->route('study.view', $study->{Model::$BASE_KEY});
     }
