@@ -183,12 +183,11 @@ $(function(){
 
     $(OBJECT_APP).on('input change cut paste', 'textarea', function() {
 
-        const MIN_HEIGHT                                    = 40;
-        const BORDER_HEIGHT                                 = 11;
+        const MIN_HEIGHT                                    = 18;
 
         $height                                             = ($(this).prop('scrollHeight'));
 
-        if ($height > MIN_HEIGHT + BORDER_HEIGHT) {
+        if ($height > MIN_HEIGHT) {
 
             $(this)                                         .css("height", $height + "px");
 
