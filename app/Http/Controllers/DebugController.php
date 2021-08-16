@@ -41,6 +41,7 @@ class DebugController extends Controller {
     }
 
 
+
     public function template() {
 
         return view(

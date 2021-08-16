@@ -37,7 +37,7 @@
 
     <div id="column">
 
-        <div class="title">Dit is een titel</div>
+        <div id="mailchip_title" class="title">Dit is een titel</div>
 
         <div class="subtitle">Dit is een subtitel</div>
 
