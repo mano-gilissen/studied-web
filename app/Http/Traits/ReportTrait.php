@@ -29,8 +29,8 @@ trait ReportTrait {
         $report->{Model::$REPORT_CONTENT_UITDAGINGEN}                       = $data[Model::$REPORT_CONTENT_UITDAGINGEN];
         $report->{Model::$REPORT_CONTENT_VOORTGANG}                         = $data[Model::$REPORT_CONTENT_VOORTGANG];
 
-        $report->{Model::$REPORT_START}                                     = substr($study->date, 0, 10) . ' ' . $data[Model::$REPORT_START] . ':00';
-        $report->{Model::$REPORT_END}                                       = substr($study->date, 0, 10) . ' ' . $data[Model::$REPORT_END] . ':00';
+        $report->{Model::$REPORT_START}                                     = substr($study->start, 0, 10) . ' ' . $data[Model::$REPORT_START] . ':00';
+        $report->{Model::$REPORT_END}                                       = substr($study->end, 0, 10) . ' ' . $data[Model::$REPORT_END] . ':00';
 
 
 
