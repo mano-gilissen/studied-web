@@ -40,7 +40,10 @@ trait ReportTrait {
 
         foreach ($data as $key => $value) {
 
-            if (Func::contains($key, '_' . Model::$SUBJECT) && strlen($data[$key]) > 0) {
+            if (Func::contains($key, '_' . Model::$SUBJECT) &&
+               !Func::contains($key, '_' . Model::$REPORT_SUBJECT_DURATION) &&
+               !Func::contains($key, '_' . Model::$REPORT_SUBJECT_VERSLAG) &&
+                strlen($data[$key]) > 0) {
 
                 Report_SubjectTrait::create($data, $key, $report);
 
