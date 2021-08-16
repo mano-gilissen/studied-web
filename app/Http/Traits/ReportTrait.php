@@ -31,8 +31,6 @@ trait ReportTrait {
         $report->{Model::$REPORT_START}                                     = substr($study->date, 0, 10) . ' ' . $data[Model::$REPORT_START] . ':00';
         $report->{Model::$REPORT_END}                                       = substr($study->date, 0, 10) . ' ' . $data[Model::$REPORT_END] . ':00';
 
-        dd($report);
-
 
 
         $report->save();
