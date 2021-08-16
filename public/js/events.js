@@ -190,7 +190,7 @@ $(function(){
     };*/
 
     $(OBJECT_APP).on('input change cut paste', 'textarea', function() {
-console.log('asdff');
+console.log(Math.min($(this).prop('scrollHeight'), 100) + "px");
         $(this).css("height", "");
         $(this).css("height", Math.min($(this).prop('scrollHeight'), 100) + "px");
     });
