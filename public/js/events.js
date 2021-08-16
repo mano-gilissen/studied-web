@@ -198,7 +198,7 @@ $(function(){
 
         if ($h > 60) {
             $(this).css("height", "");
-            $(this).css("height",  + "px");
+            $(this).css("height", $h + "px");
         }
     });
 
