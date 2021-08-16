@@ -41,7 +41,7 @@ trait ReportTrait {
 
         foreach ($data as $key => $value) {
 
-            if (Func::contains($key, '_' . Model::$SUBJECT)) {
+            if (Func::contains($key, '_' . Model::$SUBJECT) && strlen($data[$key]) > 0) {
 
                 Report_SubjectTrait::create($data, $key, $report);
 
