@@ -189,7 +189,7 @@ $(function(){
         textarea.style.height = Math.min(textarea.scrollHeight, limit) + "px";
     };*/
 
-    $("textarea").on('input', function() {
+    $(OBJECT_APP).on('input', "textarea", function() {
 
         $(this).css("height", "");
         $(this).css("height", Math.min($(this).prop('scrollHeight'), 100) + "px");
