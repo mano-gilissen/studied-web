@@ -13,7 +13,7 @@
 
             @isset($required) required @endisset
 
-            @if($locked ?? false) disabled @endif/>
+            @if($locked ?? false) disabled @endif></textarea>
 
     </div>
 
