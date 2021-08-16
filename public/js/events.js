@@ -189,7 +189,7 @@ $(function(){
         textarea.style.height = Math.min(textarea.scrollHeight, limit) + "px";
     };*/
 
-    $(OBJECT_APP).on('change cut paste', 'textarea', function() {
+    $(OBJECT_APP).on('input change cut paste', 'textarea', function() {
 console.log('asdff');
         $(this).css("height", "");
         $(this).css("height", Math.min($(this).prop('scrollHeight'), 100) + "px");
