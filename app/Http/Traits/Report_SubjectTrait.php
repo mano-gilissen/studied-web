@@ -21,7 +21,7 @@ trait Report_SubjectTrait {
 
         $report_subject->{Model::$SUBJECT}                          = $data[$key];
         $report_subject->{Model::$REPORT_SUBJECT_DURATION}          = $data[$key . '_duration'];
-        $report_subject->{Model::$REPORT_SUBJECT_VERSLAG}           = $data[$key . '_verslag'];
+        $report_subject->{Model::$REPORT_SUBJECT_VERSLAG}           = $data[$key . '_content_verslag'];
 
         $report_subject->save();
     }
