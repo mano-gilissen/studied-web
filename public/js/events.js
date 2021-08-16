@@ -191,9 +191,10 @@ $(function(){
 
     $(OBJECT_APP).on('input change cut paste', 'textarea', function() {
 
-        console.log(Math.min($(this).prop('scrollHeight'), 100) + 20);
 
         $h = (Math.min($(this).prop('scrollHeight'), 100) + 20);
+
+        console.log($h);
 
         if ($h > 60) {
             $(this).css("height", "");
