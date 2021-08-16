@@ -163,6 +163,7 @@ class StudyController extends Controller {
 
             $study->{Model::$STUDY_STATUS}                                  = StudyTrait::$STATUS_REPORTED;
 
+            $study->save();
         }
 
         return redirect()->route('study.view', $study->{Model::$BASE_KEY});
