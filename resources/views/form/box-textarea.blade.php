@@ -8,9 +8,9 @@
             name                                        = "{{ $id }}"
             placeholder                                 = "{{ $placeholder ?? '' }}"
             value                                       = "{{ $value ?? '' }}"
-            autocomplete                                = "{{ $autocomplete ?? 'off' }}"
             data-identifier                             = "{{ $identifier ?? '' }}"
             rows                                        = "{{ $rows ?? 1 }}"
+            autocomplete                                = "off"
 
             @isset($required) required @endisset
 
