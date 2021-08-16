@@ -20,8 +20,6 @@ trait ReportTrait {
 
     public static function create(array $data, &$study) {
 
-        dd($data);
-
         $report                                                             = new Report;
 
         $report->{Model::$STUDY}                                            = $study->{Model::$BASE_ID};
