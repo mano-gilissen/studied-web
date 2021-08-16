@@ -180,26 +180,18 @@ $(function(){
 
 
 
-/*
-    var textarea = document.getElementById("textarea");
-    var limit = 80; //height limit
-
-    textarea.oninput = function() {
-        textarea.style.height = "";
-        textarea.style.height = Math.min(textarea.scrollHeight, limit) + "px";
-    };*/
 
     $(OBJECT_APP).on('input change cut paste', 'textarea', function() {
 
-        const MIN_HEIGHT            = 40;
-        const BORDER_HEIGHT         = 11;
+        const MIN_HEIGHT                                    = 40;
+        const BORDER_HEIGHT                                 = 11;
 
-        $height = ($(this).prop('scrollHeight'));
-
-        console.log($height);
+        $height                                             = ($(this).prop('scrollHeight'));
 
         if ($height > MIN_HEIGHT + BORDER_HEIGHT) {
-            $(this).css("height", $height + "px");
+
+            $(this)                                         .css("height", $height + "px");
+
         }
     });
 
