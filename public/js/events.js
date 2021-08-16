@@ -180,5 +180,24 @@ $(function(){
 
 
 
+/*
+    var textarea = document.getElementById("textarea");
+    var limit = 80; //height limit
+
+    textarea.oninput = function() {
+        textarea.style.height = "";
+        textarea.style.height = Math.min(textarea.scrollHeight, limit) + "px";
+    };*/
+
+    $("textarea").on('input', function() {
+
+        $(this).css("height", "");
+        $(this).css("height", Math.min($(this).prop('scrollHeight'), 100) + "px");
+    });
+
+
+
+
+
 
 });
