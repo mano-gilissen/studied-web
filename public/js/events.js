@@ -191,6 +191,7 @@ $(function(){
 
     $(OBJECT_APP).on('input', "textarea", function() {
 
+        console.log('asdf');
         $(this).css("height", "");
         $(this).css("height", Math.min($(this).prop('scrollHeight'), 100) + "px");
     });
