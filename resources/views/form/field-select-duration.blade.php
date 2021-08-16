@@ -12,7 +12,7 @@
 
                 @for ($i = 0; $i < $dots; $i++)
 
-                    <div class="dot @if($dots > 8) narrow @endif" id="dot_{{ $id }}_{{ $i }}">
+                    <div class="dot @if($dots > 8) @if($dots > 10) very-narrow @else narrow @endif @endif" id="dot_{{ $id }}_{{ $i }}">
 
                         <div></div>
 

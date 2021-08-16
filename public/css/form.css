@@ -261,6 +261,10 @@ html, body {
 }
 
 .duration .dot.narrow div {
+    margin:                             10px 4px 10px 8px;
+}
+
+.duration .dot.very-narrow div {
     margin:                             10px 4px 10px 4px;
 }
 
