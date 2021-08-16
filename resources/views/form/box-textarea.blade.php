@@ -10,6 +10,7 @@
             value                                       = "{{ $value ?? '' }}"
             autocomplete                                = "{{ $autocomplete ?? 'off' }}"
             data-identifier                             = "{{ $identifier ?? '' }}"
+            rows                                        = "{{ $rows ?? 1 }}"
 
             @isset($required) required @endisset
 
