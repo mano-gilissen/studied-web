@@ -189,6 +189,7 @@ $(function(){
 
         if ($height > MIN_HEIGHT) {
 
+            $(this)                                         .css("");
             $(this)                                         .css("height", $height + "px");
 
         }
