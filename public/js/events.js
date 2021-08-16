@@ -196,7 +196,7 @@ $(function(){
 
         $height = (Math.min($(this).prop('scrollHeight'), 100) + 20);
 
-        console.log($h);
+        console.log($height);
 
         if ($height > MIN_HEIGHT + BORDER_HEIGHT) {
             $(this).css("height", "");
