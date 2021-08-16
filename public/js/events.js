@@ -199,7 +199,6 @@ $(function(){
         console.log($height);
 
         if ($height > MIN_HEIGHT + BORDER_HEIGHT) {
-            $(this).css("height", "");
             $(this).css("height", $height + "px");
         }
     });
