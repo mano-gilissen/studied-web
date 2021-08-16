@@ -463,7 +463,8 @@ textarea {
 }
 
 textarea {
-    margin:                             11px 0 11px 4px;
+    resize:                             none;
+    margin:                             11px 8px 11px 4px;
 }
 
 input:-webkit-autofill {
