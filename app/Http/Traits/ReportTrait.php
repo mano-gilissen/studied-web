@@ -101,7 +101,7 @@ trait ReportTrait {
 
         $duration_total                                                     = self::getDurationTotal($report);
 
-        return (int) ($duration_total / 60);
+        return (int) ($duration_total / 15);
     }
 
 
