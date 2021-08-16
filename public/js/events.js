@@ -185,9 +185,10 @@ $(function(){
 
         const MIN_HEIGHT                                    = 18;
 
+        $(this)                                             .css("height", "unset");
+
         $height                                             = ($(this).prop('scrollHeight'));
 
-        $(this)                                             .css("height", "unset");
 
         if ($height > MIN_HEIGHT) {
 
