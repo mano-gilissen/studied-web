@@ -194,7 +194,7 @@ $(function(){
         const MIN_HEIGHT            = 40;
         const BORDER_HEIGHT         = 11;
 
-        $height = (Math.min($(this).prop('scrollHeight'), 100) + 20);
+        $height = ($(this).prop('scrollHeight'));
 
         console.log($height);
 
