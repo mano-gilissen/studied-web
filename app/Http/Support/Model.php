@@ -209,6 +209,8 @@ class Model {
 
         $REPORT                                     = 'report',
 
+        $REPORT_START                               = 'start',
+        $REPORT_END                                 = 'end',
         $REPORT_CONTENT_VERSLAG                     = 'content_verslag',
         $REPORT_CONTENT_VOLGENDE_LES                = 'content_volgende_les',
         $REPORT_CONTENT_UITDAGINGEN                 = 'content_uitdagingen',

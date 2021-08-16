@@ -22,7 +22,8 @@ class Report extends ModelClass {
 
     protected
 
-        $table                                  = 'report';
+        $table                                          = 'report',
+        $dates                                          = ['start', 'end'];
 
 
 

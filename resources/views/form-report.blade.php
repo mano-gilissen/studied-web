@@ -40,13 +40,15 @@
 
     <div class="title">{{ __('Hoe verloopt de begeleiding?') }}</div>
 
-    @include('form.field-textarea', ['id' => 'volgende_les', 'tag' => 'Volgende les', 'required' => true])
+    @include('form.field-textarea', ['id' => 'content_volgende_les', 'tag' => 'Volgende les', 'required' => true])
 
-    @include('form.field-textarea', ['id' => 'uitdagingen', 'tag' => 'Uitdagingen', 'required' => true])
+    @include('form.field-textarea', ['id' => 'content_uitdagingen', 'tag' => 'Uitdagingen', 'required' => true])
 
-    @include('form.field-textarea', ['id' => 'voortgang', 'tag' => 'Voortgang', 'required' => true])
+    @include('form.field-textarea', ['id' => 'content_voortgang', 'tag' => 'Voortgang', 'required' => true])
 
 
+
+    @include('form.field-hidden', ['id' => '_student', 'value' => $study->getParticipants_User->first()->id])
 
     @include('form.field-hidden', ['id' => '_study', 'value' => $study->id])
 

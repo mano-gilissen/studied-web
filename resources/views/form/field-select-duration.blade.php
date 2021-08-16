@@ -25,8 +25,8 @@
             <div class="time"></div>
 
             <input
-                id                                          = "_duration_{{ $id }}"
-                name                                        = "_duration_{{ $id }}"
+                id                                          = "_{{ $id }}"
+                name                                        = "_{{ $id }}"
                 type                                        = "hidden">
 
         </div>

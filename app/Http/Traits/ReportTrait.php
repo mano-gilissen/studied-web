@@ -18,38 +18,31 @@ trait ReportTrait {
 
     public static function create(array $data, &$study) {
 
-        $report                                              = new Report;
+        $report                                             = new Report;
 
-        dd($data);
+        $report->{Model::$STUDY}                            = $study->{Model::$BASE_ID};
+        $report->{Model::$USER}                             = $data['_' . Model::$STUDENT];
 
+        $report->{Model::$REPORT_CONTENT_VOLGENDE_LES}      = $data[Model::$REPORT_CONTENT_VOLGENDE_LES];
+        $report->{Model::$REPORT_CONTENT_UITDAGINGEN}       = $data[Model::$REPORT_CONTENT_UITDAGINGEN];
+        $report->{Model::$REPORT_CONTENT_VOORTGANG}         = $data[Model::$REPORT_CONTENT_VOORTGANG];
 
- /*
-        $study->{Model::$STUDY_START}                       = $data['date'] . ' ' . $data[Model::$STUDY_START] . ':00';
-        $study->{Model::$STUDY_END}                         = $data['date'] . ' ' . $data[Model::$STUDY_END] . ':00';
+        $report->{Model::$REPORT_START}                     = substr($study->date, 0, 10) . ' ' . $data[Model::$REPORT_START] . ':00';
+        $report->{Model::$REPORT_END}                       = substr($study->date, 0, 10) . ' ' . $data[Model::$REPORT_END] . ':00';
 
-        $study->{Model::$STUDY_STATUS}                      = self::$STATUS_PLANNED;
-        $study->{Model::$STUDY_LOCATION_DEFINED}            = $data[Key::AUTOCOMPLETE_ID . Model::$LOCATION]; // TODO: STUDY LOCATION TEXT IF NO DEFINED
+        dd($report);
 
-
-
-        $agreements                                         = [];
+        $report_subjects                                    = [];
 
         foreach ($data as $key => $value) {
 
-            if (Func::contains($key, '_' . Model::$AGREEMENT)) {
+            if (Func::contains($key, '_' . Model::$SUBJECT)) {
 
-                $agreement                                  = Agreement::find($value);
+                $subject                                    = $value;
+                $duration                                   = $data[$key . '_duration'];
 
-                if (!$agreement) {
+                array_push($report_subjects, $agreement);
 
-                    continue;
-
-                }
-
-                $study->{Model::$STUDY_HOST_USER}           = $agreement->{Model::$EMPLOYEE};
-                $study->{Model::$STUDY_SUBJECT_DEFINED}     = $agreement->{Model::$SUBJECT};
-
-                array_push($agreements, $agreement);
             }
         }
 
