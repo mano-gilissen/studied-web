@@ -191,14 +191,16 @@ $(function(){
 
     $(OBJECT_APP).on('input change cut paste', 'textarea', function() {
 
+        const MIN_HEIGHT            = 40;
+        const BORDER_HEIGHT         = 11;
 
-        $h = (Math.min($(this).prop('scrollHeight'), 100) + 20);
+        $height = (Math.min($(this).prop('scrollHeight'), 100) + 20);
 
         console.log($h);
 
-        if ($h > 60) {
+        if ($height > MIN_HEIGHT + BORDER_HEIGHT) {
             $(this).css("height", "");
-            $(this).css("height", $h + "px");
+            $(this).css("height", $height + "px");
         }
     });
 
