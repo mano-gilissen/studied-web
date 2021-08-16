@@ -191,6 +191,7 @@ $(function(){
 
     $(OBJECT_APP).on('input change cut paste', 'textarea', function() {
 
+        $(this).css("height", "");
         $(this).css("height", (Math.min($(this).prop('scrollHeight'), 100) + 20) + "px");
 
     });
