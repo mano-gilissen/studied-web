@@ -44,7 +44,7 @@
 
                                     @if(!\App\Http\Traits\StudyTrait::hasReport($study, $user))
 
-                                        <div class="button icon" onclick="window.location.href='{{ route('study.report', $study->key, $user->getPerson->slug) }}'">
+                                        <div class="button icon" onclick="window.location.href='{{ route('study.report', [\App\Http\Support\Model::$BASE_KEY => $study->key,  \App\Http\Support\Model::$PERSON_SLUG => $user->getPerson->slug]) }}'">
 
                                             <img class="icon" src="/images/edit.svg">
 
