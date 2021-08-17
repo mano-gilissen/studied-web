@@ -18,19 +18,17 @@
 
 @section('fields')
 
-    <div class="title">{{ __('Dit rapport is voor:') }}</div>
 
-    @include('block.person', ['person' => $user->getPerson])
+
+    <div class="title">{{ __('Hoe lang duurde de les precies?') }}</div>
+
+    @include('form.field-select-time', ['set_study' => true, 'trigger' => 'report'])
 
     <div class="seperator"></div>
 
 
 
-    <div class="title">{{ __('Hoe lang duurde de les precies?') }}</div>
-
-
-
-    @include('form.field-select-time', ['set_study' => true, 'trigger' => 'report'])
+    <div class="block-note">Dit het rapport voor <span style="font-weight: 400">{{ \App\Http\Traits\PersonTrait::getFullName($user->getPerson) }}</span></div>
 
     <div class="seperator"></div>
 
