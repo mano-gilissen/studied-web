@@ -18,6 +18,12 @@
 
 @section('fields')
 
+    <div class="title">{{ __('Dit rapport is voor:') }}</div>
+
+    @include('block.person', ['person' => $user->getPerson])
+
+    <div class="seperator"></div>
+
 
 
     <div class="title">{{ __('Hoe lang duurde de les precies?') }}</div>
