@@ -138,7 +138,7 @@ class StudyController extends Controller {
     public function report($key, $slug) {
 
         $study                                                              = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
-        $user                                                               = Person::where(Model::$PERSON_SLUG, $slug)->first()->getUser();
+        $user                                                               = Person::where(Model::$PERSON_SLUG, $slug)->first()->getUser;
 
         return view(Views::FORM_REPORT, [
 
