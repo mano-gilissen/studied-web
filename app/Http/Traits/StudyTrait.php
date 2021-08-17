@@ -9,6 +9,7 @@ use App\Http\Support\Color;
 use App\Http\Support\Model;
 use App\Http\Support\Func;
 use App\Models\Agreement;
+use App\Models\Report;
 use App\Models\Study;
 use Auth;
 
@@ -232,6 +233,30 @@ trait StudyTrait {
 
         return !in_array($study->{Model::$SERVICE}, [ServiceTrait::$ID_COLLEGE, ServiceTrait::$ID_TRAINING]);
 
+    }
+
+
+
+    public static function hasReport($study, $user) {
+
+        return Report::where(Model::$STUDY, $study->{Model::$BASE_ID})->where(Model::$USER, $user->id)->exists();
+
+    }
+
+
+
+    public static function isReported($study) {
+
+        foreach($study->getParticipants_User as $user) {
+
+            if (!self::hasReport($study, $user)) {
+
+                return false;
+
+            }
+        }
+
+        return true;
     }
 
 

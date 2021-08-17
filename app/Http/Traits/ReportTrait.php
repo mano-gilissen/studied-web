@@ -23,7 +23,7 @@ trait ReportTrait {
         $report                                                             = new Report;
 
         $report->{Model::$STUDY}                                            = $study->{Model::$BASE_ID};
-        $report->{Model::$USER}                                             = $data['_' . Model::$STUDENT];
+        $report->{Model::$USER}                                             = $data['_' . Model::$USER];
 
         $report->{Model::$REPORT_CONTENT_VOLGENDE_LES}                      = $data[Model::$REPORT_CONTENT_VOLGENDE_LES];
         $report->{Model::$REPORT_CONTENT_UITDAGINGEN}                       = $data[Model::$REPORT_CONTENT_UITDAGINGEN];

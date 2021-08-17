@@ -48,7 +48,7 @@
 
 
 
-    @include('form.field-hidden', ['id' => '_student', 'value' => $study->getParticipants_User->first()->id])
+    @include('form.field-hidden', ['id' => '_user', 'value' => $user->id])
 
     @include('form.field-hidden', ['id' => '_study', 'value' => $study->id])
 

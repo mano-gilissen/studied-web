@@ -135,9 +135,10 @@ class StudyController extends Controller {
 
 
 
-    public function report($key) {
+    public function report($key, $user_id) {
 
         $study                                                              = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
+        $user                                                               = User::find($user_id);
 
         return view(Views::FORM_REPORT, [
 
@@ -145,7 +146,8 @@ class StudyController extends Controller {
             Key::SUBMIT_ACTION                                              => 'Rapporteren',
             Key::SUBMIT_ROUTE                                               => 'study.report_submit',
 
-            Model::$STUDY                                                   => $study
+            Model::$STUDY                                                   => $study,
+            Model::$USER                                                    => $user
         ]);
     }
 
@@ -159,7 +161,7 @@ class StudyController extends Controller {
 
         // self::report_validate($data);
 
-        if (ReportTrait::create($data, $study)) {
+        if (ReportTrait::create($data, $study) && StudyTrait::isReported($study)) {
 
             $study->{Model::$STUDY_STATUS}                                  = StudyTrait::$STATUS_REPORTED;
 
