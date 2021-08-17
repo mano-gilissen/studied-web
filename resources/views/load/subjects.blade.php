@@ -30,7 +30,7 @@
 
 @else
 
-    <div class="block-note">Selecteer eerst de exacte start en eind tijdstip bovenaan.</div>
+    <div class="block-note">Selecteer eerst het exacte start en eind tijdstip bovenaan.</div>
 
 @endif
 

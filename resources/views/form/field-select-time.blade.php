@@ -74,7 +74,7 @@
 
                     if ($set_study ?? false) {
 
-                        $is_selected                    = App\Http\Support\Format::datetime($study->end, App\Http\Support\Format::$TIME_SINGLE) == ($hours . ':' . $minutes);
+                        $is_selected                    = "--:--";
 
                     }
 
@@ -82,15 +82,19 @@
 
                 <option
 
-                    value = "{{ $hours }}:{{ $minutes }}"
-
-                    @if(($set_study ?? false) && $is_selected) selected @endif>
+                    value = "{{ $hours }}:{{ $minutes }}">
 
                     {{ $hours }}:{{ $minutes }}
 
                 </option>
 
             @endfor
+
+            @if(($set_study ?? false) && $is_selected)
+
+                <option value="00:00" style="display:none" selected>--:--</option>
+
+            @endif
 
         </select>
 
