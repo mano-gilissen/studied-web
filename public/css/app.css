@@ -319,6 +319,7 @@ button:focus {
     font-family:                        'Circular', serif;
     font-weight:                        200;
     font-size:                          12px;
+    user-select:                        none;
 }
 
 .tab {
