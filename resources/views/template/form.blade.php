@@ -42,7 +42,7 @@
 
 
 
-                @if($errors->any())
+                @if(!$errors->isEmpty())
 
                     @php dd($errors) @endphp
 
