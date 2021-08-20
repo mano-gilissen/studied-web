@@ -29,8 +29,22 @@ class Func {
 
     public static function contains($haystack, $needle) {
 
-        return strpos($haystack, $needle) !== false;
+        if(!is_array($needle)) {
 
+            $needle                                         = array($needle);
+
+        }
+
+        foreach($needle as $query) {
+
+            if(strpos($haystack, $query) !== false) {
+
+                return true;
+
+            }
+        }
+
+        return false;
     }
 
 

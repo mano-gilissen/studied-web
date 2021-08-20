@@ -160,7 +160,7 @@ class StudyController extends Controller {
 
         $study                                                              = Study::find($data['_' . Model::$STUDY]);
 
-        // self::report_validate($data);
+        self::report_validate($data);
 
         if (ReportTrait::create($data, $study) && StudyTrait::isReported($study)) {
 
@@ -176,22 +176,30 @@ class StudyController extends Controller {
 
     public function report_validate(array $data) {
 
-        $messages = [
+        $messages                                                           = [
             'required'                                                      => 'Vul een onderwerp in.',
+            'max'                                                           => 'Gebruik maximaal 1000 karakters.'
         ];
 
-        $rules = [];
+        $rules                                                              = [];
+
+        $fields_open_text                                                   = [
+            Model::$REPORT_CONTENT_VOORTGANG,
+            Model::$REPORT_CONTENT_UITDAGINGEN,
+            Model::$REPORT_CONTENT_VOLGENDE_LES,
+            Model::$REPORT_SUBJECT_VERSLAG
+        ];
 
         foreach ($data as $key) {
-/*
-            if (Func::contains($key, )) {
 
-                $rules[$key] = ['required'];
+            if (Func::contains($key, $fields_open_text)) {
 
-            }*/
+                $rules[$key]                                                = ['required|max:999'];
+
+            }
         }
 
-        $validator = Validator::make($data, $rules, $messages);
+        $validator                                                          = Validator::make($data, $rules, $messages);
 
         $validator->validate();
     }
