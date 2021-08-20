@@ -27,6 +27,7 @@ const OBJECT_PAGE_TITLE                         = '.page.title:not(.dot)';
 
 const ELEMENT_SELECT                            = 'select';
 const ELEMENT_TEXTAREA                          = 'textarea';
+const ELEMENT_IMAGE                             = 'img';
 
 const CLASS_HEADER                              = '.header';
 const CLASS_FILTER                              = '.filter';
@@ -35,6 +36,8 @@ const CLASS_PERSON_REPORT                       = '.person-report';
 const CLASS_AGREEMENT                           = '.agreement';
 const CLASS_BUTTON                              = '.button';
 const CLASS_DOT                                 = '.dot';
+const CLASS_TAB                                 = '.tab';
+const CLASS_ITEM_TITLE                          = '.item-title';
 
 const ICON_BACK                                 = "/images/back.svg";
 const ICON_MENU                                 = "/images/menu.svg";

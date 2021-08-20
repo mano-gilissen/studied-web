@@ -11,21 +11,30 @@ $(function() {
 
 
 
-    $('.report-tabs').on('click', '.tab', function() {
+    $('.report-tabs').on('click', CLASS_TAB, function() {
 
         report_set_active($(this));
 
     });
 
-    $('.report-tabs').on('mouseenter', '.tab', function() {
+    $('.report-tabs').on('mouseenter', CLASS_TAB, function() {
 
         report_tab_enter($(this));
 
     });
 
-    $('.report-tabs').on('mouseleave', '.tab', function() {
+    $('.report-tabs').on('mouseleave', CLASS_TAB, function() {
 
         report_tab_leave();
+
+    });
+
+
+
+    $('.report').on('click', CLASS_ITEM_TITLE, function() {
+
+        $(this)                                         .next().toggleClass(ATTR_ACTIVE);
+        $(this)                                         .find(ELEMENT_IMAGE).toggleClass(ATTR_ACTIVE);
 
     });
 
@@ -40,7 +49,7 @@ $(function() {
 
 
 function report_set_active(tab) {
-    
+
     tab_active                                          = tab;
 
     var tabs                                            = $('.report-tabs .tab');
