@@ -36,7 +36,7 @@ trait UserTrait {
         $user                                                   = new User;
 
         $user->{Model::$USER_EMAIL}                             = $data[Model::$USER_EMAIL];
-        $user->{Model::$ROLE}                                   = $data[$role];
+        $user->{Model::$ROLE}                                   = $role;
         $user->{Model::$USER_STATUS}                            = self::$STATUS_INTAKE;
 
         $user->save();
