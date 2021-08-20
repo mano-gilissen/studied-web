@@ -58,8 +58,8 @@
 
 
 
-.report img,
-.report .no-avatar {
+.report .person-report img,
+.report .person-report .no-avatar {
     width:                              64px;
     height:                             64px;
     margin:                             0 8px 0 0;
