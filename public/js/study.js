@@ -40,6 +40,8 @@ $(function() {
 
 
 function report_set_active(tab) {
+    
+    tab_active                                          = tab;
 
     var tabs                                            = $('.report-tabs .tab');
     var reports                                         = $('.report');
@@ -70,7 +72,6 @@ function report_set_active_default() {
 function report_tab_enter(tab) {
 
     var tabs                                            = $('.report-tabs .tab');
-    tab_active                                          = $('.report-tabs .tab.active');
 
     tabs                                                .removeClass(ATTR_ACTIVE);
     tab                                                 .addClass(ATTR_ACTIVE);

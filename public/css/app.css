@@ -324,6 +324,7 @@ button:focus {
 .tab {
     margin-right:                       8px;
     background:                         transparent;
+    cursor:                             pointer;
 }
 
 .tab:hover,
