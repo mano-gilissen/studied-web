@@ -123,18 +123,25 @@
 }
 
 .report .content .item {
-    display:                            flex;
-    align-items:                        center;
-    height:                             64px;
     width:                              100%;
     padding:                            0 16px 0 32px;
     color:                              #666666;
 }
 
-.report .content .item img {
+.report .content .item-title {
+    display:                            flex;
+    align-items:                        center;
+    height:                             64px;
+}
+
+.report .content .item-title img {
     width:                              24px;
     height:                             24px;
     margin-left:                        auto;
+}
+
+.report .content p {
+    margin-bottom:                      28px;
 }
 
 .report .content .seperator {

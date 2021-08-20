@@ -84,19 +84,15 @@
 
                 <div class="item">
 
-                    <div>Voortgang</div>
+                    <div class="item-title">
 
-                    <img src="/images/chevron-down.svg">
+                        <div>Voortgang</div>
 
-                </div>
+                        <img src="/images/chevron-down.svg">
 
-                <div class="seperator"></div>
+                    </div>
 
-                <div class="item">
-
-                    <div>Volgende les</div>
-
-                    <img src="/images/chevron-down.svg">
+                    <p>{{ $report->{\App\Http\Support\Model::$REPORT_CONTENT_VOORTGANG} }}</p>
 
                 </div>
 
@@ -104,9 +100,31 @@
 
                 <div class="item">
 
-                    <div>Uitdagingen</div>
+                    <div class="item-title">
 
-                    <img src="/images/chevron-down.svg">
+                        <div>Volgende les</div>
+
+                        <img src="/images/chevron-down.svg">
+
+                    </div>
+
+                    <p>{{ $report->{\App\Http\Support\Model::$REPORT_CONTENT_VOLGENDE_LES} }}</p>
+
+                </div>
+
+                <div class="seperator"></div>
+
+                <div class="item">
+
+                    <div class="item-title">
+
+                        <div>Uitdagingen</div>
+
+                        <img src="/images/chevron-down.svg">
+
+                    </div>
+
+                    <p>{{ $report->{\App\Http\Support\Model::$REPORT_CONTENT_UITDAGINGEN} }}</p>
 
                 </div>
 
