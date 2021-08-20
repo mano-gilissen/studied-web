@@ -44,7 +44,7 @@
 
                 @if($errors->any())
 
-                    @foreach($errors as $error)
+                    @foreach($errors->all() as $error)
 
                         <div>{{ $error->message }}</div>
 
