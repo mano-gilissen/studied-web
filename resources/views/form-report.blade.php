@@ -34,6 +34,8 @@
 
         @php $id_user = 'user_' . $user->id . '-'; @endphp
 
+        <script>console.log('{{ $id_user }}');</script>
+
 
 
         @if(\App\Http\Traits\StudyTrait::hasGroupReporting($study))
