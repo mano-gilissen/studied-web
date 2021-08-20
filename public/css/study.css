@@ -126,6 +126,7 @@
     width:                              100%;
     padding:                            0 16px 0 32px;
     color:                              #666666;
+    transition:                         all .3s ease-out;
 }
 
 .report .content .item-title {
