@@ -194,6 +194,7 @@ class StudyController extends Controller {
             if (Func::contains($key, Model::$REPORT_SUBJECT_VERSLAG)) {
 
                 // TODO: FINISH
+                // Only add to rules if field belongs to primary subject or report for this user has secondary subject
 
             }
         }
