@@ -17,6 +17,7 @@ use App\Http\Support\Views;
 use App\Http\Support\Key;
 use App\Http\Support\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Validator;
 use App\Models\Service;
 use App\Models\Subject;
 use App\Models\User;

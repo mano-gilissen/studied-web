@@ -4,12 +4,11 @@
 
 namespace App\Http\Traits;
 
-
-
 use App\Http\Support\Key;
 use App\Http\Support\Model;
 use App\Models\Student;
-use Illuminate\Support\Facades\Validator;
+
+
 
 trait StudentTrait {
 
