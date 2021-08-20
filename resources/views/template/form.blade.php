@@ -44,6 +44,8 @@
 
                 @if($errors->any())
 
+                    @php dd($errors) @endphp
+
                     <div class="block-note error">Vul de juiste gegevens in en probeer het opnieuw.</div>
 
                     <div class="seperator"></div>
