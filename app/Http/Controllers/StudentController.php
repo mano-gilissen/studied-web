@@ -65,7 +65,7 @@ class StudentController extends Controller {
             Key::SUBMIT_ACTION                                              => 'Aanmaken',
             Key::SUBMIT_ROUTE                                               => 'student.create_submit',
 
-            Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX                  => PersonTrait::getPrefixData(),
+            Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX                  => Format::encode(PersonTrait::getPrefixData()),
         ]);
     }
 
