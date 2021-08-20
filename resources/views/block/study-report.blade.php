@@ -18,6 +18,8 @@
 
     @foreach($study->getParticipants_User as $participant)
 
+        @php $report = $study->getReport($participant) @endphp
+
         <div class="report" id="report_{{ $participant->id }}">
 
             <div style="display:flex">
@@ -42,13 +44,13 @@
 
                 <div class="comment-tail"></div>
 
-                <div class="comment">"{{ \App\Http\Traits\ReportTrait::getVerslagText($study->getReport($participant)) }}"</div>
+                <div class="comment">"{{ \App\Http\Traits\ReportTrait::getVerslagText($report) }}"</div>
 
             </div>
 
             <div class="subjects">
 
-                @foreach($study->getReport($participant)->getReport_Subjects as $report_subject)
+                @foreach($report->getReport_Subjects as $report_subject)
 
                     <div class="subject">
 
@@ -56,7 +58,7 @@
 
                         <div class="dots">
 
-                            @for ($i = 0; $i < \App\Http\Traits\ReportTrait::getDurationDots_Total($study->getReport($participant)); $i++)
+                            @for ($i = 0; $i < \App\Http\Traits\ReportTrait::getDurationDots_Total($report); $i++)
 
                                 @if($i < \App\Http\Traits\Report_SubjectTrait::getDurationDots($report_subject))
 
