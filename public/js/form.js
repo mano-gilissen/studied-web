@@ -248,7 +248,7 @@ function report_subjects_load() {
 
     $('.subjects').each(function( index ) {
 
-        console.log($(this).attr('id'));
+        console.log($(this));
 
         var subjects                                = $($(this).attr('id'));
         var subjects_descendents                    = $($(this).attr('id') + ' *');
