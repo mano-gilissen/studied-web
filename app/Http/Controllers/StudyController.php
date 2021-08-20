@@ -175,6 +175,8 @@ class StudyController extends Controller {
 
     public function form_report_subjects_load(Request $request) {
 
+        dd($request);
+
         $time_available                                                     = $request->input('time_available', null);
         $study_id                                                           = $request->input(Model::$STUDY, null);
         $user_id                                                            = $request->input(Model::$USER, null);

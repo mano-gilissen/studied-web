@@ -248,14 +248,12 @@ function report_subjects_load() {
 
     $('.subjects').each(function( index ) {
 
-        console.log($(this).data('user'));
-
         $($(this).attr('id') + ' *')                .off();
         $(this)                                     .animate({opacity: 0}, 200);
 
         var user                                    = $(this).data('user');
 
-        setTimeout(function(){
+        setTimeout(function() {
 
             $(this).load('/load/study/subjects', {
 
