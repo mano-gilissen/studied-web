@@ -197,6 +197,8 @@ class StudyController extends Controller {
             }
         }
 
+        dd($rules);
+
         $validator                                                          = Validator::make($data, $rules, $messages);
 
         $validator->validate();
