@@ -131,6 +131,11 @@ html, body {
     background:                         #F8F8F8;
 }
 
+.block-note.error {
+    color:                              #FF0000;
+    background:                         #FFD8D8;
+}
+
 
 
 
