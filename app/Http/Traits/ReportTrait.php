@@ -55,7 +55,6 @@ trait ReportTrait {
 
                 }
             }
-            }
         }
 
 
