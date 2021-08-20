@@ -190,16 +190,12 @@ class StudyController extends Controller {
 
         foreach ($data as $key => $value) {
 
-            echo($key);
-
             if (Func::contains($key, $fields_open_text)) {
 
                 $rules[$key]                                                = ['required|max:999'];
 
             }
         }
-
-        dd($rules);
 
         $validator                                                          = Validator::make($data, $rules, $messages);
 
