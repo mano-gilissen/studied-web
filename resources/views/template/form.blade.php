@@ -46,7 +46,7 @@
 
                     @foreach($errors->all() as $error)
 
-                        <div>{{ $error->message }}</div>
+                        <div>{{ $error }}</div>
 
                     @endforeach
 
