@@ -15,10 +15,6 @@ $(function() {
 
 
 
-    report_set_active($('.report-tabs .tab').first())
-
-
-
 });
 
 
