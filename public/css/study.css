@@ -134,14 +134,23 @@
     height:                             64px;
 }
 
-.report .content .item-title img {
+.report .content .item img {
     width:                              24px;
     height:                             24px;
     margin-left:                        auto;
 }
 
-.report .content p {
+.report .content .item.visible img {
+    transform:                          rotate(180deg);
+}
+
+.report .content .item p {
+    height:                             0;
     margin-bottom:                      28px;
+}
+
+.report .content .item.visible p {
+    height:                             auto;
 }
 
 .report .content .seperator {

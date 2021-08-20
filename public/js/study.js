@@ -33,8 +33,7 @@ $(function() {
 
     $('.report').on('click', CLASS_ITEM_TITLE, function() {
 
-        $(this)                                         .next().toggleClass(ATTR_ACTIVE);
-        $(this)                                         .find(ELEMENT_IMAGE).toggleClass(ATTR_ACTIVE);
+        $(this)                                         .parent().toggleClass(ATTR_VISIBLE);
 
     });
 
