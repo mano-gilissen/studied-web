@@ -43,6 +43,7 @@ trait ReportTrait {
             $report->save();
 
 
+            $a = [];
 
             foreach ($data as $key => $value) {
 
@@ -51,10 +52,14 @@ trait ReportTrait {
                    !Func::contains($key, '_' . $prefix . Model::$REPORT_SUBJECT_VERSLAG) &&
                     strlen($data[$key]) > 0) {
 
-                    Report_SubjectTrait::create($data, $key, $report);
+                    array_push($a, $key);
+
+                    //Report_SubjectTrait::create($data, $key, $report);
 
                 }
             }
+
+            dd($a);
         }
 
 
