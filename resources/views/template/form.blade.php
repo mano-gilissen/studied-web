@@ -44,11 +44,7 @@
 
                 @if($errors->any())
 
-                    @foreach($errors->all() as $error)
-
-                        <div>{{ $error }}</div>
-
-                    @endforeach
+                    @php echo($errors) @endphp
 
                     <div class="block-note error">Vul de juiste gegevens in en probeer het opnieuw.</div>
 
