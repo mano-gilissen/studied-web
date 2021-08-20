@@ -18,7 +18,7 @@
 
     @foreach($study->getParticipants_User as $participant)
 
-        <div class="report" id="{{ $participant->id }}">
+        <div class="report" id="report_{{ $participant->id }}">
 
             <div style="display:flex">
 
