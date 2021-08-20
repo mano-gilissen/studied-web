@@ -34,8 +34,6 @@
 
         @php $id_user = 'user_' . $user->id . '-'; @endphp
 
-        <script>console.log('{{ $id_user }}');</script>
-
 
 
         @if(\App\Http\Traits\StudyTrait::hasGroupReporting($study))
@@ -50,7 +48,7 @@
 
         <div class="title">{{ __('Wat is er behandeld?') }}</div>
 
-        <div id="subjects"> @include('load.subjects', ['id_user' => $id_user]) </div>
+        <div id="subjects"> @include('load.subjects', ['id_user' => $id_usera]) </div>
 
         <div class="seperator large"></div>
 
