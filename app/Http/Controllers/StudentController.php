@@ -61,7 +61,7 @@ class StudentController extends Controller {
 
         return view(Views::FORM_STUDENT_CREATE, [
 
-            Key::PAGE_TITLE                                                 => 'Leerling aanmaken',
+            Key::PAGE_TITLE                                                 => 'Nieuwe leerling',
             Key::SUBMIT_ACTION                                              => 'Aanmaken',
             Key::SUBMIT_ROUTE                                               => 'student.create_submit',
 
