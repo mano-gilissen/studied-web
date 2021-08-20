@@ -96,10 +96,10 @@ class StudyController extends Controller {
             Key::SUBMIT_ACTION                                              => 'Inplannen',
             Key::SUBMIT_ROUTE                                               => 'study.plan_submit',
 
-            Key::AUTOCOMPLETE_DATA.Model::$LOCATION                         => Format::encode($ac_data_location),
-            Key::AUTOCOMPLETE_DATA.'host'                                   => Format::encode($ac_data_host),
+            Key::AUTOCOMPLETE_DATA . Model::$LOCATION                       => Format::encode($ac_data_location),
+            Key::AUTOCOMPLETE_DATA . 'host'                                 => Format::encode($ac_data_host),
 
-            Key::AUTOCOMPLETE_ADDITIONAL.'host'                             => Format::encode($ac_additional_host),
+            Key::AUTOCOMPLETE_ADDITIONAL . 'host'                           => Format::encode($ac_additional_host),
         ]);
     }
 

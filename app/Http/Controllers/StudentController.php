@@ -57,6 +57,22 @@ class StudentController extends Controller {
 
 
 
+    public function create() {
+
+        return view(Views::FORM_STUDENT_CREATE, [
+
+            Key::PAGE_TITLE                                                 => 'Leerling aanmaken',
+            Key::SUBMIT_ACTION                                              => 'Aanmaken',
+            Key::SUBMIT_ROUTE                                               => 'student.create_submit',
+
+            Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX                  => PersonTrait::getPrefixData(),
+        ]);
+    }
+
+
+
+
+
     public function list(Request $request) {
 
         return Table::view($this, $request);

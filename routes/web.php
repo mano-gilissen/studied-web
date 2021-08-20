@@ -26,7 +26,11 @@ Route::get('/plannen',                          'StudyController@plan')->name('s
 
 
 
+Route::get('/leerling/aanmaken',                'StudentController@create')->name('student.create')->middleware('auth');
+
 Route::get('/leerlingen',                       'StudentController@list')->name('student.list')->middleware('auth');
+
+
 
 Route::get('/medewerkers',                      'EmployeeController@list')->name('employee.list')->middleware('auth');
 
@@ -43,6 +47,7 @@ Route::get('/profiel/{slug}',                   'PersonController@view')->name('
 Route::get('/inloggen',                         'Auth\LoginController@view')->name('login.view');
 
 Route::get('/wachtwoordvergeten',               'Auth\ForgotPasswordController@forgot')->name('password.forgot');
+
 
 
 
@@ -85,6 +90,8 @@ Route::post('/load/customer/filter',            'CustomerController@list_filter_
 Route::post('/submit/study/plan',               'StudyController@plan_submit')->name('study.plan_submit')->middleware('auth');
 
 Route::post('/submit/study/report',             'StudyController@report_submit')->name('study.report_submit')->middleware('auth');
+
+Route::post('/submit/student/create',           'StudentController@create_submit')->name('student.create_submit')->middleware('auth');
 
 
 

@@ -85,6 +85,18 @@ trait PersonTrait {
 
 
 
+    public static function getPrefixData() {
+
+        return [
+            "Dhr.",
+            "Mevr",
+            "Mr.",
+            "Mw.",
+        ];
+    }
+
+
+
 
 
 }
