@@ -28,31 +28,47 @@
 
 
 
-    <div class="block-note">Dit het rapport voor <span style="font-weight: 400">{{ \App\Http\Traits\PersonTrait::getFullName($user->getPerson) }}</span></div>
-
-    <div class="seperator"></div>
+    @foreach($study->getParticipants_User as $user)
 
 
 
-    <div class="title">{{ __('Wat is er behandeld?') }}</div>
-
-    <div id="subjects"> @include('load.subjects') </div>
-
-    <div class="seperator large"></div>
+        @php $prefix = 'user_' . $user->id . '-'; @endphp
 
 
 
-    <div class="title">{{ __('Hoe verloopt de begeleiding?') }}</div>
+        @if(\App\Http\Traits\StudyTrait::hasGroupReporting($study))
 
-    @include('form.field-textarea', ['id' => 'content_volgende_les', 'tag' => 'Volgende les', 'required' => true])
+            <div class="block-note">Dit het rapport voor <span style="font-weight: 400">{{ \App\Http\Traits\PersonTrait::getFullName($user->getPerson) }}</span></div>
 
-    @include('form.field-textarea', ['id' => 'content_uitdagingen', 'tag' => 'Uitdagingen', 'required' => true])
+            <div class="seperator"></div>
 
-    @include('form.field-textarea', ['id' => 'content_voortgang', 'tag' => 'Voortgang', 'required' => true])
+        @endif
 
 
 
-    @include('form.field-hidden', ['id' => '_user', 'value' => $user->id])
+        <div class="title">{{ __('Wat is er behandeld?') }}</div>
+
+        <div id="subjects"> @include('load.subjects') </div>
+
+        <div class="seperator large"></div>
+
+
+
+        <div class="title">{{ __('Hoe verloopt de begeleiding?') }}</div>
+
+        @include('form.field-textarea', ['id' => $prefix . 'content_volgende_les', 'tag' => 'Volgende les', 'required' => true])
+
+        @include('form.field-textarea', ['id' => $prefix . 'content_uitdagingen', 'tag' => 'Uitdagingen', 'required' => true])
+
+        @include('form.field-textarea', ['id' => $prefix . 'content_voortgang', 'tag' => 'Voortgang', 'required' => true])
+
+        <div class="seperator"></div>
+
+
+
+    @endforeach
+
+
 
     @include('form.field-hidden', ['id' => '_study', 'value' => $study->id])
 

@@ -40,21 +40,17 @@
 
                             @if(\App\Http\Traits\StudyTrait::canReport($study))
 
-                                @foreach($study->getParticipants_User as $user)
+                                @if(!\App\Http\Traits\StudyTrait::isReported($study))
 
-                                    @if(!\App\Http\Traits\StudyTrait::hasReport($study, $user))
+                                    <div class="button icon" onclick="window.location.href='{{ route('study.report', [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}'">
 
-                                        <div class="button icon" onclick="window.location.href='{{ route('study.report', [\App\Http\Support\Model::$BASE_KEY => $study->key,  \App\Http\Support\Model::$PERSON_SLUG => $user->getPerson->slug]) }}'">
+                                        <img class="icon" src="/images/edit.svg">
 
-                                            <img class="icon" src="/images/edit.svg">
+                                        <div class="text">Rapporteren</div>
 
-                                            <div class="text">Rapporteer {{ $user->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME} }}</div>
+                                    </div>
 
-                                        </div>
-
-                                    @endif
-
-                                @endforeach
+                                @endif
 
                             @endif
 

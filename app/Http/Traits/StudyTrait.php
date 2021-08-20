@@ -245,6 +245,14 @@ trait StudyTrait {
 
 
 
+    public static function hasGroupReporting($study) {
+
+        return self::hasReporting($study) && $study->getParticipants_User->count() > 1;
+
+    }
+
+
+
     public static function isReported($study) {
 
         foreach($study->getParticipants_User as $user) {

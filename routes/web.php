@@ -20,7 +20,7 @@ Route::get('/lessen',                           'StudyController@list')->name('s
 
 Route::get('/les/{key}',                        'StudyController@view')->name('study.view')->middleware('auth');
 
-Route::get('/les/{key}/rapporteren/{slug}',     'StudyController@report')->name('study.report')->middleware('auth');
+Route::get('/les/{key}/rapporteren',            'StudyController@report')->name('study.report')->middleware('auth');
 
 Route::get('/plannen',                          'StudyController@plan')->name('study.plan')->middleware('auth');
 

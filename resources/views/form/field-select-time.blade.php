@@ -80,13 +80,7 @@
 
                 @endphp
 
-                <option
-
-                    value = "{{ $hours }}:{{ $minutes }}">
-
-                    {{ $hours }}:{{ $minutes }}
-
-                </option>
+                <option value="{{ $hours }}:{{ $minutes }}">{{ $hours }}:{{ $minutes }}</option>
 
             @endfor
 

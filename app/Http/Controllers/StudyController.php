@@ -135,10 +135,9 @@ class StudyController extends Controller {
 
 
 
-    public function report($key, $slug) {
+    public function report($key) {
 
         $study                                                              = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
-        $user                                                               = Person::where(Model::$PERSON_SLUG, $slug)->first()->getUser;
 
         return view(Views::FORM_REPORT, [
 
@@ -146,8 +145,7 @@ class StudyController extends Controller {
             Key::SUBMIT_ACTION                                              => 'Rapporteren',
             Key::SUBMIT_ROUTE                                               => 'study.report_submit',
 
-            Model::$STUDY                                                   => $study,
-            Model::$USER                                                    => $user
+            Model::$STUDY                                                   => $study
         ]);
     }
 
@@ -156,6 +154,8 @@ class StudyController extends Controller {
     public function report_submit(Request $request) {
 
         $data                                                               = $request->all();
+
+        dd($data);
 
         $study                                                              = Study::find($data['_' . Model::$STUDY]);
 
