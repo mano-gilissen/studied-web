@@ -188,6 +188,8 @@ class StudyController extends Controller {
             Model::$REPORT_SUBJECT_VERSLAG
         ];
 
+        dd(Func::contains('_user_1_subject_2_content_verslag', $fields_open_text));
+
         foreach ($data as $key) {
 
             if (Func::contains($key, $fields_open_text)) {
@@ -196,8 +198,6 @@ class StudyController extends Controller {
 
             }
         }
-
-        dd($rules);
 
         $validator                                                          = Validator::make($data, $rules, $messages);
 
