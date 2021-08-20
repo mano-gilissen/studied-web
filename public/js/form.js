@@ -248,6 +248,8 @@ function report_subjects_load() {
 
     $('.subjects').each(function( index ) {
 
+        console.log($(this).attr('id'));
+
         var subjects                                = $($(this).attr('id'));
         var subjects_descendents                    = $($(this).attr('id') + ' *');
         var user                                    = $(this).data('user');
