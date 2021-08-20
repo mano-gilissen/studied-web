@@ -6,10 +6,38 @@ namespace App\Http\Traits;
 
 use App\Http\Support\Key;
 use App\Http\Support\Model;
+use App\Models\Person;
 use App\Models\Role;
 
 
 trait PersonTrait {
+
+
+
+
+
+    public static function create(array $data, &$person) {
+
+        $person                                                 = new Person;
+
+        $person->{Model::$PERSON_PREFIX}                        = $data[Model::$PERSON_PREFIX];
+        $person->{Model::$PERSON_FIRST_NAME}                    = $data[Model::$PERSON_FIRST_NAME];
+        $person->{Model::$PERSON_MIDDLE_NAME}                   = $data[Model::$PERSON_MIDDLE_NAME]; // TODO: Test if not in $data (Field empty)
+        $person->{Model::$PERSON_LAST_NAME}                     = $data[Model::$PERSON_LAST_NAME];
+        $person->{Model::$PERSON_BIRTH_DATE}                    = $data[Model::$PERSON_BIRTH_DATE] . ' 00:00:00';
+
+        $person->{Model::$PERSON_SLUG}                          = self::createSlug($person);
+
+        $person->save();
+    }
+
+
+
+    public static function createSlug($person) {
+
+        return str_replace(' ', '_', strtolower($person->{Model::$PERSON_FIRST_NAME} . ' ' . (strlen($person->{Model::$PERSON_MIDDLE_NAME}) > 0 ? $person->{Model::$PERSON_MIDDLE_NAME} . ' ' : '') . $person->{Model::$PERSON_LAST_NAME}));
+
+    }
 
 
 
@@ -23,10 +51,10 @@ trait PersonTrait {
 
         }
 
-        $prefix                 = $person->{Model::$PERSON_PREFIX};
-        $first_name             = $person->{Model::$PERSON_FIRST_NAME};
-        $middle_name            = $person->{Model::$PERSON_MIDDLE_NAME};
-        $last_name              = $person->{Model::$PERSON_LAST_NAME};
+        $prefix                                                 = $person->{Model::$PERSON_PREFIX};
+        $first_name                                             = $person->{Model::$PERSON_FIRST_NAME};
+        $middle_name                                            = $person->{Model::$PERSON_MIDDLE_NAME};
+        $last_name                                              = $person->{Model::$PERSON_LAST_NAME};
 
         return ($with_prefix && $prefix ? $prefix . ' ': '') . $first_name . ' ' . ($middle_name ? $middle_name . ' ' : '') . $last_name;
     }
@@ -41,8 +69,8 @@ trait PersonTrait {
 
         }
 
-        $first_name             = $person->{Model::$PERSON_FIRST_NAME};
-        $last_name              = $person->{Model::$PERSON_LAST_NAME};
+        $first_name                                             = $person->{Model::$PERSON_FIRST_NAME};
+        $last_name                                              = $person->{Model::$PERSON_LAST_NAME};
 
         return substr($first_name, 0, 1) . substr($last_name, 0, 1) ;
     }
@@ -57,7 +85,7 @@ trait PersonTrait {
 
         }
 
-        $user                   = $person->getUser;
+        $user                                                   = $person->getUser;
 
         switch($user->role) {
 

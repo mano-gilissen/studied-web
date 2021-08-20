@@ -39,19 +39,19 @@ class StudentController extends Controller {
 
     public static
 
-        $COLUMN_NAME                                        = 201,
-        $COLUMN_EMAIL                                       = 202,
-        $COLUMN_PHONE                                       = 203,
-        $COLUMN_NIVEAU                                      = 204,
-        $COLUMN_LEERJAAR                                    = 205,
-        $COLUMN_AGREEMENTS                                  = 206,
-        $COLUMN_MIN_MAX                                     = 207,
-        $COLUMN_STATUS                                      = 208,
-        $COLUMN_CUSTOMER                                    = 209,
-        $COLUMN_EMPLOYEE                                    = 210,
+        $COLUMN_NAME                                                        = 201,
+        $COLUMN_EMAIL                                                       = 202,
+        $COLUMN_PHONE                                                       = 203,
+        $COLUMN_NIVEAU                                                      = 204,
+        $COLUMN_LEERJAAR                                                    = 205,
+        $COLUMN_AGREEMENTS                                                  = 206,
+        $COLUMN_MIN_MAX                                                     = 207,
+        $COLUMN_STATUS                                                      = 208,
+        $COLUMN_CUSTOMER                                                    = 209,
+        $COLUMN_EMPLOYEE                                                    = 210,
 
-        $PARAMETER_CUSTOMER                                 = "klant",
-        $PARAMETER_EMPLOYEE                                 = "medewerker";
+        $PARAMETER_CUSTOMER                                                 = "klant",
+        $PARAMETER_EMPLOYEE                                                 = "medewerker";
 
 
 
@@ -66,14 +66,54 @@ class StudentController extends Controller {
             Key::SUBMIT_ROUTE                                               => 'student.create_submit',
 
             Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX                  => Format::encode(PersonTrait::getPrefixData()),
+
+            Key::AUTOCOMPLETE_DATA . Model::$STUDENT_SCHOOL                 => Format::encode(StudentTrait::getSchoolData()),
+            Key::AUTOCOMPLETE_DATA . Model::$STUDENT_NIVEAU                 => Format::encode(StudentTrait::getNiveauData()),
+            Key::AUTOCOMPLETE_DATA . Model::$STUDENT_LEERJAAR               => Format::encode(StudentTrait::getLeerjaarData()),
+            Key::AUTOCOMPLETE_DATA . Model::$STUDENT_PROFILE                => Format::encode(StudentTrait::getProfileData()),
         ]);
     }
 
 
 
-    public function create_submit() {
+    public function create_submit(Request $request) {
+
+        $student                                                            = null;
+        $data                                                               = $request->all();
+
+        self::create_validate($data);
+
+        StudentTrait::create($data, $student);
+
+        return redirect()->route('person.view', $student->{Model::$PERSON_SLUG});
+    }
 
 
+
+    public function create_validate(array $data) {
+
+        $messages                                                           = [];
+        $messages['required']                                               = 'Dit veld is verplicht.';
+        $messages['zipcode.max']                                            = 'Vul een geldige postcode in.';
+
+        $rules                                                              = [];
+
+        $rules[Model::$PERSON_PREFIX]                                       = ['required'];
+        $rules[Model::$PERSON_FIRST_NAME]                                   = ['required'];
+        $rules[Model::$PERSON_LAST_NAME]                                    = ['required'];
+        $rules[Model::$PERSON_BIRTH_DATE]                                   = ['required'];
+
+        $rules[Model::$USER_EMAIL]                                          = ['required', 'email'];
+
+        $rules[Model::$ADDRESS_STREET]                                      = ['required'];
+        $rules[Model::$ADDRESS_NUMBER]                                      = ['required'];
+        $rules[Model::$ADDRESS_ZIPCODE]                                     = ['required', 'max:20'];
+        $rules[Model::$ADDRESS_CITY]                                        = ['required'];
+        $rules[Model::$ADDRESS_COUNTRY]                                     = ['required'];
+
+        $validator                                                          = Validator::make($data, $rules, $messages);
+
+        $validator->validate();
     }
 
 
@@ -426,11 +466,11 @@ class StudentController extends Controller {
 
             case self::$COLUMN_NIVEAU:
 
-                return StudentTrait::getNiveauFilterData();
+                return StudentTrait::getNiveauData();
 
             case self::$COLUMN_LEERJAAR:
 
-                return StudentTrait::getLeerjaarFilterData();
+                return StudentTrait::getLeerjaarData();
 
             case self::$COLUMN_AGREEMENTS:
 

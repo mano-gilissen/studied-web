@@ -7,10 +7,54 @@ namespace App\Http\Traits;
 
 
 use App\Http\Support\Key;
+use App\Http\Support\Model;
+use App\Models\Address;
+use App\Models\Person;
+use App\Models\Student;
+use App\Models\User;
 
 trait StudentTrait {
 
 
+
+    public static function create(array $data, &$student) {
+
+        $student                                                = new Student;
+
+        $student->{Model::$STUDENT_SCHOOL}                      = $data[Model::$STUDENT_SCHOOL];
+        $student->{Model::$STUDENT_NIVEAU}                      = $data[Model::$STUDENT_NIVEAU];
+        $student->{Model::$STUDENT_LEERJAAR}                    = $data[Model::$STUDENT_LEERJAAR];
+        $student->{Model::$STUDENT_PROFILE}                     = $data[Model::$STUDENT_PROFILE];
+
+        $user                                                   = null;
+        $person                                                 = null;
+        $address                                                = null;
+
+        UserTrait::create($data, $user, RoleTrait::$ID_STUDENT);
+
+        PersonTrait::create($data, $person);
+
+        AddressTrait::create($data, $address);
+
+        if (!$user || !$person || !$address) {
+
+            return false;
+
+        }
+
+        $user->{Model::$PERSON}                                 = $person->{Model::$BASE_ID};
+        $person->{Model::$ADDRESS}                              = $address->{Model::$BASE_ID};
+        $student->{Model::$USER}                                = $user->{Model::$BASE_ID};
+
+        $student->save();
+        $user->save();
+        $person->save();
+        $address->save();
+
+
+
+        return $student;
+    }
 
 
 
@@ -18,6 +62,17 @@ trait StudentTrait {
 
         return $student->getCustomer != null;
 
+    }
+
+
+
+    public static function getSchoolData() {
+
+        return [
+            'Porta Mosana College',
+            'Sint-Maartens College',
+            'Stella Maris College'
+        ];
     }
 
 
@@ -44,7 +99,7 @@ trait StudentTrait {
 
 
 
-    public static function getNiveauFilterData() {
+    public static function getNiveauData() {
 
         return [
             1                                               => self::getNiveauText(1),
@@ -64,7 +119,7 @@ trait StudentTrait {
 
 
 
-    public static function getLeerjaarFilterData() {
+    public static function getLeerjaarData() {
 
         return [
             1                                               => 1,
@@ -73,6 +128,16 @@ trait StudentTrait {
             4                                               => 4,
             5                                               => 5,
             6                                               => 6
+        ];
+    }
+
+
+
+    public static function getProfileData() {
+
+        return [
+            'Natuur & Techniek',
+            'Economie & Maatschappij'
         ];
     }
 

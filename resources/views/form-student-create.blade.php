@@ -12,7 +12,7 @@
 
     @include('form.field-input', ['id' => 'first_name', 'tag' => 'Voornaam', 'required' => true])
 
-    @include('form.field-input', ['id' => 'middle_name', 'tag' => 'Tussenvoegsel', 'required' => true])
+    @include('form.field-input', ['id' => 'middle_name', 'tag' => 'Tussenvoegsel'])
 
     @include('form.field-input', ['id' => 'last_name', 'tag' => 'Achternaam', 'required' => true])
 
@@ -53,6 +53,20 @@
     @include('form.field-input', ['id' => 'city', 'tag' => 'Stad', 'required' => true])
 
     @include('form.field-input', ['id' => 'country', 'tag' => 'Land', 'required' => true])
+
+    <div class="seperator"></div>
+
+
+
+    <div class="title">{{ __('Educatie') }}</div>
+
+    @include('form.field-input', ['id' => 'school', 'tag' => 'School', 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true])
+
+    @include('form.field-input', ['id' => 'niveau', 'tag' => 'Niveau', 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true])
+
+    @include('form.field-input', ['id' => 'leerjaar', 'tag' => 'School', 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true])
+
+    @include('form.field-input', ['id' => 'profile', 'tag' => 'Profiel', 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'reject_other' => true])
 
     <div class="seperator"></div>
 

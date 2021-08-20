@@ -9,6 +9,7 @@ namespace App\Http\Traits;
 use App\Http\Support\Color;
 use App\Http\Support\Key;
 use App\Http\Support\Model;
+use App\Models\User;
 use Auth;
 
 
@@ -25,6 +26,21 @@ trait UserTrait {
         $STATUS_ACTIVE                                      = 2,
         $STATUS_PASSIVE                                     = 3,
         $STATUS_ENDED                                       = 4;
+
+
+
+
+
+    public static function create($data, &$user, $role) {
+
+        $user                                                   = new User;
+
+        $user->{Model::$USER_EMAIL}                             = $data[Model::$USER_EMAIL];
+        $user->{Model::$ROLE}                                   = $data[$role];
+        $user->{Model::$USER_STATUS}                            = self::$STATUS_INTAKE;
+
+        $user->save();
+    }
 
 
 
