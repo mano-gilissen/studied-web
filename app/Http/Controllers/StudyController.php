@@ -179,23 +179,26 @@ class StudyController extends Controller {
             'max'                                                           => 'Gebruik maximaal 1000 karakters.'
         ];
 
-        $rules                                                              = [];
 
-        $fields_open_text                                                   = [
-            Model::$REPORT_CONTENT_VOORTGANG,
-            Model::$REPORT_CONTENT_UITDAGINGEN,
-            Model::$REPORT_CONTENT_VOLGENDE_LES,
-            Model::$REPORT_SUBJECT_VERSLAG
-        ];
+
+        $rules                                                              = [];
 
         foreach ($data as $key => $value) {
 
-            if (Func::contains($key, $fields_open_text)) {
+            if (Func::contains($key, [Model::$REPORT_CONTENT_VOORTGANG, Model::$REPORT_CONTENT_UITDAGINGEN, Model::$REPORT_CONTENT_VOLGENDE_LES])) {
 
                 $rules[$key]                                                = ['required', 'max:999'];
 
             }
+
+            if (Func::contains($key, Model::$REPORT_SUBJECT_VERSLAG)) {
+
+                // TODO: FINISH
+
+            }
         }
+
+
 
         $validator                                                          = Validator::make($data, $rules, $messages);
 
