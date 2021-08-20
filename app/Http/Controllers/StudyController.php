@@ -188,7 +188,7 @@ class StudyController extends Controller {
             Model::$REPORT_SUBJECT_VERSLAG
         ];
 
-        dd($data);
+        dd(Func::contains('user_3_content_volgende_les', $fields_open_text));
 
         foreach ($data as $key) {
 
