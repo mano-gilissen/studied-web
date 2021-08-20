@@ -188,7 +188,7 @@ class StudyController extends Controller {
             Model::$REPORT_SUBJECT_VERSLAG
         ];
 
-        foreach ($data as $key) {
+        foreach ($data as $key => $value) {
 
             echo($key);
 
