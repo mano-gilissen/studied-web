@@ -89,7 +89,7 @@ trait PersonTrait {
 
         return [
             "Dhr.",
-            "Mevr",
+            "Mevr.",
             "Mr.",
             "Mw.",
         ];

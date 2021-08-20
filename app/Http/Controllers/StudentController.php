@@ -71,6 +71,13 @@ class StudentController extends Controller {
 
 
 
+    public function create_submit() {
+
+
+    }
+
+
+
 
 
     public function list(Request $request) {
