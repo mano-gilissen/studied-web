@@ -188,16 +188,18 @@ class StudyController extends Controller {
             Model::$REPORT_SUBJECT_VERSLAG
         ];
 
-        dd(Func::contains('user_3_content_volgende_les', $fields_open_text));
-
         foreach ($data as $key) {
 
             if (Func::contains($key, $fields_open_text)) {
+
+                dd('a');
 
                 $rules[$key]                                                = ['required|max:999'];
 
             }
         }
+
+        dd('b');
 
         $validator                                                          = Validator::make($data, $rules, $messages);
 
