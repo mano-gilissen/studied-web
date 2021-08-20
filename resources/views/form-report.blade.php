@@ -38,6 +38,8 @@
 
         @if(\App\Http\Traits\StudyTrait::hasGroupReporting($study))
 
+            <div class="seperator"></div>
+
             <div class="block-note">Dit het rapport voor <span style="font-weight: 400">{{ \App\Http\Traits\PersonTrait::getFullName($user->getPerson) }}</span></div>
 
             <div class="seperator"></div>
