@@ -86,7 +86,7 @@
 
                 <div class="item">
 
-                    <div class="item-title">
+                    <div class="item-title" onclick="$(this).next().toggleClass('open');$(this).find('img').toggleClass('open');">
 
                         <div>Voortgang</div>
 
@@ -102,7 +102,7 @@
 
                 <div class="item">
 
-                    <div class="item-title">
+                    <div class="item-title" onclick="$(this).next().toggleClass('open');$(this).find('img').toggleClass('open');">
 
                         <div>Volgende les</div>
 
@@ -118,7 +118,7 @@
 
                 <div class="item">
 
-                    <div class="item-title">
+                    <div class="item-title" onclick="$(this).next().toggleClass('open');$(this).find('img').toggleClass('open');">
 
                         <div>Uitdagingen</div>
 
