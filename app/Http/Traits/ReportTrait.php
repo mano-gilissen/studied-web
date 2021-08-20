@@ -20,33 +20,40 @@ trait ReportTrait {
 
     public static function create(array $data, &$study) {
 
-        $report                                                             = new Report;
-
-        $report->{Model::$STUDY}                                            = $study->{Model::$BASE_ID};
-        $report->{Model::$USER}                                             = $data['_' . Model::$USER];
-
-        $report->{Model::$REPORT_CONTENT_VOLGENDE_LES}                      = $data[Model::$REPORT_CONTENT_VOLGENDE_LES];
-        $report->{Model::$REPORT_CONTENT_UITDAGINGEN}                       = $data[Model::$REPORT_CONTENT_UITDAGINGEN];
-        $report->{Model::$REPORT_CONTENT_VOORTGANG}                         = $data[Model::$REPORT_CONTENT_VOORTGANG];
-
-        $report->{Model::$REPORT_START}                                     = substr($study->start, 0, 10) . ' ' . $data[Model::$REPORT_START] . ':00';
-        $report->{Model::$REPORT_END}                                       = substr($study->end, 0, 10) . ' ' . $data[Model::$REPORT_END] . ':00';
 
 
+        foreach ($study->getParticipants_User as $user) {
 
-        $report->save();
+            $report                                                         = new Report;
+
+            $prefix                                                         = 'user_' . $user->id . '_';
+
+            $report->{Model::$STUDY}                                        = $study->{Model::$BASE_ID};
+            $report->{Model::$USER}                                         = $user->id;
+
+            $report->{Model::$REPORT_CONTENT_VOLGENDE_LES}                  = $data[$prefix . Model::$REPORT_CONTENT_VOLGENDE_LES];
+            $report->{Model::$REPORT_CONTENT_UITDAGINGEN}                   = $data[$prefix . Model::$REPORT_CONTENT_UITDAGINGEN];
+            $report->{Model::$REPORT_CONTENT_VOORTGANG}                     = $data[$prefix . Model::$REPORT_CONTENT_VOORTGANG];
+
+            $report->{Model::$REPORT_START}                                 = substr($study->start, 0, 10) . ' ' . $data[Model::$REPORT_START] . ':00';
+            $report->{Model::$REPORT_END}                                   = substr($study->end, 0, 10) . ' ' . $data[Model::$REPORT_END] . ':00';
 
 
 
-        foreach ($data as $key => $value) {
+            $report->save();
 
-            if (Func::contains($key, '_' . Model::$SUBJECT) &&
-               !Func::contains($key, '_' . Model::$REPORT_SUBJECT_DURATION) &&
-               !Func::contains($key, '_' . Model::$REPORT_SUBJECT_VERSLAG) &&
-                strlen($data[$key]) > 0) {
 
-                Report_SubjectTrait::create($data, $key, $report);
 
+            foreach ($data as $key => $value) {
+
+                if (Func::contains($key, '_' . $prefix . Model::$SUBJECT) &&
+                   !Func::contains($key, '_' . $prefix . Model::$REPORT_SUBJECT_DURATION) &&
+                   !Func::contains($key, '_' . $prefix . Model::$REPORT_SUBJECT_VERSLAG) &&
+                    strlen($data[$key]) > 0) {
+
+                    Report_SubjectTrait::create($data, $key, $report);
+
+                }
             }
         }
 

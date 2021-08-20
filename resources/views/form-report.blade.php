@@ -32,7 +32,7 @@
 
 
 
-        @php $id_user = 'user_' . $user->id . '-'; @endphp
+        @php $id_user = 'user_' . $user->id . '_'; @endphp
 
 
 
