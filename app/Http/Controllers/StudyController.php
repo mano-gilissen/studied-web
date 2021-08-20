@@ -175,7 +175,7 @@ class StudyController extends Controller {
     public function report_validate(array $data) {
 
         $messages                                                           = [
-            'required'                                                      => 'Vul een onderwerp in.',
+            'required'                                                      => 'Dit veld is verplicht.',
             'max'                                                           => 'Gebruik maximaal 1000 karakters.'
         ];
 
