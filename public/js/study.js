@@ -2,6 +2,10 @@
 
 
 
+var tab_active;
+
+
+
 
 $(function() {
 
@@ -10,6 +14,18 @@ $(function() {
     $('.report-tabs').on('click', '.tab', function() {
 
         report_set_active($(this));
+
+    });
+
+    $('.report-tabs').on('mouseenter', '.tab', function() {
+
+        report_tab_enter($(this));
+
+    });
+
+    $('.report-tabs').on('mouseleave', '.tab', function() {
+
+        report_tab_leave();
 
     });
 
@@ -47,4 +63,25 @@ function report_set_active_default() {
         report_set_active(tabs.first());
 
     }
+}
+
+
+
+function report_tab_enter(tab) {
+
+    var tabs                                            = $('.report-tabs .tab');
+    tab_active                                          = $('.report-tabs .tab.active');
+
+    tabs                                                .removeClass(ATTR_ACTIVE);
+    tab                                                 .addClass(ATTR_ACTIVE);
+}
+
+
+
+function report_tab_leave() {
+
+    var tabs                                            = $('.report-tabs .tab');
+
+    tabs                                                .removeClass(ATTR_ACTIVE);
+    tab_active                                          .addClass(ATTR_ACTIVE);
 }
