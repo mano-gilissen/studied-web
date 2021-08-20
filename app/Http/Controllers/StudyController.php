@@ -190,9 +190,10 @@ class StudyController extends Controller {
 
         foreach ($data as $key) {
 
+            dd($key);
+
             if (Func::contains($key, $fields_open_text)) {
 
-                dd('a');
 
                 $rules[$key]                                                = ['required|max:999'];
 
