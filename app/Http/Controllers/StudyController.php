@@ -192,7 +192,7 @@ class StudyController extends Controller {
 
             if (Func::contains($key, $fields_open_text)) {
 
-                $rules[$key]                                                = ['required|max:999'];
+                $rules[$key]                                                = ['required', 'max:999'];
 
             }
         }
