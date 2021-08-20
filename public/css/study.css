@@ -145,12 +145,14 @@
 }
 
 .report .content .item p {
-    height:                             0;
+    display:                            none;
+    margin-right:                       32px;
     margin-bottom:                      28px;
+    color:                              black;
 }
 
 .report .content .item.visible p {
-    height:                             auto;
+    display:                            block;
 }
 
 .report .content .seperator {
