@@ -48,7 +48,7 @@
 
         <div class="title">{{ __('Wat is er behandeld?') }}</div>
 
-        <div class="subjects" data-user="{{ $user->id }}"> @include('load.subjects') </div>
+        <div class="subjects" id="subjects_{{ $user->id }}" data-user="{{ $user->id }}"> @include('load.subjects') </div>
 
         <div class="seperator large"></div>
 
