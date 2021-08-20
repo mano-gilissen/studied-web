@@ -8,10 +8,8 @@ namespace App\Http\Traits;
 
 use App\Http\Support\Key;
 use App\Http\Support\Model;
-use App\Models\Address;
-use App\Models\Person;
 use App\Models\Student;
-use App\Models\User;
+use Illuminate\Support\Facades\Validator;
 
 trait StudentTrait {
 
