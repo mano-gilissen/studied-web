@@ -241,25 +241,30 @@ function study_agreement_toggle_selected(id) {
 
 function report_subjects_load() {
 
-    let start                                   = $("#start").val();
-    let end                                     = $("#end").val();
+    let start                                       = $("#start").val();
+    let end                                         = $("#end").val();
 
-    var time_available                          = ((end.substr(0, 2) * 60) + (1 * end.substr(3, 2))) - ((start.substr(0, 2) * 60) + (1 * start.substr(3, 2)));
+    var time_available                              = ((end.substr(0, 2) * 60) + (1 * end.substr(3, 2))) - ((start.substr(0, 2) * 60) + (1 * start.substr(3, 2)));
 
-    $('#subjects *')                            .off();
-    $('#subjects')                              .animate({opacity: 0}, 200);
+    $('.subjects').each(function( index ) {
 
-    setTimeout(function(){
+        $($(this).attr('id') + ' *')                .off();
+        $(this)                                     .animate({opacity: 0}, 200);
 
-        $('#subjects').load('/load/study/subjects', {
+        var user                                    = $(this).data('user');
 
-            study:                              study,
-            time_available:                     time_available
+        setTimeout(function(){
 
-        }).animate({opacity: 1}, 200);
+            $(this).load('/load/study/subjects', {
 
-    }, 200);
+                study:                              study,
+                user:                               user,
+                time_available:                     time_available
 
+            }).animate({opacity: 1}, 200);
+
+        }, 200);
+    });
 }
 
 

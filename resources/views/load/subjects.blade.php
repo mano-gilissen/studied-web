@@ -4,13 +4,13 @@
 
         @if ($time_available <= 180)
 
-            @include('form.field-report-subject', ['id' => 1, 'id_user' => $id_user, 'time_available' => $time_available, 'primary' => true])
+            @include('form.field-report-subject', ['id' => 1, 'time_available' => $time_available, 'primary' => true])
 
             <div class="seperator small"></div>
 
             <div id="secondary" style="display: none">
 
-                @include('form.field-report-subject', ['id' => 2, 'id_user' => $id_user, 'time_available' => $time_available, 'primary' => false])
+                @include('form.field-report-subject', ['id' => 2, 'time_available' => $time_available, 'primary' => false])
 
             </div>
 

@@ -177,7 +177,10 @@ class StudyController extends Controller {
 
         $time_available                                                     = $request->input('time_available', null);
         $study_id                                                           = $request->input(Model::$STUDY, null);
+        $user_id                                                            = $request->input(Model::$USER, null);
+
         $study                                                              = Study::find($study_id);
+        $user                                                               = User::find($user_id);
 
         $objects_subject_primary                                            = Subject::all();
         $objects_subject_secondary                                          = SubjectTrait::getActivities();
@@ -191,6 +194,7 @@ class StudyController extends Controller {
         return view(Views::LOAD_SUBJECTS, [
 
             Model::$STUDY                                                   => $study,
+            Model::$USER                                                    => $user,
 
             'time_available'                                                => $time_available,
 
