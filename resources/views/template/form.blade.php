@@ -44,6 +44,12 @@
 
                 @if($errors->any())
 
+                    @foreach($errors as $error)
+
+                        <div>{{ $error->message }}</div>
+
+                    @endforeach
+
                     <div class="block-note error">Vul de juiste gegevens in en probeer het opnieuw.</div>
 
                     <div class="seperator"></div>
