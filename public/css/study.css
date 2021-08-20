@@ -138,12 +138,12 @@
     width:                              24px;
     height:                             24px;
     margin-left:                        auto;
-    transition:                         rotate .3s ease-out;
+    transition:                         transform .2s ease-out;
 }
 
 .report .content .item.visible img {
     transform:                          rotate(180deg);
-    transition:                         rotate .3s ease-out;
+    transition:                         transform .2s ease-out;
 }
 
 .report .content .item p {
