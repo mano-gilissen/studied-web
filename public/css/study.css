@@ -106,6 +106,12 @@
     border-radius:                      4.5px;
 }
 
+.report-tabs {
+    display:                            flex;
+    margin-top:                         8px;
+    margin-bottom:                      16px;
+}
+
 
 
 /* CHANGE TO DEFAULT UNFOLD OBJECT */

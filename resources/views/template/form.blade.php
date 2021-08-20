@@ -36,9 +36,25 @@
 
             <form method="POST" action="{{ route($submit_route) }}" novalidate>
 
+
+
                 @csrf
 
+
+
+                @if($errors->any())
+
+                    <div class="block-note error">Vul de juiste gegevens in en probeer het opnieuw.</div>
+
+                    <div class="seperator"></div>
+
+                @endif
+
+
+
                 @yield('fields')
+
+
 
                 <div id="buttons">
 

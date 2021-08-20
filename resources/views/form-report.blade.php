@@ -20,16 +20,6 @@
 
 
 
-    @if($errors->any())
-
-        <div class="block-note error">Vul de juiste gegevens in en probeer het opnieuw.</div>
-
-        <div class="seperator"></div>
-
-    @endif
-
-
-
     <div class="title">{{ __('Hoe lang duurde de les precies?') }}</div>
 
     @include('form.field-select-time', ['set_study' => true, 'trigger' => 'report'])

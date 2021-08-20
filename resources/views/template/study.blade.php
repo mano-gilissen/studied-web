@@ -10,6 +10,14 @@
 
 
 
+@section('scripts')
+
+    <script src="{{ asset('js/study.js') }}"></script>
+
+@endsection
+
+
+
 @section('content')
 
     @include('block.header')

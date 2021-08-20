@@ -2,9 +2,23 @@
 
     <div class="title">Rapportage</div>
 
+    @if(\App\Http\Traits\StudyTrait::hasGroupReporting($study))
+
+        <div class="report-tabs">
+
+            @foreach($study->getParticipants_User as $participant)
+
+                <div class="tab" id="{{ $participant->id }}">{{ $participant->getPerson->first_name }}</div>
+
+            @endforeach
+
+        </div>
+
+    @endif
+
     @foreach($study->getParticipants_User as $participant)
 
-        <div class="report">
+        <div class="report" id="{{ $participant->id }}">
 
             <div style="display:flex">
 

@@ -309,6 +309,8 @@ button:focus {
 
 
 
+
+.tab,
 .tag {
     height:                             24px;
     width:                              min-content;
@@ -318,6 +320,18 @@ button:focus {
     font-weight:                        200;
     font-size:                          12px;
 }
+
+.tab {
+    margin-right:                       8px;
+    background:                         transparent;
+}
+
+.tab:hover,
+.tab.active {
+    background:                         #E6E6E6;
+}
+
+
 
 
 
