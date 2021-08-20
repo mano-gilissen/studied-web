@@ -43,23 +43,19 @@ trait ReportTrait {
             $report->save();
 
 
-            $a = [];
 
             foreach ($data as $key => $value) {
 
                 if (Func::contains($key, '_' . $prefix . Model::$SUBJECT) &&
-                   !Func::contains($key, '_' . $prefix . Model::$REPORT_SUBJECT_DURATION) &&
-                   !Func::contains($key, '_' . $prefix . Model::$REPORT_SUBJECT_VERSLAG) &&
+                   !Func::contains($key, Model::$REPORT_SUBJECT_DURATION) &&
+                   !Func::contains($key, Model::$REPORT_SUBJECT_VERSLAG) &&
                     strlen($data[$key]) > 0) {
 
-                    array_push($a, $key);
-
-                    //Report_SubjectTrait::create($data, $key, $report);
+                    Report_SubjectTrait::create($data, $key, $report);
 
                 }
             }
-
-            dd($a);
+            }
         }
 
 
