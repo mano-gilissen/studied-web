@@ -24,6 +24,8 @@
 
         <div class="block-note error">Los alle problemen op en probeer het opnieuw.</div>
 
+        <div class="seperator"></div>
+
     @endif
 
 
