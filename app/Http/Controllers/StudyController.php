@@ -199,7 +199,7 @@ class StudyController extends Controller {
             }
         }
 
-        dd('b');
+        dd($rules);
 
         $validator                                                          = Validator::make($data, $rules, $messages);
 
