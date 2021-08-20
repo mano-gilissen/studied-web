@@ -61,7 +61,7 @@ class StudentController extends Controller {
 
         return view(Views::FORM_STUDENT_CREATE, [
 
-            Key::PAGE_TITLE                                                 => 'Nieuwe leerling',
+            Key::PAGE_TITLE                                                 => 'Leerling aanmaken',
             Key::SUBMIT_ACTION                                              => 'Aanmaken',
             Key::SUBMIT_ROUTE                                               => 'student.create_submit',
 
@@ -110,6 +110,10 @@ class StudentController extends Controller {
         $rules[Model::$ADDRESS_ZIPCODE]                                     = ['required', 'max:20'];
         $rules[Model::$ADDRESS_CITY]                                        = ['required'];
         $rules[Model::$ADDRESS_COUNTRY]                                     = ['required'];
+
+        $rules[Model::$STUDENT_SCHOOL]                                      = ['required'];
+        $rules[Model::$STUDENT_NIVEAU]                                      = ['required'];
+        $rules[Model::$STUDENT_LEERJAAR]                                    = ['required'];
 
         $validator                                                          = Validator::make($data, $rules, $messages);
 
