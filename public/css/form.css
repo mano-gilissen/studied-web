@@ -132,8 +132,10 @@ html, body {
 }
 
 .block-note.error {
-    color:                              #FF2727;
-    background:                         #FFEBEB;
+    height:                             88px;
+    padding-top:                        36px;
+    color:                              #FF0000;
+    background:                         #FF000026;
 }
 
 
