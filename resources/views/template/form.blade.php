@@ -42,9 +42,7 @@
 
 
 
-                @if(!$errors->isEmpty())
-
-                    @php dd($errors) @endphp
+                @if($errors->any())
 
                     <div class="block-note error">Vul de juiste gegevens in en probeer het opnieuw.</div>
 
