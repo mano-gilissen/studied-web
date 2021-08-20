@@ -100,8 +100,6 @@
 
         </div>
 
-        @break
-
     @endforeach
 
 </div>

@@ -5,6 +5,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Support\Format;
+use App\Http\Support\Func;
 use App\Http\Support\Table;
 use App\Http\Traits\BaseTrait;
 use App\Http\Traits\PersonTrait;
@@ -155,6 +156,8 @@ class StudyController extends Controller {
 
         $data                                                               = $request->all();
 
+        dd($data);
+
         $study                                                              = Study::find($data['_' . Model::$STUDY]);
 
         // self::report_validate($data);
@@ -167,6 +170,30 @@ class StudyController extends Controller {
         }
 
         return redirect()->route('study.view', $study->{Model::$BASE_KEY});
+    }
+
+
+
+    public function report_validate(array $data) {
+
+        $messages = [
+            'required'                                                      => 'Vul een onderwerp in.',
+        ];
+
+        $rules = [];
+
+        foreach ($data as $key) {
+/*
+            if (Func::contains($key, )) {
+
+                $rules[$key] = ['required'];
+
+            }*/
+        }
+
+        $validator = Validator::make($data, $rules, $messages);
+
+        $validator->validate();
     }
 
 
