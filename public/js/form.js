@@ -248,18 +248,16 @@ function report_subjects_load() {
 
     $('.subjects').each(function( index ) {
 
-        $($(this).attr('id') + ' *')                .off();
-        $(this)                                     .animate({opacity: 0}, 200);
-
+        var subjects                                = $($(this).attr('id'));
+        var subjects_descendents                    = $($(this).attr('id') + ' *');
         var user                                    = $(this).data('user');
 
-        console.log('a');
+        subjects_descendents                        .off();
+        subjects                                    .animate({opacity: 0}, 200);
 
         setTimeout(function() {
 
-            console.log('b');
-
-            $(this).load('/load/study/subjects', {
+            subjects.load('/load/study/subjects', {
 
                 study:                              study,
                 user:                               user,
@@ -267,11 +265,7 @@ function report_subjects_load() {
 
             }).animate({opacity: 1}, 200);
 
-            console.log('c');
-
         }, 200);
-
-        console.log('d');
     });
 }
 
