@@ -142,7 +142,7 @@
 }
 
 .report .content .item.visible img {
-    transform:                          rotate(180deg);
+    transform:                          rotate(-180deg);
     transition:                         transform .2s ease-out;
 }
 
