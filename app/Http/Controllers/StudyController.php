@@ -190,7 +190,7 @@ class StudyController extends Controller {
 
         foreach ($data as $key) {
 
-            dd(Func::contains('user_1_content_verslag', $fields_open_text));
+            dd($data);
 
             if (Func::contains($key, $fields_open_text)) {
 
