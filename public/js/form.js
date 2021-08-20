@@ -248,18 +248,18 @@ function report_subjects_load() {
 
     $('.subjects').each(function( index ) {
 
-        var subjects                                = $($(this).attr('id'));
+        var subjects                                = this;
         var subjects_descendents                    = $($(this).attr('id') + ' *');
         var user                                    = $(this).data('user');
 
         subjects_descendents                        .off();
-        subjects                                    .animate({opacity: 0}, 200);
+        $(subjects)                                 .animate({opacity: 0}, 200);
 
         console.log(subjects);
 
         setTimeout(function() {
 
-            subjects.load('/load/study/subjects', {
+            $(subjects).load('/load/study/subjects', {
 
                 study:                              study,
                 user:                               user,
