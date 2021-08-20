@@ -12,7 +12,7 @@
 
     @include('form.field-input', ['id' => 'first_name', 'tag' => 'Voornaam', 'required' => true])
 
-    @include('form.field-input', ['id' => 'middle_name', 'tag' => 'Tusselvoegsel', 'required' => true])
+    @include('form.field-input', ['id' => 'middle_name', 'tag' => 'Tussenvoegsel', 'required' => true])
 
     @include('form.field-input', ['id' => 'last_name', 'tag' => 'Achternaam', 'required' => true])
 
@@ -40,19 +40,11 @@
 
         <div class="name">Huisnummer</div>
 
-        <div class="box-select width-third">
-
-            @include('form.box-input', ['id' => 'number', 'required' => true])
-
-        </div>
+        @include('form.box-input', ['id' => 'number', 'required' => true, 'size' => 'width-third'])
 
         <div class="note width-third">Toevoeging</div>
 
-        <div class="box-select width-third">
-
-            @include('form.box-input', ['id' => 'addition'])
-
-        </div>
+        @include('form.box-input', ['id' => 'addition', 'size' => 'width-third'])
 
     </div>
 
