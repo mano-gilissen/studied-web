@@ -32,7 +32,7 @@
 
 
 
-        @php $prefix = 'user_' . $user->id . '-'; @endphp
+        @php $identifier = 'user_' . $user->id . '-'; @endphp
 
 
 
@@ -48,7 +48,7 @@
 
         <div class="title">{{ __('Wat is er behandeld?') }}</div>
 
-        <div id="subjects"> @include('load.subjects') </div>
+        <div id="subjects"> @include('load.subjects', ['identifier' => $identifier]) </div>
 
         <div class="seperator large"></div>
 
@@ -56,11 +56,11 @@
 
         <div class="title">{{ __('Hoe verloopt de begeleiding?') }}</div>
 
-        @include('form.field-textarea', ['id' => $prefix . 'content_volgende_les', 'tag' => 'Volgende les', 'required' => true])
+        @include('form.field-textarea', ['id' => $identifier . 'content_volgende_les', 'tag' => 'Volgende les', 'required' => true])
 
-        @include('form.field-textarea', ['id' => $prefix . 'content_uitdagingen', 'tag' => 'Uitdagingen', 'required' => true])
+        @include('form.field-textarea', ['id' => $identifier . 'content_uitdagingen', 'tag' => 'Uitdagingen', 'required' => true])
 
-        @include('form.field-textarea', ['id' => $prefix . 'content_voortgang', 'tag' => 'Voortgang', 'required' => true])
+        @include('form.field-textarea', ['id' => $identifier . 'content_voortgang', 'tag' => 'Voortgang', 'required' => true])
 
         <div class="seperator"></div>
 
