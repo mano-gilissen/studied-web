@@ -248,6 +248,8 @@ function report_subjects_load() {
 
     $('.subjects').each(function( index ) {
 
+        console.log($(this));
+
         $($(this).attr('id') + ' *')                .off();
         $(this)                                     .animate({opacity: 0}, 200);
 
