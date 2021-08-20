@@ -86,7 +86,7 @@
 
                 <div class="item">
 
-                    <div class="item-title" onclick="$(this).next().toggleClass('open');$(this).find('img').toggleClass('open');">
+                    <div class="item-title" onclick="[$(this).next(), $(this).find('img')].toggleClass('open');">
 
                         <div>Voortgang</div>
 
