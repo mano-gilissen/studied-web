@@ -253,7 +253,11 @@ function report_subjects_load() {
 
         var user                                    = $(this).data('user');
 
+        console.log('a');
+
         setTimeout(function() {
+
+            console.log('b');
 
             $(this).load('/load/study/subjects', {
 
@@ -263,7 +267,11 @@ function report_subjects_load() {
 
             }).animate({opacity: 1}, 200);
 
+            console.log('c');
+
         }, 200);
+
+        console.log('d');
     });
 }
 
