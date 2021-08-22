@@ -114,11 +114,11 @@ class StudyController extends Controller {
 
         $ac_data[self::$STUDY_PLAN_LOCATION_HOST]                           = 'Thuis bij student-docent';
 
-        $students                                                           = self::hasManagementRights() ? Student::all() : Auth::user()->getStudents;
+        $students                                                           = self::hasManagementRights() ? User::where(Model::$ROLE, RoleTrait::$ID_STUDENT)->get() : Auth::user()->getStudents;
 
         foreach ($students as $student) {
 
-            $address                                                        = $student->getUser->getPerson->getAddress;
+            $address                                                        = $student->getPerson->getAddress;
 
             if ($address) {
 
