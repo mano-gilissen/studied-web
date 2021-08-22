@@ -92,16 +92,20 @@ class StudyController extends Controller {
         $data[Key::SUBMIT_ACTION]                                           = 'Inplannen';
         $data[Key::SUBMIT_ROUTE]                                            = 'study.plan_submit';
 
+
+
         self::plan_set_ac_data_location($data);
 
         self::plan_set_ac_data_host($data);
+
+
 
         return view(Views::FORM_STUDY, $data);
     }
 
 
 
-    public function plan_set_ac_data_location($data) {
+    public function plan_set_ac_data_location(&$data) {
 
         // TODO: FINISH / CHANGE VIEW (+ INCLUDE LINK) / TEST
 
@@ -114,7 +118,12 @@ class StudyController extends Controller {
         foreach ($students as $student) {
 
             $address                                                        = $student->getUser->getPerson->getAddress;
-            $ac_data[$address->{Model::$BASE_ID}]                           = 'Thuis bij ' . PersonTrait::getFullName($student->getUser->getPerson);
+
+            if ($address) {
+
+                $ac_data[$address->{Model::$BASE_ID}]                       = 'Thuis bij ' . PersonTrait::getFullName($student->getUser->getPerson);
+
+            }
         }
 
         $data[Key::AUTOCOMPLETE_DATA . Model::$LOCATION]                    = Format::encode($ac_data);
@@ -122,7 +131,7 @@ class StudyController extends Controller {
 
 
 
-    public function plan_set_ac_data_host($data) {
+    public function plan_set_ac_data_host(&$data) {
 
         if (self::hasManagementRights()) {
 
