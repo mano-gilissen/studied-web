@@ -26,6 +26,8 @@ trait PersonTrait {
         $person->{Model::$PERSON_LAST_NAME}                     = $data[Model::$PERSON_LAST_NAME];
         $person->{Model::$PERSON_BIRTH_DATE}                    = $data[Model::$PERSON_BIRTH_DATE] . ' 00:00:00';
 
+        $person->{Model::$PERSON_PHONE}                         = $data[Model::$PERSON_PHONE];
+
         $person->{Model::$PERSON_SLUG}                          = self::createSlug($person);
 
         $person->save();

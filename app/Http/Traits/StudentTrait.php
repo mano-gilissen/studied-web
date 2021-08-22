@@ -18,6 +18,8 @@ trait StudentTrait {
 
         $student                                                = new Student;
 
+        dd($data);
+
         $student->{Model::$STUDENT_SCHOOL}                      = $data[Model::$STUDENT_SCHOOL];
         $student->{Model::$STUDENT_NIVEAU}                      = $data[Model::$STUDENT_NIVEAU];
         $student->{Model::$STUDENT_LEERJAAR}                    = $data[Model::$STUDENT_LEERJAAR];
