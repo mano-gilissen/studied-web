@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Support\Format;
 use App\Http\Support\Table;
+use App\Http\Traits\AgreementTrait;
 use App\Http\Traits\BaseTrait;
 use App\Http\Traits\PersonTrait;
 use App\Http\Traits\RoleTrait;
@@ -154,8 +155,6 @@ class CustomerController extends Controller {
                     ->with('getPerson')
                     ->get();
 
-                // $students                                   = $customer->getStudents;
-
                 switch (count($students)) {
                     case 0:                                 return "Geen leerlingen";
                     case 1:                                 return PersonTrait::getFullName($students[0]->getPerson);
@@ -182,9 +181,9 @@ class CustomerController extends Controller {
 
                 switch (count($agreements)) {
                     case 0:                                 return "Geen actief";
-                    case 1:                                 return $agreements[0]->getSubject->{Model::$SUBJECT_CODE};
-                    case 2:                                 return $agreements[0]->getSubject->{Model::$SUBJECT_CODE} . ", " . $agreements[1]->getSubject->{Model::$SUBJECT_CODE};
-                    default:                                return $agreements[0]->getSubject->{Model::$SUBJECT_CODE} . ", " . $agreements[1]->getSubject->{Model::$SUBJECT_CODE} . " en nog " . (count($agreements) - 2);
+                    case 1:                                 return AgreementTrait::getVakcode($agreements[0]);
+                    case 2:                                 return AgreementTrait::getVakcode($agreements[0]) . ", " . AgreementTrait::getVakcode($agreements[1]);
+                    default:                                return AgreementTrait::getVakcode($agreements[0]) . ", " . AgreementTrait::getVakcode($agreements[1]) . " en nog " . (count($agreements) - 2);
                 }
 
             case self::$COLUMN_MIN_MAX:
@@ -312,7 +311,7 @@ class CustomerController extends Controller {
 
             case self::$COLUMN_AGREEMENTS:
 
-                return Subject::all()->pluck(Model::$SUBJECT_CODE, Model::$BASE_ID)->toArray();
+                return Subject::all()->pluck(Model::$SUBJECT_NAME, Model::$BASE_ID)->toArray();
 
             case self::$COLUMN_STATUS:
 
@@ -344,7 +343,7 @@ class CustomerController extends Controller {
             switch ($filter) {
 
                 case self::$COLUMN_AGREEMENTS:
-                    $display                                = Subject::find($value)->{Model::$SUBJECT_CODE};
+                    $display                                = Subject::find($value)->{Model::$SUBJECT_NAME};
                     break;
 
                 case self::$COLUMN_STATUS:

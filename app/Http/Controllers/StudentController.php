@@ -480,7 +480,7 @@ class StudentController extends Controller {
 
             case self::$COLUMN_AGREEMENTS:
 
-                return Subject::all()->pluck(Model::$SUBJECT_CODE, Model::$BASE_ID)->toArray();
+                return Subject::all()->pluck(Model::$SUBJECT_NAME, Model::$BASE_ID)->toArray();
 
             case self::$COLUMN_STATUS:
 
@@ -520,7 +520,7 @@ class StudentController extends Controller {
                     break;
 
                 case self::$COLUMN_AGREEMENTS:
-                    $display                                = 'Vakafspraak';
+                    $display                                = Subject::find($value)->{Model::$SUBJECT_NAME};
                     break;
 
                 case self::$COLUMN_STATUS:
