@@ -28,7 +28,7 @@
 
 
 
-    @foreach($study->getAgreements as $agreementa)
+    @foreach($study->getAgreements as $agreement)
 
 
 
