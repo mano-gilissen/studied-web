@@ -25,13 +25,13 @@ $(function(){
 
     $(OBJECT_FORM).on('click', OBJECT_BUTTON_PREVIOUS, function() {
 
-        study_agreements_set_active(agreements_index_active - 1);
+        study_agreements_set_active(-1);
 
     });
 
     $(OBJECT_FORM).on('click', OBJECT_BUTTON_NEXT, function() {
 
-        study_agreements_set_active(agreements_index_active + 1);
+        study_agreements_set_active(1);
 
     });
 
@@ -99,7 +99,7 @@ function study_agreements_load(host) {
 
 function study_agreements_set_active(index) {
 
-    agreements_index_active                     = index;
+    agreements_index_active                     = index == 0 ? 0 : agreements_index_active + index;
 
     agreements                                  = $(CLASS_AGREEMENT);
     agreements                                  .removeClass(ATTR_ACTIVE);
@@ -107,7 +107,6 @@ function study_agreements_set_active(index) {
     switch (agreements.length) {
 
         case 0:
-            // TODO: SHOW "NO AGREEMENTS"
             break;
 
         case 1:
@@ -115,10 +114,20 @@ function study_agreements_set_active(index) {
             break;
 
         default:
-            agreement                           = agreements.get(agreements_index_active);
-            agreement                           .classList.add(ATTR_ACTIVE);
 
-            study_agreements_render(true);
+            agreement                           = agreements.get(agreements_index_active);
+
+            if (index != 0 && agreement.classList.contains(ATTR_DISABLED)) {
+
+                study_agreements_set_active(index);
+
+            } else {
+
+                agreement                       .classList.add(ATTR_ACTIVE);
+
+                study_agreements_render(true);
+
+            }
 
             break;
     }
