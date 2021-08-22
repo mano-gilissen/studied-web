@@ -8,7 +8,7 @@
 
             <div class="name">Vak</div>
 
-            <div class="value">{{ $study->getSubject_Defined ? $study->getSubject_Defined->code : $study->subject_text }}</div>
+            <div class="value">{{ $study->{\App\Http\Support\Model::$STUDY_SUBJECT_TEXT} }}</div>
 
         </div>
 

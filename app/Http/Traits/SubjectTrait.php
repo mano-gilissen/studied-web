@@ -15,7 +15,7 @@ trait SubjectTrait {
 
     public static function getActivities() {
 
-        return Subject::where(Model::$SUBJECT_CODE, 'LIKE', '%STD%')->get();
+        return Subject::where(Model::$SUBJECT_CODE, 'LIKE', '%STD-%')->get();
 
     }
 

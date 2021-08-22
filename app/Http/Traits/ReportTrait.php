@@ -47,6 +47,7 @@ trait ReportTrait {
             foreach ($data as $key => $value) {
 
                 if (Func::contains($key, '_' . $prefix . Model::$SUBJECT) &&
+                   !Func::contains($key, Model::$AGREEMENT) &&
                    !Func::contains($key, Model::$REPORT_SUBJECT_DURATION) &&
                    !Func::contains($key, Model::$REPORT_SUBJECT_VERSLAG) &&
                     strlen($data[$key]) > 0) {

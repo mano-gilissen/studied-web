@@ -17,8 +17,9 @@ trait Study_UserTrait {
 
         $study_user                                         = new Study_user;
 
-        $study_user->{Model::$USER}                         = $agreement->{Model::$STUDENT};
         $study_user->{Model::$STUDY}                        = $study->{Model::$BASE_ID};
+        $study_user->{Model::$USER}                         = $agreement->{Model::$STUDENT};
+        $study_user->{Model::$AGREEMENT}                    = $agreement->{Model::$BASE_ID};
 
         $study_user->save();
     }

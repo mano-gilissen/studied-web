@@ -75,6 +75,14 @@ class Study extends ModelClass {
 
 
 
+    public function getAgreements() {
+
+        return self::getManyToMany(Model::$AGREEMENT, Model::$STUDY_USER, Model::$STUDY);
+
+    }
+
+
+
     public function getParticipants_User() {
 
         return self::getManyToMany(Model::$USER, Model::$STUDY_USER, Model::$STUDY);
@@ -91,17 +99,17 @@ class Study extends ModelClass {
 
 
 
-    public function getSubject_Defined() {
+    public function getSubject() {
 
-        return self::getThisToOne(Model::$SUBJECT, Model::$STUDY_SUBJECT_DEFINED);
+        return self::getThisToOne(Model::$SUBJECT);
 
     }
 
 
 
-    public function getLocation_Defined() {
+    public function getAddress() {
 
-        return self::getThisToOne(Model::$LOCATION, Model::$STUDY_LOCATION_DEFINED);
+        return self::getThisToOne(Model::$ADDRESS);
 
     }
 

@@ -7,10 +7,12 @@ namespace App\Http\Controllers;
 use App\Http\Support\Format;
 use App\Http\Support\Func;
 use App\Http\Support\Table;
+use App\Http\Traits\AgreementTrait;
 use App\Http\Traits\BaseTrait;
 use App\Http\Traits\PersonTrait;
 use App\Http\Traits\ReportTrait;
 use App\Http\Traits\RoleTrait;
+use App\Http\Traits\ServiceTrait;
 use App\Http\Traits\StudyTrait;
 use App\Http\Traits\SubjectTrait;
 use App\Models\Location;
@@ -57,7 +59,9 @@ class StudyController extends Controller {
 
         $PARAMETER_CUSTOMER                                                 = "klant",
         $PARAMETER_PARTICIPANT                                              = "deelnemer",
-        $PARAMETER_HOST                                                     = "host";
+        $PARAMETER_HOST                                                     = "host",
+
+        $STUDY_PLAN_LOCATION_HOST                                           = -1;
 
 
 
@@ -82,25 +86,54 @@ class StudyController extends Controller {
 
     public function plan() {
 
-        $objects_location                                                   = Location::all();
-        $objects_host                                                       = User::whereIn(Model::$ROLE, array(RoleTrait::$ID_EMPLOYEE, RoleTrait::$ID_MANAGEMENT, RoleTrait::$ID_BOARD))->with('getPerson')->get();
+        $data                                                               = [];
 
-        $ac_data_location                                                   = $objects_location->pluck(Model::$LOCATION_NAME, Model::$BASE_ID)->toArray();
-        $ac_data_host                                                       = $objects_host->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
+        $data[Key::PAGE_TITLE]                                              = 'Les inplannen';
+        $data[Key::SUBMIT_ACTION]                                           = 'Inplannen';
+        $data[Key::SUBMIT_ROUTE]                                            = 'study.plan_submit';
 
-        $ac_additional_host                                                 = $objects_host->pluck(Model::$USER_EMAIL, Model::$BASE_ID)->toArray();
+        self::plan_set_ac_data_location($data);
 
-        return view(Views::FORM_STUDY, [
+        self::plan_set_ac_data_host($data);
 
-            Key::PAGE_TITLE                                                 => 'Les inplannen',
-            Key::SUBMIT_ACTION                                              => 'Inplannen',
-            Key::SUBMIT_ROUTE                                               => 'study.plan_submit',
+        return view(Views::FORM_STUDY, $data);
+    }
 
-            Key::AUTOCOMPLETE_DATA . Model::$LOCATION                       => Format::encode($ac_data_location),
-            Key::AUTOCOMPLETE_DATA . 'host'                                 => Format::encode($ac_data_host),
 
-            Key::AUTOCOMPLETE_ADDITIONAL . 'host'                           => Format::encode($ac_additional_host),
-        ]);
+
+    public function plan_set_ac_data_location($data) {
+
+        // TODO: FINISH / CHANGE VIEW (+ INCLUDE LINK) / TEST
+
+        $ac_data                                                            = Location::with('getAddress')->get()->pluck(Model::$LOCATION_NAME, 'getAddress.' . Model::$BASE_ID)->toArray();
+
+        $ac_data[self::$STUDY_PLAN_LOCATION_HOST]                           = 'Thuis bij student-docent';
+
+        $students                                                           = self::hasManagementRights() ? Student::all() : Auth::user()->getStudents;
+
+        foreach ($students as $student) {
+
+            $address                                                        = $student->getUser->getPerson->getAddress;
+            $ac_data[$address->{Model::$BASE_ID}]                           = 'Thuis bij ' . PersonTrait::getFullName($student->getUser->getPerson);
+        }
+
+        $data[Key::AUTOCOMPLETE_DATA . Model::$LOCATION]                    = Format::encode($ac_data);
+    }
+
+
+
+    public function plan_set_ac_data_host($data) {
+
+        if (self::hasManagementRights()) {
+
+            $objects_host                                                   = User::whereIn(Model::$ROLE, array(RoleTrait::$ID_EMPLOYEE, RoleTrait::$ID_MANAGEMENT, RoleTrait::$ID_BOARD))->with('getPerson')->get();
+
+            $ac_data_host                                                   = $objects_host->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
+            $ac_additional_host                                             = $objects_host->pluck(Model::$USER_EMAIL, Model::$BASE_ID)->toArray();
+
+            $data[Key::AUTOCOMPLETE_DATA . 'host']                          = Format::encode($ac_data_host);
+            $data[Key::AUTOCOMPLETE_ADDITIONAL . 'host']                    = Format::encode($ac_additional_host);
+        }
     }
 
 
@@ -220,10 +253,10 @@ class StudyController extends Controller {
         $objects_subject_primary                                            = Subject::all();
         $objects_subject_secondary                                          = SubjectTrait::getActivities();
 
-        $ac_data_subject_primary                                            = $objects_subject_primary->pluck(Model::$SUBJECT_DESCRIPTION_SHORT, Model::$BASE_ID)->toArray();
+        $ac_data_subject_primary                                            = $objects_subject_primary->pluck(Model::$SUBJECT_NAME, Model::$BASE_ID)->toArray();
         $ac_additional_subject_primary                                      = $objects_subject_primary->pluck(Model::$SUBJECT_CODE, Model::$BASE_ID)->toArray();
 
-        $ac_data_subject_secondary                                          = $objects_subject_secondary->pluck(Model::$SUBJECT_DESCRIPTION_SHORT, Model::$BASE_ID)->toArray();
+        $ac_data_subject_secondary                                          = $objects_subject_secondary->pluck(Model::$SUBJECT_NAME, Model::$BASE_ID)->toArray();
         $ac_additional_subject_secondary                                    = $objects_subject_secondary->pluck(Model::$SUBJECT_CODE, Model::$BASE_ID)->toArray();
 
         return view(Views::LOAD_SUBJECTS, [
@@ -287,7 +320,7 @@ class StudyController extends Controller {
 
     public function list_columns($sort, $filter) {
 
-        $columns                                            = [];
+        $columns                                                    = [];
 
         switch (self::getUserRole()) {
 
@@ -350,38 +383,38 @@ class StudyController extends Controller {
             case RoleTrait::$ID_MANAGEMENT:
             case RoleTrait::$ID_CUSTOMER:
                 switch ($column) {
-                    case self::$COLUMN_DATE:                return 'Datum';
-                    case self::$COLUMN_STUDENT:             return 'Leerling';
-                    case self::$COLUMN_HOST:                return 'Student';
-                    case self::$COLUMN_SERVICE:             return 'Dienst';
-                    case self::$COLUMN_SUBJECT:             return 'Onderwerp';
-                    case self::$COLUMN_LOCATION:            return 'Locatie';
-                    case self::$COLUMN_TIME:                return 'Tijdstip';
-                    case self::$COLUMN_STATUS:              return 'Status';
+                    case self::$COLUMN_DATE:                        return 'Datum';
+                    case self::$COLUMN_STUDENT:                     return 'Leerling';
+                    case self::$COLUMN_HOST:                        return 'Student';
+                    case self::$COLUMN_SERVICE:                     return 'Dienst';
+                    case self::$COLUMN_SUBJECT:                     return 'Onderwerp';
+                    case self::$COLUMN_LOCATION:                    return 'Locatie';
+                    case self::$COLUMN_TIME:                        return 'Tijdstip';
+                    case self::$COLUMN_STATUS:                      return 'Status';
                 }
                 break;
 
             case RoleTrait::$ID_EMPLOYEE:
                 switch ($column) {
-                    case self::$COLUMN_DATE:                return 'Datum';
-                    case self::$COLUMN_STUDENT:             return 'Leerling';
-                    case self::$COLUMN_SERVICE:             return 'Type';
-                    case self::$COLUMN_SUBJECT:             return 'Vak';
-                    case self::$COLUMN_LOCATION:            return 'Locatie';
-                    case self::$COLUMN_TIME:                return 'Tijdstip';
-                    case self::$COLUMN_STATUS:              return 'Status';
+                    case self::$COLUMN_DATE:                        return 'Datum';
+                    case self::$COLUMN_STUDENT:                     return 'Leerling';
+                    case self::$COLUMN_SERVICE:                     return 'Type';
+                    case self::$COLUMN_SUBJECT:                     return 'Vak';
+                    case self::$COLUMN_LOCATION:                    return 'Locatie';
+                    case self::$COLUMN_TIME:                        return 'Tijdstip';
+                    case self::$COLUMN_STATUS:                      return 'Status';
                 }
                 break;
 
             case RoleTrait::$ID_STUDENT:
                 switch ($column) {
-                    case self::$COLUMN_DATE:                return 'Datum';
-                    case self::$COLUMN_HOST:                return 'Student-docent';
-                    case self::$COLUMN_SERVICE:             return 'Type';
-                    case self::$COLUMN_SUBJECT:             return 'Vak';
-                    case self::$COLUMN_LOCATION:            return 'Locatie';
-                    case self::$COLUMN_TIME:                return 'Tijdstip';
-                    case self::$COLUMN_STATUS:              return 'Status';
+                    case self::$COLUMN_DATE:                        return 'Datum';
+                    case self::$COLUMN_HOST:                        return 'Student-docent';
+                    case self::$COLUMN_SERVICE:                     return 'Type';
+                    case self::$COLUMN_SUBJECT:                     return 'Vak';
+                    case self::$COLUMN_LOCATION:                    return 'Locatie';
+                    case self::$COLUMN_TIME:                        return 'Tijdstip';
+                    case self::$COLUMN_STATUS:                      return 'Status';
                 }
                 break;
         }
@@ -401,14 +434,14 @@ class StudyController extends Controller {
 
             case self::$COLUMN_STUDENT:
 
-                $participants                               = StudyTrait::getParticipants_Person($study);
+                $participants                                       = StudyTrait::getParticipants_Person($study);
 
                 switch(count($participants)) {
-                    case 0:                                 return "Geen deelnemers";
-                    case 1:                                 return PersonTrait::getFullName($participants[0]);
-                    case 2:                                 return $participants[0]->{Model::$PERSON_FIRST_NAME} . " en " . $participants[1]->{Model::$PERSON_FIRST_NAME};
-                    case 3:                                 return $participants[0]->{Model::$PERSON_FIRST_NAME} . ", " . $participants[1]->{Model::$PERSON_FIRST_NAME} . " en " . $participants[2]->{Model::$PERSON_FIRST_NAME};
-                    default:                                return count($participants) . " deelnemers";
+                    case 0:                                         return "Geen deelnemers";
+                    case 1:                                         return PersonTrait::getFullName($participants[0]);
+                    case 2:                                         return $participants[0]->{Model::$PERSON_FIRST_NAME} . " en " . $participants[1]->{Model::$PERSON_FIRST_NAME};
+                    case 3:                                         return $participants[0]->{Model::$PERSON_FIRST_NAME} . ", " . $participants[1]->{Model::$PERSON_FIRST_NAME} . " en " . $participants[2]->{Model::$PERSON_FIRST_NAME};
+                    default:                                        return count($participants) . " deelnemers";
                 }
 
             case self::$COLUMN_HOST:
@@ -421,11 +454,32 @@ class StudyController extends Controller {
 
             case self::$COLUMN_SUBJECT:
 
-                return $study->getSubject_Defined ? $study->getSubject_Defined->{Model::$SUBJECT_CODE} : ($study->{Model::$STUDY_SUBJECT_TEXT} != null ? $study->{Model::$STUDY_SUBJECT_TEXT} : Key::UNKNOWN);
+                switch ($study->{Model::$SERVICE}) {
+
+                    case ServiceTrait::$ID_COLLEGE:
+                    case ServiceTrait::$ID_TRAINING:
+
+                        return $study->{Model::$STUDY_SUBJECT_TEXT};
+
+                    case ServiceTrait::$ID_GROEPSLES:
+                    case ServiceTrait::$ID_PRIVELES:
+
+                        $subjects                                   = "";
+
+                        foreach ($study->getAgreements as $agreement) {
+
+                            $subjects                              .= (strlen($subjects) > 0 ? ', ' : '') . AgreementTrait::getVakcode($agreement);
+
+                        }
+
+                        return $subjects;
+                }
+
+                return $study->{Model::$STUDY_SUBJECT_TEXT};
 
             case self::$COLUMN_LOCATION:
 
-                return $study->getLocation_Defined ? $study->getLocation_Defined->{Model::$LOCATION_NAME} : ($study->{Model::$STUDY_LOCATION_TEXT} != null ? $study->{Model::$STUDY_LOCATION_TEXT} : Key::UNKNOWN);
+                return $study->{Model::$STUDY_LOCATION_TEXT};
 
             case self::$COLUMN_TIME:
 
@@ -523,7 +577,7 @@ class StudyController extends Controller {
                     break;
 
                 case self::$COLUMN_SUBJECT:
-                    $query->where(Model::$STUDY_SUBJECT_DEFINED, $value);
+                    $query->whereHas('getAgreements', function (Builder $q) use ($value) {$q->where(Model::$SUBJECT, $value);});
                     break;
 
                 case self::$COLUMN_STATUS:
@@ -668,11 +722,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_SUBJECT:
 
-                return $query
-                    ->with('getSubject_Defined')
-                    ->get()
-                    ->pluck('getSubject_Defined.' . Model::$SUBJECT_CODE, 'getSubject_Defined.' . Model::$BASE_ID)
-                    ->toArray();
+                return Subject::get()->pluck(Model::$SUBJECT_NAME, Model::$BASE_ID)->toArray();
 
             case self::$COLUMN_STATUS:
 
@@ -714,7 +764,7 @@ class StudyController extends Controller {
                     break;
 
                 case self::$COLUMN_SUBJECT:
-                    $display                                = Subject::find($value)->{Model::$SUBJECT_CODE};
+                    $display                                = Subject::find($value)->{Model::$SUBJECT_NAME};
                     break;
 
                 case self::$COLUMN_STATUS:

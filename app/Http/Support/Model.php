@@ -14,10 +14,10 @@ class Model {
 
     public static
 
-        $BASE_ID                                = 'id',
-        $BASE_KEY                               = 'key',
-        $BASE_CREATED_AT                        = 'created_at',
-        $BASE_DELETED_AT                        = 'deleted_at';
+        $BASE_ID                                        = 'id',
+        $BASE_KEY                                       = 'key',
+        $BASE_CREATED_AT                                = 'created_at',
+        $BASE_DELETED_AT                                = 'deleted_at';
 
 
 
@@ -33,47 +33,53 @@ class Model {
 
     public static
 
-        $ADDRESS                                    = 'address',
+        $ADDRESS                                        = 'address',
 
-        $ADDRESS_STREET                             = 'street',
-        $ADDRESS_NUMBER                             = 'number',
-        $ADDRESS_ADDITION                           = 'addition',
-        $ADDRESS_ZIPCODE                            = 'zipcode',
-        $ADDRESS_CITY                               = 'city',
-        $ADDRESS_COUNTRY                            = 'country';
-
-
-
-    public static
-
-        $AGREEMENT                                  = 'agreement',
-
-        $AGREEMENT_IDENTIFIER                       = 'identifier',
-        $AGREEMENT_START                            = 'start',
-        $AGREEMENT_END                              = 'end',
-        $AGREEMENT_MIN                              = 'min',
-        $AGREEMENT_MAX                              = 'max',
-        $AGREEMENT_REMARK                           = 'remark',
-        $AGREEMENT_TRIAL                            = 'trial',
-        $AGREEMENT_EXTENSION                        = 'extension';
+        $ADDRESS_STREET                                 = 'street',
+        $ADDRESS_NUMBER                                 = 'number',
+        $ADDRESS_ADDITION                               = 'addition',
+        $ADDRESS_ZIPCODE                                = 'zipcode',
+        $ADDRESS_CITY                                   = 'city',
+        $ADDRESS_COUNTRY                                = 'country';
 
 
 
     public static
 
-        $AREA                                       = 'area',
+        $AGREEMENT                                      = 'agreement',
 
-        $AREA_NAME                                  = 'name',
-        $AREA_CITY                                  = 'city';
+        $AGREEMENT_IDENTIFIER                           = 'identifier',
+        $AGREEMENT_START                                = 'start',
+        $AGREEMENT_END                                  = 'end',
+        $AGREEMENT_MIN                                  = 'min',
+        $AGREEMENT_MAX                                  = 'max',
+        $AGREEMENT_REMARK                               = 'remark',
+        $AGREEMENT_TRIAL                                = 'trial',
+        $AGREEMENT_EXTENSION                            = 'extension';
 
 
 
     public static
 
-        $COURSE                                 = 'course',
+        $AGREEMENT_STUDY                                = 'agreement_study';
 
-        $COURSE_NAME                            = 'name',
-        $COURSE_DESCRIPTION                     = 'description';
+
+
+    public static
+
+        $AREA                                           = 'area',
+
+        $AREA_NAME                                      = 'name',
+        $AREA_CITY                                      = 'city';
+
+
+
+    public static
+
+        $COURSE                                         = 'course',
+
+        $COURSE_NAME                                    = 'name',
+        $COURSE_DESCRIPTION                             = 'description';
 
 
     public static
@@ -109,56 +115,66 @@ class Model {
 
     public static
 
-        $EVALUATION                                 = 'evaluation',
+        $EVALUATION                                     = 'evaluation',
 
-        $EVALUATION_HOST                            = 'host',
-        $EVALUATION_EMPLOYEE                        = 'employee',
-        $EVALUATION_STUDENT                         = 'student',
-        $EVALUATION_DATETIME                        = 'datetime',
-        $EVALUATION_LOCATION_DEFINED                = 'location_defined',
-        $EVALUATION_LOCATION_TEXT                   = 'location_text',
-        $EVALUATION_REGARDING                       = 'regarding',
-        $EVALUATION_REMARKS                         = 'remarks';
-
-
-
-    public static
-
-        $EVENT                                      = 'event',
-
-        $EVENT_LABEL                                = 'label',
-        $EVENT_START                                = 'start',
-        $EVENT_END                                  = 'end';
+        $EVALUATION_HOST                                = 'host',
+        $EVALUATION_EMPLOYEE                            = 'employee',
+        $EVALUATION_STUDENT                             = 'student',
+        $EVALUATION_DATETIME                            = 'datetime',
+        $EVALUATION_LOCATION_DEFINED                    = 'location_defined',
+        $EVALUATION_LOCATION_TEXT                       = 'location_text',
+        $EVALUATION_REGARDING                           = 'regarding',
+        $EVALUATION_REMARKS                             = 'remarks';
 
 
 
     public static
 
-        $INVOICE                                    = 'invoice';
+        $EVENT                                          = 'event',
+
+        $EVENT_LABEL                                    = 'label',
+        $EVENT_START                                    = 'start',
+        $EVENT_END                                      = 'end';
 
 
 
     public static
 
-        $LABOR                                      = 'labor',
-
-        $LABOR_EMPLOYEE_CODE                        = 'employee_code',
-        $LABOR_EMPLOYEE_NAME                        = 'employee_name',
-        $LABOR_EMPLOYEE_ID                          = 'employee_id',
-        $LABOR_TYPE                                 = 'type',
-        $LABOR_START                                = 'start',
-        $LABOR_END                                  = 'end';
+        $INVOICE                                        = 'invoice';
 
 
 
     public static
 
-        $LOCATION                                   = 'location',
+        $LABOR                                          = 'labor',
 
-        $LOCATION_NAME                              = 'name',
-        $LOCATION_LONGITUDE                         = 'longitude',
-        $LOCATION_LATITUDE                          = 'latitude',
-        $LOCATION_TYPE                              = 'type';
+        $LABOR_EMPLOYEE_CODE                            = 'employee_code',
+        $LABOR_EMPLOYEE_NAME                            = 'employee_name',
+        $LABOR_EMPLOYEE_ID                              = 'employee_id',
+        $LABOR_TYPE                                     = 'type',
+        $LABOR_START                                    = 'start',
+        $LABOR_END                                      = 'end';
+
+
+
+    public static
+
+        $LEVEL                                          = 'level',
+
+        $LEVEL_CODE                                     = 'code',
+        $LEVEL_NAME                                     = 'name',
+        $LEVEL_YEAR                                     = 'year';
+
+
+
+    public static
+
+        $LOCATION                                       = 'location',
+
+        $LOCATION_NAME                                  = 'name',
+        $LOCATION_LONGITUDE                             = 'longitude',
+        $LOCATION_LATITUDE                              = 'latitude',
+        $LOCATION_TYPE                                  = 'type';
 
 
 
@@ -199,23 +215,23 @@ class Model {
 
     public static
 
-        $REPORT_SUBJECT                             = 'report_subject',
+        $REPORT_SUBJECT                                 = 'report_subject',
 
-        $REPORT_SUBJECT_DURATION                    = 'duration',
-        $REPORT_SUBJECT_VERSLAG                     = 'content_verslag';
+        $REPORT_SUBJECT_DURATION                        = 'duration',
+        $REPORT_SUBJECT_VERSLAG                         = 'content_verslag';
 
 
 
     public static
 
-        $REPORT                                     = 'report',
+        $REPORT                                         = 'report',
 
-        $REPORT_START                               = 'start',
-        $REPORT_END                                 = 'end',
-        $REPORT_CONTENT_VOLGENDE_LES                = 'content_volgende_les',
-        $REPORT_CONTENT_UITDAGINGEN                 = 'content_uitdagingen',
-        $REPORT_CONTENT_VOORTGANG                   = 'content_voortgang',
-        $REPORT_TRIAL_SUCCESS                       = 'trial_succes';
+        $REPORT_START                                   = 'start',
+        $REPORT_END                                     = 'end',
+        $REPORT_CONTENT_VOLGENDE_LES                    = 'content_volgende_les',
+        $REPORT_CONTENT_UITDAGINGEN                     = 'content_uitdagingen',
+        $REPORT_CONTENT_VOORTGANG                       = 'content_voortgang',
+        $REPORT_TRIAL_SUCCESS                           = 'trial_succes';
 
 
 
@@ -240,9 +256,7 @@ class Model {
 
     public static
 
-        $STUDENT_RELATION                       = 'student_relation';
-
-
+        $STUDENT_RELATION                               = 'student_relation';
 
 
 
@@ -259,16 +273,17 @@ class Model {
 
     public static
 
-        $STUDY_PARTICIPANT                          = 'study_participant',
+        $STUDY_PARTICIPANT                              = 'study_participant',
 
-        $STUDY_PARTICIPANT_PAYMENT_REFERENCE        = 'payment_reference',
-        $STUDY_PARTICIPANT_PAYMENT_RECEIVED         = 'payment_received';
+        $STUDY_PARTICIPANT_PAYMENT_REFERENCE            = 'payment_reference',
+        $STUDY_PARTICIPANT_PAYMENT_RECEIVED             = 'payment_received';
 
 
 
     public static
 
-        $STUDY_USER                             = 'study_user';
+        $STUDY_USER                                     = 'study_user';
+
 
 
     public static
@@ -278,11 +293,10 @@ class Model {
         $STUDY_STATUS                                   = 'status',
         $STUDY_HOST_USER                                = 'host_user',
         $STUDY_HOST_RELATION                            = 'host_relation',
-        $STUDY_SUBJECT_DEFINED                          = 'subject_defined',
         $STUDY_SUBJECT_TEXT                             = 'subject_text',
         $STUDY_SUBJECT_DESCRIPTION                      = 'subject_description',
-        $STUDY_LOCATION_DEFINED                         = 'location_defined',
         $STUDY_LOCATION_TEXT                            = 'location_text',
+        $STUDY_LINK                                     = 'link',
         $STUDY_START                                    = 'start',
         $STUDY_END                                      = 'end',
         $STUDY_TRIAL                                    = 'trial';
@@ -291,13 +305,10 @@ class Model {
 
     public static
 
-        $SUBJECT                                    = 'subject',
+        $SUBJECT                                        = 'subject',
 
-        $SUBJECT_CODE                               = 'code',
-        $SUBJECT_DESCRIPTION_LEVEL                  = 'description_level',
-        $SUBJECT_DESCRIPTION_SUBJECT                = 'description_subject',
-        $SUBJECT_DESCRIPTION_SHORT                  = 'description_short';
-
+        $SUBJECT_CODE                                   = 'code',
+        $SUBJECT_NAME                                   = 'name';
 
 
 

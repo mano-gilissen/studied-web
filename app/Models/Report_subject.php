@@ -34,4 +34,12 @@ class Report_subject extends ModelClass {
 
 
 
+    public function getAgreement() {
+
+        return self::getThisToOne(Model::$AGREEMENT);
+
+    }
+
+
+
 }

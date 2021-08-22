@@ -62,8 +62,8 @@ class DebugController extends Controller {
             Key::SUBMIT_ACTION                                              => 'Opslaan',
 
             Key::AUTOCOMPLETE_DATA.'field_autocomplete'                     => Format::ac(Person::all()->pluck(Model::$PERSON_FIRST_NAME)->toArray()),
-            Key::AUTOCOMPLETE_DATA.'field_autocomplete_reject'              => Format::ac(Subject::all()->pluck(Model::$SUBJECT_DESCRIPTION_SHORT)->toArray()),
-            Key::AUTOCOMPLETE_DATA.'field_autocomplete_reject_show_all'     => Format::ac(Subject::all()->pluck(Model::$SUBJECT_DESCRIPTION_SHORT)->toArray())
+            Key::AUTOCOMPLETE_DATA.'field_autocomplete_reject'              => Format::ac(Subject::all()->pluck(Model::$SUBJECT_SHORT)->toArray()),
+            Key::AUTOCOMPLETE_DATA.'field_autocomplete_reject_show_all'     => Format::ac(Subject::all()->pluck(Model::$SUBJECT_SHORT)->toArray())
         ]);
     }
 

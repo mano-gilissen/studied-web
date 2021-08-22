@@ -50,6 +50,12 @@ class Agreement extends ModelClass {
 
     }
 
+    public function getLevel() {
+
+        return self::getThisToOne(Model::$LEVEL);
+
+    }
+
 
 
     public function hasTrial() {

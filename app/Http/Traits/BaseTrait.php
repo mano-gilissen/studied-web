@@ -93,6 +93,24 @@ trait BaseTrait {
 
     }
 
+    public static function hasBoardRights() {
+
+        return in_array(self::getUserRole(), [RoleTrait::$ID_ADMINISTRATOR, RoleTrait::$ID_BOARD]);
+
+    }
+
+    public static function hasManagementRights() {
+
+        return in_array(self::getUserRole(), [RoleTrait::$ID_ADMINISTRATOR, RoleTrait::$ID_BOARD, RoleTrait::$ID_MANAGEMENT]);
+
+    }
+
+    public static function hasEmployeeRights() {
+
+        return in_array(self::getUserRole(), [RoleTrait::$ID_ADMINISTRATOR, RoleTrait::$ID_BOARD, RoleTrait::$ID_MANAGEMENT, RoleTrait::$ID_EMPLOYEE]);
+
+    }
+
 
 
 

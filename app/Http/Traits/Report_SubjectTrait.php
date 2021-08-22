@@ -5,6 +5,7 @@
 namespace App\Http\Traits;
 
 use App\Http\Support\Model;
+use App\Models\Agreement;
 use App\Models\Report_subject;
 
 
@@ -19,7 +20,16 @@ trait Report_SubjectTrait {
 
         $report_subject->{Model::$REPORT}                           = $report->{Model::$BASE_ID};
 
-        $report_subject->{Model::$SUBJECT}                          = $data[$key];
+        if (array_key_exists($key . '_agreement', $data)) {
+
+            $report_subject->{Model::$AGREEMENT}                    = $data[$key . '_agreement'];
+
+        } else {
+
+            $report_subject->{Model::$SUBJECT}                      = $data[$key . '_subject'];
+
+        }
+
         $report_subject->{Model::$REPORT_SUBJECT_DURATION}          = $data[$key . '_duration'];
         $report_subject->{Model::$REPORT_SUBJECT_VERSLAG}           = $data[$key . '_content_verslag'];
 

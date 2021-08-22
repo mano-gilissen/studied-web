@@ -20,8 +20,8 @@ trait StudentTrait {
 
         $student->{Model::$STUDENT_SCHOOL}                      = $data[Model::$STUDENT_SCHOOL];
         $student->{Model::$STUDENT_PROFILE}                     = $data[Model::$STUDENT_PROFILE];
-        $student->{Model::$STUDENT_NIVEAU}                      = $data['_' . Model::$STUDENT_NIVEAU];
-        $student->{Model::$STUDENT_LEERJAAR}                    = $data['_' . Model::$STUDENT_LEERJAAR];
+        $student->{Model::$STUDENT_NIVEAU}                      = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_NIVEAU];
+        $student->{Model::$STUDENT_LEERJAAR}                    = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_LEERJAAR];
 
         $user                                                   = null;
         $person                                                 = null;

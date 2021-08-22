@@ -28,11 +28,14 @@
 
 
 
-    @foreach($study->getParticipants_User as $user)
+    @foreach($study->getAgreements as $agreement)
 
 
 
-        @php $id_user = 'user_' . $user->id . '_'; @endphp
+        @php
+            $user             = $agreement->getStudent;
+            $id_user          = 'user_' . $user->id . '_';
+        @endphp
 
 
 

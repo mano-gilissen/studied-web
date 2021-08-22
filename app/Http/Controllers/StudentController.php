@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Support\Format;
 use App\Http\Support\Table;
+use App\Http\Traits\AgreementTrait;
 use App\Http\Traits\BaseTrait;
 use App\Http\Traits\PersonTrait;
 use App\Http\Traits\RoleTrait;
@@ -289,7 +290,7 @@ class StudentController extends Controller {
 
                 foreach ($agreements as $agreement) {
 
-                    array_push($subjects, $agreement->getSubject->{Model::$SUBJECT_CODE});
+                    array_push($subjects, AgreementTrait::getVakcode($agreement));
 
                 }
 
