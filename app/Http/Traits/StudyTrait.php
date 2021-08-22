@@ -115,7 +115,7 @@ trait StudyTrait {
 
             if ($employee) {
 
-                $study->{Model::$STUDY_LOCATION_TEXT}               = 'Thuis bij ' . $employee->getPerson->{Model::$PERSON_FIRST_NAME} . ' (Student-docent)';
+                $study->{Model::$STUDY_LOCATION_TEXT}               = 'Thuis bij ' . $employee->getPerson->{Model::$PERSON_FIRST_NAME} . ' (Docent)';
 
                 $study->{Model::$ADDRESS}                           = User::find($study->{Model::$STUDY_HOST_USER})->getPerson->{Model::$ADDRESS};
             }
