@@ -122,7 +122,7 @@ class StudyController extends Controller {
 
             if ($address) {
 
-                $ac_data[$address->{Model::$BASE_ID}]                       = 'Thuis bij ' . PersonTrait::getFullName($student->getUser->getPerson);
+                $ac_data[$address->{Model::$BASE_ID}]                       = 'Thuis bij ' . PersonTrait::getFullName($student->getPerson);
 
             }
         }
