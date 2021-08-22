@@ -86,7 +86,7 @@ class StudentController extends Controller {
 
         StudentTrait::create($data, $student);
 
-        return redirect()->route('person.view', [Model::$PERSON_SLUG => $student->{Model::$PERSON_SLUG}]);
+        return redirect()->route('person.view', [Model::$PERSON_SLUG => $student->getUser->getPerson->{Model::$PERSON_SLUG}]);
     }
 
 
