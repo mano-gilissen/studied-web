@@ -5,6 +5,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Support\Table;
+use App\Http\Traits\AgreementTrait;
 use App\Http\Traits\BaseTrait;
 use App\Http\Traits\PersonTrait;
 use App\Http\Traits\RoleTrait;
@@ -12,6 +13,7 @@ use App\Http\Traits\UserTrait;
 use App\Http\Support\Views;
 use App\Http\Support\Key;
 use App\Http\Support\Model;
+use App\Models\Agreement;
 use Illuminate\Database\Eloquent\Builder;
 use App\Models\Subject;
 use App\Models\User;
@@ -162,9 +164,9 @@ class EmployeeController extends Controller {
 
                 switch (count($agreements)) {
                     case 0:                                 return "Geen actief";
-                    case 1:                                 return $agreements[0]->getSubject->{Model::$SUBJECT_CODE};
-                    case 2:                                 return $agreements[0]->getSubject->{Model::$SUBJECT_CODE} . ", " . $agreements[1]->getSubject->{Model::$SUBJECT_CODE};
-                    default:                                return $agreements[0]->getSubject->{Model::$SUBJECT_CODE} . ", " . $agreements[1]->getSubject->{Model::$SUBJECT_CODE} . " en nog " . (count($agreements) - 2);
+                    case 1:                                 return AgreementTrait::getVakcode($agreements[0]);
+                    case 2:                                 return AgreementTrait::getVakcode($agreements[0]) . ", " . AgreementTrait::getVakcode($agreements[1]);
+                    default:                                return AgreementTrait::getVakcode($agreements[0]) . ", " . AgreementTrait::getVakcode($agreements[1]) . " en nog " . (count($agreements) - 2);
                 }
 
             case self::$COLUMN_MIN_MAX:
@@ -302,7 +304,7 @@ class EmployeeController extends Controller {
             case self::$COLUMN_SUBJECTS:
             case self::$COLUMN_AGREEMENTS:
 
-                return Subject::all()->pluck(Model::$SUBJECT_CODE, Model::$BASE_ID)->toArray();
+                return Subject::all()->pluck(Model::$SUBJECT_NAME, Model::$BASE_ID)->toArray();
 
             case self::$COLUMN_STUDENTS:
 
@@ -350,7 +352,7 @@ class EmployeeController extends Controller {
 
                 case self::$COLUMN_SUBJECTS:
                 case self::$COLUMN_AGREEMENTS:
-                    $display                                = Subject::find($value)->{Model::$SUBJECT_CODE};
+                    $display                                = Subject::find($value)->{Model::$SUBJECT_NAME};
                     break;
 
                 case self::$COLUMN_STUDENTS:
