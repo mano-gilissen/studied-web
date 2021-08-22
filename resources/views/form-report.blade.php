@@ -33,7 +33,6 @@
 
 
         @php
-            $agreement        = $agreementa;
             $user             = $agreement->getStudent;
             $id_user          = 'user_' . $user->id . '_';
         @endphp
@@ -54,7 +53,7 @@
 
         <div class="title">{{ __('Wat is er behandeld?') }}</div>
 
-        <div class="subjects" id="subjects_{{ $user->id }}" data-user="{{ $user->id }}"> @include('load.subjects') </div>
+        <div class="subjects" id="subjects_{{ $user->id }}" data-user="{{ $user->id }}" data-agreement="{{ $agreement->id }}"> @include('load.subjects') </div>
 
         <div class="seperator large"></div>
 
