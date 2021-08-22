@@ -26,7 +26,7 @@ trait Report_SubjectTrait {
 
         } else {
 
-            $report_subject->{Model::$SUBJECT}                      = $data[$key . '_subject'];
+            $report_subject->{Model::$SUBJECT}                      = $data[$key];
 
         }
 
