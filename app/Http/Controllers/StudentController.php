@@ -290,6 +290,8 @@ class StudentController extends Controller {
 
                 foreach ($agreements as $agreement) {
 
+                    dd($agreements);
+
                     array_push($subjects, AgreementTrait::getVakcode($agreement));
 
                 }
