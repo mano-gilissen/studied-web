@@ -24,7 +24,7 @@ trait AgreementTrait {
 
     public static function getVakcode($agreement) {
 
-        dd($agreement->{Model::$LEVEL});
+        dd($agreement->getLevel);
 
         return $agreement->getSubject->{Model::$SUBJECT_CODE} . '-' . $agreement->getLevel->{Model::$LEVEL_CODE};
 
