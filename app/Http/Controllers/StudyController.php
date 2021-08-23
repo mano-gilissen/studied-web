@@ -492,7 +492,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_LOCATION:
 
-                return StudyTrait::hasLink($study) ? $study->{Model::$STUDY_LINK} : $study->{Model::$STUDY_LOCATION_TEXT};
+                return StudyTrait::hasLink($study) ? "Digitaal (Zoom)" : $study->{Model::$STUDY_LOCATION_TEXT};
 
             case self::$COLUMN_TIME:
 
