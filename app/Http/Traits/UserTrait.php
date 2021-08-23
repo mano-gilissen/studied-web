@@ -31,15 +31,39 @@ trait UserTrait {
 
 
 
-    public static function create($data, &$user, $role) {
+    public static function create($data, $role) {
 
         $user                                                   = new User;
+        $person                                                 = PersonTrait::create($data);
+        $address                                                = AddressTrait::create($data);
+
+        if (!$person || !$address) {
+
+            return false;
+
+        }
+
+        $user->{Model::$PERSON}                                 = $person->{Model::$BASE_ID};
+        $person->{Model::$ADDRESS}                              = $address->{Model::$BASE_ID};
 
         $user->{Model::$USER_EMAIL}                             = $data[Model::$USER_EMAIL];
         $user->{Model::$ROLE}                                   = $role;
         $user->{Model::$USER_STATUS}                            = self::$STATUS_INTAKE;
 
         $user->save();
+        $person->save();
+        $address->save();
+
+        return $user;
+    }
+
+
+
+
+    public static function addValidationRules(&$rules) {
+
+        $rules[Model::$USER_EMAIL]                                          = ['required', 'email'];
+
     }
 
 

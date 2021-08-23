@@ -6,8 +6,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Support\Format;
 use App\Http\Support\Table;
+use App\Http\Traits\AddressTrait;
 use App\Http\Traits\AgreementTrait;
 use App\Http\Traits\BaseTrait;
+use App\Http\Traits\CustomerTrait;
 use App\Http\Traits\PersonTrait;
 use App\Http\Traits\RoleTrait;
 use App\Http\Traits\StudentTrait;
@@ -51,6 +53,60 @@ class CustomerController extends Controller {
         $COLUMN_AGREEMENTS                                  = 406,
         $COLUMN_MIN_MAX                                     = 407,
         $COLUMN_STATUS                                      = 408;
+
+
+
+
+
+    public function create() {
+
+        return view(Views::FORM_CUSTOMER_CREATE, [
+
+            Key::PAGE_TITLE                                                 => 'Klant aanmaken',
+            Key::SUBMIT_ACTION                                              => 'Aanmaken',
+            Key::SUBMIT_ROUTE                                               => 'customer.create_submit',
+
+            Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX                  => Format::encode(PersonTrait::getPrefixData())
+        ]);
+    }
+
+
+
+    public function create_submit(Request $request) {
+
+        $data                                                               = $request->all();
+
+        self::create_validate($data);
+
+        $customer                                                           = CustomerTrait::create($data);
+
+        if (!$customer) {
+
+            abort(500);
+
+        }
+
+        return redirect()->route('person.view', [Model::$PERSON_SLUG => $customer->getUser->getPerson->{Model::$PERSON_SLUG}]);
+    }
+
+
+
+    public function create_validate(array $data) {
+
+        $rules                                                              = [];
+
+        PersonTrait::addValidationRules($rules);
+
+        UserTrait::addValidationRules($rules);
+
+        AddressTrait::addValidationRules($rules);
+
+        $rules[Model::$CUSTOMER_REFER]                                      = ['required'];
+
+        $validator                                                          = Validator::make($data, $rules, self::getValidationMessages());
+
+        $validator->validate();
+    }
 
 
 

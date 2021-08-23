@@ -16,7 +16,7 @@ trait PersonTrait {
 
 
 
-    public static function create(array $data, &$person) {
+    public static function create(array $data) {
 
         $person                                                 = new Person;
 
@@ -31,6 +31,8 @@ trait PersonTrait {
         $person->{Model::$PERSON_SLUG}                          = self::createSlug($person);
 
         $person->save();
+
+        return $person;
     }
 
 
@@ -39,6 +41,17 @@ trait PersonTrait {
 
         return str_replace(' ', '-', strtolower($person->{Model::$PERSON_FIRST_NAME} . ' ' . (strlen($person->{Model::$PERSON_MIDDLE_NAME}) > 0 ? $person->{Model::$PERSON_MIDDLE_NAME} . ' ' : '') . $person->{Model::$PERSON_LAST_NAME}));
 
+    }
+
+
+
+
+    public static function addValidationRules(&$rules) {
+
+        $rules[Model::$PERSON_PREFIX]                                       = ['required'];
+        $rules[Model::$PERSON_FIRST_NAME]                                   = ['required'];
+        $rules[Model::$PERSON_LAST_NAME]                                    = ['required'];
+        $rules[Model::$PERSON_BIRTH_DATE]                                   = ['required'];
     }
 
 

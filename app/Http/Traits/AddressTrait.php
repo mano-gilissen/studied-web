@@ -22,7 +22,7 @@ trait AddressTrait {
 
 
 
-    public static function create($data, &$address) {
+    public static function create($data) {
 
         $address                                                = new Address;
 
@@ -34,6 +34,19 @@ trait AddressTrait {
         $address->{Model::$ADDRESS_COUNTRY}                     = $data[Model::$ADDRESS_COUNTRY];
 
         $address->save();
+
+        return $address;
+    }
+
+
+
+    public static function addValidationRules(&$rules) {
+
+        $rules[Model::$ADDRESS_STREET]                                      = ['required'];
+        $rules[Model::$ADDRESS_NUMBER]                                      = ['required'];
+        $rules[Model::$ADDRESS_ZIPCODE]                                     = ['required', 'max:20'];
+        $rules[Model::$ADDRESS_CITY]                                        = ['required'];
+        $rules[Model::$ADDRESS_COUNTRY]                                     = ['required'];
     }
 
 

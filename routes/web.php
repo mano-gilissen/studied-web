@@ -32,9 +32,13 @@ Route::get('/leerlingen',                       'StudentController@list')->name(
 
 
 
-Route::get('/medewerkers',                      'EmployeeController@list')->name('employee.list')->middleware('auth');
+Route::get('/klant/aanmaken',                   'CustomerController@create')->name('customer.create')->middleware('auth');
 
 Route::get('/klanten',                          'CustomerController@list')->name('customer.list')->middleware('auth');
+
+
+
+Route::get('/medewerkers',                      'EmployeeController@list')->name('employee.list')->middleware('auth');
 
 
 
@@ -92,6 +96,8 @@ Route::post('/submit/study/plan',               'StudyController@plan_submit')->
 Route::post('/submit/study/report',             'StudyController@report_submit')->name('study.report_submit')->middleware('auth');
 
 Route::post('/submit/student/create',           'StudentController@create_submit')->name('student.create_submit')->middleware('auth');
+
+Route::post('/submit/customer/create',          'CustomerController@create_submit')->name('customer.create_submit')->middleware('auth');
 
 
 

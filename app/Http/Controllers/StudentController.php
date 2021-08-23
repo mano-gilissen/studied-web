@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Support\Format;
 use App\Http\Support\Table;
+use App\Http\Traits\AddressTrait;
 use App\Http\Traits\AgreementTrait;
 use App\Http\Traits\BaseTrait;
 use App\Http\Traits\PersonTrait;
@@ -80,12 +81,17 @@ class StudentController extends Controller {
 
     public function create_submit(Request $request) {
 
-        $student                                                            = null;
         $data                                                               = $request->all();
 
         self::create_validate($data);
 
-        StudentTrait::create($data, $student);
+        $student                                                            = StudentTrait::create($data);
+
+        if (!$student) {
+
+            abort(500);
+
+        }
 
         return redirect()->route('person.view', [Model::$PERSON_SLUG => $student->getUser->getPerson->{Model::$PERSON_SLUG}]);
     }
@@ -94,30 +100,19 @@ class StudentController extends Controller {
 
     public function create_validate(array $data) {
 
-        $messages                                                           = [];
-        $messages['required']                                               = 'Dit veld is verplicht.';
-        $messages['zipcode.max']                                            = 'Vul een geldige postcode in.';
-
         $rules                                                              = [];
 
-        $rules[Model::$PERSON_PREFIX]                                       = ['required'];
-        $rules[Model::$PERSON_FIRST_NAME]                                   = ['required'];
-        $rules[Model::$PERSON_LAST_NAME]                                    = ['required'];
-        $rules[Model::$PERSON_BIRTH_DATE]                                   = ['required'];
+        PersonTrait::addValidationRules($rules);
 
-        $rules[Model::$USER_EMAIL]                                          = ['required', 'email'];
+        UserTrait::addValidationRules($rules);
 
-        $rules[Model::$ADDRESS_STREET]                                      = ['required'];
-        $rules[Model::$ADDRESS_NUMBER]                                      = ['required'];
-        $rules[Model::$ADDRESS_ZIPCODE]                                     = ['required', 'max:20'];
-        $rules[Model::$ADDRESS_CITY]                                        = ['required'];
-        $rules[Model::$ADDRESS_COUNTRY]                                     = ['required'];
+        AddressTrait::addValidationRules($rules);
 
         $rules[Model::$STUDENT_SCHOOL]                                      = ['required'];
         $rules[Model::$STUDENT_NIVEAU]                                      = ['required'];
         $rules[Model::$STUDENT_LEERJAAR]                                    = ['required'];
 
-        $validator                                                          = Validator::make($data, $rules, $messages);
+        $validator                                                          = Validator::make($data, $rules, self::getValidationMessages());
 
         $validator->validate();
     }

@@ -14,41 +14,24 @@ trait StudentTrait {
 
 
 
-    public static function create(array $data, &$student) {
+    public static function create(array $data) {
 
         $student                                                = new Student;
+        $user                                                   = UserTrait::create($data, RoleTrait::$ID_STUDENT);
 
-        $student->{Model::$STUDENT_SCHOOL}                      = $data[Model::$STUDENT_SCHOOL];
-        $student->{Model::$STUDENT_PROFILE}                     = $data[Model::$STUDENT_PROFILE];
-        $student->{Model::$STUDENT_NIVEAU}                      = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_NIVEAU];
-        $student->{Model::$STUDENT_LEERJAAR}                    = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_LEERJAAR];
-
-        $user                                                   = null;
-        $person                                                 = null;
-        $address                                                = null;
-
-        UserTrait::create($data, $user, RoleTrait::$ID_STUDENT);
-
-        PersonTrait::create($data, $person);
-
-        AddressTrait::create($data, $address);
-
-        if (!$user || !$person || !$address) {
+        if (!$user) {
 
             return false;
 
         }
 
-        $user->{Model::$PERSON}                                 = $person->{Model::$BASE_ID};
-        $person->{Model::$ADDRESS}                              = $address->{Model::$BASE_ID};
         $student->{Model::$USER}                                = $user->{Model::$BASE_ID};
+        $student->{Model::$STUDENT_SCHOOL}                      = $data[Model::$STUDENT_SCHOOL];
+        $student->{Model::$STUDENT_PROFILE}                     = $data[Model::$STUDENT_PROFILE];
+        $student->{Model::$STUDENT_NIVEAU}                      = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_NIVEAU];
+        $student->{Model::$STUDENT_LEERJAAR}                    = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_LEERJAAR];
 
         $student->save();
-        $user->save();
-        $person->save();
-        $address->save();
-
-
 
         return $student;
     }

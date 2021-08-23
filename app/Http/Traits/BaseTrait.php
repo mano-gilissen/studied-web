@@ -115,4 +115,17 @@ trait BaseTrait {
 
 
 
+    public static function getValidationMessages() {
+
+        $messages                                                           = [];
+        $messages['required']                                               = 'Dit veld is verplicht.';
+        $messages['zipcode.max']                                            = 'Vul een geldige postcode in.';
+
+        return $messages;
+    }
+
+
+
+
+
 }
