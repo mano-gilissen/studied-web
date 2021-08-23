@@ -140,6 +140,12 @@ trait StudyTrait {
             }
         }
 
+        if (array_key_exists(Model::$STUDY_LINK, $data)) {
+
+            $study->{Model::$STUDY_LINK}                            = $data[Model::$STUDY_LINK];
+
+        }
+
         // TODO:   STUDY.LOCATION IF NOT AUTOCOMPLETED (CUSTOM TEXT, NO ADDRESS)
         // TODO:   _LOCATION FIELD SHOULD BE EMPTY AFTER NON-AUTOCOMPLETE
         // TODO:   REJECT-OTHER SHOULD BE OFF FOR LOCATION FIELD

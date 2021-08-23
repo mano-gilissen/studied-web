@@ -13,6 +13,8 @@
 
     @include('form.field-input', ['id' => 'location', 'tag' => 'Locatie', 'icon' => 'search.svg', 'placeholder' => 'Zoek een locatie', 'required' => true, 'data' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true])
 
+    @include('form.field-input', ['id' => 'link', 'tag' => 'Zoom URL'])
+
     <div class="seperator"></div>
 
 
