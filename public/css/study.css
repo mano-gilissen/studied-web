@@ -84,7 +84,7 @@
 }
 
 .report .subject .name {
-    width:                              110px;
+    width:                              104px;
 }
 
 .report .subject .duration {
@@ -96,7 +96,7 @@
 .report .dots {
     display:                            grid;
     grid-auto-flow:                     column;
-    width:                              110px;
+    width:                              104px;
     height:                             9px;
 }
 
