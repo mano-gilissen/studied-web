@@ -326,6 +326,14 @@ trait StudyTrait {
 
 
 
+    public static function hasLink($study) {
+
+        return strlen($study->link) > 0;
+
+    }
+
+
+
     public static function isReported($study) {
 
         foreach($study->getParticipants_User as $user) {
