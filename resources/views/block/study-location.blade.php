@@ -16,7 +16,7 @@
 
             <div class="name">{{ \App\Http\Traits\StudyTrait::hasLink($study) ? "Link les" : "Adres" }}</div>
 
-            <div class="value">{{  \App\Http\Traits\StudyTrait::hasLink($study) ? $study->link : ($study->getAddress ? \App\Http\Traits\AddressTrait::getFormatted($study->getAddress, \App\Http\Traits\AddressTrait::$FORMAT_STUDY) : "Geen adres bekend") }}</div>
+            <div class="value">{!! \App\Http\Traits\StudyTrait::hasLink($study) ? '<a href="' . $study->link . '">' . $study->link . '</a>' : ($study->getAddress ? \App\Http\Traits\AddressTrait::getFormatted($study->getAddress, \App\Http\Traits\AddressTrait::$FORMAT_STUDY) : "Geen adres bekend") !!}</div>
 
         </div>
 
