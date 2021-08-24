@@ -45,14 +45,14 @@ class CustomerController extends Controller {
 
     public static
 
-        $COLUMN_NAME                                        = 401,
-        $COLUMN_EMAIL                                       = 402,
-        $COLUMN_PHONE                                       = 403,
-        $COLUMN_STUDENTS                                    = 404,
-        $COLUMN_EMPLOYEES                                   = 405,
-        $COLUMN_AGREEMENTS                                  = 406,
-        $COLUMN_MIN_MAX                                     = 407,
-        $COLUMN_STATUS                                      = 408;
+        $COLUMN_NAME                                                        = 401,
+        $COLUMN_EMAIL                                                       = 402,
+        $COLUMN_PHONE                                                       = 403,
+        $COLUMN_STUDENTS                                                    = 404,
+        $COLUMN_EMPLOYEES                                                   = 405,
+        $COLUMN_AGREEMENTS                                                  = 406,
+        $COLUMN_MIN_MAX                                                     = 407,
+        $COLUMN_STATUS                                                      = 408;
 
 
 
@@ -153,7 +153,7 @@ class CustomerController extends Controller {
 
     public function list_columns($sort, $filter) {
 
-        $columns                                            = [];
+        $columns                                                            = [];
 
         array_push($columns,
             Table::column(self::$COLUMN_NAME, self::list_column_label(self::$COLUMN_NAME), 3, true, $sort, false, $filter),
@@ -174,14 +174,14 @@ class CustomerController extends Controller {
     public static function list_column_label($column) {
 
         switch ($column) {
-            case self::$COLUMN_NAME:                return "Naam";
-            case self::$COLUMN_EMAIL:               return "E-mailadres";
-            case self::$COLUMN_PHONE:               return "Telefoonnummer";
-            case self::$COLUMN_STUDENTS:            return "Leerling(en)";
-            case self::$COLUMN_EMPLOYEES:           return "Student-docent(en)";
-            case self::$COLUMN_AGREEMENTS:          return "Vakafspraken";
-            case self::$COLUMN_MIN_MAX:             return "MIN/MAX";
-            case self::$COLUMN_STATUS:              return "Status";
+            case self::$COLUMN_NAME:                                        return "Naam";
+            case self::$COLUMN_EMAIL:                                       return "E-mailadres";
+            case self::$COLUMN_PHONE:                                       return "Telefoonnummer";
+            case self::$COLUMN_STUDENTS:                                    return "Leerling(en)";
+            case self::$COLUMN_EMPLOYEES:                                   return "Student-docent(en)";
+            case self::$COLUMN_AGREEMENTS:                                  return "Vakafspraken";
+            case self::$COLUMN_MIN_MAX:                                     return "MIN/MAX";
+            case self::$COLUMN_STATUS:                                      return "Status";
         }
 
         return Key::UNKNOWN;
@@ -212,9 +212,9 @@ class CustomerController extends Controller {
                     ->get();
 
                 switch (count($students)) {
-                    case 0:                                 return "Geen leerlingen";
-                    case 1:                                 return PersonTrait::getFullName($students[0]->getPerson);
-                    default:                                return implode(", ", $students->pluck('getPerson.' . Model::$PERSON_FIRST_NAME)->toArray());
+                    case 0:                                                 return "Geen leerlingen";
+                    case 1:                                                 return PersonTrait::getFullName($students[0]->getPerson);
+                    default:                                                return implode(", ", $students->pluck('getPerson.' . Model::$PERSON_FIRST_NAME)->toArray());
                 }
 
             case self::$COLUMN_EMPLOYEES:
@@ -224,9 +224,9 @@ class CustomerController extends Controller {
                     ->get();
 
                 switch (count($employees)) {
-                    case 0:                                 return "Geen leerlingen";
-                    case 1:                                 return PersonTrait::getFullName($employees[0]->getPerson);
-                    default:                                return implode(", ", $employees->pluck('getPerson.' . Model::$PERSON_FIRST_NAME)->toArray());
+                    case 0:                                                 return "Geen leerlingen";
+                    case 1:                                                 return PersonTrait::getFullName($employees[0]->getPerson);
+                    default:                                                return implode(", ", $employees->pluck('getPerson.' . Model::$PERSON_FIRST_NAME)->toArray());
                 }
 
             case self::$COLUMN_AGREEMENTS:
@@ -236,10 +236,10 @@ class CustomerController extends Controller {
                     ->get();
 
                 switch (count($agreements)) {
-                    case 0:                                 return "Geen actief";
-                    case 1:                                 return AgreementTrait::getVakcode($agreements[0]);
-                    case 2:                                 return AgreementTrait::getVakcode($agreements[0]) . ", " . AgreementTrait::getVakcode($agreements[1]);
-                    default:                                return AgreementTrait::getVakcode($agreements[0]) . ", " . AgreementTrait::getVakcode($agreements[1]) . " en nog " . (count($agreements) - 2);
+                    case 0:                                                 return "Geen actief";
+                    case 1:                                                 return AgreementTrait::getVakcode($agreements[0]);
+                    case 2:                                                 return AgreementTrait::getVakcode($agreements[0]) . ", " . AgreementTrait::getVakcode($agreements[1]);
+                    default:                                                return AgreementTrait::getVakcode($agreements[0]) . ", " . AgreementTrait::getVakcode($agreements[1]) . " en nog " . (count($agreements) - 2);
                 }
 
             case self::$COLUMN_MIN_MAX:
@@ -248,8 +248,8 @@ class CustomerController extends Controller {
                     ->with('getSubject')
                     ->get();
 
-                $min                                        = 0;
-                $max                                        = 0;
+                $min                                                        = 0;
+                $max                                                        = 0;
 
                 if (count($agreements) == 0) {
 
@@ -259,8 +259,8 @@ class CustomerController extends Controller {
 
                 foreach ($agreements as $agreement) {
 
-                    $min                                   += $agreement->{Model::$AGREEMENT_MIN};
-                    $max                                   += $agreement->{Model::$AGREEMENT_MAX};
+                    $min                                                   += $agreement->{Model::$AGREEMENT_MIN};
+                    $max                                                   += $agreement->{Model::$AGREEMENT_MAX};
                 }
 
                 return $min . " tot " . $max . " uur";
@@ -383,8 +383,8 @@ class CustomerController extends Controller {
 
     public function list_filter_load(Request $request) {
 
-        $data_filter                                        = $request->input(Table::DATA_FILTER, null);
-        $filters                                            = [];
+        $data_filter                                                        = $request->input(Table::DATA_FILTER, null);
+        $filters                                                            = [];
 
         if (!$data_filter) {
 
@@ -394,29 +394,29 @@ class CustomerController extends Controller {
 
         foreach ($data_filter as $filter => $value) {
 
-            $display                                        = '';
+            $display                                                        = '';
 
             switch ($filter) {
 
                 case self::$COLUMN_AGREEMENTS:
-                    $display                                = Subject::find($value)->{Model::$SUBJECT_NAME};
+                    $display                                                = Subject::find($value)->{Model::$SUBJECT_NAME};
                     break;
 
                 case self::$COLUMN_STATUS:
-                    $display                                = UserTrait::getStatusText($value);
+                    $display                                                = UserTrait::getStatusText($value);
                     break;
             }
 
             array_push($filters, (object) [
-                Table::COLUMN_ID                            => $filter,
-                Table::FILTER_COLUMN                        => self::list_filter_label($filter),
-                Table::FILTER_VALUE                         => $display
+                Table::COLUMN_ID                                            => $filter,
+                Table::FILTER_COLUMN                                        => self::list_filter_label($filter),
+                Table::FILTER_VALUE                                         => $display
             ]);
         }
 
         return view(Views::LOAD_FILTERS, [
 
-            Table::VIEW_FILTERS                             => $filters
+            Table::VIEW_FILTERS                                             => $filters
 
         ]);
     }
@@ -438,15 +438,15 @@ class CustomerController extends Controller {
 
     public function list_counters_load(Request $request) {
 
-        $sort                                               = $request->input(Table::DATA_SORT, null);
-        $filter                                             = $request->input(Table::DATA_FILTER, null);
+        $sort                                                               = $request->input(Table::DATA_SORT, null);
+        $filter                                                             = $request->input(Table::DATA_FILTER, null);
 
-        $query                                              = Table::query($this, $sort, $filter);
-        $counters                                           = [];
+        $query                                                              = Table::query($this, $sort, $filter);
+        $counters                                                           = [];
 
         array_push($counters, (object) [
-            Table::COUNTER_LABEL                            => 'Totaal',
-            Table::COUNTER_VALUE                            => $query
+            Table::COUNTER_LABEL                                            => 'Totaal',
+            Table::COUNTER_VALUE                                            => $query
                 ->select('customer.*')
                 ->get()
                 ->count()
@@ -454,7 +454,7 @@ class CustomerController extends Controller {
 
         return view(Views::LOAD_COUNTERS, [
 
-            Table::VIEW_COUNTERS                            => $counters
+            Table::VIEW_COUNTERS                                            => $counters
 
         ]);
     }
