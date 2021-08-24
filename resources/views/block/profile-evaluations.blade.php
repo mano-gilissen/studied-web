@@ -4,7 +4,7 @@
 
     <div id="list">
 
-        <div id="headers" style="grid-template-columns: 3fr 4fr 4fr 3fr 48px">
+        <div id="headers" style="grid-template-columns: 4fr 4fr 4fr 3fr 48px">
 
             <div class="header no_sort no_filter">Datum</div>
 
@@ -28,7 +28,7 @@
 
                 @foreach($evaluations as $evaluation)
 
-                    <div class="item @if($loop->odd) odd @endif" style="grid-template-columns: 3fr 4fr 4fr 3fr 48px" onclick="window.location.href='{{ route('evaluation.view', ['key' => $evaluation->{\App\Http\Support\Model::$BASE_KEY}]) }}'">
+                    <div class="item @if($loop->odd) odd @endif" style="grid-template-columns: 4fr 4fr 4fr 3fr 48px" onclick="window.location.href='{{ route('evaluation.view', ['key' => $evaluation->{\App\Http\Support\Model::$BASE_KEY}]) }}'">
 
                         <div class="attribute">
 
