@@ -1,10 +1,10 @@
 <div class="evaluations">
 
-    @if(\App\Http\Traits\BaseTrait::hasManagementRights(Auth::user()))
+    @if(\App\Http\Traits\BaseTrait::hasManagementRights(Auth::user()) && $person->getUser->isStudent())
 
         <div class="title-add">
 
-            <img class="button-add" src="/images/add-unboxed.svg">
+            <img class="button-add" src="/images/add-unboxed.svg" onclick="window.location.href='{{ route('evaluation.plan', ['student' => $person->getUser->student]) }}'">
 
             <div class="title">Gesprekken</div>
 
