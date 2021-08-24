@@ -131,9 +131,11 @@ button:focus {
 .button-add {
     width:                              32px;
     height:                             32px;
-    padding:                            12px;
+    padding:                            11px;
     border-radius:                      16px;
     background:                         #F0F0F0;
+    user-select:                        none;
+    cursor:                             pointer;
 }
 
 .button-add:hover {
