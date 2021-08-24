@@ -102,11 +102,11 @@ trait UserTrait {
 
                         $query->where(Model::$BASE_ID, $user->id);
 
-                    })->get()->sortBy(Model::$BASE_CREATED_AT, Table::SORT_MODE_DESC);
+                    })->get()->sortByDesc(Model::$BASE_CREATED_AT);
 
             case RoleTrait::$ID_STUDENT:
 
-                return $user->getEvaluations_asStudent->sortBy(Model::$BASE_CREATED_AT, Table::SORT_MODE_DESC);
+                return $user->getEvaluations_asStudent->sortByDesc(Model::$BASE_CREATED_AT);
 
             case RoleTrait::$ID_CUSTOMER:
 
@@ -114,7 +114,7 @@ trait UserTrait {
 
                     $query->where(Model::$CUSTOMER, $user->id);
 
-                })->get()->sortBy(Model::$BASE_CREATED_AT, Table::SORT_MODE_DESC);
+                })->get()->sortByDesc(Model::$BASE_CREATED_AT);
         }
     }
 
