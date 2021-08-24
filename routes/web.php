@@ -48,6 +48,10 @@ Route::get('/profiel/{slug}',                   'PersonController@view')->name('
 
 
 
+Route::get('/gesprek/{key}',                    'EvaluationController@view')->name('evaluation.view')->middleware('auth');
+
+
+
 Route::get('/inloggen',                         'Auth\LoginController@view')->name('login.view');
 
 Route::get('/wachtwoordvergeten',               'Auth\ForgotPasswordController@forgot')->name('password.forgot');

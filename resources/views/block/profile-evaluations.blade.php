@@ -4,7 +4,7 @@
 
     <div id="list">
 
-        <div id="headers" style="grid-template-columns: 2fr 3fr 3fr 3fr">
+        <div id="headers" style="grid-template-columns: 2fr 3fr 3fr 3fr 48px">
 
             <div class="header no_sort no_filter">Datum</div>
 
@@ -28,7 +28,7 @@
 
                 @foreach($evaluations as $evaluation)
 
-                    <div class="item @if($loop->odd) odd @endif" style="grid-template-columns: 2fr 3fr 3fr 3fr" onclick="window.location.href=''">
+                    <div class="item @if($loop->odd) odd @endif" style="grid-template-columns: 2fr 3fr 3fr 3fr 48px" onclick="window.location.href='{{ route('evaluation.view', ['key' => $evaluation->{\App\Http\Support\Model::$BASE_KEY}]) }}'">
 
                         <div class="attribute">
 
@@ -50,7 +50,7 @@
 
                         <div class="attribute">
 
-                            <div>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_REGARDING} }}</div>
+                            <div>{{ \App\Http\Traits\EvaluationTrait::getRegardingText($evaluation) }}</div>
 
                         </div>
 
