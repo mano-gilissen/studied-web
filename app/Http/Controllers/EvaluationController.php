@@ -29,23 +29,23 @@ class EvaluationController extends Controller {
 
 
 
-    public function create() {
+    public function plan() {
 
-        return view(Views::FORM_STUDENT_CREATE, [
+        return view(Views::FORM_EVALUATION_PLAN, [
 
             Key::PAGE_TITLE                                                 => 'Gesprek aanmaken',
             Key::SUBMIT_ACTION                                              => 'Aanmaken',
-            Key::SUBMIT_ROUTE                                               => 'evaluation.create_submit'
+            Key::SUBMIT_ROUTE                                               => 'evaluation.plan_submit'
         ]);
     }
 
 
 
-    public function create_submit(Request $request) {
+    public function plan_submit(Request $request) {
 
         $data                                                               = $request->all();
 
-        self::create_validate($data);
+        self::plan_validate($data);
 
         $evaluation                                                         = EvaluationTrait::create($data);
 
@@ -60,7 +60,7 @@ class EvaluationController extends Controller {
 
 
 
-    public function create_validate(array $data) {
+    public function plan_validate(array $data) {
 
         $rules                                                              = [];
 
