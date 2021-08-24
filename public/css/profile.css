@@ -104,3 +104,11 @@
     margin-left:                        -60px;
 }
 
+.evaluations .title-add {
+    display:                            flex;
+    align-items:                        center;
+}
+
+.evaluations .title-add .title {
+    padding:                            16px 0 16px 4px;
+}

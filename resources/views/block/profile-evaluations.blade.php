@@ -1,16 +1,20 @@
 <div class="evaluations">
 
-    <div style="display:flex;align-items:center">
+    @if(\App\Http\Traits\BaseTrait::hasManagementRights(Auth::user()))
 
-        @if(\App\Http\Traits\BaseTrait::hasManagementRights(Auth::user()))
+        <div class="title-add">
 
             <img class="button-add" src="/images/add-unboxed.svg">
 
-        @endif
+            <div class="title">Gesprekken</div>
+
+        </div>
+
+    @else
 
         <div class="title">Gesprekken</div>
 
-    </div>
+    @endif
 
     <div id="list">
 
