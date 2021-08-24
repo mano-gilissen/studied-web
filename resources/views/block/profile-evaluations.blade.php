@@ -1,6 +1,6 @@
 <div class="evaluations">
 
-    <div style="display:flex">
+    <div style="display:flex;align-items:center">
 
         <img class="button-add" src="/images/add.svg">
 
