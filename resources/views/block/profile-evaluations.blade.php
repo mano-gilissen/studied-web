@@ -2,7 +2,7 @@
 
     <div style="display:flex;align-items:center">
 
-        <img class="button-add" src="/images/add.svg">
+        <img class="button-add" src="/images/add-unboxed.svg">
 
         <div class="title">Gesprekken</div>
 
