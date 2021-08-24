@@ -87,7 +87,7 @@ trait UserTrait {
 
     public static function getEvaluations($user) {
 
-        $evaluations                                        = collect();
+        $evaluations                                        = new \Illuminate\Database\Eloquent\Collection();
 
         switch ($user->{Model::$ROLE}) {
 
