@@ -293,6 +293,37 @@
 
                     </div>
 
+                    <div class="wide">
+
+                        @switch($person->getUser->role)
+
+                            @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
+                            @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
+                            @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
+                            @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
+
+                                <!-- TODO: INCLUDE AGREEMENTS -->
+
+                                @break
+
+                            @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
+
+                                <!-- TODO: INCLUDE AGREEMENTS -->
+
+                                @include('block.profile-evaluations')
+
+                                @break
+
+                            @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
+
+                                @include('block.profile-evaluations')
+
+                                @break
+
+                        @endswitch
+
+                    </div>
+
                 </div>
 
             </div>

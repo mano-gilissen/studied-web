@@ -69,5 +69,18 @@
 
 .content-columns {
     grid-template-rows:                 auto;
-    grid-template-areas:                "left . right";
+    grid-template-areas:                "left . right"
+                                        "wide wide wide";
+}
+
+
+
+.agreements {;
+    margin:                             40px 0 48px;
+}
+
+
+
+.evaluations {
+    margin:                             40px 0 48px;
 }

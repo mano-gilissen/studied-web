@@ -126,6 +126,26 @@ class User extends Authenticatable {
 
 
 
+    public function getEvaluations_asHost() {
+
+        return self::getOneToMany(Model::$EVALUATION, Model::$EVALUATION_HOST);
+
+    }
+
+    public function getEvaluations_asEmployee() {
+
+        return self::getManyToMany(Model::$EVALUATION, Model::$EVALUATION_EMPLOYEE, Model::$EMPLOYEE);
+
+    }
+
+    public function getEvaluations_asStudent() {
+
+        return self::getOneToMany(Model::$EVALUATION, Model::$STUDENT);
+
+    }
+
+
+
     public function getStudents() {
 
         return self::getManyToMany(Model::$USER, Model::$AGREEMENT, Model::$EMPLOYEE, MODEL::$STUDENT)->distinct();

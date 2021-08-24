@@ -33,9 +33,9 @@ trait UserTrait {
 
     public static function create($data, $role) {
 
-        $user                                                   = new User;
-        $person                                                 = PersonTrait::create($data);
-        $address                                                = AddressTrait::create($data);
+        $user                                               = new User;
+        $person                                             = PersonTrait::create($data);
+        $address                                            = AddressTrait::create($data);
 
         if (!$person || !$address) {
 
@@ -43,12 +43,12 @@ trait UserTrait {
 
         }
 
-        $user->{Model::$PERSON}                                 = $person->{Model::$BASE_ID};
-        $person->{Model::$ADDRESS}                              = $address->{Model::$BASE_ID};
+        $user->{Model::$PERSON}                             = $person->{Model::$BASE_ID};
+        $person->{Model::$ADDRESS}                          = $address->{Model::$BASE_ID};
 
-        $user->{Model::$USER_EMAIL}                             = $data[Model::$USER_EMAIL];
-        $user->{Model::$ROLE}                                   = $role;
-        $user->{Model::$USER_STATUS}                            = self::$STATUS_INTAKE;
+        $user->{Model::$USER_EMAIL}                         = $data[Model::$USER_EMAIL];
+        $user->{Model::$ROLE}                               = $role;
+        $user->{Model::$USER_STATUS}                        = self::$STATUS_INTAKE;
 
         $user->save();
         $person->save();
@@ -62,7 +62,7 @@ trait UserTrait {
 
     public static function addValidationRules(&$rules) {
 
-        $rules[Model::$USER_EMAIL]                                          = ['required', 'email'];
+        $rules[Model::$USER_EMAIL]                          = ['required', 'email'];
 
     }
 
@@ -72,7 +72,7 @@ trait UserTrait {
 
     public static function getRoleName($user, $public = false) {
 
-        $role                   = $user->getRole;
+        $role                                               = $user->getRole;
 
         if (!$role) {
 
@@ -81,6 +81,44 @@ trait UserTrait {
         }
 
         return $public ? $role->{Model::$ROLE_LABEL_PUBLIC} : $role->{Model::$ROLE_LABEL};
+    }
+
+
+
+    public static function getEvaluations($user) {
+
+        $evaluations                                        = [];
+
+        switch ($user->{Model::$ROLE}) {
+
+            case RoleTrait::$ID_ADMINISTRATOR:
+            case RoleTrait::$ID_BOARD:
+            case RoleTrait::$ID_MANAGEMENT:
+            case RoleTrait::$ID_EMPLOYEE:
+
+                array_merge($evaluations, $user->getEvaluations_asHost);
+                array_merge($evaluations, $user->getEvaluations_asEmployee);
+
+                break;
+
+            case RoleTrait::$ID_STUDENT:
+
+                array_merge($evaluations, $user->getEvaluations_asStudent);
+
+                break;
+
+            case RoleTrait::$ID_CUSTOMER:
+
+                foreach ($user->getCustomer->getStudents as $student) {
+
+                    array_merge($evaluations, $student->getUser->getEvaluations_asStudent);
+
+                }
+
+                break;
+        }
+
+        return $evaluations;
     }
 
 

@@ -22,7 +22,8 @@ class Evaluation extends ModelClass {
 
     protected
 
-        $table                                  = 'evaluation';
+        $table                                  = 'evaluation',
+        $dates                                  = ['datetime'];
 
 
 
@@ -34,9 +35,9 @@ class Evaluation extends ModelClass {
 
 
 
-    public function getEmployee() {
+    public function getEmployees() {
 
-        return self::getThisToOne(Model::$USER, Model::$EVALUATION_EMPLOYEE);
+        return self::getManyToMany(Model::$USER, Model::$EVALUATION_EMPLOYEE, Model::$EVALUATION);
 
     }
 
@@ -50,9 +51,9 @@ class Evaluation extends ModelClass {
 
 
 
-    public function getLocation_Defined() {
+    public function getAddress() {
 
-        return self::getThisToOne(Model::$LOCATION, Model::$EVALUATION_LOCATION_DEFINED);
+        return self::getThisToOne(Model::$ADDRESS);
 
     }
 
