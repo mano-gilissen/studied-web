@@ -118,6 +118,8 @@ trait UserTrait {
                 break;
         }
 
+        dd($evaluations);
+
         return $evaluations;
     }
 
