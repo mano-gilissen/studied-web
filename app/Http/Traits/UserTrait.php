@@ -96,14 +96,14 @@ trait UserTrait {
             case RoleTrait::$ID_MANAGEMENT:
             case RoleTrait::$ID_EMPLOYEE:
 
-                $evaluations = array_merge($evaluations, $user->getEvaluations_asHost->toArray());
-                $evaluations = array_merge($evaluations, $user->getEvaluations_asEmployee->toArray());
+                $evaluations->merge($user->getEvaluations_asHost);
+                $evaluations->merge($user->getEvaluations_asEmployee);
 
                 break;
 
             case RoleTrait::$ID_STUDENT:
 
-                $evaluations = array_merge($evaluations, $user->getEvaluations_asStudent);
+                $evaluations->merge($user->getEvaluations_asStudent);
 
                 break;
 
@@ -111,7 +111,7 @@ trait UserTrait {
 
                 foreach ($user->getCustomer->getStudents as $student) {
 
-                    $evaluations = array_merge($evaluations, $student->getUser->getEvaluations_asStudent->toArray());
+                    $evaluations->merge($student->getUser->getEvaluations_asStudent);
 
                 }
 
