@@ -367,7 +367,6 @@ button:focus {
     grid-area:                          headers;
     display:                            grid;
     grid-template-rows:                 48px;
-    padding:                            0 64px;
     z-index:                            5;
 }
 
@@ -386,7 +385,6 @@ button:focus {
 #items {
     grid-area:                          items;
     overflow:                           overlay;
-    padding:                            0 64px;
 }
 
 #items .item {

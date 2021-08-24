@@ -76,6 +76,10 @@
 
 
 
+#headers {
+    padding:                            0 64px;
+}
+
 #headers .header:hover,
 #headers .header.asc,
 #headers .header.desc {
@@ -159,6 +163,10 @@
 
 
 
+
+#items {
+    padding:                            0 64px;
+}
 
 #items.select_filter {
     opacity:                            .2;
