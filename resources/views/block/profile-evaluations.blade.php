@@ -2,7 +2,11 @@
 
     <div style="display:flex;align-items:center">
 
-        <img class="button-add" src="/images/add-unboxed.svg">
+        @if(\App\Http\Traits\BaseTrait::hasManagementRights(Auth::user()))
+
+            <img class="button-add" src="/images/add-unboxed.svg">
+
+        @endif
 
         <div class="title">Gesprekken</div>
 
