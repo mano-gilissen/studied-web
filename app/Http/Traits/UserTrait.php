@@ -9,6 +9,7 @@ namespace App\Http\Traits;
 use App\Http\Support\Color;
 use App\Http\Support\Key;
 use App\Http\Support\Model;
+use App\Http\Support\Table;
 use App\Models\Evaluation;
 use App\Models\User;
 use Auth;
@@ -101,11 +102,11 @@ trait UserTrait {
 
                         $query->where(Model::$BASE_ID, $user->id);
 
-                    })->get();
+                    })->get()->sortBy(Model::$BASE_CREATED_AT, Table::SORT_MODE_DESC);
 
             case RoleTrait::$ID_STUDENT:
 
-                return $user->getEvaluations_asStudent;
+                return $user->getEvaluations_asStudent->sortBy(Model::$BASE_CREATED_AT, Table::SORT_MODE_DESC);
 
             case RoleTrait::$ID_CUSTOMER:
 
@@ -113,7 +114,7 @@ trait UserTrait {
 
                     $query->where(Model::$CUSTOMER, $user->id);
 
-                })->get();
+                })->get()->sortBy(Model::$BASE_CREATED_AT, Table::SORT_MODE_DESC);
         }
     }
 
