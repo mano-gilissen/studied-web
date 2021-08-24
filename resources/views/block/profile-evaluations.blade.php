@@ -1,6 +1,12 @@
 <div class="evaluations">
 
-    <div class="title">Gesprekken</div>
+    <div style="display:flex">
+
+        <img class="button-add" src="/images/add.svg">
+
+        <div class="title">Gesprekken</div>
+
+    </div>
 
     <div id="list">
 
