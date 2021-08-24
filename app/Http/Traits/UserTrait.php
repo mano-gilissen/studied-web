@@ -110,7 +110,7 @@ trait UserTrait {
 
             case RoleTrait::$ID_CUSTOMER:
 
-                return Evaluation::whereHas('getStudent', function ($query) use ($user) {
+                return Evaluation::whereHas('getStudent.getStudent', function ($query) use ($user) {
 
                     $query->where(Model::$CUSTOMER, $user->id);
 
