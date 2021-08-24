@@ -16,13 +16,15 @@
     padding:                            0 64px 24px;
 }
 
+
+
+
+
 #list {
-    display:                            grid;
     grid-template-rows:                 auto auto 1fr;
     grid-template-areas:                "headers"
                                         "items"
                                         ".";
-    overflow:                           hidden;
 }
 
 
@@ -73,23 +75,6 @@
 
 
 
-#headers {
-    grid-area:                          headers;
-    display:                            grid;
-    grid-template-rows:                 48px;
-    padding:                            0 64px;
-    z-index:                            5;
-}
-
-#headers .header {
-    display:                            flex;
-    align-items:                        center;
-    height:                             48px;
-    padding-left:                       24px;
-    color:                              #808080;
-    overflow:                           hidden;
-    word-break:                         break-all;
-}
 
 #headers .header:hover,
 #headers .header.asc,
@@ -175,60 +160,9 @@
 
 
 
-#items {
-    grid-area:                          items;
-    overflow:                           overlay;
-    padding:                            0 64px;
-}
-
 #items.select_filter {
     opacity:                            .2;
     pointer-events:                     none;
-}
-
-#items .item {
-    display:                            grid;
-    height:                             64px;
-    align-items:                        center;
-    cursor:                             pointer;
-}
-
-#items .item:hover {
-    background:                         #F0F0F0 !important;
-}
-
-#items .item.odd {
-    background:                         #F8F8F8;
-}
-
-#items .item .attribute {
-    padding-left:                       24px;
-    overflow:                           hidden;
-    white-space:                        nowrap;
-}
-
-#items .item .action {
-    width:                              48px;
-    padding:                            0 20px 0 4px;
-    opacity:                            0;
-}
-
-#items .item:hover .action {
-    opacity:                            1;
-    transform:                          translate(4px, 0);
-    transition:                         all .2s ease-out;
-}
-
-
-
-
-
-.no-items {
-    height:                             256px;
-    padding-top:                        116px;
-    text-align:                         center;
-    color:                              #666666;
-    background:                         #F8F8F8;
 }
 
 

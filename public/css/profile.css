@@ -84,3 +84,9 @@
 .evaluations {
     margin:                             40px 0 48px;
 }
+
+.evaluations #list {
+    grid-template-rows:                 auto auto;
+    grid-template-areas:                "headers"
+                                        "items";
+}
