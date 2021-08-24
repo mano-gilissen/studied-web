@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
-    <g id="PLUS" transform="translate(-221 -245.162)">
-        <rect id="Rectangle_3" width="36" height="6" transform="translate(221 260.162)"/>
-        <rect id="Rectangle_36" width="36" height="6" transform="translate(242 245.162) rotate(90)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 9 9">
+    <g id="PLUS" transform="translate(-221 -256.412)">
+        <rect id="Rectangle_3" width="9" height="1.5" transform="translate(221 260.162)"/>
+        <rect id="Rectangle_36" width="9" height="1.5" transform="translate(226.25 256.412) rotate(90)"/>
     </g>
 </svg>
