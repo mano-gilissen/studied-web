@@ -85,6 +85,10 @@
     margin:                             40px 0 48px;
 }
 
+.evaluations .title {
+    padding:                            0 0 16px 4px;
+}
+
 .evaluations #list {
     grid-template-rows:                 auto auto;
     grid-template-areas:                "headers"
