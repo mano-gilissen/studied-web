@@ -9,6 +9,7 @@ namespace App\Http\Traits;
 use App\Http\Support\Color;
 use App\Http\Support\Key;
 use App\Http\Support\Model;
+use App\Models\Evaluation;
 use App\Models\User;
 use Auth;
 
@@ -87,8 +88,6 @@ trait UserTrait {
 
     public static function getEvaluations($user) {
 
-        $evaluations                                        = new \Illuminate\Database\Eloquent\Collection();
-
         switch ($user->{Model::$ROLE}) {
 
             case RoleTrait::$ID_ADMINISTRATOR:
@@ -96,31 +95,26 @@ trait UserTrait {
             case RoleTrait::$ID_MANAGEMENT:
             case RoleTrait::$ID_EMPLOYEE:
 
-                $evaluations->merge($user->getEvaluations_asHost);
-                $evaluations->merge($user->getEvaluations_asEmployee);
+                return Evaluation::where(Model::$EVALUATION_HOST, $user->id)
 
-                break;
+                    ->orWhereHas('getEmployees', function ($query) use ($user) {
+
+                        $query->where(Model::$BASE_ID, $user->id);
+
+                    })->get();
 
             case RoleTrait::$ID_STUDENT:
 
-                $evaluations->merge($user->getEvaluations_asStudent);
-
-                break;
+                return $user->getEvaluations_asStudent;
 
             case RoleTrait::$ID_CUSTOMER:
 
-                foreach ($user->getCustomer->getStudents as $student) {
+                return Evaluation::whereHas('getStudent', function ($query) use ($user) {
 
-                    $evaluations->merge($student->getUser->getEvaluations_asStudent);
+                    $query->where(Model::$CUSTOMER, $user->id);
 
-                }
-
-                break;
+                })->get();
         }
-
-        dd($evaluations);
-
-        return $evaluations;
     }
 
 
