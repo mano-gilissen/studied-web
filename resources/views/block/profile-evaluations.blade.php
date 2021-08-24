@@ -60,7 +60,7 @@
 
                             @if(!\App\Http\Support\Func::has_passed($evaluation->datetime))
 
-                                <div class="attention">
+                                <div class="attention"></div>
 
                             @endif
 
