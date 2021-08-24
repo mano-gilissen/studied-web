@@ -28,7 +28,7 @@
 
                 @foreach($evaluations as $evaluation)
 
-                    <div class="item @if($loop->odd) odd @endif" style="grid-template-columns: 2fr 3fr 3fr 3fr" onclick="window.location.href='{{ route('evaluation.view', ['id' => $evaluation->id]) }}'">
+                    <div class="item @if($loop->odd) odd @endif" style="grid-template-columns: 2fr 3fr 3fr 3fr" onclick="window.location.href=''">
 
                         <div class="attribute">
 
