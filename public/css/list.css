@@ -173,6 +173,10 @@
     pointer-events:                     none;
 }
 
+.no-items {
+    height:                             256px;
+}
+
 
 
 
