@@ -54,13 +54,17 @@
 
                         </div>
 
-                        <img class="action" src="{{ $action ?? '/images/chevron-right.svg' }}"/>
+                        <div>
 
-                        @if(!\App\Http\Support\Func::has_passed($evaluation->datetime))
+                            <img class="action" src="{{ $action ?? '/images/chevron-right.svg' }}"/>
 
-                            <div class="attention">
+                            @if(!\App\Http\Support\Func::has_passed($evaluation->datetime))
 
-                        @endif
+                                <div class="attention">
+
+                            @endif
+
+                        </div>
 
                     </div>
 
