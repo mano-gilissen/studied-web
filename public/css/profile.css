@@ -86,7 +86,7 @@
 }
 
 .evaluations .title {
-    padding:                            16px 0 16px 32px;
+    padding:                            16px 0 16px 4px;
 }
 
 .evaluations #list {
@@ -110,5 +110,5 @@
 }
 
 .evaluations .title-add .title {
-    padding:                            16px 0 16px 4px;
+    padding:                            16px 0 16px 32px;
 }
