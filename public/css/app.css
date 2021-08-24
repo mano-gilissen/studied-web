@@ -409,10 +409,10 @@ button:focus {
 }
 
 #items .item .attention {
-    width:                              16px;
-    height:                             16px;
-    margin:                             0 16px;
-    border-radius:                      8px;
+    width:                              12px;
+    height:                             12px;
+    margin:                             0 24px 0 12px;
+    border-radius:                      6px;
     background:                         #4CD976;
 }
 
@@ -430,6 +430,15 @@ button:focus {
     opacity:                            1;
     transform:                          translate(4px, 0);
     transition:                         all .2s ease-out;
+}
+
+#items .item .end {
+    display:                            flex;
+    align-items:                        center;
+}
+
+#items .item .end .action {
+    margin-right:                       -48px;
 }
 
 

@@ -54,7 +54,7 @@
 
                         </div>
 
-                        <div>
+                        <div class="end">
 
                             <img class="action" src="{{ $action ?? '/images/chevron-right.svg' }}"/>
 
