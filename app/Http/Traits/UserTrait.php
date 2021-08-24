@@ -103,7 +103,7 @@ trait UserTrait {
 
             case RoleTrait::$ID_STUDENT:
 
-                $evaluations = array_merge($evaluations, $user->getEvaluations_asStudent->toArray());
+                $evaluations = array_merge($evaluations, $user->getEvaluations_asStudent);
 
                 break;
 
