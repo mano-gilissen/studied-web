@@ -56,6 +56,12 @@
 
                         <img class="action" src="{{ $action ?? '/images/chevron-right.svg' }}"/>
 
+                        @if(!\App\Http\Support\Func::has_passed($evaluation->datetime))
+
+                            <div class="attention">
+
+                        @endif
+
                     </div>
 
                 @endforeach

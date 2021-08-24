@@ -408,6 +408,18 @@ button:focus {
     white-space:                        nowrap;
 }
 
+#items .item .attention {
+    width:                              16px;
+    height:                             16px;
+    margin:                             0 16px;
+    border-radius:                      8px;
+    background:                         #4CD976;
+}
+
+#items .item:hover .attention {
+    opacity:                            0;
+}
+
 #items .item .action {
     width:                              48px;
     padding:                            0 20px 0 4px;
