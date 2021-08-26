@@ -184,7 +184,7 @@ function set_value(input, uses_id, autocompleted, trigger, data, key) {
 
     input                           .val(data[key]);
 
-    console.log(data[key]);
+    console.log(input);
 
     input.parent()                  .addClass("autocomplete");
 
@@ -259,6 +259,8 @@ function close_list_and_reject(input, autocompleted, uses_id, reject_other) {
     close_list(input);
 
     if (reject_other && !autocompleted) {
+
+        console.log(input);
 
         input                                   .val('');
 
