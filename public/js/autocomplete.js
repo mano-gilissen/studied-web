@@ -95,11 +95,9 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
 
-    if (set_id) {
+    if (set_id > 0) {
 
-        console.log('949');
-
-        set_value(input, set_id);
+        set_value(set_id);
 
     }
 
