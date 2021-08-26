@@ -73,12 +73,10 @@ function profile_agreements_render(movement = false) {
         if (agreements_index_active === 0) {
 
             button_next                             .addClass(ATTR_VISIBLE);
-            button_next                             .addClass(ATTR_SOLO);
 
         } else if (agreements_index_active === agreements.length - 1) {
 
             button_previous                         .addClass(ATTR_VISIBLE);
-            button_previous                         .addClass(ATTR_SOLO);
 
         } else {
 

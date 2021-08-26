@@ -193,10 +193,6 @@ html, body {
     background:                         #EBEBEB;
 }
 
-.agreements .buttons .button.visible {
-    display:                            unset;
-}
-
 .agreements .buttons .button.solo {
     background:                         #FFDD34;
 }
