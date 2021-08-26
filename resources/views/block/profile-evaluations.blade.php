@@ -4,7 +4,7 @@
 
         <div class="title-add">
 
-            <img class="button-add" src="/images/add-unboxed.svg" onclick="window.location.href='{{ route('evaluation.plan', ['student' => $person->getUser->student]) }}'">
+            <img class="button-add" src="/images/add-unboxed.svg" onclick="window.location.href='{{ route('evaluation.plan', ['student' => $person->getUser->getStudent->id]) }}'">
 
             <div class="title">Gesprekken</div>
 
