@@ -604,7 +604,8 @@ button:focus {
     border-radius:                      28px;
 }
 
-.agreements .buttons .button.visible {
+.agreements #button-previous.visible,
+.agreements #button-next.visible {
     display:                            unset;
 }
 

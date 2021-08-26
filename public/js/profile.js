@@ -23,6 +23,10 @@ $(function() {
 
 
 
+    profile_agreements_set_active(0);
+
+
+
 });
 
 

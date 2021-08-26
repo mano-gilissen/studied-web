@@ -50,12 +50,6 @@
 
                     @endforeach
 
-                    <script>
-
-                        profile_agreements_set_active(0);
-
-                    </script>
-
                 @else
 
                     <div class="block-note">{{ $person->{\App\Http\Support\Model::$PERSON_FIRST_NAME} }} heeft geen actieve vakafspraken.</div>
