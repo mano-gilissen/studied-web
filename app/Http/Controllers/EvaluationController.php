@@ -34,6 +34,23 @@ class EvaluationController extends Controller {
 
 
 
+    public function view($key) {
+
+        $evaluation                                                         = Evaluation::where(Model::$BASE_KEY, $key)->firstOrFail();
+
+        return view(Views::EVALUATION, [
+
+            Key::PAGE_TITLE                                                 => EvaluationTrait::getRegardingText($evaluation->{Model::$EVALUATION_REGARDING}),
+            Key::PAGE_BACK                                                  => true,
+
+            Model::$EVALUATION                                              => $evaluation
+        ]);
+    }
+
+
+
+
+
     public function plan($leerling = null) {
 
         $data                                                               = [];

@@ -571,6 +571,30 @@ button:focus {
 
 
 
+#banner {
+    display:                            flex;
+    align-items:                        flex-end;
+    height:                             240px;
+    background-size:                    contain;
+}
+
+#banner .title {
+    margin:                             0 0 0 24px;
+    font-size:                          40px;
+    font-weight:                        400;
+    color:                              white;
+}
+
+#banner .subtitle {
+    font-size:                          14px;
+    margin:                             0 0 16px 25px;
+    color:                              white;
+}
+
+
+
+
+
 input,
 textarea {
     width:                              100%;

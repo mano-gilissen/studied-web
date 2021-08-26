@@ -4,6 +4,7 @@
 
 namespace App\Http\Traits;
 
+use App\Http\Support\Color;
 use App\Http\Support\Func;
 use App\Http\Support\Key;
 use App\Http\Support\Model;
@@ -19,7 +20,10 @@ trait EvaluationTrait {
     public static
 
         $ID_INTAKE                              = 1,
-        $ID_EVALUATION                          = 2;
+        $ID_EVALUATION                          = 2,
+
+        $STATUS_PLANNED                         = 1,
+        $STATUS_FINISHED                        = 2;
 
 
 
@@ -69,6 +73,14 @@ trait EvaluationTrait {
 
 
 
+    public static function hasLink($study) {
+
+        return strlen($study->link) > 0;
+
+    }
+
+
+
     public static function getRegardingText($regarding) {
 
         switch ($regarding) {
@@ -96,6 +108,47 @@ trait EvaluationTrait {
             self::$ID_INTAKE                        => self::getRegardingText(self::$ID_INTAKE),
             self::$ID_EVALUATION                    => self::getRegardingText(self::$ID_EVALUATION)
         ];
+    }
+
+
+
+    public static function getStatus($evaluation) {
+
+        return Func::has_passed($evaluation->{Model::$EVALUATION_DATETIME}) ? 1 : 2;
+
+    }
+
+
+
+    public static function getStatusText($status) {
+
+        switch ($status) {
+            case self::$STATUS_PLANNED:             return "Ingepland";
+            case self::$STATUS_FINISHED:            return "Afgelopen";
+            default:                                return Key::UNKNOWN;
+        }
+    }
+
+
+
+    public static function getStatusTextColor($status) {
+
+        switch ($status) {
+            case self::$STATUS_PLANNED:             return Color::WHITE;
+            case self::$STATUS_FINISHED:
+            default:                                return Color::BLACK;
+        }
+    }
+
+
+
+    public static function getStatusColor($status) {
+
+        switch ($status) {
+            case self::$STATUS_PLANNED:             return Color::GREEN;
+            case self::$STATUS_FINISHED:
+            default:                                return Color::GREY_90;
+        }
     }
 
 
