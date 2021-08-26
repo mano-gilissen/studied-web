@@ -11,13 +11,13 @@ $(function() {
 
     $(OBJECT_BUTTON_PREVIOUS).on('click', function () {
 
-        study_agreements_set_active(-1);
+        profile_agreements_set_active(-1);
 
     });
 
     $(OBJECT_BUTTON_NEXT).on('click', function () {
 
-        study_agreements_set_active(1);
+        profile_agreements_set_active(1);
 
     });
 

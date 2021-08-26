@@ -26,8 +26,6 @@
 
                             <div class="title">{{ $agreement->identifier }}</div>
 
-                            <img class="selector" src="/images/check-white.svg"/>
-
                         </div>
 
                         <div class="bottom">
