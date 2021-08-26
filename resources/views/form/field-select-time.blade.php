@@ -2,7 +2,7 @@
 
     <div class="name">Tijdstip</div>
 
-    <div class="box-select width-third">
+    <div class="box-select @if(!$single ?? false) width-third @endif">
 
         <select
             id                                          = "start"
@@ -48,50 +48,54 @@
 
     </div>
 
-    <div class="note width-third">tot</div>
+    @if (!$single ?? false)
 
-    <div class="box-select width-third">
+        <div class="note width-third">tot</div>
 
-        <select
-            id                                          = "end"
-            name                                        = "end"
+        <div class="box-select width-third">
 
-            @if($trigger ?? false)
+            <select
+                id                                          = "end"
+                name                                        = "end"
 
-                class                                   = "trigger"
-                data-trigger                            = "{{ $trigger }}"
+                @if($trigger ?? false)
 
-            @endif
+                    class                                   = "trigger"
+                    data-trigger                            = "{{ $trigger }}"
 
-            >
+                @endif
 
-            @for($i = 420; $i <= 1440; $i += 15)
+                >
 
-                @php
+                @for($i = 420; $i <= 1440; $i += 15)
 
-                    $hours                              = str_pad((int) ($i / 60), 2, "0", STR_PAD_LEFT);
-                    $minutes                            = str_pad($i % 60, 2, "0", STR_PAD_LEFT);
+                    @php
 
-                    if ($set_study ?? false) {
+                        $hours                              = str_pad((int) ($i / 60), 2, "0", STR_PAD_LEFT);
+                        $minutes                            = str_pad($i % 60, 2, "0", STR_PAD_LEFT);
 
-                        $is_selected                    = "--:--";
+                        if ($set_study ?? false) {
 
-                    }
+                            $is_selected                    = "--:--";
 
-                @endphp
+                        }
 
-                <option value="{{ $hours }}:{{ $minutes }}">{{ $hours }}:{{ $minutes }}</option>
+                    @endphp
 
-            @endfor
+                    <option value="{{ $hours }}:{{ $minutes }}">{{ $hours }}:{{ $minutes }}</option>
 
-            @if(($set_study ?? false) && $is_selected)
+                @endfor
 
-                <option value="00:00" style="display:none" selected>--:--</option>
+                @if(($set_study ?? false) && $is_selected)
 
-            @endif
+                    <option value="00:00" style="display:none" selected>--:--</option>
 
-        </select>
+                @endif
 
-    </div>
+            </select>
+
+        </div>
+
+    @endif
 
 </div>
