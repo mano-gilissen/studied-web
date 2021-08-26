@@ -112,12 +112,12 @@
 }
 
 .agreements #button-previous {
-    margin-left:                        -64px;
-    margin-right:                       32px;
+    margin-left:                        -60px;
+    margin-right:                       28px;
 }
 
 .agreements #button-next {
-    margin-right:                       -64px;
+    margin-right:                       -60px;
 }
 
 
@@ -162,4 +162,17 @@
 .agreements .title-add .title,
 .evaluations .title-add .title {
     padding:                            16px 0 16px 32px;
+}
+
+
+
+
+
+.block-note {
+    width:                              712px;
+    height:                             172px;
+    padding-top:                        80px;
+    text-align:                         center;
+    color:                              #666666;
+    background:                         #F8F8F8;
 }
