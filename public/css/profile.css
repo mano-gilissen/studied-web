@@ -79,6 +79,11 @@
     margin:                             40px 0 48px;
 }
 
+.agreements .wrap {
+    width:                              712px;
+    overflow-x:                         hidden;
+}
+
 
 
 .evaluations {

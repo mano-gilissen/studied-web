@@ -10,6 +10,14 @@
 
 
 
+@section('scripts')
+
+    <script src="{{ asset('js/profile.js') }}"></script>
+
+@endsection
+
+
+
 @section('content')
 
     @include('block.header', ['page_title' => 'Profielpagina'])
@@ -302,13 +310,13 @@
                             @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
                             @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
-                                <!-- TODO: INCLUDE AGREEMENTS -->
+                                @include('block.profile-agreements')
 
                                 @break
 
                             @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
 
-                                <!-- TODO: INCLUDE AGREEMENTS -->
+                                @include('block.profile-agreements')
 
                                 @include('block.profile-evaluations')
 

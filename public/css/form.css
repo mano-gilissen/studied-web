@@ -153,90 +153,12 @@ html, body {
     padding-left:                       130px;
 }
 
-.agreement {
-    opacity:                            .5;
-    transition:                         opacity .4s ease;
-}
-
-.agreement.active {
-    opacity:                            1;
-    cursor:                             pointer;
-}
-
 .agreement.disabled {
     display:                            none;
 }
 
-.agreement.active:hover,
-.agreement.selected:hover {
-    background:                         #F0F0F0;
-}
-
 .agreement.disabled:hover {
     background:                         #F8F8F8;
-}
-
-.agreement.selected .selector {
-    background:                         #4CD976;
-}
-
-.agreement .top,
-.agreement .bottom {
-    display:                            flex;
-    align-items:                        center;
-}
-
-.agreement .bottom {
-    margin:                             16px 48px 0 0;
-}
-
-.agreement .bottom img,
-.agreement .bottom .no-avatar {
-    width:                              56px;
-    height:                             56px;
-    margin:                             0 26px 0 0;
-    border-radius:                      28px;
-}
-
-.agreements .buttons {
-    position:                           absolute;
-    display:                            flex;
-    width:                              642px;
-    padding:                            70px 48px 0 0;
-    z-index:                            10;
-    pointer-events:                     none;
-}
-
-.agreements .buttons .button {
-    width:                              32px;
-    height:                             32px;
-    border-radius:                      16px;
-    margin-left:                        24px;
-    padding:                            8px;
-    background:                         #E6E6E6;
-    display:                            none;
-    pointer-events:                     all;
-}
-
-.agreements .buttons .button:hover {
-    background:                         #EBEBEB;
-}
-
-.agreements .buttons .button.visible {
-    display:                            unset;
-}
-
-.agreements .buttons .button.solo {
-    background:                         #FFDD34;
-}
-
-.agreements .buttons .button.solo:hover {
-    background:                         #FFE45B;
-}
-
-.agreements .buttons #button-next.solo,
-.agreements .buttons #button-previous {
-    margin-left:                        auto;
 }
 
 .agreement .selector {
