@@ -26,7 +26,7 @@
 
     @include('form.field-input', ['id' => 'employee_2', 'tag' => 'Student-docent #2', 'icon' => 'search.svg', 'placeholder' => 'Zoek een student-docent', 'required' => true, 'data' => true, 'ac_data' => 'employee', 'additional' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true])
 
-    @include('form.field-input', ['id' => 'student', 'tag' => 'Student', 'icon' => 'search.svg', 'placeholder' => 'Zoek een student', 'required' => true, 'data' => true, 'additional' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true, 'set_id' => $student ? $student->id : -1])
+    @include('form.field-input', ['id' => 'student', 'tag' => 'Student', 'icon' => 'search.svg', 'placeholder' => 'Zoek een student', 'required' => true, 'data' => true, 'additional' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true, 'set_id' => $student ?? -1])
 
 
 
