@@ -57,7 +57,7 @@ function profile_agreements_set_active(index) {
 
 function profile_agreements_render(movement = false) {
 
-    buttons                                     = $(CLASS_BUTTON);
+    buttons                                     = $(OBJECT_BUTTON_PREVIOUS + ', ' + OBJECT_BUTTON_NEXT);
 
     button_previous                             = $(OBJECT_BUTTON_PREVIOUS);
     button_next                                 = $(OBJECT_BUTTON_NEXT);
