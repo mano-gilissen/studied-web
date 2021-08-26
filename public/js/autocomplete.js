@@ -252,7 +252,7 @@ function close_list() {
 
 
 
-function  close_list_and_reject(input, autocompleted, uses_id, reject_other) {
+function close_list_and_reject(input, autocompleted, uses_id, reject_other) {
 
     var input_id;
 
@@ -272,7 +272,7 @@ function  close_list_and_reject(input, autocompleted, uses_id, reject_other) {
 
 
 
-function  call_trigger(trigger, key, identifier) {
+function call_trigger(trigger, key, identifier) {
 
     switch (trigger) {
 
@@ -288,7 +288,7 @@ function  call_trigger(trigger, key, identifier) {
 
 
 
-function  has_additional(additional) {
+function has_additional(additional) {
 
     return additional != null;
 
