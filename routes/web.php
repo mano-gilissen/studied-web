@@ -105,6 +105,8 @@ Route::post('/submit/student/create',           'StudentController@create_submit
 
 Route::post('/submit/customer/create',          'CustomerController@create_submit')->name('customer.create_submit')->middleware('auth');
 
+Route::post('/submit/evaluation/plan',          'EvaluationController@plan_submit')->name('evaluation.plan_submit')->middleware('auth');
+
 
 
 Route::get('/encrypt/{value}',                  'LoginController@encrypt');

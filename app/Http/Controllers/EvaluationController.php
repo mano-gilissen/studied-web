@@ -77,7 +77,6 @@ class EvaluationController extends Controller {
         $data[Key::AUTOCOMPLETE_ADDITIONAL . Model::$STUDENT]               = Format::encode($ac_additional_student);
 
         $data[Key::AUTOCOMPLETE_DATA . Model::$LOCATION]                    = Format::encode($ac_data_location);
-
         $data[Key::AUTOCOMPLETE_DATA . Model::$EVALUATION_REGARDING]        = Format::encode(EvaluationTrait::getRegardingData());
 
 
@@ -90,6 +89,8 @@ class EvaluationController extends Controller {
     public function plan_submit(Request $request) {
 
         $data                                                               = $request->all();
+
+        dd($data);
 
         self::plan_validate($data);
 
