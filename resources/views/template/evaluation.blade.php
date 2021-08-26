@@ -102,7 +102,7 @@
 
                     <div class="column left">
 
-                        @include('block.evaluation-about')
+                        @include('block.evaluation-details')
 
                         @include('block.evaluation-location')
 
