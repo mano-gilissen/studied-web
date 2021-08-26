@@ -95,7 +95,8 @@
     overflow-x:                         hidden;
 }
 
-.agreements .buttons .button {
+.agreements #button-previous,
+.agreements #button-next {
     width:                              32px;
     height:                             32px;
     border-radius:                      16px;
@@ -105,15 +106,16 @@
     pointer-events:                     all;
 }
 
-.agreements .buttons .button:hover {
+.agreements #button-previous:hover,
+.agreements #button-next:hover {
     background:                         #E6E6E6;
 }
 
-.agreements .buttons #button-previous {
+.agreements #button-previous {
     margin-left:                        -64px;
 }
 
-.agreements .buttons #button-next {
+.agreements #button-next {
     margin-right:                       -64px;
 }
 
