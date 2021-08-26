@@ -95,14 +95,11 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
 
-    $(function() {
+    if (set_id) {
 
-        if (set_id) {
+        set_value(set_id);
 
-            set_value(set_id);
-
-        }
-    });
+    }
 
 
 
@@ -182,6 +179,8 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
         var input_id;
 
         input                           .val(data[key]);
+
+        console.log(input);
 
         input.parent()                  .addClass("autocomplete");
 
