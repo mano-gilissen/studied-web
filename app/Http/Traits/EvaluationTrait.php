@@ -37,8 +37,6 @@ trait EvaluationTrait {
         $evaluation->{Model::$STUDENT}                              = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT];
         $evaluation->{Model::$LOCATION}                             = $data[Key::AUTOCOMPLETE_ID . Model::$LOCATION];
 
-        dd($evaluation);
-
         $evaluation->save();
 
 
@@ -56,6 +54,10 @@ trait EvaluationTrait {
 
             }
         }
+
+
+
+        dd($evaluation);
 
 
 
