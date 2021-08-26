@@ -34,7 +34,7 @@ class EvaluationController extends Controller {
 
 
 
-    public function plan(Request $request) {
+    public function plan($student_id = -1) {
 
         $data                                                               = [];
 
@@ -42,7 +42,7 @@ class EvaluationController extends Controller {
         $data[Key::SUBMIT_ACTION]                                           = 'Aanmaken';
         $data[Key::SUBMIT_ROUTE]                                            = 'evaluation.plan_submit';
 
-        $data[Model::$STUDENT]                                              = $request->input(Model::$STUDENT, -1);
+        $data[Model::$STUDENT]                                              = $student_id;
 
 
 

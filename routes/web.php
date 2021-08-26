@@ -50,7 +50,7 @@ Route::get('/profiel/{slug}',                   'PersonController@view')->name('
 
 Route::get('/gesprek/{key}',                    'EvaluationController@view')->name('evaluation.view')->middleware('auth');
 
-Route::get('/gesprek/aanmaken',                 'EvaluationController@plan')->name('evaluation.plan')->middleware('auth');
+Route::get('/gesprek/aanmaken/{student?}',      'EvaluationController@plan')->name('evaluation.plan')->middleware('auth');
 
 
 
