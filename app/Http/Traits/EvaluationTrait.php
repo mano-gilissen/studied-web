@@ -45,6 +45,7 @@ trait EvaluationTrait {
 
         array_push($employee_ids, $data[Key::AUTOCOMPLETE_ID . Model::$EMPLOYEE . '_1']);
         array_push($employee_ids, $data[Key::AUTOCOMPLETE_ID . Model::$EMPLOYEE . '_2']);
+        array_push($employee_ids, $data[Key::AUTOCOMPLETE_ID . Model::$EMPLOYEE . '_3']);
 
         foreach ($employee_ids as $employee_id) {
 
