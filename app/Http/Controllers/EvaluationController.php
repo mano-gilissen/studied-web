@@ -56,8 +56,6 @@ class EvaluationController extends Controller {
 
             $person                                                         = Person::where(Model::$PERSON_SLUG, $leerling)->first();
             $data[Model::$STUDENT]                                          = $person ? $person->getUser->{Model::$BASE_ID} : -1;
-
-            dd($data);
         }
 
 
