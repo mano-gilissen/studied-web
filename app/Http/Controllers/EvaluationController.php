@@ -34,15 +34,13 @@ class EvaluationController extends Controller {
 
 
 
-    public function plan($student_id = -1) {
+    public function plan($slug = null) {
 
         $data                                                               = [];
 
         $data[Key::PAGE_TITLE]                                              = 'Gesprek aanmaken';
         $data[Key::SUBMIT_ACTION]                                           = 'Aanmaken';
         $data[Key::SUBMIT_ROUTE]                                            = 'evaluation.plan_submit';
-
-        $data[Model::$STUDENT]                                              = $student_id;
 
 
 
@@ -51,6 +49,15 @@ class EvaluationController extends Controller {
         $objects_student                                                    = User::where(Model::$ROLE, RoleTrait::$ID_STUDENT)->with('getPerson')->get();
 
         $objects_location                                                   = Location::all();
+
+
+
+        if ($slug) {
+
+            $person                                                         = Person::where(Model::$PERSON_SLUG, $slug)->first();
+            $data[Model::$STUDENT]                                          = $person ? $person->getUser->{Model::$BASE_ID} : -1;
+
+        }
 
 
 
