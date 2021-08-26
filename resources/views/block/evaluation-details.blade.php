@@ -34,7 +34,7 @@
 
             <div class="value">
 
-                <div class="tag" style="background: {{\App\Http\Traits\EvaluationTrait::getStatusColor(\App\Http\Traits\EvaluationTrait::getStatus($evaluation))}};color: {{\App\Http\Traits\EvaluationTrait::getStatusTextColor($evaluation)}}">{{ \App\Http\Traits\EvaluationTrait::getStatusText(\App\Http\Traits\EvaluationTrait::getStatus($evaluation)) }}</div>
+                <div class="tag" style="background: {{\App\Http\Traits\EvaluationTrait::getStatusColor(\App\Http\Traits\EvaluationTrait::getStatus($evaluation))}};color: {{\App\Http\Traits\EvaluationTrait::getStatusTextColor(\App\Http\Traits\EvaluationTrait::getStatus($evaluation))}}">{{ \App\Http\Traits\EvaluationTrait::getStatusText(\App\Http\Traits\EvaluationTrait::getStatus($evaluation)) }}</div>
 
             </div>
 
