@@ -1,6 +1,20 @@
 <div class="agreements">
 
-    <div class="title">Vakafspraken</div>
+    @if(\App\Http\Traits\BaseTrait::hasManagementRights(Auth::user()) && ($person->getUser->isStudent() || $person->getUser->isEmployee()))
+
+        <div class="title-add">
+
+            <img class="button-add" src="/images/add-unboxed.svg" onclick="window.location.href='{{ route('evaluation.plan', ['leerling' => $person->slug]) }}'">
+
+            <div class="title">Vakafspraken</div>
+
+        </div>
+
+    @else
+
+        <div class="title">Vakafspraken</div>
+
+    @endif
 
     <div style="display: flex; align-items: center">
 

@@ -81,13 +81,13 @@
 
 
 
-.agreements {
-    padding-top:                        40px;
+.evaluations {
+    padding-top:                        24px;
     margin-bottom:                      48px;
 }
 
-.agreements .title {
-    padding:                            0 0 16px 4px;
+.evaluations .title {
+    padding:                            16px 0 16px 4px;
 }
 
 .agreements .wrap {
@@ -144,15 +144,22 @@
     padding-top:                        80px;
 }
 
+
+
+
+
+.agreements .button-add,
 .evaluations .button-add {
     margin-left:                        -60px;
 }
 
+.agreements .title-add,
 .evaluations .title-add {
     display:                            flex;
     align-items:                        center;
 }
 
+.agreements .title-add .title,
 .evaluations .title-add .title {
     padding:                            16px 0 16px 32px;
 }
