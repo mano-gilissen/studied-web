@@ -13,12 +13,12 @@ trait Evaluation_EmployeeTrait {
 
 
 
-    public static function create($evaluation, $employee) {
+    public static function create($evaluation_id, $employee_id) {
 
         $evaluation_employee                                = new Evaluation_employee;
 
-        $evaluation_employee->{Model::$EVALUATION}          = $evaluation->{Model::$BASE_ID};
-        $evaluation_employee->{Model::$EMPLOYEE}            = $employee->{Model::$BASE_ID};
+        $evaluation_employee->{Model::$EVALUATION}          = $evaluation_id;
+        $evaluation_employee->{Model::$EMPLOYEE}            = $employee_id;
 
         $evaluation_employee->save();
     }
