@@ -39,7 +39,7 @@ trait EvaluationTrait {
         $evaluation->{Model::$EVALUATION_REGARDING}                 = $data[Key::AUTOCOMPLETE_ID . Model::$EVALUATION_REGARDING];
         $evaluation->{Model::$EVALUATION_HOST}                      = $data[Key::AUTOCOMPLETE_ID . Model::$EVALUATION_HOST];
         $evaluation->{Model::$STUDENT}                              = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT];
-        $evaluation->{Model::$LOCATION}                             = $data[Key::AUTOCOMPLETE_ID . Model::$LOCATION];
+        $evaluation->{Model::$EVALUATION_LOCATION_TEXT}             = $data[Key::AUTOCOMPLETE_ID . Model::$LOCATION];
 
         $evaluation->save();
 
