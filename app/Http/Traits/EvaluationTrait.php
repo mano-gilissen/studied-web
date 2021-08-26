@@ -31,10 +31,33 @@ trait EvaluationTrait {
 
         $evaluation->{Model::$BASE_KEY}                             = Func::generate_key();
 
-        $evaluation->{Model::$EVALUATION_DATETIME}                  = $data[Model::$EVALUATION_DATETIME];
+        $evaluation->{Model::$EVALUATION_DATETIME}                  = $data['date'] . ' ' . $data['time'] . ':00';
         $evaluation->{Model::$EVALUATION_REGARDING}                 = $data[Key::AUTOCOMPLETE_ID . Model::$EVALUATION_DATETIME];
+        $evaluation->{Model::$EVALUATION_HOST}                      = $data[Key::AUTOCOMPLETE_ID . Model::$EVALUATION_HOST];
+        $evaluation->{Model::$STUDENT}                              = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT];
+        $evaluation->{Model::$LOCATION}                             = $data[Key::AUTOCOMPLETE_ID . Model::$LOCATION];
+
+        dd($evaluation);
 
         $evaluation->save();
+
+
+
+        $employee_ids                                               = [];
+
+        array_push($employee_ids, $data[Key::AUTOCOMPLETE_ID . Model::$EMPLOYEE . '_1']);
+        array_push($employee_ids, $data[Key::AUTOCOMPLETE_ID . Model::$EMPLOYEE . '_2']);
+
+        foreach ($employee_ids as $employee_id) {
+
+            if ($employee_id > 0) {
+
+                Evaluation_EmployeeTrait::create($evaluation->{Model::$BASE_ID}, $employee_id);
+
+            }
+        }
+
+
 
         return $evaluation;
     }
