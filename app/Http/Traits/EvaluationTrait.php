@@ -48,7 +48,7 @@ trait EvaluationTrait {
         $evaluation->{Model::$ADDRESS}                              = $address_id;
         $evaluation->{Model::$EVALUATION_LOCATION_TEXT}             = $link ? "Digitaal" : ($location ? $location->{Model::$LOCATION_NAME} : $data[Model::$LOCATION]);
         $evaluation->{Model::$EVALUATION_LINK}                      = $link;
-        
+
 
 
         $evaluation->save();
@@ -69,10 +69,6 @@ trait EvaluationTrait {
 
             }
         }
-
-
-
-        dd($evaluation);
 
 
 
