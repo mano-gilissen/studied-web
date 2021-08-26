@@ -2,15 +2,9 @@
 
     <div class="title">Vakafspraken</div>
 
-    <div>
+    <div style="display: flex; align-items: center">
 
-        <div class="buttons">
-
-            <img class="button" id="button-previous" src="/images/back.svg"/>
-
-            <img class="button" id="button-next" src="/images/forward.svg"/>
-
-        </div>
+        <img class="button" id="button-previous" src="/images/back.svg"/>
 
         <div class="wrap">
 
@@ -71,6 +65,8 @@
             </div>
 
         </div>
+
+        <img class="button" id="button-next" src="/images/forward.svg"/>
 
     </div>
 

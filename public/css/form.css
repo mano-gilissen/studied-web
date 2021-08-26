@@ -169,6 +169,46 @@ html, body {
     border-radius:                      16px;
     background:                         #E6E6E6;
 }
+.agreements .buttons {
+    position:                           absolute;
+    display:                            flex;
+    width:                              642px;
+    padding:                            70px 48px 0 0;
+    z-index:                            10;
+    pointer-events:                     none;
+}
+
+.agreements .buttons .button {
+    width:                              32px;
+    height:                             32px;
+    border-radius:                      16px;
+    margin-left:                        24px;
+    padding:                            8px;
+    background:                         #E6E6E6;
+    display:                            none;
+    pointer-events:                     all;
+}
+
+.agreements .buttons .button:hover {
+    background:                         #EBEBEB;
+}
+
+.agreements .buttons .button.visible {
+    display:                            unset;
+}
+
+.agreements .buttons .button.solo {
+    background:                         #FFDD34;
+}
+
+.agreements .buttons .button.solo:hover {
+    background:                         #FFE45B;
+}
+
+.agreements .buttons #button-next.solo,
+.agreements .buttons #button-previous {
+    margin-left:                        auto;
+}
 
 
 
