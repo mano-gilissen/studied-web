@@ -31,7 +31,7 @@ trait EvaluationTrait {
 
         $evaluation->{Model::$BASE_KEY}                             = Func::generate_key();
 
-        $evaluation->{Model::$EVALUATION_DATETIME}                  = $data['date'] . ' ' . $data['time'] . ':00';
+        $evaluation->{Model::$EVALUATION_DATETIME}                  = $data['date'] . ' ' . $data['start'] . ':00';
         $evaluation->{Model::$EVALUATION_REGARDING}                 = $data[Key::AUTOCOMPLETE_ID . Model::$EVALUATION_DATETIME];
         $evaluation->{Model::$EVALUATION_HOST}                      = $data[Key::AUTOCOMPLETE_ID . Model::$EVALUATION_HOST];
         $evaluation->{Model::$STUDENT}                              = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT];
