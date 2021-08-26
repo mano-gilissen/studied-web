@@ -8,6 +8,7 @@ use App\Http\Support\Color;
 use App\Http\Support\Func;
 use App\Http\Support\Key;
 use App\Http\Support\Model;
+use App\Models\Address;
 use App\Models\Evaluation;
 
 
@@ -39,7 +40,16 @@ trait EvaluationTrait {
         $evaluation->{Model::$EVALUATION_REGARDING}                 = $data[Key::AUTOCOMPLETE_ID . Model::$EVALUATION_REGARDING];
         $evaluation->{Model::$EVALUATION_HOST}                      = $data[Key::AUTOCOMPLETE_ID . Model::$EVALUATION_HOST];
         $evaluation->{Model::$STUDENT}                              = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT];
-        $evaluation->{Model::$EVALUATION_LOCATION_TEXT}             = $data[Key::AUTOCOMPLETE_ID . Model::$LOCATION];
+
+        $address_id                                                 = $data[Key::AUTOCOMPLETE_ID . Model::$LOCATION];
+        $location                                                   = Address::find($address_id)->getLocation;
+        $link                                                       = $data[Model::$EVALUATION_LINK];
+
+        $evaluation->{Model::$ADDRESS}                              = $address_id;
+        $evaluation->{Model::$EVALUATION_LOCATION_TEXT}             = $link ? "Digitaal" : ($location ? $location->{Model::$LOCATION_NAME} : $data[Model::$LOCATION]);
+        $evaluation->{Model::$EVALUATION_LINK}                      = $link;
+        
+
 
         $evaluation->save();
 

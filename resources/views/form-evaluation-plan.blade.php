@@ -14,6 +14,8 @@
 
     @include('form.field-input', ['id' => 'location', 'tag' => 'Locatie', 'icon' => 'search.svg', 'placeholder' => 'Zoek een locatie', 'required' => true, 'data' => true, 'show_all' => true, 'uses_id' => true])
 
+    @include('form.field-input', ['id' => 'link', 'tag' => 'Digitale meeting', 'icon' => 'url.svg', 'placeholder' => 'Plak een URL'])
+
     <div class="seperator"></div>
 
 
