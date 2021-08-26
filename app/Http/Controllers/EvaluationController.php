@@ -34,7 +34,7 @@ class EvaluationController extends Controller {
 
 
 
-    public function plan($slug = null) {
+    public function plan($leerling = null) {
 
         $data                                                               = [];
 
@@ -52,9 +52,9 @@ class EvaluationController extends Controller {
 
 
 
-        if ($slug) {
+        if ($leerling) {
 
-            $person                                                         = Person::where(Model::$PERSON_SLUG, $slug)->first();
+            $person                                                         = Person::where(Model::$PERSON_SLUG, $leerling)->first();
             $data[Model::$STUDENT]                                          = $person ? $person->getUser->{Model::$BASE_ID} : -1;
 
         }
