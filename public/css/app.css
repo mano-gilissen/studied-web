@@ -592,6 +592,10 @@ button:focus {
     align-items:                        center;
 }
 
+.agreement .top .title {
+    padding:                            unset;
+}
+
 .agreement .bottom {
     margin:                             16px 48px 0 0;
 }
