@@ -41,11 +41,11 @@ trait EvaluationTrait {
         $evaluation->{Model::$EVALUATION_HOST}                      = $data[Key::AUTOCOMPLETE_ID . Model::$EVALUATION_HOST];
         $evaluation->{Model::$STUDENT}                              = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT];
 
-        $address_id                                                 = $data[Key::AUTOCOMPLETE_ID . Model::$LOCATION];
-        $location                                                   = $address_id > 0 ? Address::find($address_id)->getLocation : null;
+        $address                                                    = Address::find($data[Key::AUTOCOMPLETE_ID . Model::$LOCATION]);
+        $location                                                   = $address ? $address->getLocation : null;
         $link                                                       = $data[Model::$EVALUATION_LINK];
 
-        $evaluation->{Model::$ADDRESS}                              = $address_id > 1 ? $address_id : -1;
+        $evaluation->{Model::$ADDRESS}                              = $address ? $address->{Model::$BASE_ID} : -1;
         $evaluation->{Model::$EVALUATION_LOCATION_TEXT}             = $link ? "Digitaal" : ($location ? $location->{Model::$LOCATION_NAME} : $data[Model::$LOCATION]);
         $evaluation->{Model::$EVALUATION_LINK}                      = $link;
 

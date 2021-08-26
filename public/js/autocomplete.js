@@ -252,9 +252,13 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
         close_list();
 
-        if (reject_other && !autocompleted) {
+        if (!autocompleted) {
 
-            input                                   .val('');
+            if (reject_other) {
+
+                input                                   .val('');
+
+            }
 
             if (uses_id) {
 
