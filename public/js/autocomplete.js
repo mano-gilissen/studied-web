@@ -113,7 +113,7 @@ function open_list(input, currentFocus, autocompleted, data, uses_id, has_additi
 
         current_value                           = event.value;
 
-    close_list();
+    close_list(input);
 
     if (received_input) {
 
@@ -169,7 +169,7 @@ function create_item(input, uses_id, autocompleted, show_all, data, has_addition
 
             set_value(input, uses_id, autocompleted, trigger, data, key);
 
-            close_list();
+            close_list(input);
         });
 
         list.appendChild(item);
@@ -239,7 +239,7 @@ function remove_active(list) {
 
 
 
-function close_list() {
+function close_list(input) {
 
     var list                                    = input.parent().parent().find(".autocomplete-list");
 
@@ -256,7 +256,7 @@ function close_list_and_reject(input, autocompleted, uses_id, reject_other) {
 
     var input_id;
 
-    close_list();
+    close_list(input);
 
     if (reject_other && !autocompleted) {
 
