@@ -70,11 +70,11 @@ class EvaluationController extends Controller {
         $data[Key::AUTOCOMPLETE_DATA . Model::$EVALUATION_HOST]             = Format::encode($ac_data_host);
         $data[Key::AUTOCOMPLETE_ADDITIONAL . Model::$EVALUATION_HOST]       = Format::encode($ac_additional_host);
 
-        $data[Key::AUTOCOMPLETE_DATA . Model::$EVALUATION_HOST]             = Format::encode($ac_data_employee);
-        $data[Key::AUTOCOMPLETE_ADDITIONAL . Model::$EVALUATION_HOST]       = Format::encode($ac_additional_employee);
+        $data[Key::AUTOCOMPLETE_DATA . Model::$EMPLOYEE]                    = Format::encode($ac_data_employee);
+        $data[Key::AUTOCOMPLETE_ADDITIONAL . Model::$EMPLOYEE]              = Format::encode($ac_additional_employee);
 
-        $data[Key::AUTOCOMPLETE_DATA . Model::$EVALUATION_HOST]             = Format::encode($ac_data_student);
-        $data[Key::AUTOCOMPLETE_ADDITIONAL . Model::$EVALUATION_HOST]       = Format::encode($ac_additional_student);
+        $data[Key::AUTOCOMPLETE_DATA . Model::$STUDENT]                     = Format::encode($ac_data_student);
+        $data[Key::AUTOCOMPLETE_ADDITIONAL . Model::$STUDENT]               = Format::encode($ac_additional_student);
 
         $data[Key::AUTOCOMPLETE_DATA . Model::$LOCATION]                    = Format::encode($ac_data_location);
 
