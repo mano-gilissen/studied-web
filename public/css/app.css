@@ -608,6 +608,11 @@ button:focus {
     border-radius:                      28px;
 }
 
+.agreements #button-previous,
+.agreements #button-next {
+    user-select:                        none;
+}
+
 .agreements #button-previous.visible,
 .agreements #button-next.visible {
     display:                            unset;
