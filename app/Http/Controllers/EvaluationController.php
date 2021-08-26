@@ -113,7 +113,7 @@ class EvaluationController extends Controller {
 
         $data                                                               = $request->all();
 
-        //self::plan_validate($data);
+        self::plan_validate($data);
 
         $evaluation                                                         = EvaluationTrait::create($data);
 
@@ -132,7 +132,10 @@ class EvaluationController extends Controller {
 
         $rules                                                              = [];
 
-        // TODO: ADD RULES
+        $rules[Model::$EVALUATION_DATETIME]                                 = ['required'];
+        $rules[Model::$EVALUATION_REGARDING]                                = ['required'];
+        $rules[Model::$EVALUATION_HOST]                                     = ['required'];
+        $rules[Model::$STUDENT]                                             = ['required'];
 
         $validator                                                          = Validator::make($data, $rules, self::getValidationMessages());
 

@@ -42,10 +42,10 @@ trait EvaluationTrait {
         $evaluation->{Model::$STUDENT}                              = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT];
 
         $address_id                                                 = $data[Key::AUTOCOMPLETE_ID . Model::$LOCATION];
-        $location                                                   = Address::find($address_id)->getLocation;
+        $location                                                   = $address_id > 0 ? Address::find($address_id)->getLocation : null;
         $link                                                       = $data[Model::$EVALUATION_LINK];
 
-        $evaluation->{Model::$ADDRESS}                              = $address_id;
+        $evaluation->{Model::$ADDRESS}                              = $address_id > 1 ? $address_id : -1;
         $evaluation->{Model::$EVALUATION_LOCATION_TEXT}             = $link ? "Digitaal" : ($location ? $location->{Model::$LOCATION_NAME} : $data[Model::$LOCATION]);
         $evaluation->{Model::$EVALUATION_LINK}                      = $link;
 

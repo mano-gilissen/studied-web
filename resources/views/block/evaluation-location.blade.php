@@ -14,7 +14,7 @@
 
         <div class="attribute">
 
-            <div class="name">{{ \App\Http\Traits\EvaluationTrait::hasLink($evaluation) ? "Link les" : "Adres" }}</div>
+            <div class="name">{{ \App\Http\Traits\EvaluationTrait::hasLink($evaluation) ? "Link gesprek" : "Adres" }}</div>
 
             <div class="value">{!! \App\Http\Traits\EvaluationTrait::hasLink($evaluation) ? '<a href="' . $evaluation->link . '">' . $evaluation->link . '</a>' : ($evaluation->getAddress ? \App\Http\Traits\AddressTrait::getFormatted($evaluation->getAddress, \App\Http\Traits\AddressTrait::$FORMAT_STUDY) : "Geen adres bekend") !!}</div>
 
