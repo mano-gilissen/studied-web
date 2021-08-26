@@ -63,22 +63,24 @@ function profile_agreements_render(movement = false) {
     button_next                                 = $(OBJECT_BUTTON_NEXT);
 
     buttons                                     .removeClass(ATTR_VISIBLE);
-    buttons                                     .removeClass(ATTR_SOLO);
-
 
     agreements                                  = $(CLASS_AGREEMENT);
 
+    console.log('1');
     if(agreements.length > 1) {
 
         if (agreements_index_active === 0) {
+            console.log('a');
 
             button_next                             .addClass(ATTR_VISIBLE);
 
         } else if (agreements_index_active === agreements.length - 1) {
+            console.log('b');
 
             button_previous                         .addClass(ATTR_VISIBLE);
 
         } else {
+            console.log('c');
 
             button_previous                         .addClass(ATTR_VISIBLE);
             button_next                             .addClass(ATTR_VISIBLE);
