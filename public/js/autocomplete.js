@@ -263,6 +263,9 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
             if (uses_id) {
 
                 input_id                            = input.parent().parent().find('#_' + input.attr('name'));
+
+                console.log(input_id);
+
                 input_id.value                      = '';
             }
         }
