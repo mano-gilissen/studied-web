@@ -39,6 +39,8 @@
 
 
 
+
+
 #top .name {
     margin:                             0 auto 4px;
     font-size:                          40px;
@@ -67,6 +69,8 @@
 
 
 
+
+
 .content-columns {
     grid-template-rows:                 auto;
     grid-template-areas:                "left . right"
@@ -75,14 +79,22 @@
 
 
 
+
+
 .agreements {
     margin:                             40px 0 48px;
+}
+
+.agreements .title {
+    padding:                            0 0 16px 4px;
 }
 
 .agreements .wrap {
     width:                              712px;
     overflow-x:                         hidden;
 }
+
+
 
 
 
