@@ -174,7 +174,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
 
 
 
-    function set_value(input, key) {
+    function set_value(key) {
 
         var input_id;
 
