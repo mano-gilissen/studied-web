@@ -158,7 +158,7 @@ function create_item(input, uses_id, autocompleted, show_all, data, has_addition
         item                                .setAttribute("class", "autocomplete-item");
 
         value_data                          = data[key];
-        value_additional                    = has_additional(additional) ? "&nbsp;&nbsp;<span style='color:#CCCCCC'>" + additional[key] + "</span>" : "";
+        value_additional                    = has_additional ? "&nbsp;&nbsp;<span style='color:#CCCCCC'>" + additional[key] + "</span>" : "";
 
         item.innerHTML                      = current_value ? "<span style='color:black;font-weight:400'>" + value_data.substr(0, current_value.length) + "</span>" + value_data.substr(current_value.length) + value_additional : value_data + value_additional;
         item.innerHTML                      += "<input type='hidden' value='" + key + "'>";
