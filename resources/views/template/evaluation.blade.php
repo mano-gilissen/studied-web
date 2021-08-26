@@ -48,7 +48,7 @@
                     @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
                     @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
 
-                        <div class="button icon grey" onclick="window.location.href='{{ route() }}'">
+                        <div class="button icon grey">
 
                             <img class="icon" src="/images/edit.svg">
 
@@ -60,7 +60,7 @@
 
                             @case(\App\Http\Traits\EvaluationTrait::$ID_INTAKE)
 
-                                <div class="button icon" onclick="window.location.href='{{ route() }}'">
+                                <div class="button icon">
 
                                     <img class="icon" src="/images/edit.svg">
 
@@ -72,7 +72,7 @@
 
                             @case(\App\Http\Traits\EvaluationTrait::$ID_EVALUATION)
 
-                                <div class="button icon" onclick="window.location.href='{{ route() }}'">
+                                <div class="button icon">
 
                                     <img class="icon" src="/images/edit.svg">
 
