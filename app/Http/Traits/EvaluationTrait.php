@@ -43,15 +43,9 @@ trait EvaluationTrait {
 
 
 
-    public static function getRegardingText($evaluation) {
+    public static function getRegardingText($regarding) {
 
-        if (!$evaluation) {
-
-            return Key::UNKNOWN;
-
-        }
-
-        switch ($evaluation->{Model::$EVALUATION_REGARDING}) {
+        switch ($regarding) {
 
             case self::$ID_INTAKE:
 
@@ -64,7 +58,6 @@ trait EvaluationTrait {
             default:
 
                 return Key::UNKNOWN;
-
         }
     }
 
