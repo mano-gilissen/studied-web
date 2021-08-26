@@ -71,5 +71,16 @@ trait EvaluationTrait {
 
 
 
+    public static function getRegardingData() {
+
+        return [
+            self::$ID_INTAKE                        => self::getRegardingText(self::$ID_INTAKE),
+            self::$ID_EVALUATION                    => self::getRegardingText(self::$ID_EVALUATION)
+        ];
+    }
+
+
+
+
 
 }

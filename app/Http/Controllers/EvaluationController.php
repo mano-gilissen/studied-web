@@ -78,6 +78,8 @@ class EvaluationController extends Controller {
 
         $data[Key::AUTOCOMPLETE_DATA . Model::$LOCATION]                    = Format::encode($ac_data_location);
 
+        $data[Key::AUTOCOMPLETE_DATA . Model::$EVALUATION_REGARDING]        = Format::encode(EvaluationTrait::getRegardingData());
+
 
 
         return view(Views::FORM_EVALUATION_PLAN, $data);
