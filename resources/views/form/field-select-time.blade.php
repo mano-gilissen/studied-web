@@ -2,7 +2,7 @@
 
     <div class="name">Tijdstip</div>
 
-    <div class="box-select @if(!$single ?? false) width-third @endif">
+    <div class="box-select @if($end ?? true) width-third @endif">
 
         <select
             id                                          = "start"
@@ -48,7 +48,7 @@
 
     </div>
 
-    @if (!$single ?? false)
+    @if ($end ?? true)
 
         <div class="note width-third">tot</div>
 

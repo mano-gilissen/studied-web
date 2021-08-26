@@ -10,7 +10,7 @@
 
     @include('form.field-input', ['id' => 'date', 'type' => 'date', 'tag' => 'Datum', 'placeholder' => 'Kies een datum', 'required' => true])
 
-    @include('form.field-select-time', ['single' => true])
+    @include('form.field-select-time', ['end' => false])
 
     @include('form.field-input', ['id' => 'location', 'tag' => 'Locatie', 'icon' => 'search.svg', 'placeholder' => 'Zoek een locatie', 'required' => true, 'data' => true, 'show_all' => true, 'uses_id' => true])
 
