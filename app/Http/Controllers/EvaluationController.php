@@ -96,6 +96,8 @@ class EvaluationController extends Controller {
 
         $data                                                               = $request->all();
 
+        dd($data);
+
         self::plan_validate($data);
 
         $evaluation                                                         = EvaluationTrait::create($data);
