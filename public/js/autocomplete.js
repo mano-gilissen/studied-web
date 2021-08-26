@@ -184,7 +184,7 @@ function set_value(input, uses_id, autocompleted, trigger, data, key) {
 
     input                           .val(data[key]);
 
-    console.log(input);
+    console.log(data[key]);
 
     input.parent()                  .addClass("autocomplete");
 
