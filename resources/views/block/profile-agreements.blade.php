@@ -1,68 +1,74 @@
 <div class="agreements">
 
-    <div class="buttons">
+    <div class="title">Vakafspraken</div>
 
-        <img class="button" id="button-previous" src="/images/back.svg"/>
+    <div>
 
-        <img class="button" id="button-next" src="/images/forward.svg"/>
+        <div class="buttons">
 
-    </div>
+            <img class="button" id="button-previous" src="/images/back.svg"/>
 
-    <div class="wrap">
+            <img class="button" id="button-next" src="/images/forward.svg"/>
 
-        <div id="agreements">
+        </div>
 
-            <!-- TODO: ONLY SHOW ACTIVE AGREEMENTS -->
+        <div class="wrap">
 
-            @php $agreements = ($person->getUser->role == \App\Http\Traits\RoleTrait::$ID_STUDENT ? $person->getUser->getAgreements_asStudent : $person->getUser->getAgreements_asEmployee) @endphp
+            <div id="agreements">
 
-            @if($agreements->count() > 0)
+                <!-- TODO: ONLY SHOW ACTIVE AGREEMENTS -->
 
-                @foreach($agreements as $agreement)
+                @php $agreements = ($person->getUser->role == \App\Http\Traits\RoleTrait::$ID_STUDENT ? $person->getUser->getAgreements_asStudent : $person->getUser->getAgreements_asEmployee) @endphp
 
-                    <div class="agreement" id="{{ $agreement->id }}" data-subject="{{ $agreement->subject }}">
+                @if($agreements->count() > 0)
 
-                        <div class="top">
+                    @foreach($agreements as $agreement)
 
-                            <div class="title">{{ $agreement->identifier }}</div>
+                        <div class="agreement" id="{{ $agreement->id }}" data-subject="{{ $agreement->subject }}">
+
+                            <div class="top">
+
+                                <div class="title">{{ $agreement->identifier }}</div>
+
+                            </div>
+
+                            <div class="bottom">
+
+                                @if($agreement->getStudent->getPerson->avatar)
+
+                                    <img src="{{ asset("storage/avatar/" . $agreement->getStudent->getPerson->avatar) }}"/>
+
+                                @else
+
+                                    <div>
+
+                                        <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials($agreement->getStudent->getPerson) }}</div>
+
+                                    </div>
+
+                                @endif
+
+                                <div>{!! \App\Http\Traits\AgreementTrait::getDescription($agreement, true) !!}</div>
+
+                            </div>
 
                         </div>
 
-                        <div class="bottom">
+                    @endforeach
 
-                            @if($agreement->getStudent->getPerson->avatar)
+                    <script>
 
-                                <img src="{{ asset("storage/avatar/" . $agreement->getStudent->getPerson->avatar) }}"/>
+                        profile_agreements_set_active(0);
 
-                            @else
+                    </script>
 
-                                <div>
+                @else
 
-                                    <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials($agreement->getStudent->getPerson) }}</div>
+                    <div class="block-note">{{ $person->{\App\Http\Support\Model::$PERSON_FIRST_NAME} }} heeft geen actieve vakafspraken.</div>
 
-                                </div>
+                @endif
 
-                            @endif
-
-                            <div>{!! \App\Http\Traits\AgreementTrait::getDescription($agreement, true) !!}</div>
-
-                        </div>
-
-                    </div>
-
-                @endforeach
-
-                <script>
-
-                    profile_agreements_set_active(0);
-
-                </script>
-
-            @else
-
-                <div class="block-note">{{ $person->{\App\Http\Support\Model::$PERSON_FIRST_NAME} }} heeft geen actieve vakafspraken.</div>
-
-            @endif
+            </div>
 
         </div>
 
