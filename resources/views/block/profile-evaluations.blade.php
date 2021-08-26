@@ -22,11 +22,11 @@
 
             <div class="header no_sort no_filter">Datum</div>
 
-            <div class="header no_sort no_filter">Host</div>
+            <div class="header no_sort no_filter">Ingepland door</div>
 
             <div class="header no_sort no_filter">Locatie</div>
 
-            <div class="header no_sort no_filter">Onderwerp</div>
+            <div class="header no_sort no_filter">Betreft</div>
 
         </div>
 

@@ -44,8 +44,8 @@ class EvaluationController extends Controller {
 
 
 
-        $objects_host                                                       = User::whereIn(Model::$ROLE, array(RoleTrait::$ID_BOARD, RoleTrait::$ID_MANAGEMENT, RoleTrait::$ID_EMPLOYEE))->with('getPerson')->get();
-        $objects_employee                                                   = User::where(Model::$ROLE, RoleTrait::$ID_EMPLOYEE)->with('getPerson')->get();
+        $objects_host                                                       = User::whereIn(Model::$ROLE, array(RoleTrait::$ID_BOARD, RoleTrait::$ID_MANAGEMENT))->with('getPerson')->get();
+        $objects_employee                                                   = User::whereIn(Model::$ROLE, array(RoleTrait::$ID_BOARD, RoleTrait::$ID_MANAGEMENT, RoleTrait::$ID_EMPLOYEE))->with('getPerson')->get();
         $objects_student                                                    = User::where(Model::$ROLE, RoleTrait::$ID_STUDENT)->with('getPerson')->get();
 
         $objects_location                                                   = Location::all();
