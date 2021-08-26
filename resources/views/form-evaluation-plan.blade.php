@@ -28,6 +28,8 @@
 
     @include('form.field-input', ['id' => 'student', 'tag' => 'Student', 'icon' => 'search.svg', 'placeholder' => 'Zoek een student', 'required' => true, 'data' => true, 'additional' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true, 'set_id' => $student ?? -1])
 
+    <div class="seperator"></div>
+
 
 
     <div class="title">{{ __('Details') }}</div>
