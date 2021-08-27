@@ -128,7 +128,7 @@
     display:                            none;
 }
 
-.agreement:hover .view {
+.agreement.active:hover .view {
     display:                            unset;
 }
 
