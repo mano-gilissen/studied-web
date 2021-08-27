@@ -95,15 +95,6 @@ $(function(){
 
 
 
-    function set_tooltip(text) {
-
-        $(OBJECT_TOOLTIP)                       .text(text);
-        $(OBJECT_TOOLTIP)                       .css({left: (16 + event.clientX) + "px"});
-        $(OBJECT_TOOLTIP)                       .css({top: (10 + event.clientY) + "px"});
-    }
-
-
-
     $(OBJECT_APP).on('mousemove', CLASS_PERSON, function() {
 
         set_tooltip("Profiel bekijken");
@@ -208,3 +199,12 @@ $(function(){
 
 
 });
+
+
+
+function set_tooltip(text) {
+
+    $(OBJECT_TOOLTIP)                       .text(text);
+    $(OBJECT_TOOLTIP)                       .css({left: (16 + event.clientX) + "px"});
+    $(OBJECT_TOOLTIP)                       .css({top: (10 + event.clientY) + "px"});
+}
