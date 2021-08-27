@@ -78,6 +78,22 @@ trait EvaluationTrait {
 
 
 
+    public static function updateFromEvaluation($data, $evaluation) {
+
+        for ($i = 1; $i <= 10; $i++) {
+
+            $evaluation[Model::$EVALUATION_PVA . $i]                = $data[Model::$EVALUATION_PVA . $i];
+
+        }
+
+        dd($evaluation);
+
+        $evaluation->save();
+    }
+
+
+
+
 
     public static function hasLink($study) {
 
@@ -120,7 +136,7 @@ trait EvaluationTrait {
 
     public static function getStatus($evaluation) {
 
-        return Func::has_passed($evaluation->{Model::$EVALUATION_DATETIME}) ? 1 : 2;
+        return Func::has_passed($evaluation->{Model::$EVALUATION_DATETIME}) ? 2 : 1;
 
     }
 

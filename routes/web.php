@@ -52,6 +52,10 @@ Route::get('/gesprek/{key}',                    'EvaluationController@view')->na
 
 Route::get('/gesprek/aanmaken/{leerling?}',     'EvaluationController@plan')->name('evaluation.plan')->middleware('auth');
 
+Route::get('/kennismaking/{key}',               'EvaluationController@perform')->name('evaluation.intake')->middleware('auth');
+
+Route::get('/evaluatie/{key}',                  'EvaluationController@perform')->name('evaluation.evaluation')->middleware('auth');
+
 
 
 Route::get('/inloggen',                         'Auth\LoginController@view')->name('login.view');
@@ -106,6 +110,8 @@ Route::post('/submit/student/create',           'StudentController@create_submit
 Route::post('/submit/customer/create',          'CustomerController@create_submit')->name('customer.create_submit')->middleware('auth');
 
 Route::post('/submit/evaluation/plan',          'EvaluationController@plan_submit')->name('evaluation.plan_submit')->middleware('auth');
+
+Route::post('/submit/evaluation/perform',       'EvaluationController@perform_submit')->name('evaluation.perform_submit')->middleware('auth');
 
 
 

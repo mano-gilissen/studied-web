@@ -123,7 +123,8 @@ class Model {
         $EVALUATION_LOCATION_TEXT                       = 'location_text',
         $EVALUATION_LINK                                = 'link',
         $EVALUATION_REGARDING                           = 'regarding',
-        $EVALUATION_REMARKS                             = 'remarks';
+        $EVALUATION_REMARKS                             = 'remarks',
+        $EVALUATION_PVA                                 = 'pva_';
 
 
 

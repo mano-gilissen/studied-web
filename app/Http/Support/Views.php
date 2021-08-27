@@ -27,6 +27,7 @@ class Views {
     const FORM_STUDENT_CREATE                   = "form-student-create";
     const FORM_CUSTOMER_CREATE                  = "form-customer-create";
     const FORM_EVALUATION_PLAN                  = "form-evaluation-plan";
+    const FORM_EVALUATION                       = "form-evaluation";
 
     const LOAD_LIST                             = "load.list";
     const LOAD_FILTERS                          = "load.filters";
