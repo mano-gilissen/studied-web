@@ -120,6 +120,18 @@
     margin-right:                       -60px;
 }
 
+.agreement .view {
+    margin-left:                        auto;
+    font-size:                          12px;
+    font-family:                        'Circular', serif;
+    font-weight:                        200;
+    display:                            none;
+}
+
+.agreement:hover .view {
+    display:                            unset;
+}
+
 
 
 

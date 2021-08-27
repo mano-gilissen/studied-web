@@ -38,6 +38,8 @@
 
                                 <div class="title">{{ $agreement->identifier }}</div>
 
+                                <div class="view">Bekijken</div>
+
                             </div>
 
                             <div class="bottom">
