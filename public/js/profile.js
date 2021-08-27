@@ -9,6 +9,34 @@ $(function() {
 
 
 
+    $(OBJECT_APP).on('mousemove', CLASS_AGREEMENT, function() {
+
+        set_tooltip("Vakafspraak bekijken");
+
+    });
+
+
+
+    $(OBJECT_APP).on('mouseenter', CLASS_AGREEMENT,
+
+        function() {
+
+            $(OBJECT_TOOLTIP)                       .css({opacity: 1});
+
+        }
+    );
+
+    $(OBJECT_APP).on('mouseleave', CLASS_AGREEMENT,
+
+        function(){
+
+            $(OBJECT_TOOLTIP)                       .css({opacity: 0});
+
+        }
+    );
+
+
+
     $(OBJECT_BUTTON_PREVIOUS).on('click', function () {
 
         profile_agreements_set_active(-1);
