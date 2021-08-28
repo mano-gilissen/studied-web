@@ -69,9 +69,7 @@
 
     </div>
 
-    <div id="button-add-agreement" class="button grey" onclick="evaluation_agreement_load('{{ $evaluation->id }}');">Toevoegen</div>
-
-    <script> evaluation_agreement_load('{{ $evaluation->id }}'); </script>
+    <div id="button-add-agreement" class="button grey" onclick="evaluation_agreement_load('{{ $evaluation->id }}');">Vakafspraak toevoegen</div>
 
 
 
