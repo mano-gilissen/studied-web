@@ -8,11 +8,11 @@
 
     <div class="name">Vak</div>
 
-    @include('form.box-input', ['id' => 'subject_' . $id, 'icon' => 'search.svg', 'required' => true, 'data' => true, 'ac_data' => 'subject', 'uses_id' => true, 'placeholder' => 'Kies een vak', 'size' => 'width-third'])
+    @include('form.box-input', ['id' => 'subject_' . $id, 'required' => true, 'data' => true, 'show_all' => true, 'ac_data' => 'subject', 'uses_id' => true, 'placeholder' => 'Kies een vak', 'size' => 'width-third'])
 
     <div class="note width-third">Niveau</div>
 
-    @include('form.box-input', ['id' => 'level_' . $id, 'required' => true, 'data' => true, 'ac_data' => 'level', 'uses_id' => true, 'size' => 'width-third'])
+    @include('form.box-input', ['id' => 'level_' . $id, 'required' => true, 'data' => true, 'show_all' => true, 'ac_data' => 'level', 'uses_id' => true, 'placeholder' => 'Kies een niveau', 'size' => 'width-third'])
 
 </div>
 
@@ -32,6 +32,6 @@
 
 @include('form.field-textarea', ['id' => 'remark_' . $id, 'tag' => 'Opmerkingen'])
 
-@include('form.field-input', ['id' => 'replace_' . $id, 'tag' => 'Vervangt', 'icon' => 'search.svg', 'data' => true, 'additional' => true, 'ac_data' => 'replace', 'uses_id' => true, 'placeholder' => 'Welke vakafspraak wordt hiermee vervangen? (optioneel)'])
+@include('form.field-input', ['id' => 'replace_' . $id, 'tag' => 'Vervangt', 'icon' => 'search.svg', 'data' => true, 'additional' => true, 'ac_data' => 'replace', 'uses_id' => true, 'placeholder' => 'Welke vakafspraak wordt vervangen?'])
 
 <div class="seperator"></div>
