@@ -26,7 +26,7 @@
 
                             @if(\App\Http\Traits\AgreementTrait::isNowTrail($agreement))
 
-                                <div class="trail">Proefles</div>
+                                <div class="trial">Proefles</div>
 
                             @endif
 
