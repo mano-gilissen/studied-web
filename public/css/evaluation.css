@@ -60,10 +60,11 @@
 }
 
 #pva .title {
-    padding-bottom:                     32px;
+    padding-bottom:                     40px;
 }
 
 #pva .subtitle {
+    padding-bottom:                     4px;
     font-size:                          14px;
     font-family:                        'Circular', serif;
     font-weight:                        100;

@@ -4,7 +4,7 @@
 
 
 
-    <div class="subtitle">Goal - De doelstelling</div>
+    <div class="subtitle">1. Goal - De doelstelling</div>
 
     <div class="content-fold">
 
