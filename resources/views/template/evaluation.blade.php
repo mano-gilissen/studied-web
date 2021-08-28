@@ -130,6 +130,12 @@
 
                                 @include('block.person', ['person' => $evaluation->getStudent->getPerson, 'subtitle' => 'Leerling'])
 
+                                @if($evaluation->getStudent->getStudent->getCustomer)
+
+                                    @include('block.person', ['person' => $evaluation->getStudent->getStudent->getCustomer->getUser->getPerson, 'subtitle' => 'Ouder/verzorger'])
+
+                                @endif
+
                             </div>
 
                         </div>
