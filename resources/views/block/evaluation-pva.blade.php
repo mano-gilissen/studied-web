@@ -14,7 +14,7 @@
 
             </div>
 
-            <p>{{ $report->{\App\Http\Support\Model::$EVALUATION_PVA . '1'} }}</p>
+            <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '1'} }}</p>
 
         </div>
 
@@ -30,7 +30,7 @@
 
             </div>
 
-            <p>{{ $report->{\App\Http\Support\Model::$EVALUATION_PVA . '2'} }}</p>
+            <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '2'} }}</p>
 
         </div>
 
@@ -46,7 +46,7 @@
 
             </div>
 
-            <p>{{ $report->{\App\Http\Support\Model::$EVALUATION_PVA . '3'} }}</p>
+            <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '3'} }}</p>
 
         </div>
 
@@ -62,7 +62,7 @@
 
             </div>
 
-            <p>{{ $report->{\App\Http\Support\Model::$EVALUATION_PVA . '4'} }}</p>
+            <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '4'} }}</p>
 
         </div>
 
@@ -78,7 +78,7 @@
 
             </div>
 
-            <p>{{ $report->{\App\Http\Support\Model::$EVALUATION_PVA . '5'} }}</p>
+            <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '5'} }}</p>
 
         </div>
 
@@ -94,7 +94,7 @@
 
             </div>
 
-            <p>{{ $report->{\App\Http\Support\Model::$EVALUATION_PVA . '6'} }}</p>
+            <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '6'} }}</p>
 
         </div>
 
@@ -110,7 +110,7 @@
 
             </div>
 
-            <p>{{ $report->{\App\Http\Support\Model::$EVALUATION_PVA . '7'} }}</p>
+            <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '7'} }}</p>
 
         </div>
 
@@ -126,7 +126,7 @@
 
             </div>
 
-            <p>{{ $report->{\App\Http\Support\Model::$EVALUATION_PVA . '8'} }}</p>
+            <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '8'} }}</p>
 
         </div>
 
@@ -142,7 +142,7 @@
 
             </div>
 
-            <p>{{ $report->{\App\Http\Support\Model::$EVALUATION_PVA . '9'} }}</p>
+            <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '9'} }}</p>
 
         </div>
 
@@ -158,7 +158,7 @@
 
             </div>
 
-            <p>{{ $report->{\App\Http\Support\Model::$EVALUATION_PVA . '10'} }}</p>
+            <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '10'} }}</p>
 
         </div>
 
