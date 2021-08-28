@@ -68,9 +68,9 @@ trait AgreementTrait {
 
         foreach ($data as $key => $value) {
 
-            if (Func::contains($key, Model::$STUDENT) && strlen($data[$key]) > 0) {
+            if (Func::contains($key, Key::AUTOCOMPLETE_ID . Model::$STUDENT) && strlen($data[$key]) > 0) {
 
-                $id                                             = str_replace(Model::$STUDENT . '_', '', $key);
+                $id                                             = str_replace(Key::AUTOCOMPLETE_ID . Model::$STUDENT . '_', '', $key);
 
                 self::create($data, $id);
             }
