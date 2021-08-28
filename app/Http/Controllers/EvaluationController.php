@@ -208,6 +208,8 @@ class EvaluationController extends Controller {
 
         $data                                                               = $request->all();
 
+        dd(($data);
+
         // self::perform_validate($data);
 
         $evaluation                                                         = Evaluation::findOrFail($data[Key::AUTOCOMPLETE_ID . Model::$EVALUATION]);
