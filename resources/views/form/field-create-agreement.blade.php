@@ -4,7 +4,17 @@
 
 @include('form.field-input', ['id' => 'employee_' . $id, 'tag' => 'Student-docent', 'icon' => 'search.svg', 'required' => true, 'data' => true, 'additional' => true, 'ac_data' => 'employee', 'uses_id' => true, 'placeholder' => 'Kies de Student-docent'])
 
-@include('form.field-input', ['id' => 'subject_' . $id, 'tag' => 'Vak', 'icon' => 'search.svg', 'required' => true, 'data' => true, 'additional' => true, 'ac_data' => 'subject', 'uses_id' => true, 'placeholder' => 'Kies een vak'])
+<div class="field">
+
+    <div class="name">Vak</div>
+
+    @include('form.box-input', ['id' => 'subject_' . $id, 'icon' => 'search.svg', 'required' => true, 'data' => true, 'ac_data' => 'subject', 'uses_id' => true, 'placeholder' => 'Kies een vak', 'size' => 'width-third'])
+
+    <div class="note width-third">Niveau</div>
+
+    @include('form.box-input', ['id' => 'level_' . $id, 'required' => true, 'data' => true, 'ac_data' => 'level', 'uses_id' => true, 'size' => 'width-third'])
+
+</div>
 
 <div class="field">
 
