@@ -1,4 +1,10 @@
-<div class="title">{{ __('Vakafspraak #' . $id) }}</div>
+<div style="display: flex;align-items: center">
+
+    <div class="title">{{ __('Vakafspraak #' . $id) }}</div>
+
+    <img class="close" src="/images/close.svg">
+
+</div>
 
 @include('form.field-input', ['id' => 'student_' . $id, 'tag' => 'Leerling', 'icon' => 'fix.svg', 'required' => true, 'data' => true, 'additional' => true, 'ac_data' => 'student', 'uses_id' => true, 'locked' => true, 'set_id' => $evaluation->student])
 
