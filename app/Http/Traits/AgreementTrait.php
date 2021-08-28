@@ -51,10 +51,6 @@ trait AgreementTrait {
 
 
 
-        dd($agreement);
-
-
-
         $agreement->save();
 
 
