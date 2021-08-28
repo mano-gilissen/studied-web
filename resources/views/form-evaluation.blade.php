@@ -63,7 +63,7 @@
 
     </div>
 
-    <div id="button-add-agreement" class="button grey">Toevoegen</div>
+    <div id="button-add-agreement" class="button grey" onclick="$('#agreements-wrap').append( jQuery('<div>').load('/load/evaluation/agreement', { evaluation: '{{ $evaluation->id }}', id: $('#agreements-wrap div').length + 1 }));">Toevoegen</div>
 
 
 

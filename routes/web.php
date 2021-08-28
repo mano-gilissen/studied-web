@@ -77,6 +77,10 @@ Route::post('/load/study/subjects',             'StudyController@form_report_sub
 
 
 
+Route::post('/load/evaluation/agreement',       'EvaluationController@form_perform_agreement_load')->middleware('auth');
+
+
+
 Route::post('/load/student/list',               'StudentController@list_load')->middleware('auth');
 
 Route::post('/load/student/counters',           'StudentController@list_counters_load')->middleware('auth');

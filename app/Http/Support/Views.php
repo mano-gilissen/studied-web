@@ -32,6 +32,7 @@ class Views {
     const LOAD_LIST                             = "load.list";
     const LOAD_FILTERS                          = "load.filters";
     const LOAD_COUNTERS                         = "load.counters";
+    const LOAD_AGREEMENT                        = "load.agreement";
     const LOAD_AGREEMENTS                       = "load.agreements";
     const LOAD_SUBJECTS                         = "load.subjects";
 

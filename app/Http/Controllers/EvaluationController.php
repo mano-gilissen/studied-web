@@ -234,6 +234,22 @@ class EvaluationController extends Controller {
 
 
 
+    public function form_perform_agreement_load(Request $request) {
+
+        $evaluation_id                                                      = $request->input(Model::$EVALUATION, null);
+        $id                                                                 = $request->input(Model::$BASE_ID, null);
+
+        $evaluation                                                         = Evaluation::find($evaluation_id);
+
+        return view(Views::LOAD_AGREEMENT, [
+
+            Model::$AGREEMENT                                               => $evaluation,
+            Model::$BASE_ID                                                 => $id
+        ]);
+    }
+
+
+
 
 
 }
