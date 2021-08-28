@@ -167,7 +167,7 @@ class EvaluationController extends Controller {
         $objects_student                                                    = User::where(Model::$ROLE, RoleTrait::$ID_STUDENT)->with('getPerson')->get();
         $objects_subject                                                    = Subject::all();
         $objects_level                                                      = Level::all();
-        $objects_agreement                                                  = Agreement::where(Model::$STUDENT, $evaluation->getStudent)->with('getSubject')->get();
+        $objects_agreement                                                  = Agreement::where(Model::$STUDENT, $evaluation->{Model::$STUDENT})->with('getSubject')->get();
 
 
 
