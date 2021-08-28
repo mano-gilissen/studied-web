@@ -849,6 +849,58 @@ select::-ms-expand {
 
 
 
+.content-fold {
+    background:                         #F8F8F8;
+    margin-top:                         24px;
+    padding:                            8px 0;
+}
+
+.content-fold .item {
+    width:                              100%;
+    padding:                            0 16px 0 32px;
+    color:                              #666666;
+}
+
+.content-fold .item-title {
+    display:                            flex;
+    align-items:                        center;
+    height:                             64px;
+    user-select:                        none;
+}
+
+.content-fold .item img {
+    width:                              24px;
+    height:                             24px;
+    margin-left:                        auto;
+    transition:                         transform .2s ease-out;
+}
+
+.content-fold .item.visible img {
+    transform:                          rotateX(-180deg);
+    transition:                         transform .2s ease-out;
+}
+
+.content-fold .item p {
+    display:                            none;
+    margin-right:                       32px;
+    margin-bottom:                      28px;
+    color:                              black;
+}
+
+.content-fold .item.visible p {
+    display:                            block;
+}
+
+.content-fold .seperator {
+    height:                             1px;
+    margin:                             4px 24px;
+    background:                         #E6E6E6;
+}
+
+
+
+
+
 .block-users {
     margin:                             0 0 48px;
 }

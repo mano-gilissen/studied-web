@@ -82,7 +82,7 @@
 
             </div>
 
-            <div class="content">
+            <div class="content-fold">
 
                 <div class="item">
 

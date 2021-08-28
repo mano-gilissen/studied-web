@@ -47,7 +47,7 @@
 
 
 
-.content-columns {
+.content-fold-columns {
     grid-template-rows:                 auto 64px auto;
     grid-template-areas:                "left . right"
                                         ". . ."
@@ -110,56 +110,4 @@
     display:                            flex;
     margin-top:                         8px;
     margin-bottom:                      16px;
-}
-
-
-
-/* CHANGE TO DEFAULT UNFOLD OBJECT */
-
-.report .content {
-    background:                         #F8F8F8;
-    margin-top:                         24px;
-    padding:                            8px 0;
-}
-
-.report .content .item {
-    width:                              100%;
-    padding:                            0 16px 0 32px;
-    color:                              #666666;
-}
-
-.report .content .item-title {
-    display:                            flex;
-    align-items:                        center;
-    height:                             64px;
-    user-select:                        none;
-}
-
-.report .content .item img {
-    width:                              24px;
-    height:                             24px;
-    margin-left:                        auto;
-    transition:                         transform .2s ease-out;
-}
-
-.report .content .item.visible img {
-    transform:                          rotateX(-180deg);
-    transition:                         transform .2s ease-out;
-}
-
-.report .content .item p {
-    display:                            none;
-    margin-right:                       32px;
-    margin-bottom:                      28px;
-    color:                              black;
-}
-
-.report .content .item.visible p {
-    display:                            block;
-}
-
-.report .content .seperator {
-    height:                             1px;
-    margin:                             4px 24px;
-    background:                         #E6E6E6;
 }
