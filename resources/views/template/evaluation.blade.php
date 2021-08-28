@@ -56,33 +56,37 @@
 
                         </div>
 
-                        @switch($evaluation->regarding)
+                        @if(!$evaluation->performed)
 
-                            @case(\App\Http\Traits\EvaluationTrait::$ID_INTAKE)
+                            @switch($evaluation->regarding)
 
-                                <div class="button icon" onclick="window.location.href='{{ route('evaluation.intake', ['key' => $evaluation->key]) }}'">
+                                @case(\App\Http\Traits\EvaluationTrait::$ID_INTAKE)
 
-                                    <img class="icon" src="/images/edit.svg">
+                                    <div class="button icon" onclick="window.location.href='{{ route('evaluation.intake', ['key' => $evaluation->key]) }}'">
 
-                                    <div class="text">Kennismaking</div>
+                                        <img class="icon" src="/images/edit.svg">
 
-                                </div>
+                                        <div class="text">Kennismaking</div>
 
-                                @break
+                                    </div>
 
-                            @case(\App\Http\Traits\EvaluationTrait::$ID_EVALUATION)
+                                    @break
 
-                                <div class="button icon" onclick="window.location.href='{{ route('evaluation.evaluation', ['key' => $evaluation->key]) }}'">
+                                @case(\App\Http\Traits\EvaluationTrait::$ID_EVALUATION)
 
-                                    <img class="icon" src="/images/edit.svg">
+                                    <div class="button icon" onclick="window.location.href='{{ route('evaluation.evaluation', ['key' => $evaluation->key]) }}'">
 
-                                    <div class="text">Evaluatie</div>
+                                        <img class="icon" src="/images/edit.svg">
 
-                                </div>
+                                        <div class="text">Evaluatie</div>
 
-                                @break
+                                    </div>
 
-                        @endswitch
+                                    @break
+
+                            @endswitch
+
+                        @endif
 
                         @break
 
@@ -102,6 +106,22 @@
 
                     <div class="column left">
 
+                        @if($evaluation->performed)
+
+                            <div class="block-users">
+
+                                <div class="title">Leerling</div>
+
+                                <div class="list-users">
+
+                                    @include('block.person', ['person' => $evaluation->getStudent->getPerson, 'subtitle' => 'Leerling'])
+
+                                </div>
+
+                            </div>
+
+                        @endif
+
                         @include('block.evaluation-details')
 
                         @include('block.evaluation-location')
@@ -110,35 +130,43 @@
 
                     <div class="column right">
 
-                        <div class="block-users">
+                        @if($evaluation->performed)
 
-                            <div class="title">Leerling</div>
+                            @include('block.evaluation-pva')
 
-                            <div class="list-users">
+                        @else
 
-                                @include('block.person', ['person' => $evaluation->getStudent->getPerson, 'subtitle' => 'Leerling'])
+                            <div class="block-users">
 
-                            </div>
+                                <div class="title">Leerling</div>
 
-                        </div>
+                                <div class="list-users">
 
-                        <div class="block-users">
+                                    @include('block.person', ['person' => $evaluation->getStudent->getPerson, 'subtitle' => 'Leerling'])
 
-                            <div class="title">Begeleiders</div>
-
-                            <div class="list-users">
-
-                                @include('block.person', ['person' => $evaluation->getHost->getPerson, 'subtitle' => 'Begeleider'])
-
-                                @foreach($evaluation->getEmployees as $employee)
-
-                                    @include('block.person', ['person' => $employee->getPerson, 'subtitle' => 'Student-docent'])
-
-                                @endforeach
+                                </div>
 
                             </div>
 
-                        </div>
+                            <div class="block-users">
+
+                                <div class="title">Begeleiders</div>
+
+                                <div class="list-users">
+
+                                    @include('block.person', ['person' => $evaluation->getHost->getPerson, 'subtitle' => 'Begeleider'])
+
+                                    @foreach($evaluation->getEmployees as $employee)
+
+                                        @include('block.person', ['person' => $employee->getPerson, 'subtitle' => 'Student-docent'])
+
+                                    @endforeach
+
+                                </div>
+
+                            </div>
+
+                        @endif
 
                     </div>
 

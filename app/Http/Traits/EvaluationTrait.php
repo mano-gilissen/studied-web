@@ -86,6 +86,8 @@ trait EvaluationTrait {
 
         }
 
+        $evaluation[Model::$EVALUATION_PERFORMED]                   = true;
+
         $evaluation->save();
     }
 

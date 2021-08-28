@@ -44,7 +44,7 @@ class EvaluationController extends Controller {
 
         return view(Views::EVALUATION, [
 
-            Key::PAGE_TITLE                                                 => EvaluationTrait::getRegardingText($evaluation->{Model::$EVALUATION_REGARDING}),
+            Key::PAGE_TITLE                                                 => 'Gesprek',
             Key::PAGE_BACK                                                  => true,
 
             Model::$EVALUATION                                              => $evaluation
