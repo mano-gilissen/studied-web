@@ -2,6 +2,14 @@
 
 
 
+@section('scripts')
+
+    <script src="{{ asset('js/evaluation.js') }}"></script>
+
+@endsection
+
+
+
 @section('fields')
 
 
