@@ -1,6 +1,31 @@
 #column {
     width:                              712px;
-    margin:                             40px auto 128px;
+    margin:                             60px auto 128px;
+}
+
+
+
+#top {
+
+}
+
+#top img {
+    width:                              240px;
+    height:                             240px;
+    border-right:                       120px;
+    margin:                             0 auto 16px;
+}
+
+#top .title {
+    margin:                             0 auto 4px;
+    font-size:                          40px;
+    font-family:                        'Circular', serif;
+    font-weight:                        300;
+}
+
+#top .subtitle {
+    margin:                             0 auto;
+    font-size:                          16px;
 }
 
 

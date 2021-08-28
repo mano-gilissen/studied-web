@@ -26,17 +26,11 @@
 
             <div id="top">
 
-                <div id="banner" style="background:#999999">
+                <img src="/images/evaluation_evaluation.jpg">
 
-                    <div>
+                <div class="title">{{ \App\Http\Traits\EvaluationTrait::getRegardingText($evaluation->{\App\Http\Support\Model::$EVALUATION_REGARDING}) }}</div>
 
-                        <div class="title">{{ \App\Http\Traits\EvaluationTrait::getRegardingText($evaluation->{\App\Http\Support\Model::$EVALUATION_REGARDING}) }}</div>
-
-                        <div class="subtitle">{{ \App\Http\Support\Format::datetime($evaluation->datetime, \App\Http\Support\Format::$DATETIME_SINGLE) }}</div>
-
-                    </div>
-
-                </div>
+                <div class="subtitle">{{ \App\Http\Support\Format::datetime($evaluation->datetime, \App\Http\Support\Format::$DATETIME_SINGLE) }}</div>
 
             </div>
 
@@ -48,7 +42,7 @@
                     @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
                     @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
 
-                        <div class="button icon grey">
+                        <div class="button icon @if(!$evaluation->performed) grey @endif">
 
                             <img class="icon" src="/images/edit.svg">
 
@@ -108,7 +102,7 @@
 
                         <div class="block-users">
 
-                            <div class="title">Gesprek met</div>
+                            <div class="title">Aanwezigen</div>
 
                             <div class="list-users">
 
@@ -124,15 +118,9 @@
 
                         </div>
 
-                        @if($evaluation->performed)
+                        @if(!$evaluation->performed)
 
                             @include('block.evaluation-details')
-
-                        @else
-
-                            @include('block.evaluation-details')
-
-                            @include('block.evaluation-location')
 
                         @endif
 
@@ -142,7 +130,7 @@
 
                         <div class="block-users">
 
-                            <div class="title">{{ \App\Http\Traits\EvaluationTrait::getRegardingVerbText($evaluation->{\App\Http\Support\Model::$EVALUATION_REGARDING}) }} met</div>
+                            <div class="title"></div>
 
                             <div class="list-users">
 
@@ -157,6 +145,12 @@
                             </div>
 
                         </div>
+
+                        @if(!$evaluation->performed)
+
+                            @include('block.evaluation-location')
+
+                        @endif
 
                     </div>
 
