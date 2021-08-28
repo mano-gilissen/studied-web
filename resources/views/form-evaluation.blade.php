@@ -20,6 +20,9 @@
 
     @include('form.field-textarea', ['id' => 'pva_3', 'tag' => 'Wat is de looptijd van de doelstelling?'])
 
+    <div class="seperator"></div>
+
+
 
 
     <div class="title">{{ __('Reality - Stand van zaken') }}</div>
@@ -30,11 +33,15 @@
 
     @include('form.field-textarea', ['id' => 'pva_6', 'tag' => 'Hoe ziet het eruit als de problematiek niet wordt opgelost?'])
 
+    <div class="seperator"></div>
+
 
 
     <div class="title">{{ __('Options - De mogelijkheden') }}</div>
 
     @include('form.field-textarea', ['id' => 'pva_7', 'tag' => 'De mogelijkheden van de scholier bij Studied'])
+
+    <div class="seperator"></div>
 
 
 
