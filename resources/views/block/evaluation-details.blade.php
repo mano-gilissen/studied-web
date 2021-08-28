@@ -6,14 +6,6 @@
 
         <div class="attribute">
 
-            <div class="name">Betreft</div>
-
-            <div class="value">{{ \App\Http\Traits\EvaluationTrait::getRegardingText($evaluation->{\App\Http\Support\Model::$EVALUATION_REGARDING}) }}</div>
-
-        </div>
-
-        <div class="attribute">
-
             <div class="name">Datum</div>
 
             <div class="value">{{ \App\Http\Support\Format::datetime($evaluation->datetime, \App\Http\Support\Format::$DATETIME_SINGLE) }}</div>
