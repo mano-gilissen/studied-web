@@ -30,7 +30,7 @@
 
     @include('form.field-input', ['id' => 'employee_3', 'tag' => 'Student-docent #3', 'icon' => 'search.svg', 'placeholder' => 'Zoek een student-docent', 'required' => true, 'data' => true, 'ac_data' => 'employee', 'additional' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true])
 
-    @include('form.field-input', ['id' => 'student', 'tag' => 'Student', 'icon' => 'search.svg', 'placeholder' => 'Zoek een student', 'required' => true, 'data' => true, 'additional' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true, 'set_id' => $student ?? -1])
+    @include('form.field-input', ['id' => 'student', 'tag' => 'Leerling', 'icon' => 'search.svg', 'placeholder' => 'Zoek een student', 'required' => true, 'data' => true, 'additional' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true, 'set_id' => $student ?? -1])
 
     <div class="seperator"></div>
 

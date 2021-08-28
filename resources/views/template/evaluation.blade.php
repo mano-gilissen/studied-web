@@ -130,16 +130,6 @@
 
                                 @include('block.person', ['person' => $evaluation->getStudent->getPerson, 'subtitle' => 'Leerling'])
 
-                            </div>
-
-                        </div>
-
-                        @if(!$evaluation->performed)
-
-                            <div class="block-users">
-
-                                <div class="title">Begeleiders</div>
-
                                 <div class="list-users">
 
                                     @include('block.person', ['person' => $evaluation->getHost->getPerson, 'subtitle' => 'Begeleider'])
