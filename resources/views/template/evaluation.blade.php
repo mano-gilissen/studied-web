@@ -64,7 +64,7 @@
 
                                     <div class="button icon" onclick="window.location.href='{{ route('evaluation.intake', ['key' => $evaluation->key]) }}'">
 
-                                        <img class="icon" src="/images/edit.svg">
+                                        <img class="icon" src="/images/contact.svg">
 
                                         <div class="text">Kennismaking</div>
 
@@ -76,7 +76,7 @@
 
                                     <div class="button icon" onclick="window.location.href='{{ route('evaluation.evaluation', ['key' => $evaluation->key]) }}'">
 
-                                        <img class="icon" src="/images/edit.svg">
+                                        <img class="icon" src="/images/contact.svg">
 
                                         <div class="text">Evaluatie</div>
 
