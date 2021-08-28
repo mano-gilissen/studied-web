@@ -108,45 +108,33 @@
 
                         @if($evaluation->performed)
 
-                            <div class="block-users">
+                            @include('block.evaluation-details')
 
-                                <div class="title">Leerling</div>
+                        @else
 
-                                <div class="list-users">
+                            @include('block.evaluation-details')
 
-                                    @include('block.person', ['person' => $evaluation->getStudent->getPerson, 'subtitle' => 'Leerling'])
-
-                                </div>
-
-                            </div>
+                            @include('block.evaluation-location')
 
                         @endif
-
-                        @include('block.evaluation-details')
-
-                        @include('block.evaluation-location')
 
                     </div>
 
                     <div class="column right">
 
-                        @if($evaluation->performed)
+                        <div class="block-users">
 
-                            @include('block.evaluation-pva')
+                            <div class="title">Leerling</div>
 
-                        @else
+                            <div class="list-users">
 
-                            <div class="block-users">
-
-                                <div class="title">Leerling</div>
-
-                                <div class="list-users">
-
-                                    @include('block.person', ['person' => $evaluation->getStudent->getPerson, 'subtitle' => 'Leerling'])
-
-                                </div>
+                                @include('block.person', ['person' => $evaluation->getStudent->getPerson, 'subtitle' => 'Leerling'])
 
                             </div>
+
+                        </div>
+
+                        @if(!$evaluation->performed)
 
                             <div class="block-users">
 
@@ -169,6 +157,16 @@
                         @endif
 
                     </div>
+
+                    @if($evaluation->performed)
+
+                        <div class="column wide">
+
+                            @include('block.evaluation-pva')
+
+                        </div>
+
+                    @endif
 
                 </div>
 

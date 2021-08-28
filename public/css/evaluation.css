@@ -21,7 +21,8 @@
 
 .content-columns {
     grid-template-rows:                 auto;
-    grid-template-areas:                "left . right";
+    grid-template-areas:                "left . right"
+                                        "wide wide wide";
 }
 
 .content-fold {

@@ -820,6 +820,10 @@ select::-ms-expand {
     padding:                            0 0 16px 4px;
 }
 
+.block-attributes .subtitle {
+    padding:                            0 0 8px 4px;
+}
+
 .block-attributes .list-attributes {
     padding:                            16px 0 8px 32px;
     background:                         #F8F8F8;

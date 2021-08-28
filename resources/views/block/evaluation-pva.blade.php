@@ -1,6 +1,6 @@
 <div class="block-attributes">
 
-    <div class="title">Plan van Aanpak</div>
+    <div class="title" style="padding-bottom: 24px">Plan van Aanpak</div>
 
 
 
