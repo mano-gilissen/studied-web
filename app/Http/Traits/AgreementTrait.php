@@ -103,11 +103,11 @@ trait AgreementTrait {
 
         // TODO: REPLACE IDENTIFIER WITH FIXED VALUE TO TEST;
 
-        $identifier                                             = date(Format::$DATE_SINGLE, time()) . '-' . chr(rand(65,90));
+        $identifier                                             = date(Format::$DATE_SINGLE, time()) . '-A';// . chr(rand(65,90));
 
         $exists                                                 = Agreement::where(Model::$AGREEMENT_IDENTIFIER, $identifier)->exists();
 
-        return $exists ? self::generateIdentifier() : $identifier;
+        return $exists ? dd('asdfasdfsd') /*self::generateIdentifier()*/ : $identifier;
     }
 
 
