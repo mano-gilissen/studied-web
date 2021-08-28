@@ -163,11 +163,6 @@ class EvaluationController extends Controller {
 
 
 
-        $student                                                            = User::where(Model::$PERSON_SLUG, $evaluation->getStudent)->first();
-        $data[Model::$STUDENT]                                              = $student ? $student->{Model::$BASE_ID} : -1;
-
-
-
         $objects_employee                                                   = User::whereIn(Model::$ROLE, array(RoleTrait::$ID_BOARD, RoleTrait::$ID_MANAGEMENT, RoleTrait::$ID_EMPLOYEE))->with('getPerson')->get();
         $objects_student                                                    = User::where(Model::$ROLE, RoleTrait::$ID_STUDENT)->with('getPerson')->get();
         $objects_subject                                                    = Subject::all();
