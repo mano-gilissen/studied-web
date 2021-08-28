@@ -2,6 +2,10 @@
 
     <div class="title">Plan van Aanpak</div>
 
+
+
+    <div class="subtitle">Goal - De doelstelling</div>
+
     <div class="content-fold">
 
         <div class="item">
@@ -50,7 +54,13 @@
 
         </div>
 
-        <div class="seperator"></div>
+    </div>
+
+
+
+    <div class="subtitle">Reality - Stand van zaken</div>
+
+    <div class="content-fold">
 
         <div class="item">
 
@@ -98,7 +108,13 @@
 
         </div>
 
-        <div class="seperator"></div>
+    </div>
+
+
+
+    <div class="subtitle">Options - De mogelijkheden</div>
+
+    <div class="content-fold">
 
         <div class="item">
 
@@ -114,7 +130,13 @@
 
         </div>
 
-        <div class="seperator"></div>
+    </div>
+
+
+
+    <div class="subtitle">Will - De acties</div>
+
+    <div class="content-fold">
 
         <div class="item">
 
