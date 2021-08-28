@@ -144,7 +144,7 @@
 
                             </div>
 
-                        @endif
+                        </div>
 
                     </div>
 
