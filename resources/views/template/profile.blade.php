@@ -22,6 +22,8 @@
 
     @include('block.header')
 
+    @include('block.menu')
+
     <div id="wrap">
 
         <div id="column">
