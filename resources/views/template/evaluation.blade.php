@@ -124,23 +124,37 @@
 
                         <div class="block-users">
 
-                            <div class="title">Deelnemers</div>
+                            <div class="title">Leerling</div>
 
                             <div class="list-users">
 
                                 @include('block.person', ['person' => $evaluation->getStudent->getPerson, 'subtitle' => 'Leerling'])
 
-                                @include('block.person', ['person' => $evaluation->getHost->getPerson, 'subtitle' => 'Begeleider'])
-
-                                @foreach($evaluation->getEmployees as $employee)
-
-                                    @include('block.person', ['person' => $employee->getPerson, 'subtitle' => 'Student-docent'])
-
-                                @endforeach
-
                             </div>
 
                         </div>
+
+                        @if(!$evaluation->performed)
+
+                            <div class="block-users">
+
+                                <div class="title">Gesprek met</div>
+
+                                <div class="list-users">
+
+                                    @include('block.person', ['person' => $evaluation->getHost->getPerson, 'subtitle' => 'Managing-student'])
+
+                                    @foreach($evaluation->getEmployees as $employee)
+
+                                        @include('block.person', ['person' => $employee->getPerson, 'subtitle' => 'Student-docent'])
+
+                                    @endforeach
+
+                                </div>
+
+                            </div>
+
+                        @endif
 
                     </div>
 
