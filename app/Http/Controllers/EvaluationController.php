@@ -178,7 +178,7 @@ class EvaluationController extends Controller {
         $ac_additional_student                                              = $objects_student->pluck(Model::$USER_EMAIL, Model::$BASE_ID)->toArray();
 
         $ac_data_subject                                                    = $objects_subject->pluck(Model::$SUBJECT_NAME, Model::$BASE_ID)->toArray();
-        $ac_data_level                                                      = $objects_level->pluck(Model::$LEVEL_NAME, Model::$BASE_ID)->toArray();
+        $ac_data_level                                                      = $objects_level->pluck('withYear', Model::$BASE_ID)->toArray();
 
         $ac_data_agreements                                                 = $objects_agreement->pluck(Model::$AGREEMENT_IDENTIFIER, Model::$BASE_ID)->toArray();
         $ac_additional_agreements                                           = $objects_agreement->pluck('getSubject.' . Model::$SUBJECT_NAME, Model::$BASE_ID)->toArray();
