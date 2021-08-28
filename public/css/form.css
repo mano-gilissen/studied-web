@@ -258,10 +258,10 @@ html, body {
     padding:                            8px 0;
 }
 
-#agreements-wrap .close {
+#agreements-wrap .remove {
     width:                              32px;
     height:                             32px;
-    padding:                            8px;
+    padding:                            4px;
     margin-left:                        auto;
     border-radius:                      16px;
     background:                         transparent;

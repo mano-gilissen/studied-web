@@ -2,7 +2,7 @@
 
     <div class="title">{{ __('Vakafspraak #' . $id) }}</div>
 
-    <img class="close" src="/images/close.svg">
+    <img class="remove" src="/images/close-black.svg">
 
 </div>
 
