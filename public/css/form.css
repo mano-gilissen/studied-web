@@ -261,13 +261,14 @@ html, body {
 #agreements-wrap .remove {
     width:                              32px;
     height:                             32px;
-    padding:                            4px;
+    padding:                            6px;
+    margin-right:                       6px;
     margin-left:                        auto;
     border-radius:                      16px;
     background:                         transparent;
 }
 
-#agreements-wrap .close:hover {
+#agreements-wrap .remove:hover {
     background:                         #F0F0F0;
 }
 

@@ -2,7 +2,7 @@
 
     <div class="title">{{ __('Vakafspraak #' . $id) }}</div>
 
-    <img class="remove" src="/images/close-black.svg">
+    <img class="remove" src="/images/close-black.svg" onclick="$(this).parent().parent().remove()">
 
 </div>
 
