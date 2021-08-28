@@ -58,18 +58,4 @@ class Agreement extends ModelClass {
 
 
 
-    public function hasTrial() {
-
-        return $this->getTrial()->exists();
-
-    }
-
-    public function getTrial() {
-
-        return self::getThisToOne(Model::$STUDY, Model::$AGREEMENT_TRIAL);
-
-    }
-
-
-
 }

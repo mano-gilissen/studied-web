@@ -91,6 +91,12 @@ trait StudyTrait {
 
                 }
 
+                if (AgreementTrait::isNowTrail($agreement)) {
+
+                    $study->{Model::$STUDY_TRIAL}                   = true;
+
+                }
+
                 $study->{Model::$STUDY_HOST_USER}                   = $agreement->{Model::$EMPLOYEE};
                 $study->{Model::$STUDY_SUBJECT_TEXT}                = $agreement->getSubject->{Model::$SUBJECT_NAME};
 
