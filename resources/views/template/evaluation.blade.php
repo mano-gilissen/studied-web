@@ -130,17 +130,13 @@
 
                                 @include('block.person', ['person' => $evaluation->getStudent->getPerson, 'subtitle' => 'Leerling'])
 
-                                <div class="list-users">
+                                @include('block.person', ['person' => $evaluation->getHost->getPerson, 'subtitle' => 'Begeleider'])
 
-                                    @include('block.person', ['person' => $evaluation->getHost->getPerson, 'subtitle' => 'Begeleider'])
+                                @foreach($evaluation->getEmployees as $employee)
 
-                                    @foreach($evaluation->getEmployees as $employee)
+                                    @include('block.person', ['person' => $employee->getPerson, 'subtitle' => 'Student-docent'])
 
-                                        @include('block.person', ['person' => $employee->getPerson, 'subtitle' => 'Student-docent'])
-
-                                    @endforeach
-
-                                </div>
+                                @endforeach
 
                             </div>
 
