@@ -28,8 +28,11 @@ trait AgreementTrait {
         $agreement->{Model::$EMPLOYEE}                          = $data[Key::AUTOCOMPLETE_ID . Model::$EMPLOYEE . $suffix];
         $agreement->{Model::$SUBJECT}                           = $data[Key::AUTOCOMPLETE_ID . Model::$SUBJECT . $suffix];
         $agreement->{Model::$AGREEMENT_END}                     = $data[Model::$AGREEMENT_END . $suffix];
+        $agreement->{Model::$AGREEMENT_MIN}                     = $data[Model::$AGREEMENT_MIN . $suffix];
+        $agreement->{Model::$AGREEMENT_MAX}                     = $data[Model::$AGREEMENT_MAX . $suffix];
+        $agreement->{Model::$AGREEMENT_REMARK}                  = $data[Model::$AGREEMENT_REMARK . $suffix];
 
-        // ADD: MIN/MAX
+        // ADD: START/MIN/MAX/REMARKS
 
 
 

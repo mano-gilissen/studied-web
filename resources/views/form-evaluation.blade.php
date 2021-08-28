@@ -50,8 +50,6 @@
 
 
 
-    <div class="title">{{ __('Vakafspraken') }}</div>
-
     <div id="agreements-wrap">
 
         @include('form.field-create-agreement', ['student' => $evaluation->getStudent, 'id' => 1])
