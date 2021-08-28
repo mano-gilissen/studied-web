@@ -63,22 +63,3 @@
     font-family:                        'Circular', serif;
     font-weight:                        100;
 }
-
-
-
-#agreements-wrap .title {
-    padding:                            8px 0;
-}
-
-#agreements-wrap .close {
-    width:                              32px;
-    height:                             32px;
-    padding:                            8px;
-    margin-left:                        auto;
-    border-radius:                      16px;
-    background:                         transparent;
-}
-
-#agreements-wrap .close:hover {
-    background:                         #F0F0F0;
-}
