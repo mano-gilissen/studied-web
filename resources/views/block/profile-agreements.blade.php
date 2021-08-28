@@ -42,21 +42,23 @@
 
                             <div class="bottom">
 
-                                @if($agreement->getStudent->getPerson->avatar)
+                                @php $forHost = $person->getUser->role != \App\Http\Traits\RoleTrait::$ID_STUDENT @endphp
 
-                                    <img src="{{ asset("storage/avatar/" . $agreement->getStudent->getPerson->avatar) }}"/>
+                                @if($forHost ? $agreement->getStudent->getPerson->avatar : $agreement->getEmployee->getPerson->avatar)
+
+                                    <img src="{{ asset("storage/avatar/" . ($forHost ? $agreement->getStudent->getPerson->avatar : $agreement->getEmployee->getPerson->avatar)) }}"/>
 
                                 @else
 
                                     <div>
 
-                                        <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials($agreement->getStudent->getPerson) }}</div>
+                                        <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials($forHost ? $agreement->getStudent->getPerson : $agreement->getEmployee->getPerson) }}</div>
 
                                     </div>
 
                                 @endif
 
-                                <div>{!! \App\Http\Traits\AgreementTrait::getDescription($agreement, true) !!}</div>
+                                <div>{!! \App\Http\Traits\AgreementTrait::getDescription($agreement, $forHost) !!}</div>
 
                             </div>
 
