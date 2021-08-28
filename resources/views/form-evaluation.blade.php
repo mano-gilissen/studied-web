@@ -6,7 +6,7 @@
 
 
 
-    <div class="block-note">Dit is de evaluatie van <span style="font-weight: 400">{{ \App\Http\Traits\PersonTrait::getFullName($user->getPerson) }}</span></div>
+    <div class="block-note">Dit is de evaluatie van <span style="font-weight: 400">{{ \App\Http\Traits\PersonTrait::getFullName($evaluation->getStudent->getPerson) }}</span></div>
 
     <div class="seperator"></div>
 
