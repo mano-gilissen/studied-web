@@ -118,12 +118,6 @@
 
                         </div>
 
-                        @if(!$evaluation->performed)
-
-                            @include('block.evaluation-details')
-
-                        @endif
-
                     </div>
 
                     <div class="column right">
@@ -146,12 +140,6 @@
 
                         </div>
 
-                        @if(!$evaluation->performed)
-
-                            @include('block.evaluation-location')
-
-                        @endif
-
                     </div>
 
                 </div>
@@ -164,23 +152,23 @@
 
                     </div>
 
-                    <div class="content-columns">
+                @endif
 
-                        <div class="column left">
+                <div class="content-columns">
 
-                            @include('block.evaluation-details')
+                    <div class="column left">
 
-                        </div>
-
-                        <div class="column right">
-
-                            @include('block.evaluation-location')
-
-                        </div>
+                        @include('block.evaluation-details')
 
                     </div>
 
-                @endif
+                    <div class="column right">
+
+                        @include('block.evaluation-location')
+
+                    </div>
+
+                </div>
 
             </div>
 
