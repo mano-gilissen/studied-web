@@ -150,9 +150,9 @@ class EvaluationController extends Controller {
 
 
 
-    public function perform($evaluation_id) {
+    public function perform($key) {
 
-        $evaluation                                                         = Evaluation::findOrFail($evaluation_id);
+        $evaluation                                                         = Evaluation::where(Model::$BASE_KEY, $key)->firstOrFail();
 
         $data                                                               = [];
 
