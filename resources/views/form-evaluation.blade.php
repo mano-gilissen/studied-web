@@ -59,11 +59,11 @@
 
     <div id="agreements-wrap">
 
-        @include('form.field-create-agreement', ['student' => $evaluation->getStudent, 'id' => 1])
-
     </div>
 
-    <div id="button-add-agreement" class="button grey" onclick="$('#agreements-wrap').append( jQuery('<div>').load('/load/evaluation/agreement', { evaluation: '{{ $evaluation->id }}', id: $('#agreements-wrap div').length + 1 }));">Toevoegen</div>
+    <div id="button-add-agreement" class="button grey" onclick="evaluation_agreement_load('{{ $evaluation->id }}');">Toevoegen</div>
+
+    <script> evaluation_agreement_load('{{ $evaluation->id }}'); </script>
 
 
 
