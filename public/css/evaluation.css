@@ -56,9 +56,15 @@
 
 
 #pva {
-    margin-top:                         88px;
+    margin-top:                         56px;
 }
 
 #pva .title {
-    padding-bottom:                     24px;
+    padding-bottom:                     32px;
+}
+
+#top .subtitle {
+    font-size:                          14px;
+    font-family:                        'Circular', serif;
+    font-weight:                        100;
 }
