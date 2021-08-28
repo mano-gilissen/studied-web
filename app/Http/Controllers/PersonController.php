@@ -31,6 +31,7 @@ class PersonController extends Controller {
 
             Model::$PERSON                          => $person,
 
+            Key::PAGE_TITLE                         =>'Profielpagina',
             Key::PAGE_BACK                          => false,
             Key::COMMENT                            => PersonTrait::getProfileComment($person)
         ]);
@@ -46,6 +47,7 @@ class PersonController extends Controller {
 
             Model::$PERSON                          => $person,
 
+            Key::PAGE_TITLE                         =>'Profielpagina',
             Key::PAGE_BACK                          => false,
             Key::COMMENT                            => PersonTrait::getProfileComment($person)
         ]);
