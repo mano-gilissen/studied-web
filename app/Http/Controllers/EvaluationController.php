@@ -229,7 +229,7 @@ class EvaluationController extends Controller {
 
 
 
-        $data[Model::$EVALUATION]                                           = $evaluation_id;
+        $data[Model::$EVALUATION]                                           = $evaluation;
         $data[Model::$BASE_ID]                                              = $id;
 
         $data[Key::AUTOCOMPLETE_DATA . Model::$EMPLOYEE]                    = Format::encode($ac_data_employee);
