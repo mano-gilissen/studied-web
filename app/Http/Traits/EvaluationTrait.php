@@ -86,8 +86,6 @@ trait EvaluationTrait {
 
         }
 
-        dd($evaluation);
-
         $evaluation->save();
     }
 
