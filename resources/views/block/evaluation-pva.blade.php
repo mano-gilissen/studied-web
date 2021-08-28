@@ -162,8 +162,6 @@
 
         </div>
 
-        <div class="seperator"></div>
-
     </div>
 
 </div>

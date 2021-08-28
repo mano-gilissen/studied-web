@@ -169,6 +169,16 @@ $(function(){
 
 
 
+    $('.content-fold').on('click', CLASS_ITEM_TITLE, function() {
+
+        $(this)                                     .parent().toggleClass(ATTR_VISIBLE);
+
+    });
+
+
+
+
+
     /* Add CSRF token to Ajax POST: */
 
     $.ajaxSetup({headers: {"X-CSRF-TOKEN": $('meta[name="_token"]').attr('content')}});

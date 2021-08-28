@@ -31,14 +31,6 @@ $(function() {
 
 
 
-    $('.report').on('click', CLASS_ITEM_TITLE, function() {
-
-        $(this)                                         .parent().toggleClass(ATTR_VISIBLE);
-
-    });
-
-
-
     report_set_active_default();
 
 
