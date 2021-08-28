@@ -61,13 +61,11 @@
 
     @include('form.field-textarea', ['id' => 'pva_10', 'tag' => 'Ons adviesplan', 'Placeholder' => 'Wat wordt er als concludie van het voorgaande aangeraden? (Vak - periode - frequentie)'])
 
-    <div class="seperator"></div>
+    <div class="seperator large"></div>
 
 
 
-    <div id="agreements-wrap">
-
-    </div>
+    <div id="agreements-wrap"></div>
 
     <div id="button-add-agreement" class="button grey" onclick="evaluation_agreement_load('{{ $evaluation->id }}');">Vakafspraak toevoegen</div>
 

@@ -34,4 +34,4 @@
 
 @include('form.field-input', ['id' => 'replace_' . $id, 'tag' => 'Vervangt (optioneel)', 'icon' => 'search.svg', 'show_all' => true, 'data' => true, 'additional' => true, 'reject_other' => true, 'ac_data' => 'replace', 'uses_id' => true, 'placeholder' => 'Welke vakafspraak wordt vervangen?'])
 
-<div class="seperator"></div>
+<div class="seperator large"></div>
