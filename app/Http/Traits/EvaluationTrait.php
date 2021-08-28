@@ -123,6 +123,25 @@ trait EvaluationTrait {
 
 
 
+    public static function getRegardingVerbText($regarding) {
+
+        switch ($regarding) {
+
+            case self::$ID_INTAKE:
+
+                return "Kennismaken";
+
+            case self::$ID_EVALUATION:
+
+                return "Evalueren";
+
+            default:
+
+                return Key::UNKNOWN;
+        }
+    }
+
+
 
     public static function getRegardingData() {
 

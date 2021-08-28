@@ -124,7 +124,7 @@
 
                         <div class="block-users">
 
-                            <div class="title">Leerling</div>
+                            <div class="title">{{ \App\Http\Traits\EvaluationTrait::getRegardingVerbText($evaluation) }} met</div>
 
                             <div class="list-users">
 
