@@ -130,7 +130,7 @@
 
                         <div class="block-users">
 
-                            <div class="title"> </div>
+                            <div class="no-title"></div>
 
                             <div class="list-users">
 
