@@ -208,7 +208,7 @@ class EvaluationController extends Controller {
 
         $data                                                               = $request->all();
 
-        dd(($data);
+        dd($data);
 
         // self::perform_validate($data);
 
