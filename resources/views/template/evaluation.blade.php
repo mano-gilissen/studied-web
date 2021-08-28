@@ -60,7 +60,7 @@
 
                             @case(\App\Http\Traits\EvaluationTrait::$ID_INTAKE)
 
-                                <div class="button icon" onclick="window.location.href='{{ route('evaluation.intake', ['evaluation' => $evaluation->key]) }}'">
+                                <div class="button icon" onclick="window.location.href='{{ route('evaluation.intake', ['key' => $evaluation->key]) }}'">
 
                                     <img class="icon" src="/images/edit.svg">
 
@@ -72,7 +72,7 @@
 
                             @case(\App\Http\Traits\EvaluationTrait::$ID_EVALUATION)
 
-                                <div class="button icon" onclick="window.location.href='{{ route('evaluation.evaluation', ['evaluation' => $evaluation->key]) }}'">
+                                <div class="button icon" onclick="window.location.href='{{ route('evaluation.evaluation', ['key' => $evaluation->key]) }}'">
 
                                     <img class="icon" src="/images/edit.svg">
 
