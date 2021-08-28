@@ -20,13 +20,7 @@
 
 @section('content')
 
-    @include('block.header', ['page_title' => 'Profielpagina'])
-
-    @empty($back)
-
-        @include('block.menu')
-
-    @endempty
+    @include('block.header')
 
     <div id="wrap">
 
