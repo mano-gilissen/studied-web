@@ -154,17 +154,33 @@
 
                     </div>
 
-                    @if($evaluation->performed)
+                </div>
 
-                        <div class="column wide">
+                @if($evaluation->performed)
 
-                            @include('block.evaluation-pva')
+                    <div class="column wide">
+
+                        @include('block.evaluation-pva')
+
+                    </div>
+
+                    <div class="content-columns">
+
+                        <div class="column left">
+
+                            @include('block.evaluation-details')
 
                         </div>
 
-                    @endif
+                        <div class="column right">
 
-                </div>
+                            @include('block.evaluation-location')
+
+                        </div>
+
+                    </div>
+
+                @endif
 
             </div>
 

@@ -228,6 +228,7 @@ button:focus {
 .content-columns {
     display:                            grid;
     grid-template-columns:              1fr 64px 1fr;
+    grid-template-areas:                "left . right";
 }
 
 .content-columns .left {
@@ -238,8 +239,8 @@ button:focus {
     grid-area:                          right;
 }
 
-.content-columns .wide {
-    grid-area:                          wide;
+.wide {
+    display:                            grid;
 }
 
 

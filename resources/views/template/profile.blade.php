@@ -297,36 +297,36 @@
 
                     </div>
 
-                    <div class="wide">
+                </div>
 
-                        @switch($person->getUser->role)
+                <div class="wide">
 
-                            @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
-                            @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
-                            @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
-                            @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
+                    @switch($person->getUser->role)
 
-                                @include('block.profile-agreements')
+                        @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
+                        @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
+                        @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
+                        @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
-                                @break
+                            @include('block.profile-agreements')
 
-                            @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
+                            @break
 
-                                @include('block.profile-agreements')
+                        @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
 
-                                @include('block.profile-evaluations')
+                            @include('block.profile-agreements')
 
-                                @break
+                            @include('block.profile-evaluations')
 
-                            @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
+                            @break
 
-                                @include('block.profile-evaluations')
+                        @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
 
-                                @break
+                            @include('block.profile-evaluations')
 
-                        @endswitch
+                            @break
 
-                    </div>
+                    @endswitch
 
                 </div>
 

@@ -71,16 +71,6 @@
 
 
 
-.content-columns {
-    grid-template-rows:                 auto;
-    grid-template-areas:                "left . right"
-                                        "wide wide wide";
-}
-
-
-
-
-
 .agreements {
     padding-top:                        24px;
     margin-bottom:                      48px;
