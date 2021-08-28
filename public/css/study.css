@@ -49,6 +49,10 @@
 
 
 
+.content-columns {
+    grid-template-areas:                "left . right";
+}
+
 .content-fold-columns {
     grid-template-rows:                 auto 64px auto;
     grid-template-areas:                "left . right"
