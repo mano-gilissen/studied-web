@@ -24,12 +24,6 @@
 
                             <div class="title">{{ $agreement->identifier }}</div>
 
-                            @if(\App\Http\Traits\AgreementTrait::isNowTrail($agreement))
-
-                                <div class="trial">(Proefles)</div>
-
-                            @endif
-
                             <img class="selector" src="/images/check-white.svg"/>
 
                         </div>
@@ -50,7 +44,7 @@
 
                             @endif
 
-                            <div>{!! \App\Http\Traits\AgreementTrait::getDescription($agreement, true) !!}</div>
+                            <div>{!! \App\Http\Traits\AgreementTrait::getDescription($agreement, true) !!} @if(\App\Http\Traits\AgreementTrait::isNowTrail($agreement)) <span class="trial"> (Proefles)</span> @endif</div>
 
                         </div>
 
