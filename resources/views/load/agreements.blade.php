@@ -24,6 +24,12 @@
 
                             <div class="title">{{ $agreement->identifier }}</div>
 
+                            @if(\App\Http\Traits\AgreementTrait::isNowTrail($agreement))
+
+                                <div class="trail">Proefles</div>
+
+                            @endif
+
                             <img class="selector" src="/images/check-white.svg"/>
 
                         </div>

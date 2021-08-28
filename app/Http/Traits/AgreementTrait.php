@@ -9,7 +9,8 @@ use App\Http\Support\Func;
 use App\Http\Support\Key;
 use App\Http\Support\Model;
 use App\Models\Agreement;
-
+use App\Models\Study;
+use App\Models\Study_user;
 
 
 trait AgreementTrait {
@@ -83,9 +84,17 @@ trait AgreementTrait {
 
         }
 
-        //
+        //TODO: FINISH
 
         return true;
+    }
+
+
+
+    public static function isNowTrail($agreement) {
+
+        return !$agreement->{Model::$AGREEMENT_EXTENSION} && !Study_user::where(Model::$AGREEMENT, $agreement->id)->exists();
+
     }
 
 

@@ -571,6 +571,13 @@ button:focus {
     text-decoration:                    underline;
 }
 
+.agreement .trial {
+    margin-left:                        24px;
+    font-family:                        'Circular', serif;
+    font-weight:                        100;
+    font-size:                          12px;
+}
+
 .agreement {
     opacity:                            .5;
     transition:                         all .4s ease;
