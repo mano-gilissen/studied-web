@@ -124,7 +124,7 @@
 
                         <div class="block-users">
 
-                            <div class="title">Leerling</div>
+                            <div class="title">Deelnemers</div>
 
                             <div class="list-users">
 
