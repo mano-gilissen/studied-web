@@ -24,9 +24,7 @@
 
             <div id="agreements">
 
-                <!-- TODO: ONLY SHOW ACTIVE AGREEMENTS -->
-
-                @php $agreements = ($person->getUser->role == \App\Http\Traits\RoleTrait::$ID_STUDENT ? $person->getUser->getAgreements_asStudent : $person->getUser->getAgreements_asEmployee) @endphp
+                @php $agreements = \App\Http\Traits\UserTrait::getAgreements($person->getUser, true) @endphp
 
                 @if($agreements->count() > 0)
 
