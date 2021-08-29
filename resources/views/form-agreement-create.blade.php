@@ -6,7 +6,7 @@
 
 
 
-    @include('load.agreement', [$id => 1])
+    @include('load.agreement', ['id' => 1])
 
 
 
