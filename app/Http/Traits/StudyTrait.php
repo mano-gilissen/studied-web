@@ -5,6 +5,7 @@
 namespace App\Http\Traits;
 
 use App\Http\Controllers\StudyController;
+use App\Http\Support\Format;
 use App\Http\Support\Key;
 use App\Http\Support\Color;
 use App\Http\Support\Model;
@@ -222,6 +223,42 @@ trait StudyTrait {
             case self::$STATUS_PLANNED:                             return self::hasStarted($study) ? (self::hasFinished($study) ? self::$STATUS_FINISHED : self::$STATUS_ACTIVE) : self::$STATUS_PLANNED;
             default:                                                return $study->status;
         }
+    }
+
+
+
+    public static function getTimeText($study) {
+
+        return Format::datetime(self::getStartTime($study), Format::$TIME_SINGLE) . ' - ' . Format::datetime(self::getEndTime($study), Format::$TIME_SINGLE);
+
+    }
+
+
+
+    public static function getStartTime($study) {
+
+        dd($study->getReports);
+
+        return self::isReported($study) ?
+
+            $study->getReports[0]->{Model::$REPORT_START}
+
+            :
+
+            $study->{Model::$STUDY_END};
+    }
+
+
+
+    public static function getEndTime($study) {
+
+        return self::isReported($study) ?
+
+            $study->getReports[0]->{Model::$REPORT_END}
+
+            :
+
+            $study->{Model::$STUDY_END};
     }
 
 

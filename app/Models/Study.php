@@ -115,6 +115,14 @@ class Study extends ModelClass {
 
 
 
+    public function getReports() {
+
+        return self::getOneToMany(Model::$REPORT, Model::$STUDY);
+
+    }
+
+
+
     public function getReport($user) {
 
         return Report::where(Model::$STUDY, $this->{Model::$BASE_ID})->where(Model::$USER, $user->{Model::$BASE_ID})->first();
