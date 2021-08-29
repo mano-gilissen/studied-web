@@ -28,9 +28,9 @@ class AgreementController extends Controller {
 
 
 
-    public function view($key) {
+    public function view($identifier) {
 
-        $agreement                                                         = Agreement::where(Model::$BASE_KEY, $key)->firstOrFail();
+        $agreement                                                         = Agreement::where(Model::$AGREEMENT_IDENTIFIER, $identifier)->firstOrFail();
 
         return view(Views::AGREEMENT, [
 

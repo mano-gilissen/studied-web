@@ -26,7 +26,7 @@ Route::get('/plannen',                          'StudyController@plan')->name('s
 
 
 
-Route::get('/vakafspraak/{key}',                'AgreementController@view')->name('agreement.view')->middleware('auth');
+Route::get('/vakafspraak/{identifier}',         'AgreementController@view')->name('agreement.view')->middleware('auth');
 
 
 
