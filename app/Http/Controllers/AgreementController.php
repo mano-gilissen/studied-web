@@ -58,7 +58,7 @@ class AgreementController extends Controller {
 
         $data                                                               = [];
 
-        $data[Key::PAGE_TITLE]                                              = 'Nieuw vakafspraak';
+        $data[Key::PAGE_TITLE]                                              = 'Nieuwe vakafspraak';
         $data[Key::SUBMIT_ACTION]                                           = 'Aanmaken';
         $data[Key::SUBMIT_ROUTE]                                            = 'agreement.create_submit';
         $data[Key::SINGLE]                                                  = true;
