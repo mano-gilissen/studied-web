@@ -12,7 +12,7 @@
 
         @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
 
-            <div class="button grey icon">
+            <div class="button grey icon" onclick="window.location.href='{{ route('customer.create') }}'">
 
                 <img class="icon" src="/images/add.svg">
 
