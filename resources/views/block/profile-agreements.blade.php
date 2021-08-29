@@ -30,7 +30,7 @@
 
                     @foreach($agreements as $agreement)
 
-                        <div class="agreement" id="{{ $agreement->id }}" data-subject="{{ $agreement->subject }}">
+                        <div class="agreement" id="{{ $agreement->id }}" data-subject="{{ $agreement->subject }}" onclick="window.location.href='{{ route('agreement.view', ['key' => $agreement->key]) }}'">
 
                             <div class="top">
 

@@ -26,6 +26,10 @@ Route::get('/plannen',                          'StudyController@plan')->name('s
 
 
 
+Route::get('/vakafspraak/{key}',                'AgreementController@view')->name('agreement.view')->middleware('auth');
+
+
+
 Route::get('/leerling/aanmaken',                'StudentController@create')->name('student.create')->middleware('auth');
 
 Route::get('/leerlingen',                       'StudentController@list')->name('student.list')->middleware('auth');
