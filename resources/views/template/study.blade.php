@@ -74,7 +74,7 @@
 
                                 <div class="button icon" onclick="window.location.href='{{ route('study.report', [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}'">
 
-                                    <img class="icon" src="/images/edit.svg">
+                                    <img class="icon" src="/images/contact.svg">
 
                                     <div class="text">Rapporteren</div>
 
