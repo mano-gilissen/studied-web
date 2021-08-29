@@ -1,0 +1,48 @@
+#column {
+    width:                              712px;
+    margin:                             60px auto 128px;
+}
+
+
+
+#top {
+    display:                            grid;
+}
+
+#top img {
+    width:                              240px;
+    height:                             240px;
+    border-radius:                      120px;
+    margin:                             0 auto 16px;
+}
+
+#top .title {
+    margin:                             0 auto 4px;
+    font-size:                          40px;
+    font-family:                        'Circular', serif;
+    font-weight:                        300;
+}
+
+#top .subtitle {
+    margin:                             0 auto;
+}
+
+
+
+#actions {
+    display:                            flex;
+    align-items:                        center;
+    height:                             92px;
+    width:                              max-content;
+    margin-left:                        auto;
+}
+
+#actions .button {
+    margin-left:                        10px;
+}
+
+
+
+.content-fold {
+    margin-bottom:                      48px;
+}
