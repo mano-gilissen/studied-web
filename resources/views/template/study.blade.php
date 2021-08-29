@@ -44,29 +44,9 @@
 
                     @case(\App\Http\Traits\StudyTrait::$STATUS_PLANNED)
 
-                        @if(\App\Http\Traits\StudyTrait::hasStarted($study))
-
-                            @if(\App\Http\Traits\StudyTrait::canReport($study))
-
-                                @if(!\App\Http\Traits\StudyTrait::isReported($study))
-
-                                    <div class="button icon" onclick="window.location.href='{{ route('study.report', [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}'">
-
-                                        <img class="icon" src="/images/edit.svg">
-
-                                        <div class="text">Rapporteren</div>
-
-                                    </div>
-
-                                @endif
-
-                            @endif
-
-                        @endif
-
                         @if(\App\Http\Traits\StudyTrait::canEdit($study))
 
-                            <div class="button icon">
+                            <div class="button icon grey">
 
                                 <img class="icon" src="/images/edit.svg">
 
@@ -76,7 +56,7 @@
 
                         @else
 
-                            <div class="button icon">
+                            <div class="button icon grey">
 
                                 <img class="icon" src="/images/contact.svg">
 
@@ -85,6 +65,26 @@
                             </div>
 
                         @endif
+
+                        @if(\App\Http\Traits\StudyTrait::hasStarted($study))
+
+                        @if(\App\Http\Traits\StudyTrait::canReport($study))
+
+                            @if(!\App\Http\Traits\StudyTrait::isReported($study))
+
+                                <div class="button icon" onclick="window.location.href='{{ route('study.report', [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}'">
+
+                                    <img class="icon" src="/images/edit.svg">
+
+                                    <div class="text">Rapporteren</div>
+
+                                </div>
+
+                            @endif
+
+                        @endif
+
+                    @endif
 
                         @break
 

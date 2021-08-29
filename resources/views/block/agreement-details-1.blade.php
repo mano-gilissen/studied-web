@@ -6,7 +6,7 @@
 
         <div class="attribute">
 
-            <div class="name">Onderwerp</div>
+            <div class="name">Vak en niveau</div>
 
             <div class="value">{{ \App\Http\Traits\AgreementTrait::getVakcode($agreement) }}</div>
 
