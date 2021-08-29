@@ -4,6 +4,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Support\Format;
 use App\Http\Support\Table;
 use App\Http\Traits\AgreementTrait;
 use App\Http\Traits\BaseTrait;
@@ -160,7 +161,7 @@ class EmployeeController extends Controller {
 
             case self::$COLUMN_AGREEMENTS:
 
-                $agreements                                 = $employee->getUser->getAgreements_asEmployee;
+                $agreements                                 = UserTrait::getAgreements($employee->getUser, true);
 
                 switch (count($agreements)) {
                     case 0:                                 return "Geen actief";
@@ -171,7 +172,7 @@ class EmployeeController extends Controller {
 
             case self::$COLUMN_MIN_MAX:
 
-                $agreements                                 = $employee->getUser->getAgreements_asEmployee;
+                $agreements                                 = UserTrait::getAgreements($employee->getUser, true);
                 $min                                        = 0;
                 $max                                        = 0;
 
@@ -257,11 +258,23 @@ class EmployeeController extends Controller {
                     break;
 
                 case self::$COLUMN_STUDENTS:
-                    $query->whereHas('getUser.getAgreements_asEmployee.getStudent', function (Builder $q) use ($value) {$q->where(Model::$USER . '.' . Model::$BASE_ID, $value);});
+                    $query->whereHas('getUser.getAgreements_asEmployee', function (Builder $q1) use ($value) {
+
+                        $q1->where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATETIME, time()));
+                        $q1->whereHas('getStudent', function (Builder $q2) use ($value) {
+
+                            $q2->where(Model::$USER . '.' . Model::$BASE_ID, $value);
+
+                        });
+                    });
                     break;
 
                 case self::$COLUMN_AGREEMENTS:
-                    $query->whereHas('getUser.getAgreements_asEmployee.getSubject', function (Builder $q) use ($value) {$q->where(Model::$BASE_ID, $value);});
+                    $query->whereHas('getUser.getAgreements_asEmployee', function (Builder $q) use ($value) {
+
+                        $q->where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATETIME, time()));
+                        $q->where(Model::$SUBJECT, $value);
+                    });
                     break;
 
                 case self::$COLUMN_STATUS:
@@ -313,7 +326,7 @@ class EmployeeController extends Controller {
 
                 foreach ($employees as $employee) {
 
-                    foreach ($employee->getUser->getAgreements_asEmployee as $agreement) {
+                    foreach (UserTrait::getAgreements($employee->getUser, true) as $agreement) {
 
                         $students[$agreement->student] = $agreement->getStudent->getPerson->first_name;
                     }

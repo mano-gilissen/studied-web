@@ -274,7 +274,7 @@ class StudentController extends Controller {
 
             case self::$COLUMN_AGREEMENTS:
 
-                $agreements                                 = $student->getUser->getAgreements_asStudent;
+                $agreements                                 = UserTrait::getAgreements($student->getUser, true);
                 $subjects                                   = [];
 
                 if (count($agreements) == 0) {
@@ -293,7 +293,7 @@ class StudentController extends Controller {
 
             case self::$COLUMN_MIN_MAX:
 
-                $agreements                                 = $student->getUser->getAgreements_asStudent;
+                $agreements                                 = UserTrait::getAgreements($student->getUser, true);
                 $min                                        = 0;
                 $max                                        = 0;
 
@@ -401,7 +401,11 @@ class StudentController extends Controller {
                     break;
 
                 case self::$COLUMN_AGREEMENTS:
-                    $query->whereHas('getUser.getAgreements_asStudent.getSubject', function (Builder $q) use ($value) {$q->where(Model::$BASE_ID, $value);});
+                    $query->whereHas('getUser.getAgreements_asStudent', function (Builder $q) use ($value) {
+
+                        $q->where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATETIME, time()));
+                        $q->where(Model::$SUBJECT, $value);
+                    });
                     break;
 
                 case self::$COLUMN_STATUS:
@@ -413,7 +417,15 @@ class StudentController extends Controller {
                     break;
 
                 case self::$COLUMN_EMPLOYEE:
-                    $query->whereHas('getUser.getAgreements_asStudent.getEmployee', function (Builder $q) use ($value) {$q->where(Model::$BASE_ID, $value);});
+                    $query->whereHas('getUser.getAgreements_asStudent', function (Builder $q1) use ($value) {
+
+                        $q1->where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATETIME, time()));
+                        $q1->whereHas('getEmployee', function (Builder $q2) use ($value) {
+
+                            $q2->where(Model::$USER . '.' . Model::$BASE_ID, $value);
+
+                        });
+                    });
                     break;
             }
         }
@@ -432,7 +444,15 @@ class StudentController extends Controller {
                 break;
 
             case RoleTrait::$ID_EMPLOYEE:
-                $query->whereHas('getUser.getAgreements_asStudent.getEmployee', function (Builder $q) {$q->where(Model::$BASE_ID, Auth::id());});
+                $query->whereHas('getUser.getAgreements_asStudent', function (Builder $q1) {
+
+                    $q1->where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATETIME, time()));
+                    $q1->whereHas('getEmployee', function (Builder $q2) {
+
+                        $q2->where(Model::$USER . '.' . Model::$BASE_ID, Auth::id());
+
+                    });
+                });
                 break;
 
             case RoleTrait::$ID_CUSTOMER:

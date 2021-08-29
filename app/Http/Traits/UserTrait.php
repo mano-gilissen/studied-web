@@ -7,9 +7,11 @@ namespace App\Http\Traits;
 
 
 use App\Http\Support\Color;
+use App\Http\Support\Format;
 use App\Http\Support\Key;
 use App\Http\Support\Model;
 use App\Http\Support\Table;
+use App\Models\Agreement;
 use App\Models\Evaluation;
 use App\Models\User;
 use Auth;
@@ -87,6 +89,35 @@ trait UserTrait {
 
 
 
+    public static function getAgreements($user, $active_only = false) {
+
+        $query                                              = Agreement::query();
+
+        switch ($user->{Model::$ROLE}) {
+
+            case RoleTrait::$ID_ADMINISTRATOR:
+            case RoleTrait::$ID_BOARD:
+            case RoleTrait::$ID_MANAGEMENT:
+            case RoleTrait::$ID_EMPLOYEE:
+                $query->where(Model::$EMPLOYEE, $user->{Model::$BASE_ID});
+                break;
+
+            case RoleTrait::$ID_STUDENT:
+                $query->where(Model::$STUDENT, $user->{Model::$BASE_ID});
+                break;
+        }
+
+        if ($active_only) {
+
+            $query->where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATETIME, time()));
+
+        }
+
+        return $query->get()->sortByDesc(Model::$SUBJECT);
+    }
+
+
+
     public static function getEvaluations($user) {
 
         switch ($user->{Model::$ROLE}) {
@@ -116,6 +147,8 @@ trait UserTrait {
 
                 })->get()->sortByDesc(Model::$BASE_CREATED_AT);
         }
+
+        return null;
     }
 
 

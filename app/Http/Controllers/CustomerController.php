@@ -214,9 +214,15 @@ class CustomerController extends Controller {
 
             case self::$COLUMN_EMPLOYEES:
 
-                $employees = User::whereHas('getAgreements_asEmployee.getStudent.getStudent', function ($q) use ($customer) {$q->where(Model::$CUSTOMER, $customer->{Model::$BASE_ID});})
-                    ->with('getPerson')
-                    ->get();
+                $employees = User::whereHas('getAgreements_asEmployee', function ($q1) use ($customer) {
+
+                    $q1->where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATETIME, time()));
+                    $q1->whereHas('getStudent.getStudent', function (Builder $q2) use ($customer) {
+
+                        $q2->where(Model::$CUSTOMER, $customer->{Model::$BASE_ID});
+
+                    });
+                })->with('getPerson')->get();
 
                 switch (count($employees)) {
                     case 0:                                                 return "Geen leerlingen";
@@ -226,7 +232,7 @@ class CustomerController extends Controller {
 
             case self::$COLUMN_AGREEMENTS:
 
-                $agreements = Agreement::whereHas('getStudent.getStudent', function ($q) use ($customer) {$q->where(Model::$CUSTOMER, $customer->{Model::$BASE_ID});})
+                $agreements = Agreement::where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATETIME, time()))->whereHas('getStudent.getStudent', function ($q) use ($customer) {$q->where(Model::$CUSTOMER, $customer->{Model::$BASE_ID});})
                     ->with('getSubject')
                     ->get();
 
@@ -239,7 +245,7 @@ class CustomerController extends Controller {
 
             case self::$COLUMN_MIN_MAX:
 
-                $agreements = Agreement::whereHas('getStudent.getStudent', function ($q) use ($customer) {$q->where(Model::$CUSTOMER, $customer->{Model::$BASE_ID});})
+                $agreements = Agreement::where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATETIME, time()))->whereHas('getStudent.getStudent', function ($q) use ($customer) {$q->where(Model::$CUSTOMER, $customer->{Model::$BASE_ID});})
                     ->with('getSubject')
                     ->get();
 
@@ -320,7 +326,11 @@ class CustomerController extends Controller {
             switch ($column) {
 
                 case self::$COLUMN_AGREEMENTS:
-                    $query->whereHas('getStudents.getUser.getAgreements_asStudent.getSubject', function (Builder $q) use ($value) {$q->where(Model::$BASE_ID, $value);});
+                    $query->whereHas('getStudents.getUser.getAgreements_asStudent', function (Builder $q) use ($value) {
+
+                        $q->where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATETIME, time()));
+                        $q->where(Model::$SUBJECT, $value);
+                    });
                     break;
 
                 case self::$COLUMN_STATUS:

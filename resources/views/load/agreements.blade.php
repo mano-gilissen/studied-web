@@ -12,11 +12,11 @@
 
         @if($user ?? false)
 
-            <!-- TODO: ONLY SHOW ACTIVE AGREEMENTS -->
+            @php $agreements = \App\Http\Traits\UserTrait::getAgreements($user, true); @endphp
 
-            @if($user->getAgreements_asEmployee->count() > 0)
+            @if($agreements->count() > 0)
 
-                @foreach($user->getAgreements_asEmployee as $agreement)
+                @foreach($agreements as $agreement)
 
                     <div class="agreement" id="{{ $agreement->id }}" data-subject="{{ $agreement->subject }}">
 
