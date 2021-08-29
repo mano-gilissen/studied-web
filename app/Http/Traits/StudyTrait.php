@@ -229,15 +229,13 @@ trait StudyTrait {
 
     public static function getTimeText($study) {
 
-        return Format::datetime(self::getStartTime($study), Format::$TIME_SINGLE) . ' - ' . Format::datetime(self::getEndTime($study), Format::$TIME_SINGLE);
+        return $study->start != null && $study->end != null ? Format::datetime(self::getStartTime($study), Format::$TIME_SINGLE) . ' - ' . Format::datetime(self::getEndTime($study), Format::$TIME_SINGLE) : Key::UNKNOWN;
 
     }
 
 
 
     public static function getStartTime($study) {
-
-        dd($study->getReports);
 
         return self::isReported($study) ?
 
