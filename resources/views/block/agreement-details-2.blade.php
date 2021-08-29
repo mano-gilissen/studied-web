@@ -20,21 +20,21 @@
 
         </div>
 
-        <div class="content-fold">
+    </div>
 
-            <div class="item">
+    <div class="content-fold">
 
-                <div class="item-title">
+        <div class="item">
 
-                    <div>Opmerking</div>
+            <div class="item-title">
 
-                    <img src="/images/chevron-down.svg">
+                <div>Opmerking</div>
 
-                </div>
-
-                <p>{{ $agreement->{\App\Http\Support\Model::$AGREEMENT_REMARK} }}</p>
+                <img src="/images/chevron-down.svg">
 
             </div>
+
+            <p>{{ $agreement->{\App\Http\Support\Model::$AGREEMENT_REMARK} }}</p>
 
         </div>
 
