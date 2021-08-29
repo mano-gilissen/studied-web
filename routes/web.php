@@ -28,6 +28,8 @@ Route::get('/plannen',                          'StudyController@plan')->name('s
 
 Route::get('/vakafspraak/{identifier}',         'AgreementController@view')->name('agreement.view')->middleware('auth');
 
+Route::get('/vakafspraak/aanmaken/{leerling?}', 'AgreementController@create')->name('agreement.create')->middleware('auth');
+
 
 
 Route::get('/leerling/aanmaken',                'StudentController@create')->name('student.create')->middleware('auth');

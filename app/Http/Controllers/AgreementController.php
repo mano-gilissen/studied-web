@@ -51,9 +51,9 @@ class AgreementController extends Controller {
 
 
 
-    public function create($slug) {
+    public function create($leerling) {
 
-        $person                                                             = Person::where(Model::$PERSON_SLUG, $slug)->firstOrFail();
+        $person                                                             = Person::where(Model::$PERSON_SLUG, $leerling)->firstOrFail();
         $student_id                                                         = $person->getUser->{Model::$BASE_ID};
 
         $data                                                               = [];
