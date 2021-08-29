@@ -34,7 +34,7 @@
 
             <div class="value">
 
-                <div class="tag" style="background: {{\App\Http\Traits\AgreementTrait::getStatusColor(\App\Http\Traits\AgreementTrait::getStatus($evaluation))}};color: {{\App\Http\Traits\AgreementTrait::getStatusTextColor(\App\Http\Traits\AgreementTrait::getStatus($evaluation))}}">{{ \App\Http\Traits\AgreementTrait::getStatusText(\App\Http\Traits\AgreementTrait::getStatus($agreement)) }}</div>
+                <div class="tag" style="background: {{\App\Http\Traits\AgreementTrait::getStatusColor(\App\Http\Traits\AgreementTrait::getStatus($agreement))}};color: {{\App\Http\Traits\AgreementTrait::getStatusTextColor(\App\Http\Traits\AgreementTrait::getStatus($agreement))}}">{{ \App\Http\Traits\AgreementTrait::getStatusText(\App\Http\Traits\AgreementTrait::getStatus($agreement)) }}</div>
 
             </div>
 
