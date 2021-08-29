@@ -34,6 +34,8 @@
 
 </div>
 
+@include('form.field-input', ['id' => 'start_' . $id, 'type' => 'date', 'tag' => 'Geldig vanaf', 'required' => true])
+
 @include('form.field-input', ['id' => 'end_' . $id, 'type' => 'date', 'tag' => 'Geldig tot', 'required' => true])
 
 @include('form.field-textarea', ['id' => 'remark_' . $id, 'tag' => 'Opmerkingen'])

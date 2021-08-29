@@ -30,6 +30,7 @@ trait AgreementTrait {
         $agreement->{Model::$SUBJECT}                           = $data[Key::AUTOCOMPLETE_ID . Model::$SUBJECT . $suffix];
         $agreement->{Model::$LEVEL}                             = $data[Key::AUTOCOMPLETE_ID . Model::$LEVEL . $suffix];
 
+        $agreement->{Model::$AGREEMENT_START}                   = $data[Model::$AGREEMENT_START . $suffix];
         $agreement->{Model::$AGREEMENT_END}                     = $data[Model::$AGREEMENT_END . $suffix];
         $agreement->{Model::$AGREEMENT_MIN}                     = $data[Model::$AGREEMENT_MIN . $suffix];
         $agreement->{Model::$AGREEMENT_MAX}                     = $data[Model::$AGREEMENT_MAX . $suffix];
@@ -43,9 +44,9 @@ trait AgreementTrait {
 
             $agreement_replace                                  = Agreement::find($replace);
 
-            if (self::replace($agreement_replace)) {
+            if (self::replace($agreement, $agreement_replace)) {
 
-                $agreement->{Model::$AGREEMENT_EXTENSION}       = true;
+                $agreement->{Model::$AGREEMENT_EXTENSION}       = $agreement_replace->{Model::$AGREEMENT_IDENTIFIER};
 
             }
         }
@@ -76,7 +77,7 @@ trait AgreementTrait {
 
 
 
-    public static function replace($agreement) {
+    public static function replace($agreement, $agreement_replace) {
 
         if (!$agreement) {
 
@@ -84,7 +85,8 @@ trait AgreementTrait {
 
         }
 
-        //TODO: FINISH
+        $agreement_replace->{Model::$AGREEMENT_END}             = $agreement->{Model::$AGREEMENT_START};
+        $agreement_replace->save();
 
         return true;
     }
