@@ -17,6 +17,7 @@ class Key {
     const SUBMIT_ROUTE                          = "submit_route";
 
     const COMMENT                               = "comment";
+    const SINGLE                                = "single";
 
     const AUTOCOMPLETE_DATA                     = "ac_data_";
     const AUTOCOMPLETE_ADDITIONAL               = "ac_additional_";

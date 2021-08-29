@@ -198,51 +198,17 @@ class EvaluationController extends Controller {
 
     public function form_perform_agreement_load(Request $request) {
 
-        $data                                                               = [];
-
         $evaluation_id                                                      = $request->input(Model::$EVALUATION, null);
         $id                                                                 = $request->input(Model::$BASE_ID, null);
 
         $evaluation                                                         = Evaluation::find($evaluation_id);
 
-
-
-        $objects_employee                                                   = User::whereIn(Model::$ROLE, array(RoleTrait::$ID_BOARD, RoleTrait::$ID_MANAGEMENT, RoleTrait::$ID_EMPLOYEE))->with('getPerson')->get();
-        $objects_student                                                    = User::where(Model::$ROLE, RoleTrait::$ID_STUDENT)->with('getPerson')->get();
-        $objects_subject                                                    = Subject::all();
-        $objects_level                                                      = Level::all();
-        $objects_agreement                                                  = Agreement::where(Model::$STUDENT, $evaluation->{Model::$STUDENT})->with('getSubject')->get();
-
-
-
-        $ac_data_employee                                                   = $objects_employee->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
-        $ac_additional_employee                                             = $objects_employee->pluck(Model::$USER_EMAIL, Model::$BASE_ID)->toArray();
-
-        $ac_data_student                                                    = $objects_student->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
-        $ac_additional_student                                              = $objects_student->pluck(Model::$USER_EMAIL, Model::$BASE_ID)->toArray();
-
-        $ac_data_subject                                                    = $objects_subject->pluck(Model::$SUBJECT_NAME, Model::$BASE_ID)->toArray();
-        $ac_data_level                                                      = $objects_level->pluck('withYear', Model::$BASE_ID)->toArray();
-
-        $ac_data_agreements                                                 = $objects_agreement->pluck(Model::$AGREEMENT_IDENTIFIER, Model::$BASE_ID)->toArray();
-        $ac_additional_agreements                                           = $objects_agreement->pluck('getSubject.' . Model::$SUBJECT_NAME, Model::$BASE_ID)->toArray();
-
-
-
-        $data[Model::$EVALUATION]                                           = $evaluation;
+        $data                                                               = [];
         $data[Model::$BASE_ID]                                              = $id;
 
-        $data[Key::AUTOCOMPLETE_DATA . Model::$EMPLOYEE]                    = Format::encode($ac_data_employee);
-        $data[Key::AUTOCOMPLETE_ADDITIONAL . Model::$EMPLOYEE]              = Format::encode($ac_additional_employee);
 
-        $data[Key::AUTOCOMPLETE_DATA . Model::$STUDENT]                     = Format::encode($ac_data_student);
-        $data[Key::AUTOCOMPLETE_ADDITIONAL . Model::$STUDENT]               = Format::encode($ac_additional_student);
 
-        $data[Key::AUTOCOMPLETE_DATA . Model::$SUBJECT]                     = Format::encode($ac_data_subject);
-        $data[Key::AUTOCOMPLETE_DATA . Model::$LEVEL]                       = Format::encode($ac_data_level);
-
-        $data[Key::AUTOCOMPLETE_DATA . 'replace']                           = Format::encode($ac_data_agreements);
-        $data[Key::AUTOCOMPLETE_ADDITIONAL . 'replace']                     = Format::encode($ac_additional_agreements);
+        AgreementController::create_set_ac_data($data, $evaluation->{Model::$STUDENT});
 
 
 

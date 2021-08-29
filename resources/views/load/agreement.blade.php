@@ -1,12 +1,12 @@
 <div style="display: flex;align-items: center">
 
-    <div class="title">{{ __('Vakafspraak #' . $id) }}</div>
+    <div class="title">{{ __('Vakafspraak' . (($single ?? false) ? '#' . $id : '')) }}</div>
 
     <img class="remove" src="/images/close-black.svg" onclick="$(this).parent().parent().remove()">
 
 </div>
 
-@include('form.field-input', ['id' => 'student_' . $id, 'tag' => 'Leerling', 'icon' => 'fix.svg', 'required' => true, 'data' => true, 'additional' => true, 'ac_data' => 'student', 'uses_id' => true, 'locked' => true, 'set_id' => $evaluation->student])
+@include('form.field-input', ['id' => 'student_' . $id, 'tag' => 'Leerling', 'icon' => 'fix.svg', 'required' => true, 'data' => true, 'additional' => true, 'ac_data' => 'student', 'uses_id' => true, 'locked' => true, 'set_id' => $student_id])
 
 @include('form.field-input', ['id' => 'employee_' . $id, 'tag' => 'Student-docent', 'icon' => 'search.svg', 'required' => true, 'data' => true, 'additional' => true, 'reject_other' => true, 'show_all' => true, 'ac_data' => 'employee', 'uses_id' => true])
 

@@ -117,6 +117,8 @@ Route::post('/submit/student/create',           'StudentController@create_submit
 
 Route::post('/submit/customer/create',          'CustomerController@create_submit')->name('customer.create_submit')->middleware('auth');
 
+Route::post('/submit/agreement/create',         'AgreementController@create_submit')->name('agreement.create_submit')->middleware('auth');
+
 Route::post('/submit/evaluation/plan',          'EvaluationController@plan_submit')->name('evaluation.plan_submit')->middleware('auth');
 
 Route::post('/submit/evaluation/perform',       'EvaluationController@perform_submit')->name('evaluation.perform_submit')->middleware('auth');

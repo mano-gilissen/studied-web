@@ -4,11 +4,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Support\Format;
 use App\Http\Traits\BaseTrait;
+use App\Http\Traits\RoleTrait;
 use App\Models\Agreement;
 use App\Http\Support\Views;
 use App\Http\Support\Key;
 use App\Http\Support\Model;
+use App\Models\Evaluation;
+use App\Models\Level;
+use App\Models\Person;
+use App\Models\Student;
+use App\Models\Subject;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -39,6 +47,78 @@ class AgreementController extends Controller {
 
             Model::$AGREEMENT                                               => $agreement
         ]);
+    }
+
+
+
+    public function create($slug) {
+
+        $person                                                             = Person::where(Model::$PERSON_SLUG, $slug)->firstOrFail();
+        $student_id                                                         = $person->getUser->{Model::$BASE_ID};
+
+        $data                                                               = [];
+
+        $data[Key::PAGE_TITLE]                                              = 'Nieuw vakafspraak';
+        $data[Key::SUBMIT_ACTION]                                           = 'Aanmaken';
+        $data[Key::SUBMIT_ROUTE]                                            = 'agreement.create_submit';
+        $data[Key::SINGLE]                                                  = true;
+
+
+
+        self::create_set_ac_data($data, $student_id);
+
+
+
+        return view(Views::FORM_AGREEMENT_CREATE, $data);
+    }
+
+
+
+    public static function create_submit(Request $request) {
+
+        //
+
+    }
+
+
+
+    public static function create_set_ac_data(&$data, $student_id) {
+
+        $objects_employee                                                   = User::whereIn(Model::$ROLE, array(RoleTrait::$ID_BOARD, RoleTrait::$ID_MANAGEMENT, RoleTrait::$ID_EMPLOYEE))->with('getPerson')->get();
+        $objects_student                                                    = User::where(Model::$ROLE, RoleTrait::$ID_STUDENT)->with('getPerson')->get();
+        $objects_subject                                                    = Subject::all();
+        $objects_level                                                      = Level::all();
+        $objects_agreement                                                  = Agreement::where(Model::$STUDENT, $student_id)->with('getSubject')->get();
+
+
+
+        $ac_data_employee                                                   = $objects_employee->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
+        $ac_additional_employee                                             = $objects_employee->pluck(Model::$USER_EMAIL, Model::$BASE_ID)->toArray();
+
+        $ac_data_student                                                    = $objects_student->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
+        $ac_additional_student                                              = $objects_student->pluck(Model::$USER_EMAIL, Model::$BASE_ID)->toArray();
+
+        $ac_data_subject                                                    = $objects_subject->pluck(Model::$SUBJECT_NAME, Model::$BASE_ID)->toArray();
+        $ac_data_level                                                      = $objects_level->pluck('withYear', Model::$BASE_ID)->toArray();
+
+        $ac_data_agreements                                                 = $objects_agreement->pluck(Model::$AGREEMENT_IDENTIFIER, Model::$BASE_ID)->toArray();
+        $ac_additional_agreements                                           = $objects_agreement->pluck('getSubject.' . Model::$SUBJECT_NAME, Model::$BASE_ID)->toArray();
+
+
+
+        $data[Model::$STUDENT]                                              = $student_id;
+
+        $data[Key::AUTOCOMPLETE_DATA . Model::$EMPLOYEE]                    = Format::encode($ac_data_employee);
+        $data[Key::AUTOCOMPLETE_ADDITIONAL . Model::$EMPLOYEE]              = Format::encode($ac_additional_employee);
+
+        $data[Key::AUTOCOMPLETE_DATA . Model::$STUDENT]                     = Format::encode($ac_data_student);
+        $data[Key::AUTOCOMPLETE_ADDITIONAL . Model::$STUDENT]               = Format::encode($ac_additional_student);
+
+        $data[Key::AUTOCOMPLETE_DATA . Model::$SUBJECT]                     = Format::encode($ac_data_subject);
+        $data[Key::AUTOCOMPLETE_DATA . Model::$LEVEL]                       = Format::encode($ac_data_level);
+
+        $data[Key::AUTOCOMPLETE_DATA . 'replace']                           = Format::encode($ac_data_agreements);
+        $data[Key::AUTOCOMPLETE_ADDITIONAL . 'replace']                     = Format::encode($ac_additional_agreements);
     }
 
 
