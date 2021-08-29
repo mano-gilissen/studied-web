@@ -5,6 +5,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Support\Format;
+use App\Http\Traits\AgreementTrait;
 use App\Http\Traits\BaseTrait;
 use App\Http\Traits\RoleTrait;
 use App\Models\Agreement;
@@ -74,10 +75,35 @@ class AgreementController extends Controller {
 
 
 
-    public static function create_submit(Request $request) {
+    public function create_submit(Request $request) {
 
-        //
+        $data                                                               = $request->all();
 
+        self::create_validate($data);
+
+        $agreement                                                          = AgreementTrait::create($data, 1);
+
+        if (!$agreement) {
+
+            abort(500);
+
+        }
+
+        return redirect()->route('agreement.view', [Model::$AGREEMENT_IDENTIFIER => $agreement->{Model::$AGREEMENT_IDENTIFIER}]);
+
+    }
+
+
+
+    public function create_validate($data) {
+
+        $rules                                                              = [];
+
+        // TODO: ADD RULES
+
+        $validator                                                          = Validator::make($data, $rules, self::getValidationMessages());
+
+        $validator->validate();
     }
 
 

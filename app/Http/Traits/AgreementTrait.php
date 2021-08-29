@@ -30,9 +30,9 @@ trait AgreementTrait {
 
 
 
-    public static function create($data, $id = null) {
+    public static function create($data, $id) {
 
-        $suffix                                                 = $id ? '_' . $id : '';
+        $suffix                                                 = '_' . $id;
 
         $agreement                                              = new Agreement();
 
