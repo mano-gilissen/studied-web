@@ -4,6 +4,7 @@
 
 namespace App\Http\Traits;
 
+use App\Http\Support\Color;
 use App\Http\Support\Format;
 use App\Http\Support\Func;
 use App\Http\Support\Key;
@@ -14,6 +15,18 @@ use App\Models\Study_user;
 
 
 trait AgreementTrait {
+
+
+
+
+
+    public static
+
+        $STATUS_PLANNED                         = 1,
+        $STATUS_ACTIVE                          = 2,
+        $STATUS_EXPIRED                         = 3;
+
+
 
 
 
@@ -128,6 +141,54 @@ trait AgreementTrait {
         return $agreement->getSubject->{Model::$SUBJECT_CODE} . '-' . $agreement->getLevel->{Model::$LEVEL_CODE};
 
     }
+
+
+
+    public static function getStatus($agreement) {
+
+        // TODO: ADD INTAKE (BEFORE SUCCESFUL REPORTING OF TRIAL)
+
+        return Func::has_passed($agreement->{Model::$AGREEMENT_START}) ? (Func::has_passed($agreement->{Model::$AGREEMENT_END}) ? 1 : 2) : 3;
+
+    }
+
+
+
+    public static function getStatusText($status) {
+
+        switch ($status) {
+            case self::$STATUS_PLANNED:             return "Gepland";
+            case self::$STATUS_ACTIVE:              return "Actief";
+            case self::$STATUS_EXPIRED:             return "Verlopen";
+            default:                                return Key::UNKNOWN;
+        }
+    }
+
+
+
+    public static function getStatusTextColor($status) {
+
+        switch ($status) {
+            case self::$STATUS_PLANNED:             return Color::BLACK;
+            case self::$STATUS_ACTIVE:
+            case self::$STATUS_EXPIRED:
+            default:                                return Color::WHITE;
+        }
+    }
+
+
+
+    public static function getStatusColor($status) {
+
+        switch ($status) {
+            case self::$STATUS_PLANNED:             return Color::GREY_90;
+            case self::$STATUS_ACTIVE:              return Color::GREEN;
+            case self::$STATUS_EXPIRED:
+            default:                                return Color::ORANGE;
+        }
+    }
+
+
 
 
 
