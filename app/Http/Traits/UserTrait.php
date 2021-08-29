@@ -66,7 +66,7 @@ trait UserTrait {
 
     public static function addValidationRules(&$rules) {
 
-        $rules[Model::$USER_EMAIL]                          = ['required', 'email'];
+        $rules[Model::$USER_EMAIL]                          = ['required', 'email', 'unique:user,email'];
 
     }
 
