@@ -1,8 +1,17 @@
 <div style="display: flex;align-items: center">
 
-    <div class="title">{{ __('Vakafspraak' . (($single ?? false) ? '#' . $id : '')) }}</div>
+    @if($single ?? false)
 
-    <img class="remove" src="/images/close-black.svg" onclick="$(this).parent().parent().remove()">
+        <div class="title">{{ __('Vakafspraak') }}</div>
+
+    @else
+
+        <div class="title">{{ __('Vakafspraak #' . $id) }}</div>
+
+        <img class="remove" src="/images/close-black.svg" onclick="$(this).parent().parent().remove()">
+
+    @endif
+
 
 </div>
 
