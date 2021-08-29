@@ -463,7 +463,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_SERVICE:
 
-                return $study->getService->{Model::$SERVICE_NAME} . ($study->{Model::$STUDY_TRIAL} ? '  <span style="color:#FF0000">(Proefles)</span>' : '');
+                return $study->getService->{Model::$SERVICE_NAME} . ($study->{Model::$STUDY_TRIAL} ? '&nbsp;&nbsp;<span style="color:#FF0000">(Proefles)</span>' : '');
 
             case self::$COLUMN_SUBJECT:
 
