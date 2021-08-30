@@ -6,8 +6,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Support\Format;
 use App\Http\Support\Table;
+use App\Http\Traits\AddressTrait;
 use App\Http\Traits\AgreementTrait;
 use App\Http\Traits\BaseTrait;
+use App\Http\Traits\EmployeeTrait;
 use App\Http\Traits\PersonTrait;
 use App\Http\Traits\RoleTrait;
 use App\Http\Traits\UserTrait;
@@ -15,6 +17,7 @@ use App\Http\Support\Views;
 use App\Http\Support\Key;
 use App\Http\Support\Model;
 use App\Models\Agreement;
+use App\Models\Employee;
 use Illuminate\Database\Eloquent\Builder;
 use App\Models\Subject;
 use App\Models\User;
@@ -46,6 +49,62 @@ class EmployeeController extends Controller {
         $COLUMN_MIN_MAX                                     = 307,
         $COLUMN_CAPACITY                                    = 308,
         $COLUMN_STATUS                                      = 309;
+
+
+
+
+
+    public function create() {
+
+        return view(Views::FORM_EMPLOYEE_CREATE, [
+
+            Key::PAGE_TITLE                                                 => 'Medewerker aanmaken',
+            Key::SUBMIT_ACTION                                              => 'Aanmaken',
+            Key::SUBMIT_ROUTE                                               => 'employee.create_submit',
+
+            Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX                  => Format::encode(PersonTrait::getPrefixData())
+        ]);
+    }
+
+
+
+    public function create_submit(Request $request) {
+
+        $data                                                               = $request->all();
+
+        self::create_validate($data);
+
+        $employee                                                           = EmployeeTrait::create($data);
+
+        if (!$employee) {
+
+            abort(500);
+
+        }
+
+        return redirect()->route('person.view', [Model::$PERSON_SLUG => $employee->getUser->getPerson->{Model::$PERSON_SLUG}]);
+    }
+
+
+
+    public function create_validate(array $data) {
+
+        $rules                                                              = [];
+
+        PersonTrait::addValidationRules($rules);
+
+        UserTrait::addValidationRules($rules);
+
+        AddressTrait::addValidationRules($rules);
+
+        // TODO: ADD EMPLOYEE RULES
+        // $rules[Model::$CUSTOMER_REFER]                                      = ['required'];
+
+        $validator                                                          = Validator::make($data, $rules, self::getValidationMessages());
+
+        $validator->validate();
+    }
+
 
 
 
