@@ -1,10 +1,10 @@
 @if($page_back ?? false)
 
-    <img class="back" id="button-back" src="/images/back.svg" onclick="window.history.back();"/>
+    <img class="back" id="button-back" src="/images_app/back.svg" onclick="window.history.back();"/>
 
 @else
 
-    <img class="menu" id="button-menu" src="/images/menu.svg"/>
+    <img class="menu" id="button-menu" src="/images_app/menu.svg"/>
 
 @endif
 

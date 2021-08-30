@@ -4,7 +4,7 @@
 
         <div class="title-add">
 
-            <img class="button-add" src="/images/add-unboxed.svg" onclick="window.location.href='{{ route('agreement.create', ['leerling' => $person->slug]) }}'">
+            <img class="button-add" src="/images_app/add-unboxed.svg" onclick="window.location.href='{{ route('agreement.create', ['leerling' => $person->slug]) }}'">
 
             <div class="title">Vakafspraken</div>
 
@@ -18,7 +18,7 @@
 
     <div style="display: flex; align-items: center">
 
-        <img class="button" id="button-previous" src="/images/back.svg"/>
+        <img class="button" id="button-previous" src="/images_app/back.svg"/>
 
         <div class="wrap">
 
@@ -74,7 +74,7 @@
 
         </div>
 
-        <img class="button" id="button-next" src="/images/forward.svg"/>
+        <img class="button" id="button-next" src="/images_app/forward.svg"/>
 
     </div>
 

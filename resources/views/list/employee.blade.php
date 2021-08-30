@@ -14,7 +14,7 @@
 
             <div class="button grey icon" onclick="window.location.href='{{ route('employee.create') }}'">
 
-                <img class="icon" src="/images/add.svg">
+                <img class="icon" src="/images_app/add.svg">
 
                 <div class="text">{{ __('Aanmaken') }}</div>
 

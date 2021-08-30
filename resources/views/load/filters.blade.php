@@ -2,7 +2,7 @@
 
     <div id="{{ $filter->id }}" class="button icon filter">
 
-        <img class="icon" src="/images/close.svg">
+        <img class="icon" src="/images_app/close.svg">
 
         <div class="text">{{ $filter->column }}:{{ $filter->value }}</div>
 

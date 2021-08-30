@@ -90,7 +90,7 @@
 
                         <div>Voortgang</div>
 
-                        <img src="/images/chevron-down.svg">
+                        <img src="/images_app/chevron-down.svg">
 
                     </div>
 
@@ -106,7 +106,7 @@
 
                         <div>Volgende les</div>
 
-                        <img src="/images/chevron-down.svg">
+                        <img src="/images_app/chevron-down.svg">
 
                     </div>
 
@@ -122,7 +122,7 @@
 
                         <div>Uitdagingen</div>
 
-                        <img src="/images/chevron-down.svg">
+                        <img src="/images_app/chevron-down.svg">
 
                     </div>
 

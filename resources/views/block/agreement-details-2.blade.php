@@ -30,7 +30,7 @@
 
                 <div>Opmerking</div>
 
-                <img src="/images/chevron-down.svg">
+                <img src="/images_app/chevron-down.svg">
 
             </div>
 

@@ -48,7 +48,7 @@
 
                             <div class="button icon grey">
 
-                                <img class="icon" src="/images/edit.svg">
+                                <img class="icon" src="/images_app/edit.svg">
 
                                 <div class="text">Bewerken</div>
 
@@ -58,7 +58,7 @@
 
                             <div class="button icon grey">
 
-                                <img class="icon" src="/images/contact.svg">
+                                <img class="icon" src="/images_app/contact.svg">
 
                                 <div class="text">Contacteer {{ $study->getHost->getPerson->first_name }}</div>
 
@@ -74,7 +74,7 @@
 
                                 <div class="button icon" onclick="window.location.href='{{ route('study.report', [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}'">
 
-                                    <img class="icon" src="/images/contact.svg">
+                                    <img class="icon" src="/images_app/contact.svg">
 
                                     <div class="text">Rapporteren</div>
 
@@ -94,7 +94,7 @@
 
                             <div class="button icon">
 
-                                <img class="icon" src="/images/edit.svg">
+                                <img class="icon" src="/images_app/edit.svg">
 
                                 <div class="text">Rapport wijzigen</div>
 
@@ -108,7 +108,7 @@
 
                             <div class="button icon">
 
-                                <img class="icon" src="/images/contact.svg">
+                                <img class="icon" src="/images_app/contact.svg">
 
                                 <div class="text">Contacteer {{ $study->getHost->getPerson->first_name }}</div>
 
@@ -126,7 +126,7 @@
 
                             <div class="button icon">
 
-                                <img class="icon" src="/images/edit.svg">
+                                <img class="icon" src="/images_app/edit.svg">
 
                                 <div class="text">Bewerken</div>
 
@@ -136,7 +136,7 @@
 
                             <div class="button icon">
 
-                                <img class="icon" src="/images/contact.svg">
+                                <img class="icon" src="/images_app/contact.svg">
 
                                 <div class="text">Contacteer {{ $study->getHost->getPerson->first_name }}</div>
 

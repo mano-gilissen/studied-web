@@ -26,7 +26,7 @@
 
             <div id="top">
 
-                <img src="/images/evaluation_evaluation.jpg">
+                <img src="/images_app/evaluation_evaluation.jpg">
 
                 <div class="title">{{ \App\Http\Traits\EvaluationTrait::getRegardingText($evaluation->{\App\Http\Support\Model::$EVALUATION_REGARDING}) }}</div>
 
@@ -44,7 +44,7 @@
 
                         <div class="button icon @if(!$evaluation->performed) grey @endif">
 
-                            <img class="icon" src="/images/edit.svg">
+                            <img class="icon" src="/images_app/edit.svg">
 
                             <div class="text">Bewerken</div>
 
@@ -58,7 +58,7 @@
 
                                     <div class="button icon" onclick="window.location.href='{{ route('evaluation.intake', ['key' => $evaluation->key]) }}'">
 
-                                        <img class="icon" src="/images/contact.svg">
+                                        <img class="icon" src="/images_app/contact.svg">
 
                                         <div class="text">Kennismaking</div>
 
@@ -70,7 +70,7 @@
 
                                     <div class="button icon" onclick="window.location.href='{{ route('evaluation.evaluation', ['key' => $evaluation->key]) }}'">
 
-                                        <img class="icon" src="/images/contact.svg">
+                                        <img class="icon" src="/images_app/contact.svg">
 
                                         <div class="text">Evaluatie</div>
 

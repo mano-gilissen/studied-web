@@ -64,7 +64,7 @@
 
                 @endforeach
 
-                <img class="action" src="{{ $action ?? '/images/chevron-right.svg' }}"/>
+                <img class="action" src="{{ $action ?? '/images_app/chevron-right.svg' }}"/>
 
             </div>
 

@@ -19,4 +19,16 @@ class Controller extends BaseController {
 
 
 
+
+
+    public function home() {
+
+        return \File::get(public_path() . '/home.html');
+
+    }
+
+
+
+
+
 }

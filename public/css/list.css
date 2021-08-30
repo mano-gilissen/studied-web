@@ -96,7 +96,7 @@
     margin-left:                        10px;
     height:                             14px;
     width:                              10px;
-    background-image:                   url('/images/sort.svg');
+    background-image:                   url('/images_app/sort.svg');
     opacity:                            0;
 }
 
@@ -109,12 +109,12 @@
 }
 
 #headers .header.asc .sort {
-    background-image:                   url('/images/sort-up.svg');
+    background-image:                   url('/images_app/sort-up.svg');
     opacity:                            1;
 }
 
 #headers .header.desc .sort {
-    background-image:                   url('/images/sort-down.svg');
+    background-image:                   url('/images_app/sort-down.svg');
     opacity:                            1;
 }
 

@@ -85,7 +85,7 @@
 
                                 <div class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_HOST => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">
 
-                                    <img class="icon" src="/images/search.svg">
+                                    <img class="icon" src="/images_app/search.svg">
 
                                     <div class="text">Lessen</div>
 
@@ -99,7 +99,7 @@
 
                                     <div class="button grey icon" onclick="window.location.href='{{ route('study.list') }}'">
 
-                                        <img class="icon" src="/images/search.svg">
+                                        <img class="icon" src="/images_app/search.svg">
 
                                         <div class="text">Lessen</div>
 
@@ -109,7 +109,7 @@
 
                                     <div class="button grey icon" onclick="window.location.href='{{ 'https://instagram.com/' . $person->social_instagram }}'">
 
-                                        <img class="icon" src="/images/social-instagram.svg">
+                                        <img class="icon" src="/images_app/social-instagram.svg">
 
                                         <div class="text">Instagram</div>
 
@@ -124,7 +124,7 @@
 
                                 <div class="button grey icon" onclick="window.location.href='{{ 'https://instagram.com/' . $person->social_instagram }}'">
 
-                                    <img class="icon" src="/images/social-instagram.svg">
+                                    <img class="icon" src="/images_app/social-instagram.svg">
 
                                     <div class="text">Instagram</div>
 
@@ -147,7 +147,7 @@
 
                                 <div class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_PARTICIPANT => $person->slug]) }}'">
 
-                                    <img class="icon" src="/images/search.svg">
+                                    <img class="icon" src="/images_app/search.svg">
 
                                     <div class="text">Lessen</div>
 
@@ -161,7 +161,7 @@
 
                                     <div class="button grey icon" onclick="window.location.href='{{ route('study.list') }}'">
 
-                                        <img class="icon" src="/images/search.svg">
+                                        <img class="icon" src="/images_app/search.svg">
 
                                         <div class="text">Lessen</div>
 
@@ -177,7 +177,7 @@
 
                                     <div class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_PARTICIPANT => $person->slug]) }}'">
 
-                                        <img class="icon" src="/images/search.svg">
+                                        <img class="icon" src="/images_app/search.svg">
 
                                         <div class="text">Lessen</div>
 
@@ -202,7 +202,7 @@
 
                                 <div id="button-studies" class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_CUSTOMER => $person->slug]) }}'">
 
-                                    <img class="icon" src="/images/search.svg">
+                                    <img class="icon" src="/images_app/search.svg">
 
                                     <div class="text">Lessen</div>
 
@@ -220,7 +220,7 @@
 
                                     <div id="button-studies" class="button grey icon" onclick="window.location.href='{{ route('study.list') }}'">
 
-                                        <img class="icon" src="/images/search.svg">
+                                        <img class="icon" src="/images_app/search.svg">
 
                                         <div class="text">Lessen</div>
 
@@ -238,7 +238,7 @@
 
                     <div class="button icon">
 
-                        <img class="icon" src="/images/edit.svg">
+                        <img class="icon" src="/images_app/edit.svg">
 
                         <div class="text">Bewerken</div>
 
@@ -248,7 +248,7 @@
 
                     <div class="button icon">
 
-                        <img class="icon" src="/images/contact.svg">
+                        <img class="icon" src="/images_app/contact.svg">
 
                         <div class="text">Contacteer</div>
 

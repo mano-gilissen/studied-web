@@ -68,9 +68,9 @@
 
     <div id="menu-actions">
 
-        <img id="button-logout" src="/images/logout.svg" onclick="event.preventDefault(); document.getElementById('logout').submit();"/>
+        <img id="button-logout" src="/images_app/logout.svg" onclick="event.preventDefault(); document.getElementById('logout').submit();"/>
 
-        <img id="button-settings" src="/images/settings.svg"/>
+        <img id="button-settings" src="/images_app/settings.svg"/>
 
         <form id="logout" method="POST" action="{{ route('logout') }}">
 

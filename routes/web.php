@@ -160,10 +160,4 @@ Route::get('/template',                             'DebugController@template')-
 
 
 
-
-
-Route::get('/', function () {
-
-    return redirect('/lessen');
-
-});
+Route::get('/',                                     'Controller@home')->name('home');

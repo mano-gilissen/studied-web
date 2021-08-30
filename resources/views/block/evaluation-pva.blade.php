@@ -14,7 +14,7 @@
 
                 <div>Wat wil de scholier bereiken?</div>
 
-                <img src="/images/chevron-down.svg">
+                <img src="/images_app/chevron-down.svg">
 
             </div>
 
@@ -30,7 +30,7 @@
 
                 <div>Wat is het verwachte resultaat n.a.v. bijles bij Studied?</div>
 
-                <img src="/images/chevron-down.svg">
+                <img src="/images_app/chevron-down.svg">
 
             </div>
 
@@ -46,7 +46,7 @@
 
                 <div>Wat is de looptijd van de doelstelling?</div>
 
-                <img src="/images/chevron-down.svg">
+                <img src="/images_app/chevron-down.svg">
 
             </div>
 
@@ -68,7 +68,7 @@
 
                 <div>Hoe ziet de situatie er nu uit? Waarom is deze problematisch?</div>
 
-                <img src="/images/chevron-down.svg">
+                <img src="/images_app/chevron-down.svg">
 
             </div>
 
@@ -84,7 +84,7 @@
 
                 <div>Wat is reeds ondernomen? Waarom werkte dat wel of niet?</div>
 
-                <img src="/images/chevron-down.svg">
+                <img src="/images_app/chevron-down.svg">
 
             </div>
 
@@ -100,7 +100,7 @@
 
                 <div>Hoe ziet het eruit als de problematiek niet wordt opgelost?</div>
 
-                <img src="/images/chevron-down.svg">
+                <img src="/images_app/chevron-down.svg">
 
             </div>
 
@@ -122,7 +122,7 @@
 
                 <div>De mogelijkheden van de scholier bij Studied</div>
 
-                <img src="/images/chevron-down.svg">
+                <img src="/images_app/chevron-down.svg">
 
             </div>
 
@@ -144,7 +144,7 @@
 
                 <div>Worden er nog acties buiten Studied ondernomen?</div>
 
-                <img src="/images/chevron-down.svg">
+                <img src="/images_app/chevron-down.svg">
 
             </div>
 
@@ -160,7 +160,7 @@
 
                 <div>Wat zijn mogelijke obstakels voor behalen van het gewenste resultaat? Hoe kan hier rekening mee worden gehouden?</div>
 
-                <img src="/images/chevron-down.svg">
+                <img src="/images_app/chevron-down.svg">
 
             </div>
 
@@ -176,7 +176,7 @@
 
                 <div>Ons adviesplan</div>
 
-                <img src="/images/chevron-down.svg">
+                <img src="/images_app/chevron-down.svg">
 
             </div>
 

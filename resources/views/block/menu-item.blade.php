@@ -2,6 +2,6 @@
 
     <div class="label">{{ $label }}</div>
 
-    <img src="/images/forward.svg"/>
+    <img src="/images_app/forward.svg"/>
 
 </div>

@@ -26,7 +26,7 @@
 
             <div id="top">
 
-                <img src="/images/agreement.jpg">
+                <img src="/images_app/agreement.jpg">
 
                 <div class="title">Vakafspraak</div>
 
@@ -44,7 +44,7 @@
 
                         <div class="button icon">
 
-                            <img class="icon" src="/images/edit.svg">
+                            <img class="icon" src="/images_app/edit.svg">
 
                             <div class="text">Bewerken</div>
 

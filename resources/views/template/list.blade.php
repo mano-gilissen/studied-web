@@ -42,7 +42,7 @@
 
                     <div id="button-filter-add" class="button icon">
 
-                        <img class="icon" src="/images/add-white.svg">
+                        <img class="icon" src="/images_app/add-white.svg">
 
                         <div class="text">{{ __('Filter') }}</div>
 

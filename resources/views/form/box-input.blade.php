@@ -15,7 +15,7 @@
 
             @if($locked ?? false) disabled @endif>
 
-        @isset($icon) <img class="icon" src="/images/{{ $icon }}"> @endisset
+        @isset($icon) <img class="icon" src="/images_app/{{ $icon }}"> @endisset
 
     </div>
 

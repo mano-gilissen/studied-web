@@ -39,8 +39,8 @@ const CLASS_DOT                                 = '.dot';
 const CLASS_TAB                                 = '.tab';
 const CLASS_ITEM_TITLE                          = '.item-title';
 
-const ICON_BACK                                 = "/images/back.svg";
-const ICON_MENU                                 = "/images/menu.svg";
+const ICON_BACK                                 = "/images_app/back.svg";
+const ICON_MENU                                 = "/images_app/menu.svg";
 
 const ATTR_NO_SORT                              = 'no_sort';
 const ATTR_NO_FILTER                            = 'no_filter';

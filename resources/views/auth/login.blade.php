@@ -18,7 +18,7 @@
 
 
 
-        <img id="logo" src="/images/logo.svg">
+        <img id="logo" src="/images_app/logo.svg">
 
 
 

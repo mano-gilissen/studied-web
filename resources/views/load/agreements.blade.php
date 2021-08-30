@@ -1,8 +1,8 @@
 <div class="buttons">
 
-    <img class="button" id="button-previous" src="/images/back.svg"/>
+    <img class="button" id="button-previous" src="/images_app/back.svg"/>
 
-    <img class="button" id="button-next" src="/images/forward.svg"/>
+    <img class="button" id="button-next" src="/images_app/forward.svg"/>
 
 </div>
 
@@ -24,7 +24,7 @@
 
                             <div class="title">{{ $agreement->identifier }}</div>
 
-                            <img class="selector" src="/images/check-white.svg"/>
+                            <img class="selector" src="/images_app/check-white.svg"/>
 
                         </div>
 

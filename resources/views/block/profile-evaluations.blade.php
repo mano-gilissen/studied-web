@@ -4,7 +4,7 @@
 
         <div class="title-add">
 
-            <img class="button-add" src="/images/add-unboxed.svg" onclick="window.location.href='{{ route('evaluation.plan', ['leerling' => $person->slug]) }}'">
+            <img class="button-add" src="/images_app/add-unboxed.svg" onclick="window.location.href='{{ route('evaluation.plan', ['leerling' => $person->slug]) }}'">
 
             <div class="title">Gesprekken</div>
 
@@ -72,7 +72,7 @@
 
                             <div class="end">
 
-                                <img class="action" src="{{ $action ?? '/images/chevron-right.svg' }}"/>
+                                <img class="action" src="{{ $action ?? '/images_app/chevron-right.svg' }}"/>
 
                                 @if(!\App\Http\Support\Func::has_passed($evaluation->datetime))
 
