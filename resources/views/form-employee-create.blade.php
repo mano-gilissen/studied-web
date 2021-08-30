@@ -62,7 +62,7 @@
 
     @include('form.field-input', ['id' => 'education_current', 'tag' => 'Niveau'])
 
-    @include('form.field-input', ['id' => 'school_current', 'tag' => 'School'])]
+    @include('form.field-input', ['id' => 'school_current', 'tag' => 'School'])
 
     @include('form.field-input', ['id' => 'profile_current', 'tag' => 'Profiel'])
 
@@ -75,7 +75,7 @@
 
     @include('form.field-input', ['id' => 'education_middelbare', 'tag' => 'Niveau'])
 
-    @include('form.field-input', ['id' => 'school_middelbare', 'tag' => 'School'])]
+    @include('form.field-input', ['id' => 'school_middelbare', 'tag' => 'School'])
 
     @include('form.field-input', ['id' => 'profile_middelbare', 'tag' => 'Profiel'])
 
@@ -86,9 +86,9 @@
 
     <div class="title">{{ __('Sollicitatie gegevens') }}</div>
 
-    @include('form.field-input', ['id' => 'motivation', 'tag' => 'Motivatie', 'placeholder' => 'Waarom wil deze persoon bij Studied werken?'])]
+    @include('form.field-input', ['id' => 'motivation', 'tag' => 'Motivatie', 'placeholder' => 'Waarom wil deze persoon bij Studied werken?'])
 
-    @include('form.field-input', ['id' => 'refer', 'tag' => 'Referentie', 'placeholder' => 'Hoe komt deze persoon bij Studied terecht?'])]
+    @include('form.field-input', ['id' => 'refer', 'tag' => 'Referentie', 'placeholder' => 'Hoe komt deze persoon bij Studied terecht?'])
 
     @include('form.field-input', ['id' => 'capacity', 'tag' => 'Werkcapaciteit', 'placeholder' => 'Uren per week']) <!-- TODO: NUMERICAL ONLY -->
 
