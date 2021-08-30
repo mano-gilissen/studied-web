@@ -62,9 +62,7 @@ class Authorize {
                 break;
         }
 
-        echo($route);
 
-        dd($routes);
 
         if (!in_array($route, $routes)) {
 
