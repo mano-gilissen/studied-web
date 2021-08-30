@@ -160,4 +160,22 @@ Route::get('/template',                             'DebugController@template')-
 
 
 
-Route::get('/',                                     'Controller@home')->name('home');
+Route::get('/home',                                 'SiteController@home')->name('home');
+
+Route::get('/actueel',                              'SiteController@actueel')->name('actueel');
+
+Route::get('/artikel',                              'SiteController@artikel')->name('artikel');
+
+Route::get('/begeleiding',                          'SiteController@begeleiding')->name('begeleiding');
+
+Route::get('/werk',                                 'SiteController@werk')->name('werk');
+
+Route::get('/werkwijze',                            'SiteController@werkwijze')->name('werkwijze');
+
+Route::get('/zakelijk',                             'SiteController@zakelijk')->name('zakelijk');
+
+Route::get('/', function () {
+
+    return redirect('/home');
+
+});
