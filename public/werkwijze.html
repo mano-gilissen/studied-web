@@ -25,7 +25,7 @@
   <style>
   input, textarea {
 	-webkit-appearance: none;
-	border-radius: 0; } 
+	border-radius: 0; }
   body:hover .cursor {
     opacity:1.0;
   }
@@ -74,7 +74,7 @@
        -webkit-border-radius: 10px;
        border-radius: 10px;
        background: #434343;
-   }  
+   }
    ::selection {
     color: #1a1a1a;
     background: rgba(255,221,0, .95);
@@ -94,13 +94,13 @@
   }
   .circle-big {
 	fill: #242424;
-    transition: 
+    transition:
     r .9s,
     fill .5s .5s;
   }
   .circle-small {
     fill: #fd0;
-    transition: 
+    transition:
     r .6s .3s,
     fill .5s .1s;
   }
@@ -156,36 +156,36 @@ box-shadow: none !important;
 .nice-select.open:after {
   -webkit-transform: rotate(-135deg);
   -ms-transform: rotate(-135deg);
-  transform: rotate(-135deg); 
+  transform: rotate(-135deg);
 }
 .nice-select.open .list {
   opacity: 1;
   pointer-events: auto;
   -webkit-transform: scale(1) translateY(0);
   -ms-transform: scale(1) translateY(0);
-  transform: scale(1) translateY(0); 
+  transform: scale(1) translateY(0);
 }
 .nice-select.disabled {
   border-color: #ededed;
   color: #999;
-  pointer-events: none; 
+  pointer-events: none;
 }
 .nice-select.disabled:after {
-  border-color: #e6e6e6; 
+  border-color: #e6e6e6;
 }
 .nice-select.wide {
-  width: 100%; 
+  width: 100%;
 }
 .nice-select.wide .list {
   left: 0 !important;
-  right: 0 !important; 
+  right: 0 !important;
 }
 .nice-select.right {
-  float: right; 
+  float: right;
 }
 .nice-select.right .list {
   left: auto;
-  right: 0; 
+  right: 0;
 }
 .nice-select .list {
 	border-radius: 0;
@@ -212,11 +212,11 @@ box-shadow: none !important;
   -webkit-transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
   transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
   z-index: 9;
-  -webkit-box-shadow: 5px 4px 9px 2px rgba(0,0,0,0.04) !important; 
+  -webkit-box-shadow: 5px 4px 9px 2px rgba(0,0,0,0.04) !important;
   box-shadow: 5px 4px 9px 2px rgba(0,0,0,0.04) !important;
 }
 .nice-select .list:hover .option:not(:hover) {
-  background-color: transparent !important; 
+  background-color: transparent !important;
 }
 .nice-select .option {
   cursor: pointer;
@@ -237,13 +237,13 @@ span.current {
   background-color: transparent;
   color: #434343;
   opacity: .5;
-  cursor: default; 
+  cursor: default;
 }
 .no-csspointerevents .nice-select .list {
-display: none; 
+display: none;
 }
 .no-csspointerevents .nice-select.open .list {
-display: block; 
+display: block;
 }
 .nice-select:after {
 	  border-bottom: 2px solid #e6e6e6;
@@ -341,12 +341,12 @@ display: block;
           </div>
         </div>
         <div class="site-name__wrap">
-          <a data-w-id="0321ca4e-998a-3e99-b443-597d2349ae85" href="index.html" class="home-link pageleave">Studied<span class="geel">.</span></a>
+          <a data-w-id="0321ca4e-998a-3e99-b443-597d2349ae85" href="home.html" class="home-link pageleave">Studied<span class="geel">.</span></a>
         </div>
       </div>
     </div>
     <div class="site-name__wrap">
-      <a data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc811b" href="index.html" class="home-link pageleave">Studied<span class="geel">.</span></a>
+      <a data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc811b" href="home.html" class="home-link pageleave">Studied<span class="geel">.</span></a>
     </div>
     <div class="menu-background w-embed"><svg width="54" height="54" style="overflow: inherit !important;">
         <circle class="circle-radius" cx="50%" cy="50%" r="27" fill="#ffdd00"></circle>
@@ -1177,7 +1177,7 @@ $('a').each(function() {
   // Custom viewheight for mobile
   let vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty('--vh', `${vh}px`);
-  // Delay link 
+  // Delay link
   function delay (URL) {
   setTimeout( function() { window.location = URL }, 850 );
   }
@@ -1196,7 +1196,7 @@ $('a').each(function() {
           })
         }, 50);
   })
-// Fullscreen menu   
+// Fullscreen menu
  let screenWidth = $(window).width();
  let screenHeight = $(window).height();
  let screenDiagonal = 1.1 * Math.sqrt(screenWidth*screenWidth + screenHeight*screenHeight);
@@ -1255,7 +1255,7 @@ $('a').each(function() {
         observeParent: true,
         observer: true,
   });
-  $('.w-tab-link').on("click",function(){ 
+  $('.w-tab-link').on("click",function(){
     setTimeout(function(){
       Swiper('.swiper-container', {
             grabCursor: true,
