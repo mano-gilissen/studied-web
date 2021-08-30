@@ -48,7 +48,7 @@ Route::get('/klant/aanmaken',                       'CustomerController@create')
 
 Route::get('/klanten',                              'CustomerController@list')->name('customer.list')->middleware('auth', 'authorize');
 
-Route::get('/medewerker/aanmaken',                  'Employeecontroller@create')->name('employee.create')->middleware('auth', 'authorize');
+Route::get('/medewerker/aanmaken',                  'EmployeeController@create')->name('employee.create')->middleware('auth', 'authorize');
 
 Route::get('/medewerkers',                          'EmployeeController@list')->name('employee.list')->middleware('auth', 'authorize');
 
