@@ -35,30 +35,30 @@ class Authorize {
             case RoleTrait::$ID_ADMINISTRATOR:
             case RoleTrait::$ID_BOARD:
                 $routes                     = array_merge(Route::ALL_AUTH, $routes);
-                $routes                     = array_merge(ROUTE::ALL_BOARD, $routes);
-                $routes                     = array_merge(ROUTE::ALL_MANAGEMENT, $routes);
-                $routes                     = array_merge(ROUTE::ALL_EMPLOYEE, $routes);
+                $routes                     = array_merge(Route::ALL_BOARD, $routes);
+                $routes                     = array_merge(Route::ALL_MANAGEMENT, $routes);
+                $routes                     = array_merge(Route::ALL_EMPLOYEE, $routes);
                 break;
 
             case RoleTrait::$ID_MANAGEMENT:
                 $routes                     = array_merge(Route::ALL_AUTH, $routes);
-                $routes                     = array_merge(ROUTE::ALL_MANAGEMENT, $routes);
-                $routes                     = array_merge(ROUTE::ALL_EMPLOYEE, $routes);
+                $routes                     = array_merge(Route::ALL_MANAGEMENT, $routes);
+                $routes                     = array_merge(Route::ALL_EMPLOYEE, $routes);
                 break;
 
             case RoleTrait::$ID_EMPLOYEE:
                 $routes                     = array_merge(Route::ALL_AUTH, $routes);
-                $routes                     = array_merge(ROUTE::ALL_EMPLOYEE, $routes);
+                $routes                     = array_merge(Route::ALL_EMPLOYEE, $routes);
                 break;
 
             case RoleTrait::$ID_STUDENT:
                 $routes                     = array_merge(Route::ALL_AUTH, $routes);
-                $routes                     = array_merge(ROUTE::ALL_STUDENT, $routes);
+                $routes                     = array_merge(Route::ALL_STUDENT, $routes);
                 break;
 
             case RoleTrait::$ID_CUSTOMER:
                 $routes                     = array_merge(Route::ALL_AUTH, $routes);
-                $routes                     = array_merge(ROUTE::ALL_CUSTOMER, $routes);
+                $routes                     = array_merge(Route::ALL_CUSTOMER, $routes);
                 break;
         }
 
