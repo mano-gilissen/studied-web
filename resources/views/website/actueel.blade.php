@@ -374,18 +374,18 @@
         <div class="article-container">
             <a href="#" class="article-top pageleave w-inline-block"><img src="images/1.3-Eindhoven-Export.jpg" loading="lazy" alt="Sfeerfoto van vestiging Eindhoven" class="article-image">
                 <div class="image-overlay">
-                    <h5 class="article-bigname">Educatieve kerst</h5>
+                    <h5 class="article-bigname">{{ $articles[1]->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h5>
                 </div>
             </a>
             <div class="atricle-bottom">
                 <div class="article-info">
                     <div class="intro-textwrap">
-                        <h6 class="article-heading">10 educatieve cadeautjes voor kerst</h6>
-                        <p class="black-par">Het is alweer bijna kerst! Maar na het Sinterklaasfeest kan het zijn dat de kids al behoorlijk verwend zijn, dus wat blijft er nog over voor de Kerstman? Wij hebben 10 educatieve cadeaus waar zowel jij als je kind én school blij van worden!</p>
+                        <h6 class="article-heading">{{ $articles[1]->{\App\Http\Support\Model::$ARTICLE_SUBTITLE} }}</h6>
+                        <p class="black-par">{{ $articles[1]->{\App\Http\Support\Model::$ARTICLE_INTRO} }}</p>
                     </div>
                     <div class="info-bottom">
                         <a href="#" class="main-btn pageleave w-button">Lees meer</a>
-                        <p class="article-date bk">05 juli 2021</p>
+                        <p class="article-date bk">{{ \App\Http\Support\Format::datetime($articles[1]->{\App\Http\Support\Model::$BASE_CREATED_AT}, \App\Http\Support\Format::$DATETIME_ARTICLE) }}</p>
                     </div>
                 </div>
             </div>
@@ -395,19 +395,19 @@
         <div class="article-container art100">
             <a data-w-id="7955b2f5-642d-e0b5-3a8a-a44a0bf3064b" href="#" class="article-100left pageleave w-inline-block"><img src="images/1.5-Tilburg-Export.jpg" loading="lazy" sizes="(max-width: 991px) 100vw, 50vw" srcset="images/1.5-Tilburg-Export-p-500.jpeg 500w, images/1.5-Tilburg-Export.jpg 1000w" alt="Sfeerfoto van vestiging Tilburg" class="article-image">
                 <div class="image-overlay">
-                    <h5 class="article-bigname">Cito-toetsen</h5>
+                    <h5 class="article-bigname">{{ $articles[2]->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h5>
                 </div>
             </a>
             <div class="article-100right">
                 <div class="art100-info big">
                     <div class="intro-textwrap">
-                        <h6 class="article-heading big">Waarom moet mijn kind voor de Cito-toets oefenen?</h6>
-                        <p class="art-intro">De Cito-toets is dé belangrijkste toets van de basisschool. De resultaten van deze toets zeggen namelijk iets over het niveau van jouw kind</p>
-                        <p class="black-par">De Cito-score dient als onderbouwing voor het eindadvies van de leerkracht. Vaak komt de score overeen met het advies, maar in sommige gevallen scoren kinderen lager of hoger dan verwacht. Als jouw kind lager scoort dan het gegeven advies van de leerkracht is dat gelukkig niet erg. Een leerling met een vwo-advies en een score die aansluit op havo-niveau zal uiteindelijk een vwo-eindadvies krijgen.</p>
+                        <h6 class="article-heading big">{{ $articles[2]->{\App\Http\Support\Model::$ARTICLE_SUBTITLE} }}</h6>
+                        <p class="art-intro">{{ $articles[2]->{\App\Http\Support\Model::$ARTICLE_INTRO} }}</p>
+                        <p class="black-par">{{ $articles[2]->{\App\Http\Support\Model::$ARTICLE_PARAGRAPH_1} }}</p>
                     </div>
                     <div class="info-bottom">
                         <a href="#" class="main-btn pageleave w-button">Lees meer</a>
-                        <p class="article-date bk">23 juni 2021</p>
+                        <p class="article-date bk">{{ \App\Http\Support\Format::datetime($articles[2]->{\App\Http\Support\Model::$BASE_CREATED_AT}, \App\Http\Support\Format::$DATETIME_ARTICLE) }}</p>
                     </div>
                 </div>
             </div>
@@ -417,18 +417,18 @@
         <div class="article-container small">
             <a href="#" class="article-top pageleave w-inline-block"><img src="images/1.7-Utrecht-Export.jpg" loading="lazy" sizes="(max-width: 991px) 100vw, 25vw" srcset="images/1.7-Utrecht-Export-p-500.jpeg 500w, images/1.7-Utrecht-Export.jpg 1000w" alt="Sfeerfoto van vestiging Utrecht" class="article-image">
                 <div class="image-overlay">
-                    <h5 class="article-bigname small">Online bijles</h5>
+                    <h5 class="article-bigname small">{{ $articles[3]->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h5>
                 </div>
             </a>
             <div class="atricle-bottom">
                 <div class="article-info">
                     <div class="intro-textwrap">
-                        <h6 class="article-heading">Online bijles: hoe en wat?</h6>
-                        <p class="black-par">We begrijpen dat aankomende tijd ingewikkeld kan zijn voor ouders en hun kinderen. De scholen gaan in ieder geval tot en met 6 april dicht.</p>
+                        <h6 class="article-heading">{{ $articles[3]->{\App\Http\Support\Model::$ARTICLE_SUBTITLE} }}</h6>
+                        <p class="black-par">{{ $articles[3]->{\App\Http\Support\Model::$ARTICLE_INTRO} }}</p>
                     </div>
                     <div class="info-bottom">
                         <a href="#" class="main-btn pageleave w-button">Lees meer</a>
-                        <p class="article-date bk">13 juni 2021</p>
+                        <p class="article-date bk">{{ \App\Http\Support\Format::datetime($articles[3]->{\App\Http\Support\Model::$BASE_CREATED_AT}, \App\Http\Support\Format::$DATETIME_ARTICLE) }}</p>
                     </div>
                 </div>
             </div>
@@ -436,18 +436,18 @@
         <div class="article-container small">
             <a href="#" class="article-top pageleave w-inline-block"><img src="images/1.6-Nijmegen-Export.jpg" loading="lazy" alt="Sfeerfoto van vestiging Nijmegen" class="article-image">
                 <div class="image-overlay">
-                    <h5 class="article-bigname small">Struikelvakken</h5>
+                    <h5 class="article-bigname small">{{ $articles[4]->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h5>
                 </div>
             </a>
             <div class="atricle-bottom">
                 <div class="article-info">
                     <div class="intro-textwrap">
-                        <h6 class="article-heading">Hoe kan je omgaan met een struikelvak?</h6>
-                        <p class="black-par">Voor velen gaat het om wiskunde of natuurkunde, maar voor anderen gaat het juist om Nederlands en Duits: een struikelvak, bijna iedere leerling heeft er wel eentje.</p>
+                        <h6 class="article-heading">{{ $articles[4]->{\App\Http\Support\Model::$ARTICLE_SUBTITLE} }}</h6>
+                        <p class="black-par">{{ $articles[4]->{\App\Http\Support\Model::$ARTICLE_INTRO} }}</p>
                     </div>
                     <div class="info-bottom">
                         <a href="#" class="main-btn pageleave w-button">Lees meer</a>
-                        <p class="article-date bk">02 juni 2021</p>
+                        <p class="article-date bk">{{ \App\Http\Support\Format::datetime($articles[4]->{\App\Http\Support\Model::$BASE_CREATED_AT}, \App\Http\Support\Format::$DATETIME_ARTICLE) }}</p>
                     </div>
                 </div>
             </div>
@@ -455,18 +455,18 @@
         <div class="article-container">
             <a href="#" class="article-top pageleave w-inline-block"><img src="images/1.5-Tilburg-Export.jpg" loading="lazy" sizes="(max-width: 991px) 100vw, 50vw" srcset="images/1.5-Tilburg-Export-p-500.jpeg 500w, images/1.5-Tilburg-Export.jpg 1000w" alt="Sfeerfoto van vestiging Tilburg" class="article-image">
                 <div class="image-overlay">
-                    <h5 class="article-bigname">Vectera</h5>
+                    <h5 class="article-bigname">{{ $articles[5]->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h5>
                 </div>
             </a>
             <div class="atricle-bottom">
                 <div class="article-info">
                     <div class="intro-textwrap">
-                        <h6 class="article-heading">Online bijlesplatform Vectera</h6>
-                        <p class="black-par">Vectera brengt een aantal voordelen met zich mee. Zo kan je makkelijk je scherm delen met je bijles leerling zodat jullie naar dezelfde opdrachten kunnen kijken. Daarnaast kan je ook een Whiteboard toevoegen zodat je je bijles leerling makkelijk kunt bijstaan tijdens het uitleggen van opdrachten.</p>
+                        <h6 class="article-heading">{{ $articles[5]->{\App\Http\Support\Model::$ARTICLE_SUBTITLE} }}</h6>
+                        <p class="black-par">{{ $articles[5]->{\App\Http\Support\Model::$ARTICLE_INTRO} }}</p>
                     </div>
                     <div class="info-bottom">
                         <a href="#" class="main-btn pageleave w-button">Lees meer</a>
-                        <p class="article-date bk">26 mei 2021</p>
+                        <p class="article-date bk">{{ \App\Http\Support\Format::datetime($articles[5]->{\App\Http\Support\Model::$BASE_CREATED_AT}, \App\Http\Support\Format::$DATETIME_ARTICLE) }}</p>
                     </div>
                 </div>
             </div>
@@ -476,16 +476,16 @@
         <div class="article-container">
             <a href="#" class="article-top pageleave w-inline-block"><img src="images/1.4-Amsterdam-Export.jpg" loading="lazy" alt="Sfeerfoto van vestiging Amsterdam" class="article-image">
                 <div class="image-overlay">
-                    <h5 class="article-bigname">Vectera tips</h5>
+                    <h5 class="article-bigname">{{ $articles[6]->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h5>
                 </div>
             </a>
             <div class="atricle-bottom">
                 <div class="article-info">
-                    <h6 class="article-heading">Tips voor het geven van online bijles via Vectera</h6>
-                    <p class="black-par">Online bijles is uiteraard een andere ervaring dan het geven van bijles wanneer jullie samenkomen. Je bent afhankelijk van een aantal factoren om de bijles wel zo goed en vloeiend mogelijk te laten verlopen.</p>
+                    <h6 class="article-heading">{{ $articles[6]->{\App\Http\Support\Model::$ARTICLE_SUBTITLE} }}</h6>
+                    <p class="black-par">{{ $articles[6]->{\App\Http\Support\Model::$ARTICLE_INTRO} }}</p>
                     <div class="info-bottom">
                         <a href="#" class="main-btn pageleave w-button">Lees meer</a>
-                        <p class="article-date bk">14 mei 2021</p>
+                        <p class="article-date bk">{{ \App\Http\Support\Format::datetime($articles[6]->{\App\Http\Support\Model::$BASE_CREATED_AT}, \App\Http\Support\Format::$DATETIME_ARTICLE) }}</p>
                     </div>
                 </div>
             </div>
@@ -493,16 +493,16 @@
         <div class="article-container">
             <a href="#" class="article-top pageleave w-inline-block"><img src="images/1.2-Rotterdam-Export.jpg" loading="lazy" alt="Sfeerfoto van vestiging Rotterdam" class="article-image">
                 <div class="image-overlay">
-                    <h5 class="article-bigname">Tips &amp; tricks</h5>
+                    <h5 class="article-bigname">{{ $articles[7]->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h5>
                 </div>
             </a>
             <div class="atricle-bottom">
                 <div class="article-info">
-                    <h6 class="article-heading">Tips voor thuiswerkende kinderen</h6>
-                    <p class="black-par">Voor kinderen is het belangrijk dat ze zich de komende weken aan een routine kunnen houden, zoals ze op school ook doen. Dan zullen ze het effectiefst te werk gaan en weten ze waar ze aan toe zijn.</p>
+                    <h6 class="article-heading">{{ $articles[7]->{\App\Http\Support\Model::$ARTICLE_SUBTITLE} }}</h6>
+                    <p class="black-par">{{ $articles[7]->{\App\Http\Support\Model::$ARTICLE_INTRO} }}</p>
                     <div class="info-bottom">
                         <a href="#" class="main-btn pageleave w-button">Lees meer</a>
-                        <p class="article-date bk"> 30 april 2021</p>
+                        <p class="article-date bk">{{ \App\Http\Support\Format::datetime($articles[7]->{\App\Http\Support\Model::$BASE_CREATED_AT}, \App\Http\Support\Format::$DATETIME_ARTICLE) }}</p>
                     </div>
                 </div>
             </div>
