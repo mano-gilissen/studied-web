@@ -329,7 +329,7 @@ display: block;
       </a>
     </div>
   </div>
-  <div class="article-head"><img src="images/{{ $article->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" sizes="100vw" class="article-head__image">
+  <div class="article-head"><img src="/images/{{ $article->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" sizes="100vw" class="article-head__image">
     <div class="article-head__overlay">
       <h3 class="article-head__title">{{ $article->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h3>
     </div>
