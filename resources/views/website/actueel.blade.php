@@ -353,7 +353,7 @@
 <div class="articles-section">
     <div class="articles-50-50">
         <div class="article-container">
-            <a href="article.html" class="article-top pageleave w-inline-block"><img src="images/1.1-Maastricht-Export.jpg" loading="lazy" sizes="(max-width: 991px) 100vw, 50vw" srcset="images/1.1-Maastricht-Export-p-500.jpeg 500w, images/1.1-Maastricht-Export-p-800.jpeg 800w, images/1.1-Maastricht-Export.jpg 1001w" alt="Sfeerfoto van vestiging Maastricht" class="article-image">
+            <a href="article.html" class="article-top pageleave w-inline-block"><img src="images/{{ $article[0]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" sizes="(max-width: 991px) 100vw, 50vw" class="article-image">
                 <div class="image-overlay">
                     <h5 class="article-bigname">{{ $articles[0]->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h5>
                 </div>
@@ -372,7 +372,7 @@
             </div>
         </div>
         <div class="article-container">
-            <a href="#" class="article-top pageleave w-inline-block"><img src="images/1.3-Eindhoven-Export.jpg" loading="lazy" alt="Sfeerfoto van vestiging Eindhoven" class="article-image">
+            <a href="#" class="article-top pageleave w-inline-block"><img src="{{ $article[1]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" class="article-image">
                 <div class="image-overlay">
                     <h5 class="article-bigname">{{ $articles[1]->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h5>
                 </div>
@@ -393,7 +393,7 @@
     </div>
     <div class="article-100">
         <div class="article-container art100">
-            <a data-w-id="7955b2f5-642d-e0b5-3a8a-a44a0bf3064b" href="#" class="article-100left pageleave w-inline-block"><img src="images/1.5-Tilburg-Export.jpg" loading="lazy" sizes="(max-width: 991px) 100vw, 50vw" srcset="images/1.5-Tilburg-Export-p-500.jpeg 500w, images/1.5-Tilburg-Export.jpg 1000w" alt="Sfeerfoto van vestiging Tilburg" class="article-image">
+            <a data-w-id="7955b2f5-642d-e0b5-3a8a-a44a0bf3064b" href="#" class="article-100left pageleave w-inline-block"><img src="images/{{ $article[2]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" sizes="(max-width: 991px) 100vw, 50vw" class="article-image">
                 <div class="image-overlay">
                     <h5 class="article-bigname">{{ $articles[2]->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h5>
                 </div>
@@ -415,7 +415,7 @@
     </div>
     <div class="articles-25-25-50">
         <div class="article-container small">
-            <a href="#" class="article-top pageleave w-inline-block"><img src="images/1.7-Utrecht-Export.jpg" loading="lazy" sizes="(max-width: 991px) 100vw, 25vw" srcset="images/1.7-Utrecht-Export-p-500.jpeg 500w, images/1.7-Utrecht-Export.jpg 1000w" alt="Sfeerfoto van vestiging Utrecht" class="article-image">
+            <a href="#" class="article-top pageleave w-inline-block"><img src="images/{{ $article[3]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" sizes="(max-width: 991px) 100vw, 25vw" class="article-image">
                 <div class="image-overlay">
                     <h5 class="article-bigname small">{{ $articles[3]->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h5>
                 </div>
@@ -434,7 +434,7 @@
             </div>
         </div>
         <div class="article-container small">
-            <a href="#" class="article-top pageleave w-inline-block"><img src="images/1.6-Nijmegen-Export.jpg" loading="lazy" alt="Sfeerfoto van vestiging Nijmegen" class="article-image">
+            <a href="#" class="article-top pageleave w-inline-block"><img src="images/{{ $article[4]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" class="article-image">
                 <div class="image-overlay">
                     <h5 class="article-bigname small">{{ $articles[4]->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h5>
                 </div>
@@ -453,7 +453,7 @@
             </div>
         </div>
         <div class="article-container">
-            <a href="#" class="article-top pageleave w-inline-block"><img src="images/1.5-Tilburg-Export.jpg" loading="lazy" sizes="(max-width: 991px) 100vw, 50vw" srcset="images/1.5-Tilburg-Export-p-500.jpeg 500w, images/1.5-Tilburg-Export.jpg 1000w" alt="Sfeerfoto van vestiging Tilburg" class="article-image">
+            <a href="#" class="article-top pageleave w-inline-block"><img src="images/{{ $article[5]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" sizes="(max-width: 991px) 100vw, 50vw" class="article-image">
                 <div class="image-overlay">
                     <h5 class="article-bigname">{{ $articles[5]->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h5>
                 </div>
@@ -474,7 +474,7 @@
     </div>
     <div class="articles-50-50">
         <div class="article-container">
-            <a href="#" class="article-top pageleave w-inline-block"><img src="images/1.4-Amsterdam-Export.jpg" loading="lazy" alt="Sfeerfoto van vestiging Amsterdam" class="article-image">
+            <a href="#" class="article-top pageleave w-inline-block"><img src="images/{{ $article[6]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" class="article-image">
                 <div class="image-overlay">
                     <h5 class="article-bigname">{{ $articles[6]->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h5>
                 </div>
@@ -491,7 +491,7 @@
             </div>
         </div>
         <div class="article-container">
-            <a href="#" class="article-top pageleave w-inline-block"><img src="images/1.2-Rotterdam-Export.jpg" loading="lazy" alt="Sfeerfoto van vestiging Rotterdam" class="article-image">
+            <a href="#" class="article-top pageleave w-inline-block"><img src="images/{{ $article[7]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" class="article-image">
                 <div class="image-overlay">
                     <h5 class="article-bigname">{{ $articles[7]->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h5>
                 </div>

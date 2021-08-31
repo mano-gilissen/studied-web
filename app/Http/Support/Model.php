@@ -82,7 +82,8 @@ class Model {
         $ARTICLE_INTRO                                  = 'intro',
         $ARTICLE_QUOTE                                  = 'quote',
         $ARTICLE_PARAGRAPH_1                            = 'paragraph_1',
-        $ARTICLE_BODY                                   = 'body';
+        $ARTICLE_BODY                                   = 'body',
+        $ARTICLE_BACKGROUND                             = 'background';
 
 
 
