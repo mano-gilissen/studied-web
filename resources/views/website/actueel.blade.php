@@ -372,7 +372,7 @@
             </div>
         </div>
         <div class="article-container">
-            <a href="#" class="article-top pageleave w-inline-block"><img src="{{ $articles[1]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" class="article-image">
+            <a href="#" class="article-top pageleave w-inline-block"><img src="images/{{ $articles[1]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" class="article-image">
                 <div class="image-overlay">
                     <h5 class="article-bigname">{{ $articles[1]->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h5>
                 </div>
