@@ -361,8 +361,8 @@ display: block;
 
       <div class="writer"><img src="{{ asset("storage/avatar/" . $person->avatar) }}" loading="lazy" class="writer-image">
         <div class="writer-info">
-          <p class="bk">{{ \App\Http\Traits\PersonTrait::getFullName($person) }}</p>
-          <p class="bk">13 september 2021</p>
+          <p style="margin-top: 0" class="bk">{{ \App\Http\Traits\PersonTrait::getFullName($person) }}</p>
+          <p style="margin-top: 0" class="bk">13 september 2021</p>
         </div>
       </div>
       <a href="http://188.166.40.70/actueel" class="back-container pageleave phone w-inline-block">
