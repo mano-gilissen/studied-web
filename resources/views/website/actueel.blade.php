@@ -365,7 +365,7 @@
                         <p class="black-par">{{ $articles[0]->{\App\Http\Support\Model::$ARTICLE_INTRO} }}</p>
                     </div>
                     <div class="info-bottom">
-                        <a href="{{ route('website.artikel', ['id' => $article->{\App\Http\Support\Model::$BASE_ID}]) }}" class="main-btn pageleave w-button">Lees meer</a>
+                        <a href="{{ route('website.artikel', ['id' => $articles[0]->{\App\Http\Support\Model::$BASE_ID}]) }}" class="main-btn pageleave w-button">Lees meer</a>
                         <p class="article-date bk">{{ \App\Http\Support\Format::datetime($articles[0]->{\App\Http\Support\Model::$BASE_CREATED_AT}, \App\Http\Support\Format::$DATETIME_ARTICLE) }}</p>
                     </div>
                 </div>
