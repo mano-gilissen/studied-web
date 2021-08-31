@@ -359,7 +359,7 @@
                 </div>
             </a>
             <div class="atricle-bottom">
-                <div class="article-info">
+                <div class="article-info" style="width: 100%">
                     <div class="intro-textwrap">
                         <h6 class="article-heading">{{ $articles[0]->{\App\Http\Support\Model::$ARTICLE_SUBTITLE} }}</h6>
                         <p class="black-par">{{ $articles[0]->{\App\Http\Support\Model::$ARTICLE_INTRO} }}</p>
@@ -378,7 +378,7 @@
                 </div>
             </a>
             <div class="atricle-bottom">
-                <div class="article-info">
+                <div class="article-info" style="width: 100%">
                     <div class="intro-textwrap">
                         <h6 class="article-heading">{{ $articles[1]->{\App\Http\Support\Model::$ARTICLE_SUBTITLE} }}</h6>
                         <p class="black-par">{{ $articles[1]->{\App\Http\Support\Model::$ARTICLE_INTRO} }}</p>
@@ -421,7 +421,7 @@
                 </div>
             </a>
             <div class="atricle-bottom">
-                <div class="article-info">
+                <div class="article-info" style="width: 100%">
                     <div class="intro-textwrap">
                         <h6 class="article-heading">{{ $articles[3]->{\App\Http\Support\Model::$ARTICLE_SUBTITLE} }}</h6>
                         <p class="black-par">{{ $articles[3]->{\App\Http\Support\Model::$ARTICLE_INTRO} }}</p>
@@ -440,7 +440,7 @@
                 </div>
             </a>
             <div class="atricle-bottom">
-                <div class="article-info">
+                <div class="article-info" style="width: 100%">
                     <div class="intro-textwrap">
                         <h6 class="article-heading">{{ $articles[4]->{\App\Http\Support\Model::$ARTICLE_SUBTITLE} }}</h6>
                         <p class="black-par">{{ $articles[4]->{\App\Http\Support\Model::$ARTICLE_INTRO} }}</p>
@@ -459,7 +459,7 @@
                 </div>
             </a>
             <div class="atricle-bottom">
-                <div class="article-info">
+                <div class="article-info" style="width: 100%">
                     <div class="intro-textwrap">
                         <h6 class="article-heading">{{ $articles[5]->{\App\Http\Support\Model::$ARTICLE_SUBTITLE} }}</h6>
                         <p class="black-par">{{ $articles[5]->{\App\Http\Support\Model::$ARTICLE_INTRO} }}</p>
@@ -480,7 +480,7 @@
                 </div>
             </a>
             <div class="atricle-bottom">
-                <div class="article-info">
+                <div class="article-info" style="width: 100%">
                     <h6 class="article-heading">{{ $articles[6]->{\App\Http\Support\Model::$ARTICLE_SUBTITLE} }}</h6>
                     <p class="black-par">{{ $articles[6]->{\App\Http\Support\Model::$ARTICLE_INTRO} }}</p>
                     <div class="info-bottom">
@@ -497,7 +497,7 @@
                 </div>
             </a>
             <div class="atricle-bottom">
-                <div class="article-info">
+                <div class="article-info" style="width: 100%">
                     <h6 class="article-heading">{{ $articles[7]->{\App\Http\Support\Model::$ARTICLE_SUBTITLE} }}</h6>
                     <p class="black-par">{{ $articles[7]->{\App\Http\Support\Model::$ARTICLE_INTRO} }}</p>
                     <div class="info-bottom">
