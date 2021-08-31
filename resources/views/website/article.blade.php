@@ -356,9 +356,12 @@ display: block;
 
       </div>
     <div class="sidebars">
-      <div class="writer"><img src="images/2.2-Megan.jpg" loading="lazy" alt="Portret foto van Marketing &amp; Communicatie medewerker Megan Verbeek" class="writer-image">
+
+        @php $person = $article->getPerson @endphp
+
+      <div class="writer"><img src="{{ asset("storage/avatar/" . $person->avatar) }}" loading="lazy" class="writer-image">
         <div class="writer-info">
-          <p class="bk">Megan Janssen</p>
+          <p class="bk">{{ \App\Http\Traits\PersonTrait::getFullName($person) }}</p>
           <p class="bk">13 september 2021</p>
         </div>
       </div>
