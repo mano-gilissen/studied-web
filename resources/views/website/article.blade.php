@@ -306,7 +306,7 @@ display: block;
         </div>
         <div class="menu-extras">
           <div class="login-container">
-            <p class="login-caption"style="margin-right:1em">Naar het portaal</p>
+            <p class="login-caption" style="margin:0 1em 0 0">Naar het portaal</p>
             <a href="/inloggen" " class="main-btn menu-btn pageleave">Inloggen</a>
           </div>
         </div>
