@@ -352,7 +352,7 @@ display: block;
       </div>
       <p class="article-paragraph">{{ $article->{\App\Http\Support\Model::$ARTICLE_PARAGRAPH_1} }}</p>
 
-     {!! $article->{\App\Http\Support\Model::$ARTICLE_BODY} !!}}
+     {!! $article->{\App\Http\Support\Model::$ARTICLE_BODY} !!}
 
       </div>
     <div class="sidebars">
