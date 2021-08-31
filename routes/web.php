@@ -164,7 +164,7 @@ Route::get('/home',                                 'SiteController@home')->name
 
 Route::get('/actueel',                              'SiteController@actueel')->name('website.actueel');
 
-Route::get('/artikel',                              'SiteController@artikel')->name('artikel');
+Route::get('/artikel/{id}',                         'SiteController@artikel')->name('website.article');
 
 Route::get('/begeleiding',                          'SiteController@begeleiding')->name('begeleiding');
 

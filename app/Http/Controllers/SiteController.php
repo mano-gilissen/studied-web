@@ -10,6 +10,7 @@ use App\Http\Support\Key;
 use App\Http\Support\Model;
 use App\Http\Support\Views;
 use App\Http\Traits\PersonTrait;
+use App\Models\Article;
 
 class SiteController extends Controller {
 
@@ -31,9 +32,9 @@ class SiteController extends Controller {
 
 
 
-    public function artikel() {
+    public function artikel($id) {
 
-        return \File::get(public_path() . '/artikel.html');
+        return view(Views::WEBSITE_ARTIKEL, ['article', Article::findOrFail($id)]);
 
     }
 
