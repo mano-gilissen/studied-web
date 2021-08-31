@@ -75,6 +75,18 @@ class Model {
 
     public static
 
+        $ARTICLE                                        = 'article',
+
+        $ARTICLE_TITLE                                  = 'title',
+        $ARTICLE_SUBTITLE                               = 'subtitle',
+        $ARTICLE_INTRO                                  = 'intro',
+        $ARTICLE_QUOTE                                  = 'quote',
+        $ARTICLE_BODY                                   = 'body';
+
+
+
+    public static
+
         $COURSE                                         = 'course',
 
         $COURSE_NAME                                    = 'name',
