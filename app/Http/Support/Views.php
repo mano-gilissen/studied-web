@@ -40,7 +40,7 @@ class Views {
     const LOAD_SUBJECTS                         = "load.subjects";
 
     const WEBSITE_ACTUEEL                       = "website.actueel";
-    const WEBSITE_ARTIKEL                       = "website.artikel";
+    const WEBSITE_ARTICLE                       = "website.article";
 
     const LAB                                   = "lab";
     const LANDING                               = "landing";
