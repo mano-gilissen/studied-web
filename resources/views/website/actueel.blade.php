@@ -339,7 +339,7 @@
         </a>
     </div>
 </div>
-<div data-w-id="7f23121b-c69e-7631-6dac-58912d995d4b" class="subpage-header white mobile100vh">
+<div data-w-id="7f23121b-c69e-7631-6dac-58912d995d4b" class="subpage-header white mobile100vh" style="width:unset">
     <div class="scrolllottie-wrap">
         <div data-w-id="b0a07e11-b904-ce10-8718-8d942b054410" data-animation-type="lottie" data-src="documents/53892-scroll-down-mouse.json" data-loop="1" data-direction="1" data-autoplay="0" data-is-ix2-target="1" data-renderer="svg" data-default-duration="2.4638745562178235" data-duration="3.5"></div>
     </div>
