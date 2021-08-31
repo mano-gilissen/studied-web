@@ -398,8 +398,8 @@
                     <h5 class="article-bigname">{{ $articles[2]->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h5>
                 </div>
             </a>
-            <div class="article-100right">
-                <div class="art100-info big">
+            <div class="article-100right" style="padding:0">
+                <div class="art100-info big" style="padding:3em">
                     <div class="intro-textwrap">
                         <h6 class="article-heading big">{{ $articles[2]->{\App\Http\Support\Model::$ARTICLE_SUBTITLE} }}</h6>
                         <p class="art-intro">{{ $articles[2]->{\App\Http\Support\Model::$ARTICLE_INTRO} }}</p>
