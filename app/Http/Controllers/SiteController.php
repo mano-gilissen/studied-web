@@ -34,7 +34,7 @@ class SiteController extends Controller {
 
     public function article($id) {
 
-        return view(Views::WEBSITE_ARTICLE, ['article', Article::findOrFail($id)]);
+        return view(Views::WEBSITE_ARTICLE, [Model::$ARTICLE, Article::findOrFail($id)]);
 
     }
 
