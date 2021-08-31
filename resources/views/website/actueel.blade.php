@@ -348,7 +348,7 @@
     </div>
 </div>
 
-@php $articles = \App\Models\Article::orderBy(\App\Http\Support\Model::$BASE_CREATED_AT, 'DESC')->get(); dd($articles); @endphp
+@php $articles = \App\Models\Article::orderBy(\App\Http\Support\Model::$BASE_CREATED_AT, 'DESC')->get(); @endphp
 
 <div class="articles-section">
     <div class="articles-50-50">
