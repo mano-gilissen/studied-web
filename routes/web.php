@@ -162,7 +162,7 @@ Route::get('/template',                             'DebugController@template')-
 
 Route::get('/home',                                 'SiteController@home')->name('home');
 
-Route::get('/actueel',                              'SiteController@actueel')->name('actueel');
+Route::get('/actueel',                              'SiteController@actueel')->name('website.actueel');
 
 Route::get('/artikel',                              'SiteController@artikel')->name('artikel');
 

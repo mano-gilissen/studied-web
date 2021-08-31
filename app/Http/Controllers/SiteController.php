@@ -6,6 +6,11 @@ namespace App\Http\Controllers;
 
 
 
+use App\Http\Support\Key;
+use App\Http\Support\Model;
+use App\Http\Support\Views;
+use App\Http\Traits\PersonTrait;
+
 class SiteController extends Controller {
 
 
@@ -20,7 +25,7 @@ class SiteController extends Controller {
 
     public function actueel() {
 
-        return \File::get(public_path() . '/actueel.html');
+        return view(Views::WEBSITE_ACTUEEL);
 
     }
 

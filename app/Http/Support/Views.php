@@ -39,6 +39,8 @@ class Views {
     const LOAD_AGREEMENTS                       = "load.agreements";
     const LOAD_SUBJECTS                         = "load.subjects";
 
+    const WEBSITE_ACTUEEL                       = "website.actueel";
+
     const LAB                                   = "lab";
     const LANDING                               = "landing";
 
