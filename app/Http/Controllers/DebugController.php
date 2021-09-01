@@ -11,6 +11,7 @@ use App\Http\Support\Key;
 use App\Http\Support\Views;
 use App\Http\Support\Format;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Support\Model;
 use Auth;
 
