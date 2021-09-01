@@ -11,7 +11,7 @@
         /* -------------------------------------
             RESPONSIVE AND MOBILE FRIENDLY STYLES
         ------------------------------------- */
-        @media only screen and (max-width: 620px) {
+        @media only screen and (max-width: 700px) {
             table[class=body] h1 {
                 font-size: 14px !important;
                 margin-bottom: 20px !important;
