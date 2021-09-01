@@ -77,8 +77,6 @@ class DebugController extends Controller {
         $study                              = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
         $participant                        = $study->getParticipants_User[0];
 
-        dd($participant);
-
         $mail                               = new Study_Planned($study, $participant);
 
         Mail::to('b.jennissen@studied.nl'/*$participant->{Model::$USER_EMAIL}*/)->send($mail);
