@@ -18,7 +18,7 @@
 
         <div class="seperator-64"></div>
 
-        <a class="button" href="{{ route('study.view', [\App\Http\Support\Model::$BASE_KEY, $study->{\App\Http\Support\Model::$BASE_KEY}]) }}">Les bekijken</a>
+        <a class="button" href="{{ route('study.view', [$study->{\App\Http\Support\Model::$BASE_KEY}]) }}">Les bekijken</a>
 
     </div>
 
