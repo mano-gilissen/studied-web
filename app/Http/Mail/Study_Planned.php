@@ -22,7 +22,8 @@ class Study_Planned extends Mailable {
 
     public
         $study,
-        $participant;
+        $participant,
+        $subject;
 
 
 
@@ -30,13 +31,14 @@ class Study_Planned extends Mailable {
 
         $this->study                                = $study;
         $this->participant                          = $participant;
+        $this->subject                              = 'Les ingepland';
     }
 
 
 
     public function build() {
 
-        return $this->view('email.template');
+        return $this->view('email.template')->subject($this->subject);
 
     }
 
