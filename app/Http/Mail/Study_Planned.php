@@ -4,6 +4,7 @@
 
 namespace App\Http\Mail;
 
+use App\Http\Traits\PersonTrait;
 use App\Models\Study;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
@@ -31,7 +32,7 @@ class Study_Planned extends Mailable {
 
         $this->study                                = $study;
         $this->participant                          = $participant;
-        $this->subject                              = 'Les ingepland';
+        $this->subject                              = 'Er is een les voor jou ingepland door ' . PersonTrait::getFullName($study->getHost->getPerson);
     }
 
 
