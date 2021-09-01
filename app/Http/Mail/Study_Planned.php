@@ -36,7 +36,7 @@ class Study_Planned extends Mailable {
 
     public function build() {
 
-        return $this->view('email.study-planned');
+        return $this->view('email.template');
 
     }
 
