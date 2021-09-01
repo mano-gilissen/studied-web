@@ -158,6 +158,8 @@ Route::get('/encrypt/{value}',                      'LoginController@encrypt')->
 
 Route::get('/template',                             'DebugController@template')->name('template');
 
+Route::get('/mail_test/{slug}',                     'DebugController@mail_test')->name('mail_test');
+
 
 
 Route::get('/home',                                 'SiteController@home')->name('home');

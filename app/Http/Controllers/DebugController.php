@@ -4,6 +4,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Study_Planned;
 use App\Models\Subject;
 use App\Models\Person;
 use App\Http\Support\Key;
@@ -65,6 +66,16 @@ class DebugController extends Controller {
             Key::AUTOCOMPLETE_DATA.'field_autocomplete_reject'              => Format::ac(Subject::all()->pluck(Model::$SUBJECT_SHORT)->toArray()),
             Key::AUTOCOMPLETE_DATA.'field_autocomplete_reject_show_all'     => Format::ac(Subject::all()->pluck(Model::$SUBJECT_SHORT)->toArray())
         ]);
+    }
+
+
+
+    public function mail_test($slug) {
+
+        $person                             = Person::where(Model::$PERSON_SLUG, $slug)->firstOrFail();
+        $mail                               = new Study_Planned($person);
+
+        Mail::to($person->getUser->{Model::$USER_EMAIL})->send($mail);
     }
 
 
