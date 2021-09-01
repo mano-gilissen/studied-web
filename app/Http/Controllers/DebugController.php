@@ -75,7 +75,7 @@ class DebugController extends Controller {
     public function mail_test($key) {
 
         $study                              = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
-        $participant                        = $study->getParticipants_User()[0];
+        $participant                        = $study->getParticipants_User[0];
 
         dd($participant);
 
