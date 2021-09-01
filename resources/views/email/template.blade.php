@@ -94,9 +94,9 @@
         }
     </style>
 </head>
-<body class="" style="background-color: #E6E6E6; font-family: sans-serif; -webkit-font-smoothing: antialiased; font-size: 14px; line-height: 1.6; margin: 0; padding: 0; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
+<body class="" style="background-color: #F0F0F0; font-family: sans-serif; -webkit-font-smoothing: antialiased; font-size: 14px; line-height: 1.6; margin: 0; padding: 0; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;">
 <span class="preheader" style="color: transparent; display: none; height: 0; max-height: 0; max-width: 0; opacity: 0; overflow: hidden; mso-hide: all; visibility: hidden; width: 0;">This is preheader text. Some clients will show this text as a preview.</span>
-<table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background-color: #E6E6E6;">
+<table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background-color: #F0F0F0;">
     <tr>
         <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">&nbsp;</td>
         <td class="container" style="font-family: sans-serif; font-size: 14px; vertical-align: top; display: block; Margin: 0 auto; max-width: 580px; padding: 40px; width: 580px;">
@@ -112,7 +112,7 @@
                                 <tr>
                                     <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">
                                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 24px;">Beste {{ $participant->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME} }},</p>
-                                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">Er is een privéles voor jou ingepland door student-docent <span style="font-weight: bold">{{ $study->getHost->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME} }}</span> op {{ \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_EMAIL) }} vanaf {{ \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATABASE_TIME) }} tot {{ \App\Http\Support\Format::datetime($study->end, \App\Http\Support\Format::$DATABASE_TIME) }}. Bekijk alle details van deze les in het Studied webportaal:</p>
+                                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">Er is een privéles voor jou ingepland door student-docent <span style="font-weight: bold">{{ $study->getHost->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME} }}</span> op {{ \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_EMAIL) }} vanaf {{ \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$TIME_SINGLE) }} tot {{ \App\Http\Support\Format::datetime($study->end, \App\Http\Support\Format::$TIME_SINGLE) }}. Bekijk alle details van deze les in het Studied webportaal:</p>
                                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; box-sizing: border-box;">
                                             <tbody>
                                             <tr>
