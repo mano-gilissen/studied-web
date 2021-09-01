@@ -5,6 +5,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Mail\Study_Planned;
+use App\Models\Study;
 use App\Models\Subject;
 use App\Models\Person;
 use App\Http\Support\Key;
@@ -71,12 +72,16 @@ class DebugController extends Controller {
 
 
 
-    public function mail_test($slug) {
+    public function mail_test($key) {
 
-        $person                             = Person::where(Model::$PERSON_SLUG, $slug)->firstOrFail();
-        $mail                               = new Study_Planned($person);
+        $study                              = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
+        $participant                        = $study->getParticipants_User()[0];
 
-        Mail::to($person->getUser->{Model::$USER_EMAIL})->send($mail);
+        dd($participant);
+
+        $mail                               = new Study_Planned($study, $participant);
+
+        Mail::to($participant->{Model::$USER_EMAIL})->send($mail);
     }
 
 

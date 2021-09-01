@@ -4,7 +4,8 @@
 
 namespace App\Http\Mail;
 
-use App\Models\Person;
+use App\Models\Study;
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -19,14 +20,16 @@ class Study_Planned extends Mailable {
 
 
 
-    public $person;
+    public
+        $study,
+        $participant;
 
 
 
-    public function __construct(Person $person) {
+    public function __construct(Study $study, User $participant) {
 
-        $this->person = $person;
-
+        $this->study                                = $study;
+        $this->participant                          = $participant;
     }
 
 
