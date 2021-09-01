@@ -81,7 +81,7 @@ class DebugController extends Controller {
 
         $mail                               = new Study_Planned($study, $participant);
 
-        Mail::to($participant->{Model::$USER_EMAIL})->send($mail);
+        Mail::to('b.jennissen@studied.nl'/*$participant->{Model::$USER_EMAIL}*/)->send($mail);
     }
 
 
