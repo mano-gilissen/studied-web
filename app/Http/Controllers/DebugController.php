@@ -4,7 +4,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\Study_Planned;
+use App\Http\Mail\Study_Planned;
 use App\Models\Subject;
 use App\Models\Person;
 use App\Http\Support\Key;

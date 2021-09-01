@@ -2,7 +2,7 @@
 
 
 
-namespace App\Mail;
+namespace App\Http\Mail;
 
 use App\Models\Person;
 use Illuminate\Bus\Queueable;
