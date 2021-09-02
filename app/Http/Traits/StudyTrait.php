@@ -187,7 +187,7 @@ trait StudyTrait {
         $study->{Model::$STUDY_END}                             = $data['date'] . ' ' . $data[Model::$STUDY_END] . ':00';
 
         $study->{Model::$STUDY_REMARK}                          = $data[Model::$STUDY_REMARK];
-        $study->{Model::$STUDY_STATUS}                          = $data[Model::$STUDY_STATUS];
+        // $study->{Model::$STUDY_STATUS}                          = $data[Model::$STUDY_STATUS];
 
 
 
