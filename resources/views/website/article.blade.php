@@ -348,7 +348,11 @@ display: block;
           <p class="ct">&quot;
           </p>
         </div>
-        <p class="bk citation">{!! $article->{\App\Http\Support\Model::$ARTICLE_QUOTE}  !!}</p>
+          @if(strlen($article->{\App\Http\Support\Model::$ARTICLE_QUOTE}) > 0)
+
+                <p class="bk citation">{!! $article->{\App\Http\Support\Model::$ARTICLE_QUOTE}  !!}</p>
+
+          @endif
       </div>
 
       <p class="article-paragraph">{!! $article->{\App\Http\Support\Model::$ARTICLE_PARAGRAPH_1} !!}</p>
