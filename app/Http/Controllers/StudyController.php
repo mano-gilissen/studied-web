@@ -206,12 +206,18 @@ class StudyController extends Controller {
 
 
 
-        /** ADD CURRENT LOCATION TO STUDY.EDIT **/
+        /** SET CURRENT LOCATION **/
 
         if ($study && strlen($study->{Model::$STUDY_LOCATION_TEXT}) > 0) {
 
-            $ac_data[Key::CURRENT]                                          = $study->{Model::$STUDY_LOCATION_TEXT};
+            foreach ($ac_data as $key => $value) {
 
+                if ($study->{Model::$STUDY_LOCATION_TEXT} == $value) {
+
+                    $data[Key::CURRENT . '_' . Model::$LOCATION]            = $key;
+
+                }
+            }
         }
 
 
