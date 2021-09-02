@@ -18,6 +18,7 @@ class Key {
 
     const COMMENT                               = "comment";
     const SINGLE                                = "single";
+    const CURRENT                               = "current";
 
     const AUTOCOMPLETE_DATA                     = "ac_data_";
     const AUTOCOMPLETE_ADDITIONAL               = "ac_additional_";

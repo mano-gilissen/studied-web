@@ -210,7 +210,7 @@ class StudyController extends Controller {
 
         if ($study && strlen($study->{Model::$STUDY_LOCATION_TEXT}) > 0) {
 
-            $ac_data[-1]                                                    = $study->{Model::$STUDY_LOCATION_TEXT};
+            $ac_data[Key::CURRENT]                                                    = $study->{Model::$STUDY_LOCATION_TEXT};
 
         }
 
