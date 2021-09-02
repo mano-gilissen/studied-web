@@ -290,10 +290,10 @@ display: block;
       <div class="menu-content">
         <div class="menu-innerwrap">
           <a data-w-id="76d3e6d0-431d-bfa2-64fb-a13cdaf5dda3" href="/actueel" class="menu-linkblock pageleave">Actueel</a>
-          <a data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc8109" href="begeleiding.html" class="menu-linkblock pageleave">Begeleiding</a>
-          <a data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc810b" href="werkwijze.html" class="menu-linkblock pageleave">Werkwijze</a>
-          <a data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc810f" href="werk.html" class="menu-linkblock pageleave">Werk</a>
-          <a data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc8111" href="zakelijk.html" class="menu-linkblock pageleave">Zakelijk</a>
+          <a data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc8109" href="{{ route('begeleiding') }}" class="menu-linkblock pageleave">Begeleiding</a>
+          <a data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc810b" href="{{ route('werkwijze') }}" class="menu-linkblock pageleave">Werkwijze</a>
+          <a data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc810f" href="{{ route('werk') }}" class="menu-linkblock pageleave">Werk</a>
+          <a data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc8111" href="{{ route('zakelijk') }}" class="menu-linkblock pageleave">Zakelijk</a>
           <div class="contact-info">
             <p class="contact-info__tag">Vragen? Bel of mail ons!</p>
             <div class="menu-contact-info__info">
