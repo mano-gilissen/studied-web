@@ -317,7 +317,7 @@
             <div class="menu-extras">
                 <div class="login-container">
                     <p class="login-caption" style="margin:0 1em 0 0">Naar het portaal</p>
-                    <a href="/inloggen" class="main-btn menu-btn pageleave">Inloggen</a>
+                    <a href="/inloggen" disabled class="main-btn menu-btn pageleave">Inloggen</a>
                 </div>
             </div>
             <div class="site-name__wrap">
