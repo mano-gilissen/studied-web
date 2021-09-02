@@ -353,7 +353,7 @@
 <div class="articles-section">
     <div class="articles-50-50">
         <div class="article-container">
-            <a href="article.html" class="article-top pageleave w-inline-block"><img src="images/{{ $articles[0]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" sizes="(max-width: 991px) 100vw, 50vw" class="article-image">
+            <a href="{{ route('website.article', ['slug' => $articles[0]->{\App\Http\Support\Model::$ARTICLE_SLUG}]) }}" class="article-top pageleave w-inline-block"><img src="images/{{ $articles[0]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" sizes="(max-width: 991px) 100vw, 50vw" class="article-image">
                 <div class="image-overlay">
                     <h5 class="article-bigname">{{ $articles[0]->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h5>
                 </div>
@@ -372,7 +372,7 @@
             </div>
         </div>
         <div class="article-container">
-            <a href="#" class="article-top pageleave w-inline-block"><img src="images/{{ $articles[1]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" class="article-image">
+            <a href="{{ route('website.article', ['slug' => $articles[1]->{\App\Http\Support\Model::$ARTICLE_SLUG}]) }}" class="article-top pageleave w-inline-block"><img src="images/{{ $articles[1]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" class="article-image">
                 <div class="image-overlay">
                     <h5 class="article-bigname">{{ $articles[1]->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h5>
                 </div>
@@ -393,7 +393,7 @@
     </div>
     <div class="article-100">
         <div class="article-container art100">
-            <a data-w-id="7955b2f5-642d-e0b5-3a8a-a44a0bf3064b" href="#" class="article-100left pageleave w-inline-block"><img src="images/{{ $articles[2]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" sizes="(max-width: 991px) 100vw, 50vw" class="article-image">
+            <a data-w-id="7955b2f5-642d-e0b5-3a8a-a44a0bf3064b" href="{{ route('website.article', ['slug' => $articles[2]->{\App\Http\Support\Model::$ARTICLE_SLUG}]) }}" class="article-100left pageleave w-inline-block"><img src="images/{{ $articles[2]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" sizes="(max-width: 991px) 100vw, 50vw" class="article-image">
                 <div class="image-overlay">
                     <h5 class="article-bigname">{{ $articles[2]->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h5>
                 </div>
@@ -415,7 +415,7 @@
     </div>
     <div class="articles-25-25-50">
         <div class="article-container small">
-            <a href="#" class="article-top pageleave w-inline-block"><img src="images/{{ $articles[3]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" sizes="(max-width: 991px) 100vw, 25vw" class="article-image">
+            <a href="{{ route('website.article', ['slug' => $articles[3]->{\App\Http\Support\Model::$ARTICLE_SLUG}]) }}" class="article-top pageleave w-inline-block"><img src="images/{{ $articles[3]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" sizes="(max-width: 991px) 100vw, 25vw" class="article-image">
                 <div class="image-overlay">
                     <h5 class="article-bigname small">{{ $articles[3]->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h5>
                 </div>
@@ -434,7 +434,7 @@
             </div>
         </div>
         <div class="article-container small">
-            <a href="#" class="article-top pageleave w-inline-block"><img src="images/{{ $articles[4]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" class="article-image">
+            <a href="{{ route('website.article', ['slug' => $articles[4]->{\App\Http\Support\Model::$ARTICLE_SLUG}]) }}" class="article-top pageleave w-inline-block"><img src="images/{{ $articles[4]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" class="article-image">
                 <div class="image-overlay">
                     <h5 class="article-bigname small">{{ $articles[4]->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h5>
                 </div>
@@ -453,7 +453,7 @@
             </div>
         </div>
         <div class="article-container">
-            <a href="#" class="article-top pageleave w-inline-block"><img src="images/{{ $articles[5]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" sizes="(max-width: 991px) 100vw, 50vw" class="article-image">
+            <a href="{{ route('website.article', ['slug' => $articles[5]->{\App\Http\Support\Model::$ARTICLE_SLUG}]) }}" class="article-top pageleave w-inline-block"><img src="images/{{ $articles[5]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" sizes="(max-width: 991px) 100vw, 50vw" class="article-image">
                 <div class="image-overlay">
                     <h5 class="article-bigname">{{ $articles[5]->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h5>
                 </div>
@@ -474,7 +474,7 @@
     </div>
     <div class="articles-50-50">
         <div class="article-container">
-            <a href="#" class="article-top pageleave w-inline-block"><img src="images/{{ $articles[6]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" class="article-image">
+            <a href="{{ route('website.article', ['slug' => $articles[6]->{\App\Http\Support\Model::$ARTICLE_SLUG}]) }}" class="article-top pageleave w-inline-block"><img src="images/{{ $articles[6]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" class="article-image">
                 <div class="image-overlay">
                     <h5 class="article-bigname">{{ $articles[6]->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h5>
                 </div>
@@ -491,7 +491,7 @@
             </div>
         </div>
         <div class="article-container">
-            <a href="#" class="article-top pageleave w-inline-block"><img src="images/{{ $articles[7]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" class="article-image">
+            <a href="{{ route('website.article', ['slug' => $articles[7]->{\App\Http\Support\Model::$ARTICLE_SLUG}]) }}" class="article-top pageleave w-inline-block"><img src="images/{{ $articles[7]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" class="article-image">
                 <div class="image-overlay">
                     <h5 class="article-bigname">{{ $articles[7]->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h5>
                 </div>
