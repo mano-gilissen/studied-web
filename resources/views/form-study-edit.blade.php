@@ -5,6 +5,8 @@
 @section('fields')
 
 
+    @php dd($ac_data_location); @endphp
+
 
     <div class="title">{{ __('Tijd en locatie') }}</div>
 

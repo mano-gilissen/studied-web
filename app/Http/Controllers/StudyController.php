@@ -144,7 +144,7 @@ class StudyController extends Controller {
         $data                                                               = [];
 
         $data[Key::PAGE_TITLE]                                              = 'Les bewerken';
-        $data[Key::SUBMIT_ACTION]                                           = 'Bewerken';
+        $data[Key::SUBMIT_ACTION]                                           = 'Opslaan';
         $data[Key::SUBMIT_ROUTE]                                            = 'study.edit_submit';
 
 
