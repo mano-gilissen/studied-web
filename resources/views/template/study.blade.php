@@ -48,7 +48,7 @@
 
                             <div class="button icon grey">
 
-                                <img class="icon" src="/images_app/edit.svg">
+                                <img class="icon" src="/images_app/edit.svg" onclick="window.location.href='{{ route('study.edit', [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}'">
 
                                 <div class="text">Bewerken</div>
 
@@ -124,7 +124,7 @@
 
                         @if(\App\Http\Traits\StudyTrait::canEdit($study))
 
-                            <div class="button icon">
+                            <div class="button icon" onclick="window.location.href='{{ route('study.edit', [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}'">
 
                                 <img class="icon" src="/images_app/edit.svg">
 

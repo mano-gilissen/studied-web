@@ -154,7 +154,7 @@ class StudyController extends Controller {
 
 
 
-        self::form_set_ac_data_location($data);
+        self::form_set_ac_data_location($data, $study);
 
 
 
@@ -172,7 +172,7 @@ class StudyController extends Controller {
 
         //self::plan_validate($data);
 
-        //StudyTrait::update($data, $study);
+        //StudyTrait::update($data, $study); // TODO: -1 location
 
         return redirect()->route('study.view', $study->{Model::$BASE_KEY});
     }
@@ -181,9 +181,11 @@ class StudyController extends Controller {
 
 
 
-    public function form_set_ac_data_location(&$data) {
+    public function form_set_ac_data_location(&$data, $study = null) {
 
-        // TODO: FINISH / CHANGE VIEW (+ INCLUDE LINK) / TEST
+
+
+        /** OPTIONS BASED ON HOST **/
 
         $ac_data                                                            = Location::with('getAddress')->get()->pluck(Model::$LOCATION_NAME, 'getAddress.' . Model::$BASE_ID)->toArray();
 
@@ -201,6 +203,18 @@ class StudyController extends Controller {
 
             }
         }
+
+
+
+        /** ADD CURRENT LOCATION TO STUDY.EDIT **/
+
+        if ($study && strlen($study->{Model::$STUDY_LOCATION_TEXT}) > 0) {
+
+            $ac_data[-1]                                                    = $study->{Model::$STUDY_LOCATION_TEXT};
+
+        }
+
+
 
         $data[Key::AUTOCOMPLETE_DATA . Model::$LOCATION]                    = Format::encode($ac_data);
     }
