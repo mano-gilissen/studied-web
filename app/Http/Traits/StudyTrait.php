@@ -244,7 +244,7 @@ trait StudyTrait {
 
             :
 
-            $study->{Model::$STUDY_END};
+            $study->{Model::$REPORT_START};
     }
 
 
