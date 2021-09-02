@@ -22,6 +22,7 @@ class Format {
             $DATETIME_ARTICLE                   = "%e %B %Y",
             $DATETIME_PROFILE                   = "%e %B %Y",
             $DATETIME_SINGLE                    = "%A %e %B",
+            $DATETIME_FORM                      = "%Y-%m-%d",
 
             $DATE_SINGLE                        = "dmy",
             $TIME_SINGLE                        = "%H:%M";

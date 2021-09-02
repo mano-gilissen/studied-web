@@ -4,12 +4,11 @@
 
 @section('fields')
 
-    @php dd(\App\Http\Support\Format::datetime($study->{\App\Http\Support\Model::$STUDY_START}, \App\Http\Support\Format::$DATABASE_DATE)); @endphp
 
 
     <div class="title">{{ __('Tijd en locatie') }}</div>
 
-    @include('form.field-input', ['id' => 'date', 'type' => 'date', 'tag' => 'Datum', 'placeholder' => 'Kies een datum', 'required' => true, 'value' => \App\Http\Support\Format::datetime($study->{\App\Http\Support\Model::$STUDY_START}, \App\Http\Support\Format::$DATABASE_DATE)])
+    @include('form.field-input', ['id' => 'date', 'type' => 'date', 'tag' => 'Datum', 'placeholder' => 'Kies een datum', 'required' => true, 'value' => \App\Http\Support\Format::datetime($study->{\App\Http\Support\Model::$STUDY_START}, \App\Http\Support\Format::$DATETIME_FORM)])
 
     @include('form.field-select-time', ['set_study' => $study, 'edit' => true])
 
