@@ -113,6 +113,8 @@ const LOAD_CUSTOMER_FILTER                      = 'load.customer.filter';
 
 const STUDY_PLAN_SUBMIT                         = 'study.plan_submit';
 
+const STUDY_EDIT_SUBMIT                         = 'study.edit_submit';
+
 const STUDY_REPORT_SUBMIT                       = 'study.report_submit';
 
 const STUDENT_CREATE_SUBMIT                     = 'student.create_submit';
@@ -189,6 +191,7 @@ const ALL_EMPLOYEE                              = [
     self::LOAD_STUDENT_COUNTERS,
     self::LOAD_STUDENT_FILTER,
     self::STUDY_PLAN_SUBMIT,
+    self::STUDY_EDIT_SUBMIT,
     self::STUDY_REPORT_SUBMIT
 ];
 
