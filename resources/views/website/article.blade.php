@@ -343,7 +343,8 @@ display: block;
     <div class="article-bodycontainer">
       <h3 class="bk article-title">{!! $article->{\App\Http\Support\Model::$ARTICLE_SUBTITLE} !!}</h3>
         <p class="bk intro">{!! $article->{\App\Http\Support\Model::$ARTICLE_INTRO} !!}</p>
-          @if(strlen($article->{\App\Http\Support\Model::$ARTICLE_QUOTE}) > 0)
+        <!-- Quotes removed -->
+          @if(false && strlen($article->{\App\Http\Support\Model::$ARTICLE_QUOTE}) > 0)
             <div class="citation-wrap">
                 <div class="citation-icon">
                     <p class="ct">&quot;
