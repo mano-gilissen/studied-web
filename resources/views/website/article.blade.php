@@ -343,17 +343,15 @@ display: block;
     <div class="article-bodycontainer">
       <h3 class="bk article-title">{!! $article->{\App\Http\Support\Model::$ARTICLE_SUBTITLE} !!}</h3>
         <p class="bk intro">{!! $article->{\App\Http\Support\Model::$ARTICLE_INTRO} !!}</p>
-      <div class="citation-wrap">
-        <div class="citation-icon">
-          <p class="ct">&quot;
-          </p>
-        </div>
           @if(strlen($article->{\App\Http\Support\Model::$ARTICLE_QUOTE}) > 0)
-
+            <div class="citation-wrap">
+                <div class="citation-icon">
+                    <p class="ct">&quot;
+                    </p>
+                </div>
                 <p class="bk citation">{!! $article->{\App\Http\Support\Model::$ARTICLE_QUOTE}  !!}</p>
-
+            </div>
           @endif
-      </div>
 
       <p class="article-paragraph">{!! $article->{\App\Http\Support\Model::$ARTICLE_PARAGRAPH_1} !!}</p>
 
