@@ -368,7 +368,7 @@ display: block;
       <div class="writer"><img src="{{ asset("storage/avatar/" . $person->avatar) }}" loading="lazy" class="writer-image">
         <div class="writer-info">
           <p style="margin-top: 0" class="bk">{{ \App\Http\Traits\PersonTrait::getFullName($person) }}</p>
-          <p style="margin-top: 0" class="bk">13 september 2021</p>
+          <p style="margin-top: 0" class="bk">{{ \App\Http\Support\Format::datetime($article->{\App\Http\Support\Model::$BASE_CREATED_AT}, \App\Http\Support\Format::$DATETIME_ARTICLE) }}</p>
         </div>
       </div>
       <a href="/actueel" class="back-container pageleave phone w-inline-block">
