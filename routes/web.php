@@ -178,6 +178,6 @@ Route::get('/zakelijk',                             'SiteController@zakelijk')->
 
 Route::get('/', function () {
 
-    return Auth::check() ? redirect('/home') : redirect('/lessen');
+    return Auth::check() ? redirect('/lessen') : redirect('/home');
 
 });
