@@ -90,11 +90,19 @@
 
                     @endphp
 
-                    <option value="{{ $hours }}:{{ $minutes }}">{{ $hours }}:{{ $minutes }}</option>
+                    <option
+
+                        value = "{{ $hours }}:{{ $minutes }}"
+
+                        @if(($set_study ?? false) && $is_selected) selected @endif>
+
+                        {{ $hours }}:{{ $minutes }}
+
+                    </option>
 
                 @endfor
 
-                @if(($set_study ?? false) && $is_selected)
+                @if(($set_study ?? false) && !($edit ?? false) && $is_selected)
 
                     <option value="00:00" style="display:none" selected>--:--</option>
 
