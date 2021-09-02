@@ -138,6 +138,8 @@ Route::post('/load/customer/filter',                'CustomerController@list_fil
 
 Route::post('/submit/study/plan',                   'StudyController@plan_submit')->name('study.plan_submit')->middleware('auth', 'authorize');
 
+Route::post('/submit/study/edit',                   'StudyController@edit_submit')->name('study.edit_submit')->middleware('auth', 'authorize');
+
 Route::post('/submit/study/report',                 'StudyController@report_submit')->name('study.report_submit')->middleware('auth', 'authorize');
 
 Route::post('/submit/student/create',               'StudentController@create_submit')->name('student.create_submit')->middleware('auth', 'authorize');
