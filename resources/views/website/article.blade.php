@@ -331,7 +331,7 @@ display: block;
   </div>
   <div class="article-head"><img src="/images/{{ $article->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" sizes="100vw" class="article-head__image">
     <div class="article-head__overlay">
-      <h3 class="article-head__title">{{ $article->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h3>
+      <h3 class="article-head__title">{!! $article->{\App\Http\Support\Model::$ARTICLE_TITLE}  !!}</h3>
     </div>
   </div>
   <div class="article-body">
@@ -341,20 +341,23 @@ display: block;
       </a>
     </div>
     <div class="article-bodycontainer">
-      <h3 class="bk article-title">{{ $article->{\App\Http\Support\Model::$ARTICLE_SUBTITLE} }}</h3>
-        <p class="bk intro">{{ $article->{\App\Http\Support\Model::$ARTICLE_INTRO} }}</p>
+      <h3 class="bk article-title">{!! $article->{\App\Http\Support\Model::$ARTICLE_SUBTITLE} !!}</h3>
+        <p class="bk intro">{!! $article->{\App\Http\Support\Model::$ARTICLE_INTRO} !!}</p>
       <div class="citation-wrap">
         <div class="citation-icon">
           <p class="ct">&quot;
           </p>
         </div>
-        <p class="bk citation">{{ $article->{\App\Http\Support\Model::$ARTICLE_QUOTE} }}</p>
+        <p class="bk citation">{!! $article->{\App\Http\Support\Model::$ARTICLE_QUOTE}  !!}</p>
       </div>
-      <p class="article-paragraph">{{ $article->{\App\Http\Support\Model::$ARTICLE_PARAGRAPH_1} }}</p>
+
+      <p class="article-paragraph">{!! $article->{\App\Http\Support\Model::$ARTICLE_PARAGRAPH_1} !!}</p>
 
      {!! $article->{\App\Http\Support\Model::$ARTICLE_BODY} !!}
 
       </div>
+
+
     <div class="sidebars">
 
         @php $person = $article->getPerson @endphp
