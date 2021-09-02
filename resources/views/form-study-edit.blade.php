@@ -4,7 +4,7 @@
 
 @section('fields')
 
-    @php dd($study->{\App\Http\Support\Model::$STUDY_START}) @endphp
+    @php dd(\App\Http\Support\Format::datetime($study->{\App\Http\Support\Model::$STUDY_START}, \App\Http\Support\Format::$DATABASE_DATE)); @endphp
 
 
     <div class="title">{{ __('Tijd en locatie') }}</div>
