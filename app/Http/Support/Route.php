@@ -23,6 +23,8 @@ const STUDY_VIEW                                = 'study.view';
 
 const STUDY_REPORT                              = 'study.report';
 
+const STUDY_EDIT                                = 'study.edit';
+
 const STUDY_PLAN                                = 'study.plan';
 
 
@@ -178,6 +180,7 @@ const ALL_MANAGEMENT                            = [
 const ALL_EMPLOYEE                              = [
 
     self::STUDY_REPORT,
+    self::STUDY_EDIT,
     self::STUDY_PLAN,
     self::STUDENT_LIST,
     self::LOAD_STUDY_AGREEMENTS,

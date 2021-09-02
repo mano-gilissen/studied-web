@@ -24,6 +24,8 @@ Route::get('/lessen',                               'StudyController@list')->nam
 
 Route::get('/les/{key}',                            'StudyController@view')->name('study.view')->middleware('auth', 'authorize');
 
+Route::get('/les/{key}/bewerken',                   'StudyController@edit')->name('study.edit')->middleware('auth', 'authorize');
+
 Route::get('/les/{key}/rapporteren',                'StudyController@report')->name('study.report')->middleware('auth', 'authorize');
 
 Route::get('/plannen',                              'StudyController@plan')->name('study.plan')->middleware('auth', 'authorize');

@@ -139,13 +139,18 @@ class StudyController extends Controller {
 
 
 
-    public function edit() {
+    public function edit($key) {
 
         $data                                                               = [];
 
         $data[Key::PAGE_TITLE]                                              = 'Les bewerken';
         $data[Key::SUBMIT_ACTION]                                           = 'Bewerken';
         $data[Key::SUBMIT_ROUTE]                                            = 'study.edit_submit';
+
+
+
+        $study                                                              = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
+        $data[Model::$STUDY]                                                = $study;
 
 
 
