@@ -392,7 +392,7 @@
         </div>
     </div>
     <div class="article-100">
-        <div class="article-container art100">
+        <div class="article-container art100" style="border-width:0">
             <a data-w-id="7955b2f5-642d-e0b5-3a8a-a44a0bf3064b" href="{{ route('website.article', ['slug' => $articles[2]->{\App\Http\Support\Model::$ARTICLE_SLUG}]) }}" class="article-100left pageleave w-inline-block"><img src="images/{{ $articles[2]->{\App\Http\Support\Model::$ARTICLE_BACKGROUND} }}" loading="lazy" sizes="(max-width: 991px) 100vw, 50vw" class="article-image">
                 <div class="image-overlay">
                     <h5 class="article-bigname">{{ $articles[2]->{\App\Http\Support\Model::$ARTICLE_TITLE} }}</h5>
