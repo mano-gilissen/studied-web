@@ -113,7 +113,7 @@ class StudyController extends Controller {
         $study                                                              = null;
         $data                                                               = $request->all();
 
-        // self::plan_validate($data);
+        self::plan_validate($data);
 
         StudyTrait::create($data, $study);
 
@@ -124,13 +124,13 @@ class StudyController extends Controller {
 
     public function plan_validate(array $data) {
 
-        $messages = [
-            'subject.required'                                              => 'Vul een onderwerp in.',
-        ];
+        $rules = [];
 
-        $validator = Validator::make($data, [
-            'subject'                                                       => ['bail', 'required'],
-        ], $messages);
+        $rules['date']                                                      = ['required'];
+        $rules[Model::$STUDY_START]                                         = ['required'];
+        $rules[Model::$STUDY_END]                                           = ['required'];
+
+        $validator = Validator::make($data, $rules, self::getValidationMessages());
 
         $validator->validate();
     }
@@ -168,77 +168,26 @@ class StudyController extends Controller {
         $study                                                              = null;
         $data                                                               = $request->all();
 
-        dd($data);
+        self::edit_validate($data);
 
-        //self::plan_validate($data);
-
-        //StudyTrait::update($data, $study); // TODO: -1 location
+        StudyTrait::update($data, $study);
 
         return redirect()->route('study.view', $study->{Model::$BASE_KEY});
     }
 
 
 
+    public function edit_validate(array $data) {
 
+        $rules = [];
 
-    public function form_set_ac_data_location(&$data, $study = null) {
+        $rules['date']                                                      = ['required'];
+        $rules[Model::$STUDY_START]                                         = ['required'];
+        $rules[Model::$STUDY_END]                                           = ['required'];
 
+        $validator = Validator::make($data, $rules, self::getValidationMessages());
 
-
-        /** OPTIONS BASED ON HOST **/
-
-        $ac_data                                                            = Location::with('getAddress')->get()->pluck(Model::$LOCATION_NAME, 'getAddress.' . Model::$BASE_ID)->toArray();
-
-        $ac_data[self::$STUDY_PLAN_LOCATION_HOST]                           = self::hasManagementRights() ? 'Thuis bij de Student-docent' : 'Thuis bij jou (' . Auth::user()->getPerson->{Model::$PERSON_FIRST_NAME} . ')';
-
-        $students                                                           = self::hasManagementRights() ? User::where(Model::$ROLE, RoleTrait::$ID_STUDENT)->get() : Auth::user()->getStudents;
-
-        foreach ($students as $student) {
-
-            $address                                                        = $student->getPerson->getAddress;
-
-            if ($address) {
-
-                $ac_data[$address->{Model::$BASE_ID}]                       = 'Thuis bij ' . PersonTrait::getFullName($student->getPerson);
-
-            }
-        }
-
-
-
-        /** SET CURRENT LOCATION **/
-
-        if ($study && strlen($study->{Model::$STUDY_LOCATION_TEXT}) > 0) {
-
-            foreach ($ac_data as $key => $value) {
-
-                if ($study->{Model::$STUDY_LOCATION_TEXT} == $value) {
-
-                    $data[Key::CURRENT . '_' . Model::$LOCATION]            = $key;
-
-                }
-            }
-        }
-
-
-
-        $data[Key::AUTOCOMPLETE_DATA . Model::$LOCATION]                    = Format::encode($ac_data);
-    }
-
-
-
-    public function form_set_ac_data_host(&$data) {
-
-        if (self::hasManagementRights()) {
-
-            $objects_host                                                   = User::whereIn(Model::$ROLE, array(RoleTrait::$ID_EMPLOYEE, RoleTrait::$ID_MANAGEMENT, RoleTrait::$ID_BOARD))->with('getPerson')->get();
-
-            $ac_data_host                                                   = $objects_host->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
-            $ac_additional_host                                             = $objects_host->pluck(Model::$USER_EMAIL, Model::$BASE_ID)->toArray();
-
-            $data[Key::AUTOCOMPLETE_DATA . 'host']                          = Format::encode($ac_data_host);
-            $data[Key::AUTOCOMPLETE_ADDITIONAL . 'host']                    = Format::encode($ac_additional_host);
-        }
+        $validator->validate();
     }
 
 
@@ -314,6 +263,72 @@ class StudyController extends Controller {
 
         $validator->validate();
     }
+
+
+
+
+
+    public function form_set_ac_data_location(&$data, $study = null) {
+
+
+
+        /** OPTIONS BASED ON HOST **/
+
+        $ac_data                                                            = Location::with('getAddress')->get()->pluck(Model::$LOCATION_NAME, 'getAddress.' . Model::$BASE_ID)->toArray();
+
+        $ac_data[self::$STUDY_PLAN_LOCATION_HOST]                           = self::hasManagementRights() ? 'Thuis bij de Student-docent' : 'Thuis bij jou (' . Auth::user()->getPerson->{Model::$PERSON_FIRST_NAME} . ')';
+
+        $students                                                           = self::hasManagementRights() ? User::where(Model::$ROLE, RoleTrait::$ID_STUDENT)->get() : Auth::user()->getStudents;
+
+        foreach ($students as $student) {
+
+            $address                                                        = $student->getPerson->getAddress;
+
+            if ($address) {
+
+                $ac_data[$address->{Model::$BASE_ID}]                       = 'Thuis bij ' . PersonTrait::getFullName($student->getPerson);
+
+            }
+        }
+
+
+
+        /** SET CURRENT LOCATION **/
+
+        if ($study && strlen($study->{Model::$STUDY_LOCATION_TEXT}) > 0) {
+
+            foreach ($ac_data as $key => $value) {
+
+                if ($study->{Model::$STUDY_LOCATION_TEXT} == $value) {
+
+                    $data[Key::CURRENT . '_' . Model::$LOCATION]            = $key;
+
+                }
+            }
+        }
+
+
+
+        $data[Key::AUTOCOMPLETE_DATA . Model::$LOCATION]                    = Format::encode($ac_data);
+    }
+
+
+
+    public function form_set_ac_data_host(&$data) {
+
+        if (self::hasManagementRights()) {
+
+            $objects_host                                                   = User::whereIn(Model::$ROLE, array(RoleTrait::$ID_EMPLOYEE, RoleTrait::$ID_MANAGEMENT, RoleTrait::$ID_BOARD))->with('getPerson')->get();
+
+            $ac_data_host                                                   = $objects_host->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
+            $ac_additional_host                                             = $objects_host->pluck(Model::$USER_EMAIL, Model::$BASE_ID)->toArray();
+
+            $data[Key::AUTOCOMPLETE_DATA . 'host']                          = Format::encode($ac_data_host);
+            $data[Key::AUTOCOMPLETE_ADDITIONAL . 'host']                    = Format::encode($ac_additional_host);
+        }
+    }
+
+
 
 
 

@@ -40,15 +40,15 @@ trait StudyTrait {
 
     public static function create(array $data, &$study) {
 
-        $study                                                      = new Study;
+        $study                                                  = new Study;
 
-        $study->{Model::$BASE_KEY}                                  = Func::generate_key();
+        $study->{Model::$BASE_KEY}                              = Func::generate_key();
 
-        $study->{Model::$STUDY_START}                               = $data['date'] . ' ' . $data[Model::$STUDY_START] . ':00';
-        $study->{Model::$STUDY_END}                                 = $data['date'] . ' ' . $data[Model::$STUDY_END] . ':00';
+        $study->{Model::$STUDY_START}                           = $data['date'] . ' ' . $data[Model::$STUDY_START] . ':00';
+        $study->{Model::$STUDY_END}                             = $data['date'] . ' ' . $data[Model::$STUDY_END] . ':00';
 
-        $study->{Model::$STUDY_REMARK}                              = $data[Model::$STUDY_REMARK];
-        $study->{Model::$STUDY_STATUS}                              = self::$STATUS_PLANNED;
+        $study->{Model::$STUDY_REMARK}                          = $data[Model::$STUDY_REMARK];
+        $study->{Model::$STUDY_STATUS}                          = self::$STATUS_PLANNED;
 
 
 
@@ -56,9 +56,9 @@ trait StudyTrait {
 
 
 
-        self::create_set_agreements($study, $data);
-
         self::create_set_location($study, $data);
+
+        self::create_set_agreements($study, $data);
 
         self::create_set_service($study, $data);
 
@@ -175,6 +175,35 @@ trait StudyTrait {
                 $study->{Model::$SERVICE}                           = ServiceTrait::$ID_GROEPSLES;
                 break;
         }
+    }
+
+
+
+
+
+    public static function update(array $data, &$study) {
+
+        $study->{Model::$STUDY_START}                           = $data['date'] . ' ' . $data[Model::$STUDY_START] . ':00';
+        $study->{Model::$STUDY_END}                             = $data['date'] . ' ' . $data[Model::$STUDY_END] . ':00';
+
+        $study->{Model::$STUDY_REMARK}                          = $data[Model::$STUDY_REMARK];
+        $study->{Model::$STUDY_STATUS}                          = $data[Model::$STUDY_STATUS];
+
+
+
+        self::create_set_location($study, $data);
+
+
+
+        // TODO: PUBLIC SERVICES (COLLEGE/GROEPSLES)
+
+
+
+        $study->save();
+
+
+
+        return $study;
     }
 
 
