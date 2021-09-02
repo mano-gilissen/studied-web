@@ -4,6 +4,8 @@
 
 @section('fields')
 
+    @php echo($study->{\App\Http\Support\Model::$STUDY_START}) @endphp
+
 
     <div class="title">{{ __('Tijd en locatie') }}</div>
 
