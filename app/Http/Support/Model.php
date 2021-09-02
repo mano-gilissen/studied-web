@@ -77,6 +77,7 @@ class Model {
 
         $ARTICLE                                        = 'article',
 
+        $ARTICLE_SLUG                                   = 'slug',
         $ARTICLE_TITLE                                  = 'title',
         $ARTICLE_SUBTITLE                               = 'subtitle',
         $ARTICLE_INTRO                                  = 'intro',

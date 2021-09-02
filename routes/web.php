@@ -166,7 +166,7 @@ Route::get('/home',                                 'SiteController@home')->name
 
 Route::get('/actueel',                              'SiteController@actueel')->name('website.actueel');
 
-Route::get('/artikel/{id}',                         'SiteController@article')->name('website.article');
+Route::get('/artikel/{slug}',                       'SiteController@article')->name('website.article');
 
 Route::get('/begeleiding',                          'SiteController@begeleiding')->name('begeleiding');
 

@@ -32,9 +32,9 @@ class SiteController extends Controller {
 
 
 
-    public function article($id) {
+    public function article($slug) {
 
-        return view(Views::WEBSITE_ARTICLE, [Model::$ARTICLE => Article::findOrFail($id)]);
+        return view(Views::WEBSITE_ARTICLE, [Model::$ARTICLE => Article::where(Model::$ARTICLE_SLUG, $slug)->firstOrFail()]);
 
     }
 
