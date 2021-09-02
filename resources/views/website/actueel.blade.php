@@ -365,7 +365,7 @@
                         <p class="black-par">{{ $articles[0]->{\App\Http\Support\Model::$ARTICLE_INTRO} }}</p>
                     </div>
                     <div class="info-bottom">
-                        <a href="{{ route('website.article', ['id' => $articles[0]->{\App\Http\Support\Model::$BASE_ID}]) }}" class="main-btn pageleave w-button">Lees meer</a>
+                        <a href="{{ route('website.article', ['slug' => $articles[0]->{\App\Http\Support\Model::$ARTICLE_SLUG}]) }}" class="main-btn pageleave w-button">Lees meer</a>
                         <p class="article-date bk">{{ \App\Http\Support\Format::datetime($articles[0]->{\App\Http\Support\Model::$BASE_CREATED_AT}, \App\Http\Support\Format::$DATETIME_ARTICLE) }}</p>
                     </div>
                 </div>
@@ -384,7 +384,7 @@
                         <p class="black-par">{{ $articles[1]->{\App\Http\Support\Model::$ARTICLE_INTRO} }}</p>
                     </div>
                     <div class="info-bottom">
-                        <a href="{{ route('website.article', ['id' => $articles[1]->{\App\Http\Support\Model::$BASE_ID}]) }}" class="main-btn pageleave w-button">Lees meer</a>
+                        <a href="{{ route('website.article', ['slug' => $articles[1]->{\App\Http\Support\Model::$ARTICLE_SLUG}]) }}" class="main-btn pageleave w-button">Lees meer</a>
                         <p class="article-date bk">{{ \App\Http\Support\Format::datetime($articles[1]->{\App\Http\Support\Model::$BASE_CREATED_AT}, \App\Http\Support\Format::$DATETIME_ARTICLE) }}</p>
                     </div>
                 </div>
@@ -406,7 +406,7 @@
                         <p class="black-par">{{ $articles[2]->{\App\Http\Support\Model::$ARTICLE_PARAGRAPH_1} }}</p>
                     </div>
                     <div class="info-bottom">
-                        <a href="{{ route('website.article', ['id' => $articles[2]->{\App\Http\Support\Model::$BASE_ID}]) }}" class="main-btn pageleave w-button">Lees meer</a>
+                        <a href="{{ route('website.article', ['slug' => $articles[2]->{\App\Http\Support\Model::$ARTICLE_SLUG}]) }}" class="main-btn pageleave w-button">Lees meer</a>
                         <p class="article-date bk">{{ \App\Http\Support\Format::datetime($articles[2]->{\App\Http\Support\Model::$BASE_CREATED_AT}, \App\Http\Support\Format::$DATETIME_ARTICLE) }}</p>
                     </div>
                 </div>
@@ -427,7 +427,7 @@
                         <p class="black-par">{{ $articles[3]->{\App\Http\Support\Model::$ARTICLE_INTRO} }}</p>
                     </div>
                     <div class="info-bottom">
-                        <a href="{{ route('website.article', ['id' => $articles[3]->{\App\Http\Support\Model::$BASE_ID}]) }}" class="main-btn pageleave w-button">Lees meer</a>
+                        <a href="{{ route('website.article', ['slug' => $articles[3]->{\App\Http\Support\Model::$ARTICLE_SLUG}]) }}" class="main-btn pageleave w-button">Lees meer</a>
                         <p class="article-date bk">{{ \App\Http\Support\Format::datetime($articles[3]->{\App\Http\Support\Model::$BASE_CREATED_AT}, \App\Http\Support\Format::$DATETIME_ARTICLE) }}</p>
                     </div>
                 </div>
@@ -446,7 +446,7 @@
                         <p class="black-par">{{ $articles[4]->{\App\Http\Support\Model::$ARTICLE_INTRO} }}</p>
                     </div>
                     <div class="info-bottom">
-                        <a href="{{ route('website.article', ['id' => $articles[4]->{\App\Http\Support\Model::$BASE_ID}]) }}" class="main-btn pageleave w-button">Lees meer</a>
+                        <a href="{{ route('website.article', ['slug' => $articles[4]->{\App\Http\Support\Model::$ARTICLE_SLUG}]) }}" class="main-btn pageleave w-button">Lees meer</a>
                         <p class="article-date bk">{{ \App\Http\Support\Format::datetime($articles[4]->{\App\Http\Support\Model::$BASE_CREATED_AT}, \App\Http\Support\Format::$DATETIME_ARTICLE) }}</p>
                     </div>
                 </div>
@@ -465,7 +465,7 @@
                         <p class="black-par">{{ $articles[5]->{\App\Http\Support\Model::$ARTICLE_INTRO} }}</p>
                     </div>
                     <div class="info-bottom">
-                        <a href="{{ route('website.article', ['id' => $articles[5]->{\App\Http\Support\Model::$BASE_ID}]) }}"  class="main-btn pageleave w-button">Lees meer</a>
+                        <a href="{{ route('website.article', ['slug' => $articles[5]->{\App\Http\Support\Model::$ARTICLE_SLUG}]) }}"  class="main-btn pageleave w-button">Lees meer</a>
                         <p class="article-date bk">{{ \App\Http\Support\Format::datetime($articles[5]->{\App\Http\Support\Model::$BASE_CREATED_AT}, \App\Http\Support\Format::$DATETIME_ARTICLE) }}</p>
                     </div>
                 </div>
@@ -484,7 +484,7 @@
                     <h6 class="article-heading">{{ $articles[6]->{\App\Http\Support\Model::$ARTICLE_SUBTITLE} }}</h6>
                     <p class="black-par">{{ $articles[6]->{\App\Http\Support\Model::$ARTICLE_INTRO} }}</p>
                     <div class="info-bottom">
-                        <a href="{{ route('website.article', ['id' => $articles[6]->{\App\Http\Support\Model::$BASE_ID}]) }}" class="main-btn pageleave w-button">Lees meer</a>
+                        <a href="{{ route('website.article', ['slug' => $articles[6]->{\App\Http\Support\Model::$ARTICLE_SLUG}]) }}" class="main-btn pageleave w-button">Lees meer</a>
                         <p class="article-date bk">{{ \App\Http\Support\Format::datetime($articles[6]->{\App\Http\Support\Model::$BASE_CREATED_AT}, \App\Http\Support\Format::$DATETIME_ARTICLE) }}</p>
                     </div>
                 </div>
@@ -501,7 +501,7 @@
                     <h6 class="article-heading">{{ $articles[7]->{\App\Http\Support\Model::$ARTICLE_SUBTITLE} }}</h6>
                     <p class="black-par">{{ $articles[7]->{\App\Http\Support\Model::$ARTICLE_INTRO} }}</p>
                     <div class="info-bottom">
-                        <a href="{{ route('website.article', ['id' => $articles[7]->{\App\Http\Support\Model::$BASE_ID}]) }}" class="main-btn pageleave w-button">Lees meer</a>
+                        <a href="{{ route('website.article', ['slug' => $articles[7]->{\App\Http\Support\Model::$ARTICLE_SLUG}]) }}" class="main-btn pageleave w-button">Lees meer</a>
                         <p class="article-date bk">{{ \App\Http\Support\Format::datetime($articles[7]->{\App\Http\Support\Model::$BASE_CREATED_AT}, \App\Http\Support\Format::$DATETIME_ARTICLE) }}</p>
                     </div>
                 </div>
