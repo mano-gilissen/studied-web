@@ -226,7 +226,7 @@ class StudyController extends Controller {
             }
         }
 
-        dd('a');
+        dd($study);
 
 
         $data[Key::AUTOCOMPLETE_DATA . Model::$LOCATION]                    = Format::encode($ac_data);
