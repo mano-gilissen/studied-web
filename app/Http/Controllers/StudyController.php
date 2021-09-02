@@ -165,8 +165,9 @@ class StudyController extends Controller {
 
     public function edit_submit(Request $request) {
 
-        $study                                                              = null;
         $data                                                               = $request->all();
+
+        $study                                                              = Study::find($data['_' . Model::$STUDY]);
 
         self::edit_validate($data);
 

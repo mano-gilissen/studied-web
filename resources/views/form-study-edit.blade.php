@@ -32,4 +32,8 @@
 
 
 
+    @include('form.field-hidden', ['id' => '_study', 'value' => $study->id])
+
+
+
 @endsection
