@@ -95,56 +95,16 @@ class StudyController extends Controller {
 
 
 
-        self::plan_set_ac_data_location($data);
+        self::form_set_ac_data_location($data);
 
-        self::plan_set_ac_data_host($data);
+        self::form_set_ac_data_host($data);
 
 
 
-        return view(Views::FORM_STUDY, $data);
+        return view(Views::FORM_STUDY_PLAN, $data);
     }
 
 
-
-    public function plan_set_ac_data_location(&$data) {
-
-        // TODO: FINISH / CHANGE VIEW (+ INCLUDE LINK) / TEST
-
-        $ac_data                                                            = Location::with('getAddress')->get()->pluck(Model::$LOCATION_NAME, 'getAddress.' . Model::$BASE_ID)->toArray();
-
-        $ac_data[self::$STUDY_PLAN_LOCATION_HOST]                           = self::hasManagementRights() ? 'Thuis bij de Student-docent' : 'Thuis bij jou (' . Auth::user()->getPerson->{Model::$PERSON_FIRST_NAME} . ')';
-
-        $students                                                           = self::hasManagementRights() ? User::where(Model::$ROLE, RoleTrait::$ID_STUDENT)->get() : Auth::user()->getStudents;
-
-        foreach ($students as $student) {
-
-            $address                                                        = $student->getPerson->getAddress;
-
-            if ($address) {
-
-                $ac_data[$address->{Model::$BASE_ID}]                       = 'Thuis bij ' . PersonTrait::getFullName($student->getPerson);
-
-            }
-        }
-
-        $data[Key::AUTOCOMPLETE_DATA . Model::$LOCATION]                    = Format::encode($ac_data);
-    }
-
-
-
-    public function plan_set_ac_data_host(&$data) {
-
-        if (self::hasManagementRights()) {
-
-            $objects_host                                                   = User::whereIn(Model::$ROLE, array(RoleTrait::$ID_EMPLOYEE, RoleTrait::$ID_MANAGEMENT, RoleTrait::$ID_BOARD))->with('getPerson')->get();
-
-            $ac_data_host                                                   = $objects_host->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
-            $ac_additional_host                                             = $objects_host->pluck(Model::$USER_EMAIL, Model::$BASE_ID)->toArray();
-
-            $data[Key::AUTOCOMPLETE_DATA . 'host']                          = Format::encode($ac_data_host);
-            $data[Key::AUTOCOMPLETE_ADDITIONAL . 'host']                    = Format::encode($ac_additional_host);
-        }
-    }
 
 
 
@@ -173,6 +133,87 @@ class StudyController extends Controller {
         ], $messages);
 
         $validator->validate();
+    }
+
+
+
+
+
+    public function edit() {
+
+        $data                                                               = [];
+
+        $data[Key::PAGE_TITLE]                                              = 'Les bewerken';
+        $data[Key::SUBMIT_ACTION]                                           = 'Bewerken';
+        $data[Key::SUBMIT_ROUTE]                                            = 'study.edit_submit';
+
+
+
+        self::form_set_ac_data_location($data);
+
+
+
+        return view(Views::FORM_STUDY_EDIT, $data);
+    }
+
+
+
+    public function edit_submit(Request $request) {
+
+        $study                                                              = null;
+        $data                                                               = $request->all();
+
+        dd($data);
+
+        //self::plan_validate($data);
+
+        //StudyTrait::update($data, $study);
+
+        return redirect()->route('study.view', $study->{Model::$BASE_KEY});
+    }
+
+
+
+
+
+    public function form_set_ac_data_location(&$data) {
+
+        // TODO: FINISH / CHANGE VIEW (+ INCLUDE LINK) / TEST
+
+        $ac_data                                                            = Location::with('getAddress')->get()->pluck(Model::$LOCATION_NAME, 'getAddress.' . Model::$BASE_ID)->toArray();
+
+        $ac_data[self::$STUDY_PLAN_LOCATION_HOST]                           = self::hasManagementRights() ? 'Thuis bij de Student-docent' : 'Thuis bij jou (' . Auth::user()->getPerson->{Model::$PERSON_FIRST_NAME} . ')';
+
+        $students                                                           = self::hasManagementRights() ? User::where(Model::$ROLE, RoleTrait::$ID_STUDENT)->get() : Auth::user()->getStudents;
+
+        foreach ($students as $student) {
+
+            $address                                                        = $student->getPerson->getAddress;
+
+            if ($address) {
+
+                $ac_data[$address->{Model::$BASE_ID}]                       = 'Thuis bij ' . PersonTrait::getFullName($student->getPerson);
+
+            }
+        }
+
+        $data[Key::AUTOCOMPLETE_DATA . Model::$LOCATION]                    = Format::encode($ac_data);
+    }
+
+
+
+    public function form_set_ac_data_host(&$data) {
+
+        if (self::hasManagementRights()) {
+
+            $objects_host                                                   = User::whereIn(Model::$ROLE, array(RoleTrait::$ID_EMPLOYEE, RoleTrait::$ID_MANAGEMENT, RoleTrait::$ID_BOARD))->with('getPerson')->get();
+
+            $ac_data_host                                                   = $objects_host->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
+            $ac_additional_host                                             = $objects_host->pluck(Model::$USER_EMAIL, Model::$BASE_ID)->toArray();
+
+            $data[Key::AUTOCOMPLETE_DATA . 'host']                          = Format::encode($ac_data_host);
+            $data[Key::AUTOCOMPLETE_ADDITIONAL . 'host']                    = Format::encode($ac_additional_host);
+        }
     }
 
 

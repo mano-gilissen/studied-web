@@ -23,7 +23,8 @@ class Views {
     const LIST_CUSTOMER                         = "list.customer";
 
     const FORM_TEST                             = "form-test";
-    const FORM_STUDY                            = "form-study";
+    const FORM_STUDY_PLAN                       = "form-study-plan";
+    const FORM_STUDY_EDIT                       = "form-study-edit";
     const FORM_REPORT                           = "form-report";
     const FORM_STUDENT_CREATE                   = "form-student-create";
     const FORM_CUSTOMER_CREATE                  = "form-customer-create";

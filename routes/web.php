@@ -176,6 +176,8 @@ Route::get('/werkwijze',                            'SiteController@werkwijze')-
 
 Route::get('/zakelijk',                             'SiteController@zakelijk')->name('zakelijk');
 
+
+
 Route::get('/', function () {
 
     return Auth::check() ? redirect('/lessen') : redirect('/home');

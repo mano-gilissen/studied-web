@@ -76,7 +76,15 @@
 
                         if ($set_study ?? false) {
 
-                            $is_selected                    = "--:--";
+                            if ($edit ?? false) {
+
+                                $is_selected                = App\Http\Support\Format::datetime($study->end, App\Http\Support\Format::$TIME_SINGLE) == ($hours . ':' . $minutes);
+
+                            } else {
+
+                                $is_selected                = "--:--";
+
+                            }
 
                         }
 

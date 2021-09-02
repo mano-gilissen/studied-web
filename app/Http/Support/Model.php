@@ -320,7 +320,8 @@ class Model {
         $STUDY_LINK                                     = 'link',
         $STUDY_START                                    = 'start',
         $STUDY_END                                      = 'end',
-        $STUDY_TRIAL                                    = 'trial';
+        $STUDY_TRIAL                                    = 'trial',
+        $STUDY_REMARK                                   = 'remark';
 
 
 

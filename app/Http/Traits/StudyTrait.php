@@ -47,6 +47,7 @@ trait StudyTrait {
         $study->{Model::$STUDY_START}                               = $data['date'] . ' ' . $data[Model::$STUDY_START] . ':00';
         $study->{Model::$STUDY_END}                                 = $data['date'] . ' ' . $data[Model::$STUDY_END] . ':00';
 
+        $study->{Model::$STUDY_REMARK}                              = $data[Model::$STUDY_REMARK];
         $study->{Model::$STUDY_STATUS}                              = self::$STATUS_PLANNED;
 
 

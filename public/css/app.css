@@ -878,6 +878,7 @@ select::-ms-expand {
     align-items:                        center;
     height:                             64px;
     user-select:                        none;
+    cursor:                             pointer;
 }
 
 .content-fold .item img {
