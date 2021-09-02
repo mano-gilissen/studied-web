@@ -167,6 +167,8 @@ class StudyController extends Controller {
 
         $data                                                               = $request->all();
 
+        dd($data);
+
         $study                                                              = Study::find($data['_' . Model::$STUDY]);
 
         self::edit_validate($data);
