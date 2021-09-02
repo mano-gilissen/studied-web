@@ -210,15 +210,9 @@ class StudyController extends Controller {
 
         if ($study && strlen($study->{Model::$STUDY_LOCATION_TEXT}) > 0) {
 
-            echo(1);
-
             foreach ($ac_data as $key => $value) {
 
-                echo('2 ' . $key . ' ' . $value);
-
                 if ($study->{Model::$STUDY_LOCATION_TEXT} == $value) {
-
-                    echo('3 ' . $key . ' ' . $value . ' ' . Key::CURRENT . '_' . Model::$LOCATION);
 
                     $data[Key::CURRENT . '_' . Model::$LOCATION]            = $key;
 
@@ -226,7 +220,6 @@ class StudyController extends Controller {
             }
         }
 
-        dd($study);
 
 
         $data[Key::AUTOCOMPLETE_DATA . Model::$LOCATION]                    = Format::encode($ac_data);
