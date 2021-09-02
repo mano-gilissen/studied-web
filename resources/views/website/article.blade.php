@@ -289,7 +289,7 @@ display: block;
     <div class="menu">
       <div class="menu-content">
         <div class="menu-innerwrap">
-          <a data-w-id="76d3e6d0-431d-bfa2-64fb-a13cdaf5dda3" href="http://188.166.40.70/actueel" class="menu-linkblock pageleave">Actueel</a>
+          <a data-w-id="76d3e6d0-431d-bfa2-64fb-a13cdaf5dda3" href="/actueel" class="menu-linkblock pageleave">Actueel</a>
           <a data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc8109" href="begeleiding.html" class="menu-linkblock pageleave">Begeleiding</a>
           <a data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc810b" href="werkwijze.html" class="menu-linkblock pageleave">Werkwijze</a>
           <a data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc810f" href="werk.html" class="menu-linkblock pageleave">Werk</a>
@@ -336,7 +336,7 @@ display: block;
   </div>
   <div class="article-body">
     <div class="sidebars article-spacer">
-      <a href="http://188.166.40.70/actueel" class="back-container pageleave dekstop w-inline-block">
+      <a href="/actueel" class="back-container pageleave dekstop w-inline-block">
         <p class="black-par all-art">Alle artikels</p>
       </a>
     </div>
@@ -371,7 +371,7 @@ display: block;
           <p style="margin-top: 0" class="bk">13 september 2021</p>
         </div>
       </div>
-      <a href="http://188.166.40.70/actueel" class="back-container pageleave phone w-inline-block">
+      <a href="/actueel" class="back-container pageleave phone w-inline-block">
         <p class="black-par">Alle artikels</p>
       </a>
     </div>
