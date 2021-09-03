@@ -25,6 +25,8 @@ const STUDY_REPORT                              = 'study.report';
 
 const STUDY_EDIT                                = 'study.edit';
 
+const STUDY_DELETE                              = 'study.delete';
+
 const STUDY_PLAN                                = 'study.plan';
 
 
@@ -153,6 +155,7 @@ const ALL_BOARD                                 = [
 
 const ALL_MANAGEMENT                            = [
 
+    self::STUDY_DELETE,
     self::AGREEMENT_CREATE,
     self::STUDENT_CREATE,
     self::CUSTOMER_CREATE,

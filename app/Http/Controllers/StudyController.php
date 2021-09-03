@@ -197,6 +197,21 @@ class StudyController extends Controller {
 
 
 
+    public function delete($key) {
+
+        $study                                                              = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
+
+        $study->delete();
+
+
+
+        return view(Views::LIST_STUDY);
+    }
+
+
+
+
+
     public function report($key) {
 
         $study                                                              = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
@@ -358,8 +373,6 @@ class StudyController extends Controller {
             $data[Key::AUTOCOMPLETE_ADDITIONAL . 'host']                    = Format::encode($ac_additional_host);
         }
     }
-
-
 
 
 

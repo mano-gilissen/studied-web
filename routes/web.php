@@ -28,6 +28,8 @@ Route::get('/les/{key}/bewerken',                   'StudyController@edit')->nam
 
 Route::get('/les/{key}/rapporteren',                'StudyController@report')->name('study.report')->middleware('auth', 'authorize');
 
+Route::get('/les/{key}/verwijderen',                'StudyController@delete')->name('study.delete')->middleware('auth', 'authorize');
+
 Route::get('/plannen',                              'StudyController@plan')->name('study.plan')->middleware('auth', 'authorize');
 
 
