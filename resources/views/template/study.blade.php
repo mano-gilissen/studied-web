@@ -194,8 +194,6 @@
 
                                         @include('block.study-host-priveles')
 
-                                        @include('block.study-details')
-
                                     @break
 
                                     @case(\App\Http\Traits\ServiceTrait::$ID_GROEPSLES)
@@ -250,8 +248,6 @@
 
                                         @include('block.study-participants-priveles')
 
-                                        @include('block.study-location')
-
                                     @break
 
                                     @case(\App\Http\Traits\ServiceTrait::$ID_GROEPSLES)
@@ -269,6 +265,54 @@
                                         @include('block.study-participants-college')
 
                                 @endswitch
+
+                        @endswitch
+
+                    </div>
+
+                </div>
+
+                <div class="content-columns">
+
+                    <div class="column left">
+
+                        @switch($study->status)
+
+                            @case(\App\Http\Traits\StudyTrait::$STATUS_PLANNED)
+
+                            @switch($study->service)
+
+                                @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
+
+                                @include('block.study-details')
+
+                                @break
+
+                            @endswitch
+
+                            @break
+
+                        @endswitch
+
+                    </div>
+
+                    <div class="column right">
+
+                        @switch($study->status)
+
+                            @case(\App\Http\Traits\StudyTrait::$STATUS_PLANNED)
+
+                            @switch($study->service)
+
+                                @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
+
+                                @include('block.study-location')
+
+                                @break
+
+                            @endswitch
+
+                            @break
 
                         @endswitch
 
