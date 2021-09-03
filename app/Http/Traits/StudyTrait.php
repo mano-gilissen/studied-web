@@ -117,6 +117,12 @@ trait StudyTrait {
 
     public static function create_set_location(&$study, $data) {
 
+        if ($data[Key::AUTOCOMPLETE_ID . Model::$LOCATION] == Key::CURRENT_ID) {
+
+            return;
+
+        }
+
         if ($data[Key::AUTOCOMPLETE_ID . Model::$LOCATION] == StudyController::$STUDY_PLAN_LOCATION_HOST) {
 
             $employee                                               = User::find($study->{Model::$STUDY_HOST_USER});
@@ -187,7 +193,7 @@ trait StudyTrait {
         $study->{Model::$STUDY_END}                             = $data['date'] . ' ' . $data[Model::$STUDY_END] . ':00';
 
         $study->{Model::$STUDY_REMARK}                          = $data[Model::$STUDY_REMARK];
-        // $study->{Model::$STUDY_STATUS}                          = $data[Model::$STUDY_STATUS];
+        $study->{Model::$STUDY_STATUS}                          = $data[Key::AUTOCOMPLETE_DATA . Model::$STUDY_STATUS];
 
 
 

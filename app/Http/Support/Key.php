@@ -24,7 +24,7 @@ class Key {
     const AUTOCOMPLETE_ADDITIONAL               = "ac_additional_";
     const AUTOCOMPLETE_ID                       = "_";
 
-    const EXTRA_ID                              = 99999;
+    const CURRENT_ID                            = 99999;
 
     const FILTER_INPUT                          = "filter_input_";
 
