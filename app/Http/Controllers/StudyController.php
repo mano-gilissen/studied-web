@@ -154,6 +154,8 @@ class StudyController extends Controller {
 
 
 
+        self::form_set_ac_data_status($data, $study);
+
         self::form_set_ac_data_location($data, $study);
 
 
@@ -311,6 +313,26 @@ class StudyController extends Controller {
 
 
         $data[Key::AUTOCOMPLETE_DATA . Model::$LOCATION]                    = Format::encode($ac_data);
+    }
+
+
+
+    public function form_set_ac_data_status(&$data, $study) {
+
+        $ac_data                                                            = [];
+
+        if (StudyTrait::isReported($study)) {
+
+            $ac_data[StudyTrait::$STATUS_REPORTED]                          = StudyTrait::getStatusText(StudyTrait::$STATUS_REPORTED);
+
+        } else {
+
+            $ac_data[StudyTrait::$STATUS_PLANNED]                           = StudyTrait::getStatusText(StudyTrait::$STATUS_PLANNED);
+            $ac_data[StudyTrait::$STATUS_CANCELLED]                         = StudyTrait::getStatusText(StudyTrait::$STATUS_CANCELLED);
+            $ac_data[StudyTrait::$STATUS_ABSENT]                            = StudyTrait::getStatusText(StudyTrait::$STATUS_ABSENT);
+        }
+
+        $data[Key::AUTOCOMPLETE_DATA . Model::$STUDY_STATUS]                = Format::encode($ac_data);
     }
 
 
