@@ -64,6 +64,10 @@ Route::get('/profiel',                              'PersonController@self')->na
 
 Route::get('/profiel/{slug}',                       'PersonController@view')->name('person.view')->middleware('auth', 'authorize');
 
+Route::get('/profiel/{slug}/bewerken',              'PersonController@edit')->name('person.edit')->middleware('auth', 'authorize');
+
+Route::get('/profiel/{slug}/verwijderen',           'PersonController@delete')->name('person.delete')->middleware('auth', 'authorize');
+
 
 
 

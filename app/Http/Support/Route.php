@@ -55,6 +55,10 @@ const PERSON_SELF                               = 'person.self';
 
 const PERSON_VIEW                               = 'person.view';
 
+const PERSON_EDIT                               = 'person.edit';
+
+const PERSON_DELETE                             = 'person.delete';
+
 
 
 const EVALUATION_VIEW                           = 'evaluation.view';
@@ -155,6 +159,8 @@ const ALL_BOARD                                 = [
 
 const ALL_MANAGEMENT                            = [
 
+    self::PERSON_EDIT,
+    self::PERSON_DELETE,
     self::STUDY_DELETE,
     self::AGREEMENT_CREATE,
     self::STUDENT_CREATE,
