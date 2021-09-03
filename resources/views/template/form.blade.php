@@ -64,7 +64,7 @@
 
                     </button>
 
-                    <div class="button transparent">
+                    <div class="button transparent" onclick="window.history.back();">
 
                         {{ __('Annuleren') }}
 
