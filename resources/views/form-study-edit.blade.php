@@ -34,9 +34,15 @@
 
         <div class="title">{{ __('Acties') }}</div>
 
-        <div class="button red" style="margin-top: 32px;" onclick="window.location.href='{{ route('study.delete', [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}'">
+        <div class="field">
 
-            <div class="text">Les verwijderen</div>
+            <div class="name">Verwijderen</div>
+
+            <div class="button red" style="margin-top: 32px;" onclick="window.location.href='{{ route('study.delete', [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}'">
+
+                <div class="text">Les verwijderen</div>
+
+            </div>
 
         </div>
 
