@@ -205,7 +205,7 @@ class StudyController extends Controller {
 
 
 
-        return view(Views::LIST_STUDY);
+        return redirect()->route('study.list');
     }
 
 
