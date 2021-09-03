@@ -30,17 +30,19 @@
 
 
 
-    @if()
+    @if(\App\Http\Traits\BaseTrait::hasManagementRights())
 
-    <div class="title">{{ __('Acties') }}</div>
+        <div class="title">{{ __('Acties') }}</div>
 
-    <div class="button icon red" onclick="window.location.href='{{ route('study.delete', [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}'">
+        <div class="button icon red" onclick="window.location.href='{{ route('study.delete', [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}'">
 
-        <img class="icon" src="/images_app/trash-white.svg">
+            <img class="icon" src="/images_app/trash-white.svg">
 
-        <div class="text">Verwijderen</div>
+            <div class="text">Verwijderen</div>
 
-    </div>
+        </div>
+
+    @endif
 
 
 
