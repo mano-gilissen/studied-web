@@ -300,13 +300,21 @@ class StudyController extends Controller {
 
         if ($study && strlen($study->{Model::$STUDY_LOCATION_TEXT}) > 0) {
 
+            $current_found                                                  = false;
+
             foreach ($ac_data as $key => $value) {
 
                 if ($study->{Model::$STUDY_LOCATION_TEXT} == $value) {
 
                     $data[Key::CURRENT . '_' . Model::$LOCATION]            = $key;
-
+                    $current_found                                          = true;
                 }
+            }
+
+            if (!$current_found) {
+
+                $ac_data[Key::EXTRA_ID]                                     = $study->{Model::$STUDY_LOCATION_TEXT};
+
             }
         }
 
