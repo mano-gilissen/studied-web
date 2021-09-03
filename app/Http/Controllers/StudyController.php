@@ -313,9 +313,8 @@ class StudyController extends Controller {
 
             if (!$current_found) {
 
-                $ac_data[Key::EXTRA_ID]                                     = $study->{Model::$STUDY_LOCATION_TEXT};
+                $ac_data[Key::EXTRA_ID]                                     = 'Ongewijzigd - ' . $study->{Model::$STUDY_LOCATION_TEXT};
                 $data[Key::CURRENT . '_' . Model::$LOCATION]                = Key::EXTRA_ID;
-
             }
         }
 
