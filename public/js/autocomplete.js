@@ -156,7 +156,7 @@ function autocomplete(input, data, additional, reject_other, show_all, show_alwa
             value_data                          = data[key];
             value_additional                    = has_additional() ? "&nbsp;&nbsp;<span style='color:#CCCCCC'>" + additional[key] + "</span>" : "";
 
-            item.innerHTML                      = current_value ? "<span style='color:black;font-weight:400'>" + value_data.substr(0, current_value.length) + "</span>" + value_data.substr(current_value.length) + value_additional : value_data + value_additional;
+            item.innerHTML                      = (current_value && !show_always) ? "<span style='color:black;font-weight:400'>" + value_data.substr(0, current_value.length) + "</span>" + value_data.substr(current_value.length) + value_additional : value_data + value_additional;
             item.innerHTML                      += "<input type='hidden' value='" + key + "'>";
 
             item.addEventListener("click", function(e) {
