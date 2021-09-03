@@ -5,7 +5,7 @@ const TRIGGER_AGREEMENTS                            = "agreements";
 const TRIGGER_FILTER                                = "filter";
 
 
-function autocomplete(input, data, additional, reject_other, show_all, uses_id, set_id, locked, trigger, form) {
+function autocomplete(input, data, additional, reject_other, show_all, show_always, uses_id, set_id, locked, trigger, form) {
 
 
 
@@ -148,7 +148,7 @@ function autocomplete(input, data, additional, reject_other, show_all, uses_id, 
             value_data,
             value_additional;
 
-        if ((show_all && !current_value) || data[key].substr(0, current_value.length).toUpperCase() == current_value.toUpperCase()) {
+        if ((show_all && (show_always || !current_value)) || data[key].substr(0, current_value.length).toUpperCase() == current_value.toUpperCase()) {
 
             item                                = document.createElement("DIV");
             item                                .setAttribute("class", "autocomplete-item");

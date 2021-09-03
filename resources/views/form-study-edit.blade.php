@@ -22,7 +22,7 @@
 
     <div class="title">{{ __('Gegevens') }}</div>
 
-    @include('form.field-input', ['id' => 'status', 'tag' => 'Status', 'icon' => 'edit.svg', 'placeholder' => 'Kies een status', 'required' => true, 'data' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true, 'locked' => \App\Http\Traits\StudyTrait::isReported($study), 'set_id' => $study->{\App\Http\Support\Model::$STUDY_STATUS}])
+    @include('form.field-input', ['id' => 'status', 'tag' => 'Status', 'icon' => 'edit.svg', 'placeholder' => 'Kies een status', 'required' => true, 'data' => true, 'show_all' => true, 'show_always' => true, 'reject_other' => true, 'uses_id' => true, 'locked' => \App\Http\Traits\StudyTrait::isReported($study), 'set_id' => $study->{\App\Http\Support\Model::$STUDY_STATUS}])
 
     @include('form.field-input', ['id' => 'remark', 'tag' => 'Opmerking', 'value' => $study->{\App\Http\Support\Model::$STUDY_REMARK}])
 
