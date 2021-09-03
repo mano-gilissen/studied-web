@@ -278,19 +278,21 @@
 
                         @switch($study->status)
 
-                            @case(\App\Http\Traits\StudyTrait::$STATUS_PLANNED)
-
-                            @switch($study->service)
-
-                                @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
-
-                                @include('block.study-details')
+                            @case(\App\Http\Traits\StudyTrait::$STATUS_REPORTED)
 
                                 @break
 
-                            @endswitch
+                            @default
 
-                            @break
+                                @switch($study->service)
+
+                                    @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
+
+                                    @include('block.study-details')
+
+                                    @break
+
+                                @endswitch
 
                         @endswitch
 
@@ -300,19 +302,21 @@
 
                         @switch($study->status)
 
-                            @case(\App\Http\Traits\StudyTrait::$STATUS_PLANNED)
-
-                            @switch($study->service)
-
-                                @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
-
-                                @include('block.study-location')
+                            @case(\App\Http\Traits\StudyTrait::$STATUS_REPORTED)
 
                                 @break
 
-                            @endswitch
+                            @default
 
-                            @break
+                                @switch($study->service)
+
+                                    @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
+
+                                    @include('block.study-location')
+
+                                    @break
+
+                                @endswitch
 
                         @endswitch
 
