@@ -228,7 +228,7 @@ trait StudyTrait {
         $rules[Model::$STUDY_START]                                 = ['required'];
         $rules[Model::$STUDY_END]                                   = ['required'];
 
-        $validator = Validator::make($data, $rules, self::getValidationMessages());
+        $validator                                                  = Validator::make($data, $rules, BaseTrait::getValidationMessages());
 
         $validator->validate();
     }

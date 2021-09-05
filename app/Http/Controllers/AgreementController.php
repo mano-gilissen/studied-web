@@ -101,7 +101,7 @@ class AgreementController extends Controller {
 
         // TODO: ADD RULES
 
-        $validator                                                          = Validator::make($data, $rules, self::getValidationMessages());
+        $validator                                                          = Validator::make($data, $rules, BaseTrait::getValidationMessages());
 
         $validator->validate();
     }

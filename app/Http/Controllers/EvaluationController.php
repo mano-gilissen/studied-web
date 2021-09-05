@@ -141,7 +141,7 @@ class EvaluationController extends Controller {
         $rules[Model::$EVALUATION_HOST]                                     = ['required'];
         $rules[Model::$STUDENT]                                             = ['required'];
 
-        $validator                                                          = Validator::make($data, $rules, self::getValidationMessages());
+        $validator                                                          = Validator::make($data, $rules, BaseTrait::getValidationMessages());
 
         $validator->validate();
     }
@@ -189,7 +189,7 @@ class EvaluationController extends Controller {
 
         // TODO: ADD RULES
 
-        $validator                                                          = Validator::make($data, $rules, self::getValidationMessages());
+        $validator                                                          = Validator::make($data, $rules, BaseTrait::getValidationMessages());
 
         $validator->validate();
     }
