@@ -72,7 +72,7 @@ trait UserTrait {
         AddressTrait::update($data, $user->getPerson->getAddress);
 
         $user->{Model::$USER_EMAIL}                         = $data[Model::$USER_EMAIL];
-        $user->{Model::$USER_STATUS}                        = $data[Model::$USER_STATUS];
+        $user->{Model::$USER_STATUS}                        = $data[Key::AUTOCOMPLETE_ID . Model::$USER_STATUS];
 
         $user->save();
 
