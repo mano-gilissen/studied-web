@@ -149,6 +149,8 @@ class StudentController extends Controller {
 
         UserTrait::update($data, $person->getUser);
 
+        $person                                                             = Person::find($person->{Model::$BASE_ID});
+
         return redirect()->route('person.view', $person->{Model::$PERSON_SLUG});
     }
 
