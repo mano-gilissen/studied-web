@@ -34,7 +34,7 @@
 
                     <div class="name">Werkzaam</div>
 
-                    <div class="value">{{ 'Sinds ' . \App\Http\Support\Format::datetime($person->getUser->getEmployee->start_employment, \App\Http\Support\Format::$DATETIME_PROFILE) }}</div>
+                    <div class="value">{{ $person->getUser->getEmployee->start_employment ? ('Sinds ' . \App\Http\Support\Format::datetime($person->getUser->getEmployee->start_employment, \App\Http\Support\Format::$DATETIME_PROFILE)) : \App\Http\Support\Key::UNKNOWN }}</div>
 
                 </div>
 
@@ -46,7 +46,7 @@
 
                     <div class="name">School</div>
 
-                    <div class="value">{{ $person->getUser->getStudent->school }}</div>
+                    <div class="value">{{ $person->getUser->getStudent->school ?? \App\Http\Support\Key::UNKNOWN }}</div>
 
                 </div>
 
@@ -62,7 +62,7 @@
 
                     <div class="name">Profiel</div>
 
-                    <div class="value">{{ $person->getUser->getStudent->profile }}</div>
+                    <div class="value">{{ $person->getUser->getStudent->profile ?? \App\Http\Support\Key::UNKNOWN }}</div>
 
                 </div>
 

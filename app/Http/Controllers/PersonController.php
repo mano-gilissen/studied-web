@@ -4,6 +4,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Support\Func;
 use App\Http\Support\Route;
 use App\Http\Traits\AddressTrait;
 use App\Http\Traits\BaseTrait;
@@ -103,29 +104,39 @@ class PersonController extends Controller {
     public function delete($slug) {
 
         $person                                                             = Person::where(Model::$PERSON_SLUG, $slug)->firstOrFail();
-        $redirect                                                           = "";
+
+        if (Func::contains([RoleTrait::$ID_BOARD, RoleTrait::$ID_ADMINISTRATOR], $person->getUser->role)) {
+
+            return redirect()->route(Route::EMPLOYEE_LIST);
+
+        }
 
         if (PersonTrait::isUser($person)) {
 
+            $person->getAddress                                             ->delete();
+            $person->getUser                                                ->delete();
+            $person                                                         ->delete();
+
             switch ($person->getUser->role) {
 
-                case RoleTrait::$ID_BOARD:
                 case RoleTrait::$ID_MANAGEMENT:
                 case RoleTrait::$ID_EMPLOYEE:
-                    $redirect                                               = "employee.list";
-                    break;
+
+                    $person->getUser->getEmployee                           ->delete();
+
+                    return redirect()->route(Route::EMPLOYEE_LIST);
+
                 case RoleTrait::$ID_STUDENT:
-                    $redirect                                               = "student.list";
-                    break;
+
+                    $person->getUser->getStudent                            ->delete();
+
+                    return redirect()->route(Route::STUDENT_LIST);
+
                 case RoleTrait::$ID_CUSTOMER:
-                    $redirect                                               = "customer.list";
-                    break;
-            }
 
-            if ($person->getUser->role != RoleTrait::$ID_BOARD) {
+                    $person->getUser->getCustomer                           ->delete();
 
-                $person->delete();
-
+                    return redirect()->route(Route::CUSTOMER_LIST);
             }
 
         } else {
@@ -133,8 +144,6 @@ class PersonController extends Controller {
             // TODO: ADD RELATION AND PARTICIPANT
 
         }
-
-        return redirect()->route($redirect);
     }
 
 
