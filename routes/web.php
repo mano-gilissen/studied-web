@@ -156,9 +156,15 @@ Route::post('/submit/study/report',                 'StudyController@report_subm
 
 Route::post('/submit/student/create',               'StudentController@create_submit')->name('student.create_submit')->middleware('auth', 'authorize');
 
+Route::post('/submit/student/edit',                 'StudentController@edit_submit')->name('student.edit_submit')->middleware('auth', 'authorize');
+
 Route::post('/submit/customer/create',              'CustomerController@create_submit')->name('customer.create_submit')->middleware('auth', 'authorize');
 
+Route::post('/submit/customer/edit',                'CustomerController@edit_submit')->name('customer.edit_submit')->middleware('auth', 'authorize');
+
 Route::post('/submit/employee/create',              'EmployeeController@create_submit')->name('employee.create_submit')->middleware('auth', 'authorize');
+
+Route::post('/submit/employee/edit',                'EmployeeController@edit_submit')->name('employee.edit_submit')->middleware('auth', 'authorize');
 
 Route::post('/submit/agreement/create',             'AgreementController@create_submit')->name('agreement.create_submit')->middleware('auth', 'authorize');
 
