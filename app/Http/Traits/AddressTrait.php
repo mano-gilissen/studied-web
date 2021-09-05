@@ -6,6 +6,8 @@ namespace App\Http\Traits;
 
 use App\Http\Support\Model;
 use App\Models\Address;
+use Illuminate\Support\Facades\Validator;
+
 
 
 trait AddressTrait {
