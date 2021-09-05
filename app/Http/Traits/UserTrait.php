@@ -13,6 +13,7 @@ use App\Models\Evaluation;
 use App\Models\User;
 use Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 
 
@@ -65,7 +66,7 @@ trait UserTrait {
 
     public static function update($data, $user) {
 
-        self::validate($data);
+        self::validate($data, true);
 
         PersonTrait::update($data, $user->getPerson);
         AddressTrait::update($data, $user->getPerson->getAddress);
@@ -80,11 +81,19 @@ trait UserTrait {
 
 
 
-    public static function validate(array $data) {
+    public static function validate(array $data, $user = null) {
 
         $rules                                                              = [];
 
-        $rules[Model::$USER_EMAIL]                                          = ['required', 'email', 'unique:user,email'];
+        if ($user) {
+
+            $rules[Model::$USER_EMAIL]                                      = ['required', 'email', Rule::unique('user')->ignore($user)];
+
+        } else {
+
+            $rules[Model::$USER_EMAIL]                                      = ['required', 'email', 'unique:user,email'];
+
+        }
 
         $validator                                                          = Validator::make($data, $rules, BaseTrait::getValidationMessages());
 
