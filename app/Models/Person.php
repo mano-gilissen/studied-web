@@ -23,7 +23,8 @@ class Person extends ModelClass {
 
     protected
 
-        $table                                  = 'person';
+        $table                                  = 'person',
+        $dates                                  = ['birth_date'];
 
 
 
