@@ -105,7 +105,7 @@ class PersonController extends Controller {
 
         $person                                                             = Person::where(Model::$PERSON_SLUG, $slug)->firstOrFail();
 
-        if (Func::contains([RoleTrait::$ID_BOARD, RoleTrait::$ID_ADMINISTRATOR], $person->getUser->role)) {
+        if ($person->getUser->role == RoleTrait::$ID_BOARD || $person->getUser->role == RoleTrait::$ID_ADMINISTRATOR) {
 
             return redirect()->route(Route::EMPLOYEE_LIST);
 
