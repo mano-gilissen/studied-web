@@ -250,7 +250,7 @@
 
                         <img class="icon" src="/images_app/edit.svg">
 
-                        <div class="text">Bewerken</div>
+                        <div class="text">Foto wijzigen</div>
 
                     </div>
 
