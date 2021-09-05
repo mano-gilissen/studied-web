@@ -66,7 +66,7 @@ trait UserTrait {
 
     public static function update($data, $user) {
 
-        self::validate($data, true);
+        self::validate($data, $user);
 
         PersonTrait::update($data, $user->getPerson);
         AddressTrait::update($data, $user->getPerson->getAddress);
