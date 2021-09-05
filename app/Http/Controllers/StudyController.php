@@ -113,26 +113,9 @@ class StudyController extends Controller {
         $study                                                              = null;
         $data                                                               = $request->all();
 
-        self::plan_validate($data);
-
         StudyTrait::create($data, $study);
 
         return redirect()->route('study.view', $study->{Model::$BASE_KEY});
-    }
-
-
-
-    public function plan_validate(array $data) {
-
-        $rules = [];
-
-        $rules['date']                                                      = ['required'];
-        $rules[Model::$STUDY_START]                                         = ['required'];
-        $rules[Model::$STUDY_END]                                           = ['required'];
-
-        $validator = Validator::make($data, $rules, self::getValidationMessages());
-
-        $validator->validate();
     }
 
 
@@ -168,29 +151,11 @@ class StudyController extends Controller {
     public function edit_submit(Request $request) {
 
         $data                                                               = $request->all();
-
         $study                                                              = Study::find($data['_' . Model::$STUDY]);
-
-        self::edit_validate($data);
 
         StudyTrait::update($data, $study);
 
         return redirect()->route('study.view', $study->{Model::$BASE_KEY});
-    }
-
-
-
-    public function edit_validate(array $data) {
-
-        $rules = [];
-
-        $rules['date']                                                      = ['required'];
-        $rules[Model::$STUDY_START]                                         = ['required'];
-        $rules[Model::$STUDY_END]                                           = ['required'];
-
-        $validator = Validator::make($data, $rules, self::getValidationMessages());
-
-        $validator->validate();
     }
 
 
@@ -202,8 +167,6 @@ class StudyController extends Controller {
         $study                                                              = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
 
         $study->delete();
-
-
 
         return redirect()->route('study.list');
     }

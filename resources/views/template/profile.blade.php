@@ -145,7 +145,7 @@
                             @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
                             @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
-                                <div class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_PARTICIPANT => $person->slug]) }}'">
+                                <div class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_PARTICIPANT => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">
 
                                     <img class="icon" src="/images_app/search.svg">
 
@@ -175,7 +175,7 @@
 
                                 @if(Auth::user()->getCustomer->isStudent($person->getUser->getStudent))
 
-                                    <div class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_PARTICIPANT => $person->slug]) }}'">
+                                    <div class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_PARTICIPANT => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">
 
                                         <img class="icon" src="/images_app/search.svg">
 
@@ -200,7 +200,7 @@
                             @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
                             @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
-                                <div id="button-studies" class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_CUSTOMER => $person->slug]) }}'">
+                                <div id="button-studies" class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_CUSTOMER => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">
 
                                     <img class="icon" src="/images_app/search.svg">
 
@@ -234,9 +234,19 @@
 
                 @endswitch
 
-                @if($person->getUser->id == Auth::id())
+                @if(\App\Http\Traits\BaseTrait::hasManagementRights())
 
-                    <div class="button icon">
+                    <div class="button icon" onclick="window.location.href='{{ route('person.edit', $person->{\App\Http\Support\Model::$PERSON_SLUG}) }}'">
+
+                        <img class="icon" src="/images_app/edit.svg">
+
+                        <div class="text">Bewerken</div>
+
+                    </div>
+
+                @elseif($person->getUser->id == Auth::id())
+
+                    <div class="button icon"> <!-- TODO: ADD EDIT PROFILE PHOTO -->
 
                         <img class="icon" src="/images_app/edit.svg">
 

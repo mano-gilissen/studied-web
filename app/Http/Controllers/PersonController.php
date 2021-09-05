@@ -4,12 +4,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Support\Route;
+use App\Http\Traits\AddressTrait;
 use App\Http\Traits\BaseTrait;
 use App\Http\Traits\PersonTrait;
+use App\Http\Traits\RoleTrait;
+use App\Http\Traits\UserTrait;
 use App\Models\Person;
 use App\Http\Support\Views;
 use App\Http\Support\Key;
 use App\Http\Support\Model;
+use App\Models\Study;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -19,39 +24,47 @@ class PersonController extends Controller {
 
 
 
+
+
     use BaseTrait;
+
+
 
 
 
     public function self() {
 
-        $person                                     = Auth::user()->getPerson;
+        $person                                                             = Auth::user()->getPerson;
 
         return view(Views::PROFILE, [
 
-            Model::$PERSON                          => $person,
+            Model::$PERSON                                                  => $person,
 
-            Key::PAGE_TITLE                         =>'Profielpagina',
-            Key::PAGE_BACK                          => false,
-            Key::COMMENT                            => PersonTrait::getProfileComment($person)
+            Key::PAGE_TITLE                                                 =>'Profielpagina',
+            Key::PAGE_BACK                                                  => false,
+            Key::COMMENT                                                    => PersonTrait::getProfileComment($person)
         ]);
     }
+
+
 
 
 
     public function view($slug) {
 
-        $person                                     = Person::where(Model::$PERSON_SLUG, $slug)->firstOrFail();
+        $person                                                             = Person::where(Model::$PERSON_SLUG, $slug)->firstOrFail();
 
         return view(Views::PROFILE, [
 
-            Model::$PERSON                          => $person,
+            Model::$PERSON                                                  => $person,
 
-            Key::PAGE_TITLE                         =>'Profielpagina',
-            Key::PAGE_BACK                          => false,
-            Key::COMMENT                            => PersonTrait::getProfileComment($person)
+            Key::PAGE_TITLE                                                 =>'Profielpagina',
+            Key::PAGE_BACK                                                  => false,
+            Key::COMMENT                                                    => PersonTrait::getProfileComment($person)
         ]);
     }
+
+
 
 
 
@@ -59,46 +72,72 @@ class PersonController extends Controller {
 
         $person                                                             = Person::where(Model::$PERSON_SLUG, $slug)->firstOrFail();
 
-        $data                                                               = [];
+        if (PersonTrait::isUser($person)) {
 
-        $data[Key::PAGE_TITLE]                                              = 'Persoon bewerken'; // TODO: ADD ROLE
-        $data[Key::SUBMIT_ACTION]                                           = 'Opslaan';
-        $data[Key::SUBMIT_ROUTE]                                            = 'person.edit_submit';
+            switch ($person->getUser->role) {
 
-        $data[Model::$PERSON]                                               = $person;
+                case RoleTrait::$ID_ADMINISTRATOR:
+                case RoleTrait::$ID_BOARD:
+                case RoleTrait::$ID_MANAGEMENT:
+                case RoleTrait::$ID_EMPLOYEE:
+                    return redirect()->route(Route::EMPLOYEE_EDIT, [Model::$PERSON_SLUG => $slug]);
 
+                case RoleTrait::$ID_STUDENT:
+                    return redirect()->route(Route::STUDENT_EDIT, [Model::$PERSON_SLUG => $slug]);
 
+                case RoleTrait::$ID_CUSTOMER:
+                    return redirect()->route(Route::CUSTOMER_EDIT, [Model::$PERSON_SLUG => $slug]);
+            }
 
-        return view(Views::FORM_PERSON_EDIT, $data);
+        } else {
+
+            // TODO: ADD RELATION AND PARTICIPANT
+
+        }
     }
 
 
 
-    public function edit_submit(Request $request) {
 
-        $data                                                               = $request->all();
 
-        $person                                                             = Person::find($data['_' . Model::$PERSON]);
+    public function delete($slug) {
 
-        self::edit_validate($data);
+        $person                                                             = Person::where(Model::$PERSON_SLUG, $slug)->firstOrFail();
+        $redirect                                                           = "";
 
-        // PersonTrait::update($data, $person);
+        if (PersonTrait::isUser($person)) {
 
-        return redirect()->route('person.view', $person->{Model::$PERSON_SLUG});
+            switch ($person->getUser->role) {
+
+                case RoleTrait::$ID_BOARD:
+                case RoleTrait::$ID_MANAGEMENT:
+                case RoleTrait::$ID_EMPLOYEE:
+                    $redirect                                               = "employee.list";
+                    break;
+                case RoleTrait::$ID_STUDENT:
+                    $redirect                                               = "student.list";
+                    break;
+                case RoleTrait::$ID_CUSTOMER:
+                    $redirect                                               = "customer.list";
+                    break;
+            }
+
+            if ($person->getUser->role != RoleTrait::$ID_BOARD) {
+
+                $person->delete();
+
+            }
+
+        } else {
+
+            // TODO: ADD RELATION AND PARTICIPANT
+
+        }
+
+        return redirect()->route($redirect);
     }
 
 
-
-    public function edit_validate(array $data) {
-
-        $rules                                                              = [];
-
-        // TODO: ADD RULES
-
-        $validator = Validator::make($data, $rules, self::getValidationMessages());
-
-        $validator->validate();
-    }
 
 
 

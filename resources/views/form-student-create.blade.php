@@ -22,7 +22,7 @@
 
 
 
-    <div class="title">{{ __('Contactgegevens') }}</div>
+    <div class="title">{{ __('Contact- en inloggegevens') }}</div>
 
     @include('form.field-input', ['id' => 'email', 'type' => 'email', 'tag' => 'Email adres', 'required' => true])
 
@@ -66,7 +66,15 @@
 
     @include('form.field-input', ['id' => 'leerjaar', 'tag' => 'Leerjaar', 'data' => true, 'icon' => 'dropdown.svg', 'required' => true, 'show_all' => true, 'show_always' => true, 'reject_other' => true, 'uses_id' => true])
 
-    @include('form.field-input', ['id' => 'profile', 'tag' => 'Profiel', 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'reject_other' => true])
+    @include('form.field-input', ['id' => 'profile', 'tag' => 'Profiel', 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true])
+
+    <div class="seperator"></div>
+
+
+
+    <div class="title">{{ __('Ouder verzorger') }}</div>
+
+    @include('form.field-input', ['id' => 'customer', 'tag' => 'Klant', 'icon' => 'search.svg', 'placeholder' => 'Zoek een klant', 'required' => false, 'data' => true, 'additional' => true, 'reject_other' => true, 'uses_id' => true])
 
     <div class="seperator"></div>
 

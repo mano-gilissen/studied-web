@@ -4,17 +4,15 @@
 
 namespace App\Http\Traits;
 
-
-
 use App\Http\Support\Color;
 use App\Http\Support\Format;
 use App\Http\Support\Key;
 use App\Http\Support\Model;
-use App\Http\Support\Table;
 use App\Models\Agreement;
 use App\Models\Evaluation;
 use App\Models\User;
 use Auth;
+use Illuminate\Support\Facades\Validator;
 
 
 
@@ -36,6 +34,8 @@ trait UserTrait {
 
 
     public static function create($data, $role) {
+
+        self::validate($data);
 
         $user                                               = new User;
         $person                                             = PersonTrait::create($data);
@@ -63,11 +63,32 @@ trait UserTrait {
 
 
 
+    public static function update($data, $user) {
 
-    public static function addValidationRules(&$rules) {
+        self::validate($data);
 
-        $rules[Model::$USER_EMAIL]                          = ['required', 'email', 'unique:user,email'];
+        PersonTrait::update($data, $user->getPerson);
+        AddressTrait::update($data, $user->getPerson->getAddress);
 
+        $user->{Model::$USER_EMAIL}                         = $data[Model::$USER_EMAIL];
+        $user->{Model::$USER_STATUS}                        = $data[Model::$USER_STATUS];
+
+        $user->save();
+
+        return $user;
+    }
+
+
+
+    public static function validate(array $data) {
+
+        $rules                                                              = [];
+
+        $rules[Model::$USER_EMAIL]                                          = ['required', 'email', 'unique:user,email'];
+
+        $validator                                                          = Validator::make($data, $rules, BaseTrait::getValidationMessages());
+
+        $validator->validate();
     }
 
 

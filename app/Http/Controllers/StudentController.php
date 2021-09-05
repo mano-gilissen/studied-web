@@ -5,6 +5,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Support\Format;
+use App\Http\Support\Route;
 use App\Http\Support\Table;
 use App\Http\Traits\AddressTrait;
 use App\Http\Traits\AgreementTrait;
@@ -62,19 +63,26 @@ class StudentController extends Controller {
 
     public function create() {
 
-        return view(Views::FORM_STUDENT_CREATE, [
+        $data                                                               = [];
 
-            Key::PAGE_TITLE                                                 => 'Leerling aanmaken',
-            Key::SUBMIT_ACTION                                              => 'Aanmaken',
-            Key::SUBMIT_ROUTE                                               => 'student.create_submit',
+        $data[Key::PAGE_TITLE]                                              = 'Leerling aanmaken';
+        $data[Key::SUBMIT_ACTION]                                           = 'Aanmaken';
+        $data[Key::SUBMIT_ROUTE]                                            = 'student.create_submit';
 
-            Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX                  => Format::encode(PersonTrait::getPrefixData()),
+        $data[Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX]               = Format::encode(PersonTrait::getPrefixData());
 
-            Key::AUTOCOMPLETE_DATA . Model::$STUDENT_SCHOOL                 => Format::encode(StudentTrait::getSchoolData()),
-            Key::AUTOCOMPLETE_DATA . Model::$STUDENT_NIVEAU                 => Format::encode(StudentTrait::getNiveauData()),
-            Key::AUTOCOMPLETE_DATA . Model::$STUDENT_LEERJAAR               => Format::encode(StudentTrait::getLeerjaarData()),
-            Key::AUTOCOMPLETE_DATA . Model::$STUDENT_PROFILE                => Format::encode(StudentTrait::getProfileData()),
-        ]);
+        $data[Key::AUTOCOMPLETE_DATA . Model::$STUDENT_SCHOOL]              = Format::encode(StudentTrait::getSchoolData());
+        $data[Key::AUTOCOMPLETE_DATA . Model::$STUDENT_NIVEAU]              = Format::encode(StudentTrait::getNiveauData());
+        $data[Key::AUTOCOMPLETE_DATA . Model::$STUDENT_LEERJAAR]            = Format::encode(StudentTrait::getLeerjaarData());
+        $data[Key::AUTOCOMPLETE_DATA . Model::$STUDENT_PROFILE]             = Format::encode(StudentTrait::getProfileData());
+
+
+
+        self::form_ac_data_customer($data);
+
+
+
+        return view(Views::FORM_STUDENT_CREATE, $data);
     }
 
 
@@ -82,9 +90,6 @@ class StudentController extends Controller {
     public function create_submit(Request $request) {
 
         $data                                                               = $request->all();
-
-        self::create_validate($data);
-
         $student                                                            = StudentTrait::create($data);
 
         if (!$student) {
@@ -93,28 +98,71 @@ class StudentController extends Controller {
 
         }
 
-        return redirect()->route('person.view', [Model::$PERSON_SLUG => $student->getUser->getPerson->{Model::$PERSON_SLUG}]);
+        return redirect()->route(Route::PERSON_VIEW, [Model::$PERSON_SLUG => $student->getUser->getPerson->{Model::$PERSON_SLUG}]);
     }
 
 
 
-    public function create_validate(array $data) {
 
-        $rules                                                              = [];
 
-        PersonTrait::addValidationRules($rules);
+    public function edit($slug) {
 
-        UserTrait::addValidationRules($rules);
+        $person                                                             = Person::where(Model::$PERSON_SLUG, $slug)->firstOrFail();
 
-        AddressTrait::addValidationRules($rules);
 
-        $rules[Model::$STUDENT_SCHOOL]                                      = ['required'];
-        $rules[Model::$STUDENT_NIVEAU]                                      = ['required'];
-        $rules[Model::$STUDENT_LEERJAAR]                                    = ['required'];
 
-        $validator                                                          = Validator::make($data, $rules, self::getValidationMessages());
+        $data                                                               = [];
 
-        $validator->validate();
+        $data[Model::$PERSON]                                               = $person;
+
+        $data[Key::PAGE_TITLE]                                              = 'Leerling bewerken';
+        $data[Key::SUBMIT_ACTION]                                           = 'Opslaan';
+        $data[Key::SUBMIT_ROUTE]                                            = 'student.edit_submit';
+
+        $data[Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX]               = Format::encode(PersonTrait::getPrefixData());
+
+        $data[Key::AUTOCOMPLETE_DATA . Model::$STUDENT_SCHOOL]              = Format::encode(StudentTrait::getSchoolData());
+        $data[Key::AUTOCOMPLETE_DATA . Model::$STUDENT_NIVEAU]              = Format::encode(StudentTrait::getNiveauData());
+        $data[Key::AUTOCOMPLETE_DATA . Model::$STUDENT_LEERJAAR]            = Format::encode(StudentTrait::getLeerjaarData());
+        $data[Key::AUTOCOMPLETE_DATA . Model::$STUDENT_PROFILE]             = Format::encode(StudentTrait::getProfileData());
+
+
+
+        self::form_ac_data_customer($data);
+
+
+
+        return view(Views::FORM_PERSON_EDIT, $data);
+    }
+
+
+
+    public function edit_submit(Request $request) {
+
+        $data                                                               = $request->all();
+        $person                                                             = Person::find($data['_' . Model::$PERSON]);
+        $student                                                            = $person->getUser->getStudent;
+
+        StudentTrait::update($data, $student);
+
+        UserTrait::update($data, $person->getUser);
+
+        return redirect()->route('person.view', $person->{Model::$PERSON_SLUG});
+    }
+
+
+
+
+
+    public function form_ac_data_customer(&$data) {
+
+        $objects_customer                                                   = User::where(Model::$ROLE, RoleTrait::$ID_CUSTOMER)->with('getPerson')->with('getCustomer')->get();
+
+        $ac_data_host                                                       = $objects_customer->pluck('getPerson.' . 'fullName', 'getCustomer.' . Model::$BASE_ID)->toArray();
+        $ac_additional_host                                                 = $objects_customer->pluck(Model::$USER_EMAIL, 'getCustomer.' . Model::$BASE_ID)->toArray();
+
+        $data[Key::AUTOCOMPLETE_DATA . Model::$CUSTOMER]                    = Format::encode($ac_data_host);
+        $data[Key::AUTOCOMPLETE_ADDITIONAL . Model::$CUSTOMER]              = Format::encode($ac_additional_host);
     }
 
 

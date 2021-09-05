@@ -40,6 +40,8 @@ trait StudyTrait {
 
     public static function create(array $data, &$study) {
 
+        self::validate($data);
+
         $study                                                  = new Study;
 
         $study->{Model::$BASE_KEY}                              = Func::generate_key();
@@ -189,11 +191,13 @@ trait StudyTrait {
 
     public static function update(array $data, &$study) {
 
-        $study->{Model::$STUDY_START}                           = $data['date'] . ' ' . $data[Model::$STUDY_START] . ':00';
-        $study->{Model::$STUDY_END}                             = $data['date'] . ' ' . $data[Model::$STUDY_END] . ':00';
+        self::validate($data);
 
-        $study->{Model::$STUDY_REMARK}                          = $data[Model::$STUDY_REMARK];
-        $study->{Model::$STUDY_STATUS}                          = $data[Key::AUTOCOMPLETE_ID . Model::$STUDY_STATUS];
+        $study->{Model::$STUDY_START}                               = $data['date'] . ' ' . $data[Model::$STUDY_START] . ':00';
+        $study->{Model::$STUDY_END}                                 = $data['date'] . ' ' . $data[Model::$STUDY_END] . ':00';
+
+        $study->{Model::$STUDY_REMARK}                              = $data[Model::$STUDY_REMARK];
+        $study->{Model::$STUDY_STATUS}                              = $data[Key::AUTOCOMPLETE_ID . Model::$STUDY_STATUS];
 
 
 
@@ -210,6 +214,23 @@ trait StudyTrait {
 
 
         return $study;
+    }
+
+
+
+
+
+    public static function validate(array $data) {
+
+        $rules                                                      = [];
+
+        $rules['date']                                              = ['required'];
+        $rules[Model::$STUDY_START]                                 = ['required'];
+        $rules[Model::$STUDY_END]                                   = ['required'];
+
+        $validator = Validator::make($data, $rules, self::getValidationMessages());
+
+        $validator->validate();
     }
 
 

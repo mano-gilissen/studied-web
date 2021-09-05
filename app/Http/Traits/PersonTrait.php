@@ -4,10 +4,10 @@
 
 namespace App\Http\Traits;
 
-use App\Http\Support\Key;
 use App\Http\Support\Model;
 use App\Models\Person;
-use App\Models\Role;
+use Illuminate\Support\Facades\Validator;
+
 
 
 trait PersonTrait {
@@ -16,19 +16,21 @@ trait PersonTrait {
 
 
 
-    public static function create(array $data) {
+    public static function create(array $data, $person = null) {
 
-        $person                                                 = new Person;
+        self::validate($data);
 
-        $person->{Model::$PERSON_PREFIX}                        = $data[Model::$PERSON_PREFIX];
-        $person->{Model::$PERSON_FIRST_NAME}                    = $data[Model::$PERSON_FIRST_NAME];
-        $person->{Model::$PERSON_MIDDLE_NAME}                   = $data[Model::$PERSON_MIDDLE_NAME]; // TODO: Test if not in $data (Field empty)
-        $person->{Model::$PERSON_LAST_NAME}                     = $data[Model::$PERSON_LAST_NAME];
-        $person->{Model::$PERSON_BIRTH_DATE}                    = $data[Model::$PERSON_BIRTH_DATE] . ' 00:00:00';
+        $person                                                         = $person ? $person : new Person;
 
-        $person->{Model::$PERSON_PHONE}                         = $data[Model::$PERSON_PHONE];
+        $person->{Model::$PERSON_PREFIX}                                = $data[Model::$PERSON_PREFIX];
+        $person->{Model::$PERSON_FIRST_NAME}                            = $data[Model::$PERSON_FIRST_NAME];
+        $person->{Model::$PERSON_MIDDLE_NAME}                           = $data[Model::$PERSON_MIDDLE_NAME]; // TODO: Test if not in $data (Field empty)
+        $person->{Model::$PERSON_LAST_NAME}                             = $data[Model::$PERSON_LAST_NAME];
+        $person->{Model::$PERSON_BIRTH_DATE}                            = $data[Model::$PERSON_BIRTH_DATE] . ' 00:00:00';
 
-        $person->{Model::$PERSON_SLUG}                          = self::createSlug($person);
+        $person->{Model::$PERSON_PHONE}                                 = $data[Model::$PERSON_PHONE];
+
+        $person->{Model::$PERSON_SLUG}                                  = self::createSlug($person);
 
         $person->save();
 
@@ -37,21 +39,52 @@ trait PersonTrait {
 
 
 
-    public static function createSlug($person) {
+    public static function update(array $data, $person) {
 
-        return str_replace(' ', '-', strtolower($person->{Model::$PERSON_FIRST_NAME} . ' ' . (strlen($person->{Model::$PERSON_MIDDLE_NAME}) > 0 ? $person->{Model::$PERSON_MIDDLE_NAME} . ' ' : '') . $person->{Model::$PERSON_LAST_NAME}));
+        self::validate($data);
+
+        $person->{Model::$PERSON_PREFIX}                                = $data[Model::$PERSON_PREFIX];
+        $person->{Model::$PERSON_FIRST_NAME}                            = $data[Model::$PERSON_FIRST_NAME];
+        $person->{Model::$PERSON_MIDDLE_NAME}                           = $data[Model::$PERSON_MIDDLE_NAME]; // TODO: Test if not in $data (Field empty)
+        $person->{Model::$PERSON_LAST_NAME}                             = $data[Model::$PERSON_LAST_NAME];
+        $person->{Model::$PERSON_BIRTH_DATE}                            = $data[Model::$PERSON_BIRTH_DATE] . ' 00:00:00';
+
+        $person->{Model::$PERSON_PHONE}                                 = $data[Model::$PERSON_PHONE];
+
+        $person->{Model::$PERSON_SLUG}                                  = self::createSlug($person);
+
+        $person->save();
+
+        return $person;
 
     }
 
 
 
+    public static function validate(array $data) {
 
-    public static function addValidationRules(&$rules) {
+        $rules                                                          = [];
 
-        $rules[Model::$PERSON_PREFIX]                                       = ['required'];
-        $rules[Model::$PERSON_FIRST_NAME]                                   = ['required'];
-        $rules[Model::$PERSON_LAST_NAME]                                    = ['required'];
-        $rules[Model::$PERSON_BIRTH_DATE]                                   = ['required'];
+        $rules[Model::$PERSON_PREFIX]                                   = ['required'];
+        $rules[Model::$PERSON_FIRST_NAME]                               = ['required'];
+        $rules[Model::$PERSON_LAST_NAME]                                = ['required'];
+        $rules[Model::$PERSON_BIRTH_DATE]                               = ['required'];
+
+        $validator                                                      = Validator::make($data, $rules, BaseTrait::getValidationMessages());
+
+        $validator->validate();
+    }
+
+
+
+
+
+    public static function createSlug($person) {
+
+        // TODO: ADD COLLISION CHECK
+
+        return str_replace(' ', '-', strtolower($person->{Model::$PERSON_FIRST_NAME} . ' ' . (strlen($person->{Model::$PERSON_MIDDLE_NAME}) > 0 ? $person->{Model::$PERSON_MIDDLE_NAME} . ' ' : '') . $person->{Model::$PERSON_LAST_NAME}));
+
     }
 
 
@@ -66,10 +99,10 @@ trait PersonTrait {
 
         }
 
-        $prefix                                                 = $person->{Model::$PERSON_PREFIX};
-        $first_name                                             = $person->{Model::$PERSON_FIRST_NAME};
-        $middle_name                                            = $person->{Model::$PERSON_MIDDLE_NAME};
-        $last_name                                              = $person->{Model::$PERSON_LAST_NAME};
+        $prefix                                                         = $person->{Model::$PERSON_PREFIX};
+        $first_name                                                     = $person->{Model::$PERSON_FIRST_NAME};
+        $middle_name                                                    = $person->{Model::$PERSON_MIDDLE_NAME};
+        $last_name                                                      = $person->{Model::$PERSON_LAST_NAME};
 
         return ($with_prefix && $prefix ? $prefix . ' ': '') . $first_name . ' ' . ($middle_name ? $middle_name . ' ' : '') . $last_name;
     }
@@ -84,8 +117,8 @@ trait PersonTrait {
 
         }
 
-        $first_name                                             = $person->{Model::$PERSON_FIRST_NAME};
-        $last_name                                              = $person->{Model::$PERSON_LAST_NAME};
+        $first_name                                                     = $person->{Model::$PERSON_FIRST_NAME};
+        $last_name                                                      = $person->{Model::$PERSON_LAST_NAME};
 
         return substr($first_name, 0, 1) . substr($last_name, 0, 1) ;
     }
@@ -100,7 +133,7 @@ trait PersonTrait {
 
         }
 
-        $user                                                   = $person->getUser;
+        $user                                                           = $person->getUser;
 
         switch($user->role) {
 
@@ -136,6 +169,14 @@ trait PersonTrait {
             "Mr.",
             "Mw.",
         ];
+    }
+
+
+
+    public static function isUser($person) {
+
+        return $person->getUser != null;
+
     }
 
 

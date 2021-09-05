@@ -22,7 +22,7 @@
 
 
 
-    <div class="title">{{ __('Contactgegevens') }}</div>
+    <div class="title">{{ __('Contact- en inloggegevens') }}</div>
 
     @include('form.field-input', ['id' => 'email', 'type' => 'email', 'tag' => 'Email adres', 'required' => true])
 
@@ -56,7 +56,13 @@
 
     <div class="seperator"></div>
 
+
+
+    <div class="title">{{ __('Klantgegevens') }}</div>
+
     @include('form.field-input', ['id' => 'refer', 'tag' => 'Referentie', 'placeholder' => 'Hoe komt de klant bij Studied terecht?', 'required' => true])
+
+    <div class="seperator"></div>
 
 
 

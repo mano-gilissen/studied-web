@@ -41,13 +41,19 @@ const STUDENT_CREATE                            = 'student.create';
 
 const STUDENT_LIST                              = 'student.list';
 
+const STUDENT_EDIT                              = 'student.edit';
+
 const CUSTOMER_CREATE                           = 'customer.create';
 
 const CUSTOMER_LIST                             = 'customer.list';
 
+const CUSTOMER_EDIT                             = 'customer.edit';
+
 const EMPLOYEE_CREATE                           = 'employee.create';
 
 const EMPLOYEE_LIST                             = 'employee.list';
+
+const EMPLOYEE_EDIT                             = 'employee.edit';
 
 
 
@@ -164,10 +170,13 @@ const ALL_MANAGEMENT                            = [
     self::STUDY_DELETE,
     self::AGREEMENT_CREATE,
     self::STUDENT_CREATE,
+    self::STUDENT_EDIT,
     self::CUSTOMER_CREATE,
     self::CUSTOMER_LIST,
+    self::CUSTOMER_EDIT,
     self::EMPLOYEE_CREATE,
     self::EMPLOYEE_LIST,
+    self::EMPLOYEE_EDIT,
     self::EVALUATION_PLAN,
     self::EVALUATION_INTAKE,
     self::EVALUATION_EVALUATION,

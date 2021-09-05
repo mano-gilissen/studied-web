@@ -22,7 +22,7 @@
 
 
 
-    <div class="title">{{ __('Contactgegevens') }}</div>
+    <div class="title">{{ __('Contact- en inloggegevens') }}</div>
 
     @include('form.field-input', ['id' => 'email', 'type' => 'email', 'tag' => 'Email adres', 'required' => true])
 
@@ -84,13 +84,15 @@
 
 
 
-    <div class="title">{{ __('Sollicitatie gegevens') }}</div>
+    <div class="title">{{ __('Arbeidgegevens') }}</div>
 
     @include('form.field-input', ['id' => 'motivation', 'tag' => 'Motivatie', 'placeholder' => 'Waarom wil deze persoon bij Studied werken?'])
 
     @include('form.field-input', ['id' => 'refer', 'tag' => 'Referentie', 'placeholder' => 'Hoe komt deze persoon bij Studied terecht?'])
 
     @include('form.field-input', ['id' => 'capacity', 'tag' => 'Werkcapaciteit', 'placeholder' => 'Uren per week']) <!-- TODO: NUMERICAL ONLY -->
+
+    @include('form.field-input', ['id' => 'iban', 'tag' => 'Rekeningnummer (IBAN)'])
 
     <div class="seperator"></div>
 

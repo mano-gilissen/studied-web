@@ -7,6 +7,7 @@ namespace App\Http\Traits;
 use App\Http\Support\Key;
 use App\Http\Support\Model;
 use App\Models\Student;
+use Illuminate\Support\Facades\Validator;
 
 
 
@@ -14,10 +15,14 @@ trait StudentTrait {
 
 
 
+
+
     public static function create(array $data) {
 
-        $student                                                = new Student;
-        $user                                                   = UserTrait::create($data, RoleTrait::$ID_STUDENT);
+        self::validate($data);
+
+        $student                                                            = new Student;
+        $user                                                               = UserTrait::create($data, RoleTrait::$ID_STUDENT);
 
         if (!$user) {
 
@@ -25,16 +30,53 @@ trait StudentTrait {
 
         }
 
-        $student->{Model::$USER}                                = $user->{Model::$BASE_ID};
-        $student->{Model::$STUDENT_SCHOOL}                      = $data[Model::$STUDENT_SCHOOL];
-        $student->{Model::$STUDENT_PROFILE}                     = $data[Model::$STUDENT_PROFILE];
-        $student->{Model::$STUDENT_NIVEAU}                      = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_NIVEAU];
-        $student->{Model::$STUDENT_LEERJAAR}                    = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_LEERJAAR];
+        $student->{Model::$USER}                                            = $user->{Model::$BASE_ID};
+        $student->{Model::$CUSTOMER}                                        = $data[Key::AUTOCOMPLETE_ID . Model::$CUSTOMER];
+
+        $student->{Model::$STUDENT_SCHOOL}                                  = $data[Model::$STUDENT_SCHOOL];
+        $student->{Model::$STUDENT_PROFILE}                                 = $data[Model::$STUDENT_PROFILE];
+        $student->{Model::$STUDENT_NIVEAU}                                  = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_NIVEAU];
+        $student->{Model::$STUDENT_LEERJAAR}                                = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_LEERJAAR];
 
         $student->save();
 
         return $student;
     }
+
+
+
+    public static function update(array $data, $student) {
+
+        self::validate($data);
+
+        $student->{Model::$CUSTOMER}                                        = $data[Key::AUTOCOMPLETE_ID . Model::$CUSTOMER];
+
+        $student->{Model::$STUDENT_SCHOOL}                                  = $data[Model::$STUDENT_SCHOOL];
+        $student->{Model::$STUDENT_PROFILE}                                 = $data[Model::$STUDENT_PROFILE];
+        $student->{Model::$STUDENT_NIVEAU}                                  = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_NIVEAU];
+        $student->{Model::$STUDENT_LEERJAAR}                                = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_LEERJAAR];
+
+        $student->save();
+
+        return $student;
+    }
+
+
+
+    public static function validate(array $data) {
+
+        $rules                                                              = [];
+
+        $rules[Model::$STUDENT_SCHOOL]                                      = ['required'];
+        $rules[Model::$STUDENT_NIVEAU]                                      = ['required'];
+        $rules[Model::$STUDENT_LEERJAAR]                                    = ['required'];
+
+        $validator                                                          = Validator::make($data, $rules, self::getValidationMessages());
+
+        $validator->validate();
+    }
+
+
 
 
 

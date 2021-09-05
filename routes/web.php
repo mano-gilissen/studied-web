@@ -46,13 +46,19 @@ Route::get('/vakafspraak/aanmaken/{leerling?}',     'AgreementController@create'
 
 Route::get('/leerling/aanmaken',                    'StudentController@create')->name('student.create')->middleware('auth', 'authorize');
 
+Route::get('/leerling/{slug}/bewerken',             'StudentController@edit')->name('student.edit')->middleware('auth', 'authorize');
+
 Route::get('/leerlingen',                           'StudentController@list')->name('student.list')->middleware('auth', 'authorize');
 
 Route::get('/klant/aanmaken',                       'CustomerController@create')->name('customer.create')->middleware('auth', 'authorize');
 
+Route::get('/klant/{slug}/bewerken',                'CustomerController@edit')->name('customer.edit')->middleware('auth', 'authorize');
+
 Route::get('/klanten',                              'CustomerController@list')->name('customer.list')->middleware('auth', 'authorize');
 
 Route::get('/medewerker/aanmaken',                  'EmployeeController@create')->name('employee.create')->middleware('auth', 'authorize');
+
+Route::get('/medewerker/{slug}/bewerken',           'EmployeeController@edit')->name('employee.edit')->middleware('auth', 'authorize');
 
 Route::get('/medewerkers',                          'EmployeeController@list')->name('employee.list')->middleware('auth', 'authorize');
 

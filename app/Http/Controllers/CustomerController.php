@@ -5,6 +5,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Support\Format;
+use App\Http\Support\Route;
 use App\Http\Support\Table;
 use App\Http\Traits\AddressTrait;
 use App\Http\Traits\AgreementTrait;
@@ -17,6 +18,7 @@ use App\Models\Agreement;
 use App\Http\Support\Views;
 use App\Http\Support\Key;
 use App\Http\Support\Model;
+use App\Models\Person;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Subject;
@@ -70,9 +72,6 @@ class CustomerController extends Controller {
     public function create_submit(Request $request) {
 
         $data                                                               = $request->all();
-
-        self::create_validate($data);
-
         $customer                                                           = CustomerTrait::create($data);
 
         if (!$customer) {
@@ -81,27 +80,44 @@ class CustomerController extends Controller {
 
         }
 
-        return redirect()->route('person.view', [Model::$PERSON_SLUG => $customer->getUser->getPerson->{Model::$PERSON_SLUG}]);
+        return redirect()->route(Route::PERSON_VIEW, [Model::$PERSON_SLUG => $customer->getUser->getPerson->{Model::$PERSON_SLUG}]);
     }
 
 
 
-    public function create_validate(array $data) {
 
-        $rules                                                              = [];
 
-        PersonTrait::addValidationRules($rules);
+    public function edit($slug) {
 
-        UserTrait::addValidationRules($rules);
+        $person                                                             = Person::where(Model::$PERSON_SLUG, $slug)->firstOrFail();
 
-        AddressTrait::addValidationRules($rules);
+        return view(Views::FORM_PERSON_EDIT, [
 
-        $rules[Model::$CUSTOMER_REFER]                                      = ['required'];
+            Model::$PERSON                                                  => $person,
 
-        $validator                                                          = Validator::make($data, $rules, self::getValidationMessages());
+            Key::PAGE_TITLE                                                 => 'Klant bewerken',
+            Key::SUBMIT_ACTION                                              => 'Opslaan',
+            Key::SUBMIT_ROUTE                                               => 'customer.edit_submit',
 
-        $validator->validate();
+            Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX                  => Format::encode(PersonTrait::getPrefixData())
+        ]);
     }
+
+
+
+    public function edit_submit(Request $request) {
+
+        $data                                                               = $request->all();
+        $person                                                             = Person::find($data['_' . Model::$PERSON]);
+        $customer                                                           = $person->getUser->getCustomer;
+
+        CustomerTrait::update($data, $customer);
+
+        UserTrait::update($data, $person->getUser);
+
+        return redirect()->route('person.view', $person->{Model::$PERSON_SLUG});
+    }
+
 
 
 

@@ -5,6 +5,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Support\Format;
+use App\Http\Support\Route;
 use App\Http\Support\Table;
 use App\Http\Traits\AddressTrait;
 use App\Http\Traits\AgreementTrait;
@@ -18,6 +19,7 @@ use App\Http\Support\Key;
 use App\Http\Support\Model;
 use App\Models\Agreement;
 use App\Models\Employee;
+use App\Models\Person;
 use Illuminate\Database\Eloquent\Builder;
 use App\Models\Subject;
 use App\Models\User;
@@ -71,9 +73,6 @@ class EmployeeController extends Controller {
     public function create_submit(Request $request) {
 
         $data                                                               = $request->all();
-
-        self::create_validate($data);
-
         $employee                                                           = EmployeeTrait::create($data);
 
         if (!$employee) {
@@ -82,27 +81,42 @@ class EmployeeController extends Controller {
 
         }
 
-        return redirect()->route('person.view', [Model::$PERSON_SLUG => $employee->getUser->getPerson->{Model::$PERSON_SLUG}]);
+        return redirect()->route(Route::PERSON_VIEW, [Model::$PERSON_SLUG => $employee->getUser->getPerson->{Model::$PERSON_SLUG}]);
     }
 
 
 
-    public function create_validate(array $data) {
 
-        $rules                                                              = [];
 
-        PersonTrait::addValidationRules($rules);
+    public function edit($slug) {
 
-        UserTrait::addValidationRules($rules);
+        $person                                                             = Person::where(Model::$PERSON_SLUG, $slug)->firstOrFail();
 
-        AddressTrait::addValidationRules($rules);
+        return view(Views::FORM_PERSON_EDIT, [
 
-        // TODO: ADD EMPLOYEE RULES
-        // $rules[Model::$CUSTOMER_REFER]                                      = ['required'];
+            Model::$PERSON                                                  => $person,
 
-        $validator                                                          = Validator::make($data, $rules, self::getValidationMessages());
+            Key::PAGE_TITLE                                                 => 'Medewerker bewerken',
+            Key::SUBMIT_ACTION                                              => 'Opslaan',
+            Key::SUBMIT_ROUTE                                               => 'employee.edit_submit',
 
-        $validator->validate();
+            Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX                  => Format::encode(PersonTrait::getPrefixData())
+        ]);
+    }
+
+
+
+    public function edit_submit(Request $request) {
+
+        $data                                                               = $request->all();
+        $person                                                             = Person::find($data['_' . Model::$PERSON]);
+        $employee                                                           = $person->getUser->getEmployee;
+
+        EmployeeTrait::update($data, $employee);
+
+        UserTrait::update($data, $person->getUser);
+
+        return redirect()->route('person.view', $person->{Model::$PERSON_SLUG});
     }
 
 
