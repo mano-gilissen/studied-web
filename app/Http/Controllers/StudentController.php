@@ -130,6 +130,8 @@ class StudentController extends Controller {
 
         self::form_ac_data_customer($data);
 
+        UserController::form_set_ac_data_status($data, $person->getUser);
+
 
 
         return view(Views::FORM_PERSON_EDIT, $data);

@@ -174,6 +174,14 @@ trait UserTrait {
 
 
 
+    public static function isRegistered($user) {
+
+        return $user->{Model::$USER_STATUS} != self::$STATUS_INTAKE;
+
+    }
+
+
+
     public static function getStatusText($status) {
 
         switch ($status) {

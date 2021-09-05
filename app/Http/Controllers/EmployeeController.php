@@ -92,16 +92,23 @@ class EmployeeController extends Controller {
 
         $person                                                             = Person::where(Model::$PERSON_SLUG, $slug)->firstOrFail();
 
-        return view(Views::FORM_PERSON_EDIT, [
 
-            Model::$PERSON                                                  => $person,
 
-            Key::PAGE_TITLE                                                 => 'Medewerker bewerken',
-            Key::SUBMIT_ACTION                                              => 'Opslaan',
-            Key::SUBMIT_ROUTE                                               => 'employee.edit_submit',
+        $data[Model::$PERSON]                                               = $person;
 
-            Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX                  => Format::encode(PersonTrait::getPrefixData())
-        ]);
+        $data[Key::PAGE_TITLE]                                              = 'Medewerker bewerken';
+        $data[Key::SUBMIT_ACTION]                                           = 'Opslaan';
+        $data[Key::SUBMIT_ROUTE]                                            = 'employee.edit_submit';
+
+        $data[Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX]               = Format::encode(PersonTrait::getPrefixData());
+
+
+
+        UserController::form_set_ac_data_status($data, $person->getUser);
+
+
+
+        return view(Views::FORM_PERSON_EDIT, $data);
     }
 
 

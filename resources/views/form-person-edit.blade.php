@@ -22,11 +22,13 @@
 
 
 
-    <div class="title">{{ __('Contact- en inloggegevens') }}</div>
+    <div class="title">{{ __('Contact- en accountgegevens') }}</div>
 
     @include('form.field-input', ['id' => 'email', 'type' => 'email', 'tag' => 'Email adres', 'required' => true, 'value' => $person->getUser->{\App\Http\Support\Model::$USER_EMAIL}])
 
     @include('form.field-input', ['id' => 'phone', 'type' => 'phone', 'tag' => 'Telefoonnummer', 'placeholder' => 'Telefoonnummer met landcode', 'value' => $person->{\App\Http\Support\Model::$PERSON_PHONE}])
+
+    @include('form.field-input', ['id' => 'status', 'tag' => 'Status', 'icon' => 'dropdown.svg', 'placeholder' => 'Kies een status', 'required' => true, 'data' => true, 'show_all' => true, 'show_always' => true, 'reject_other' => true, 'uses_id' => true, 'locked' => !(\App\Http\Traits\UserTrait::isRegistered($person->getUser)), 'set_id' => $person->getUser->{\App\Http\Support\Model::$USER_STATUS}])
 
     <div class="seperator"></div>
 
