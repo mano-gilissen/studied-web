@@ -131,9 +131,15 @@ const STUDY_REPORT_SUBMIT                       = 'study.report_submit';
 
 const STUDENT_CREATE_SUBMIT                     = 'student.create_submit';
 
+const STUDENT_EDIT_SUBMIT                       = 'student.edit_submit';
+
 const CUSTOMER_CREATE_SUBMIT                    = 'customer.create_submit';
 
+const CUSTOMER_EDIT_SUBMIT                      = 'customer.edit_submit';
+
 const EMPLOYEE_CREATE_SUBMIT                    = 'employee.create_submit';
+
+const EMPLOYEE_EDIT_SUBMIT                      = 'employee.edit_submit';
 
 const AGREEMENT_CREATE_SUBMIT                   = 'agreement.create_submit';
 
@@ -188,8 +194,11 @@ const ALL_MANAGEMENT                            = [
     self::LOAD_CUSTOMER_COUNTERS,
     self::LOAD_CUSTOMER_FILTER,
     self::STUDENT_CREATE_SUBMIT,
+    self::STUDENT_EDIT_SUBMIT,
     self::CUSTOMER_CREATE_SUBMIT,
+    self::CUSTOMER_EDIT_SUBMIT,
     self::EMPLOYEE_CREATE_SUBMIT,
+    self::EMPLOYEE_EDIT_SUBMIT,
     self::AGREEMENT_CREATE_SUBMIT,
     self::EVALUATION_PLAN_SUBMIT,
     self::EVALUATION_PERFORM_SUBMIT
