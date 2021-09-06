@@ -26,7 +26,7 @@
 
         <div id="column">
 
-            <div id="banner" style="background-image:url({{url('images_app/study_banner_example.png')}})">
+            <div id="banner" style="background-image:url({{url('images_app/' . \App\Http\Traits\StudyTrait::getSubject($study) . '.png')}})">
 
                 <div>
 

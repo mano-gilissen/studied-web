@@ -273,6 +273,16 @@ trait StudyTrait {
 
 
 
+    public static function getSubject($study) {
+
+        dd($study->getAgreements[0]->getSubject);
+
+        return 'a';
+
+    }
+
+
+
     public static function getStatus($study) {
 
         switch ($study->status) {

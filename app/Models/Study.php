@@ -99,14 +99,6 @@ class Study extends ModelClass {
 
 
 
-    public function getSubject() {
-
-        return self::getThisToOne(Model::$SUBJECT);
-
-    }
-
-
-
     public function getAddress() {
 
         return self::getThisToOne(Model::$ADDRESS);

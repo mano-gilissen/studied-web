@@ -870,7 +870,7 @@ class StudyController extends Controller {
                     $after                                  = Format::datetime(Carbon::createFromFormat(Format::$DATABASE_DATE, substr($value, 0, 10)), Format::$DATETIME_LIST);
                     $before                                 = Format::datetime(Carbon::createFromFormat(Format::$DATABASE_DATE, substr($value, 11, 10)), Format::$DATETIME_LIST);
 
-                    $display                                = $after . ' tot ' . $before;
+                    $display                                = ' ' . $after . ' tot ' . $before;
                     break;
 
                 case self::$COLUMN_STUDENT:
