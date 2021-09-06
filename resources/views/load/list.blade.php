@@ -30,6 +30,10 @@
 
                                 </div>
 
+                            </div>
+
+                            <div class="filter-wrap-date">
+
                                 <div class="note">Tot</div>
 
                                 <div class="box-input date">

@@ -145,6 +145,7 @@
 
 
 #headers .filter {
+    position:                           absolute;
     display:                            none;
     margin-right:                       -48px;
     background:                         #F8F8F8;
@@ -165,7 +166,6 @@
 }
 
 #headers .filter-wrap-date {
-    position:                           absolute;
     display:                            flex;
     align-items:                        center;
 }
