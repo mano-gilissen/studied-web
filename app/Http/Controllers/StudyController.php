@@ -867,6 +867,8 @@ class StudyController extends Controller {
 
                 case self::$COLUMN_DATE:
 
+                    dd(DateTime::createFromFormat('Y-m-d', substr($value, 0, 10)));
+
                     dd(Format::datetime(strtotime(substr($value, 0, 10)), Format::$DATETIME_LIST));
 
                     $after_date                             = date(Format::$DATABASE_DATE, substr($value, 0, 10));
