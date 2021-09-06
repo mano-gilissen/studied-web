@@ -867,8 +867,8 @@ class StudyController extends Controller {
 
                 case self::$COLUMN_DATE:
 
-                    $after                                  = Format::datetime(DateTime::createFromFormat(Format::$DATABASE_DATE, substr($value, 0, 10)), Format::$DATETIME_LIST);
-                    $before                                 = Format::datetime(DateTime::createFromFormat(Format::$DATABASE_DATE, substr($value, 11, 10)), Format::$DATETIME_LIST);
+                    $after                                  = Format::datetime(date(Format::$DATABASE_DATE, substr($value, 0, 10)), Format::$DATETIME_LIST);
+                    $before                                 = Format::datetime(date(Format::$DATABASE_DATE, substr($value, 11, 10)), Format::$DATETIME_LIST);
 
                     $display                                = $after . ' tot ' . $before;
                     break;
