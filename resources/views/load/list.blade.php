@@ -28,7 +28,7 @@
 
                             <div class="box-input date">
 
-                                <input id="{{'filter_input_' . $column->id . '_after'}}" type="date" name="{{'filter_input_' . $column->id . '_after'}}">
+                                <input id="{{'filter_input_' . $column->id . '_before'}}" type="date" name="{{'filter_input_' . $column->id . '_before'}}">
 
                             </div>
 
