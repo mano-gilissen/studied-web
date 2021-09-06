@@ -161,7 +161,8 @@
 }
 
 #headers .filter .note {
-    padding:                            0 16px;
+    width:                              64px;
+    padding-left:                       16px;
     color:                              #666666;
 }
 
