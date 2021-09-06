@@ -157,16 +157,17 @@
 
 #headers .filter .box-input.date {
     height:                             48px;
-    padding-left:                       8px;
 }
 
 #headers .filter .note {
+    padding:                            0 16px;
+    color:                              #666666;
+}
+
+#headers .filter-wrap-date {
+    position:                           absolute;
     display:                            flex;
     align-items:                        center;
-    height:                             48px;
-    width:                              100%;
-    padding-left:                       8px;
-    color:                              #666666;
 }
 
 #headers .autocomplete-item {

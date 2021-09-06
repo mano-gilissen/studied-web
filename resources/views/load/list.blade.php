@@ -20,17 +20,23 @@
 
                         @case(\App\Http\Controllers\StudyController::$COLUMN_DATE)
 
-                            <div class="box-input date">
+                            <div class="filter-wrap-date">
 
-                                <input id="{{'filter_input_' . $column->id . '_after'}}" type="date" name="{{'filter_input_' . $column->id . '_after'}}">
+                                <div class="note">Van</div>
 
-                            </div>
+                                <div class="box-input date">
 
-                            <div class="note">tot</div>
+                                    <input id="{{'filter_input_' . $column->id . '_after'}}" type="date" name="{{'filter_input_' . $column->id . '_after'}}">
 
-                            <div class="box-input date">
+                                </div>
 
-                                <input id="{{'filter_input_' . $column->id . '_before'}}" type="date" name="{{'filter_input_' . $column->id . '_before'}}">
+                                <div class="note">Tot</div>
+
+                                <div class="box-input date">
+
+                                    <input id="{{'filter_input_' . $column->id . '_before'}}" type="date" name="{{'filter_input_' . $column->id . '_before'}}">
+
+                                </div>
 
                             </div>
 
