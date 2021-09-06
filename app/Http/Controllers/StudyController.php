@@ -665,8 +665,10 @@ class StudyController extends Controller {
 
             switch ($column) {
 
+                dd($value);
+
                 case self::$COLUMN_DATE:
-                    $query->where(Model::$STUDY_START, '>=', substr($value, 0, 8))->where(Model::$STUDY_END, '<=', substr($value, 9, 8));
+                    $query->where(Model::$STUDY_START, '>=', substr($value, 0, 10))->where(Model::$STUDY_END, '<=', substr($value, 10, 10));
                     break;
 
                 case self::$COLUMN_STUDENT:

@@ -123,10 +123,8 @@ function filter(value, column) {
 
 function filter_column_date() {
 
-    var before                              = $('#filter_input_' + COLUMN_DATE + '_before')[0].value;
     var after                               = $('#filter_input_' + COLUMN_DATE + '_after')[0].value;
-
-    console.log(before);
+    var before                              = $('#filter_input_' + COLUMN_DATE + '_before')[0].value;
 
     if (before !== '' && after !== '') {
 
