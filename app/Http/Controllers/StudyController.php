@@ -869,7 +869,7 @@ class StudyController extends Controller {
 
                     //dd(DateTime::createFromFormat(Format::$DATABASE_DATE, substr($value, 0, 10)));
 
-                    dd(date(Format::$DATABASE_DATETIME, strtotime(substr($value, 0, 10))));
+                    dd(Format::datetime(date(Format::$DATABASE_DATETIME, strtotime(substr($value, 0, 10))), Format::$DATETIME_LIST));
 
                     dd(Format::datetime(strtotime(substr($value, 0, 10)), Format::$DATETIME_LIST));
 
