@@ -867,7 +867,7 @@ class StudyController extends Controller {
 
                 case self::$COLUMN_DATE:
 
-                    dd(date(Format::$DATABASE_DATE, substr($value, 0, 10)));
+                    dd(strtotime(Format::$DATABASE_DATE, substr($value, 0, 10)));
 
                     $after_date                             = date(Format::$DATABASE_DATE, substr($value, 0, 10));
                     $before_date                            = date(Format::$DATABASE_DATE, substr($value, 11, 10));
