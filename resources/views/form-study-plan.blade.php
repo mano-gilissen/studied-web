@@ -51,8 +51,6 @@
 
     @include('form.field-input', ['id' => 'remark', 'tag' => 'Opmerking'])
 
-    @include('form.field-input', ['id' => 'trial', 'tag' => 'Proefles'])
-
 
 
 @endsection
