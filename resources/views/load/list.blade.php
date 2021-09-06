@@ -18,6 +18,16 @@
 
                     @switch($column->id)
 
+                        @case(\App\Http\Controllers\StudyController::$COLUMN_DATE)
+
+                            @include('form.field-input', ['id' => 'filter_input_' . $column->id . '_after', 'identifier' => $column->id, 'type' => 'date', 'form' => false, 'trigger' => 'filter'])
+
+                            <div class="note">tot</div>
+
+                            @include('form.field-input', ['id' => 'filter_input_' . $column->id . '_before', 'identifier' => $column->id, 'type' => 'date', 'form' => false, 'trigger' => 'filter'])
+
+                            @break
+
                         @case(\App\Http\Controllers\CustomerController::$COLUMN_STATUS)
 
                             @include('form.box-input', ['id' => 'filter_input_' . $column->id, 'identifier' => $column->id, 'data' => true, 'show_all' => true, 'show_always' => true, 'reject_other' => true, 'uses_id' => true, 'form' => false, 'trigger' => 'filter'])

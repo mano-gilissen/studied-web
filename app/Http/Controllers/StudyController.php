@@ -430,7 +430,7 @@ class StudyController extends Controller {
             case RoleTrait::$ID_MANAGEMENT:
             case RoleTrait::$ID_CUSTOMER:
                 array_push($columns,
-                    Table::column(self::$COLUMN_DATE, self::list_column_label(self::$COLUMN_DATE), 3, true, $sort, false, $filter, true),
+                    Table::column(self::$COLUMN_DATE, self::list_column_label(self::$COLUMN_DATE), 3, true, $sort, true, $filter, true),
                     Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 4, false, $sort, true, $filter),
                     Table::column(self::$COLUMN_HOST, self::list_column_label(self::$COLUMN_HOST), 4, true, $sort, true, $filter),
                     Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 3, true, $sort, true, $filter, true),
@@ -443,7 +443,7 @@ class StudyController extends Controller {
 
             case RoleTrait::$ID_EMPLOYEE:
                 array_push($columns,
-                    Table::column(self::$COLUMN_DATE, self::list_column_label(self::$COLUMN_DATE), 2, true, $sort, false, $filter, true),
+                    Table::column(self::$COLUMN_DATE, self::list_column_label(self::$COLUMN_DATE), 2, true, $sort, true, $filter, true),
                     Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 3, false, $sort, true, $filter),
                     Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 2, true, $sort, true, $filter, true),
                     Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 2, false, $sort, true, $filter),
@@ -455,7 +455,7 @@ class StudyController extends Controller {
 
             case RoleTrait::$ID_STUDENT:
                 array_push($columns,
-                    Table::column(self::$COLUMN_DATE, self::list_column_label(self::$COLUMN_DATE), 2, true, $sort, false, $filter, true),
+                    Table::column(self::$COLUMN_DATE, self::list_column_label(self::$COLUMN_DATE), 2, true, $sort, true, $filter, true),
                     Table::column(self::$COLUMN_HOST, self::list_column_label(self::$COLUMN_HOST), 3, true, $sort, true, $filter),
                     Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 2, true, $sort, true, $filter, true),
                     Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 2, false, $sort, true, $filter),
@@ -665,6 +665,10 @@ class StudyController extends Controller {
 
             switch ($column) {
 
+                case self::$COLUMN_DATE:
+                    $query->where(Model::$STUDY_START, '>=', substr($value, 0, 8))->where(Model::$STUDY_END, '<=', substr($value, 9, 8));
+                    break;
+
                 case self::$COLUMN_STUDENT:
                     $query->whereHas('getParticipants_User', function (Builder $q) use ($value) {$q->where(Model::$BASE_ID, $value);});
                     break;
@@ -858,6 +862,10 @@ class StudyController extends Controller {
             $display                                        = '';
 
             switch ($filter) {
+
+                case self::$COLUMN_DATE:
+                    $display                                = Format::datetime(new DateTime(substr($value, 0, 8)), Format::$DATETIME_LIST);
+                    break;
 
                 case self::$COLUMN_STUDENT:
                 case self::$COLUMN_HOST:

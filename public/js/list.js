@@ -5,6 +5,8 @@
 
 var filters_select_active                       = false;
 
+const COLUMN_DATE                               = 101;
+
 
 
 
@@ -107,13 +109,35 @@ function sort(column) {
 
 function filter(value, column) {
 
-    if (value !== '') {
+    switch (column) {
 
-        this.data_filter[column]            = value;
+        case COLUMN_DATE:
 
-        filters_close();
+            var before                              = $('filter_input_' + COLUMN_DATE + '_before')[0].value;
+            var after                               = $('filter_input_' + COLUMN_DATE + '_after')[0].value;
 
-        load();
+            console.log(before);
+
+            if (before !== '' && after !== '') {
+
+                this.data_filter[column]            = before + ':' + after;
+
+                filters_close();
+
+                load();
+            }
+            break;
+
+        default:
+
+            if (value !== '') {
+
+                this.data_filter[column]            = value;
+
+                filters_close();
+
+                load();
+            }
     }
 }
 
