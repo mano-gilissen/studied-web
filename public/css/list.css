@@ -155,6 +155,11 @@
     border:                             0;
 }
 
+#headers .filter .box-input.date {
+    height:                             40px;
+    width:                              200%;
+}
+
 #headers .autocomplete-item {
     color:                              #666666;
     padding-left:                       24px;

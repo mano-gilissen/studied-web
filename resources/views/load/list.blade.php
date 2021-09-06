@@ -20,11 +20,17 @@
 
                         @case(\App\Http\Controllers\StudyController::$COLUMN_DATE)
 
-                            @include('form.box-input', ['id' => 'filter_input_' . $column->id . '_after', 'identifier' => $column->id, 'type' => 'date', 'form' => false, 'trigger' => 'filter'])
+                            <div class="box-input date">
 
-                            <div class="note">tot</div>
+                                <input id="{{'filter_input_' . $column->id . '_after'}}" type="date" name="{{'filter_input_' . $column->id . '_after'}}">
 
-                            @include('form.box-input', ['id' => 'filter_input_' . $column->id . '_before', 'identifier' => $column->id, 'type' => 'date', 'form' => false, 'trigger' => 'filter'])
+                            </div>
+
+                            <div class="box-input date">
+
+                                <input id="{{'filter_input_' . $column->id . '_after'}}" type="date" name="{{'filter_input_' . $column->id . '_after'}}">
+
+                            </div>
 
                             @break
 
