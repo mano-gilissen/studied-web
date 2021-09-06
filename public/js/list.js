@@ -109,35 +109,32 @@ function sort(column) {
 
 function filter(value, column) {
 
-    switch (column) {
+    if (value !== '') {
 
-        case COLUMN_DATE:
+        this.data_filter[column]            = value;
 
-            var before                              = $('filter_input_' + COLUMN_DATE + '_before')[0].value;
-            var after                               = $('filter_input_' + COLUMN_DATE + '_after')[0].value;
+        filters_close();
 
-            console.log(before);
+        load();
+    }
+}
 
-            if (before !== '' && after !== '') {
 
-                this.data_filter[column]            = before + ':' + after;
 
-                filters_close();
+function filter_column_date() {
 
-                load();
-            }
-            break;
+    var before                              = $('#filter_input_' + COLUMN_DATE + '_before')[0].value;
+    var after                               = $('#filter_input_' + COLUMN_DATE + '_after')[0].value;
 
-        default:
+    console.log(before);
 
-            if (value !== '') {
+    if (before !== '' && after !== '') {
 
-                this.data_filter[column]            = value;
+        this.data_filter[COLUMN_DATE]       = before + ':' + after;
 
-                filters_close();
+        filters_close();
 
-                load();
-            }
+        load();
     }
 }
 
