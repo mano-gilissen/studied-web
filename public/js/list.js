@@ -128,7 +128,7 @@ function filter_column_date() {
 
     if (before !== '' && after !== '') {
 
-        this.data_filter[COLUMN_DATE]       = before + ':' + after;
+        this.data_filter[COLUMN_DATE]       = after + ':' + before;
 
         filters_close();
 

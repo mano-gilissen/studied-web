@@ -19,7 +19,6 @@ use App\Models\Agreement;
 use App\Models\Location;
 use App\Models\Person;
 use App\Models\Service;
-use App\Models\Student;
 use App\Models\Subject;
 use App\Models\Study;
 use App\Models\User;
@@ -667,8 +666,6 @@ class StudyController extends Controller {
             switch ($column) {
 
                 case self::$COLUMN_DATE:
-
-                    dd($value);
                     $query->where(Model::$STUDY_START, '>=', substr($value, 0, 10))->where(Model::$STUDY_END, '<=', substr($value, 10, 10));
                     break;
 
