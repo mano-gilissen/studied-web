@@ -666,7 +666,9 @@ class StudyController extends Controller {
             switch ($column) {
 
                 case self::$COLUMN_DATE:
-                    $query->where(Model::$STUDY_START, '>=', substr($value, 0, 10))->where(Model::$STUDY_END, '<=', substr($value, 10, 10));
+                    $query
+                        ->where(Model::$STUDY_START, '>=', date(Format::$DATABASE_DATETIME, substr($value, 0, 10)))
+                        ->where(Model::$STUDY_END, '<=', date(Format::$DATABASE_DATETIME, substr($value, 11, 10)));
                     break;
 
                 case self::$COLUMN_STUDENT:
@@ -864,7 +866,11 @@ class StudyController extends Controller {
             switch ($filter) {
 
                 case self::$COLUMN_DATE:
-                    $display                                = Format::datetime(new DateTime(substr($value, 0, 8)), Format::$DATETIME_LIST);
+
+                    $after                                  = Format::datetime(new DateTime(substr($value, 0, 10)), Format::$DATETIME_LIST);
+                    $before                                 = Format::datetime(new DateTime(substr($value, 11, 10)), Format::$DATETIME_LIST);
+
+                    $display                                = $after . ' tot ' . $before;
                     break;
 
                 case self::$COLUMN_STUDENT:
