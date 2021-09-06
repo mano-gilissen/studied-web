@@ -26,6 +26,8 @@
 
                             </div>
 
+                            <div class="note">tot</div>
+
                             <div class="box-input date">
 
                                 <input id="{{'filter_input_' . $column->id . '_before'}}" type="date" name="{{'filter_input_' . $column->id . '_before'}}">

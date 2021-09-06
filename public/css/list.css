@@ -156,8 +156,17 @@
 }
 
 #headers .filter .box-input.date {
-    height:                             40px;
-    width:                              200%;
+    height:                             48px;
+    padding-left:                       8px;
+}
+
+#headers .filter .note {
+    display:                            flex;
+    align-items:                        center;
+    height:                             48px;
+    width:                              100%;
+    padding-left:                       8px;
+    color:                              #666666;
 }
 
 #headers .autocomplete-item {
