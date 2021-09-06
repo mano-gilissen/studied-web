@@ -171,19 +171,11 @@ trait UserTrait {
 
             case RoleTrait::$ID_CUSTOMER:
 
-                $a = Evaluation::whereHas('getStudent.getStudent', function ($query) use ($user) {
+                return Evaluation::whereHas('getStudent.getStudent', function ($query) use ($user) {
 
-                    $query->where(Model::$CUSTOMER, $user->id);
-
-                })->get()->sortByDesc(Model::$BASE_CREATED_AT);
-
-                $b = Evaluation::whereHas('getStudent.getStudent', function ($query) use ($user) {
+                    $query->where(Model::$CUSTOMER, $user->getCustomer->id);
 
                 })->get()->sortByDesc(Model::$BASE_CREATED_AT);
-
-                dd($b);
-
-                return $a;
         }
 
         return null;
