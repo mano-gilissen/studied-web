@@ -275,9 +275,7 @@ trait StudyTrait {
 
     public static function getSubject($study) {
 
-        dd($study->getAgreements[0]->getSubject);
-
-        return 'a';
+        return $study->getAgreements[0]->getSubject;
 
     }
 
