@@ -58,11 +58,11 @@
 
                     <div>
 
-                        <div class="no-avatar" style="position:absolute;">{{ \App\Http\Traits\PersonTrait::getInitials($user->getPerson) }}</div>
+                        <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials($user->getPerson) }}</div>
 
                     </div>
 
-                    <img id="avatar-img" style="position:absolute;" src="{{ asset("storage/avatar/" . $user->getPerson->avatar) }}"/>
+                    <img id="avatar-img" src="{{ asset("/storage/avatar/" . $user->getPerson->avatar) }}"/>
 
                 </div>
 
