@@ -68,7 +68,7 @@
 
                     </div>
 
-                    <img id="avatar-img" src="{{ asset("/storage/avatar/" . $user->getPerson->avatar) }}"/>
+                    <img id="avatar-img" src="{{ asset("/storage/avatar/" . $user->getPerson->avatar) }}" @if(!($user->getPerson->avatar)) style="opacity:0" @endif/>
 
                 </div>
 
