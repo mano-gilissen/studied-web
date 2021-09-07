@@ -56,13 +56,13 @@
 
                 @if($user->getPerson->avatar)
 
-                    <img src="{{ asset("storage/avatar/" . $person->avatar) }}"/>
+                    <img src="{{ asset("storage/avatar/" . $user->getPerson->avatar) }}"/>
 
                 @else
 
                     <div>
 
-                        <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials($person) }}</div>
+                        <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials($user->getPerson) }}</div>
 
                     </div>
 
