@@ -98,6 +98,8 @@
 
 
 
+    <div class="title">{{ __('Bestanden') }}</div>
+
     <input type="file" name="diploma" />
 
 

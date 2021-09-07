@@ -33,3 +33,9 @@
 @include('form.field-input', ['id' => 'iban', 'tag' => 'Rekeningnummer (IBAN)', 'value' => $employee->{\App\Http\Support\Model::$EMPLOYEE_IBAN}])
 
 <div class="seperator"></div>
+
+
+
+<div class="title">{{ __('Bestanden') }}</div>
+
+<input type="file" name="diploma" />

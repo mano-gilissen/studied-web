@@ -119,11 +119,12 @@ class Model {
         $EMPLOYEE_REFER                                 = 'refer',
         $EMPLOYEE_CAPACITY                              = 'capacity',
         $EMPLOYEE_CV                                    = 'cv',
-        $EMPLOYEE_DIPLOMA                               = 'diploma',
-        $EMPLOYEE_IDENTIFICATION                        = 'identification',
         $EMPLOYEE_IBAN                                  = 'iban',
+        $EMPLOYEE_DIPLOMA                               = 'diploma',
         $EMPLOYEE_CONTRACT                              = 'contract',
-        $EMPLOYEE_LOONHEFFING                           = 'loonheffing';
+        $EMPLOYEE_LOONHEFFING                           = 'loonheffing',
+        $EMPLOYEE_IDENTIFICATIE                         = 'identificatie',
+        $EMPLOYEE_INDIENSTTREDING                       = 'indiensttreding';
 
 
 
