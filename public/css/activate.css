@@ -45,10 +45,10 @@ html, body {
 
 
 
-#avatar-section-crop #img-container {
+#avatar-section-crop .img-container {
     width:                              192px;
     height:                             192px;
-    padding-bottom:                     16px;
+    margin-bottom:                      16px;
 }
 
 #avatar-section-crop #crop {
