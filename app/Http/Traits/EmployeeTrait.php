@@ -4,6 +4,7 @@
 
 namespace App\Http\Traits;
 
+use App\Http\Support\Files;
 use App\Http\Support\Func;
 use App\Http\Support\Model;
 use App\Models\Employee;
@@ -21,27 +22,9 @@ trait EmployeeTrait {
 
 
 
-        $employee                                                       = new Employee;
-        $filename = '';
-
-        if ($request->hasFile('diploma') && $request->file('diploma')->isValid()) {
-
-            $extension                                                  = $request->file('diploma')->extension();
-            $filename                                                   = 'diploma_' . Func::generate_key() . '.' . $extension;
-
-            $request->file('diploma')->storeAs('diploma', $filename);
-
-            $employee->{Model::$EMPLOYEE_DIPLOMA}                       = $filename;
-            $employee->save();
-        }
-
-
-
-        dd($filename);
-
-
-
         self::validate($data);
+
+
 
         $employee                                                       = new Employee;
         $user                                                           = UserTrait::create($data, RoleTrait::$ID_EMPLOYEE);
@@ -67,6 +50,13 @@ trait EmployeeTrait {
         $employee->{Model::$EMPLOYEE_CAPACITY}                          = $data[Model::$EMPLOYEE_CAPACITY];
         $employee->{Model::$EMPLOYEE_IBAN}                              = $data[Model::$EMPLOYEE_IBAN];
 
+
+
+        $file_name_diploma                                              = Files::storeFile($request, Model::$EMPLOYEE_DIPLOMA, $employee->{Model::$BASE_ID});
+        $employee->{Model::$EMPLOYEE_DIPLOMA}                           = $file_name_diploma;
+
+
+
         $employee->save();
 
 
@@ -76,9 +66,13 @@ trait EmployeeTrait {
 
 
 
-    public static function update(array $data, $employee) {
+    public static function update(array $data, $request, $employee) {
+
+
 
         self::validate($data);
+
+
 
         $employee->{Model::$EMPLOYEE_EDUCATION_CURRENT}                 = $data[Model::$EMPLOYEE_EDUCATION_CURRENT];
         $employee->{Model::$EMPLOYEE_SCHOOL_CURRENT}                    = $data[Model::$EMPLOYEE_SCHOOL_CURRENT];
@@ -93,7 +87,21 @@ trait EmployeeTrait {
         $employee->{Model::$EMPLOYEE_CAPACITY}                          = $data[Model::$EMPLOYEE_CAPACITY];
         $employee->{Model::$EMPLOYEE_IBAN}                              = $data[Model::$EMPLOYEE_IBAN];
 
+
+
+        $file_name_diploma                                              = Files::storeFile($request, Model::$EMPLOYEE_DIPLOMA, $employee->{Model::$BASE_ID});
+
+        if (strlen($file_name_diploma) > 0) {
+
+            $employee->{Model::$EMPLOYEE_DIPLOMA}                       = $file_name_diploma;
+
+        }
+
+
+
         $employee->save();
+
+
 
         return $employee;
     }

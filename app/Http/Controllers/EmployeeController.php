@@ -119,7 +119,7 @@ class EmployeeController extends Controller {
         $person                                                             = Person::find($data['_' . Model::$PERSON]);
         $employee                                                           = $person->getUser->getEmployee;
 
-        EmployeeTrait::update($data, $employee);
+        EmployeeTrait::update($data, $request, $employee);
 
         UserTrait::update($data, $person->getUser);
 
