@@ -41,7 +41,7 @@ $(function(){
         }
     });
 
-    $('#crop').click(function() {
+    $('#avatar-crop-button').click(function() {
 
         canvas = cropper.getCroppedCanvas({
             minWidth: 256,

@@ -92,7 +92,7 @@
 
                 </div>
 
-                <button type="button" id="crop" class="button">Opslaan</button>
+                <button type="button" id="avatar-crop-button" class="button">Opslaan</button>
 
             </div>
 
