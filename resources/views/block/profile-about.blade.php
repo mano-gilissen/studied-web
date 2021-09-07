@@ -88,7 +88,7 @@
 
                     <div class="value">
 
-                        @php $status = $person->getUser->getEmployee->{\App\Http\Support\Model::$USER_STATUS} @endphp
+                        @php $status = $person->getUser->{\App\Http\Support\Model::$USER_STATUS} @endphp
 
                         <div class="tag" style="background: {{ \App\Http\Traits\UserTrait::getStatusColor($status) }};color: {{ \App\Http\Traits\UserTrait::getStatusTextColor($status) }}">{{ \App\Http\Traits\UserTrait::getStatusText($status) }}</div>
 
