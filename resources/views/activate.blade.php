@@ -106,6 +106,8 @@
 
                 @include('form.field-input', ['id' => 'password_confirmation', 'type' => 'password', 'tag' => 'Wachtwoord bevestigen', 'placeholder' => 'Typ je wachtwoord opnieuw', 'required' => true, 'max' => 30])
 
+                @include('form.field-hidden', ['id' => '_user', 'value' => $user->{\App\Http\Support\Model::$BASE_ID}])
+
                 <button class="button" id="button-submit" type="submit">
 
                     Activeren

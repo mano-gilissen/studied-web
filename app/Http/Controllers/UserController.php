@@ -44,8 +44,8 @@ class UserController extends Controller {
 
     public function activate_submit(Request $request) {
 
-        $user                               = null;
         $data                               = $request->all();
+        $user                               = User::findOrFail($data[Key::AUTOCOMPLETE_ID .  Model::$USER]);
 
         self::activate_validate($data);
 
