@@ -31,29 +31,21 @@ html, body {
     font-size:                          40px;
 }
 
-
-
 #avatar-upload-button,
 #avatar-crop-button {
     margin:                             0 auto 48px;
+}
+
+#avatar-section-crop .img-container {
+    width:                              192px;
+    height:                             192px;
+    margin:                             0 auto 16px;
 }
 
 
 
 #button-submit {
     margin:                             48px 0 0 auto;
-}
-
-
-
-#avatar-section-crop {
-    margin:                             0 auto;
-}
-
-#avatar-section-crop .img-container {
-    width:                              192px;
-    height:                             192px;
-    margin-bottom:                      16px;
 }
 
 
