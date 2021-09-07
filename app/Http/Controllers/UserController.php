@@ -41,7 +41,7 @@ class UserController extends Controller {
 
 
 
-    public function credentials_submit(Request $request) {
+    public function activate_submit(Request $request) {
 
         $user                               = null;
         $data                               = $request->all();
