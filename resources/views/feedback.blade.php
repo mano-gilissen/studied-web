@@ -16,11 +16,15 @@
 
         <div class="content">
 
-            <div class="title">{{ $page_title }}</div>
+            <div style="display: flex;align-items: center">
 
-            <img src="/images_app/{{ $icon }}">
+                <div class="title">{{ $page_title }}</div>
 
-            <a class="button" href="{{ $page_next }}">{{ $page_action }}</a>
+                <img src="/images_app/{{ $icon }}">
+
+            </div>
+
+            <div class="button" onclick="window.location.href='{{ $page_next }}'">{{ $page_action }}</div>
 
         </div>
 
