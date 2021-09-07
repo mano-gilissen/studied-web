@@ -20,7 +20,7 @@ use App\Http\Support\Views;
 use App\Http\Support\Key;
 use App\Http\Support\Model;
 use App\Models\Study;
-use http\Client\Curl\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Auth;
 
