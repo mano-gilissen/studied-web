@@ -168,7 +168,7 @@ class PersonController extends Controller {
         view(Views::FEEDBACK, [
 
             Key::PAGE_TITLE                                         => 'Mail verstuurd',
-            Key::PAGE_NEXT                                          => route('profile.view', [Model::$PERSON_SLUG => $slug]),
+            Key::PAGE_NEXT                                          => route('person.view', [Model::$PERSON_SLUG => $slug]),
             Key::PAGE_ACTION                                        => 'Terug',
             Key::ICON                                               => 'check-circle-green.svg'
         ]);
