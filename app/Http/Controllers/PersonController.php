@@ -204,7 +204,7 @@ class PersonController extends Controller {
     public function avatar_validate($data) {
 
         $rules                                                      = [];
-        $rules['avatar']                                            = ['required', 'mimes:jpeg,jpg,png,gif', 'max:10000'];
+        $rules['avatar']                                            = ['required', 'mimes:jpeg,jpg,png,gif', 'max:30'];
 
         $messages                                                   = [];
         $messages['avatar.max']                                     = 'Deze afbeelding is te groot (Max 10Mb), probeer het opnieuw.';
