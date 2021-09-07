@@ -83,8 +83,6 @@ function study_agreements_load(host) {
 
     $('.agreements *')                          .off();
     $('.agreements')                            .animate({opacity: 0}, 200);
-    $('#button-submit')                         .attr("disabled", true);
-    $('#button-submit')                         .css('opacity', '0.5');
 
     setTimeout(function(){
 

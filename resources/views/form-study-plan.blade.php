@@ -53,4 +53,17 @@
 
 
 
+    <script>
+
+        $(function(){
+
+            $('#button-submit')                     .attr("disabled", true);
+            $('#button-submit')                     .css('opacity', '0.5');
+
+        });
+
+    </script>
+
+
+
 @endsection
