@@ -20,6 +20,14 @@ class UserController extends Controller {
 
 
 
+    public function activate($secret) {
+
+        dd($secret);
+
+    }
+
+
+
     public function form_study_agreements_load(Request $request) {
 
         $user_id                                            = $request->input(Model::$USER, null);
@@ -44,7 +52,7 @@ class UserController extends Controller {
 
         $ac_data                                                            = [];
 
-        if (UserTrait::isRegistered($user)) {
+        if (UserTrait::isActivated($user)) {
 
             $ac_data[UserTrait::$STATUS_ACTIVE]                             = UserTrait::getStatusText(UserTrait::$STATUS_ACTIVE);
             $ac_data[UserTrait::$STATUS_PASSIVE]                            = UserTrait::getStatusText(UserTrait::$STATUS_PASSIVE);

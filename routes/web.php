@@ -74,6 +74,14 @@ Route::get('/profiel/{slug}/bewerken',              'PersonController@edit')->na
 
 Route::get('/profiel/{slug}/verwijderen',           'PersonController@delete')->name('person.delete')->middleware('auth', 'authorize');
 
+Route::get('/profiel/{slug}/activeren',             'PersonController@activate')->name('person.activate')->middleware('auth', 'authorize');
+
+
+
+
+
+Route::get('/activeren/{secret}',                   'UserController@activate')->name('user.activate');
+
 
 
 

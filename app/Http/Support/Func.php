@@ -27,6 +27,14 @@ class Func {
 
 
 
+    public static function generate_secret($length = 10) {
+
+        return substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 1, $length);
+
+    }
+
+
+
     public static function contains($haystack, $needle) {
 
         if(!is_array($needle)) {

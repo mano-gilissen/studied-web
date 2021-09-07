@@ -65,6 +65,12 @@ const PERSON_EDIT                               = 'person.edit';
 
 const PERSON_DELETE                             = 'person.delete';
 
+const PERSON_ACTIVATE                           = 'person.activate';
+
+
+
+const USER_ACTIVATE                             = 'user.activate';
+
 
 
 const EVALUATION_VIEW                           = 'evaluation.view';
@@ -173,6 +179,7 @@ const ALL_MANAGEMENT                            = [
 
     self::PERSON_EDIT,
     self::PERSON_DELETE,
+    self::PERSON_ACTIVATE,
     self::STUDY_DELETE,
     self::AGREEMENT_CREATE,
     self::STUDENT_CREATE,
@@ -254,6 +261,7 @@ const ALL_AUTH                                  = [
     self::LOAD_STUDY_COUNTERS,
     self::LOAD_STUDY_FILTER,
 ];
+
 
 
 

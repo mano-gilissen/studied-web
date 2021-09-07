@@ -5,6 +5,7 @@
 namespace App\Http\Traits;
 
 use App\Http\Support\Files;
+use App\Http\Support\Mail;
 use App\Http\Support\Model;
 use App\Models\Employee;
 use Illuminate\Support\Facades\Validator;

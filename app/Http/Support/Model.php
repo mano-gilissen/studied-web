@@ -27,7 +27,8 @@ class Model {
         $USER_STATUS                                    = 'status',
         $USER_EMAIL                                     = 'email',
         $USER_PASSWORD                                  = 'password',
-        $USER_NAME                                      = 'name';
+        $USER_NAME                                      = 'name',
+        $USER_ACTIVATE_SECRET                           = 'activate_secret';
 
 
 

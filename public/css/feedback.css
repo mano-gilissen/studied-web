@@ -1,0 +1,22 @@
+.wrap {
+    height:                             100vh;
+    display:                            grid;
+    grid-template-rows:                 1fr auto 1fr;
+    grid-template-columns:              1fr auto 1fr;
+    grid-template-areas:                ". . ."
+                                        ". content ."
+                                        ". . .";
+}
+
+.content {
+    display:                            grid;
+    width:                              324px;
+}
+
+.content .title {
+    margin:                             0 auto;
+}
+
+.content img {
+    margin:                             40px auto;
+}

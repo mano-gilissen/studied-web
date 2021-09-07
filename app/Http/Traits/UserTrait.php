@@ -7,6 +7,7 @@ namespace App\Http\Traits;
 use App\Http\Support\Color;
 use App\Http\Support\Format;
 use App\Http\Support\Key;
+use App\Http\Support\Mail;
 use App\Http\Support\Model;
 use App\Models\Agreement;
 use App\Models\Evaluation;
@@ -183,7 +184,7 @@ trait UserTrait {
 
 
 
-    public static function isRegistered($user) {
+    public static function isActivated($user) {
 
         return $user->{Model::$USER_STATUS} != self::$STATUS_INTAKE;
 

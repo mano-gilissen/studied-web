@@ -83,7 +83,7 @@
                             @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
                             @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
 
-                                <div class="button green icon">
+                                <div class="button green icon" onclick="window.location.href='{{ route('person.activate', [\App\Http\Support\Model::$PERSON_SLUG => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">
 
                                     <img class="icon" src="/images_app/contact-white.svg">
 

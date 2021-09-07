@@ -22,9 +22,16 @@ class Study_Planned extends Mailable {
 
 
     public
+
         $study,
         $participant,
         $subject;
+
+
+
+    const
+
+        MAIL_SUBJECT                                = 'Er is een les voor jou ingepland door ';
 
 
 
@@ -32,15 +39,16 @@ class Study_Planned extends Mailable {
 
         $this->study                                = $study;
         $this->participant                          = $participant;
-        $this->subject                              = 'Er is een les voor jou ingepland door ' . PersonTrait::getFullName($study->getHost->getPerson);
+        $this->subject                              = self::MAIL_SUBJECT . PersonTrait::getFullName($study->getHost->getPerson);
     }
 
 
 
     public function build() {
 
-        return $this->view('email.template')->subject($this->subject);
-
+        return $this
+            ->view('email.study_planned')
+            ->subject($this->subject);
     }
 
 
