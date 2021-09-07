@@ -34,7 +34,7 @@
 
         <div class="block-form">
 
-            <form method="POST" action="{{ route($submit_route) }}" novalidate>
+            <form method="POST" action="{{ route($submit_route) }}" novalidate enctype="multipart/form-data">
 
 
 
