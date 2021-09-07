@@ -63,6 +63,7 @@ class EmployeeController extends Controller {
             Key::PAGE_TITLE                                                 => 'Medewerker aanmaken',
             Key::SUBMIT_ACTION                                              => 'Aanmaken',
             Key::SUBMIT_ROUTE                                               => 'employee.create_submit',
+            Key::BACK_ROUTE                                                 => 'study.list',
 
             Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX                  => Format::encode(PersonTrait::getPrefixData())
         ]);

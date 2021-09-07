@@ -15,6 +15,7 @@ class Key {
 
     const SUBMIT_ACTION                         = "submit_action";
     const SUBMIT_ROUTE                          = "submit_route";
+    const BACK_ROUTE                            = "back_route";
 
     const COMMENT                               = "comment";
     const SINGLE                                = "single";
