@@ -54,19 +54,17 @@
 
             <div id="avatar-section-upload">
 
-                @if($user->getPerson->avatar)
+                <div>
 
-                    <img id="avatar-img" src="{{ asset("storage/avatar/" . $user->getPerson->avatar) }}"/>
-
-                @else
+                    <img id="avatar-img" style="position:absolute;" src="{{ asset("storage/avatar/" . $user->getPerson->avatar) }}"/>
 
                     <div>
 
-                        <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials($user->getPerson) }}</div>
+                        <div class="no-avatar" style="position:absolute;">{{ \App\Http\Traits\PersonTrait::getInitials($user->getPerson) }}</div>
 
                     </div>
 
-                @endif
+                </div>
 
                 <form method="POST" action="{{ route('person.avatar_submit') }}" novalidate enctype="multipart/form-data">
 
