@@ -44,8 +44,8 @@ $(function(){
         canvas = cropper.getCroppedCanvas({
             minWidth: 256,
             minHeight: 256,
-            maxWidth: 512,
-            maxHeight: 512,
+            maxWidth: 1024,
+            maxHeight: 1024,
         });
 
         canvas.toBlob(function(blob) {
@@ -72,6 +72,6 @@ $(function(){
                         }
                 });
             };
-        }, 'image/png', 1);
+        }, 'image/png', 0.5);
     })
 });
