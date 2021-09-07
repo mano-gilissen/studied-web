@@ -4,6 +4,7 @@
 
 namespace App\Http\Traits;
 
+use App\Http\Support\Func;
 use App\Http\Support\Model;
 use App\Models\Employee;
 use Illuminate\Support\Facades\Validator;
@@ -17,6 +18,28 @@ trait EmployeeTrait {
 
 
     public static function create(array $data, $request) {
+
+
+
+        $employee                                                       = new Employee;
+        $filename = '';
+
+        if ($request->hasFile('diploma') && $request->file('diploma')->isValid()) {
+
+            $extension                                                  = $request->file('diploma')->extension();
+            $filename                                                   = 'diploma_' . Func::generate_key() . '.' . $extension;
+
+            $request->file('diploma')->store('diplomas', $filename);
+
+            $employee->{Model::$EMPLOYEE_DIPLOMA}                       = $filename;
+            $employee->save();
+        }
+
+
+
+        dd($filename);
+
+
 
         self::validate($data);
 
@@ -44,12 +67,6 @@ trait EmployeeTrait {
         $employee->{Model::$EMPLOYEE_CAPACITY}                          = $data[Model::$EMPLOYEE_CAPACITY];
         $employee->{Model::$EMPLOYEE_IBAN}                              = $data[Model::$EMPLOYEE_IBAN];
 
-        $employee->save();
-
-
-        $file_name_original                                             = $request->diploma->getClientOriginalName();
-        $request->diploma->store('diploma', $file_name_original);
-        $employee->{Model::$EMPLOYEE_DIPLOMA}                           = $file_name_original;
         $employee->save();
 
 
