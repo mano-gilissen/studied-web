@@ -2,7 +2,7 @@
 
     @if($person->avatar)
 
-        <img src="{{ asset("storage/avatar/" . $person->avatar) }}"/>
+        <img src="{{ asset(\App\Http\Support\Files::LOCATION_AVATAR . $person->avatar) }}"/>
 
     @else
 

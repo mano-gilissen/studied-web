@@ -180,6 +180,10 @@ Route::post('/submit/evaluation/plan',              'EvaluationController@plan_s
 
 Route::post('/submit/evaluation/perform',           'EvaluationController@perform_submit')->name('evaluation.perform_submit')->middleware('auth', 'authorize');
 
+Route::post('/submit/activate',                     'UserController@activate_submit')->name('user.activate_submit');
+
+Route::post('/submit/avatar',                       'PersonController@avatar_submit')->name('person.avatar_submit');
+
 
 
 

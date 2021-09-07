@@ -11,6 +11,8 @@
             autocomplete                                = "{{ $autocomplete ?? 'off' }}"
             data-identifier                             = "{{ $identifier ?? '' }}"
 
+            @if($max ?? false) maxlength = "{{ $max }}" @endif
+
             @isset($required) required @endisset
 
             @if($locked ?? false) disabled @endif>

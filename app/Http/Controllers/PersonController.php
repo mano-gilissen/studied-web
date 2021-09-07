@@ -4,6 +4,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Support\Files;
 use App\Http\Support\Func;
 use App\Http\Support\Mail;
 use App\Http\Support\Route;
@@ -172,6 +173,27 @@ class PersonController extends Controller {
             Key::PAGE_ACTION                                        => 'Terug',
             Key::ICON                                               => 'check-circle-green.svg'
         ]);
+    }
+
+
+
+
+
+    public function avatar_submit(Request $request) {
+
+        $user                                                       = Auth::user();
+
+        $image_parts                                                = explode(";base64,", $request->image);
+        // $image_type_aux                                             = explode("image/", $image_parts[0]);
+        $image_base64                                               = base64_decode($image_parts[1]);
+        $file_name                                                  = "avatar_" . $user->{Model::$BASE_ID} . "_" . time() . ".png";
+
+        file_put_contents(public_path() . Files::LOCATION_AVATAR . $file_name, $image_base64);
+
+        $user->{Model::$PERSON_AVATAR}                              = $file_name;
+        $user->save();
+
+        return response()->json(['file_name' => $file_name]);
     }
 
 

@@ -10,6 +10,12 @@ class Files {
 
 
 
+    const
+
+        LOCATION_AVATAR                 = "storage/avatar/";
+
+
+
     public static function storeFile($request, $type, $id, $file = null) {
 
         $filename                                               = '';

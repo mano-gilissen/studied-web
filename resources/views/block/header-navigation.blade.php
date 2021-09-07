@@ -1,10 +1,18 @@
-@if($page_back ?? false)
+@if($navigation ?? true)
 
-    <img class="back" id="button-back" src="/images_app/back.svg" onclick="@if($back_route ?? false)  window.location.href='{{ route($back_route) }}'; @else window.history.back(); @endif"/>
+    @if($page_back ?? false)
+
+        <img class="back" id="button-back" src="/images_app/back.svg" onclick="@if($back_route ?? false)  window.location.href='{{ route($back_route) }}'; @else window.history.back(); @endif"/>
+
+    @else
+
+        <img class="menu" id="button-menu" src="/images_app/menu.svg"/>
+
+    @endif
 
 @else
 
-    <img class="menu" id="button-menu" src="/images_app/menu.svg"/>
+    <div id="button-none"></div>
 
 @endif
 

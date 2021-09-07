@@ -23,6 +23,7 @@ class Key {
     const SINGLE                                = "single";
     const CURRENT                               = "current";
     const ICON                                  = "icon";
+    const NAVIGATION                            = "navigation";
 
     const AUTOCOMPLETE_DATA                     = "ac_data_";
     const AUTOCOMPLETE_ADDITIONAL               = "ac_additional_";

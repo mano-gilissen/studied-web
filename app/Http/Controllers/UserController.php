@@ -22,8 +22,17 @@ class UserController extends Controller {
 
     public function activate($secret) {
 
-        dd($secret);
+        $user                                               = User::where(Model::$USER_ACTIVATE_SECRET, $secret)->firstOrFail();
 
+
+
+        return view(Views::PROFILE, [
+
+            Model::$USER                                    => $user,
+
+            Key::PAGE_TITLE                                 =>'Activeren',
+            Key::NAVIGATION                                 => false,
+        ]);
     }
 
 
