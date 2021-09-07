@@ -2,7 +2,7 @@ $(function(){
 
     var section_upload                                  = $('#avatar-section-upload');
     var section_crop                                    = $('#avatar-section-crop');
-    var avatar_img                                      = $('avatar-img');
+    var avatar_img                                      = $('#avatar-img');
     var image                                           = document.getElementById('sample_image');
 
     var cropper;
@@ -66,10 +66,7 @@ $(function(){
                     },
                     success:
                         function(result) {
-                            console.log(result.file_name);
-                            console.log("/storage/avatar/" + result.file_name);
-                            avatar_src                  = "/storage/avatar/" + result.file_name;
-                            avatar_img                  .attr("src", avatar_src);
+                            avatar_img                  .attr("src", "/storage/avatar/" + result.file_name);
                             section_crop                .hide();
                             section_upload              .show();
                         }
