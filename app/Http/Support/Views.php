@@ -45,6 +45,7 @@ class Views {
     const WEBSITE_ARTICLE                       = "website.article";
 
     const LAB                                   = "lab";
+    const FEEDBACK                              = "feedback";
     const LANDING                               = "landing";
 
 
