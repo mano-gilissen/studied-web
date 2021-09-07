@@ -67,10 +67,13 @@ $(function(){
                     },
                     success:
                         function(result) {
+
                             avatar_img                  .attr("src", "/storage/avatar/" + result.file_name);
                             avatar_img                  .attr("opacity", 1);
                             section_crop                .hide();
                             section_upload              .show();
+
+                            document.getElementById("avatar-form").reset();
                         }
                 });
             };

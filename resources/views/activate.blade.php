@@ -72,7 +72,7 @@
 
                 </div>
 
-                <form method="POST" action="{{ route('person.avatar_submit') }}" novalidate enctype="multipart/form-data">
+                <form method="POST" id="avatar-form" action="{{ route('person.avatar_submit') }}" novalidate enctype="multipart/form-data">
 
                     @csrf
 
