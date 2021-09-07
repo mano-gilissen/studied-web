@@ -7,6 +7,7 @@ namespace App\Http\Support;
 use App\Http\Mail\User_Activate_Customer;
 use App\Http\Mail\User_Activate_Employee;
 use App\Http\Mail\User_Activate_Student;
+use Illuminate\Support\Facades\Mail;
 
 
 
@@ -23,7 +24,7 @@ class Mail {
         $user->{Model::$USER_ACTIVATE_SECRET}               = Func::generate_secret();
         $user->save();
 
-        Mail::to($recipient)->send($mail);
+        Illuminate\Support\Facades\Mail::to($recipient)->send($mail);
     }
 
 
@@ -35,7 +36,7 @@ class Mail {
         $user->{Model::$USER_ACTIVATE_SECRET}               = Func::generate_secret();
         $user->save();
 
-        Mail::to($recipient)->send($mail);
+        Illuminate\Support\Facades\Mail::to($recipient)->send($mail);
     }
 
 
@@ -47,7 +48,7 @@ class Mail {
         $user->{Model::$USER_ACTIVATE_SECRET}               = Func::generate_secret();
         $user->save();
 
-        Mail::to($recipient)->send($mail);
+        Illuminate\Support\Facades\Mail::to($recipient)->send($mail);
     }
 
 
