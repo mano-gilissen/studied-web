@@ -26,3 +26,9 @@ html, body {
     width:                              192px;
     border-radius:                      96px;
 }
+
+
+
+input[type="file"] {
+    display:                            none;
+}

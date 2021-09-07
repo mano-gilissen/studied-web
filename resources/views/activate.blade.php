@@ -70,7 +70,7 @@
 
                     @csrf
 
-                    <input id="avatar-upload" type="file" name="image" accept="image/*" type="hidden"/>
+                    <input id="avatar-upload" type="file" name="image" accept="image/*"/>
 
                     <label for="avatar-upload" class="button grey">Uploaden</label>
 
