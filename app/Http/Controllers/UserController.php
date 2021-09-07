@@ -24,9 +24,7 @@ class UserController extends Controller {
 
         $user                                               = User::where(Model::$USER_ACTIVATE_SECRET, $secret)->firstOrFail();
 
-
-
-        return view(Views::PROFILE, [
+        return view(Views::ACTIVATE, [
 
             Model::$USER                                    => $user,
 

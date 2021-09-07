@@ -46,6 +46,7 @@ class Views {
 
     const LAB                                   = "lab";
     const FEEDBACK                              = "feedback";
+    const ACTIVATE                              = "activate";
     const LANDING                               = "landing";
 
 
