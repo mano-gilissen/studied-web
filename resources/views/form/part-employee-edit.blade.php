@@ -38,7 +38,7 @@
 
 <div class="title">{{ __('Bestanden') }}</div>
 
-@include('form.field-file', ['file' => 'iban', 'tag' => 'IBAN'])
+@include('form.field-file', ['file' => 'cv', 'tag' => 'CV'])
 
 @include('form.field-file', ['file' => 'diploma', 'tag' => 'Diploma'])
 
