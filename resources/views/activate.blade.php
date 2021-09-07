@@ -56,7 +56,7 @@
 
                 @if($user->getPerson->avatar)
 
-                    <img src="{{ asset("storage/avatar/" . $user->getPerson->avatar) }}"/>
+                    <img id="avatar-img" src="{{ asset("storage/avatar/" . $user->getPerson->avatar) }}"/>
 
                 @else
 

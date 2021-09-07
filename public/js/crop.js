@@ -1,7 +1,8 @@
 $(function(){
 
-    var $section_upload                                 = $('#avatar-section-upload');
-    var $section_crop                                   = $('#avatar-section-crop');
+    var section_upload                                  = $('#avatar-section-upload');
+    var section_crop                                    = $('#avatar-section-crop');
+    var avatar_img                                      = $('avatar-img');
     var image                                           = document.getElementById('sample_image');
 
     var cropper;
@@ -13,8 +14,8 @@ $(function(){
         var done = function(url) {
 
             image.src                                   = url;
-            $section_crop                               .show();
-            $section_upload                             .hide();
+            section_crop                                .show();
+            section_upload                              .hide();
 
             cropper = new Cropper(image, {
 
@@ -56,13 +57,7 @@ $(function(){
             reader.onloadend = function() {
 
                 var base64data                          = reader.result;
-                           /*
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN':                 "{{ csrf_token() }}"
-                    }
-                });
-                       */
+
                 $.ajax({
                     url:                                '/submit/avatar',
                     method:                             'POST',
@@ -71,7 +66,9 @@ $(function(){
                     },
                     success:
                         function(result) {
-                            console.log('Filename: ' + result.file_name);
+                            avatar_img                 .attr("src", "/storage/avatar/" + result.file_name);
+                            section_crop               .hide();
+                            section_upload             .show();
                         }
                 });
             };
