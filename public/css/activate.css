@@ -9,3 +9,20 @@ html, body {
     animation-name:                     unset;
     opacity:                            unset;
 }
+
+
+
+#avatar-wrap {
+    height:                             192px;
+    width:                              192px;
+    padding-bottom:                     216px;
+    margin:                             0 auto;
+}
+
+#avatar-img,
+.no-avatar {
+    position:                           absolute;
+    height:                             192px;
+    width:                              192px;
+    border-radius:                      96px;
+}

@@ -54,9 +54,7 @@
 
             <div id="avatar-section-upload">
 
-                <div>
-
-                    <img id="avatar-img" style="position:absolute;" src="{{ asset("storage/avatar/" . $user->getPerson->avatar) }}"/>
+                <div id="avatar-wrap">
 
                     <div>
 
@@ -64,13 +62,15 @@
 
                     </div>
 
+                    <img id="avatar-img" style="position:absolute;" src="{{ asset("storage/avatar/" . $user->getPerson->avatar) }}"/>
+
                 </div>
 
                 <form method="POST" action="{{ route('person.avatar_submit') }}" novalidate enctype="multipart/form-data">
 
                     @csrf
 
-                    <input id="avatar-upload" type="file" name="image" accept="image/*"/>
+                    <input id="avatar-upload" type="file" name="image" accept="image/*" type="hidden"/>
 
                     <label for="avatar-upload" class="button grey">Uploaden</label>
 
