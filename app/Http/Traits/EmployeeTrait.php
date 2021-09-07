@@ -73,6 +73,10 @@ trait EmployeeTrait {
 
 
 
+        $employee->save();
+
+
+
         $file_name_cv                                                   = Files::storeFile($request, Model::$EMPLOYEE_CV, $employee->{Model::$BASE_ID});
         $employee->{Model::$EMPLOYEE_CV}                                = strlen($file_name_cv) > 0 ? $file_name_cv : $employee->{Model::$EMPLOYEE_CV};
 
