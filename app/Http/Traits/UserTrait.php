@@ -14,6 +14,7 @@ use App\Models\Evaluation;
 use App\Models\User;
 use Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
 
