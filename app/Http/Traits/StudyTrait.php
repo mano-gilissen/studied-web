@@ -16,6 +16,8 @@ use App\Models\Report;
 use App\Models\Study;
 use App\Models\User;
 use Auth;
+use Illuminate\Support\Facades\Validator;
+
 
 
 trait StudyTrait {
