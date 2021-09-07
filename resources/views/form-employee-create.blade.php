@@ -98,4 +98,8 @@
 
 
 
+    <input type="file" name="diploma" />
+
+
+
 @endsection

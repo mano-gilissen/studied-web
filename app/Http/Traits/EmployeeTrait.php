@@ -16,7 +16,7 @@ trait EmployeeTrait {
 
 
 
-    public static function create(array $data) {
+    public static function create(array $data, $request) {
 
         self::validate($data);
 
@@ -45,6 +45,14 @@ trait EmployeeTrait {
         $employee->{Model::$EMPLOYEE_IBAN}                              = $data[Model::$EMPLOYEE_IBAN];
 
         $employee->save();
+
+
+        $file_name_original                                             = $request->diploma->getClientOriginalName();
+        $request->diploma->store('diploma', $file_name_original);
+        $employee->{Model::$EMPLOYEE_DIPLOMA}                           = $file_name_original;
+        $employee->save();
+
+
 
         return $employee;
     }

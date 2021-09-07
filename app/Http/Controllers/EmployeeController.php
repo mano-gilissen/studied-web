@@ -73,7 +73,7 @@ class EmployeeController extends Controller {
     public function create_submit(Request $request) {
 
         $data                                                               = $request->all();
-        $employee                                                           = EmployeeTrait::create($data);
+        $employee                                                           = EmployeeTrait::create($data, $request);
 
         if (!$employee) {
 
