@@ -182,16 +182,16 @@ class PersonController extends Controller {
     public function avatar_submit(Request $request) {
 
         $user                                                       = Auth::user();
+        $person                                                     = $user->getPerson;
 
         $image_parts                                                = explode(";base64,", $request->image);
-        // $image_type_aux                                             = explode("image/", $image_parts[0]);
         $image_base64                                               = base64_decode($image_parts[1]);
         $file_name                                                  = "avatar_" . $user->{Model::$BASE_ID} . "_" . time() . ".png";
 
         file_put_contents(public_path() . Files::LOCATION_AVATAR . $file_name, $image_base64);
 
-        $user->{Model::$PERSON_AVATAR}                              = $file_name;
-        $user->save();
+        $person->{Model::$PERSON_AVATAR}                            = $file_name;
+        $person->save();
 
         return response()->json(['file_name' => $file_name]);
     }
