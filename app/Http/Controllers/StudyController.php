@@ -92,6 +92,7 @@ class StudyController extends Controller {
         $data[Key::PAGE_TITLE]                                              = 'Les inplannen';
         $data[Key::SUBMIT_ACTION]                                           = 'Inplannen';
         $data[Key::SUBMIT_ROUTE]                                            = 'study.plan_submit';
+        $data[Key::BACK_ROUTE]                                              = 'study.list';
 
 
 
