@@ -83,6 +83,15 @@ html {
     background:                         #FF6F6F;
 }
 
+.button.green {
+    color:                              white;
+    background:                         #4CD976;
+}
+
+.button.green:hover {
+    background:                         #6CE08F;
+}
+
 .button.large {
     height:                             32px;
     padding:                            0 16px 2px;
