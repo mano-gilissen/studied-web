@@ -68,9 +68,10 @@ $(function(){
                         function(result) {
                             console.log(result.file_name);
                             console.log("/storage/avatar/" + result.file_name);
-                            avatar_img                 .attr("src", "/storage/avatar/" + result.file_name);
-                            section_crop               .hide();
-                            section_upload             .show();
+                            avatar_src                  = "/storage/avatar/" + result.file_name;
+                            avatar_img                  .attr("src", avatar_src);
+                            section_crop                .hide();
+                            section_upload              .show();
                         }
                 });
             };
