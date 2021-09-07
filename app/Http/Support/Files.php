@@ -12,7 +12,7 @@ class Files {
 
     const
 
-        LOCATION_AVATAR                 = "storage/avatar/";
+        LOCATION_AVATAR                 = "/storage/avatar/";
 
 
 
