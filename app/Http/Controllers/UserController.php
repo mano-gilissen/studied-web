@@ -12,6 +12,7 @@ use App\Models\User;
 use App\Http\Support\Views;
 use App\Http\Support\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Auth;
 
 
