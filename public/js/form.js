@@ -83,6 +83,8 @@ function study_agreements_load(host) {
 
     $('.agreements *')                          .off();
     $('.agreements')                            .animate({opacity: 0}, 200);
+    $('#button-submit')                         .attr("disabled", true);
+    $('#button-submit')                         .css('opacity', '0.5');
 
     setTimeout(function(){
 
@@ -240,6 +242,19 @@ function study_agreement_toggle_selected(id) {
             });
         }
     }
+
+    if ($(CLASS_AGREEMENT + '.' + ATTR_SELECTED).length > 0) {
+
+        $('#button-submit')                     .removeAttr("disabled");
+        $('#button-submit')                     .css('opacity', '1');
+
+
+    } else {
+
+        $('#button-submit')                     .attr("disabled", true);
+        $('#button-submit')                     .css('opacity', '0.5');
+    }
+
 
     study_agreements_render()
 }
