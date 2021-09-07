@@ -60,11 +60,11 @@
 
     <div class="title">{{ __('Educatie huidig') }}</div>
 
-    @include('form.field-input', ['id' => 'education_current', 'tag' => 'Niveau'])
+    @include('form.field-input', ['id' => 'education_current', 'tag' => 'Niveau', 'value' => old('education_current')])
 
-    @include('form.field-input', ['id' => 'school_current', 'tag' => 'School'])
+    @include('form.field-input', ['id' => 'school_current', 'tag' => 'School', 'value' => old('school_current')])
 
-    @include('form.field-input', ['id' => 'profile_current', 'tag' => 'Profiel'])
+    @include('form.field-input', ['id' => 'profile_current', 'tag' => 'Profiel', 'value' => old('profile_current')])
 
     <div class="seperator"></div>
 
@@ -73,11 +73,11 @@
 
     <div class="title">{{ __('Educatie middelbare') }}</div>
 
-    @include('form.field-input', ['id' => 'education_middelbare', 'tag' => 'Niveau'])
+    @include('form.field-input', ['id' => 'education_middelbare', 'tag' => 'Niveau', 'value' => old('education_middelbare')])
 
-    @include('form.field-input', ['id' => 'school_middelbare', 'tag' => 'School'])
+    @include('form.field-input', ['id' => 'school_middelbare', 'tag' => 'School', 'value' => old('school_middelbare')])
 
-    @include('form.field-input', ['id' => 'profile_middelbare', 'tag' => 'Profiel'])
+    @include('form.field-input', ['id' => 'profile_middelbare', 'tag' => 'Profiel', 'value' => old('profile_middelbare')])
 
     <div class="seperator"></div>
 
@@ -86,13 +86,13 @@
 
     <div class="title">{{ __('Arbeidgegevens') }}</div>
 
-    @include('form.field-input', ['id' => 'motivation', 'tag' => 'Motivatie', 'placeholder' => 'Waarom wil deze persoon bij Studied werken?'])
+    @include('form.field-input', ['id' => 'motivation', 'tag' => 'Motivatie', 'placeholder' => 'Waarom wil deze persoon bij Studied werken?', 'value' => old('motivation')])
 
-    @include('form.field-input', ['id' => 'refer', 'tag' => 'Referentie', 'placeholder' => 'Hoe komt deze persoon bij Studied terecht?'])
+    @include('form.field-input', ['id' => 'refer', 'tag' => 'Referentie', 'placeholder' => 'Hoe komt deze persoon bij Studied terecht?', 'value' => old('refer')])
 
-    @include('form.field-input', ['id' => 'capacity', 'tag' => 'Werkcapaciteit', 'placeholder' => 'Uren per week']) <!-- TODO: NUMERICAL ONLY -->
+    @include('form.field-input', ['id' => 'capacity', 'tag' => 'Werkcapaciteit', 'type' => 'number', 'placeholder' => 'Uren per week', 'value' => old('capacity')])
 
-    @include('form.field-input', ['id' => 'iban', 'tag' => 'Rekeningnummer (IBAN)'])
+    @include('form.field-input', ['id' => 'iban', 'tag' => 'Rekeningnummer (IBAN)', 'value' => old('iban')])
 
     <div class="seperator"></div>
 
