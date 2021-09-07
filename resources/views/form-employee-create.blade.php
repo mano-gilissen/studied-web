@@ -12,7 +12,7 @@
 
     @include('form.field-input', ['id' => 'first_name', 'tag' => 'Voornaam', 'required' => true, 'value' => old('first_name')])
 
-    @include('form.field-input', ['id' => 'middle_name', 'tag' => 'Tussenvoegsel', 'value' => old('middle_name'))
+    @include('form.field-input', ['id' => 'middle_name', 'tag' => 'Tussenvoegsel', 'value' => old('middle_name')])
 
     @include('form.field-input', ['id' => 'last_name', 'tag' => 'Achternaam', 'required' => true, 'value' => old('last_name')])
 
