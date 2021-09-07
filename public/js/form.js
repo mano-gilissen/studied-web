@@ -79,16 +79,16 @@ function study_agreements_load(host) {
 
     }
 
-    lastTriggerNoInput                          = host == HOST_NONE;
+    lastTriggerNoInput                              = host == HOST_NONE;
 
-    $('.agreements *')                          .off();
-    $('.agreements')                            .animate({opacity: 0}, 200);
+    $('.agreements *')                              .off();
+    $('.agreements')                                .animate({opacity: 0}, 200);
 
     setTimeout(function(){
 
         $('.agreements').load('/load/study/agreements', {
 
-            user:                               host
+            user:                                   host
 
         }).animate({opacity: 1}, 200);
 
@@ -99,10 +99,10 @@ function study_agreements_load(host) {
 
 function study_agreements_set_active(index) {
 
-    agreements_index_active                     = index == 0 ? 0 : agreements_index_active + index;
+    agreements_index_active                         = index == 0 ? 0 : agreements_index_active + index;
 
-    agreements                                  = $(CLASS_AGREEMENT);
-    agreements                                  .removeClass(ATTR_ACTIVE);
+    agreements                                      = $(CLASS_AGREEMENT);
+    agreements                                      .removeClass(ATTR_ACTIVE);
 
     switch (agreements.length) {
 
@@ -110,12 +110,12 @@ function study_agreements_set_active(index) {
             break;
 
         case 1:
-            agreements.first()                  .addClass(ATTR_ACTIVE);
+            agreements.first()                      .addClass(ATTR_ACTIVE);
             break;
 
         default:
 
-            agreement                           = agreements.get(agreements_index_active);
+            agreement                               = agreements.get(agreements_index_active);
 
             if (index != 0 && agreement.classList.contains(ATTR_DISABLED)) {
 
@@ -123,7 +123,7 @@ function study_agreements_set_active(index) {
 
             } else {
 
-                agreement                       .classList.add(ATTR_ACTIVE);
+                agreement                           .classList.add(ATTR_ACTIVE);
 
                 study_agreements_render(true);
 
@@ -137,16 +137,16 @@ function study_agreements_set_active(index) {
 
 function study_agreements_render(movement = false) {
 
-    buttons                                     = $(CLASS_BUTTON);
+    buttons                                         = $(CLASS_BUTTON);
 
-    button_previous                             = $(OBJECT_BUTTON_PREVIOUS);
-    button_next                                 = $(OBJECT_BUTTON_NEXT);
+    button_previous                                 = $(OBJECT_BUTTON_PREVIOUS);
+    button_next                                     = $(OBJECT_BUTTON_NEXT);
 
-    buttons                                     .removeClass(ATTR_VISIBLE);
-    buttons                                     .removeClass(ATTR_SOLO);
+    buttons                                         .removeClass(ATTR_VISIBLE);
+    buttons                                         .removeClass(ATTR_SOLO);
 
-    agreements_enabled                          = $(CLASS_AGREEMENT + ':not(.' + ATTR_DISABLED + ')');
-    agreements_enabled_index_active             = agreements_index_active;
+    agreements_enabled                              = $(CLASS_AGREEMENT + ':not(.' + ATTR_DISABLED + ')');
+    agreements_enabled_index_active                 = agreements_index_active;
 
     for (var x = 0; x < agreements_index_active; x++) {
 
@@ -177,27 +177,27 @@ function study_agreements_render(movement = false) {
         }
     }
 
-    var translate_position                      = 0;
+    var translate_position                          = 0;
 
     for (var i = 0; i < agreements_enabled_index_active; i++) {
 
-        translate_position                      += agreements_enabled[i].offsetWidth + SPACING_AGREEMENT;
+        translate_position                          += agreements_enabled[i].offsetWidth + SPACING_AGREEMENT;
 
     }
 
     if (!movement) {
 
-        $(OBJECT_AGREEMENTS)                    .css({"transition": "none"});
+        $(OBJECT_AGREEMENTS)                        .css({"transition": "none"});
 
     }
 
-    $(OBJECT_AGREEMENTS)                        .css({"transform": "translate(-" + translate_position + "px)"});
+    $(OBJECT_AGREEMENTS)                            .css({"transform": "translate(-" + translate_position + "px)"});
 
     if (!movement) {
 
         setTimeout(function(){
 
-            $(OBJECT_AGREEMENTS)                .css({"transition": "transform .4s ease"});
+            $(OBJECT_AGREEMENTS)                    .css({"transition": "transform .4s ease"});
 
         }, 400);
     }
@@ -207,34 +207,34 @@ function study_agreements_render(movement = false) {
 
 function study_agreement_toggle_selected(id) {
 
-    agreement                                   = $('#' + id);
+    agreement                                       = $('#' + id);
 
     if (agreement.hasClass(ATTR_ACTIVE)) {
 
         if (agreement.hasClass(ATTR_SELECTED)) {
 
-            agreement                           .removeClass(ATTR_SELECTED);
-            agreement.find('input')[0].value    = '';
+            agreement                               .removeClass(ATTR_SELECTED);
+            agreement.find('input')[0].value        = '';
 
             $(CLASS_AGREEMENT).each(function( index ) {
 
                 if ($(CLASS_AGREEMENT + '.' + ATTR_SELECTED).length == 0) {
 
-                    $(this)                     .removeClass(ATTR_DISABLED);
+                    $(this)                         .removeClass(ATTR_DISABLED);
 
                 }
             });
 
         } else {
 
-            agreement                           .addClass(ATTR_SELECTED);
-            agreement.find('input')[0].value    = agreement.attr('id');
+            agreement                               .addClass(ATTR_SELECTED);
+            agreement.find('input')[0].value        = agreement.attr('id');
 
             $(CLASS_AGREEMENT).each(function( index ) {
 
                 if ($(this).attr('data-subject') != agreement.attr('data-subject')) {
 
-                    $(this)                     .addClass(ATTR_DISABLED);
+                    $(this)                         .addClass(ATTR_DISABLED);
 
                 }
             });
@@ -243,14 +243,16 @@ function study_agreement_toggle_selected(id) {
 
     if ($(CLASS_AGREEMENT + '.' + ATTR_SELECTED).length > 0) {
 
-        $('#button-submit')                     .removeAttr("disabled");
-        $('#button-submit')                     .css('opacity', '1');
+        $('#button-submit')                         .removeAttr("disabled");
+        $('#button-submit')                         .css('opacity', '1');
+        $('#button-submit')                         .css('pointer-events', 'unset');
 
 
     } else {
 
-        $('#button-submit')                     .attr("disabled", true);
-        $('#button-submit')                     .css('opacity', '0.5');
+        $('#button-submit')                         .attr("disabled", true);
+        $('#button-submit')                         .css('opacity', '0.5');
+        $('#button-submit')                         .css('pointer-events', 'none');
     }
 
 

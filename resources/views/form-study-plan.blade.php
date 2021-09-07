@@ -59,6 +59,7 @@
 
             $('#button-submit')                     .attr("disabled", true);
             $('#button-submit')                     .css('opacity', '0.5');
+            $('#button-submit')                     .css('pointer-events', 'none');
 
         });
 
