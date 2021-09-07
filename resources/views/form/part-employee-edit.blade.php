@@ -38,12 +38,6 @@
 
 <div class="title">{{ __('Bestanden') }}</div>
 
-<div class="field">
-
-    <div class="name">Diploma</div>
-
-    <input type="file" name="diploma" />
-
-</div>
+@include('form.field-file', ['file' => 'diploma', 'tag' => 'Diploma'])
 
 <div class="seperator"></div>

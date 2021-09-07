@@ -63,6 +63,10 @@ html, body {
     display:                            flex;
 }
 
+.field.file {
+    align-items:                        center;
+}
+
 .field .name,
 .field .note {
     display:                            flex;
