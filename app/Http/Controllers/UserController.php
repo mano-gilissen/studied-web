@@ -24,7 +24,7 @@ class UserController extends Controller {
 
         if (Auth::check()) {
 
-            abort(403);
+            Auth::logout();
 
         }
 
