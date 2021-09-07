@@ -86,7 +86,7 @@
 
             <div id="avatar-section-crop" style="display: none;">
 
-                <div class="img-container" style="width:400px;height:400px">
+                <div class="img-container">
 
                     <img src="" id="sample_image" />
 

@@ -182,8 +182,6 @@ class PersonController extends Controller {
 
     public function avatar_submit(Request $request) {
 
-        self::avatar_validate($request->all());
-
         $user                                                       = User::findOrFail($request->{Model::$USER});
         $person                                                     = $user->getPerson;
 
@@ -197,22 +195,6 @@ class PersonController extends Controller {
         $person->save();
 
         return response()->json(['file_name' => $file_name]);
-    }
-
-
-
-    public function avatar_validate($data) {
-
-        $rules                                                      = [];
-        $rules['avatar']                                            = ['required', 'mimes:jpeg,jpg,png,gif', 'max:30'];
-
-        $messages                                                   = [];
-        $messages['avatar.max']                                     = 'Deze afbeelding is te groot (Max 10Mb), probeer het opnieuw.';
-        $messages['avatar.mimes']                                   = 'De avatar moet een afbeelding zijn. Probeer het opnieuw.';
-
-        $validator = Validator::make($data, $rules, $messages);
-
-        $validator->validate();
     }
 
 
