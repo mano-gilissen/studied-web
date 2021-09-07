@@ -16,19 +16,19 @@
 
         <div class="content">
 
-            <p style="display: flex;align-items: center">
+            <div style="display: flex;align-items: center">
 
                 <div class="title">{{ $page_title }}</div>
-
-                @if($page_message ?? false)
-
-                    <p class="message">{{ $page_message }}</p>
-
-                @endif
 
                 <img src="/images_app/{{ $icon }}">
 
             </div>
+
+            @if($page_message ?? false)
+
+                <p class="message">{{ $page_message }}</p>
+
+            @endif
 
             <div class="button" onclick="window.location.href='{{ $page_next }}'">{{ $page_action }}</div>
 
