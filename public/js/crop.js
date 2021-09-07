@@ -44,8 +44,8 @@ $(function(){
         canvas = cropper.getCroppedCanvas({
             minWidth: 256,
             minHeight: 256,
-            maxWidth: 1024,
-            maxHeight: 1024,
+            maxWidth: 512,
+            maxHeight: 512,
         });
 
         canvas.toBlob(function(blob) {
