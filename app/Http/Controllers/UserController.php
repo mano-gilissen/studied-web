@@ -22,6 +22,12 @@ class UserController extends Controller {
 
     public function activate($secret) {
 
+        if (Auth::check()) {
+
+            abort(403);
+
+        }
+
         $user                                               = User::where(Model::$USER_ACTIVATE_SECRET, $secret)->firstOrFail();
 
         return view(Views::ACTIVATE, [
