@@ -330,7 +330,8 @@ class Model {
         $SUBJECT                                        = 'subject',
 
         $SUBJECT_CODE                                   = 'code',
-        $SUBJECT_NAME                                   = 'name';
+        $SUBJECT_NAME                                   = 'name',
+        $SUBJECT_BANNER                                 = 'banner';
 
 
 
