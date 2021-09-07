@@ -85,7 +85,7 @@
 
                                 <div class="button green icon">
 
-                                    <img class="icon" src="/images_app/email-white.svg">
+                                    <img class="icon" src="/images_app/email-white1.svg">
 
                                     <div class="text">Activeren</div>
 
