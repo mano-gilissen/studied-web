@@ -11,6 +11,7 @@ class Key {
 
 
     const PAGE_TITLE                            = "page_title";
+    const PAGE_MESSAGE                          = "page_message";
     const PAGE_BACK                             = "page_back";
     const PAGE_NEXT                             = "page_next";
     const PAGE_ACTION                           = "page_action";

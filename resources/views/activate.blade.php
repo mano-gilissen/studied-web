@@ -104,7 +104,7 @@
 
                 @include('form.field-input', ['id' => 'password', 'type' => 'password', 'tag' => 'Wachtwoord', 'placeholder' => 'Kies een wachtwoord', 'required' => true, 'max' => 30])
 
-                @include('form.field-input', ['id' => 'password_check', 'type' => 'password', 'tag' => 'Wachtwoord bevestigen', 'placeholder' => 'Typ je wachtwoord opnieuw', 'required' => true, 'max' => 30])
+                @include('form.field-input', ['id' => 'password_confirmation', 'type' => 'password', 'tag' => 'Wachtwoord bevestigen', 'placeholder' => 'Typ je wachtwoord opnieuw', 'required' => true, 'max' => 30])
 
                 <button class="button" id="button-submit" type="submit">
 

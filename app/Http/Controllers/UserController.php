@@ -41,6 +41,46 @@ class UserController extends Controller {
 
 
 
+    public function credentials_submit(Request $request) {
+
+        $user                               = null;
+        $data                               = $request->all();
+
+        self::activate_validate($data);
+
+        UserTrait::activate($data, $user);
+
+        Auth::guard()->login($user);
+
+        return view(Views::FEEDBACK, [
+
+            Key::PAGE_TITLE                                         => 'Account geactiveerd',
+            Key::PAGE_MESSAGE                                       => 'Gefeliciteerd! Je Studied webportaal account is geactiveerd en klaar voor gebruik.',
+            Key::PAGE_NEXT                                          => route('person.self'),
+            Key::PAGE_ACTION                                        => 'Naar mijn profiel',
+            Key::ICON                                               => 'check-circle-green.svg'
+        ]);
+    }
+
+
+
+    public function activate_validate(array $data) {
+
+        $messages = [
+            'password.required'             => 'Vul een wachtwoord in.',
+            'password.min'                  => 'Het wachtwoord moet uit minimaal 8 characters bestaan.',
+            'password.confirmed'            => 'Het wachtwoord komt niet overeen, probeer het opnieuw.'
+        ];
+
+        $validator = Validator::make($data, [
+            'password'                      => ['bail', 'required', 'string', 'min:8', 'confirmed'],
+        ], $messages);
+
+        $validator->validate();
+    }
+
+
+
     public function form_study_agreements_load(Request $request) {
 
         $user_id                                            = $request->input(Model::$USER, null);

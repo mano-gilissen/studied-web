@@ -103,6 +103,16 @@ trait UserTrait {
 
 
 
+    public static function activate($data, &$user) {
+
+        $user->{Model::$USER_PASSWORD}                                      = Hash::make($data['password']);
+        $user->{Model::$USER_STATUS}                                        = UserTrait::$STATUS_ACTIVE;
+
+        $user->save();
+    }
+
+
+
 
 
     public static function getRoleName($user, $public = false) {

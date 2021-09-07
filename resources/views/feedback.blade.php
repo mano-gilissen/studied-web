@@ -16,9 +16,15 @@
 
         <div class="content">
 
-            <div style="display: flex;align-items: center">
+            <p style="display: flex;align-items: center">
 
                 <div class="title">{{ $page_title }}</div>
+
+                @if($page_message ?? false)
+
+                    <p class="message">{{ $page_message }}</p>
+
+                @endif
 
                 <img src="/images_app/{{ $icon }}">
 

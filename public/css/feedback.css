@@ -22,3 +22,8 @@
 .content .button {
     margin:                             40px auto 0;
 }
+
+.content .message {
+    width:                              200px;
+    margin:                             40px auto 0;
+}
