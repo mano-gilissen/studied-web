@@ -16,7 +16,7 @@
 
         <div class="content">
 
-            <div class="title">{{ $title }}</div>
+            <div class="title">{{ $page_title }}</div>
 
             <img src="/images_app/{{ $icon }}">
 
