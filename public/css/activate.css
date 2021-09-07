@@ -6,6 +6,9 @@ html, body {
 
 
 #form {
+    width:                              unset;
+    margin:                             0;
+    padding:                            96px 96px 96px 0;
     animation-name:                     unset;
     opacity:                            unset;
 }
@@ -15,7 +18,7 @@ html, body {
 #avatar-wrap {
     height:                             192px;
     width:                              192px;
-    padding-bottom:                     216px;
+    padding-bottom:                     208px;
     margin:                             0 auto;
 }
 
@@ -26,6 +29,18 @@ html, body {
     width:                              192px;
     border-radius:                      96px;
     font-size:                          40px;
+}
+
+
+
+#avatar-upload-button {
+    margin:                             0 auto 48px;
+}
+
+
+
+#button-submit {
+    margin:                             48px 0 0 auto;
 }
 
 
