@@ -87,7 +87,8 @@ trait EmployeeTrait {
 
         $rules                                                          = [];
 
-        // TODO: ADD RULES
+        $rules[Model::$EMPLOYEE_CAPACITY]                               = "required|numeric";
+        $rules[Model::$EMPLOYEE_IBAN]                                   = "max:20";
 
         $validator                                                      = Validator::make($data, $rules, BaseTrait::getValidationMessages());
 
