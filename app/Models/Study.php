@@ -53,6 +53,12 @@ class Study extends ModelClass {
 
     public function getHost() {
 
+        echo($this->getHost_Type());
+
+        if ($this->getHost_Type() == null) {
+            dd("aa " . $this->id);
+        }
+
         switch ($this->getHost_Type()) {
 
             case Model::$USER:
