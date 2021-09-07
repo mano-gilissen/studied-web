@@ -8,15 +8,15 @@
 
     <div class="title">{{ __('Persoonsgegevens') }}</div>
 
-    @include('form.field-input', ['id' => 'prefix', 'tag' => 'Titel', 'placeholder' => 'Selecteer..', 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'reject_other' => true])
+    @include('form.field-input', ['id' => 'prefix', 'tag' => 'Titel', 'placeholder' => 'Selecteer..', 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'reject_other' => true, 'value' => old('prefix')])
 
-    @include('form.field-input', ['id' => 'first_name', 'tag' => 'Voornaam', 'required' => true])
+    @include('form.field-input', ['id' => 'first_name', 'tag' => 'Voornaam', 'required' => true, 'value' => old('first_name')])
 
-    @include('form.field-input', ['id' => 'middle_name', 'tag' => 'Tussenvoegsel'])
+    @include('form.field-input', ['id' => 'middle_name', 'tag' => 'Tussenvoegsel', 'value' => old('middle_name'))
 
-    @include('form.field-input', ['id' => 'last_name', 'tag' => 'Achternaam', 'required' => true])
+    @include('form.field-input', ['id' => 'last_name', 'tag' => 'Achternaam', 'required' => true, 'value' => old('last_name')])
 
-    @include('form.field-input', ['id' => 'birth_date', 'type' => 'date', 'tag' => 'Geboortedatum', 'placeholder' => 'Kies een datum', 'required' => true])
+    @include('form.field-input', ['id' => 'birth_date', 'type' => 'date', 'tag' => 'Geboortedatum', 'placeholder' => 'Kies een datum', 'required' => true, 'value' => old('birth_date')])
 
     <div class="seperator"></div>
 
@@ -24,9 +24,9 @@
 
     <div class="title">{{ __('Contact- en inloggegevens') }}</div>
 
-    @include('form.field-input', ['id' => 'email', 'type' => 'email', 'tag' => 'Email adres', 'required' => true])
+    @include('form.field-input', ['id' => 'email', 'type' => 'email', 'tag' => 'Email adres', 'required' => true, 'value' => old('email')])
 
-    @include('form.field-input', ['id' => 'phone', 'type' => 'phone', 'tag' => 'Telefoonnummer', 'placeholder' => 'Telefoonnummer met landcode'])
+    @include('form.field-input', ['id' => 'phone', 'type' => 'phone', 'tag' => 'Telefoonnummer', 'placeholder' => 'Telefoonnummer met landcode', 'value' => old('phone')])
 
     <div class="seperator"></div>
 
@@ -34,25 +34,25 @@
 
     <div class="title">{{ __('Woonadres') }}</div>
 
-    @include('form.field-input', ['id' => 'street', 'tag' => 'Straatnaam', 'required' => true])
+    @include('form.field-input', ['id' => 'street', 'tag' => 'Straatnaam', 'required' => true, 'value' => old('street')])
 
     <div class="field">
 
         <div class="name">Huisnummer</div>
 
-        @include('form.box-input', ['id' => 'number', 'required' => true, 'size' => 'width-third'])
+        @include('form.box-input', ['id' => 'number', 'required' => true, 'size' => 'width-third', 'value' => old('number')])
 
         <div class="note width-third">Toevoeging</div>
 
-        @include('form.box-input', ['id' => 'addition', 'size' => 'width-third'])
+        @include('form.box-input', ['id' => 'addition', 'size' => 'width-third', 'value' => old('addition')])
 
     </div>
 
-    @include('form.field-input', ['id' => 'zipcode', 'tag' => 'Postcode', 'required' => true])
+    @include('form.field-input', ['id' => 'zipcode', 'tag' => 'Postcode', 'required' => true, 'value' => old('zipcode')])
 
-    @include('form.field-input', ['id' => 'city', 'tag' => 'Stad', 'required' => true])
+    @include('form.field-input', ['id' => 'city', 'tag' => 'Stad', 'required' => true, 'value' => old('city')])
 
-    @include('form.field-input', ['id' => 'country', 'tag' => 'Land', 'required' => true])
+    @include('form.field-input', ['id' => 'country', 'tag' => 'Land', 'required' => true, 'value' => old('country')])
 
     <div class="seperator"></div>
 
@@ -100,7 +100,7 @@
 
     <div class="title">{{ __('Bestanden') }}</div>
 
-    @include('form.field-file', ['file' => 'iban', 'tag' => 'IBAN'])
+    @include('form.field-file', ['file' => 'cv', 'tag' => 'CV'])
 
     @include('form.field-file', ['file' => 'diploma', 'tag' => 'Diploma'])
 
