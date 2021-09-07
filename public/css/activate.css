@@ -42,14 +42,12 @@ html, body {
     margin:                             0 auto 16px;
 }
 
-
-
-#button-submit {
-    margin:                             48px 0 0 auto;
+input[type="file"] {
+    display:                            none;
 }
 
 
 
-input[type="file"] {
-    display:                            none;
+#button-submit {
+    margin:                             48px 0 0 auto;
 }
