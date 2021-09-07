@@ -83,13 +83,17 @@
                             @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
                             @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
 
-                                <div class="button green icon" onclick="window.location.href='{{ route('person.activate', [\App\Http\Support\Model::$PERSON_SLUG => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">
+                                @if($person->getUser->{\App\Http\Support\Model::$USER_STATUS} == \App\Http\Traits\UserTrait::$STATUS_INTAKE)
 
-                                    <img class="icon" src="/images_app/contact-white.svg">
+                                    <div class="button green icon" onclick="window.location.href='{{ route('person.activate', [\App\Http\Support\Model::$PERSON_SLUG => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">
 
-                                    <div class="text">Activeren</div>
+                                        <img class="icon" src="/images_app/contact-white.svg">
 
-                                </div>
+                                        <div class="text">Activeren</div>
+
+                                    </div>
+
+                                @endif
 
                                 <div class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_HOST => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">
 
