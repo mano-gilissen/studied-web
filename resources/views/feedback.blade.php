@@ -16,7 +16,7 @@
 
         <div class="content">
 
-            <div style="display: flex;align-items: center">
+            <div class="title-wrap">
 
                 <div class="title">{{ $page_title }}</div>
 

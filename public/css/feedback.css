@@ -13,6 +13,12 @@
     display:                            grid;
 }
 
+.content .title-wrap {
+    display:                            flex;
+    align-items:                        center;
+    margin:                             0 auto;
+}
+
 .content img {
     width:                              24px;
     height:                             24px;
@@ -24,6 +30,7 @@
 }
 
 .content .message {
-    width:                              200px;
+    width:                              324px;
     margin:                             40px auto 0;
+    text-align:                         center;
 }
