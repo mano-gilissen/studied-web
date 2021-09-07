@@ -34,7 +34,7 @@ class UserController extends Controller {
 
             Model::$USER                                    => $user,
 
-            Key::PAGE_TITLE                                 =>'Activeren',
+            Key::PAGE_TITLE                                 =>'Profiel activeren',
             Key::NAVIGATION                                 => false,
         ]);
     }

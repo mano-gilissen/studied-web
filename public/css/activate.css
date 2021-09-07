@@ -8,7 +8,7 @@ html, body {
 #form {
     width:                              unset;
     margin:                             0;
-    padding:                            96px 96px 96px 0;
+    padding:                            112px 96px 0 96px;
     animation-name:                     unset;
     opacity:                            unset;
 }
