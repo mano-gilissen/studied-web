@@ -20,6 +20,7 @@ use App\Http\Support\Views;
 use App\Http\Support\Key;
 use App\Http\Support\Model;
 use App\Models\Study;
+use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -181,7 +182,7 @@ class PersonController extends Controller {
 
     public function avatar_submit(Request $request) {
 
-        $user                                                       = Auth::user();
+        $user                                                       = User::findOrFail($request->{Model::$USER});
         $person                                                     = $user->getPerson;
 
         $image_parts                                                = explode(";base64,", $request->image);

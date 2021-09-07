@@ -20,6 +20,12 @@
 
     <script src="{{ asset('js/crop.js') }}"></script>
 
+    <script>
+
+        var user = '{{ $user->{\App\Http\Support\Model::$BASE_ID} }}';
+
+    </script>
+
 @endsection
 
 

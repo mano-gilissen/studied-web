@@ -62,6 +62,7 @@ $(function(){
                     url:                                '/submit/avatar',
                     method:                             'POST',
                     data: {
+                        user:                           user,
                         image:                          base64data,
                     },
                     success:
