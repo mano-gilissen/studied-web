@@ -100,7 +100,17 @@
 
     <div class="title">{{ __('Bestanden') }}</div>
 
-    <input type="file" name="diploma" />
+    @include('form.field-file', ['file' => 'iban', 'tag' => 'IBAN'])
+
+    @include('form.field-file', ['file' => 'diploma', 'tag' => 'Diploma'])
+
+    @include('form.field-file', ['file' => 'contract', 'tag' => 'Contract'])
+
+    @include('form.field-file', ['file' => 'loonheffing', 'tag' => 'Loonheffing'])
+
+    @include('form.field-file', ['file' => 'identificatie', 'tag' => 'Identificatie'])
+
+    @include('form.field-file', ['file' => 'indiensttreding', 'tag' => 'Indiensttreding'])
 
 
 
