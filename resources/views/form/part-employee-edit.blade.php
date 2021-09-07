@@ -38,6 +38,12 @@
 
 <div class="title">{{ __('Bestanden') }}</div>
 
-<input type="file" name="diploma" />
+<div class="field">
+
+    <div class="name">Diploma</div>
+
+    <input type="file" name="diploma" />
+
+</div>
 
 <div class="seperator"></div>
