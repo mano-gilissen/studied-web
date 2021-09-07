@@ -163,9 +163,9 @@ class PersonController extends Controller {
 
         }
 
-        // Mail::userActivate_forEmployee($user);
+        Mail::userActivate_forEmployee($user);
 
-        view(Views::FEEDBACK, [
+        return view(Views::FEEDBACK, [
 
             Key::PAGE_TITLE                                         => 'Mail verstuurd',
             Key::PAGE_NEXT                                          => route('person.view', [Model::$PERSON_SLUG => $slug]),
