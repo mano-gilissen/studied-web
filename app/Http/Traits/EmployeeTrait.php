@@ -29,7 +29,7 @@ trait EmployeeTrait {
             $extension                                                  = $request->file('diploma')->extension();
             $filename                                                   = 'diploma_' . Func::generate_key() . '.' . $extension;
 
-            $request->file('diploma')->store('diplomas', $filename);
+            $request->file('diploma')->store('diploma', $filename);
 
             $employee->{Model::$EMPLOYEE_DIPLOMA}                       = $filename;
             $employee->save();
