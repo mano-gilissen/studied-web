@@ -11,15 +11,14 @@
 .content {
     grid-area:                          content;
     display:                            grid;
-    width:                              324px;
 }
 
 .content img {
-    width:                              40px;
-    height:                             40px;
-    margin-right:                       16px;
+    width:                              24px;
+    height:                             24px;
+    margin-left:                        8px;
 }
 
 .content .button {
-    margin-top:                         40px;
+    margin:                             40px auto 0;
 }
