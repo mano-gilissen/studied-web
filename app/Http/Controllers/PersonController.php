@@ -163,7 +163,7 @@ class PersonController extends Controller {
 
         }
 
-        Mail::userActivate_forEmployee($user);
+        // Mail::userActivate_forEmployee($user);
 
         view(Views::FEEDBACK, [
 
