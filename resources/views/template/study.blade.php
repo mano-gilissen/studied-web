@@ -32,7 +32,7 @@
 
                     <div class="title">{{ $study->{\App\Http\Support\Model::$STUDY_SUBJECT_TEXT} }}</div>
 
-                    <div class="subtitle">{{ \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE) }}@if($study->{\App\Http\Support\Model::$STUDY_TRIAL})<span style="font-weight: 600"> - (Proefles)</span>@endif</div>
+                    <div class="subtitle">{{ \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE) }}@if($study->{\App\Http\Support\Model::$STUDY_TRIAL})<span> - Proefles</span>@endif</div>
 
                 </div>
 
