@@ -22,7 +22,7 @@
 
     <script>
 
-        var user = '{{ $user->{\App\Http\Support\Model::$BASE_ID} }}';
+        var user = '{{ Auth::user()->{\App\Http\Support\Model::$BASE_ID} }}';
 
     </script>
 
@@ -64,11 +64,11 @@
 
                     <div>
 
-                        <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials($user->getPerson) }}</div>
+                        <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials(Auth::user()->getPerson) }}</div>
 
                     </div>
 
-                    <img id="avatar-img" src="{{ asset("/storage/avatar/" . $user->getPerson->avatar) }}" @if(!($user->getPerson->avatar)) style="opacity:0" @endif/>
+                    <img id="avatar-img" src="{{ asset("/storage/avatar/" . Auth::user()->getPerson->avatar) }}" @if(!(Auth::user()->getPerson->avatar)) style="opacity:0" @endif/>
 
                 </div>
 

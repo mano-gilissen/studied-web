@@ -180,6 +180,23 @@ class PersonController extends Controller {
 
 
 
+    public function edit_self($slug) {
+
+        $user                                                       = Person::where(Model::$PERSON_SLUG, $slug)->firstOrFail()->getUser;
+
+        if (!$user) {
+
+            abort(500);
+
+        }
+
+        return view(Views::PROFILE_EDIT, [Key::PAGE_TITLE => 'Profiel wijzigen']);
+    }
+
+
+
+
+
     public function avatar_submit(Request $request) {
 
         $user                                                       = User::findOrFail($request->{Model::$USER});
