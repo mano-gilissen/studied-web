@@ -83,6 +83,12 @@ trait StudyTrait {
 
         }
 
+        if ($study->{Model::$STUDY_HOST_USER} != Auth::id()) {
+
+            Mail::studyPlanned_forEmployee($study);
+
+        }
+
 
 
         return $study;
@@ -298,6 +304,21 @@ trait StudyTrait {
 
             case self::$STATUS_PLANNED:                             return self::hasStarted($study) ? (self::hasFinished($study) ? self::$STATUS_FINISHED : self::$STATUS_ACTIVE) : self::$STATUS_PLANNED;
             default:                                                return $study->status;
+        }
+    }
+
+
+
+    public static function getParticipantsText($study) {
+
+        $participants                                               = StudyTrait::getParticipants_Person($study);
+
+        switch(count($participants)) {
+            case 0:                                                 return "Geen deelnemers";
+            case 1:                                                 return PersonTrait::getFullName($participants[0]);
+            case 2:                                                 return $participants[0]->{Model::$PERSON_FIRST_NAME} . " en " . $participants[1]->{Model::$PERSON_FIRST_NAME};
+            case 3:                                                 return $participants[0]->{Model::$PERSON_FIRST_NAME} . ", " . $participants[1]->{Model::$PERSON_FIRST_NAME} . " en " . $participants[2]->{Model::$PERSON_FIRST_NAME};
+            default:                                                return count($participants) . " deelnemers";
         }
     }
 

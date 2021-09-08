@@ -536,15 +536,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_STUDENT:
 
-                $participants                                       = StudyTrait::getParticipants_Person($study);
-
-                switch(count($participants)) {
-                    case 0:                                         return "Geen deelnemers";
-                    case 1:                                         return PersonTrait::getFullName($participants[0]);
-                    case 2:                                         return $participants[0]->{Model::$PERSON_FIRST_NAME} . " en " . $participants[1]->{Model::$PERSON_FIRST_NAME};
-                    case 3:                                         return $participants[0]->{Model::$PERSON_FIRST_NAME} . ", " . $participants[1]->{Model::$PERSON_FIRST_NAME} . " en " . $participants[2]->{Model::$PERSON_FIRST_NAME};
-                    default:                                        return count($participants) . " deelnemers";
-                }
+                return StudyTrait::getParticipantsText($study);
 
             case self::$COLUMN_HOST:
 
