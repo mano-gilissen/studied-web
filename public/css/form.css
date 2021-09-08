@@ -259,6 +259,8 @@ html, body {
 
 
 .switch {
+    display:                            flex;
+    align-items:                        center;
     width:                              200px;
 }
 
