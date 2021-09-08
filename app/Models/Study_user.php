@@ -24,4 +24,28 @@ class Study_user extends ModelClass {
 
 
 
+    public function getStudy() {
+
+        return self::getThisToOne(Model::$STUDY);
+
+    }
+
+
+
+    public function getUser() {
+
+        return self::getThisToOne(Model::$STUDY);
+
+    }
+
+
+
+    public function getAgreement() {
+
+        return self::getThisToOne(Model::$AGREEMENT);
+
+    }
+
+
+
 }
