@@ -161,13 +161,12 @@ class AgreementController extends Controller {
 
         }
 
-
         return view(Views::FEEDBACK, [
 
-            Key::PAGE_TITLE                                 => 'Vakafspraak afgehandeld',
-            Key::PAGE_NEXT                                  => route('agreement.view', [Model::$AGREEMENT_IDENTIFIER => $agreement->{Model::$AGREEMENT_IDENTIFIER}]),
-            Key::PAGE_ACTION                                => 'Naar de vakafspraak',
-            Key::ICON                                       => 'check-circle-green.svg'
+            Key::PAGE_TITLE                                                 => 'Vakafspraak afgehandeld',
+            Key::PAGE_NEXT                                                  => route('agreement.view', [Model::$AGREEMENT_IDENTIFIER => $agreement->{Model::$AGREEMENT_IDENTIFIER}]),
+            Key::PAGE_ACTION                                                => 'Naar de vakafspraak',
+            Key::ICON                                                       => 'check-circle-green.svg'
         ]);
     }
 

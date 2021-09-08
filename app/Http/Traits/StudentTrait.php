@@ -160,8 +160,24 @@ trait StudentTrait {
     public static function getProfileData() {
 
         return [
-            'Natuur & Techniek',
-            'Economie & Maatschappij'
+            'CM',
+            'EM',
+            'NG',
+            'NT',
+            'CM & EM',
+            'NG & NT',
+            'Overige profielcombinatie',
+            'BWI',
+            'DP',
+            'EO',
+            'G',
+            'HBR',
+            'MTE',
+            'MVI',
+            'MTR',
+            'PIE',
+            'VRTE',
+            'ZWE'
         ];
     }
 
