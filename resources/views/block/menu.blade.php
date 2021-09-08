@@ -46,7 +46,7 @@
 
             @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
 
-                @include('block.menu-item', ['label' => 'Lesoverzicht', 'route' => route('person.view', Auth::user()->getPerson->slug)])
+                @include('block.menu-item', ['label' => 'Lesoverzicht', 'route' => route('study.list')])
 
                 @if(\App\Http\Traits\CustomerTrait::hasMultipleStudents(Auth::user()->getCustomer))
 
