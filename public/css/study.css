@@ -102,3 +102,28 @@
     margin-top:                         8px;
     margin-bottom:                      16px;
 }
+
+
+
+
+
+.block-note {
+    width:                              712px;
+    height:                             172px;
+    padding-top:                        80px;
+    text-align:                         center;
+    color:                              #666666;
+    background:                         #F8F8F8;
+}
+
+.block-note.small {
+    width:                              324px;
+    height:                             88px;
+    padding:                            36px 36px 36px 0;
+    text-align:                         left;
+}
+
+.block-note.error {
+    color:                              #FF0000;
+    background:                         #FF000026;
+}

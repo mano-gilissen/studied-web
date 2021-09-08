@@ -50,11 +50,7 @@
 
             @if(\App\Http\Traits\StudyTrait::isTrial($study) && !($report->{\App\Http\Support\Model::$REPORT_TRIAL_SUCCESS}))
 
-                <div class="block-note error small">
-
-                    <div>Deze proefles is mislukt. Dat betekent dat de vakafspraak die hierbij hoort afgesloten is en niet gebruikt gaat worden.</div>
-
-                </div>
+                <div class="block-note error small">Deze proefles is mislukt. Dat betekent dat de vakafspraak die hierbij hoort afgesloten is en niet gebruikt gaat worden.</div>
 
             @endif
 
