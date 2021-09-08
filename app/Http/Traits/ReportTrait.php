@@ -4,14 +4,10 @@
 
 namespace App\Http\Traits;
 
-
-
-use App\Http\Controllers\AgreementController;
-use App\Http\Controllers\UserController;
 use App\Http\Support\Func;
 use App\Http\Support\Model;
 use App\Models\Report;
-use App\Models\Report_subject;
+
 
 
 trait ReportTrait {
@@ -60,15 +56,8 @@ trait ReportTrait {
 
                 if (Func::contains($key, $prefix . Model::$STUDY_TRIAL)) {
 
-                    if ($data[$key] == 2) { // TODO: REPLACE 2 WITH SWITCH.YES CONST
+                    self::trial($data[$key], $study, $user, $report);
 
-                        AgreementTrait::approve($study, $user);
-
-                    } else {
-
-                        dd('dd3434');
-
-                    }
                 }
             }
 
@@ -78,6 +67,25 @@ trait ReportTrait {
 
         return true;
     }
+
+
+
+    public static function trial($result, $study, $user, $report) {
+
+        $trail_success                                                      = $result == 2; // TODO: REPLACE 2 WITH SWITCH.YES CONST
+        $report->{Model::$REPORT_TRIAL_SUCCESS}                             = $trail_success;
+
+        if ($trail_success) {
+
+            AgreementTrait::approve($study, $user);
+
+        } else {
+
+            AgreementTrait::reject($study, $user);
+
+        }
+    }
+
 
 
 

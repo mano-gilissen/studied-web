@@ -8,6 +8,7 @@ use App\Http\Support\Color;
 use App\Http\Support\Format;
 use App\Http\Support\Func;
 use App\Http\Support\Key;
+use App\Http\Support\Mail;
 use App\Http\Support\Model;
 use App\Models\Agreement;
 use App\Models\Study;
@@ -115,13 +116,30 @@ trait AgreementTrait {
 
         if (!UserTrait::isActivated($user) && !UserTrait::sentActivation($user)) {
 
-            dd("aa");
-
-        } else {
-
-            dd("bb");
+            Mail::userActivate_forStudent($user, $study);
 
         }
+
+        $student                                                = $user->getStudent;
+
+        if ($student && StudentTrait::hasCustomer($student)) {
+
+            $customer                                           = $student->getCustomer->getUser;
+
+            if ($customer && !UserTrait::isActivated($customer) && !UserTrait::sentActivation($customer)) {
+
+                Mail::userActivate_forCustomer($customer, $study, $user);
+
+            }
+        }
+    }
+
+
+
+    public static function reject($study, $user) {
+
+        dd('AgreementTrait.disprove study:' . $study->id . ' user:' . $user->id);
+
     }
 
 

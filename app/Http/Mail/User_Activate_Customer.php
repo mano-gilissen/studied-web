@@ -32,13 +32,13 @@ class User_Activate_Customer extends Mailable {
 
 
 
-    public function __construct(User $user, Study $study, Person $student) {
+    public function __construct(User $user, Study $study, User $student) {
 
         $this->user                         = $user;
         $this->student                      = $student;
         $this->study                        = $study;
 
-        $this->subject                      = 'Proefles voor ' . $student->{Model::$PERSON_FIRST_NAME} . ' gelukt! Activeer nu uw account voor het Studied webportaal';
+        $this->subject                      = 'Proefles voor ' . $student->getPerson->{Model::$PERSON_FIRST_NAME} . ' gelukt! Activeer nu uw account voor het Studied webportaal';
     }
 
 
