@@ -109,6 +109,8 @@ trait AgreementTrait {
 
     public static function approve($study, $user) {
 
+        echo('234234');
+
         $agreement                                              = Study_user::where(Model::$STUDY, $study->id)->where(Model::$USER, $user->id)->firstOrFail()->getAgreement;
         $agreement->{Model::$AGREEMENT_STATUS}                  = self::$STATUS_ACTIVE;
         $agreement->save();
@@ -117,11 +119,11 @@ trait AgreementTrait {
 
         if (!UserTrait::isActivated($user) && !UserTrait::sentActivation($user)) {
 
-            dd("a");
+            dd("aa");
 
         } else {
 
-            dd("b");
+            dd("bb");
 
         }
     }

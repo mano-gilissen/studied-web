@@ -60,11 +60,7 @@ trait ReportTrait {
 
                 if (Func::contains($key, $prefix . Model::$STUDY_TRIAL)) {
 
-                    dd('a');
-
                     if ($data[$key] > 0) {
-
-                        dd('b');
 
                         AgreementTrait::approve($study, $user);
 
@@ -75,6 +71,8 @@ trait ReportTrait {
                     }
                 }
             }
+
+            dd('dd6655');
 
         }
 
