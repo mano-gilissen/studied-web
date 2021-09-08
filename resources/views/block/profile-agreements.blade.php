@@ -56,7 +56,7 @@
 
                                 @endif
 
-                                <div>{!! \App\Http\Traits\AgreementTrait::getDescription($agreement, $forHost) !!}</div>
+                                <div>{!! \App\Http\Traits\AgreementTrait::getDescription($agreement, $forHost) !!} @if(\App\Http\Traits\AgreementTrait::planNowTrial($agreement)) <span class="trial"> (Proefles)</span> @endif</div>
 
                             </div>
 

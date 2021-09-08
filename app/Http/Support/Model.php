@@ -49,6 +49,7 @@ class Model {
 
         $AGREEMENT                                      = 'agreement',
 
+        $AGREEMENT_STATUS                               = 'status',
         $AGREEMENT_IDENTIFIER                           = 'identifier',
         $AGREEMENT_START                                = 'start',
         $AGREEMENT_END                                  = 'end',

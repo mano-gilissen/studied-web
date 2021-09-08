@@ -65,7 +65,7 @@
 
             <div class="block-note" id="note-trial">Het is belangrijk om goed aan te geven of de proefles een succes was of niet. Dit bepaalt namelijk of de vakafspraak definitief is en of de leerling les van jou blijft krijgen in dit vak. Contacteer de managing-student voordat je het rapport instuurt als je het niet zeker weet.</div>
 
-            @include('form.switch', ['id' => '_trial_' . $user->id, 'tag' => 'Is de proefles gelukt?'])
+            @include('form.switch', ['id' => 'user_' . $user->id . '_trial', 'tag' => 'Is de proefles gelukt?'])
 
             <div class="seperator"></div>
 

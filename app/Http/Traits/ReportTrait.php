@@ -6,6 +6,8 @@ namespace App\Http\Traits;
 
 
 
+use App\Http\Controllers\AgreementController;
+use App\Http\Controllers\UserController;
 use App\Http\Support\Func;
 use App\Http\Support\Model;
 use App\Models\Report;
@@ -55,7 +57,17 @@ trait ReportTrait {
                     Report_SubjectTrait::create($data, $key, $report);
 
                 }
+
+                if (Func::contains($key, $prefix . Model::$STUDY_TRIAL)) {
+
+                    if ($data[$key]) {
+
+                        AgreementTrait::approve($study, $user);
+
+                    }
+                }
             }
+
         }
 
 

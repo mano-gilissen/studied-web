@@ -410,6 +410,7 @@ class EmployeeController extends Controller {
                     foreach (UserTrait::getAgreements($employee->getUser, true) as $agreement) {
 
                         $students[$agreement->student] = $agreement->getStudent->getPerson->first_name;
+
                     }
                 }
 

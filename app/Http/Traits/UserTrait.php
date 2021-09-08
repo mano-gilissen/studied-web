@@ -139,7 +139,7 @@ trait UserTrait {
 
 
 
-    public static function getAgreements($user, $active_only = false) {
+    public static function getAgreements($user, $active_only = false, $include_trial = true) {
 
         $query                                              = Agreement::query();
 
@@ -160,6 +160,12 @@ trait UserTrait {
         if ($active_only) {
 
             $query->where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATETIME, time()));
+
+        }
+
+        if (!$include_trial) {
+
+            $query->where(Model::$AGREEMENT_STATUS, '!=', AgreementTrait::$STATUS_UNAPPROVED);
 
         }
 
@@ -206,6 +212,14 @@ trait UserTrait {
     public static function isActivated($user) {
 
         return $user->{Model::$USER_STATUS} != self::$STATUS_INTAKE;
+
+    }
+
+
+
+    public static function sentActivation($user) {
+
+        return !$user->{Model::$USER_ACTIVATE_SECRET};
 
     }
 

@@ -97,7 +97,7 @@ trait StudyTrait {
 
                 }
 
-                if (AgreementTrait::isNowTrail($agreement)) {
+                if (AgreementTrait::planNowTrial($agreement)) {
 
                     $study->{Model::$STUDY_TRIAL}                   = true;
 

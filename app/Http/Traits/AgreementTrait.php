@@ -22,9 +22,10 @@ trait AgreementTrait {
 
     public static
 
-        $STATUS_PLANNED                         = 1,
-        $STATUS_ACTIVE                          = 2,
-        $STATUS_EXPIRED                         = 3;
+        $STATUS_UNAPPROVED                      = 1,
+        $STATUS_PLANNED                         = 2,
+        $STATUS_ACTIVE                          = 3,
+        $STATUS_EXPIRED                         = 4;
 
 
 
@@ -106,10 +107,40 @@ trait AgreementTrait {
 
 
 
-    public static function isNowTrail($agreement) {
+    public static function approve($study, $user) {
 
-        return !$agreement->{Model::$AGREEMENT_EXTENSION} && !Study_user::where(Model::$AGREEMENT, $agreement->id)->exists();
+        $agreement                                              = Study_user::where(Model::$STUDY, $study->id)->where(Model::$USER, $user->id)->firstOrFail();
+        $agreement->{Model::$AGREEMENT_STATUS}                  = self::$STATUS_ACTIVE;
+        $agreement->save();
 
+        if (!UserTrait::isActivated($user) && !UserTrait::sentActivation($user)) {
+
+            dd("a");
+
+        } else {
+
+            dd("b");
+
+        }
+    }
+
+
+
+    public static function planNowTrial($agreement) {
+
+        return $agreement->{Model::$AGREEMENT_STATUS} == self::$STATUS_UNAPPROVED &&
+            !$agreement->{Model::$AGREEMENT_EXTENSION} &&
+            !Study_user::where(Model::$AGREEMENT, $agreement->id)->exists();
+    }
+
+
+
+    public static function hasNowTrial($agreement) {
+
+        return $agreement->{Model::$AGREEMENT_STATUS} == self::$STATUS_UNAPPROVED &&
+            !$agreement->{Model::$AGREEMENT_EXTENSION} &&
+            (Study_user::where(Model::$AGREEMENT, $agreement->id)->count() == 1) &&
+            (Study_user::where(Model::$AGREEMENT, $agreement->id)->first()->{Model::$STUDY_STATUS} != StudyTrait::$STATUS_REPORTED);
     }
 
 
@@ -146,9 +177,13 @@ trait AgreementTrait {
 
     public static function getStatus($agreement) {
 
-        // TODO: ADD INTAKE (BEFORE SUCCESFUL REPORTING OF TRIAL)
+        if ($agreement->{Model::$AGREEMENT_STATUS} == self::$STATUS_UNAPPROVED) {
 
-        return Func::has_passed($agreement->{Model::$AGREEMENT_START}) ? (Func::has_passed($agreement->{Model::$AGREEMENT_END}) ? 1 : 2) : 3;
+            return self::$STATUS_UNAPPROVED;
+
+        }
+
+        return Func::has_passed($agreement->{Model::$AGREEMENT_START}) ? (Func::has_passed($agreement->{Model::$AGREEMENT_END}) ? self::$STATUS_PLANNED : self::$STATUS_ACTIVE) : self::$STATUS_EXPIRED;
 
     }
 
@@ -157,6 +192,7 @@ trait AgreementTrait {
     public static function getStatusText($status) {
 
         switch ($status) {
+            case self::$STATUS_UNAPPROVED:          return "Onder voorbehoud";
             case self::$STATUS_PLANNED:             return "Gepland";
             case self::$STATUS_ACTIVE:              return "Actief";
             case self::$STATUS_EXPIRED:             return "Verlopen";
@@ -171,6 +207,7 @@ trait AgreementTrait {
         switch ($status) {
             case self::$STATUS_PLANNED:             return Color::BLACK;
             case self::$STATUS_ACTIVE:
+            case self::$STATUS_UNAPPROVED:
             case self::$STATUS_EXPIRED:
             default:                                return Color::WHITE;
         }
@@ -183,6 +220,7 @@ trait AgreementTrait {
         switch ($status) {
             case self::$STATUS_PLANNED:             return Color::GREY_90;
             case self::$STATUS_ACTIVE:              return Color::GREEN;
+            case self::$STATUS_UNAPPROVED:
             case self::$STATUS_EXPIRED:
             default:                                return Color::ORANGE;
         }
