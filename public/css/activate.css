@@ -31,7 +31,7 @@ html, body {
     font-size:                          48px;
 }
 
-#avatar-img .invisible {
+#avatar-img.invisible {
     opacity:                            0;
 }
 
