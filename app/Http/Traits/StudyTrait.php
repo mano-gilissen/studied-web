@@ -303,9 +303,9 @@ trait StudyTrait {
 
 
 
-    public static function getTimeText($study) {
+    public static function getTimeText($study, $tot = false) {
 
-        return $study->start != null && $study->end != null ? Format::datetime(self::getStartTime($study), Format::$TIME_SINGLE) . ' - ' . Format::datetime(self::getEndTime($study), Format::$TIME_SINGLE) : Key::UNKNOWN;
+        return $study->start != null && $study->end != null ? Format::datetime(self::getStartTime($study), Format::$TIME_SINGLE) . ($tot ? ' tot ' : ' - ') . Format::datetime(self::getEndTime($study), Format::$TIME_SINGLE) : Key::UNKNOWN;
 
     }
 
