@@ -125,7 +125,8 @@ class Model {
         $EMPLOYEE_CONTRACT                              = 'contract',
         $EMPLOYEE_LOONHEFFING                           = 'loonheffing',
         $EMPLOYEE_IDENTIFICATIE                         = 'identificatie',
-        $EMPLOYEE_INDIENSTTREDING                       = 'indiensttreding';
+        $EMPLOYEE_INDIENSTTREDING                       = 'indiensttreding',
+        $EMPLOYEE_START_EMPLOYMENT                      = 'start_employment';
 
 
 

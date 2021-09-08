@@ -109,6 +109,12 @@ trait UserTrait {
         $user->{Model::$USER_PASSWORD}                                      = Hash::make($data['password']);
         $user->{Model::$USER_STATUS}                                        = UserTrait::$STATUS_ACTIVE;
 
+        if (BaseTrait::hasEmployeeRights()) {
+
+            $user->getEmployee->{Model::$EMPLOYEE_START_EMPLOYMENT}         = date(Format::$DATABASE_DATETIME);
+
+        }
+
         $user->save();
     }
 
