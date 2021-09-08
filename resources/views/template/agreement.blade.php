@@ -46,7 +46,7 @@
 
                             <div class="button icon grey">
 
-                                <img class="icon" src="/images_app/edit.svg" onclick="window.location.href='{{ route('agreement.finish', [\App\Http\Support\Model::$AGREEMENT_IDENTIFIER => $agremeent->{\App\Http\Support\Model::$AGREEMENT_IDENTIFIER}]) }}'">
+                                <img class="icon" src="/images_app/edit.svg" onclick="window.location.href='{{ route('agreement.finish', [\App\Http\Support\Model::$AGREEMENT_IDENTIFIER => $agreement->{\App\Http\Support\Model::$AGREEMENT_IDENTIFIER}]) }}'">
 
                                 <div class="text">Afhandelen</div>
 
