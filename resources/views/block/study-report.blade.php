@@ -48,17 +48,16 @@
 
             </div>
 
-            <div class="list-attributes">
+            @if(\App\Http\Traits\StudyTrait::isTrial($study) && !($report->{\App\Http\Support\Model::$REPORT_TRIAL_SUCCESS}))
 
-                <div class="attribute">
+                <div class="block-note error small">
 
-                    <div class="name">Proefles gelukt</div>
-
-                    <div class="value">{{ $report->{\App\Http\Support\Model::$REPORT_TRIAL_SUCCESS} ? "Ja" : "Nee" }}</div>
+                    <div>Deze proefles is mislukt. Dat betekent dat de vakafspraak die hierbij hoort afgesloten is en niet gebruikt gaat worden.</div>
 
                 </div>
 
-            </div>
+            @endif
+
 
             <div class="subjects">
 

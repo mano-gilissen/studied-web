@@ -167,6 +167,18 @@
     background:                         #F8F8F8;
 }
 
+.block-note.small {
+    width:                              324px;
+    height:                             88px;
+    padding:                            36px 36px 36px 0;
+    text-align:                         left;
+}
+
+.block-note.error {
+    color:                              #FF0000;
+    background:                         #FF000026;
+}
+
 .list-users .block-note {
     width:                              100%;
 }
