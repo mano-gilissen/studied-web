@@ -58,6 +58,8 @@ trait ReportTrait {
 
                 }
 
+                echo($key);
+
                 if (Func::contains($key, $prefix . Model::$STUDY_TRIAL)) {
 
                     if ($data[$key]) {
@@ -71,6 +73,8 @@ trait ReportTrait {
                     }
                 }
             }
+
+            dd('a');
 
         }
 
