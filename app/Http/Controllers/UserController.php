@@ -98,7 +98,7 @@ class UserController extends Controller {
         return view(Views::FEEDBACK, [
 
             Key::PAGE_TITLE                                 => 'Wachtwoord gewijzigd',
-            Key::PAGE_MESSAGE                               => 'Je wachtwoord is gewijzigd, zorg dat je het goed onthoud. Deel je inloggegevens nooit deelt met anderen.',
+            Key::PAGE_MESSAGE                               => 'Je wachtwoord is gewijzigd, zorg dat je het goed onthoudt. Deel je inloggegevens nooit deelt met anderen.',
             Key::PAGE_NEXT                                  => route('person.self'),
             Key::PAGE_ACTION                                => 'Naar mijn profiel',
             Key::ICON                                       => 'check-circle-green.svg'
