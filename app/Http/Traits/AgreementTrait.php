@@ -189,6 +189,14 @@ trait AgreementTrait {
 
 
 
+    public static function getTrial($agreement) {
+
+        return Study_user::where(Model::$AGREEMENT, $agreement->id)->first()->getStudy;
+
+    }
+
+
+
     public static function getStatusText($status) {
 
         switch ($status) {
