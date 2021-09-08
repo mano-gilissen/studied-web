@@ -20,7 +20,7 @@
 
         </div>
 
-        @if(\App\Http\Traits\AgreementTrait::hasNowTrial($agreement))
+        @if(\App\Http\Traits\AgreementTrait::getTrial($agreement))
 
             <div class="attribute">
 
