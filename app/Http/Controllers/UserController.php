@@ -5,6 +5,7 @@
 namespace App\Http\Controllers;
 use App\Http\Support\Format;
 use App\Http\Support\Key;
+use App\Http\Traits\BaseTrait;
 use App\Http\Traits\PersonTrait;
 use App\Http\Traits\StudyTrait;
 use App\Http\Traits\UserTrait;
@@ -52,6 +53,12 @@ class UserController extends Controller {
         UserTrait::activate($data, $user);
 
         Auth::guard()->login($user);
+
+        if (BaseTrait::hasEmployeeRights()) {
+
+            $user->getEmployee->{Model::$EMPLOYEE_START_EMPLOYMENT}         = date(Format::$DATABASE_DATETIME);
+
+        }
 
         return view(Views::FEEDBACK, [
 
