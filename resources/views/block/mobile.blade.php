@@ -4,7 +4,7 @@
 
         <img src="/images_app/logo.svg">
 
-        <p>Gebruik het Studied webportaal door het op een laptop of tablet te bezoeken!</p>
+        <p>Gebruik het Studied webportaal<br>door het op een laptop of tablet<br>te bezoeken!</p>
 
     </div>
 
