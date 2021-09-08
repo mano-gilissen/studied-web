@@ -1040,6 +1040,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     }
 
     #mobile-wrap {
+        display:                        grid;
         grid-area:                      content;
     }
 
@@ -1051,7 +1052,7 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
 
     #mobile p {
         font-size:                      20px;
-        font-weight:                    400;
+        font-weight:                    100;
         font-family:                    'Circular', serif;
         line-height:                    1.6;
     }
