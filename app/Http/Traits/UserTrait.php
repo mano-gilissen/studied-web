@@ -219,7 +219,7 @@ trait UserTrait {
 
     public static function sentActivation($user) {
 
-        return !$user->{Model::$USER_ACTIVATE_SECRET};
+        return $user->{Model::$USER_ACTIVATE_SECRET};
 
     }
 
