@@ -5,6 +5,8 @@
 namespace App\Http\Support;
 
 use App\Http\Mail\Agreement_Approved_Customer;
+use App\Http\Mail\Study_Edited_Employee;
+use App\Http\Mail\Study_Edited_Student;
 use App\Http\Mail\Study_Planned_Employee;
 use App\Http\Mail\Study_Planned_Student;
 use App\Http\Mail\User_Activate_Customer;
@@ -66,6 +68,8 @@ class Mail {
 
 
 
+
+
     public static function studyPlanned_forStudent($study, $participant) {
 
         $mail                                               = new Study_Planned_Student($study, $participant);
@@ -79,6 +83,28 @@ class Mail {
     public static function studyPlanned_forEmployee($study) {
 
         $mail                                               = new Study_Planned_Employee($study);
+        $recipient                                          = $study->getHost->{Model::$USER_EMAIL};
+
+        Mail_::to($recipient)->send($mail);
+    }
+
+
+
+
+
+    public static function studyEdited_forStudent($study, $participant) {
+
+        $mail                                               = new Study_Edited_Student($study, $participant);
+        $recipient                                          = $participant->{Model::$USER_EMAIL};
+
+        Mail_::to($recipient)->send($mail);
+    }
+
+
+
+    public static function studyEdited_forEmployee($study) {
+
+        $mail                                               = new Study_Edited_Employee($study);
         $recipient                                          = $study->getHost->{Model::$USER_EMAIL};
 
         Mail_::to($recipient)->send($mail);

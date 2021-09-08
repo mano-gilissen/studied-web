@@ -40,6 +40,7 @@ trait AgreementTrait {
         $agreement                                              = new Agreement();
 
         $agreement->{Model::$AGREEMENT_IDENTIFIER}              = self::generateIdentifier();
+        $agreement->{Model::$AGREEMENT_STATUS}                  = self::$STATUS_UNAPPROVED;
 
         $agreement->{Model::$STUDENT}                           = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT . $suffix];
         $agreement->{Model::$EMPLOYEE}                          = $data[Key::AUTOCOMPLETE_ID . Model::$EMPLOYEE . $suffix];

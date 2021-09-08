@@ -230,6 +230,20 @@ trait StudyTrait {
 
 
 
+        foreach ($study->getParticipants_User as $user) {
+
+            Mail::studyEdited_forStudent($study, $user);
+
+        }
+
+        if ($study->{Model::$STUDY_HOST_USER} != Auth::id()) {
+
+            Mail::studyEdited_forEmployee($study);
+
+        }
+
+
+
         return $study;
     }
 
