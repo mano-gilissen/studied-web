@@ -251,16 +251,13 @@ function study_agreement_toggle_selected(id) {
 
     if ($(CLASS_AGREEMENT + '.' + ATTR_SELECTED).length > 0) {
 
-        $('#button-submit')                         .removeAttr("disabled");
-        $('#button-submit')                         .css('opacity', '1');
-        $('#button-submit')                         .css('pointer-events', 'unset');
+        set_submit_enabled(true);
 
 
     } else {
 
-        $('#button-submit')                         .attr("disabled", true);
-        $('#button-submit')                         .css('opacity', '0.5');
-        $('#button-submit')                         .css('pointer-events', 'none');
+        set_submit_enabled(false);
+
     }
 
 
@@ -389,6 +386,28 @@ function switch_click(button) {
     buttons                                         .removeClass(ATTR_SELECTED);
     button                                          .addClass(ATTR_SELECTED);
     input.value                                     = button.data('value');
+
+    set_submit_enabled(true);
+}
+
+
+
+
+function set_submit_enabled(enabled) {
+
+    if (enabled) {
+
+        $('#button-submit')                         .removeAttr("disabled");
+        $('#button-submit')                         .css('opacity', '1');
+        $('#button-submit')                         .css('pointer-events', 'unset');
+
+    } else {
+
+        $('#button-submit')                         .attr("disabled", true);
+        $('#button-submit')                         .css('opacity', '0.5');
+        $('#button-submit')                         .css('pointer-events', 'none');
+
+    }
 }
 
 

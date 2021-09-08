@@ -69,6 +69,16 @@
 
             <div class="seperator"></div>
 
+            <script>
+
+                $(function(){
+
+                    set_submit_enabled(false)
+
+                });
+
+            </script>
+
         @endif
 
 
