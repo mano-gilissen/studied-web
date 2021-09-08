@@ -248,6 +248,14 @@
 
                 @if(\App\Http\Traits\BaseTrait::hasManagementRights())
 
+                    <div class="button icon grey" onclick="window.location.href='{{ route('user.edit') }}'">
+
+                        <img class="icon" src="/images_app/edit.svg">
+
+                        <div class="text">Foto- en wachtwoord wijzigen</div>
+
+                    </div>
+
                     <div class="button icon" onclick="window.location.href='{{ route('person.edit', $person->{\App\Http\Support\Model::$PERSON_SLUG}) }}'">
 
                         <img class="icon" src="/images_app/edit.svg">
@@ -258,11 +266,11 @@
 
                 @elseif($person->getUser->id == Auth::id())
 
-                    <div class="button icon"> <!-- TODO: ADD EDIT PROFILE PHOTO -->
+                    <div class="button icon" onclick="window.location.href='{{ route('user.edit') }}'">
 
                         <img class="icon" src="/images_app/edit.svg">
 
-                        <div class="text">Foto wijzigen</div>
+                        <div class="text">Bewerken</div>
 
                     </div>
 
