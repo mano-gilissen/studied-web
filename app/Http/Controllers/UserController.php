@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Http\Support\Format;
 use App\Http\Support\Key;
 use App\Http\Traits\BaseTrait;
+use App\Http\Traits\EmployeeTrait;
 use App\Http\Traits\PersonTrait;
 use App\Http\Traits\StudyTrait;
 use App\Http\Traits\UserTrait;
@@ -45,8 +46,8 @@ class UserController extends Controller {
 
     public function activate_submit(Request $request) {
 
-        $data                               = $request->all();
-        $user                               = User::findOrFail($data[Key::AUTOCOMPLETE_ID .  Model::$USER]);
+        $data                                               = $request->all();
+        $user                                               = User::findOrFail($data[Key::AUTOCOMPLETE_ID .  Model::$USER]);
 
         self::activate_validate($data);
 
@@ -56,17 +57,17 @@ class UserController extends Controller {
 
         if (BaseTrait::hasEmployeeRights()) {
 
-            $user->getEmployee->{Model::$EMPLOYEE_START_EMPLOYMENT}         = date(Format::$DATABASE_DATETIME);
+            EmployeeTrait::start_employment($user->getEmployee);
 
         }
 
         return view(Views::FEEDBACK, [
 
-            Key::PAGE_TITLE                                         => 'Account geactiveerd',
-            Key::PAGE_MESSAGE                                       => 'Gefeliciteerd! Je Studied webportaal account is geactiveerd en klaar voor gebruik.',
-            Key::PAGE_NEXT                                          => route('person.self'),
-            Key::PAGE_ACTION                                        => 'Naar mijn profiel',
-            Key::ICON                                               => 'check-circle-green.svg'
+            Key::PAGE_TITLE                                 => 'Account geactiveerd',
+            Key::PAGE_MESSAGE                               => 'Gefeliciteerd! Je Studied webportaal account is geactiveerd en klaar voor gebruik.',
+            Key::PAGE_NEXT                                  => route('person.self'),
+            Key::PAGE_ACTION                                => 'Naar mijn profiel',
+            Key::ICON                                       => 'check-circle-green.svg'
         ]);
     }
 
@@ -75,13 +76,13 @@ class UserController extends Controller {
     public function activate_validate(array $data) {
 
         $messages = [
-            'password.required'             => 'Vul een wachtwoord in.',
-            'password.min'                  => 'Het wachtwoord moet uit minimaal 8 characters bestaan.',
-            'password.confirmed'            => 'Het wachtwoord komt niet overeen, probeer het opnieuw.'
+            'password.required'                             => 'Vul een wachtwoord in.',
+            'password.min'                                  => 'Het wachtwoord moet uit minimaal 8 characters bestaan.',
+            'password.confirmed'                            => 'Het wachtwoord komt niet overeen, probeer het opnieuw.'
         ];
 
         $validator = Validator::make($data, [
-            'password'                      => ['bail', 'required', 'string', 'min:8', 'confirmed'],
+            'password'                                      => ['bail', 'required', 'string', 'min:8', 'confirmed'],
         ], $messages);
 
         $validator->validate();

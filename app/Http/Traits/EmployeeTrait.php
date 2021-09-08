@@ -5,6 +5,7 @@
 namespace App\Http\Traits;
 
 use App\Http\Support\Files;
+use App\Http\Support\Format;
 use App\Http\Support\Mail;
 use App\Http\Support\Model;
 use App\Models\Employee;
@@ -109,6 +110,15 @@ trait EmployeeTrait {
         $validator                                                      = Validator::make($data, $rules, BaseTrait::getValidationMessages());
 
         $validator->validate();
+    }
+
+
+
+    public static function start_employment($employee) {
+
+        $employee->{Model::$EMPLOYEE_START_EMPLOYMENT}                  = date(Format::$DATABASE_DATETIME);
+
+        $employee->save();
     }
 
 
