@@ -4,7 +4,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Mail\Study_Planned;
+use App\Http\Mail\Study_Planned_Student;
 use App\Models\Study;
 use App\Models\Subject;
 use App\Models\Person;
@@ -77,7 +77,7 @@ class DebugController extends Controller {
         $study                              = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
         $participant                        = $study->getParticipants_User[0];
 
-        $mail                               = new Study_Planned($study, $participant);
+        $mail                               = new Study_Planned_Student($study, $participant);
 
         Mail::to('b.jennissen@studied.nl'/*$participant->{Model::$USER_EMAIL}*/)->send($mail);
     }

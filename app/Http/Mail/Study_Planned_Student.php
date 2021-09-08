@@ -13,7 +13,7 @@ use Illuminate\Queue\SerializesModels;
 
 
 
-class Study_Planned extends Mailable {
+class Study_Planned_Student extends Mailable {
 
 
 
@@ -47,7 +47,7 @@ class Study_Planned extends Mailable {
     public function build() {
 
         return $this
-            ->view('email.study_planned')
+            ->view('email.study_planned_student')
             ->subject($this->subject);
     }
 
