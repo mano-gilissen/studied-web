@@ -31,6 +31,10 @@ html, body {
     font-size:                          48px;
 }
 
+#avatar-img .invisible {
+    opacity:                            0;
+}
+
 #avatar-upload-button,
 #avatar-crop-button {
     margin:                             0 auto 48px;

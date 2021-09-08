@@ -48,6 +48,7 @@ const ATTR_NO_FILTER                            = 'no_filter';
 const ATTR_SELECT_FILTER                        = 'select_filter';
 
 const ATTR_VISIBLE                              = 'visible';
+const ATTR_INVISIBLE                            = 'invisible';
 const ATTR_ACTIVE                               = 'active';
 const ATTR_SELECTED                             = 'selected';
 const ATTR_FILTERED                             = 'filtered';

@@ -71,7 +71,7 @@ $(function(){
                         function(result) {
 
                             avatar_img                  .attr("src", "/storage/avatar/" + result.file_name);
-                            avatar_img                  .attr("opacity", 1);
+                            avatar_img                  .removeClass(ATTR_INVISIBLE);
                             section_crop                .hide();
                             section_upload              .show();
 
