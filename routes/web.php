@@ -182,6 +182,8 @@ Route::post('/submit/evaluation/perform',           'EvaluationController@perfor
 
 Route::post('/submit/activate',                     'UserController@activate_submit')->name('user.activate_submit');
 
+Route::post('/submit/password',                     'UserController@password_submit')->name('user.password_submit')->middleware('auth', 'authorize');
+
 Route::post('/submit/avatar',                       'PersonController@avatar_submit')->name('person.avatar_submit');
 
 

@@ -98,19 +98,19 @@
 
 
 
-            <form method="POST" action="{{ route('user.activate_submit') }}" novalidate enctype="multipart/form-data">
+            <form method="POST" action="{{ route('user.password_submit') }}" novalidate enctype="multipart/form-data">
 
                 @csrf
+
+                <div class="title">Wachtwoord wijzigen</div>
 
                 @include('form.field-input', ['id' => 'password', 'type' => 'password', 'tag' => 'Wachtwoord', 'placeholder' => 'Kies een wachtwoord', 'required' => true, 'max' => 30])
 
                 @include('form.field-input', ['id' => 'password_confirmation', 'type' => 'password', 'tag' => 'Wachtwoord bevestigen', 'placeholder' => 'Typ je wachtwoord opnieuw', 'required' => true, 'max' => 30])
 
-                @include('form.field-hidden', ['id' => '_user', 'value' => $user->{\App\Http\Support\Model::$BASE_ID}])
-
                 <button class="button" id="button-submit" type="submit">
 
-                    Activeren
+                    Wijzigen
 
                 </button>
 

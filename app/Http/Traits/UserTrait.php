@@ -114,6 +114,14 @@ trait UserTrait {
 
 
 
+    public static function password_set($data) {
+
+        Auth::user()->{Model::$USER_PASSWORD}                               = Hash::make($data['password']);
+        Auth::user()->save();
+    }
+
+
+
 
 
     public static function getRoleName($user, $public = false) {

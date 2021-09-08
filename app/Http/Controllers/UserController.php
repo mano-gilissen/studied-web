@@ -23,6 +23,8 @@ class UserController extends Controller {
 
 
 
+
+
     public function activate($secret) {
 
         if (Auth::check()) {
@@ -49,7 +51,7 @@ class UserController extends Controller {
         $data                                               = $request->all();
         $user                                               = User::findOrFail($data[Key::AUTOCOMPLETE_ID .  Model::$USER]);
 
-        self::activate_validate($data);
+        self::password_validate($data);
 
         UserTrait::activate($data, $user);
 
@@ -73,7 +75,29 @@ class UserController extends Controller {
 
 
 
-    public function activate_validate(array $data) {
+
+
+    public function password_submit(Request $request) {
+
+        $data                                               = $request->all();
+
+        self::password_validate($data);
+
+        UserTrait::password_set($data);
+
+        return view(Views::FEEDBACK, [
+
+            Key::PAGE_TITLE                                 => 'Wachtwoord gewijzigd',
+            Key::PAGE_MESSAGE                               => 'Je wachtwoord is gewijzigd, zorg dat je het goed onthoud. Deel je inloggegevens nooit deelt met anderen.',
+            Key::PAGE_NEXT                                  => route('person.self'),
+            Key::PAGE_ACTION                                => 'Naar mijn profiel',
+            Key::ICON                                       => 'check-circle-green.svg'
+        ]);
+    }
+
+
+
+    public function password_validate(array $data) {
 
         $messages = [
             'password.required'                             => 'Vul een wachtwoord in.',
@@ -87,6 +111,8 @@ class UserController extends Controller {
 
         $validator->validate();
     }
+
+
 
 
 
