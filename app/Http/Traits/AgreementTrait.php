@@ -191,7 +191,9 @@ trait AgreementTrait {
 
     public static function getTrial($agreement) {
 
-        return Study_user::where(Model::$AGREEMENT, $agreement->id)->first()->getStudy;
+        $study_user                                 = Study_user::where(Model::$AGREEMENT, $agreement->id)->first();
+
+        return $study_user ? $study_user->getStudy : null;
 
     }
 
