@@ -63,21 +63,7 @@
 
             <div class="seperator"></div>
 
-            <div class="field">
-
-                <div class="name">Is de proefles gelukt?</div>
-
-                <div class="switch">
-
-                    <div class="button transparent" data-value="1">Ja</div>
-
-                    <div class="button transparent last" data-value="0">Nee</div>
-
-                    @include('form.field-hidden', ['id' => '_trial_' . $user->id])
-
-                </div>
-
-            </div>
+            @include('form.switch', ['id' => '_trial_' . $user->id, 'tag' => 'Is de proefles gelukt?'])
 
             <div class="seperator"></div>
 
