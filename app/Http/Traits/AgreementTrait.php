@@ -150,6 +150,10 @@ trait AgreementTrait {
 
                 Mail::userActivate_forCustomer($customer, $study, $user);
 
+            } else {
+
+                Mail::agreementApproved_forCustomer($customer, $study, $user, $agreement);
+
             }
         }
     }
