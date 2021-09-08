@@ -30,9 +30,9 @@
 
                 <div>
 
-                    <div class="title">{{ $study->{\App\Http\Support\Model::$STUDY_SUBJECT_TEXT} }}@if($study->{\App\Http\Support\Model::$STUDY_TRIAL}) (Proefles)@endif</div>
+                    <div class="title">{{ $study->{\App\Http\Support\Model::$STUDY_SUBJECT_TEXT} }}</div>
 
-                    <div class="subtitle">{{ \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE) }}</div>
+                    <div class="subtitle">{{ \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE) }}@if($study->{\App\Http\Support\Model::$STUDY_TRIAL}) - (Proefles)@endif</div>
 
                 </div>
 

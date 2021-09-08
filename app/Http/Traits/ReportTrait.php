@@ -64,6 +64,10 @@ trait ReportTrait {
 
                         AgreementTrait::approve($study, $user);
 
+                    } else {
+
+                        dd('dd3434');
+
                     }
                 }
             }
