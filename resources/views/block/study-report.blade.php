@@ -48,6 +48,18 @@
 
             </div>
 
+            <div class="list-attributes">
+
+                <div class="attribute">
+
+                    <div class="name">Proefles gelukt</div>
+
+                    <div class="value">{{ $report->{\App\Http\Support\Model::$REPORT_TRIAL_SUCCESS} ? "Ja" : "Nee" }}</div>
+
+                </div>
+
+            </div>
+
             <div class="subjects">
 
                 @foreach($report->getReport_Subjects as $report_subject)
