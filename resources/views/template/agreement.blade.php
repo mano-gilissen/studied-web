@@ -44,9 +44,9 @@
 
                         @if($agreement->{\App\Http\Support\Model::$AGREEMENT_STATUS} == \App\Http\Traits\AgreementTrait::$STATUS_ACTIVE)
 
-                            <div class="button icon grey">
+                            <div class="button icon grey" onclick="window.location.href='{{ route('agreement.finish', [\App\Http\Support\Model::$AGREEMENT_IDENTIFIER => $agreement->{\App\Http\Support\Model::$AGREEMENT_IDENTIFIER}]) }}'">
 
-                                <img class="icon" src="/images_app/edit.svg" onclick="window.location.href='{{ route('agreement.finish', [\App\Http\Support\Model::$AGREEMENT_IDENTIFIER => $agreement->{\App\Http\Support\Model::$AGREEMENT_IDENTIFIER}]) }}'">
+                                <img class="icon" src="/images_app/edit.svg">
 
                                 <div class="text">Afhandelen</div>
 
