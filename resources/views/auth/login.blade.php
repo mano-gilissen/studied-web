@@ -59,7 +59,7 @@
 
 
 
-        <div class="button-free" id="button-forgot-password" disabled onclick="window.location.href='{{ route('password.forgot') }}'">
+        <div class="button-free" id="button-forgot-password" style="pointer-events: none" onclick="window.location.href='{{ route('password.forgot') }}'">
 
             {{ __('Wachtwoord vergeten?') }}
 
