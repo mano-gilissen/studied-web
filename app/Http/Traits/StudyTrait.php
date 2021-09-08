@@ -8,6 +8,7 @@ use App\Http\Controllers\StudyController;
 use App\Http\Support\Format;
 use App\Http\Support\Key;
 use App\Http\Support\Color;
+use App\Http\Support\Mail;
 use App\Http\Support\Model;
 use App\Http\Support\Func;
 use App\Models\Address;
@@ -73,6 +74,14 @@ trait StudyTrait {
 
 
         $study->save();
+
+
+
+        foreach ($study->getParticipants_User as $user) {
+
+            Mail::studyPlanned_forStudent($study, $user);
+
+        }
 
 
 

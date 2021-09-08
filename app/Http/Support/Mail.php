@@ -65,7 +65,7 @@ class Mail {
 
 
 
-    public static function studyPlanned_forCustomer($study, $participant) {
+    public static function studyPlanned_forStudent($study, $participant) {
 
         $mail                                               = new Study_Planned_Student($study, $participant);
         $recipient                                          = $participant->{Model::$USER_EMAIL};
