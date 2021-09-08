@@ -1052,7 +1052,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
     #mobile img {
         width:                          180px;
         margin:                         0 auto 100px;
-        filter:                         invert(1);
     }
 
     #mobile p {
