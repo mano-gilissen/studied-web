@@ -60,7 +60,7 @@ trait ReportTrait {
 
                 if (Func::contains($key, $prefix . Model::$STUDY_TRIAL)) {
 
-                    if ($data[$key] == 2) {
+                    if ($data[$key] == 2) { // TODO: REPLACE 2 WITH SWITCH.YES CONST
 
                         AgreementTrait::approve($study, $user);
 
@@ -71,8 +71,6 @@ trait ReportTrait {
                     }
                 }
             }
-
-            dd('dd6655');
 
         }
 
