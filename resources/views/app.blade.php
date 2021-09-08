@@ -50,6 +50,8 @@
 
     </div>
 
+    @include('block.mobile')
+
 </body>
 
 
