@@ -113,6 +113,8 @@ trait AgreementTrait {
         $agreement->{Model::$AGREEMENT_STATUS}                  = self::$STATUS_ACTIVE;
         $agreement->save();
 
+        dd($agreement);
+
         if (!UserTrait::isActivated($user) && !UserTrait::sentActivation($user)) {
 
             dd("a");

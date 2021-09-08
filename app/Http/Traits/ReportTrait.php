@@ -58,13 +58,13 @@ trait ReportTrait {
 
                 }
 
-                echo($prefix . ' ' . $key . '<br>');
-
                 if (Func::contains($key, $prefix . Model::$STUDY_TRIAL)) {
 
                     dd('a');
 
-                    if ($data[$key]) {
+                    if ($data[$key] > 0) {
+
+                        dd('b');
 
                         AgreementTrait::approve($study, $user);
 
