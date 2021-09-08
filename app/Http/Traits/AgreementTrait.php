@@ -26,13 +26,14 @@ trait AgreementTrait {
         $STATUS_UNAPPROVED                      = 1,
         $STATUS_PLANNED                         = 2,
         $STATUS_ACTIVE                          = 3,
-        $STATUS_EXPIRED                         = 4;
+        $STATUS_EXPIRED                         = 4,
+        $STATUS_FINISHED                        = 5;
 
 
 
 
 
-    public static function create($data, $id) {
+    public static function create($data, $id = 1) {
 
         $suffix                                                 = '_' . $id;
 
@@ -101,7 +102,24 @@ trait AgreementTrait {
         }
 
         $agreement_replace->{Model::$AGREEMENT_END}             = $agreement->{Model::$AGREEMENT_START};
+        $agreement_replace->{Model::$AGREEMENT_STATUS}          = self::$STATUS_FINISHED;
         $agreement_replace->save();
+
+        return true;
+    }
+
+
+
+    public static function finish($agreement) {
+
+        if (!$agreement) {
+
+            return false;
+
+        }
+
+        $agreement->{Model::$AGREEMENT_STATUS}                  = self::$STATUS_FINISHED;
+        $agreement->save();
 
         return true;
     }
@@ -138,8 +156,11 @@ trait AgreementTrait {
 
     public static function reject($study, $user) {
 
-        dd('AgreementTrait.disprove study:' . $study->id . ' user:' . $user->id);
+        $agreement                                              = Study_user::where(Model::$STUDY, $study->id)->where(Model::$USER, $user->id)->firstOrFail()->getAgreement;
+        $agreement->{Model::$AGREEMENT_STATUS}                  = self::$STATUS_FINISHED;
+        $agreement->save();
 
+        // TODO: FEEDBACK
     }
 
 
@@ -195,14 +216,13 @@ trait AgreementTrait {
 
     public static function getStatus($agreement) {
 
-        if ($agreement->{Model::$AGREEMENT_STATUS} == self::$STATUS_UNAPPROVED) {
+        switch($agreement->{Model::$AGREEMENT_STATUS}) {
 
-            return self::$STATUS_UNAPPROVED;
-
+            case self::$STATUS_PLANNED:
+                return Func::has_passed($agreement->{Model::$AGREEMENT_START}) ? (Func::has_passed($agreement->{Model::$AGREEMENT_END}) ? self::$STATUS_PLANNED : self::$STATUS_ACTIVE) : self::$STATUS_EXPIRED;
+            default:
+                return $agreement->{Model::$AGREEMENT_STATUS};
         }
-
-        return Func::has_passed($agreement->{Model::$AGREEMENT_START}) ? (Func::has_passed($agreement->{Model::$AGREEMENT_END}) ? self::$STATUS_PLANNED : self::$STATUS_ACTIVE) : self::$STATUS_EXPIRED;
-
     }
 
 
@@ -224,6 +244,7 @@ trait AgreementTrait {
             case self::$STATUS_PLANNED:             return "Gepland";
             case self::$STATUS_ACTIVE:              return "Actief";
             case self::$STATUS_EXPIRED:             return "Verlopen";
+            case self::$STATUS_FINISHED:            return "Afgehandeld";
             default:                                return Key::UNKNOWN;
         }
     }
@@ -233,6 +254,7 @@ trait AgreementTrait {
     public static function getStatusTextColor($status) {
 
         switch ($status) {
+            case self::$STATUS_FINISHED:
             case self::$STATUS_PLANNED:             return Color::BLACK;
             case self::$STATUS_ACTIVE:
             case self::$STATUS_UNAPPROVED:
@@ -246,6 +268,7 @@ trait AgreementTrait {
     public static function getStatusColor($status) {
 
         switch ($status) {
+            case self::$STATUS_FINISHED:
             case self::$STATUS_PLANNED:             return Color::GREY_90;
             case self::$STATUS_ACTIVE:              return Color::GREEN;
             case self::$STATUS_UNAPPROVED:

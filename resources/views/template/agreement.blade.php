@@ -42,6 +42,18 @@
                     @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
                     @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
 
+                        @if($agreement->{\App\Http\Support\Model::$AGREEMENT_STATUS} == \App\Http\Traits\AgreementTrait::$STATUS_ACTIVE)
+
+                            <div class="button icon grey">
+
+                                <img class="icon" src="/images_app/edit.svg" onclick="window.location.href='{{ route('agreement.finish', [\App\Http\Support\Model::$AGREEMENT_IDENTIFIER => $agremeent->{\App\Http\Support\Model::$AGREEMENT_IDENTIFIER}]) }}'">
+
+                                <div class="text">Afhandelen</div>
+
+                            </div>
+
+                        @endif
+
                         <div class="button icon">
 
                             <img class="icon" src="/images_app/edit.svg">

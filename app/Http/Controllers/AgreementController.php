@@ -81,7 +81,7 @@ class AgreementController extends Controller {
 
         self::create_validate($data);
 
-        $agreement                                                          = AgreementTrait::create($data, 1);
+        $agreement                                                          = AgreementTrait::create($data);
 
         if (!$agreement) {
 
@@ -145,6 +145,23 @@ class AgreementController extends Controller {
 
         $data[Key::AUTOCOMPLETE_DATA . 'replace']                           = Format::encode($ac_data_agreements);
         $data[Key::AUTOCOMPLETE_ADDITIONAL . 'replace']                     = Format::encode($ac_additional_agreements);
+    }
+
+
+
+
+
+    public function finish($identifier) {
+
+        $agreement                                                          = Agreement::where(Model::$AGREEMENT_IDENTIFIER, $identifier)->firstOrFail();
+
+        if (!AgreementTrait::finish($agreement)) {
+
+            abort(500);
+
+        }
+
+        return redirect()->route('agreement.view', [Model::$AGREEMENT_IDENTIFIER => $agreement->{Model::$AGREEMENT_IDENTIFIER}]);
     }
 
 

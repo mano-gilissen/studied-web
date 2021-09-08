@@ -35,6 +35,8 @@ const AGREEMENT_VIEW                            = 'agreement.view';
 
 const AGREEMENT_CREATE                          = 'agreement.create';
 
+const AGREEMENT_FINISH                          = 'agreement.finish';
+
 
 
 const STUDENT_CREATE                            = 'student.create';
@@ -187,6 +189,7 @@ const ALL_MANAGEMENT                            = [
     self::PERSON_DELETE,
     self::PERSON_ACTIVATE,
     self::STUDY_DELETE,
+    self::AGREEMENT_FINISH,
     self::AGREEMENT_CREATE,
     self::STUDENT_CREATE,
     self::STUDENT_EDIT,
