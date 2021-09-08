@@ -60,7 +60,7 @@ trait ReportTrait {
 
                 if (Func::contains($key, $prefix . Model::$STUDY_TRIAL)) {
 
-                    if ($data[$key] > 0) {
+                    if ($data[$key] == 2) {
 
                         AgreementTrait::approve($study, $user);
 
