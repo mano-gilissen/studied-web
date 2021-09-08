@@ -458,6 +458,14 @@ trait StudyTrait {
 
 
 
+    public static function isTrial($study) {
+
+        return $study->{Model::$STUDY_TRIAL};
+
+    }
+
+
+
     public static function canEdit($study, $user = null) {
 
         if (!$user) {

@@ -65,6 +65,14 @@ $(function(){
 
 
 
+    $(OBJECT_FORM).on('click', CLASS_SWITCH + ' ' + CLASS_BUTTON, function() {
+
+        switch_click($(this));
+
+    });
+
+
+
 });
 
 
@@ -367,6 +375,20 @@ function report_time_selected_text(time) {
 
     return (time % 60 === 0) ? time / 60 + " uur" : time + " min";
 
+}
+
+
+
+
+
+function switch_click(button) {
+
+    var buttons                                     = button.parent().children(CLASS_BUTTON);
+    var input                                       = button.parent().find('input')[0];
+
+    buttons                                         .removeClass(ATTR_SELECTED);
+    button                                          .addClass(ATTR_SELECTED);
+    input.value                                     = button.data('value');
 }
 
 

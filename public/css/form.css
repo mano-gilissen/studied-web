@@ -258,6 +258,26 @@ html, body {
 
 
 
+.switch {
+    width:                              200px;
+}
+
+.switch .button {
+    margin-right:                       8px;
+}
+
+.switch .button.last {
+    margin-right:                       0;
+}
+
+.switch .button.selected {
+    background:                         #F0F0F0;
+}
+
+
+
+
+
 #agreements-wrap .title {
     padding:                            8px 0;
 }

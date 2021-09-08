@@ -36,6 +36,7 @@ const CLASS_PERSON_REPORT                       = '.person-report';
 const CLASS_AGREEMENT                           = '.agreement';
 const CLASS_BUTTON                              = '.button';
 const CLASS_DOT                                 = '.dot';
+const CLASS_SWITCH                              = '.switch';
 const CLASS_TAB                                 = '.tab';
 const CLASS_ITEM_TITLE                          = '.item-title';
 
