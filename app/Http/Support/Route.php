@@ -157,6 +157,8 @@ const EVALUATION_PLAN_SUBMIT                    = 'evaluation.plan_submit';
 
 const EVALUATION_PERFORM_SUBMIT                 = 'evaluation.perform_submit';
 
+const USER_PASSWORD_SUBMIT                      = 'user.password_submit';
+
 
 
 const ENCRYPT                                   = 'encrypt';
@@ -266,6 +268,7 @@ const ALL_AUTH                                  = [
     self::LOAD_STUDY_LIST,
     self::LOAD_STUDY_COUNTERS,
     self::LOAD_STUDY_FILTER,
+    self::USER_PASSWORD_SUBMIT
 ];
 
 
