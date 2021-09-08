@@ -1059,5 +1059,6 @@ input[type="search"]::-webkit-search-results-decoration { display: none; }
         font-weight:                    100;
         font-family:                    'Circular', serif;
         line-height:                    1.6;
+        margin:                         0 auto;
     }
 }
