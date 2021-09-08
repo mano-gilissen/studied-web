@@ -77,6 +77,16 @@ class UserController extends Controller {
 
 
 
+    public function edit() {
+
+        return view(Views::PROFILE_EDIT, [
+
+            Key::PAGE_TITLE                                         => 'Profiel wijzigen'
+        ]);
+    }
+
+
+
     public function password_submit(Request $request) {
 
         $data                                               = $request->all();

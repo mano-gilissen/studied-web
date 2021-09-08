@@ -73,6 +73,8 @@ const USER_ACTIVATE                             = 'user.activate';
 
 const USER_PASSWORD                             = 'user.password';
 
+const USER_EDIT                                 = 'user.edit';
+
 
 
 const EVALUATION_VIEW                           = 'evaluation.view';
@@ -251,6 +253,7 @@ const ALL_CUSTOMER                              = [
 
 const ALL_AUTH                                  = [
 
+    self::USER_EDIT,
     self::USER_PASSWORD,
     self::STUDY_LIST,
     self::STUDY_VIEW,
