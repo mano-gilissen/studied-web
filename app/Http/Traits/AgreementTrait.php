@@ -160,7 +160,7 @@ trait AgreementTrait {
 
 
 
-    public static function reject($study, $user) {
+    public static function xreject($study, $user) {
 
         $agreement                                              = Study_user::where(Model::$STUDY, $study->id)->where(Model::$USER, $user->id)->firstOrFail()->getAgreement;
         $agreement->{Model::$AGREEMENT_STATUS}                  = self::$STATUS_FINISHED;

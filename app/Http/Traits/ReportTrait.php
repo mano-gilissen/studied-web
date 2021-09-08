@@ -73,7 +73,9 @@ trait ReportTrait {
     public static function trial($result, $study, $user, $report) {
 
         $trail_success                                                      = $result == 2; // TODO: REPLACE 2 WITH SWITCH.YES CONST
+
         $report->{Model::$REPORT_TRIAL_SUCCESS}                             = $trail_success;
+        $report->save();
 
         if ($trail_success) {
 
