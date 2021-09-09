@@ -111,7 +111,17 @@
                                     <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">
                                         <img style="width: 110px;margin-bottom: 32px;margin-left:-4px" src="{{ $message->embed(public_path() . '/images_app/logo.png') }}">
                                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 24px;">Beste {{ $employee->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME} }},</p>
-                                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">De gegevens van je les {{ \App\Http\Traits\StudyTrait::getSubject($study)->{\App\Http\Support\Model::$SUBJECT_NAME} }} met {{ \App\Http\Traits\StudyTrait::getParticipantsText($study) }} zijn gewijzigd. Deze vindt nu plaats op {{ \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE) }} van {{ \App\Http\Traits\StudyTrait::getTimeText($study, true) }} en de locatie is: {{ $study->{\App\Http\Support\Model::$STUDY_LOCATION_TEXT} }}. Kom op tijd en zorg ervoor dat de leerling(en) weet wat hij moet meenemen en voorbereiden.</p>
+
+                                        @if(\App\Http\Traits\StudyTrait::hasLink($study))
+
+                                            <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">De gegevens van je les {{ \App\Http\Traits\StudyTrait::getSubject($study)->{\App\Http\Support\Model::$SUBJECT_NAME} }} met {{ \App\Http\Traits\StudyTrait::getParticipantsText($study) }} zijn gewijzigd. Deze vindt nu plaats op {{ \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE) }} van {{ \App\Http\Traits\StudyTrait::getTimeText($study, true) }} en de locatie is: <a href="{{ $study->{\App\Http\Support\Model::$STUDY_LINK} }}">{{ $study->{\App\Http\Support\Model::$STUDY_LINK} }}</a>. Kom op tijd en zorg ervoor dat de leerling(en) weet wat hij moet meenemen en voorbereiden.</p>
+
+                                        @else
+
+                                            <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">De gegevens van je les {{ \App\Http\Traits\StudyTrait::getSubject($study)->{\App\Http\Support\Model::$SUBJECT_NAME} }} met {{ \App\Http\Traits\StudyTrait::getParticipantsText($study) }} zijn gewijzigd. Deze vindt nu plaats op {{ \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE) }} van {{ \App\Http\Traits\StudyTrait::getTimeText($study, true) }} en de locatie is: {{ $study->{\App\Http\Support\Model::$STUDY_LOCATION_TEXT} }}. Kom op tijd en zorg ervoor dat de leerling(en) weet wat hij moet meenemen en voorbereiden.</p>
+
+                                        @endif
+
                                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">Je kunt de lesgegevens bekijken in onze web-app. Mocht je vragen hebben, aarzel dan niet contact met ons op te nemen!</p>
                                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; box-sizing: border-box;">
                                             <tbody>
