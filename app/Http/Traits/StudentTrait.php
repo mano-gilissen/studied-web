@@ -60,7 +60,7 @@ trait StudentTrait {
 
         if (self::hasCustomer($student)) {
 
-            Mail::studentLinked_forCustomer($student, $student->getCustomer);
+            Mail::studentLinked_forCustomer($student->getUser, $student->getCustomer->getUser);
 
         }
 
@@ -105,7 +105,7 @@ trait StudentTrait {
 
         if (self::hasCustomer($student) && (!$customerBefore || $customerBefore != $student->{Model::$CUSTOMER})) {
 
-            Mail::studentLinked_forCustomer($student, $student->getCustomer);
+            Mail::studentLinked_forCustomer($student->getUser, $student->getUser->getCustomer);
 
         }
 
