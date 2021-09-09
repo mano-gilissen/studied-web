@@ -24,7 +24,7 @@
 
             <div id="agreements">
 
-                @php $agreements = \App\Http\Traits\UserTrait::getAgreements($person->getUser, true) @endphp
+                @php $agreements = \App\Http\Traits\UserTrait::getAgreements($person->getUser) @endphp
 
                 @if($agreements->count() > 0)
 
@@ -56,7 +56,7 @@
 
                                 @endif
 
-                                <div>{!! \App\Http\Traits\AgreementTrait::getDescription($agreement, $forHost) !!} @if($agreement->{\App\Http\Support\Model::$AGREEMENT_STATUS} == \App\Http\Traits\AgreementTrait::$STATUS_UNAPPROVED) <span class="trial"> (Proefles)</span> @endif</div>
+                                <div>{!! \App\Http\Traits\AgreementTrait::getDescription($agreement, $forHost) !!} @if($agreement->{\App\Http\Support\Model::$AGREEMENT_STATUS} == \App\Http\Traits\AgreementTrait::$STATUS_UNAPPROVED) <span class="trial"> (Proefles)</span> @endif  @if(\App\Http\Traits\AgreementTrait::getStatus($agreement) == \App\Http\Traits\AgreementTrait::$STATUS_EXPIRED) <span class="expired"> (Verlopen)</span> @endif</div>
 
                             </div>
 
