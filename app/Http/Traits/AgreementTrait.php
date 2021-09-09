@@ -245,6 +245,8 @@ trait AgreementTrait {
 
     public static function getStatus($agreement) {
 
+        dd(Func::has_passed($agreement->{Model::$AGREEMENT_END}) ? 'a' : 'b');
+
         switch($agreement->{Model::$AGREEMENT_STATUS}) {
 
             case self::$STATUS_PLANNED:
