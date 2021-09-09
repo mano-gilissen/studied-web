@@ -122,7 +122,7 @@ trait AgreementTrait {
         $agreement->{Model::$AGREEMENT_STATUS}                  = self::$STATUS_FINISHED;
         $agreement->save();
 
-        // TODO MAIL:FINISHED
+        Mail::agreementFinished_forEmployee($agreement);
 
         return true;
     }

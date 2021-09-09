@@ -5,6 +5,7 @@
 namespace App\Http\Support;
 
 use App\Http\Mail\Agreement_Approved_Customer;
+use App\Http\Mail\Agreement_Finished_Employee;
 use App\Http\Mail\Study_Edited_Employee;
 use App\Http\Mail\Study_Edited_Student;
 use App\Http\Mail\Study_Planned_Employee;
@@ -58,10 +59,25 @@ class Mail {
 
 
 
+
+
     public static function agreementApproved_forCustomer($user, $study, $student, $agreement) {
 
         $mail                                               = new Agreement_Approved_Customer($user, $study, $student, $agreement);
         $recipient                                          = $user->{Model::$USER_EMAIL};
+
+        Mail_::to($recipient)->send($mail);
+    }
+
+
+
+    public static function agreementFinished_forEmployee($agreement) {
+
+        $employee                                           = $agreement->getEmployee;
+        $student                                            = $agreement->getStudent;
+
+        $mail                                               = new Agreement_Finished_Employee($employee, $student, $agreement);
+        $recipient                                          = $employee->{Model::$USER_EMAIL};
 
         Mail_::to($recipient)->send($mail);
     }
