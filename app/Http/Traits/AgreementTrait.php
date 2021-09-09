@@ -245,11 +245,9 @@ trait AgreementTrait {
 
     public static function getStatus($agreement) {
 
-        dd(Func::has_passed($agreement->{Model::$AGREEMENT_END}) ? 'a' : 'b');
-
         switch($agreement->{Model::$AGREEMENT_STATUS}) {
 
-            case self::$STATUS_PLANNED:
+            case self::$STATUS_ACTIVE:
                 return Func::has_passed($agreement->{Model::$AGREEMENT_START}) ? (Func::has_passed($agreement->{Model::$AGREEMENT_END}) ? self::$STATUS_EXPIRED : self::$STATUS_ACTIVE) : self::$STATUS_PLANNED;
             default:
                 return $agreement->{Model::$AGREEMENT_STATUS};
