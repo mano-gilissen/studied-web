@@ -108,17 +108,21 @@
 
                 @include('form.field-input', ['id' => 'password_confirmation', 'type' => 'password', 'tag' => 'Wachtwoord bevestigen', 'placeholder' => 'Typ je wachtwoord opnieuw', 'required' => true, 'max' => 30])
 
-                <button class="button transparent" style="margin-right: 8px;" onclick="window.history.back();">
+                <div style="display: flex;align-items: center;margin: 48px 0 0 auto">
 
-                    Terug
+                    <button class="button transparent" style="margin-right: 8px;" onclick="window.history.back();">
 
-                </button>
+                        Terug
 
-                <button class="button" id="button-submit" type="submit">
+                    </button>
 
-                    Wijzigen
+                    <button class="button" id="button-submit" type="submit" style="margin: 0">
 
-                </button>
+                        Wijzigen
+
+                    </button>
+
+                </div>
 
             </form>
 
