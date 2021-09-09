@@ -7,6 +7,7 @@ namespace App\Http\Traits;
 use App\Http\Support\Key;
 use App\Http\Support\Mail;
 use App\Http\Support\Model;
+use App\Models\Customer;
 use App\Models\Student;
 use Illuminate\Support\Facades\Validator;
 
@@ -113,13 +114,14 @@ trait StudentTrait {
 
         if (self::hasCustomer($student) && (!$customerBefore || $customerBefore != $student->{Model::$CUSTOMER})) {
 
-            $user_customer                                                  = $student->getCustomer->getUser;
+            $customer                                                   = Customer::find($student->{Model::$CUSTOMER});
+            $user_customer                                              = $customer->getUser;
 
             echo($user_customer->getPerson->first_name . "<br>");
             echo((UserTrait::isActivated($user_customer) ? 'd' : 'e') . "<br>");
-            echo($student->getCustomer->getStudents->count() . "<br>");
+            echo($customer->getStudents->count() . "<br>");
 
-            if (UserTrait::isActivated($user_customer) && $student->getCustomer->getStudents->count() > 1) {
+            if (UserTrait::isActivated($user_customer) && $customer->getStudents->count() > 1) {
 
                 Mail::studentLinked_forCustomer($student->getUser, $user_customer);
 
