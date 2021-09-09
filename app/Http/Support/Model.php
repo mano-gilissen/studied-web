@@ -110,6 +110,7 @@ class Model {
 
         $EMPLOYEE                                       = 'employee',
 
+        $EMPLOYEE_PROFILE_TEXT                          = 'profile_text',
         $EMPLOYEE_EDUCATION_CURRENT                     = 'education_current',
         $EMPLOYEE_EDUCATION_MIDDELBARE                  = 'education_middelbare',
         $EMPLOYEE_SCHOOL_CURRENT                        = 'school_current',

@@ -10,7 +10,7 @@
 
             @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
 
-                @include('block.menu-item', ['label' => 'Lesoverzicht', 'route' => route('study.list')])
+                @include('block.menu-item', ['label' => 'Lessen', 'route' => route('study.list')])
 
                 @include('block.menu-item', ['label' => 'Agenda'])
 
@@ -26,7 +26,7 @@
 
             @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
-                @include('block.menu-item', ['label' => 'Lesoverzicht', 'route' => route('study.list')])
+                @include('block.menu-item', ['label' => 'Lessen', 'route' => route('study.list')])
 
                 @include('block.menu-item', ['label' => 'Agenda'])
 
@@ -38,7 +38,7 @@
 
             @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
 
-                @include('block.menu-item', ['label' => 'Lesoverzicht', 'route' => route('study.list')])
+                @include('block.menu-item', ['label' => 'Lessen', 'route' => route('study.list')])
 
                 @include('block.menu-item', ['label' => 'Mijn profiel', 'route' => route('person.self')])
 
@@ -46,7 +46,7 @@
 
             @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
 
-                @include('block.menu-item', ['label' => 'Lesoverzicht', 'route' => route('study.list')])
+                @include('block.menu-item', ['label' => 'Lessen', 'route' => route('study.list')])
 
                 @if(\App\Http\Traits\CustomerTrait::hasMultipleStudents(Auth::user()->getCustomer))
 

@@ -32,6 +32,8 @@
 
 @include('form.field-input', ['id' => 'iban', 'tag' => 'Rekeningnummer (IBAN)', 'value' => $employee->{\App\Http\Support\Model::$EMPLOYEE_IBAN}])
 
+@include('form.field-input', ['id' => 'profile_text', 'tag' => 'Profieltekst', 'value' => $employee->{\App\Http\Support\Model::$EMPLOYEE_PROFILE_TEXT}])
+
 <div class="seperator"></div>
 
 

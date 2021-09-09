@@ -6,6 +6,7 @@ namespace App\Http\Traits;
 
 use App\Http\Support\Model;
 use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -71,6 +72,21 @@ trait CustomerTrait {
 
         return $customer->getStudents->count() > 1;
 
+    }
+
+
+
+    public static function getStudentsText($customer) {
+
+        $students = User::whereHas('getStudent.getCustomer', function ($q) use ($customer) {$q->where(Model::$CUSTOMER, $customer->{Model::$BASE_ID});})
+            ->with('getPerson')
+            ->get();
+
+        switch (count($students)) {
+            case 0:                                             return "Geen leerlingen";
+            case 1:                                             return PersonTrait::getFullName($students[0]->getPerson);
+            default:                                            return implode(", ", $students->pluck('getPerson.' . Model::$PERSON_FIRST_NAME)->toArray());
+        }
     }
 
 
