@@ -60,8 +60,13 @@ trait StudentTrait {
 
         if (self::hasCustomer($student)) {
 
-            Mail::studentLinked_forCustomer($student->getUser, $student->getCustomer->getUser);
+            $user_customer                                                  = $student->getCustomer->getUser;
 
+            if (UserTrait::isActivated($user_customer) && $student->getCustomer->getStudents->count() > 1) {
+
+                Mail::studentLinked_forCustomer($student->getUser, $user_customer);
+
+            }
         }
 
 
@@ -105,8 +110,13 @@ trait StudentTrait {
 
         if (self::hasCustomer($student) && (!$customerBefore || $customerBefore != $student->{Model::$CUSTOMER})) {
 
-            Mail::studentLinked_forCustomer($student->getUser, $student->getCustomer->getUser);
+            $user_customer                                                  = $student->getCustomer->getUser;
 
+            if (UserTrait::isActivated($user_customer) && $student->getCustomer->getStudents->count() > 1) {
+
+                Mail::studentLinked_forCustomer($student->getUser, $user_customer);
+
+            }
         }
 
 
