@@ -23,14 +23,6 @@
 
 
 
-        @if (session('status'))
-
-            <div style="font-weight: 400">{{ session('status') }}</div>
-
-        @endif
-
-
-
         <form method="POST" action="{{ route('password.update') }}">
 
 
@@ -58,12 +50,6 @@
 
             </div>
 
-            @error('email')
-
-                <strong>{{ $message }}</strong>
-
-            @enderror
-
 
 
             <div class="box-input">
@@ -78,12 +64,6 @@
                     required>
 
             </div>
-
-            @error('password')
-
-                <strong>{{ $message }}</strong>
-
-            @enderror
 
 
 
@@ -102,7 +82,27 @@
 
 
 
-            <div style="height: 32px"></div>
+            <div style="height: 64px">
+
+                @if (session('status'))
+
+                    <div style="font-weight: 400">{{ session('status') }}</div>
+
+                @endif
+
+                @error('email')
+
+                    <div style="color: #FF0000">{{ $message }}</div>
+
+                @enderror
+
+                @error('password')
+
+                    <div style="color: #FF0000">{{ $message }}</div>
+
+                @enderror
+
+            </div>
 
 
 
