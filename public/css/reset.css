@@ -24,17 +24,6 @@ html, body {
     margin-bottom:                      80px;
 }
 
-#box-input-password {
-    margin-top:                         32px;
+.box-input {
+    margin-bottom: 32px;
 }
-
-#button-login {
-    margin:                             72px 0 0 auto;
-}
-
-#button-forgot-password {
-    width:                              fit-content;
-    margin:                             24px 0 0 auto;
-}
-
-input
