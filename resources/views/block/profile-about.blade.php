@@ -54,7 +54,7 @@
 
                     <div class="name">Leerjaar</div>
 
-                    <div class="value">{{ \App\Http\Traits\StudentTrait::getNiveauText($student->{\App\Http\Support\Model::$STUDENT_NIVEAU}) . ' ' . $student->{\App\Http\Support\Model::$STUDENT_LEERJAAR} }}</div>
+                    <div class="value">{{ \App\Http\Traits\StudentTrait::getNiveauText($person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_NIVEAU}) . ' ' . $person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_LEERJAAR} }}</div>
 
                 </div>
 
@@ -62,7 +62,7 @@
 
                     <div class="name">Profiel</div>
 
-                    <div class="value">{{ $student->{\App\Http\Support\Model::$STUDENT_PROFILE} }}</div>
+                    <div class="value">{{ $person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_PROFILE} }}</div>
 
                 </div>
 
@@ -72,9 +72,9 @@
 
                 <div class="attribute">
 
-                    <div class="name">Profiel</div>
+                    <div class="name">Klant sinds</div>
 
-                    <div class="value">{{ $student->{\App\Http\Support\Model::$STUDENT_PROFILE} }}</div>
+                    <div class="value">{{ \App\Http\Support\Format::datetime($person->getUser->{\App\Http\Support\Model::$USER_ACTIVATED}, \App\Http\Support\Format::$DATETIME_PROFILE) }}</div>
 
                 </div>
 
