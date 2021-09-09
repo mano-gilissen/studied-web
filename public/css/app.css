@@ -593,9 +593,12 @@ button:focus {
     text-decoration:                    underline;
 }
 
-.agreement .trial,
-.agreement .expired {
+.agreement .trial {
     color:                              #FF0000;
+}
+
+.agreement .expired {
+    color:                              #FFBF5F;
 }
 
 .agreement {
