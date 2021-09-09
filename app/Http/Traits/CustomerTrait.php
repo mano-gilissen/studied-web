@@ -22,7 +22,7 @@ trait CustomerTrait {
         self::validate($data);
 
         $customer                                               = new Customer;
-        $user                                                   = UserTrait::create($data, RoleTrait::$ID_CUSTOMER, UserTrait::$STATUS_INTAKE);
+        $user                                                   = UserTrait::create($data, RoleTrait::$ID_CUSTOMER);
 
         if (!$user) {
 

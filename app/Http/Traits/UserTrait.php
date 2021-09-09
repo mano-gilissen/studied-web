@@ -56,7 +56,7 @@ trait UserTrait {
 
         $user->{Model::$USER_EMAIL}                         = $data[Model::$USER_EMAIL];
         $user->{Model::$ROLE}                               = $role;
-        $user->{Model::$USER_STATUS}                        = $status ? $status : self::$STATUS_ACTIVE;
+        $user->{Model::$USER_STATUS}                        = $status ? $status : self::$STATUS_INTAKE;
 
         $user->save();
         $person->save();

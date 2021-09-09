@@ -66,7 +66,7 @@
 
     @include('form.field-input', ['id' => 'school_current', 'tag' => 'School', 'value' => old('school_current')])
 
-    @include('form.field-input', ['id' => 'profile_current', 'tag' => 'Profiel', 'value' => old('profile_current')])
+    @include('form.field-input', ['id' => 'profile_current', 'tag' => 'Opleiding', 'value' => old('profile_current')])
 
     <div class="seperator"></div>
 
@@ -102,11 +102,11 @@
 
     <div class="title">{{ __('Profielgegevens') }}</div>
 
-    @include('form.field-input', ['id' => 'profile_text', 'tag' => 'Profieltekst'])
+    @include('form.field-input', ['id' => 'profile_text', 'tag' => 'Profieltekst', 'value' => old('profile_text')])
 
-    @include('form.field-input', ['id' => 'social_instagram', 'tag' => 'Instagram'])
+    @include('form.field-input', ['id' => 'social_instagram', 'tag' => 'Instagram', 'value' => old('social_instagram')])
 
-    @include('form.field-input', ['id' => 'social_linkedin', 'tag' => 'LinkedIn'])
+    @include('form.field-input', ['id' => 'social_linkedin', 'tag' => 'LinkedIn', 'value' => old('social_linkedin')])
 
     <div class="seperator"></div>
 

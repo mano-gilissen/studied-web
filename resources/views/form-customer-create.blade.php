@@ -26,9 +26,9 @@
 
     <div class="title">{{ __('Contact- en inloggegevens') }}</div>
 
-    @include('form.field-input', ['id' => 'email', 'type' => 'email', 'tag' => 'Email adres', 'required' => true])
+    @include('form.field-input', ['id' => 'email', 'type' => 'email', 'tag' => 'Email adres', 'required' => true, 'value' => old('email')])
 
-    @include('form.field-input', ['id' => 'phone', 'type' => 'phone', 'tag' => 'Telefoonnummer', 'placeholder' => 'Telefoonnummer met landcode'])
+    @include('form.field-input', ['id' => 'phone', 'type' => 'phone', 'tag' => 'Telefoonnummer', 'placeholder' => 'Telefoonnummer met landcode', 'value' => old('phone')])
 
     <div class="seperator"></div>
 
@@ -36,25 +36,25 @@
 
     <div class="title">{{ __('Woonadres') }}</div>
 
-    @include('form.field-input', ['id' => 'street', 'tag' => 'Straatnaam', 'required' => true])
+    @include('form.field-input', ['id' => 'street', 'tag' => 'Straatnaam', 'required' => true, 'value' => old('street')])
 
     <div class="field">
 
         <div class="name">Huisnummer</div>
 
-        @include('form.box-input', ['id' => 'number', 'required' => true, 'size' => 'width-third'])
+        @include('form.box-input', ['id' => 'number', 'required' => true, 'size' => 'width-third', 'value' => old('number')])
 
         <div class="note width-third">Toevoeging</div>
 
-        @include('form.box-input', ['id' => 'addition', 'size' => 'width-third'])
+        @include('form.box-input', ['id' => 'addition', 'size' => 'width-third', 'value' => old('addition')])
 
     </div>
 
-    @include('form.field-input', ['id' => 'zipcode', 'tag' => 'Postcode', 'required' => true])
+    @include('form.field-input', ['id' => 'zipcode', 'tag' => 'Postcode', 'required' => true, 'value' => old('zipcode')])
 
-    @include('form.field-input', ['id' => 'city', 'tag' => 'Stad', 'required' => true])
+    @include('form.field-input', ['id' => 'city', 'tag' => 'Stad', 'required' => true, 'value' => old('city')])
 
-    @include('form.field-input', ['id' => 'country', 'tag' => 'Land', 'required' => true])
+    @include('form.field-input', ['id' => 'country', 'tag' => 'Land', 'required' => true, 'value' => old('country')])
 
     <div class="seperator"></div>
 

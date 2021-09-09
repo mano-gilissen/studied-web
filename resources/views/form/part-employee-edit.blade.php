@@ -4,7 +4,7 @@
 
 @include('form.field-input', ['id' => 'school_current', 'tag' => 'School', 'value' => $employee->{\App\Http\Support\Model::$EMPLOYEE_SCHOOL_CURRENT}])
 
-@include('form.field-input', ['id' => 'profile_current', 'tag' => 'Profiel', 'value' => $employee->{\App\Http\Support\Model::$EMPLOYEE_EDUCATION_CURRENT}])
+@include('form.field-input', ['id' => 'profile_current', 'tag' => 'Opleiding', 'value' => $employee->{\App\Http\Support\Model::$EMPLOYEE_EDUCATION_CURRENT}])
 
 <div class="seperator"></div>
 
