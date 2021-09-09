@@ -14,6 +14,12 @@
 
                 @endif
 
+                @foreach($person->getUser->getEmployees as $employee)
+
+                    @include('block.person', ['person' => $employee->getPerson])
+
+                @endforeach
+
                 @break
 
             @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
