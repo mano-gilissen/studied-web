@@ -8,6 +8,7 @@ use App\Http\Support\Model;
 use App\Http\Traits\EvaluationTrait;
 use App\Http\Traits\StudyTrait;
 use App\Models\Agreement;
+use App\Models\Evaluation;
 use App\Models\Person;
 use App\Models\Study;
 use App\Models\User;
