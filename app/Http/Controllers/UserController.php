@@ -82,7 +82,8 @@ class UserController extends Controller {
         return view(Views::PROFILE_EDIT, [
 
             Key::PAGE_TITLE                                 => 'Profiel wijzigen',
-            Key::PAGE_BACK                                  => true
+            Key::PAGE_BACK                                  => true,
+            Key::BACK_ROUTE                                 => route('profile.self')
         ]);
     }
 
