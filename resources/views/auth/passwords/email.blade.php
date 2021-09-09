@@ -46,7 +46,8 @@
                 name                        ="email"
                 value                       ="{{ old('email') }}"
                 autocomplete                ="email"
-                placeholder=""              ="Vul je email adres in"
+                placeholder                 ="Vul je email adres in"
+                style                       ="margin-bottom: 48px;"
                 required
                 autofocus>
 
