@@ -39,7 +39,7 @@ class Evaluation_Created_Customer extends Mailable {
         $this->customer                     = $customer;
         $this->evaluation                   = $evaluation;
 
-        $this->subject                      = 'Er is een ' . strtolower(EvaluationTrait::getRegardingText($evaluation)) . ' voor u ingepland.';
+        $this->subject                      = 'Er is een ' . strtolower(EvaluationTrait::getRegardingText($evaluation->{Model::$EVALUATION_REGARDING})) . ' voor u ingepland.';
     }
 
 
