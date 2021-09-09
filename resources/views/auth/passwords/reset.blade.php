@@ -4,6 +4,7 @@
 
 @section('css')
 
+    <link href="{{ asset('css/form.css') }}" rel="stylesheet">
     <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
 
 @endsection
