@@ -13,6 +13,7 @@ use App\Models\Agreement;
 use App\Models\Evaluation;
 use App\Models\User;
 use Auth;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
@@ -108,7 +109,7 @@ trait UserTrait {
 
         $user->{Model::$USER_PASSWORD}                                      = Hash::make($data['password']);
         $user->{Model::$USER_STATUS}                                        = UserTrait::$STATUS_ACTIVE;
-        $user->{Model::$USER_ACTIVATED}                                     = date(Format::$DATABASE_DATETIME, time());
+        $user->{Model::$USER_ACTIVATED}                                     = \Carbon::now();
 
         $user->save();
     }
