@@ -12,6 +12,7 @@ use App\Http\Mail\Evaluation_Created_Customer;
 use App\Http\Mail\Evaluation_Created_Employee;
 use App\Http\Mail\Evaluation_Created_Host;
 use App\Http\Mail\Evaluation_Created_Student;
+use App\Http\Mail\Student_Linked_Customer;
 use App\Http\Mail\Study_Edited_Employee;
 use App\Http\Mail\Study_Edited_Student;
 use App\Http\Mail\Study_Planned_Employee;
@@ -206,6 +207,18 @@ class Mail {
     public static function evaluationCreated_forCustomer($customer, $evalution) {
 
         $mail                                               = new Evaluation_Created_Customer($customer, $evalution);
+        $recipient                                          = $customer->{Model::$USER_EMAIL};
+
+        self::mailTo($mail, $recipient);
+    }
+
+
+
+
+
+    public static function studentLinked_forCustomer($student, $customer) {
+
+        $mail                                               = new Student_Linked_Customer($student, $customer);
         $recipient                                          = $customer->{Model::$USER_EMAIL};
 
         self::mailTo($mail, $recipient);

@@ -56,6 +56,16 @@ trait StudentTrait {
 
         $student->save();
 
+
+
+        if (self::hasCustomer($student)) {
+
+            Mail::studentLinked_forCustomer($student, $student->getCustomer);
+
+        }
+
+
+
         return $student;
     }
 
@@ -64,6 +74,8 @@ trait StudentTrait {
     public static function update(array $data, $student) {
 
         self::validate($data);
+
+        $customerBefore                                                     = self::hasCustomer($student) ? $student->{Model::$CUSTOMER} : null;
 
         $student->{Model::$CUSTOMER}                                        = $data[Key::AUTOCOMPLETE_ID . Model::$CUSTOMER];
 
@@ -88,6 +100,16 @@ trait StudentTrait {
 
 
         $student->save();
+
+
+
+        if (self::hasCustomer($student) && (!$customerBefore || $customerBefore != $student->{Model::$CUSTOMER})) {
+
+            Mail::studentLinked_forCustomer($student, $student->getCustomer);
+
+        }
+
+
 
         return $student;
     }
