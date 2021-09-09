@@ -25,7 +25,7 @@
 
         @if (session('status'))
 
-            {{ session('status') }}
+            <div style="font-weight: 400">{{ session('status') }}</div>
 
         @endif
 
@@ -39,7 +39,7 @@
 
 
 
-            <div class="box-input" style="margin-bottom: 48px;">
+            <div class="box-input" style="margin-bottom: 64px;">
 
                 <input
                     id                          ="email"
@@ -58,13 +58,13 @@
 
             @error('email')
 
-            <strong>{{ $message }}</strong>
+                <div style="font-weight: 400">{{ $message }}</div>
 
             @enderror
 
 
 
-            <button type="submit" class="button">
+            <button type="submit" class="button" style="margin-left: auto;">
 
                 {{ __('Link sturen') }}
 
