@@ -119,7 +119,7 @@
 
                                         @else
 
-                                            <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">Er is een gesprek met jou als managing-student aangemaakt. Het gesprek is op {{ \App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$DATETIME_SINGLE) }} om {{ \App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$DATABASE_TIME) }} en de locatie is: {{ $evaluation->{\App\Http\Support\Model::$EVALUATION_LOCATION_TEXT} }}</p>
+                                            <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">Er is een gesprek met jou als managing-student aangemaakt. Het gesprek is op {{ \App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$DATETIME_SINGLE) }} om {{ \App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$TIME_SINGLE) }} en de locatie is: {{ $evaluation->{\App\Http\Support\Model::$EVALUATION_LOCATION_TEXT} }}</p>
 
                                         @endif
 

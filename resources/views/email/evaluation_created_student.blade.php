@@ -115,7 +115,7 @@
 
                                         @if(\App\Http\Traits\EvaluationTrait::hasLink($evaluation))
 
-                                            <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">Er is een gesprek voor jou aangemaakt. Het gesprek is digitaal op {{ \App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$DATETIME_SINGLE) }} om {{ \App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$DATABASE_TIME) }}. Dit is de link naar het gesprek: <a href="{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_LINK} }}">{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_LINK} }}</a></p>
+                                            <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">Er is een gesprek voor jou aangemaakt. Het gesprek is digitaal op {{ \App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$DATETIME_SINGLE) }} om {{ \App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$TIME_SINGLE) }}. Dit is de link naar het gesprek: <a href="{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_LINK} }}">{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_LINK} }}</a></p>
 
                                         @else
 
