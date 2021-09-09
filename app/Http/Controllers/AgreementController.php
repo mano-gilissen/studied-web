@@ -44,7 +44,7 @@ class AgreementController extends Controller {
         return view(Views::AGREEMENT, [
 
             Key::PAGE_TITLE                                                 => 'Vakafspraak',
-            Key::PAGE_BACK                                                  => true,
+            Key::PAGE_BACK                                                  => false,
 
             Model::$AGREEMENT                                               => $agreement
         ]);

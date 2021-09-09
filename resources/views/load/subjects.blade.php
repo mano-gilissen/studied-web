@@ -8,13 +8,13 @@
 
             <div class="seperator small"></div>
 
-            <div id="secondary" style="display: none">
+            <div id="button-subject-add-{{ $user->id }}" class="button grey">Er was nog een activiteit</div>
+
+            <div id="secondary-{{ $user->id }}" style="display: none">
 
                 @include('form.field-report-subject', ['id' => 2, 'time_available' => $time_available, 'primary' => false])
 
             </div>
-
-            <div id="button-subject-add" class="button grey">Er was nog een activiteit</div>
 
         @else
 
@@ -38,11 +38,11 @@
 
     $(function(){
 
-        $(OBJECT_BUTTON_SUBJECT_ADD).on('click', function() {
+        $(OBJECT_BUTTON_SUBJECT_ADD + '-{{ $user->id }}').on('click', function() {
 
-            $(OBJECT_BUTTON_SUBJECT_ADD).hide();
+            $(OBJECT_BUTTON_SUBJECT_ADD + '-{{ $user->id }}').hide();
 
-            $('#secondary').show();
+            $('#secondary-{{ $user->id }}').show();
         });
     });
 
