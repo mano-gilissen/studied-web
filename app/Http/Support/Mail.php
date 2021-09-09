@@ -30,7 +30,7 @@ class Mail {
         $user->{Model::$USER_ACTIVATE_SECRET}               = Func::generate_secret();
         $user->save();
 
-        Mail_::to($recipient)->send($mail);
+        self::mailTo($mail, $recipient);
     }
 
 
@@ -42,7 +42,7 @@ class Mail {
         $user->{Model::$USER_ACTIVATE_SECRET}               = Func::generate_secret();
         $user->save();
 
-        Mail_::to($recipient)->send($mail);
+        self::mailTo($mail, $recipient);
     }
 
 
@@ -54,7 +54,7 @@ class Mail {
         $user->{Model::$USER_ACTIVATE_SECRET}               = Func::generate_secret();
         $user->save();
 
-        Mail_::to($recipient)->send($mail);
+        self::mailTo($mail, $recipient);
     }
 
 
@@ -66,7 +66,7 @@ class Mail {
         $mail                                               = new Agreement_Approved_Customer($user, $study, $student, $agreement);
         $recipient                                          = $user->{Model::$USER_EMAIL};
 
-        Mail_::to($recipient)->send($mail);
+        self::mailTo($mail, $recipient);
     }
 
 
@@ -79,7 +79,7 @@ class Mail {
         $mail                                               = new Agreement_Finished_Employee($employee, $student, $agreement);
         $recipient                                          = $employee->{Model::$USER_EMAIL};
 
-        Mail_::to($recipient)->send($mail);
+        self::mailTo($mail, $recipient);
     }
 
 
@@ -91,7 +91,7 @@ class Mail {
         $mail                                               = new Study_Planned_Student($study, $participant);
         $recipient                                          = $participant->{Model::$USER_EMAIL};
 
-        Mail_::to($recipient)->send($mail);
+        self::mailTo($mail, $recipient);
     }
 
 
@@ -101,7 +101,7 @@ class Mail {
         $mail                                               = new Study_Planned_Employee($study);
         $recipient                                          = $study->getHost->{Model::$USER_EMAIL};
 
-        Mail_::to($recipient)->send($mail);
+        self::mailTo($mail, $recipient);
     }
 
 
@@ -113,7 +113,7 @@ class Mail {
         $mail                                               = new Study_Edited_Student($study, $participant);
         $recipient                                          = $participant->{Model::$USER_EMAIL};
 
-        Mail_::to($recipient)->send($mail);
+        self::mailTo($mail, $recipient);
     }
 
 
@@ -123,7 +123,24 @@ class Mail {
         $mail                                               = new Study_Edited_Employee($study);
         $recipient                                          = $study->getHost->{Model::$USER_EMAIL};
 
-        Mail_::to($recipient)->send($mail);
+        self::mailTo($mail, $recipient);
+    }
+
+
+
+
+
+    public static function mailTo($mail, $recipient) {
+
+        try {
+
+            Mail_::to($recipient)->send($mail);
+
+        } catch(Exception $e) {
+
+            echo($recipient);
+
+        }
     }
 
 
