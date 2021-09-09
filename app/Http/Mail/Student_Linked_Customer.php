@@ -32,7 +32,7 @@ class Student_Linked_Customer extends Mailable {
 
 
 
-    public function __construct(User $student, Agreement $customer) {
+    public function __construct(User $student, User $customer) {
 
         $this->student                      = $student;
         $this->customer                     = $customer;
