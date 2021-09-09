@@ -14,6 +14,7 @@ use App\Http\Mail\Study_Planned_Employee;
 use App\Http\Mail\Study_Planned_Student;
 use App\Http\Mail\User_Activate_Customer;
 use App\Http\Mail\User_Activate_Employee;
+use App\Http\Mail\User_Activate_Relations;
 use App\Http\Mail\User_Activate_Student;
 use Illuminate\Support\Facades\Mail as Mail_;
 
@@ -55,6 +56,16 @@ class Mail {
         $recipient                                          = $user->{Model::$USER_EMAIL};
         $user->{Model::$USER_ACTIVATE_SECRET}               = Func::generate_secret();
         $user->save();
+
+        self::mailTo($mail, $recipient);
+    }
+
+
+
+    public static function userActivate_forRelations($student, $relation_name, $relation_email) {
+
+        $mail                                               = new User_Activate_Relations($student, $relation_name, $relation_email);
+        $recipient                                          = $relation_email;
 
         self::mailTo($mail, $recipient);
     }

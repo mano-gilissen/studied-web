@@ -39,10 +39,20 @@ trait StudentTrait {
         $student->{Model::$STUDENT_NIVEAU}                                  = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_NIVEAU];
         $student->{Model::$STUDENT_LEERJAAR}                                = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_LEERJAAR];
 
+
+
+        // TODO: REPLACE WITH RELATIONS SYSTEM
+
+        $student->{Model::$STUDENT_NAME_MENTOR}                             = $data[Model::$STUDENT_NAME_MENTOR];
+        $student->{Model::$STUDENT_NAME_VAKDOCENT_1}                        = $data[Model::$STUDENT_NAME_VAKDOCENT_1];
+        $student->{Model::$STUDENT_NAME_VAKDOCENT_2}                        = $data[Model::$STUDENT_NAME_VAKDOCENT_2];
+        $student->{Model::$STUDENT_NAME_VAKDOCENT_3}                        = $data[Model::$STUDENT_NAME_VAKDOCENT_3];
         $student->{Model::$STUDENT_EMAIL_MENTOR}                            = $data[Model::$STUDENT_EMAIL_MENTOR];
         $student->{Model::$STUDENT_EMAIL_VAKDOCENT_1}                       = $data[Model::$STUDENT_EMAIL_VAKDOCENT_1];
         $student->{Model::$STUDENT_EMAIL_VAKDOCENT_2}                       = $data[Model::$STUDENT_EMAIL_VAKDOCENT_2];
         $student->{Model::$STUDENT_EMAIL_VAKDOCENT_3}                       = $data[Model::$STUDENT_EMAIL_VAKDOCENT_3];
+
+
 
         $student->save();
 
@@ -62,10 +72,20 @@ trait StudentTrait {
         $student->{Model::$STUDENT_NIVEAU}                                  = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_NIVEAU];
         $student->{Model::$STUDENT_LEERJAAR}                                = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_LEERJAAR];
 
+
+
+        // TODO: REPLACE WITH RELATIONS SYSTEM
+
+        $student->{Model::$STUDENT_NAME_MENTOR}                             = $data[Model::$STUDENT_NAME_MENTOR];
+        $student->{Model::$STUDENT_NAME_VAKDOCENT_1}                        = $data[Model::$STUDENT_NAME_VAKDOCENT_1];
+        $student->{Model::$STUDENT_NAME_VAKDOCENT_2}                        = $data[Model::$STUDENT_NAME_VAKDOCENT_2];
+        $student->{Model::$STUDENT_NAME_VAKDOCENT_3}                        = $data[Model::$STUDENT_NAME_VAKDOCENT_3];
         $student->{Model::$STUDENT_EMAIL_MENTOR}                            = $data[Model::$STUDENT_EMAIL_MENTOR];
         $student->{Model::$STUDENT_EMAIL_VAKDOCENT_1}                       = $data[Model::$STUDENT_EMAIL_VAKDOCENT_1];
         $student->{Model::$STUDENT_EMAIL_VAKDOCENT_2}                       = $data[Model::$STUDENT_EMAIL_VAKDOCENT_2];
         $student->{Model::$STUDENT_EMAIL_VAKDOCENT_3}                       = $data[Model::$STUDENT_EMAIL_VAKDOCENT_3];
+
+
 
         $student->save();
 
@@ -85,6 +105,20 @@ trait StudentTrait {
         $validator                                                          = Validator::make($data, $rules, BaseTrait::getValidationMessages());
 
         $validator->validate();
+    }
+
+
+
+    public static function notifyRelations_ofActivation($user) {
+
+        // TODO: REPLACE WITH RELATION SYSTEM
+
+        $student = $user->getStudent;
+
+        Mail::userActivate_forRelations($user, $student->{Model::$STUDENT_NAME_MENTOR}, $student->{Model::$STUDENT_EMAIL_MENTOR});                Mail::userActivate_forRelations($user, $student->{Model::$STUDENT_NAME_MENTOR}, $student->{Model::$STUDENT_EMAIL_MENTOR});
+        Mail::userActivate_forRelations($user, $student->{Model::$STUDENT_NAME_VAKDOCENT_1}, $student->{Model::$STUDENT_EMAIL_VAKDOCENT_1});
+        Mail::userActivate_forRelations($user, $student->{Model::$STUDENT_NAME_VAKDOCENT_2}, $student->{Model::$STUDENT_EMAIL_VAKDOCENT_2});
+        Mail::userActivate_forRelations($user, $student->{Model::$STUDENT_NAME_VAKDOCENT_3}, $student->{Model::$STUDENT_EMAIL_VAKDOCENT_3});
     }
 
 
