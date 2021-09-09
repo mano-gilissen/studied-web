@@ -18,6 +18,8 @@
 
     @include('form.field-input', ['id' => 'birth_date', 'type' => 'date', 'tag' => 'Geboortedatum', 'placeholder' => 'Kies een datum', 'required' => true, 'value' => old('birth_date')])
 
+    @include('form.field-input', ['id' => 'refer', 'tag' => 'Referentie', 'placeholder' => 'Hoe komt deze persoon bij Studied terecht?', 'required' => true, 'value' => old('refer')])
+
     <div class="seperator"></div>
 
 

@@ -24,7 +24,7 @@ trait StudentTrait {
         self::validate($data);
 
         $student                                                            = new Student;
-        $user                                                               = UserTrait::create($data, RoleTrait::$ID_STUDENT);
+        $user                                                               = UserTrait::create($data, RoleTrait::$ID_STUDENT, UserTrait::$STATUS_INTAKE);
 
         if (!$user) {
 

@@ -22,7 +22,7 @@ trait CustomerTrait {
         self::validate($data);
 
         $customer                                               = new Customer;
-        $user                                                   = UserTrait::create($data, RoleTrait::$ID_CUSTOMER);
+        $user                                                   = UserTrait::create($data, RoleTrait::$ID_CUSTOMER, UserTrait::$STATUS_INTAKE);
 
         if (!$user) {
 
@@ -31,7 +31,6 @@ trait CustomerTrait {
         }
 
         $customer->{Model::$USER}                               = $user->{Model::$BASE_ID};
-        $customer->{Model::$CUSTOMER_REFER}                     = $data[Model::$CUSTOMER_REFER];
 
         $customer->save();
 
@@ -43,8 +42,6 @@ trait CustomerTrait {
     public static function update(array $data, $customer) {
 
         self::validate($data);
-
-        $customer->{Model::$CUSTOMER_REFER}                     = $data[Model::$CUSTOMER_REFER];
 
         $customer->save();
 

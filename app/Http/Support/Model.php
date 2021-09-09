@@ -100,9 +100,7 @@ class Model {
 
     public static
 
-        $CUSTOMER                                       = 'customer',
-
-        $CUSTOMER_REFER                                 = 'refer';
+        $CUSTOMER                                       = 'customer';
 
 
 
@@ -226,6 +224,7 @@ class Model {
         $PERSON_PHONE                                   = 'phone',
         $PERSON_BIRTH_DATE                              = 'birth_date',
         $PERSON_AVATAR                                  = 'avatar',
+        $PERSON_REFER                                   = 'refer',
         $PERSON_SOCIAL_INSTAGRAM                        = 'social_instagram',
         $PERSON_SOCIAL_LINKEDIN                         = 'social_linkedin';
 

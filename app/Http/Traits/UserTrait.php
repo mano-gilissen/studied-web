@@ -36,7 +36,7 @@ trait UserTrait {
 
 
 
-    public static function create($data, $role) {
+    public static function create($data, $role, $status = null) {
 
         self::validate($data);
 
@@ -55,7 +55,7 @@ trait UserTrait {
 
         $user->{Model::$USER_EMAIL}                         = $data[Model::$USER_EMAIL];
         $user->{Model::$ROLE}                               = $role;
-        $user->{Model::$USER_STATUS}                        = self::$STATUS_INTAKE;
+        $user->{Model::$USER_STATUS}                        = $status ? $status : self::$STATUS_ACTIVE;
 
         $user->save();
         $person->save();

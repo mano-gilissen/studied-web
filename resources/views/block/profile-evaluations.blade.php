@@ -1,6 +1,6 @@
 <div class="evaluations">
 
-    @if(\App\Http\Traits\BaseTrait::hasManagementRights(Auth::user()) && $person->getUser->isStudent())
+    @if(\App\Http\Traits\BaseTrait::hasManagementRights() && $person->getUser->isStudent())
 
         <div class="title-add">
 

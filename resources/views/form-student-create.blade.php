@@ -8,15 +8,17 @@
 
     <div class="title">{{ __('Persoonsgegevens') }}</div>
 
-    @include('form.field-input', ['id' => 'prefix', 'tag' => 'Titel', 'placeholder' => 'Selecteer..', 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'reject_other' => true])
+    @include('form.field-input', ['id' => 'prefix', 'tag' => 'Titel', 'placeholder' => 'Selecteer..', 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'reject_other' => true, 'value' => old('prefix')])
 
-    @include('form.field-input', ['id' => 'first_name', 'tag' => 'Voornaam', 'required' => true])
+    @include('form.field-input', ['id' => 'first_name', 'tag' => 'Voornaam', 'required' => true, 'value' => old('first_name')])
 
-    @include('form.field-input', ['id' => 'middle_name', 'tag' => 'Tussenvoegsel'])
+    @include('form.field-input', ['id' => 'middle_name', 'tag' => 'Tussenvoegsel', 'value' => old('middle_name')])
 
-    @include('form.field-input', ['id' => 'last_name', 'tag' => 'Achternaam', 'required' => true])
+    @include('form.field-input', ['id' => 'last_name', 'tag' => 'Achternaam', 'required' => true, 'value' => old('last_name')])
 
-    @include('form.field-input', ['id' => 'birth_date', 'type' => 'date', 'tag' => 'Geboortedatum', 'placeholder' => 'Kies een datum', 'required' => true])
+    @include('form.field-input', ['id' => 'birth_date', 'type' => 'date', 'tag' => 'Geboortedatum', 'placeholder' => 'Kies een datum', 'required' => true, 'value' => old('birth_date')])
+
+    @include('form.field-input', ['id' => 'refer', 'tag' => 'Referentie', 'placeholder' => 'Hoe komt deze persoon bij Studied terecht?', 'required' => true, 'value' => old('refer')])
 
     <div class="seperator"></div>
 

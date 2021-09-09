@@ -118,7 +118,7 @@ class CustomerController extends Controller {
         $person                                                             = Person::find($data['_' . Model::$PERSON]);
         $customer                                                           = $person->getUser->getCustomer;
 
-        CustomerTrait::update($data, $customer);
+        // CustomerTrait::update($data, $customer); <!-- Customers have no data yet -->
 
         UserTrait::update($data, $person->getUser);
 

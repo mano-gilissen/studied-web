@@ -27,6 +27,7 @@ trait PersonTrait {
         $person->{Model::$PERSON_MIDDLE_NAME}                           = $data[Model::$PERSON_MIDDLE_NAME]; // TODO: Test if not in $data (Field empty)
         $person->{Model::$PERSON_LAST_NAME}                             = $data[Model::$PERSON_LAST_NAME];
         $person->{Model::$PERSON_BIRTH_DATE}                            = $data[Model::$PERSON_BIRTH_DATE] . ' 00:00:00';
+        $person->{Model::$PERSON_REFER}                                 = $data[Model::$PERSON_REFER];
 
         $person->{Model::$PERSON_PHONE}                                 = $data[Model::$PERSON_PHONE];
         $person->{Model::$PERSON_SOCIAL_INSTAGRAM}                      = $data[Model::$PERSON_SOCIAL_INSTAGRAM];
@@ -50,6 +51,7 @@ trait PersonTrait {
         $person->{Model::$PERSON_MIDDLE_NAME}                           = $data[Model::$PERSON_MIDDLE_NAME]; // TODO: Test if not in $data (Field empty)
         $person->{Model::$PERSON_LAST_NAME}                             = $data[Model::$PERSON_LAST_NAME];
         $person->{Model::$PERSON_BIRTH_DATE}                            = $data[Model::$PERSON_BIRTH_DATE] . ' 00:00:00';
+        $person->{Model::$PERSON_REFER}                                 = $data[Model::$PERSON_REFER];
 
         $person->{Model::$PERSON_PHONE}                                 = $data[Model::$PERSON_PHONE];
         $person->{Model::$PERSON_SOCIAL_INSTAGRAM}                      = $data[Model::$PERSON_SOCIAL_INSTAGRAM];

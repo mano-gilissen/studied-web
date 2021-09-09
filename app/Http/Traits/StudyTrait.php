@@ -79,8 +79,11 @@ trait StudyTrait {
 
         foreach ($study->getParticipants_User as $user) {
 
-            Mail::studyPlanned_forStudent($study, $user);
+            if (UserTrait::isActivated($user)) {
 
+                Mail::studyPlanned_forStudent($study, $user);
+
+            }
         }
 
         if ($study->{Model::$STUDY_HOST_USER} != Auth::id()) {
@@ -232,8 +235,11 @@ trait StudyTrait {
 
         foreach ($study->getParticipants_User as $user) {
 
-            Mail::studyEdited_forStudent($study, $user);
+            if (UserTrait::isActivated($user)) {
 
+                Mail::studyEdited_forStudent($study, $user);
+
+            }
         }
 
         if ($study->{Model::$STUDY_HOST_USER} != Auth::id()) {
