@@ -174,7 +174,7 @@ trait PersonTrait {
                     return 'Hoi! Ik ben ' . $person->{Model::$PERSON_FIRST_NAME} . ' en ik studeer ' . $person->getUser->getEmployee->{Model::$EMPLOYEE_PROFILE_CURRENT} . '.';
 
                 case RoleTrait::$ID_STUDENT:
-                    return 'Hoi! Ik ben ' . $person->{Model::$PERSON_FIRST_NAME} . ' en ik zit op ' . StudentTrait::getNiveauText($person->getUser->getStudent->niveau) . ' ' . $person->getUser->getStudent->leerjaar . ($person->getUser->getStudent->school ? ' van het ' . $person->getUser->getStudent->school . '.' : '');
+                    return 'Hoi! Ik ben ' . $person->{Model::$PERSON_FIRST_NAME} . ' en ik zit op ' . StudentTrait::getNiveauText($person->getUser->getStudent->niveau) . ' ' . $person->getUser->getStudent->leerjaar . ($person->getUser->getStudent->school ? ' van ' . $person->getUser->getStudent->school . '.' : '');
 
                 case RoleTrait::$ID_CUSTOMER:
                     return 'Hoi! Ik ben ' . $person->{Model::$PERSON_FIRST_NAME} . ' en ik ben de ouder/verzorger van ' . CustomerTrait::getStudentsText($person->getUser->getCustomer, true) . '.';
