@@ -34,7 +34,7 @@
 
                 <div class="name">Geboortedatum</div>
 
-                <div class="value">{{ Format::datetime($person->{\App\Http\Support\Model::$PERSON_BIRTH_DATE}, \App\Http\Support\Format::$DATETIME_PROFILE) }}</div>
+                <div class="value">{{ \App\Http\Support\Format::datetime($person->{\App\Http\Support\Model::$PERSON_BIRTH_DATE}, \App\Http\Support\Format::$DATETIME_PROFILE) }}</div>
 
             </div>
 
