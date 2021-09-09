@@ -119,7 +119,40 @@
 
                                 @else
 
-                                    <div class="button grey icon" onclick="window.location.href='{{ 'https://instagram.com/' . $person->social_instagram }}'">
+                                    @if(strlen($person->{\App\Http\Support\Model::$PERSON_SOCIAL_INSTAGRAM}) > 0)
+
+                                        <div class="button grey icon" onclick="window.location.href='{{ 'https://instagram.com/' . $person->{\App\Http\Support\Model::$PERSON_SOCIAL_INSTAGRAM} }}'">
+
+                                            <img class="icon" src="/images_app/social-instagram.svg">
+
+                                            <div class="text">Instagram</div>
+
+                                        </div>
+
+                                    @endif
+
+                                    @if(strlen($person->{\App\Http\Support\Model::$PERSON_SOCIAL_LINKEDIN}) > 0)
+
+                                        <div class="button grey icon" onclick="window.location.href='{{ 'https://www.linkedin.com/in/' . $person->{\App\Http\Support\Model::$PERSON_SOCIAL_LINKEDIN} }}'">
+
+                                            <img class="icon" src="/images_app/social-linkedin.svg">
+
+                                            <div class="text">LinkedIn</div>
+
+                                        </div>
+
+                                    @endif
+
+                                @endif
+
+                                @break
+
+                            @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
+                            @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
+
+                                @if(strlen($person->{\App\Http\Support\Model::$PERSON_SOCIAL_INSTAGRAM}) > 0)
+
+                                    <div class="button grey icon" onclick="window.location.href='{{ 'https://instagram.com/' . $person->{\App\Http\Support\Model::$PERSON_SOCIAL_INSTAGRAM} }}'">
 
                                         <img class="icon" src="/images_app/social-instagram.svg">
 
@@ -129,18 +162,17 @@
 
                                 @endif
 
-                                @break
+                                @if(strlen($person->{\App\Http\Support\Model::$PERSON_SOCIAL_LINKEDIN}) > 0)
 
-                            @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
-                            @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
+                                    <div class="button grey icon" onclick="window.location.href='{{ 'https://www.linkedin.com/in/' . $person->{\App\Http\Support\Model::$PERSON_SOCIAL_LINKEDIN} }}'">
 
-                                <div class="button grey icon" onclick="window.location.href='{{ 'https://instagram.com/' . $person->social_instagram }}'">
+                                        <img class="icon" src="/images_app/social-linkedin.svg">
 
-                                    <img class="icon" src="/images_app/social-instagram.svg">
+                                        <div class="text">LinkedIn</div>
 
-                                    <div class="text">Instagram</div>
+                                    </div>
 
-                                </div>
+                                @endif
 
                                 @break
 

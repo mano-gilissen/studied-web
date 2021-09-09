@@ -98,6 +98,18 @@
 
 
 
+    <div class="title">{{ __('Profielgegevens') }}</div>
+
+    @include('form.field-input', ['id' => 'profile_text', 'tag' => 'Profieltekst'])
+
+    @include('form.field-input', ['id' => 'social_instagram', 'tag' => 'Instagram'])
+
+    @include('form.field-input', ['id' => 'social_linkedin', 'tag' => 'LinkedIn'])
+
+    <div class="seperator"></div>
+
+
+
     <div class="title">{{ __('Bestanden') }}</div>
 
     @include('form.field-file', ['file' => 'cv', 'tag' => 'CV'])

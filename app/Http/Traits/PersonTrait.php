@@ -29,6 +29,8 @@ trait PersonTrait {
         $person->{Model::$PERSON_BIRTH_DATE}                            = $data[Model::$PERSON_BIRTH_DATE] . ' 00:00:00';
 
         $person->{Model::$PERSON_PHONE}                                 = $data[Model::$PERSON_PHONE];
+        $person->{Model::$PERSON_SOCIAL_INSTAGRAM}                      = $data[Model::$PERSON_SOCIAL_INSTAGRAM];
+        $person->{Model::$PERSON_SOCIAL_LINKEDIN}                       = $data[Model::$PERSON_SOCIAL_LINKEDIN];
 
         $person->{Model::$PERSON_SLUG}                                  = self::createSlug($person);
 
@@ -50,6 +52,8 @@ trait PersonTrait {
         $person->{Model::$PERSON_BIRTH_DATE}                            = $data[Model::$PERSON_BIRTH_DATE] . ' 00:00:00';
 
         $person->{Model::$PERSON_PHONE}                                 = $data[Model::$PERSON_PHONE];
+        $person->{Model::$PERSON_SOCIAL_INSTAGRAM}                      = $data[Model::$PERSON_SOCIAL_INSTAGRAM];
+        $person->{Model::$PERSON_SOCIAL_LINKEDIN}                       = $data[Model::$PERSON_SOCIAL_LINKEDIN];
 
         $person->{Model::$PERSON_SLUG}                                  = self::createSlug($person);
 
