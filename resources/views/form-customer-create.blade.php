@@ -60,12 +60,4 @@
 
 
 
-    <div class="title">{{ __('Klantgegevens') }}</div>
-
-    @include('form.field-input', ['id' => 'refer', 'tag' => 'Referentie', 'placeholder' => 'Hoe komt de klant bij Studied terecht?', 'required' => true])
-
-    <div class="seperator"></div>
-
-
-
 @endsection
