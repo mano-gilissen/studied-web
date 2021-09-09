@@ -60,7 +60,7 @@
 
                 @error('email')
 
-                <div style="color: #FF0000">{{ $message }}</div>
+                    <div style="color: #FF0000">{{ $message }}</div>
 
                 @enderror
 
