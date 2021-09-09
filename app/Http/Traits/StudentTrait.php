@@ -39,6 +39,11 @@ trait StudentTrait {
         $student->{Model::$STUDENT_NIVEAU}                                  = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_NIVEAU];
         $student->{Model::$STUDENT_LEERJAAR}                                = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_LEERJAAR];
 
+        $student->{Model::$STUDENT_EMAIL_MENTOR}                            = $data[Model::$STUDENT_EMAIL_MENTOR];
+        $student->{Model::$STUDENT_EMAIL_VAKDOCENT_1}                       = $data[Model::$STUDENT_EMAIL_VAKDOCENT_1];
+        $student->{Model::$STUDENT_EMAIL_VAKDOCENT_2}                       = $data[Model::$STUDENT_EMAIL_VAKDOCENT_2];
+        $student->{Model::$STUDENT_EMAIL_VAKDOCENT_3}                       = $data[Model::$STUDENT_EMAIL_VAKDOCENT_3];
+
         $student->save();
 
         return $student;
@@ -56,6 +61,11 @@ trait StudentTrait {
         $student->{Model::$STUDENT_PROFILE}                                 = $data[Model::$STUDENT_PROFILE];
         $student->{Model::$STUDENT_NIVEAU}                                  = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_NIVEAU];
         $student->{Model::$STUDENT_LEERJAAR}                                = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_LEERJAAR];
+
+        $student->{Model::$STUDENT_EMAIL_MENTOR}                            = $data[Model::$STUDENT_EMAIL_MENTOR];
+        $student->{Model::$STUDENT_EMAIL_VAKDOCENT_1}                       = $data[Model::$STUDENT_EMAIL_VAKDOCENT_1];
+        $student->{Model::$STUDENT_EMAIL_VAKDOCENT_2}                       = $data[Model::$STUDENT_EMAIL_VAKDOCENT_2];
+        $student->{Model::$STUDENT_EMAIL_VAKDOCENT_3}                       = $data[Model::$STUDENT_EMAIL_VAKDOCENT_3];
 
         $student->save();
 

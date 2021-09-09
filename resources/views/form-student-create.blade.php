@@ -72,9 +72,17 @@
 
 
 
-    <div class="title">{{ __('Ouder verzorger') }}</div>
+    <div class="title">{{ __('Relaties') }}</div>
 
     @include('form.field-input', ['id' => 'customer', 'tag' => 'Klant', 'icon' => 'search.svg', 'placeholder' => 'Zoek een klant', 'required' => false, 'data' => true, 'additional' => true, 'reject_other' => true, 'uses_id' => true])
+
+    @include('form.field-input', ['id' => 'email_mentor', 'type' => 'email', 'tag' => 'Email mentor'])
+
+    @include('form.field-input', ['id' => 'email_vakdocent_1', 'type' => 'email', 'tag' => 'Email vakdocent 1'])
+
+    @include('form.field-input', ['id' => 'email_vakdocent_2', 'type' => 'email', 'tag' => 'Email vakdocent 2'])
+
+    @include('form.field-input', ['id' => 'email_vakdocent_3', 'type' => 'email', 'tag' => 'Email vakdocent 3'])
 
     <div class="seperator"></div>
 

@@ -292,7 +292,11 @@ class Model {
         $STUDENT_SCHOOL                                 = 'school',
         $STUDENT_NIVEAU                                 = 'niveau',
         $STUDENT_LEERJAAR                               = 'leerjaar',
-        $STUDENT_PROFILE                                = 'profile';
+        $STUDENT_PROFILE                                = 'profile',
+        $STUDENT_EMAIL_MENTOR                           = 'mentor',
+        $STUDENT_EMAIL_VAKDOCENT_1                      = 'vakdocent_1',
+        $STUDENT_EMAIL_VAKDOCENT_2                      = 'vakdocent_2',
+        $STUDENT_EMAIL_VAKDOCENT_3                      = 'vakdocent_3';
 
 
 
