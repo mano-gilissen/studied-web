@@ -39,7 +39,7 @@
 
 
 
-            <div class="box-input" style="margin-bottom: 64px;">
+            <div class="box-input" style="margin-bottom: 32px;">
 
                 <input
                     id                          ="email"
@@ -58,9 +58,13 @@
 
             @error('email')
 
-                <div style="font-weight: 400">{{ $message }}</div>
+                <div style="color: #FF0000">{{ $message }}</div>
 
             @enderror
+
+
+
+            <div style="height: 32px"></div>
 
 
 

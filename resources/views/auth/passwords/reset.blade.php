@@ -87,7 +87,7 @@
 
 
 
-            <div class="box-input" style="margin-bottom: 64px;">
+            <div class="box-input" style="margin-bottom: 32px;">
 
                 <input
                     id                                  = "password-confirm"
@@ -99,6 +99,10 @@
                     required>
 
             </div>
+
+
+
+            <div style="height: 32px"></div>
 
 
 
