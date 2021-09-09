@@ -108,9 +108,9 @@
 
                 @include('form.field-input', ['id' => 'password_confirmation', 'type' => 'password', 'tag' => 'Wachtwoord bevestigen', 'placeholder' => 'Typ je wachtwoord opnieuw', 'required' => true, 'max' => 30])
 
-                <div style="display: flex;align-items: center;margin: 48px 0 0 auto">
+                <div style="display: flex;align-items: center;margin-top: 48px">
 
-                    <button class="button transparent" style="margin-right: 8px;" onclick="window.history.back();">
+                    <button class="button transparent" style="margin-left:auto;margin-right: 8px;" onclick="window.history.back();">
 
                         Terug
 
