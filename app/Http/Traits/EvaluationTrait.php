@@ -81,12 +81,21 @@ trait EvaluationTrait {
 
         Mail::evaluationCreated_forHost($user_host, $evaluation);
 
-        Mail::evaluationCreated_forStudent($user_student, $evaluation);
+        if (UserTrait::isActivated($user_student)) {
+
+            Mail::evaluationCreated_forStudent($user_student, $evaluation);
+
+        }
 
         if (StudentTrait::hasCustomer($user_student->getStudent)) {
 
-            Mail::evaluationCreated_forCustomer($user_student->getStudent->getCustomer->getUser, $evaluation);
+            $user_customer = $user_student->getStudent->getCustomer->getUser;
 
+            if (UserTrait::isActivated($user_customer)) {
+
+                Mail::evaluationCreated_forCustomer($user_customer, $evaluation);
+
+            }
         }
 
 
