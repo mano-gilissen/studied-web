@@ -81,7 +81,8 @@ class UserController extends Controller {
 
         return view(Views::PROFILE_EDIT, [
 
-            Key::PAGE_TITLE                                         => 'Profiel wijzigen'
+            Key::PAGE_TITLE                                 => 'Profiel wijzigen',
+            Key::PAGE_BACK                                  => true
         ]);
     }
 
