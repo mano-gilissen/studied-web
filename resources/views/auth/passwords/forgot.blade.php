@@ -4,6 +4,7 @@
 
 @section('css')
 
+    <link href="{{ asset('css/form.css') }}" rel="stylesheet">
     <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
 
 @endsection
@@ -38,17 +39,20 @@
 
 
 
-            <input
-                id                          ="email"
-                type                        ="email"
-                class                       ="form-control @error('email') is-invalid @enderror"
-                name                        ="email"
-                value                       ="{{ old('email') }}"
-                autocomplete                ="email"
-                placeholder                 ="Vul je email adres in"
-                style                       ="margin-bottom: 48px;height:40px"
-                required
-                autofocus>
+            <div class="box-input" style="margin-bottom: 48px;">
+
+                <input
+                    id                          ="email"
+                    type                        ="email"
+                    class                       ="form-control @error('email') is-invalid @enderror"
+                    name                        ="email"
+                    value                       ="{{ old('email') }}"
+                    autocomplete                ="email"
+                    placeholder                 ="Vul je email adres in"
+                    required
+                    autofocus>
+
+            </div>
 
 
 
