@@ -597,15 +597,35 @@
                             @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
                             @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
 
-                            @include('block.profile-education')
+                                @include('block.profile-education')
 
-                            @break
+                                @break
 
                             @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
-                            @foreach($person->getUser->getEmployee as $employee)
+                                @foreach($person->getUser->getEmployees as $employee)
 
-                                @if($employee->id == Auth::user()->id)
+                                    @if($employee->id == Auth::user()->id)
+
+                                        @include('block.profile-education')
+
+                                        @break
+
+                                    @endif
+
+                                @endforeach
+
+                                @break
+
+                            @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
+
+                                @include('block.profile-education')
+
+                                @break
+
+                            @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
+
+                                @if($person->getUser->getStudent->customer == Auth::user()->getCustomer->id)
 
                                     @include('block.profile-education')
 
@@ -613,27 +633,7 @@
 
                                 @endif
 
-                            @endforeach
-
-                            @break
-
-                            @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
-
-                            @include('block.profile-education')
-
-                            @break
-
-                            @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
-
-                            @if($person->getUser->getStudent->customer == Auth::user()->getCustomer->id)
-
-                                @include('block.profile-education')
-
                                 @break
-
-                            @endif
-
-                            @break
 
                         @endswitch
 
