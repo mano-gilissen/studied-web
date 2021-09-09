@@ -76,7 +76,7 @@ trait CustomerTrait {
 
 
 
-    public static function getStudentsText($customer) {
+    public static function getStudentsText($customer, $en = false) {
 
         $students = User::whereHas('getStudent.getCustomer', function ($q) use ($customer) {$q->where(Model::$CUSTOMER, $customer->{Model::$BASE_ID});})
             ->with('getPerson')
@@ -85,7 +85,7 @@ trait CustomerTrait {
         switch (count($students)) {
             case 0:                                             return "Geen leerlingen";
             case 1:                                             return PersonTrait::getFullName($students[0]->getPerson);
-            default:                                            return implode(", ", $students->pluck('getPerson.' . Model::$PERSON_FIRST_NAME)->toArray());
+            default:                                            return implode($en ? " en " : ", ", $students->pluck('getPerson.' . Model::$PERSON_FIRST_NAME)->toArray());
         }
     }
 
