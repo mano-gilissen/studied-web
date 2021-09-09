@@ -39,17 +39,20 @@
 
 
 
-            <input
-                id                          ="email"
-                type                        ="email"
-                class                       ="form-control @error('email') is-invalid @enderror"
-                name                        ="email"
-                value                       ="{{ old('email') }}"
-                autocomplete                ="email"
-                placeholder                 ="Vul je email adres in"
-                style                       ="margin-bottom: 48px;"
-                required
-                autofocus>
+            <div class="box-input" style="margin-bottom: 48px;">
+
+                <input
+                    id                          ="email"
+                    type                        ="email"
+                    class                       ="form-control @error('email') is-invalid @enderror"
+                    name                        ="email"
+                    value                       ="{{ old('email') }}"
+                    autocomplete                ="email"
+                    placeholder                 ="Vul je email adres in"
+                    required
+                    autofocus>
+
+            </div>
 
 
 

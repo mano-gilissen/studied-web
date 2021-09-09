@@ -4,7 +4,6 @@
 
 @section('css')
 
-    <link href="{{ asset('css/form.css') }}" rel="stylesheet">
     <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
 
 @endsection
@@ -47,7 +46,7 @@
                 value                       ="{{ old('email') }}"
                 autocomplete                ="email"
                 placeholder                 ="Vul je email adres in"
-                style                       ="margin-bottom: 48px;"
+                style                       ="margin-bottom: 48px;height:40px"
                 required
                 autofocus>
 
