@@ -392,6 +392,8 @@
 
                 </div>
 
+                <div style="height: 64px"></div>
+
                 <div class="content-columns">
 
                     <div class="column left">
