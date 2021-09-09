@@ -74,6 +74,19 @@ trait AgreementTrait {
 
 
 
+        if (self::isExtension($agreement)) {
+
+            Mail::agreementExtended_forEmployee($agreement);
+
+        } else {
+
+            Mail::agreementCreated_forEmployee($agreement);
+
+        }
+
+
+
+
         return $agreement;
     }
 
@@ -161,7 +174,7 @@ trait AgreementTrait {
 
 
 
-    public static function xreject($study, $user) {
+    public static function reject($study, $user) {
 
         $agreement                                              = Study_user::where(Model::$STUDY, $study->id)->where(Model::$USER, $user->id)->firstOrFail()->getAgreement;
         $agreement->{Model::$AGREEMENT_STATUS}                  = self::$STATUS_FINISHED;
@@ -200,6 +213,14 @@ trait AgreementTrait {
         $exists                                                 = Agreement::where(Model::$AGREEMENT_IDENTIFIER, $identifier)->exists();
 
         return $exists ? self::generateIdentifier() : $identifier;
+    }
+
+
+
+    public static function isExtension($agreement) {
+
+        return strlen($agreement->{Model::$AGREEMENT_EXTENSION}) > 0;
+
     }
 
 

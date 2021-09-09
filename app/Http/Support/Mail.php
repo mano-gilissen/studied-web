@@ -5,6 +5,8 @@
 namespace App\Http\Support;
 
 use App\Http\Mail\Agreement_Approved_Customer;
+use App\Http\Mail\Agreement_Created_Employee;
+use App\Http\Mail\Agreement_Extended_Employee;
 use App\Http\Mail\Agreement_Finished_Employee;
 use App\Http\Mail\Study_Edited_Employee;
 use App\Http\Mail\Study_Edited_Student;
@@ -77,6 +79,32 @@ class Mail {
         $student                                            = $agreement->getStudent;
 
         $mail                                               = new Agreement_Finished_Employee($employee, $student, $agreement);
+        $recipient                                          = $employee->{Model::$USER_EMAIL};
+
+        self::mailTo($mail, $recipient);
+    }
+
+
+
+    public static function agreementCreated_forEmployee($agreement) {
+
+        $employee                                           = $agreement->getEmployee;
+        $student                                            = $agreement->getStudent;
+
+        $mail                                               = new Agreement_Created_Employee($employee, $student, $agreement);
+        $recipient                                          = $employee->{Model::$USER_EMAIL};
+
+        self::mailTo($mail, $recipient);
+    }
+
+
+
+    public static function agreementExtended_forEmployee($agreement) {
+
+        $employee                                           = $agreement->getEmployee;
+        $student                                            = $agreement->getStudent;
+
+        $mail                                               = new Agreement_Extended_Employee($employee, $student, $agreement);
         $recipient                                          = $employee->{Model::$USER_EMAIL};
 
         self::mailTo($mail, $recipient);
