@@ -61,9 +61,10 @@ trait StudentTrait {
 
         if (self::hasCustomer($student)) {
 
-            $user_customer                                                  = $student->getCustomer->getUser;
+            $customer                                                   = Customer::find($student->{Model::$CUSTOMER});
+            $user_customer                                              = $customer->getUser;
 
-            if (UserTrait::isActivated($user_customer) && $student->getCustomer->getStudents->count() > 1) {
+            if (UserTrait::isActivated($user_customer) && $customer->getStudents->count() > 1) {
 
                 Mail::studentLinked_forCustomer($student->getUser, $user_customer);
 
@@ -108,18 +109,11 @@ trait StudentTrait {
         $student->save();
 
 
-        echo($customerBefore . "<br>");
-        echo($student->{Model::$CUSTOMER} . "<br>");
-        echo((self::hasCustomer($student) ? "a" : "b") . "<br>");
 
         if (self::hasCustomer($student) && (!$customerBefore || $customerBefore != $student->{Model::$CUSTOMER})) {
 
             $customer                                                   = Customer::find($student->{Model::$CUSTOMER});
             $user_customer                                              = $customer->getUser;
-
-            echo($user_customer->getPerson->first_name . "<br>");
-            echo((UserTrait::isActivated($user_customer) ? 'd' : 'e') . "<br>");
-            echo($customer->getStudents->count() . "<br>");
 
             if (UserTrait::isActivated($user_customer) && $customer->getStudents->count() > 1) {
 
@@ -128,7 +122,6 @@ trait StudentTrait {
             }
         }
 
-        dd('c');
 
 
         return $student;
