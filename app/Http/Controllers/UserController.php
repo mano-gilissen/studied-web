@@ -83,7 +83,7 @@ class UserController extends Controller {
 
             Key::PAGE_TITLE                                 => 'Profiel wijzigen',
             Key::PAGE_BACK                                  => true,
-            Key::BACK_ROUTE                                 => route('person.self')
+            Key::BACK_ROUTE                                 => 'person.self'
         ]);
     }
 
