@@ -59,7 +59,7 @@ trait StudentTrait {
 
 
 
-        if (self::hasCustomer($student)) {
+        if ($student->{Model::$CUSTOMER} > 0) {
 
             $customer                                                   = Customer::find($student->{Model::$CUSTOMER});
             $user_customer                                              = $customer->getUser;
@@ -110,7 +110,7 @@ trait StudentTrait {
 
 
 
-        if (self::hasCustomer($student) && (!$customerBefore || $customerBefore != $student->{Model::$CUSTOMER})) {
+        if (($student->{Model::$CUSTOMER} > 0) && (!$customerBefore || $customerBefore != $student->{Model::$CUSTOMER})) {
 
             $customer                                                   = Customer::find($student->{Model::$CUSTOMER});
             $user_customer                                              = $customer->getUser;
