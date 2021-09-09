@@ -23,14 +23,6 @@
 
 
 
-        @if (session('status'))
-
-            <div style="font-weight: 400">{{ session('status') }}</div>
-
-        @endif
-
-
-
         <form method="POST" action="{{ route('password.email') }}">
 
 
@@ -56,15 +48,23 @@
 
 
 
-            @error('email')
+            <div style="height: 32px">
 
-                <div style="color: #FF0000">{{ $message }}</div>
+                @if (session('status'))
 
-            @enderror
+                    <div style="font-weight: 400">{{ session('status') }}</div>
+
+                @endif
 
 
 
-            <div style="height: 32px"></div>
+                @error('email')
+
+                    <div style="color: #FF0000">{{ $message }}</div>
+
+                @enderror
+
+            </div>
 
 
 

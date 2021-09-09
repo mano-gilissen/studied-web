@@ -48,23 +48,23 @@
 
 
 
-            @if (session('status'))
+            <div style="height: 32px">
 
-                <div style="font-weight: 400">{{ session('status') }}</div>
+                @if (session('status'))
 
-            @endif
+                    <div style="font-weight: 400">{{ session('status') }}</div>
+
+                @endif
 
 
 
-            @error('email')
+                @error('email')
 
                 <div style="color: #FF0000">{{ $message }}</div>
 
-            @enderror
+                @enderror
 
-
-
-            <div style="height: 32px"></div>
+            </div>
 
 
 

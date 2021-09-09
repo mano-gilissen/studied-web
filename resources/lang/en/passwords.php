@@ -14,7 +14,7 @@ return [
     */
 
     'reset' => 'Je wachtwoord is hersteld!',
-    'sent' => 'We hebben je een link gestuur om je wachtwoord mee te herstellen!',
+    'sent' => 'We hebben je een link gestuurd om je wachtwoord mee te herstellen!',
     'throttled' => 'Wacht even af en probeer het opnieuw.',
     'token' => 'Deze herstel token is ongeldig.',
     'user' => "Er is geen gebruiker met dit email adres.",
