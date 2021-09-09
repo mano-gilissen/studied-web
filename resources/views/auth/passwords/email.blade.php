@@ -23,14 +23,6 @@
 
 
 
-        @if (session('status'))
-
-            <div style="font-weight: 400">{{ session('status') }}</div>
-
-        @endif
-
-
-
         <form method="POST" action="{{ route('password.email') }}">
 
 
@@ -53,6 +45,14 @@
                     autofocus>
 
             </div>
+
+
+
+            @if (session('status'))
+
+                <div style="font-weight: 400">{{ session('status') }}</div>
+
+            @endif
 
 
 
