@@ -63,7 +63,8 @@ class CustomerController extends Controller {
             Key::SUBMIT_ACTION                                              => 'Aanmaken',
             Key::SUBMIT_ROUTE                                               => 'customer.create_submit',
 
-            Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX                  => Format::encode(PersonTrait::getPrefixData())
+            Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX                  => Format::encode(PersonTrait::getPrefixData()),
+            Key::AUTOCOMPLETE_DATA . Model::$PERSON_REFER                   => Format::encode(PersonTrait::getReferData())
         ]);
     }
 
@@ -104,6 +105,8 @@ class CustomerController extends Controller {
 
 
         UserController::form_set_ac_data_status($data, $person->getUser);
+
+        PersonController::form_set_ac_data_refer($data);
 
 
 

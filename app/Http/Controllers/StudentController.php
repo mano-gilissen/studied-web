@@ -70,6 +70,7 @@ class StudentController extends Controller {
         $data[Key::SUBMIT_ROUTE]                                            = 'student.create_submit';
 
         $data[Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX]               = Format::encode(PersonTrait::getPrefixData());
+        $data[Key::AUTOCOMPLETE_DATA . Model::$PERSON_REFER]                = Format::encode(PersonTrait::getReferData());
 
         $data[Key::AUTOCOMPLETE_DATA . Model::$STUDENT_SCHOOL]              = Format::encode(StudentTrait::getSchoolData());
         $data[Key::AUTOCOMPLETE_DATA . Model::$STUDENT_NIVEAU]              = Format::encode(StudentTrait::getNiveauData());
@@ -131,6 +132,8 @@ class StudentController extends Controller {
         self::form_ac_data_customer($data);
 
         UserController::form_set_ac_data_status($data, $person->getUser);
+
+        PersonController::form_set_ac_data_refer($data);
 
 
 

@@ -12,8 +12,6 @@
 
                 @include('block.menu-item', ['label' => 'Lessen', 'route' => route('study.list')])
 
-                @include('block.menu-item', ['label' => 'Agenda'])
-
                 @include('block.menu-item', ['label' => 'Leerlingen', 'route' => route('student.list')])
 
                 @include('block.menu-item', ['label' => 'Klanten', 'route' => route('customer.list')])
@@ -27,8 +25,6 @@
             @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
                 @include('block.menu-item', ['label' => 'Lessen', 'route' => route('study.list')])
-
-                @include('block.menu-item', ['label' => 'Agenda'])
 
                 @include('block.menu-item', ['label' => 'Mijn leerlingen', 'route' => route('student.list')])
 

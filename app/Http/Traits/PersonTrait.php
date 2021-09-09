@@ -54,8 +54,12 @@ trait PersonTrait {
         $person->{Model::$PERSON_REFER}                                 = $data[Model::$PERSON_REFER];
 
         $person->{Model::$PERSON_PHONE}                                 = $data[Model::$PERSON_PHONE];
-        $person->{Model::$PERSON_SOCIAL_INSTAGRAM}                      = $data[Model::$PERSON_SOCIAL_INSTAGRAM];
-        $person->{Model::$PERSON_SOCIAL_LINKEDIN}                       = $data[Model::$PERSON_SOCIAL_LINKEDIN];
+
+        if (BaseTrait::hasEmployeeRights()) {
+
+            $person->{Model::$PERSON_SOCIAL_INSTAGRAM}                  = $data[Model::$PERSON_SOCIAL_INSTAGRAM];
+            $person->{Model::$PERSON_SOCIAL_LINKEDIN}                   = $data[Model::$PERSON_SOCIAL_LINKEDIN];
+        }
 
         $person->{Model::$PERSON_SLUG}                                  = self::createSlug($person);
 
@@ -195,10 +199,22 @@ trait PersonTrait {
     public static function getPrefixData() {
 
         return [
-            "Dhr.",
-            "Mevr.",
-            "Mr.",
-            "Mw.",
+            "meneer",
+            "mevrouw"
+        ];
+    }
+
+
+
+    public static function getReferData() {
+
+        return [
+            "Promotie op social-media, zoals Instagram en Facebook",
+            "Promotie in mijn stad, zoals posters en flyers",
+            "Door te zoeken op internet, bijvoorbeeld met Google",
+            "Op aanraden van een vakdocent",
+            "Op aanraden van een kennis",
+            "Ik heb al eerder gebruik gemaakt van jullie begeleiding, bijvoorbeeld voor mijn andere zoon/dochter"
         ];
     }
 

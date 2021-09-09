@@ -5,6 +5,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Support\Files;
+use App\Http\Support\Format;
 use App\Http\Support\Func;
 use App\Http\Support\Mail;
 use App\Http\Support\Route;
@@ -174,6 +175,15 @@ class PersonController extends Controller {
             Key::PAGE_ACTION                                        => 'Terug',
             Key::ICON                                               => 'check-circle-green.svg'
         ]);
+    }
+
+
+
+
+    public static function form_set_ac_data_refer(&$data) {
+
+        $data[Key::AUTOCOMPLETE_DATA . Model::$PERSON_REFER]        = Format::encode(PersonTrait::getReferData());
+
     }
 
 

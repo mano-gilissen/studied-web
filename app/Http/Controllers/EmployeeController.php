@@ -65,7 +65,8 @@ class EmployeeController extends Controller {
             Key::SUBMIT_ROUTE                                               => 'employee.create_submit',
             Key::BACK_ROUTE                                                 => 'employee.list',
 
-            Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX                  => Format::encode(PersonTrait::getPrefixData())
+            Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX                  => Format::encode(PersonTrait::getPrefixData()),
+            Key::AUTOCOMPLETE_DATA . Model::$PERSON_REFER                   => Format::encode(PersonTrait::getReferData())
         ]);
     }
 
@@ -106,6 +107,8 @@ class EmployeeController extends Controller {
 
 
         UserController::form_set_ac_data_status($data, $person->getUser);
+
+        PersonController::form_set_ac_data_refer($data);
 
 
 
