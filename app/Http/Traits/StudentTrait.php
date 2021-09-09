@@ -199,9 +199,9 @@ trait StudentTrait {
 
 
 
-    public static function getNiveauText($status) {
+    public static function getNiveauText($niveau) {
 
-        switch ($status) {
+        switch ($niveau) {
 
             case 1:                                         return "Vmbo-bb";
             case 2:                                         return "Vmbo-kb";

@@ -32,7 +32,8 @@ class User extends Authenticatable {
         $table                                  = 'user',
 
         $fillable                               = ['name', 'email', 'password'],
-        $hidden                                 = ['password', 'remember_token'];
+        $hidden                                 = ['password', 'remember_token'],
+        $dates                                  = ['activated'];
 
 
 

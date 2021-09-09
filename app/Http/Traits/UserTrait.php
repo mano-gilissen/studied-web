@@ -108,6 +108,7 @@ trait UserTrait {
 
         $user->{Model::$USER_PASSWORD}                                      = Hash::make($data['password']);
         $user->{Model::$USER_STATUS}                                        = UserTrait::$STATUS_ACTIVE;
+        $user->{Model::$USER_ACTIVATED}                                     = date(Format::$DATABASE_DATETIME, time());
 
         $user->save();
     }
