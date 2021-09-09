@@ -115,10 +115,29 @@ trait StudentTrait {
 
         $student = $user->getStudent;
 
-        Mail::userActivate_forRelations($user, $student->{Model::$STUDENT_NAME_MENTOR}, $student->{Model::$STUDENT_EMAIL_MENTOR});                Mail::userActivate_forRelations($user, $student->{Model::$STUDENT_NAME_MENTOR}, $student->{Model::$STUDENT_EMAIL_MENTOR});
-        Mail::userActivate_forRelations($user, $student->{Model::$STUDENT_NAME_VAKDOCENT_1}, $student->{Model::$STUDENT_EMAIL_VAKDOCENT_1});
-        Mail::userActivate_forRelations($user, $student->{Model::$STUDENT_NAME_VAKDOCENT_2}, $student->{Model::$STUDENT_EMAIL_VAKDOCENT_2});
-        Mail::userActivate_forRelations($user, $student->{Model::$STUDENT_NAME_VAKDOCENT_3}, $student->{Model::$STUDENT_EMAIL_VAKDOCENT_3});
+        if ($student->{Model::$STUDENT_NAME_MENTOR} != null && $student->{Model::$STUDENT_EMAIL_MENTOR} != null) {
+
+            Mail::userActivate_forRelations($user, $student->{Model::$STUDENT_NAME_MENTOR}, $student->{Model::$STUDENT_EMAIL_MENTOR});                Mail::userActivate_forRelations($user, $student->{Model::$STUDENT_NAME_MENTOR}, $student->{Model::$STUDENT_EMAIL_MENTOR});
+
+        }
+
+        if ($student->{Model::$STUDENT_NAME_VAKDOCENT_1} != null && $student->{Model::$STUDENT_EMAIL_VAKDOCENT_1} != null) {
+
+            Mail::userActivate_forRelations($user, $student->{Model::$STUDENT_NAME_VAKDOCENT_1}, $student->{Model::$STUDENT_EMAIL_VAKDOCENT_1});                Mail::userActivate_forRelations($user, $student->{Model::$STUDENT_NAME_MENTOR}, $student->{Model::$STUDENT_EMAIL_MENTOR});
+
+        }
+
+        if ($student->{Model::$STUDENT_NAME_VAKDOCENT_2} != null && $student->{Model::$STUDENT_EMAIL_VAKDOCENT_2} != null) {
+
+            Mail::userActivate_forRelations($user, $student->{Model::$STUDENT_NAME_VAKDOCENT_2}, $student->{Model::$STUDENT_EMAIL_VAKDOCENT_2});                Mail::userActivate_forRelations($user, $student->{Model::$STUDENT_NAME_MENTOR}, $student->{Model::$STUDENT_EMAIL_MENTOR});
+
+        }
+
+        if ($student->{Model::$STUDENT_NAME_VAKDOCENT_3} != null && $student->{Model::$STUDENT_EMAIL_VAKDOCENT_3} != null) {
+
+            Mail::userActivate_forRelations($user, $student->{Model::$STUDENT_NAME_VAKDOCENT_3}, $student->{Model::$STUDENT_EMAIL_VAKDOCENT_3});                Mail::userActivate_forRelations($user, $student->{Model::$STUDENT_NAME_MENTOR}, $student->{Model::$STUDENT_EMAIL_MENTOR});
+
+        }
     }
 
 
