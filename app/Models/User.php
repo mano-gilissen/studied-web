@@ -4,6 +4,7 @@
 
 namespace App\Models;
 
+use App\Http\Support\Format;
 use App\Http\Support\Model;
 use App\Http\Traits\AgreementTrait;
 use App\Http\Traits\BaseTrait;
@@ -149,7 +150,7 @@ class User extends Authenticatable {
 
     public function getStudents() {
 
-        return self::getManyToMany(Model::$USER, Model::$AGREEMENT, Model::$EMPLOYEE, MODEL::$STUDENT)->whereIn(Model::$AGREEMENT . '.' . Model::$AGREEMENT_STATUS, array(AgreementTrait::$STATUS_UNAPPROVED, AgreementTrait::$STATUS_ACTIVE))->distinct();
+        return self::getManyToMany(Model::$USER, Model::$AGREEMENT, Model::$EMPLOYEE, MODEL::$STUDENT)->where(Model::$AGREEMENT . '.' . Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATETIME, time()))->whereIn(Model::$AGREEMENT . '.' . Model::$AGREEMENT_STATUS, array(AgreementTrait::$STATUS_UNAPPROVED, AgreementTrait::$STATUS_ACTIVE))->distinct();
 
     }
 
@@ -157,7 +158,7 @@ class User extends Authenticatable {
 
     public function getEmployees() {
 
-        return self::getManyToMany(Model::$USER, Model::$AGREEMENT, Model::$STUDENT, MODEL::$EMPLOYEE)->whereIn(Model::$AGREEMENT . '.' . Model::$AGREEMENT_STATUS, array(AgreementTrait::$STATUS_UNAPPROVED, AgreementTrait::$STATUS_ACTIVE))->distinct();
+        return self::getManyToMany(Model::$USER, Model::$AGREEMENT, Model::$STUDENT, MODEL::$EMPLOYEE)->where(Model::$AGREEMENT . '.' . Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATETIME, time()))->whereIn(Model::$AGREEMENT . '.' . Model::$AGREEMENT_STATUS, array(AgreementTrait::$STATUS_UNAPPROVED, AgreementTrait::$STATUS_ACTIVE))->distinct();
 
     }
 
