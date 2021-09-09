@@ -31,11 +31,8 @@ trait PersonTrait {
 
         $person->{Model::$PERSON_PHONE}                                 = $data[Model::$PERSON_PHONE];
 
-        if (BaseTrait::hasEmployeeRights()) {
-
-            $person->{Model::$PERSON_SOCIAL_INSTAGRAM}                  = $data[Model::$PERSON_SOCIAL_INSTAGRAM];
-            $person->{Model::$PERSON_SOCIAL_LINKEDIN}                   = $data[Model::$PERSON_SOCIAL_LINKEDIN];
-        }
+        $person->{Model::$PERSON_SOCIAL_INSTAGRAM}                      = array_key_exists(Model::$PERSON_SOCIAL_INSTAGRAM, $data) ? $data[Model::$PERSON_SOCIAL_INSTAGRAM] : '';
+        $person->{Model::$PERSON_SOCIAL_LINKEDIN}                       = array_key_exists(Model::$PERSON_SOCIAL_LINKEDIN, $data) ? $data[Model::$PERSON_SOCIAL_LINKEDIN] : '';
 
         $person->{Model::$PERSON_SLUG}                                  = self::createSlug($person);
 
@@ -59,11 +56,8 @@ trait PersonTrait {
 
         $person->{Model::$PERSON_PHONE}                                 = $data[Model::$PERSON_PHONE];
 
-        if (BaseTrait::hasEmployeeRights()) {
-
-            $person->{Model::$PERSON_SOCIAL_INSTAGRAM}                  = $data[Model::$PERSON_SOCIAL_INSTAGRAM];
-            $person->{Model::$PERSON_SOCIAL_LINKEDIN}                   = $data[Model::$PERSON_SOCIAL_LINKEDIN];
-        }
+        $person->{Model::$PERSON_SOCIAL_INSTAGRAM}                      = array_key_exists(Model::$PERSON_SOCIAL_INSTAGRAM, $data) ? $data[Model::$PERSON_SOCIAL_INSTAGRAM] : '';
+        $person->{Model::$PERSON_SOCIAL_LINKEDIN}                       = array_key_exists(Model::$PERSON_SOCIAL_LINKEDIN, $data) ? $data[Model::$PERSON_SOCIAL_LINKEDIN] : '';
 
         $person->{Model::$PERSON_SLUG}                                  = self::createSlug($person);
 
