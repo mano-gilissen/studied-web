@@ -108,14 +108,14 @@ trait StudentTrait {
 
 
         echo($customerBefore . "<br>");
-        echo($student->{Model::$CUSTOMER});
+        echo($student->{Model::$CUSTOMER} . "<br>");
         echo((self::hasCustomer($student) ? "a" : "b") . "<br>");
 
         if (self::hasCustomer($student) && (!$customerBefore || $customerBefore != $student->{Model::$CUSTOMER})) {
 
             $user_customer                                                  = $student->getCustomer->getUser;
 
-            echo($user_customer->id . "<br>");
+            echo($user_customer->getPerson->first_name . "<br>");
             echo((UserTrait::isActivated($user_customer) ? 'd' : 'e') . "<br>");
             echo($student->getCustomer->getStudents->count() . "<br>");
 
