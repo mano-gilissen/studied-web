@@ -7,9 +7,12 @@ namespace App\Http\Traits;
 use App\Http\Support\Color;
 use App\Http\Support\Func;
 use App\Http\Support\Key;
+use App\Http\Support\Mail;
 use App\Http\Support\Model;
 use App\Models\Address;
+use App\Models\Employee;
 use App\Models\Evaluation;
+use App\Models\User;
 
 
 trait EvaluationTrait {
@@ -67,7 +70,23 @@ trait EvaluationTrait {
 
                 Evaluation_EmployeeTrait::create($evaluation->{Model::$BASE_ID}, $employee_id);
 
+                Mail::evaluationCreated_forEmployee(User::find($employee_id), $evaluation);
             }
+        }
+
+
+
+        $user_host                                                  = User::find($evaluation->{Model::$EVALUATION_HOST});
+        $user_student                                               = User::find($evaluation->{Model::$STUDENT});
+
+        Mail::evaluationCreated_forHost($user_host, $evaluation);
+
+        Mail::evaluationCreated_forStudent($user_student, $evaluation);
+
+        if (StudentTrait::hasCustomer($user_student->getStudent)) {
+
+            Mail::evaluationCreated_forCustomer($user_student->getStudent->getCustomer->getUser, $evaluation);
+
         }
 
 
@@ -95,9 +114,9 @@ trait EvaluationTrait {
 
 
 
-    public static function hasLink($study) {
+    public static function hasLink($evaluation) {
 
-        return strlen($study->link) > 0;
+        return strlen($evaluation->link) > 0;
 
     }
 

@@ -8,6 +8,10 @@ use App\Http\Mail\Agreement_Approved_Customer;
 use App\Http\Mail\Agreement_Created_Employee;
 use App\Http\Mail\Agreement_Extended_Employee;
 use App\Http\Mail\Agreement_Finished_Employee;
+use App\Http\Mail\Evaluation_Created_Customer;
+use App\Http\Mail\Evaluation_Created_Employee;
+use App\Http\Mail\Evaluation_Created_Host;
+use App\Http\Mail\Evaluation_Created_Student;
 use App\Http\Mail\Study_Edited_Employee;
 use App\Http\Mail\Study_Edited_Student;
 use App\Http\Mail\Study_Planned_Employee;
@@ -161,6 +165,48 @@ class Mail {
 
         $mail                                               = new Study_Edited_Employee($study);
         $recipient                                          = $study->getHost->{Model::$USER_EMAIL};
+
+        self::mailTo($mail, $recipient);
+    }
+
+
+
+
+
+    public static function evaluationCreated_forHost($employee, $evalution) {
+
+        $mail                                               = new Evaluation_Created_Host($employee, $evalution);
+        $recipient                                          = $employee->{Model::$USER_EMAIL};
+
+        self::mailTo($mail, $recipient);
+    }
+
+
+
+    public static function evaluationCreated_forEmployee($employee, $evalution) {
+
+        $mail                                               = new Evaluation_Created_Employee($employee, $evalution);
+        $recipient                                          = $employee->{Model::$USER_EMAIL};
+
+        self::mailTo($mail, $recipient);
+    }
+
+
+
+    public static function evaluationCreated_forStudent($student, $evalution) {
+
+        $mail                                               = new Evaluation_Created_Student($student, $evalution);
+        $recipient                                          = $student->{Model::$USER_EMAIL};
+
+        self::mailTo($mail, $recipient);
+    }
+
+
+
+    public static function evaluationCreated_forCustomer($customer, $evalution) {
+
+        $mail                                               = new Evaluation_Created_Customer($customer, $evalution);
+        $recipient                                          = $customer->{Model::$USER_EMAIL};
 
         self::mailTo($mail, $recipient);
     }
