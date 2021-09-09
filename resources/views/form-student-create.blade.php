@@ -82,15 +82,15 @@
 
     @include('form.field-input', ['id' => 'email_mentor', 'type' => 'email', 'tag' => 'Email mentor'])
 
-    @include('form.field-input', ['id' => 'naam_vakdocent_1','tag' => 'Naam vakdocent 1'])
+    @include('form.field-input', ['id' => 'name_vakdocent_1','tag' => 'Naam vakdocent 1'])
 
     @include('form.field-input', ['id' => 'email_vakdocent_1', 'type' => 'email', 'tag' => 'Email vakdocent 1'])
 
-    @include('form.field-input', ['id' => 'naam_vakdocent_2', 'tag' => 'Naam vakdocent 2'])
+    @include('form.field-input', ['id' => 'name_vakdocent_2', 'tag' => 'Naam vakdocent 2'])
 
     @include('form.field-input', ['id' => 'email_vakdocent_2', 'type' => 'email', 'tag' => 'Email vakdocent 2'])
 
-    @include('form.field-input', ['id' => 'naam_vakdocent_3', 'tag' => 'Naam vakdocent 3'])
+    @include('form.field-input', ['id' => 'name_vakdocent_3', 'tag' => 'Naam vakdocent 3'])
 
     @include('form.field-input', ['id' => 'email_vakdocent_3', 'type' => 'email', 'tag' => 'Email vakdocent 3'])
 

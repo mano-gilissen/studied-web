@@ -70,13 +70,17 @@
 
             @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
 
-                <div class="attribute">
+                @if(\App\Http\Traits\UserTrait::isActivated($person->getUser))
 
-                    <div class="name">Klant sinds</div>
+                    <div class="attribute">
 
-                    <div class="value">{{ \App\Http\Support\Format::datetime($person->getUser->{\App\Http\Support\Model::$USER_ACTIVATED}, \App\Http\Support\Format::$DATETIME_PROFILE) }}</div>
+                        <div class="name">Klant sinds</div>
 
-                </div>
+                        <div class="value">{{ \App\Http\Support\Format::datetime($person->getUser->{\App\Http\Support\Model::$USER_ACTIVATED}, \App\Http\Support\Format::$DATETIME_PROFILE) }}</div>
+
+                    </div>
+
+                @endif
 
                 @break
 
