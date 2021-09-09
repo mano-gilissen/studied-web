@@ -18,7 +18,7 @@
 
     @include('form.field-input', ['id' => 'birth_date', 'type' => 'date', 'tag' => 'Geboortedatum', 'placeholder' => 'Kies een datum', 'required' => true, 'value' => \App\Http\Support\Format::datetime($person->{\App\Http\Support\Model::$PERSON_BIRTH_DATE}, \App\Http\Support\Format::$DATETIME_FORM)])
 
-    @include('form.field-input', ['id' => 'refer', 'tag' => 'Referentie', 'placeholder' => 'Hoe komt deze persoon bij Studied terecht?', 'required' => true, 'value' => $person->{\App\Http\Support\Model::$PERSON_REFER}])
+    @include('form.field-input', ['id' => 'refer', 'tag' => 'Referentie', 'placeholder' => 'Hoe komt deze persoon bij Studied terecht?', 'icon' => 'dropdown.svg', 'required' => true, 'data' => true, 'show_all' => true, 'show_always' => true, 'value' => $person->{\App\Http\Support\Model::$PERSON_REFER}])
 
     <div class="seperator"></div>
 
