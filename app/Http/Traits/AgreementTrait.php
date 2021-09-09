@@ -248,7 +248,7 @@ trait AgreementTrait {
         switch($agreement->{Model::$AGREEMENT_STATUS}) {
 
             case self::$STATUS_PLANNED:
-                return Func::has_passed($agreement->{Model::$AGREEMENT_START}) ? (Func::has_passed($agreement->{Model::$AGREEMENT_END}) ? self::$STATUS_PLANNED : self::$STATUS_ACTIVE) : self::$STATUS_EXPIRED;
+                return Func::has_passed($agreement->{Model::$AGREEMENT_START}) ? (Func::has_passed($agreement->{Model::$AGREEMENT_END}) ? self::$STATUS_EXPIRED : self::$STATUS_ACTIVE) : self::$STATUS_PLANNED;
             default:
                 return $agreement->{Model::$AGREEMENT_STATUS};
         }
