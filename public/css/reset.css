@@ -1,0 +1,38 @@
+html, body {
+    background:                         #E6E6E6;
+}
+
+#app {
+    height:                             100vh;
+    display:                            grid;
+    grid-template-columns:              1fr auto 1fr;
+    grid-template-rows:                 1fr auto 1fr;
+    grid-template-areas:                ". . ."
+                                        ". wrap ."
+                                        ". . .";
+}
+
+.wrap {
+    grid-area:                          wrap;
+    width:                              380px;
+    padding:                            80px 50px;
+    background:                         white;
+}
+
+#logo {
+    height:                             64px;
+    margin-bottom:                      80px;
+}
+
+#box-input-password {
+    margin-top:                         32px;
+}
+
+#button-login {
+    margin:                             72px 0 0 auto;
+}
+
+#button-forgot-password {
+    width:                              fit-content;
+    margin:                             24px 0 0 auto;
+}
