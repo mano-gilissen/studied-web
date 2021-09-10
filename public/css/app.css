@@ -969,7 +969,7 @@ select::-ms-expand {
 .contact-popout {
     position:                           absolute;
     display:                            none;
-    margin-top:                         148px;
+    margin-top:                         156px;
     font-size:                          14px;
     font-family:                        'Source Sans Pro', sans-serif;
     font-weight:                        300;
@@ -982,14 +982,14 @@ select::-ms-expand {
 .contact-popout .contact-item {
     display:                            flex;
     align-items:                        center;
-    height:                             48px;
+    height:                             56px;
     padding:                            0 32px;
-    background:                         #F0F0F0;
+    background:                         #E6E6E6;
     color:                              #666666;
 }
 
 .contact-popout .contact-item:hover {
-    background:                         #F4F4F4;
+    background:                         #F0F0F0;
 }
 
 
