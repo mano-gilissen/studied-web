@@ -971,7 +971,10 @@ select::-ms-expand {
     display:                            none;
     background:                         #E6E6E6;
     padding:                            24px;
-    margin-top:                         140px;
+    margin-top:                         136px;
+    font-size:                          14px;
+    font-family:                        'Source Sans Pro', sans-serif;
+    font-weight:                        300;
 }
 
 .button.clicked .contact-popout {
@@ -979,6 +982,8 @@ select::-ms-expand {
 }
 
 .contact-popout .contact-item {
+    display:                            flex;
+    align-items:                        center;
     height:                             48px;
 }
 

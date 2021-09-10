@@ -1,6 +1,6 @@
 <div class="contact-popout">
 
-    <div class="content-item">
+    <div class="contact-item">
 
         <div class="name">Email</div>
 
@@ -8,7 +8,7 @@
 
     </div>
 
-    <div class="content-item">
+    <div class="contact-item">
 
         <div class="name">Telefoon</div>
 
