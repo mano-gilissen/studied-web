@@ -308,7 +308,7 @@
 
                 @else
 
-                    @include('block.contact-popout', ['tag' => 'Contact', 'user' => $person->getUser])
+                    @include('block.contact-popout', ['tag' => 'Contacteer', 'user' => $person->getUser])
 
                 @endif
 
