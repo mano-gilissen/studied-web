@@ -39,6 +39,7 @@ const CLASS_DOT                                 = '.dot';
 const CLASS_SWITCH                              = '.switch';
 const CLASS_TAB                                 = '.tab';
 const CLASS_ITEM_TITLE                          = '.item-title';
+const CLASS_CONTACT_POPOUT                      = '.contact-popout';
 
 const ICON_BACK                                 = "/images_app/back.svg";
 const ICON_MENU                                 = "/images_app/menu.svg";
@@ -133,6 +134,12 @@ $(function(){
 
     });
 
+    $(OBJECT_APP).on('mousemove', CLASS_CONTACT_POPOUT, function() {
+
+        set_tooltip("Kopiëren");
+
+    });
+
 
 
     $(OBJECT_APP).on('mouseenter',
@@ -142,7 +149,8 @@ $(function(){
         CLASS_PERSON_REPORT + ", " +
         CLASS_PERSON + ", " +
         OBJECT_BUTTON_LOGOUT + ", " +
-        OBJECT_BUTTON_SETTINGS,
+        OBJECT_BUTTON_SETTINGS +
+        CLASS_CONTACT_POPOUT,
 
         function() {
 
@@ -158,7 +166,8 @@ $(function(){
         CLASS_PERSON_REPORT + ", " +
         CLASS_PERSON + ", " +
         OBJECT_BUTTON_LOGOUT + ", " +
-        OBJECT_BUTTON_SETTINGS,
+        OBJECT_BUTTON_SETTINGS +
+        CLASS_CONTACT_POPOUT,
 
         function(){
 
