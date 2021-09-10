@@ -62,7 +62,7 @@
 
                                 <div class="text">Contacteer {{ $study->getHost->getPerson->first_name }}</div>
 
-                                @include('contact-popout', ['user' => $study->getHost])
+                                @include('block.contact-popout', ['user' => $study->getHost])
 
                             </div>
 
@@ -114,7 +114,7 @@
 
                                 <div class="text">Contacteer {{ $study->getHost->getPerson->first_name }}</div>
 
-                                @include('contact-popout', ['user' => $study->getHost])
+                                @include('block.contact-popout', ['user' => $study->getHost])
 
                             </div>
 
@@ -144,7 +144,7 @@
 
                                 <div class="text">Contacteer {{ $study->getHost->getPerson->first_name }}</div>
 
-                                @include('contact-popout', ['user' => $study->getHost])
+                                @include('block.contact-popout', ['user' => $study->getHost])
 
                             </div>
 
