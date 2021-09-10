@@ -280,13 +280,17 @@
 
                 @if(\App\Http\Traits\BaseTrait::hasManagementRights())
 
-                    <div class="button icon grey" onclick="window.location.href='{{ route('user.edit') }}'">
+                    @if($person->getUser->id == Auth::id())
 
-                        <img class="icon" src="/images_app/edit.svg">
+                        <div class="button icon grey" onclick="window.location.href='{{ route('user.edit') }}'">
 
-                        <div class="text">Foto- en wachtwoord wijzigen</div>
+                            <img class="icon" src="/images_app/edit.svg">
 
-                    </div>
+                            <div class="text">Foto- en wachtwoord wijzigen</div>
+
+                        </div>
+
+                    @endif
 
                     <div class="button icon" onclick="window.location.href='{{ route('person.edit', $person->{\App\Http\Support\Model::$PERSON_SLUG}) }}'">
 
