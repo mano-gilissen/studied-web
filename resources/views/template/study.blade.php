@@ -56,13 +56,13 @@
 
                         @else
 
-                            <div class="button icon grey">
+                            <div class="button icon" onclick="$(this).toggleClass('clicked')">
 
                                 <img class="icon" src="/images_app/contact.svg">
 
                                 <div class="text">Contacteer {{ $study->getHost->getPerson->first_name }}</div>
 
-                                <div style="width: 100px;height: 100px;background:pink;position: absolute;margin-top: 10px;"></div>
+                                @include('contact-popout', ['user' => $study->getHost])
 
                             </div>
 
@@ -108,13 +108,13 @@
 
                         @else
 
-                            <div class="button icon">
+                            <div class="button icon" onclick="$(this).toggleClass('clicked')">
 
                                 <img class="icon" src="/images_app/contact.svg">
 
                                 <div class="text">Contacteer {{ $study->getHost->getPerson->first_name }}</div>
 
-                                <div style="width: 100px;height: 100px;background:pink;position: absolute;margin-top: 10px;"></div>
+                                @include('contact-popout', ['user' => $study->getHost])
 
                             </div>
 
@@ -138,13 +138,13 @@
 
                         @else
 
-                            <div class="button icon">
+                            <div class="button icon" onclick="$(this).toggleClass('clicked')">
 
                                 <img class="icon" src="/images_app/contact.svg">
 
                                 <div class="text">Contacteer {{ $study->getHost->getPerson->first_name }}</div>
 
-                                <div style="width: 100px;height: 100px;background:pink;position: absolute;margin-top: 10px;"></div>
+                                @include('contact-popout', ['user' => $study->getHost])
 
                             </div>
 

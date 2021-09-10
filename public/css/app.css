@@ -966,6 +966,39 @@ select::-ms-expand {
 
 
 
+.contact-popout {
+    position:                           absolute;
+    display:                            none;
+    background:                         #E6E6E6;
+    padding:                            24px;
+    margin-top:                         140px;
+}
+
+.button.clicked .contact-popout {
+    display:                            grid;
+}
+
+.contact-popout .contact-item {
+    height:                             48px;
+}
+
+.contact-popout .contact-item:hover {
+    background:                         #F0F0F0;
+}
+
+.contact-popout .contact-item .type {
+    width:                              72px;
+    color:                              #666666;
+}
+
+.contact-popout .contact-item .value {
+    width:                              144px;
+}
+
+
+
+
+
 @font-face {
     font-family:                        'Circular';
     src:                                url('/fonts/circular-book.otf') format("opentype");
