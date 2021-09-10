@@ -985,19 +985,11 @@ select::-ms-expand {
     height:                             56px;
     padding:                            0 24px;
     background:                         #F0F0F0;
+    color:                              #666666;
 }
 
 .contact-popout .contact-item:hover {
     background:                         #F4F4F4;
-}
-
-.contact-popout .contact-item .name {
-    width:                              80px;
-    color:                              #666666;
-}
-
-.contact-popout .contact-item .value {
-    width:                              200px;
 }
 
 
