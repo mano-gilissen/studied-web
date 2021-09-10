@@ -68,7 +68,7 @@
 
                     </div>
 
-                    <img id="avatar-img" class="@if(!($user->getPerson->avatar)) invisible @endif" src="{{ asset("/storage/avatar/" . $user->getPerson->avatar) }}"/>
+                    <img id="avatar-img" class="@if(!(Auth::user()->getPerson->avatar)) invisible @endif" src="{{ asset("/storage/avatar/" . Auth::user()->getPerson->avatar) }}"/>
 
                 </div>
 
