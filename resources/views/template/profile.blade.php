@@ -308,13 +308,7 @@
 
                 @else
 
-                    <div class="button icon">
-
-                        <img class="icon" src="/images_app/contact.svg">
-
-                        <div class="text">Contacteer</div>
-
-                    </div>
+                    @include('block.contact-popout', ['user' => $study->getHost])
 
                 @endif
 
