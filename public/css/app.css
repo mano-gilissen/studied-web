@@ -969,7 +969,7 @@ select::-ms-expand {
 .contact-popout {
     position:                           absolute;
     display:                            none;
-    margin-top:                         144px;
+    margin-top:                         156px;
     font-size:                          14px;
     font-family:                        'Source Sans Pro', sans-serif;
     font-weight:                        300;
@@ -982,22 +982,22 @@ select::-ms-expand {
 .contact-popout .contact-item {
     display:                            flex;
     align-items:                        center;
-    height:                             48px;
+    height:                             56px;
     padding:                            0 24px;
     background:                         #F0F0F0;
 }
 
 .contact-popout .contact-item:hover {
-    background:                         #F8F8F8;
+    background:                         #F4F4F4;
 }
 
 .contact-popout .contact-item .name {
-    width:                              72px;
+    width:                              80px;
     color:                              #666666;
 }
 
 .contact-popout .contact-item .value {
-    width:                              192px;
+    width:                              200px;
 }
 
 
