@@ -983,13 +983,13 @@ select::-ms-expand {
     display:                            flex;
     align-items:                        center;
     height:                             56px;
-    padding:                            0 32px;
-    background:                         #E6E6E6;
+    padding:                            0 24px;
+    background:                         #F0F0F0;
     color:                              #666666;
 }
 
 .contact-popout .contact-item:hover {
-    background:                         #F0F0F0;
+    background:                         #F4F4F4;
 }
 
 
