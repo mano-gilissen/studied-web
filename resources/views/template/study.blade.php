@@ -62,6 +62,8 @@
 
                                 <div class="text">Contacteer {{ $study->getHost->getPerson->first_name }}</div>
 
+                                <div style="width: 100px;height: 100px;background:pink;position: absolute;margin-top: 10px;"></div>
+
                             </div>
 
                         @endif
@@ -112,6 +114,8 @@
 
                                 <div class="text">Contacteer {{ $study->getHost->getPerson->first_name }}</div>
 
+                                <div style="width: 100px;height: 100px;background:pink;position: absolute;margin-top: 10px;"></div>
+
                             </div>
 
                         @endif
@@ -139,6 +143,8 @@
                                 <img class="icon" src="/images_app/contact.svg">
 
                                 <div class="text">Contacteer {{ $study->getHost->getPerson->first_name }}</div>
+
+                                <div style="width: 100px;height: 100px;background:pink;position: absolute;margin-top: 10px;"></div>
 
                             </div>
 
