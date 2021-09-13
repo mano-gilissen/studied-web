@@ -26,8 +26,6 @@
 
 @include('form.field-input', ['id' => 'motivation', 'tag' => 'Motivatie', 'placeholder' => 'Waarom wil deze persoon bij Studied werken?', 'value' => $employee->{\App\Http\Support\Model::$EMPLOYEE_MOTIVATION}])
 
-@include('form.field-input', ['id' => 'refer', 'tag' => 'Referentie', 'placeholder' => 'Hoe komt deze persoon bij Studied terecht?', 'value' => $employee->{\App\Http\Support\Model::$EMPLOYEE_REFER}])
-
 @include('form.field-input', ['id' => 'capacity', 'tag' => 'Werkcapaciteit', 'placeholder' => 'Uren per week', 'value' => $employee->{\App\Http\Support\Model::$EMPLOYEE_CAPACITY}])
 
 @include('form.field-input', ['id' => 'iban', 'tag' => 'Rekeningnummer (IBAN)', 'value' => $employee->{\App\Http\Support\Model::$EMPLOYEE_IBAN}])

@@ -90,8 +90,6 @@
 
     @include('form.field-input', ['id' => 'motivation', 'tag' => 'Motivatie', 'placeholder' => 'Waarom wil deze persoon bij Studied werken?', 'value' => old('motivation')])
 
-    @include('form.field-input', ['id' => 'refer', 'tag' => 'Referentie', 'placeholder' => 'Hoe komt deze persoon bij Studied terecht?', 'value' => old('refer')])
-
     @include('form.field-input', ['id' => 'capacity', 'tag' => 'Werkcapaciteit', 'type' => 'number', 'placeholder' => 'Uren per week', 'value' => old('capacity')])
 
     @include('form.field-input', ['id' => 'iban', 'tag' => 'Rekeningnummer (IBAN)', 'value' => old('iban')])

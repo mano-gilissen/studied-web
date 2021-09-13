@@ -28,14 +28,6 @@
 
         </div>
 
-        <div class="attribute">
-
-            <div class="name">Refer</div>
-
-            <div class="value">{{ $person->getUser->getEmployee->{\App\Http\Support\Model::$EMPLOYEE_REFER} ? $person->getUser->getEmployee->{\App\Http\Support\Model::$EMPLOYEE_REFER} : \App\Http\Support\Key::UNKNOWN }}</div>
-
-        </div>
-
     </div>
 
 </div>

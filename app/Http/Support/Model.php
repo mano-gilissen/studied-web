@@ -118,7 +118,6 @@ class Model {
         $EMPLOYEE_PROFILE_MIDDELBARE                    = 'profile_middelbare',
 
         $EMPLOYEE_MOTIVATION                            = 'motivation',
-        $EMPLOYEE_REFER                                 = 'refer',
         $EMPLOYEE_CAPACITY                              = 'capacity',
         $EMPLOYEE_CV                                    = 'cv',
         $EMPLOYEE_IBAN                                  = 'iban',
