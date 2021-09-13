@@ -4,11 +4,19 @@
 
     <div class="list-users">
 
-        @foreach($person->getUser->getCustomer->getStudents as $student)
+        @if($person->getUser->getCustomer->getStudents->count() > 0)
 
-            @include('block.person', ['person' => $student->getUser->getPerson])
+            @foreach($person->getUser->getCustomer->getStudents as $student)
 
-        @endforeach
+                @include('block.person', ['person' => $student->getUser->getPerson])
+
+            @endforeach
+
+        @else
+
+            <div class="block-note">{{ $person->{\App\Http\Support\Model::$PERSON_FIRST_NAME} }} heeft geen leerlingen</div>
+
+        @endif
 
     </div>
 
