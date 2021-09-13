@@ -13,6 +13,7 @@ use App\Http\Traits\BaseTrait;
 use App\Http\Traits\EmployeeTrait;
 use App\Http\Traits\PersonTrait;
 use App\Http\Traits\RoleTrait;
+use App\Http\Traits\StudentTrait;
 use App\Http\Traits\UserTrait;
 use App\Http\Support\Views;
 use App\Http\Support\Key;
@@ -66,7 +67,8 @@ class EmployeeController extends Controller {
             Key::BACK_ROUTE                                                 => 'employee.list',
 
             Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX                  => Format::encode(PersonTrait::getPrefixData()),
-            Key::AUTOCOMPLETE_DATA . Model::$PERSON_REFER                   => Format::encode(PersonTrait::getReferData())
+            Key::AUTOCOMPLETE_DATA . Model::$PERSON_REFER                   => Format::encode(PersonTrait::getReferData()),
+            Key::AUTOCOMPLETE_DATA . Model::$EMPLOYEE_PROFILE_MIDDELBARE    => Format::encode(StudentTrait::getProfileData())
         ]);
     }
 
@@ -103,6 +105,7 @@ class EmployeeController extends Controller {
         $data[Key::SUBMIT_ROUTE]                                            = 'employee.edit_submit';
 
         $data[Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX]               = Format::encode(PersonTrait::getPrefixData());
+        $data[Key::AUTOCOMPLETE_DATA . Model::$EMPLOYEE_PROFILE_MIDDELBARE] = Format::encode(StudentTrait::getProfileData());
 
 
 
