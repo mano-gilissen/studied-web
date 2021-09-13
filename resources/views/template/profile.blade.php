@@ -292,13 +292,17 @@
 
                     @endif
 
-                    <div class="button icon" onclick="window.location.href='{{ route('person.edit', $person->{\App\Http\Support\Model::$PERSON_SLUG}) }}'">
+                    @if(\App\Http\Traits\BaseTrait::hasBoardRights() || $person->getUser->role != \App\Http\Traits\RoleTrait::$ID_BOARD)
 
-                        <img class="icon" src="/images_app/edit.svg">
+                        <div class="button icon" onclick="window.location.href='{{ route('person.edit', $person->{\App\Http\Support\Model::$PERSON_SLUG}) }}'">
 
-                        <div class="text">Bewerken</div>
+                            <img class="icon" src="/images_app/edit.svg">
 
-                    </div>
+                            <div class="text">Bewerken</div>
+
+                        </div>
+
+                    @endif
 
                 @elseif($person->getUser->id == Auth::id())
 
