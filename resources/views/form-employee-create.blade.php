@@ -79,7 +79,7 @@
 
     @include('form.field-input', ['id' => 'school_middelbare', 'tag' => 'School', 'value' => old('school_middelbare')])
 
-    @include('form.field-input', ['id' => 'profile_middelbare', 'tag' => 'Profiel', 'value' => old('profile_middelbare'), 'data' => true, 'show_all' => true])
+    @include('form.field-input', ['id' => 'profile_middelbare', 'tag' => 'Profiel', 'icon' => 'search.svg', 'value' => old('profile_middelbare'), 'data' => true, 'show_all' => true])
 
     <div class="seperator"></div>
 

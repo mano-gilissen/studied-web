@@ -16,7 +16,7 @@
 
 @include('form.field-input', ['id' => 'school_middelbare', 'tag' => 'School', 'value' => $employee->{\App\Http\Support\Model::$EMPLOYEE_SCHOOL_MIDDELBARE}])
 
-@include('form.field-input', ['id' => 'profile_middelbare', 'tag' => 'Profiel', 'data' => true, 'show_all' => true, 'value' => $employee->{\App\Http\Support\Model::$EMPLOYEE_PROFILE_MIDDELBARE}])
+@include('form.field-input', ['id' => 'profile_middelbare', 'tag' => 'Profiel', 'icon' => 'search.svg', 'data' => true, 'show_all' => true, 'value' => $employee->{\App\Http\Support\Model::$EMPLOYEE_PROFILE_MIDDELBARE}])
 
 <div class="seperator"></div>
 
