@@ -44,9 +44,9 @@
 
 @endif
 
-@include('form.field-input', ['id' => 'social_instagram', 'tag' => 'Instagram', 'value' => $employee->getUser->getPerson->{\App\Http\Support\Model::$PERSON_SOCIAL_INSTAGRAM}])
+@include('form.field-input', ['id' => 'social_instagram', 'tag' => 'Instagram', 'placeholder' => 'Alleen gebruikersnaam', 'value' => $employee->getUser->getPerson->{\App\Http\Support\Model::$PERSON_SOCIAL_INSTAGRAM}])
 
-@include('form.field-input', ['id' => 'social_linkedin', 'tag' => 'LinkedIn', 'value' => $employee->getUser->getPerson->{\App\Http\Support\Model::$PERSON_SOCIAL_LINKEDIN}])
+@include('form.field-input', ['id' => 'social_linkedin', 'tag' => 'LinkedIn', 'placeholder' => 'Gehele URL van het profiel', 'value' => $employee->getUser->getPerson->{\App\Http\Support\Model::$PERSON_SOCIAL_LINKEDIN}])
 
 <div class="seperator"></div>
 
