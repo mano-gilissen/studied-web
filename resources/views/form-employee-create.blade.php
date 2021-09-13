@@ -102,6 +102,12 @@
 
     <div class="title">{{ __('Profielgegevens') }}</div>
 
+    @if($employee->getUser->role != \App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
+
+        @include('form.field-input', ['id' => 'profile_text', 'tag' => 'Profieltekst', 'value' => old('profile_text')])
+
+    @endif
+
     @include('form.field-input', ['id' => 'social_instagram', 'tag' => 'Instagram', 'placeholder' => 'Alleen gebruikersnaam', 'value' => old('social_instagram')])
 
     @include('form.field-input', ['id' => 'social_linkedin', 'tag' => 'LinkedIn', 'placeholder' => 'Gehele URL van het profiel', 'value' => old('social_linkedin')])
