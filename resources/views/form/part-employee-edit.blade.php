@@ -38,7 +38,11 @@
 
 <div class="title">{{ __('Profielgegevens') }}</div>
 
-@include('form.field-input', ['id' => 'profile_text', 'tag' => 'Profieltekst', 'value' => $employee->{\App\Http\Support\Model::$EMPLOYEE_PROFILE_TEXT}])
+@if($employee->getUser->role != \App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
+
+    @include('form.field-input', ['id' => 'profile_text', 'tag' => 'Profieltekst', 'value' => $employee->{\App\Http\Support\Model::$EMPLOYEE_PROFILE_TEXT}])
+
+@endif
 
 @include('form.field-input', ['id' => 'social_instagram', 'tag' => 'Instagram', 'value' => $employee->getUser->getPerson->{\App\Http\Support\Model::$PERSON_SOCIAL_INSTAGRAM}])
 

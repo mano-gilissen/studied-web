@@ -60,7 +60,7 @@ trait EmployeeTrait {
 
 
 
-        $employee->{Model::$EMPLOYEE_PROFILE_TEXT}                      = $data[Model::$EMPLOYEE_PROFILE_TEXT];
+        $employee->{Model::$EMPLOYEE_PROFILE_TEXT}                      = array_key_exists(Model::$EMPLOYEE_PROFILE_TEXT, $data) ? $data[Model::$EMPLOYEE_PROFILE_TEXT] : '';
 
         $employee->{Model::$EMPLOYEE_EDUCATION_CURRENT}                 = $data[Model::$EMPLOYEE_EDUCATION_CURRENT];
         $employee->{Model::$EMPLOYEE_SCHOOL_CURRENT}                    = $data[Model::$EMPLOYEE_SCHOOL_CURRENT];

@@ -102,11 +102,9 @@
 
     <div class="title">{{ __('Profielgegevens') }}</div>
 
-    @include('form.field-input', ['id' => 'profile_text', 'tag' => 'Profieltekst', 'value' => old('profile_text')])
+    @include('form.field-input', ['id' => 'social_instagram', 'tag' => 'Instagram', 'placeholder' => 'Alleen gebruikersnaam', 'value' => old('social_instagram')])
 
-    @include('form.field-input', ['id' => 'social_instagram', 'tag' => 'Instagram', 'value' => old('social_instagram')])
-
-    @include('form.field-input', ['id' => 'social_linkedin', 'tag' => 'LinkedIn', 'value' => old('social_linkedin')])
+    @include('form.field-input', ['id' => 'social_linkedin', 'tag' => 'LinkedIn', 'placeholder' => 'Gehele URL van het profiel', 'value' => old('social_linkedin')])
 
     <div class="seperator"></div>
 

@@ -175,8 +175,10 @@ trait PersonTrait {
 
                 case RoleTrait::$ID_ADMINISTRATOR:
                 case RoleTrait::$ID_BOARD:
+                    return strlen($person->getUser->getEmployee->{Model::$EMPLOYEE_PROFILE_TEXT}) > 0 ? $person->getUser->getEmployee->{Model::$EMPLOYEE_PROFILE_TEXT} : 'Hoi Ik ben ' . $person->{Model::$PERSON_FIRST_NAME} . ' en ik zit bij het bestuur van Studied.';
+
                 case RoleTrait::$ID_MANAGEMENT:
-                    return $person->getUser->getEmployee->{Model::$EMPLOYEE_PROFILE_TEXT};
+                    return strlen($person->getUser->getEmployee->{Model::$EMPLOYEE_PROFILE_TEXT}) > 0 ? $person->getUser->getEmployee->{Model::$EMPLOYEE_PROFILE_TEXT} : 'Hoi Ik ben ' . $person->{Model::$PERSON_FIRST_NAME} . ' en ik werk bij Studied als managing-student.';
 
                 case RoleTrait::$ID_EMPLOYEE:
                     return 'Hoi! Ik ben ' . $person->{Model::$PERSON_FIRST_NAME} . ' en ik studeer ' . $person->getUser->getEmployee->{Model::$EMPLOYEE_PROFILE_CURRENT} . '.';
@@ -185,7 +187,7 @@ trait PersonTrait {
                     return 'Hoi! Ik ben ' . $person->{Model::$PERSON_FIRST_NAME} . ' en ik zit op ' . StudentTrait::getNiveauText($person->getUser->getStudent->niveau) . ' ' . $person->getUser->getStudent->leerjaar . ($person->getUser->getStudent->school ? ' van ' . $person->getUser->getStudent->school . '.' : '');
 
                 case RoleTrait::$ID_CUSTOMER:
-                    return 'Hoi! Ik ben ' . $person->{Model::$PERSON_FIRST_NAME} . ' en ik ben de ouder/verzorger van ' . CustomerTrait::getStudentsText($person->getUser->getCustomer, true) . '.';
+                    return $person->getUser->getCustomer->getStudents->count() > 0 ? 'Hoi! Ik ben ' . $person->{Model::$PERSON_FIRST_NAME} . ' en ik ben de ouder/verzorger van ' . CustomerTrait::getStudentsText($person->getUser->getCustomer, true) . '.' : 'Hoi! Ik ben een ouder/verzorger en mijn kinderen hebben hopelijk snel begeleiding bij Studied!';
             }
         }
 

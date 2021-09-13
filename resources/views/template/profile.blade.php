@@ -164,7 +164,7 @@
 
                                 @if(strlen($person->{\App\Http\Support\Model::$PERSON_SOCIAL_LINKEDIN}) > 0)
 
-                                    <div class="button grey icon" onclick="window.location.href='{{ 'https://www.linkedin.com/in/' . $person->{\App\Http\Support\Model::$PERSON_SOCIAL_LINKEDIN} }}'">
+                                    <div class="button grey icon" onclick="window.location.href='{{ $person->{\App\Http\Support\Model::$PERSON_SOCIAL_LINKEDIN} }}'">
 
                                         <img class="icon" src="/images_app/social-linkedin.svg">
 
