@@ -2,7 +2,7 @@
 
 @include('form.field-input', ['id' => 'education_current', 'tag' => 'Niveau', 'value' => $employee->{\App\Http\Support\Model::$EMPLOYEE_EDUCATION_CURRENT}])
 
-@include('form.field-input', ['id' => 'school_current', 'tag' => 'School', 'value' => $employee->{\App\Http\Support\Model::$EMPLOYEE_SCHOOL_CURRENT}])
+@include('form.field-input', ['id' => 'school_current', 'tag' => 'Onderwijsinstelling', 'value' => $employee->{\App\Http\Support\Model::$EMPLOYEE_SCHOOL_CURRENT}])
 
 @include('form.field-input', ['id' => 'profile_current', 'tag' => 'Opleiding', 'value' => $employee->{\App\Http\Support\Model::$EMPLOYEE_EDUCATION_CURRENT}])
 

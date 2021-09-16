@@ -1,6 +1,6 @@
 <div class="agreements">
 
-    @if(\App\Http\Traits\BaseTrait::hasManagementRights() && ($person->getUser->isStudent() || $person->getUser->isEmployee()))
+    @if(\App\Http\Traits\BaseTrait::hasManagementRights() && $person->getUser->isStudent())
 
         <div class="title-add">
 

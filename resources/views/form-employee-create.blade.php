@@ -64,7 +64,7 @@
 
     @include('form.field-input', ['id' => 'education_current', 'tag' => 'Niveau', 'value' => old('education_current')])
 
-    @include('form.field-input', ['id' => 'school_current', 'tag' => 'School', 'value' => old('school_current')])
+    @include('form.field-input', ['id' => 'school_current', 'tag' => 'Onderwijsinstelling', 'value' => old('school_current')])
 
     @include('form.field-input', ['id' => 'profile_current', 'tag' => 'Opleiding', 'value' => old('profile_current')])
 

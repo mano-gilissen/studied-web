@@ -258,7 +258,7 @@ class StudyController extends Controller {
 
         $ac_data                                                            = Location::with('getAddress')->get()->pluck(Model::$LOCATION_NAME, 'getAddress.' . Model::$BASE_ID)->toArray();
 
-        $ac_data[self::$STUDY_PLAN_LOCATION_HOST]                           = self::hasManagementRights() ? 'Thuis bij de Student-docent' : 'Thuis bij jou (' . Auth::user()->getPerson->{Model::$PERSON_FIRST_NAME} . ')';
+        $ac_data[self::$STUDY_PLAN_LOCATION_HOST]                           = self::hasManagementRights() ? 'Thuis bij de student-docent' : 'Thuis bij jou (' . Auth::user()->getPerson->{Model::$PERSON_FIRST_NAME} . ')';
 
         $students                                                           = self::hasManagementRights() ? User::where(Model::$ROLE, RoleTrait::$ID_STUDENT)->get() : Auth::user()->getStudents;
 

@@ -273,9 +273,10 @@ trait StudentTrait {
             'MTE',
             'MVI',
             'MTR',
+            'Onderbouw',
             'PIE',
             'VRTE',
-            'ZWE'
+            'ZWE',
         ];
     }
 
