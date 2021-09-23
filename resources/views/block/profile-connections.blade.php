@@ -16,7 +16,7 @@
 
                 @foreach($person->getUser->getEmployees as $employee)
 
-                    @include('block.person', ['person' => $employee->getPerson])
+                    @include('block.person', ['person' => $employee->getPerson, 'subtitle' => 'Student-docent'])
 
                 @endforeach
 

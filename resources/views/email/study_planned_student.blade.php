@@ -109,16 +109,16 @@
                             <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
                                 <tr>
                                     <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">
-                                        <img style="width: 110px;margin-bottom: 32px;margin-left:-4px" src="{{ $message->embed(public_path() . '/images_app/logo.png') }}">
+                                        <img style="width: 110px;margin-bottom: 48px;margin-left:-4px" src="{{ $message->embed(public_path() . '/images_app/logo.png') }}">
                                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 24px;">Beste {{ $participant->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME} }},</p>
 
                                         @if(\App\Http\Traits\StudyTrait::hasLink($study))
 
-                                            <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">{{ $study->getHost->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME} }} heeft een les {{ strtolower(\App\Http\Traits\StudyTrait::getSubject($study)->{\App\Http\Support\Model::$SUBJECT_NAME}) }} met jou ingepland op {{ \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE) }} van {{ \App\Http\Traits\StudyTrait::getTimeText($study, true) }}. De les is digitaal en de link hiervoor is: <a href="{{ $study->{\App\Http\Support\Model::$STUDY_LINK} }}">{{ $study->{\App\Http\Support\Model::$STUDY_LINK} }}</a>. Kom op tijd en zorg ervoor dat je alles bij je hebt wat je normaal ook naar school zou meenemen.</p>
+                                            <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">{{ $study->getHost->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME} }} heeft een les {{ strtolower(\App\Http\Traits\StudyTrait::getSubject($study)->{\App\Http\Support\Model::$SUBJECT_NAME}) }} met jou ingepland op {{ strtolower(\App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE)) }} van {{ \App\Http\Traits\StudyTrait::getTimeText($study, true) }}. De les is digitaal en de link hiervoor is: <a href="{{ $study->{\App\Http\Support\Model::$STUDY_LINK} }}">{{ $study->{\App\Http\Support\Model::$STUDY_LINK} }}</a>. Kom op tijd en zorg ervoor dat je alles bij je hebt wat je normaal ook naar school zou meenemen.</p>
 
                                         @else
 
-                                            <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">{{ $study->getHost->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME} }} heeft een les {{ strtolower(\App\Http\Traits\StudyTrait::getSubject($study)->{\App\Http\Support\Model::$SUBJECT_NAME}) }} met jou ingepland op {{ \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE) }} van {{ \App\Http\Traits\StudyTrait::getTimeText($study, true) }}. De locatie is: {{ $study->{\App\Http\Support\Model::$STUDY_LOCATION_TEXT} }}. Kom op tijd en zorg ervoor dat je alles bij je hebt wat je normaal ook naar school zou meenemen.</p>
+                                            <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">{{ $study->getHost->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME} }} heeft een les {{ strtolower(\App\Http\Traits\StudyTrait::getSubject($study)->{\App\Http\Support\Model::$SUBJECT_NAME}) }} met jou ingepland op {{ strtolower(\App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE)) }} van {{ \App\Http\Traits\StudyTrait::getTimeText($study, true) }}. De locatie is: {{ $study->{\App\Http\Support\Model::$STUDY_LOCATION_TEXT} }}. Kom op tijd en zorg ervoor dat je alles bij je hebt wat je normaal ook naar school zou meenemen.</p>
 
                                         @endif
                                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">Je kunt de lesgegevens bekijken in onze web-app. Mocht je vragen hebben, aarzel dan niet contact met ons op te nemen!</p>
@@ -151,7 +151,7 @@
                     <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
                         <tr>
                             <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;">
-                                <span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Studied. Begeleiding<br>Capucijnenstraat C03, 6211RN Maastricht</span>
+                                <span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Studid. Hét bijlesinstituut voor middelbare scholieren.<br>Capucijnenstraat C03, 6211RN Maastricht</span>
                             </td>
                         </tr>
                     </table>

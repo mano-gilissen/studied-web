@@ -26,7 +26,7 @@
 
                 @include('block.menu-item', ['label' => 'Lessen', 'route' => route('study.list')])
 
-                @include('block.menu-item', ['label' => 'Mijn leerlingen', 'route' => route('student.list')])
+                @include('block.menu-item', ['label' => 'Leerlingen', 'route' => route('student.list')])
 
                 @include('block.menu-item', ['label' => 'Mijn profiel', 'route' => route('person.self')])
 
@@ -66,7 +66,11 @@
 
         <img id="button-logout" src="/images_app/logout.svg" onclick="event.preventDefault(); document.getElementById('logout').submit();"/>
 
-        <img id="button-settings" src="/images_app/settings.svg"/>
+        <!--
+
+            <img id="button-settings" src="/images_app/settings.svg"/>
+
+        -->
 
         <form id="logout" method="POST" action="{{ route('logout') }}">
 

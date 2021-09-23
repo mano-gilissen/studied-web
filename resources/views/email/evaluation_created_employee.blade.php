@@ -110,16 +110,16 @@
                             <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
                                 <tr>
                                     <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">
-                                        <img style="width: 110px;margin-bottom: 32px;margin-left:-4px" src="{{ $message->embed(public_path() . '/images_app/logo.png') }}">
+                                        <img style="width: 110px;margin-bottom: 48px;margin-left:-4px" src="{{ $message->embed(public_path() . '/images_app/logo.png') }}">
                                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 24px;">Beste {{ $employee->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME} }},</p>
 
                                         @if(\App\Http\Traits\EvaluationTrait::hasLink($evaluation))
 
-                                            <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">Er is een gesprek met jou als student-student aangemaakt. Het gesprek is digitaal op {{ \App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$DATETIME_SINGLE) }} om {{ \App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$TIME_SINGLE) }}. Dit is de link naar het gesprek: <a href="{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_LINK} }}">{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_LINK} }}</a></p>
+                                            <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">Er is een gesprek met jou als student-student aangemaakt. Het gesprek is digitaal op {{ strtolower(\App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$DATETIME_SINGLE)) }} om {{ \App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$TIME_SINGLE) }}. Dit is de link naar het gesprek: <a href="{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_LINK} }}">{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_LINK} }}</a></p>
 
                                         @else
 
-                                            <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">Er is een gesprek met jou als student-student aangemaakt. Het gesprek is op {{ \App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$DATETIME_SINGLE) }} om {{ \App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$TIME_SINGLE) }} en de locatie is: {{ $evaluation->{\App\Http\Support\Model::$EVALUATION_LOCATION_TEXT} }}</p>
+                                            <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">Er is een gesprek met jou als student-student aangemaakt. Het gesprek is op {{ strtolower(\App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$DATETIME_SINGLE)) }} om {{ \App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$TIME_SINGLE) }} en de locatie is: {{ $evaluation->{\App\Http\Support\Model::$EVALUATION_LOCATION_TEXT} }}</p>
 
                                         @endif
 
@@ -153,7 +153,7 @@
                     <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
                         <tr>
                             <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;">
-                                <span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Studied. Begeleiding<br>Capucijnenstraat C03, 6211RN Maastricht</span>
+                                <span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Studid. Hét bijlesinstituut voor middelbare scholieren.<br>Capucijnenstraat C03, 6211RN Maastricht</span>
                             </td>
                         </tr>
                     </table>

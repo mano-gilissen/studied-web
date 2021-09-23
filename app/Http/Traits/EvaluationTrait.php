@@ -137,7 +137,7 @@ trait EvaluationTrait {
 
             case self::$ID_INTAKE:
 
-                return "Kennismaking";
+                return "Kennismakingsgesprek";
 
             case self::$ID_EVALUATION:
 
@@ -145,7 +145,7 @@ trait EvaluationTrait {
 
             default:
 
-                return Key::UNKNOWN;
+                return "Gesprek";
         }
     }
 

@@ -374,23 +374,44 @@
                         @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
                         @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
                         @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
+
+                            @if(\App\Http\Traits\BaseTrait::hasManagementRights())
+
+                                @include('block.profile-agreements')
+
+                                @break
+
+                            @endif
+
                         @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
-                            @include('block.profile-agreements')
+                            @if(\App\Http\Traits\BaseTrait::hasEmployeeRights())
 
-                            @break
+                                @include('block.profile-agreements')
+
+                                @break
+
+                            @endif
 
                         @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
 
-                            @include('block.profile-agreements')
+                            @if(\App\Http\Traits\BaseTrait::hasEmployeeRights() || $person->getUser->id == Auth::user()->id || (Auth::user()->role == \App\Http\Traits\RoleTrait::$ID_CUSTOMER && Auth::user()->getCustomer->isStudent($person->getUser->getStudent)))
 
-                            @include('block.profile-evaluations')
+                                @include('block.profile-agreements')
+
+                                @include('block.profile-evaluations')
+
+                            @endif
 
                             @break
 
                         @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
 
-                            @include('block.profile-evaluations')
+                            @if(\App\Http\Traits\BaseTrait::hasEmployeeRights() || $person->getUser->id == Auth::user()->id || (Auth::user()->role == \App\Http\Traits\RoleTrait::$ID_STUDENT && Auth::user()->getStudent->customer == $person->getUser->getCustomer->id))
+
+                                @include('block.profile-evaluations')
+
+                            @endif
 
                             @break
 
@@ -607,6 +628,8 @@
 
                                 @include('block.profile-education')
 
+                                @include('block.profile-education-relations')
+
                                 @break
 
                             @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
@@ -647,16 +670,38 @@
 
                     @endif <!-- PROFILE-EDUCATION -->
 
-                        @switch($person->getUser->role)
+                    @switch($person->getUser->role)
 
                         @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
                         @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
+
+                            @if(\App\Http\Traits\BaseTrait::hasBoardRights())
+
+                                @include('block.profile-loopbaan')
+
+                            @endif
+
+                            @break
+
                         @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
+
+                            @if(\App\Http\Traits\BaseTrait::hasManagementRights())
+
+                                @include('block.profile-loopbaan')
+
+                            @endif
+
+                            @break
+
                         @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
-                        @include('block.profile-loopbaan')
+                            @if(\App\Http\Traits\BaseTrait::hasManagementRights() || $person->getUser->id == Auth::user()->id)
 
-                        @break
+                                @include('block.profile-loopbaan')
+
+                            @endif
+
+                            @break
 
                     @endswitch <!-- LOOPBAAN -->
 

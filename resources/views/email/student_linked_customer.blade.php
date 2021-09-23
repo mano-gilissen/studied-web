@@ -110,7 +110,7 @@
                             <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
                                 <tr>
                                     <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">
-                                        <img style="width: 110px;margin-bottom: 32px;margin-left:-4px" src="{{ $message->embed(public_path() . '/images_app/logo.png') }}">
+                                        <img style="width: 110px;margin-bottom: 48px;margin-left:-4px" src="{{ $message->embed(public_path() . '/images_app/logo.png') }}">
                                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 24px;">Beste {{ (strlen($customer->getPerson->{\App\Http\Support\Model::$PERSON_PREFIX}) > 0 ? $customer->getPerson->{\App\Http\Support\Model::$PERSON_PREFIX} . ' ' : '') . (strlen($customer->getPerson->{\App\Http\Support\Model::$PERSON_MIDDLE_NAME}) > 0 ? $customer->getPerson->{\App\Http\Support\Model::$PERSON_MIDDLE_NAME} . ' ' : '') . $customer->getPerson->{\App\Http\Support\Model::$PERSON_LAST_NAME} }},</p>
                                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">{{ \App\Http\Traits\PersonTrait::getFullName($student->getPerson) }} is als leerling toegevoegd aan uw account. Dat betekent dat u toegang heeft tot de lessen, lesrapporten en overige gegevens van zijn/haar begeleiding.</p>
                                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">U kunt alle gegevens bekijken in onze web-app. Mocht u vragen hebben, aarzel dan niet contact op te nemen.</p>
@@ -143,7 +143,7 @@
                     <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
                         <tr>
                             <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;">
-                                <span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Studied. Begeleiding<br>Capucijnenstraat C03, 6211RN Maastricht</span>
+                                <span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Studid. Hét bijlesinstituut voor middelbare scholieren.<br>Capucijnenstraat C03, 6211RN Maastricht</span>
                             </td>
                         </tr>
                     </table>

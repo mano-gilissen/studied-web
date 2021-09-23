@@ -110,7 +110,7 @@
                             <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
                                 <tr>
                                     <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">
-                                        <img style="width: 110px;margin-bottom: 32px;margin-left:-4px" src="{{ $message->embed(public_path() . '/images_app/logo.png') }}">
+                                        <img style="width: 110px;margin-bottom: 48px;margin-left:-4px" src="{{ $message->embed(public_path() . '/images_app/logo.png') }}">
                                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 24px;">Beste {{ $relation_name }},</p>
                                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">{{ $student->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME} }} heeft zich aangemeld voor onze begeleiding.</p>
                                         <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">Bij Studied vinden we het contact met de mentor en docent van de scholier net zo belangrijk als het contact met de scholier zelf, zodoende kunnen wij iedere scholier naar behoefte ondersteunen. Neem gerust contact met ons op wanneer u (nieuwe) problematieken constateert of aan te raden oefenmateriaal heeft!</p>
@@ -130,7 +130,7 @@
                     <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
                         <tr>
                             <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;">
-                                <span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Studied. Begeleiding<br>Capucijnenstraat C03, 6211RN Maastricht</span>
+                                <span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Studid. Hét bijlesinstituut voor middelbare scholieren.<br>Capucijnenstraat C03, 6211RN Maastricht</span>
                             </td>
                         </tr>
                     </table>

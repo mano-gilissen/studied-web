@@ -1,6 +1,6 @@
 <div class="block-attributes">
 
-    <div class="title">Contact en persoonlijk</div>
+    <div class="title">Persoonlijk</div>
 
     <div class="list-attributes">
 
