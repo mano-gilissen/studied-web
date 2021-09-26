@@ -35,7 +35,7 @@ class Study_Edited_Employee extends Mailable {
 
         $this->study                                = $study;
         $this->employee                             = $study->getHost;
-        $this->subject                              = 'De gegevens van jou les ' . strtolower(StudyTrait::getSubject($study)->{Model::$SUBJECT_NAME}) . ' met ' . StudyTrait::getParticipantsText($study) . ' zijn gewijzigd.';
+        $this->subject                              = 'De gegevens van je les ' . strtolower(StudyTrait::getSubject($study)->{Model::$SUBJECT_NAME}) . ' met ' . StudyTrait::getParticipantsText($study) . ' zijn gewijzigd.';
     }
 
 

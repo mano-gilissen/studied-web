@@ -4,6 +4,7 @@
 
 namespace App\Http\Mail;
 
+use App\Http\Support\Model;
 use App\Http\Traits\PersonTrait;
 use App\Models\Study;
 use App\Models\User;
@@ -29,17 +30,11 @@ class Study_Planned_Student extends Mailable {
 
 
 
-    const
-
-        MAIL_SUBJECT                                = 'Er is een les voor jou ingepland door ';
-
-
-
     public function __construct(Study $study, User $participant) {
 
         $this->study                                = $study;
         $this->participant                          = $participant;
-        $this->subject                              = self::MAIL_SUBJECT . PersonTrait::getFullName($study->getHost->getPerson);
+        $this->subject                              = 'Er is een ' . $study->getService->{Model::$SERVICE_NAME} . ' voor je ingepland door ' . PersonTrait::getFullName($study->getHost->getPerson);
     }
 
 

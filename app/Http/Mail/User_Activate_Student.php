@@ -35,7 +35,7 @@ class User_Activate_Student extends Mailable {
         $this->user                         = $user;
         $this->study                        = $study;
 
-        $this->subject                      = 'Proefles gelukt! Activeer nu je account voor het Studied webportaal';
+        $this->subject                      = 'Proefles gelukt! Activeer je account voor onze webapp';
     }
 
 

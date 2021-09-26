@@ -38,7 +38,7 @@ class User_Activate_Customer extends Mailable {
         $this->student                      = $student;
         $this->study                        = $study;
 
-        $this->subject                      = 'Proefles voor ' . $student->getPerson->{Model::$PERSON_FIRST_NAME} . ' gelukt! Activeer nu uw account voor het Studied webportaal';
+        $this->subject                      = 'Proefles voor ' . $student->getPerson->{Model::$PERSON_FIRST_NAME} . ' gelukt! Activeer uw account voor onze webapp';
     }
 
 

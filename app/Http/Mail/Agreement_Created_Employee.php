@@ -39,7 +39,7 @@ class Agreement_Created_Employee extends Mailable {
         $this->student                      = $student;
         $this->agreement                    = $agreement;
 
-        $this->subject                      = 'Er is een vakafspraak met ' . $student->getPerson->{Model::$PERSON_FIRST_NAME} . ' voor jou aangemaakt.';
+        $this->subject                      = 'Er is een vakafspraak met je voor ' . $agreement->getSubject->{Model::$SUBJECT_NAME} . ' met ' . $student->getPerson->{Model::$PERSON_FIRST_NAME} . ' aangemaakt.';
     }
 
 
