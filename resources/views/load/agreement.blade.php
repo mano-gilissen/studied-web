@@ -31,18 +31,6 @@
 
 </div>
 
-<div class="field">
-
-    <div class="name">Min</div>
-
-    @include('form.box-input', ['id' => 'min_' . $id, 'required' => true, 'size' => 'width-third'])
-
-    <div class="note width-third">Max</div>
-
-    @include('form.box-input', ['id' => 'max_' . $id, 'required' => true, 'size' => 'width-third'])
-
-</div>
-
 @include('form.field-input', ['id' => 'start_' . $id, 'type' => 'date', 'tag' => 'Geldig vanaf', 'required' => true])
 
 @include('form.field-input', ['id' => 'end_' . $id, 'type' => 'date', 'tag' => 'Geldig tot', 'required' => true])

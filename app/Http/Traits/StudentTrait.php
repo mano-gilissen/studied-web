@@ -40,6 +40,9 @@ trait StudentTrait {
         $student->{Model::$STUDENT_NIVEAU}                                  = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_NIVEAU];
         $student->{Model::$STUDENT_LEERJAAR}                                = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_LEERJAAR];
 
+        $student->{Model::$STUDENT_MIN}                                     = $data[Model::$STUDENT_MIN];
+        $student->{Model::$STUDENT_MAX}                                     = $data[Model::$STUDENT_MAX];
+
 
 
         // TODO: REPLACE WITH RELATIONS SYSTEM
@@ -91,6 +94,9 @@ trait StudentTrait {
         $student->{Model::$STUDENT_NIVEAU}                                  = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_NIVEAU];
         $student->{Model::$STUDENT_LEERJAAR}                                = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_LEERJAAR];
 
+        $student->{Model::$STUDENT_MIN}                                     = $data[Model::$STUDENT_MIN];
+        $student->{Model::$STUDENT_MAX}                                     = $data[Model::$STUDENT_MAX];
+
 
 
         // TODO: REPLACE WITH RELATIONS SYSTEM
@@ -136,6 +142,9 @@ trait StudentTrait {
         $rules[Model::$STUDENT_SCHOOL]                                      = ['required'];
         $rules[Model::$STUDENT_NIVEAU]                                      = ['required'];
         $rules[Model::$STUDENT_LEERJAAR]                                    = ['required'];
+
+        $rules[Model::$STUDENT_MIN]                                         = ['numeric'];
+        $rules[Model::$STUDENT_MAX]                                         = ['numeric'];
 
         $validator                                                          = Validator::make($data, $rules, BaseTrait::getValidationMessages());
 

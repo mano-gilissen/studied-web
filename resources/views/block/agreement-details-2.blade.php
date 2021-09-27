@@ -6,14 +6,6 @@
 
         <div class="attribute">
 
-            <div class="name">Uren per week</div>
-
-            <div class="value">{{ $agreement->min . ' tot ' . $agreement->max }}</div>
-
-        </div>
-
-        <div class="attribute">
-
             <div class="name">{{ $agreement->{\App\Http\Support\Model::$AGREEMENT_EXTENSION} ? 'Verlenging van' : 'Verlenging' }}</div>
 
             <div class="value">{{ $agreement->{\App\Http\Support\Model::$AGREEMENT_EXTENSION} ?? 'Nee' }}</div>

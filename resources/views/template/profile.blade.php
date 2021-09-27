@@ -620,90 +620,100 @@
 
                         @if($person->getUser->role == \App\Http\Traits\RoleTrait::$ID_STUDENT)
 
-                        @switch(\App\Http\Traits\BaseTrait::getUserRole())
+                            @switch(\App\Http\Traits\BaseTrait::getUserRole())
 
-                            @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
-                            @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
-                            @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
-
-                                @include('block.profile-education')
-
-                                @include('block.profile-education-relations')
-
-                                @break
-
-                            @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
-
-                                @foreach($person->getUser->getEmployees as $employee)
-
-                                    @if($employee->id == Auth::user()->id)
-
-                                        @include('block.profile-education')
-
-                                        @break
-
-                                    @endif
-
-                                @endforeach
-
-                                @break
-
-                            @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
-
-                                @include('block.profile-education')
-
-                                @break
-
-                            @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
-
-                                @if($person->getUser->getStudent->customer == Auth::user()->getCustomer->id)
+                                @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
+                                @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
+                                @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
 
                                     @include('block.profile-education')
 
+                                    @include('block.profile-minmax')
+
+                                    @include('block.profile-education-relations')
+
                                     @break
+
+                                @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
+
+                                    @foreach($person->getUser->getEmployees as $employee)
+
+                                        @if($employee->id == Auth::user()->id)
+
+                                            @include('block.profile-education')
+
+                                            @include('block.profile-minmax')
+
+                                            @break
+
+                                        @endif
+
+                                    @endforeach
+
+                                    @break
+
+                                @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
+
+                                    @if($person->getUser->id == Auth::user()->id)
+
+                                        @include('block.profile-education')
+
+                                        @include('block.profile-minmax')
+
+                                    @endif
+
+                                    @break
+
+                                @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
+
+                                    @if($person->getUser->getStudent->customer == Auth::user()->getCustomer->id)
+
+                                        @include('block.profile-education')
+
+                                        @include('block.profile-minmax')
+
+                                    @endif
+
+                                    @break
+
+                            @endswitch
+
+                        @endif <!-- PROFILE-EDUCATION -->
+
+                        @switch($person->getUser->role)
+
+                            @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
+                            @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
+
+                                @if(\App\Http\Traits\BaseTrait::hasBoardRights())
+
+                                    @include('block.profile-loopbaan')
 
                                 @endif
 
                                 @break
 
-                        @endswitch
+                            @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
 
-                    @endif <!-- PROFILE-EDUCATION -->
+                                @if(\App\Http\Traits\BaseTrait::hasManagementRights())
 
-                    @switch($person->getUser->role)
+                                    @include('block.profile-loopbaan')
 
-                        @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
-                        @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
+                                @endif
 
-                            @if(\App\Http\Traits\BaseTrait::hasBoardRights())
+                                @break
 
-                                @include('block.profile-loopbaan')
+                            @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
-                            @endif
+                                @if(\App\Http\Traits\BaseTrait::hasManagementRights() || $person->getUser->id == Auth::user()->id)
 
-                            @break
+                                    @include('block.profile-loopbaan')
 
-                        @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
+                                @endif
 
-                            @if(\App\Http\Traits\BaseTrait::hasManagementRights())
+                                @break
 
-                                @include('block.profile-loopbaan')
-
-                            @endif
-
-                            @break
-
-                        @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
-
-                            @if(\App\Http\Traits\BaseTrait::hasManagementRights() || $person->getUser->id == Auth::user()->id)
-
-                                @include('block.profile-loopbaan')
-
-                            @endif
-
-                            @break
-
-                    @endswitch <!-- LOOPBAAN -->
+                        @endswitch <!-- LOOPBAAN -->
 
                     </div>
 

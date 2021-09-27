@@ -348,23 +348,15 @@ class StudentController extends Controller {
 
             case self::$COLUMN_MIN_MAX:
 
-                $agreements                                 = UserTrait::getAgreements($student->getUser, true);
-                $min                                        = 0;
-                $max                                        = 0;
+                if ($student->{Model::$STUDENT_MAX} && ($student->{Model::$STUDENT_MAX} > 0)) {
 
-                if (count($agreements) == 0) {
+                    return $student->{Model::$STUDENT_MIN} . " tot " . $student->{Model::$STUDENT_MAX} . " uur";
 
-                    return "Geen actief";
+                } else {
+
+                    return "Onbekend";
 
                 }
-
-                foreach ($agreements as $agreement) {
-
-                    $min                                   += $agreement->{Model::$AGREEMENT_MIN};
-                    $max                                   += $agreement->{Model::$AGREEMENT_MAX};
-                }
-
-                return $min . " tot " . $max . " uur";
 
             case self::$COLUMN_STATUS:
 

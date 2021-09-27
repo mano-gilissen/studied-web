@@ -49,9 +49,8 @@ class EmployeeController extends Controller {
         $COLUMN_SUBJECTS                                    = 304,
         $COLUMN_STUDENTS                                    = 305,
         $COLUMN_AGREEMENTS                                  = 306,
-        $COLUMN_MIN_MAX                                     = 307,
-        $COLUMN_CAPACITY                                    = 308,
-        $COLUMN_STATUS                                      = 309;
+        $COLUMN_CAPACITY                                    = 307,
+        $COLUMN_STATUS                                      = 308;
 
 
 
@@ -187,7 +186,6 @@ class EmployeeController extends Controller {
             Table::column(self::$COLUMN_PHONE, self::list_column_label(self::$COLUMN_PHONE), 3, false, $sort, false, $filter),
             Table::column(self::$COLUMN_SUBJECTS, self::list_column_label(self::$COLUMN_SUBJECTS), 3, false, $sort, true, $filter),
             Table::column(self::$COLUMN_AGREEMENTS, self::list_column_label(self::$COLUMN_AGREEMENTS), 3, false, $sort, true, $filter),
-            Table::column(self::$COLUMN_MIN_MAX, self::list_column_label(self::$COLUMN_MIN_MAX), 2, false, $sort, false, $filter),
             Table::column(self::$COLUMN_CAPACITY, self::list_column_label(self::$COLUMN_CAPACITY), 2, false, $sort, false, $filter),
             Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 2, true, $sort, true, $filter, true)
         );
@@ -206,7 +204,6 @@ class EmployeeController extends Controller {
             case self::$COLUMN_SUBJECTS:            return "Vakken";
             case self::$COLUMN_STUDENTS:            return "Leerling(en)";
             case self::$COLUMN_AGREEMENTS:          return "Vakafspraken";
-            case self::$COLUMN_MIN_MAX:             return "MIN/MAX";
             case self::$COLUMN_CAPACITY:            return "Capaciteit";
             case self::$COLUMN_STATUS:              return "Status";
         }
@@ -256,26 +253,6 @@ class EmployeeController extends Controller {
                     case 2:                                 return AgreementTrait::getVakcode($agreements[0]) . ", " . AgreementTrait::getVakcode($agreements[1]);
                     default:                                return AgreementTrait::getVakcode($agreements[0]) . ", " . AgreementTrait::getVakcode($agreements[1]) . " en nog " . (count($agreements) - 2);
                 }
-
-            case self::$COLUMN_MIN_MAX:
-
-                $agreements                                 = UserTrait::getAgreements($employee->getUser, true);
-                $min                                        = 0;
-                $max                                        = 0;
-
-                if (count($agreements) == 0) {
-
-                    return "Geen actief";
-
-                }
-
-                foreach ($agreements as $agreement) {
-
-                    $min                                   += $agreement->{Model::$AGREEMENT_MIN};
-                    $max                                   += $agreement->{Model::$AGREEMENT_MAX};
-                }
-
-                return $min . " tot " . $max . " uur";
 
             case self::$COLUMN_CAPACITY:
 

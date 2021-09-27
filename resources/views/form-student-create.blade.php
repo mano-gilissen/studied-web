@@ -74,6 +74,24 @@
 
 
 
+    <div class="title">{{ __('Afspraken') }}</div>
+
+    <div class="field">
+
+        <div class="name">Min</div>
+
+        @include('form.box-input', ['id' => 'min', 'size' => 'width-third'])
+
+        <div class="note width-third">Max</div>
+
+        @include('form.box-input', ['id' => 'max', 'size' => 'width-third'])
+
+    </div>
+
+    <div class="seperator"></div>
+
+
+
     <div class="title">{{ __('Relaties') }}</div>
 
     @include('form.field-input', ['id' => 'customer', 'tag' => 'Klant', 'icon' => 'search.svg', 'placeholder' => 'Zoek een klant', 'required' => false, 'data' => true, 'additional' => true, 'reject_other' => true, 'uses_id' => true])

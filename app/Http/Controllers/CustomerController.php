@@ -263,26 +263,34 @@ class CustomerController extends Controller {
 
             case self::$COLUMN_MIN_MAX:
 
-                $agreements = Agreement::where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATETIME, time()))->whereHas('getStudent.getStudent', function ($q) use ($customer) {$q->where(Model::$CUSTOMER, $customer->{Model::$BASE_ID});})
-                    ->with('getSubject')
+                $students = User::whereHas('getStudent.getCustomer', function ($q) use ($customer) {$q->where(Model::$CUSTOMER, $customer->{Model::$BASE_ID});})
+                    ->with('getPerson')
                     ->get();
+
+                if (count($students) == 0) {
+
+                    return "Geen leerlingen";
+
+                }
 
                 $min                                                        = 0;
                 $max                                                        = 0;
 
-                if (count($agreements) == 0) {
+                foreach($students as $student) {
 
-                    return "Geen actief";
-
+                    $min += $student->getStudent->{Model::$STUDENT_MIN};
+                    $max = $student->getStudent->{Model::$STUDENT_MAX} ? $max + $student->getStudent->{Model::$STUDENT_MAX} : $max;
                 }
 
-                foreach ($agreements as $agreement) {
+                if ($max > 0) {
 
-                    $min                                                   += $agreement->{Model::$AGREEMENT_MIN};
-                    $max                                                   += $agreement->{Model::$AGREEMENT_MAX};
+                    return $min . " tot " . $max . " uur";
+
+                } else {
+
+                    return "Onbekend";
+
                 }
-
-                return $min . " tot " . $max . " uur";
 
             case self::$COLUMN_STATUS:
 

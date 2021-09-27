@@ -49,8 +49,6 @@ trait AgreementTrait {
 
         $agreement->{Model::$AGREEMENT_START}                   = $data[Model::$AGREEMENT_START . $suffix];
         $agreement->{Model::$AGREEMENT_END}                     = $data[Model::$AGREEMENT_END . $suffix];
-        $agreement->{Model::$AGREEMENT_MIN}                     = $data[Model::$AGREEMENT_MIN . $suffix];
-        $agreement->{Model::$AGREEMENT_MAX}                     = $data[Model::$AGREEMENT_MAX . $suffix];
         $agreement->{Model::$AGREEMENT_REMARK}                  = $data[Model::$AGREEMENT_REMARK . $suffix];
 
 
