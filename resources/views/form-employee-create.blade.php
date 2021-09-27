@@ -62,7 +62,7 @@
 
     <div class="title">{{ __('Educatie huidig') }}</div>
 
-    @include('form.field-input', ['id' => 'education_current', 'tag' => 'Niveau', 'value' => old('education_current')])
+    @include('form.field-input', ['id' => 'education_current', 'tag' => 'Leerjaar', 'value' => old('education_current')])
 
     @include('form.field-input', ['id' => 'school_current', 'tag' => 'Onderwijsinstelling', 'value' => old('school_current')])
 

@@ -66,7 +66,7 @@ class UserController extends Controller {
         return view(Views::FEEDBACK, [
 
             Key::PAGE_TITLE                                 => 'Account geactiveerd',
-            Key::PAGE_MESSAGE                               => 'Gefeliciteerd! Je Studied webapp account is geactiveerd en klaar voor gebruik.',
+            Key::PAGE_MESSAGE                               => 'Gefeliciteerd! Je account is geactiveerd en klaar voor gebruik.',
             Key::PAGE_NEXT                                  => route('person.self'),
             Key::PAGE_ACTION                                => 'Naar mijn profiel',
             Key::ICON                                       => 'check-circle-green.svg'

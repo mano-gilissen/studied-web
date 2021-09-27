@@ -1,6 +1,6 @@
 <div class="title">{{ __('Educatie huidig') }}</div>
 
-@include('form.field-input', ['id' => 'education_current', 'tag' => 'Niveau', 'value' => $employee->{\App\Http\Support\Model::$EMPLOYEE_EDUCATION_CURRENT}])
+@include('form.field-input', ['id' => 'education_current', 'tag' => 'Leerjaar', 'value' => $employee->{\App\Http\Support\Model::$EMPLOYEE_EDUCATION_CURRENT}])
 
 @include('form.field-input', ['id' => 'school_current', 'tag' => 'Onderwijsinstelling', 'value' => $employee->{\App\Http\Support\Model::$EMPLOYEE_SCHOOL_CURRENT}])
 
