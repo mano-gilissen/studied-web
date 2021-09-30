@@ -436,7 +436,7 @@ class StudyController extends Controller {
                     Table::column(self::$COLUMN_HOST, self::list_column_label(self::$COLUMN_HOST), 4, true, $sort, true, $filter),
                     Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 3, true, $sort, true, $filter, true),
                     Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 3, false, $sort, true, $filter),
-                    Table::column(self::$COLUMN_LOCATION, self::list_column_label(self::$COLUMN_LOCATION), 4, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_LOCATION, self::list_column_label(self::$COLUMN_LOCATION), 4, false, $sort, true, $filter),
                     Table::column(self::$COLUMN_TIME, self::list_column_label(self::$COLUMN_TIME), 3, true, $sort, false, $filter),
                     Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 3, true, $sort, true, $filter, true)
                 );
@@ -680,6 +680,10 @@ class StudyController extends Controller {
                     $query->whereHas('getAgreements', function (Builder $q) use ($value) {$q->where(Model::$SUBJECT, $value);});
                     break;
 
+                case self::$COLUMN_LOCATION:
+                    $query->where(Model::$STUDY_LOCATION_TEXT, $value);
+                    break;
+
                 case self::$COLUMN_STATUS:
 
                     switch ($value) {
@@ -829,6 +833,10 @@ class StudyController extends Controller {
 
                 return Subject::get()->pluck(Model::$SUBJECT_NAME, Model::$BASE_ID)->toArray();
 
+            case self::$COLUMN_LOCATION:
+
+                return Location::get()->pluck(Model::$LOCATION_NAME)->toArray();
+
             case self::$COLUMN_STATUS:
 
                 return StudyTrait::getStatusFilterData();
@@ -878,6 +886,10 @@ class StudyController extends Controller {
 
                 case self::$COLUMN_SUBJECT:
                     $display                                = Subject::find($value)->{Model::$SUBJECT_NAME};
+                    break;
+
+                case self::$COLUMN_LOCATION:
+                    $display                                = $value;
                     break;
 
                 case self::$COLUMN_STATUS:

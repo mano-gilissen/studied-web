@@ -84,7 +84,6 @@ trait AgreementTrait {
 
 
 
-
         return $agreement;
     }
 

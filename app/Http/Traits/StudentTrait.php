@@ -202,7 +202,8 @@ trait StudentTrait {
         return [
             'Porta Mosana College',
             'Sint-Maartens College',
-            'Stella Maris College'
+            'Stella Maris College',
+            'Bonnefantencollege'
         ];
     }
 
