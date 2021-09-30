@@ -835,7 +835,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_LOCATION:
 
-                return Location::get()->pluck(Model::$LOCATION_NAME)->toArray();
+                return Location::get()->pluck(Model::$LOCATION_NAME, Model::$LOCATION_NAME)->toArray();
 
             case self::$COLUMN_STATUS:
 
