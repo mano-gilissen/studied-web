@@ -145,7 +145,7 @@
                     <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
                         <tr>
                             <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;">
-                                <span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Studid. Hét bijlesinstituut voor middelbare scholieren.<br>Capucijnenstraat C03, 6211RN Maastricht</span>
+                                <span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Studied.<br>Capucijnenstraat C03, 6211RN Maastricht</span>
                             </td>
                         </tr>
                     </table>
