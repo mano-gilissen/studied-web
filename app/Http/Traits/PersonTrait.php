@@ -91,7 +91,7 @@ trait PersonTrait {
 
         $slug =  str_replace(' ', '-', strtolower($person->{Model::$PERSON_FIRST_NAME} . ' ' . (strlen($person->{Model::$PERSON_MIDDLE_NAME}) > 0 ? $person->{Model::$PERSON_MIDDLE_NAME} . ' ' : '') . $person->{Model::$PERSON_LAST_NAME})) . ($addition > 0 ? "-" .  $addition : "");
 
-        if (Person::where(Model::$PERSON_SLUG, $slug)->exists()) {
+        if (Person::where(Model::$PERSON_SLUG, $slug)->exists() && $person->{Model::$PERSON_SLUG} != $slug) {
 
             return self::createSlug($person, $addition + 1);
 
