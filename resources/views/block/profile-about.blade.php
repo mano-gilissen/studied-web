@@ -62,7 +62,7 @@
 
                     <div class="name">Profiel</div>
 
-                    <div class="value">{{ $person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_PROFILE} }}</div>
+                    <div class="value">{{ strlen($person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_PROFILE}) > 0 ? $person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_PROFILE} : \App\Http\Support\Key::UNKNOWN }}</div>
 
                 </div>
 
