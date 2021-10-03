@@ -87,12 +87,17 @@ trait PersonTrait {
 
 
 
-    public static function createSlug($person) {
+    public static function createSlug($person, $addition = 0) {
 
-        // TODO: ADD COLLISION CHECK
+        $slug =  str_replace(' ', '-', strtolower($person->{Model::$PERSON_FIRST_NAME} . ' ' . (strlen($person->{Model::$PERSON_MIDDLE_NAME}) > 0 ? $person->{Model::$PERSON_MIDDLE_NAME} . ' ' : '') . $person->{Model::$PERSON_LAST_NAME})) . ($addition > 0 ? "-" .  $addition : "");
 
-        return str_replace(' ', '-', strtolower($person->{Model::$PERSON_FIRST_NAME} . ' ' . (strlen($person->{Model::$PERSON_MIDDLE_NAME}) > 0 ? $person->{Model::$PERSON_MIDDLE_NAME} . ' ' : '') . $person->{Model::$PERSON_LAST_NAME}));
+        if (Person::where(Model::$PERSON_SLUG, $slug)->exists()) {
 
+            return self::createSlug($person, $addition + 1);
+
+        }
+
+        return $slug;
     }
 
 
