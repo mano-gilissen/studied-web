@@ -16,7 +16,7 @@
 
             <div class="name">Niveau</div>
 
-            <div class="value">{{ $person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_NIVEAU} ? $person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_NIVEAU} : \App\Http\Support\Key::UNKNOWN }}</div>
+            <div class="value">{{ $person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_NIVEAU} ? \App\Http\Traits\StudentTrait::getNiveauText($person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_NIVEAU}) : \App\Http\Support\Key::UNKNOWN }}</div>
 
         </div>
 
