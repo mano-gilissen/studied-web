@@ -129,6 +129,8 @@ class EmployeeController extends Controller {
 
         UserTrait::update($data, $person->getUser);
 
+        $person->refresh();
+
         return redirect()->route('person.view', $person->{Model::$PERSON_SLUG});
     }
 
