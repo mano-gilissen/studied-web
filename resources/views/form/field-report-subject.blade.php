@@ -6,7 +6,7 @@
 
 @include('form.field-select-duration', ['id' => $id_user . 'subject_' . $id . '_duration', 'set_max' => $primary])
 
-@include('form.field-input', ['id' => '_' . $id_user . 'subject_'. $id . '_content_verslag', 'tag' => 'Beschrijf de les', 'required' => true, 'placeholder' => 'Typ het lesverslag', 'locked' => false])
+@include('form.field-textarea', ['id' => '_' . $id_user . 'subject_'. $id . '_content_verslag', 'tag' => 'Beschrijf de les', 'required' => true, 'placeholder' => 'Typ het lesverslag', 'locked' => false])
 
 
 
