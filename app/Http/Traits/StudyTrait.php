@@ -119,7 +119,7 @@ trait StudyTrait {
 
                     $study->{Model::$STUDY_TRIAL}                   = true;
                     $agreement->{Model::$AGREEMENT_STATUS}          = AgreementTrait::$STATUS_TRIAL;
-
+                    $agreement->save();
                 }
 
                 $study->{Model::$STUDY_HOST_USER}                   = $agreement->{Model::$EMPLOYEE};
