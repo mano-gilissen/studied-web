@@ -167,6 +167,18 @@ class StudyController extends Controller {
 
         $study                                                              = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
 
+        if ($study->{Model::$STUDY_TRIAL}) {
+
+            foreach ($study->getAgreements as $agreement) {
+
+                if ($agreement->{Model::$AGREEMENT_STATUS} == AgreementTrait::$STATUS_TRIAL) {
+
+                    $agreement->{Model::$AGREEMENT_STATUS} = AgreementTrait::$STATUS_UNAPPROVED;
+                    $agreement->save();
+                }
+            }
+        }
+
         $study->delete();
 
         return redirect()->route('study.list');

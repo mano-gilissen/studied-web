@@ -118,6 +118,7 @@ trait StudyTrait {
                 if (AgreementTrait::planNowTrial($agreement)) {
 
                     $study->{Model::$STUDY_TRIAL}                   = true;
+                    $agreement->{Model::$AGREEMENT_STATUS}          = AgreementTrait::$STATUS_TRIAL;
 
                 }
 

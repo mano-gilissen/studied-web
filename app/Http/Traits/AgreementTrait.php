@@ -24,10 +24,11 @@ trait AgreementTrait {
     public static
 
         $STATUS_UNAPPROVED                      = 1,
-        $STATUS_PLANNED                         = 2,
+        $STATUS_TRIAL                           = 2,
         $STATUS_ACTIVE                          = 3,
         $STATUS_EXPIRED                         = 4,
-        $STATUS_FINISHED                        = 5;
+        $STATUS_FINISHED                        = 5,
+        $STATUS_PLANNED                         = 6;
 
 
 
@@ -62,7 +63,7 @@ trait AgreementTrait {
             if (self::replace($agreement, $agreement_replace)) {
 
                 $agreement->{Model::$AGREEMENT_EXTENSION}       = $agreement_replace->{Model::$AGREEMENT_IDENTIFIER};
-
+                $agreement->{Model::$AGREEMENT_STATUS}          = self::$STATUS_ACTIVE;
             }
         }
 
@@ -179,25 +180,23 @@ trait AgreementTrait {
         $agreement->save();
 
         // TODO: FEEDBACK
+        // TODO: STATUS REJECTED
     }
 
 
 
     public static function planNowTrial($agreement) {
 
-        return $agreement->{Model::$AGREEMENT_STATUS} == self::$STATUS_UNAPPROVED &&
-            !$agreement->{Model::$AGREEMENT_EXTENSION} &&
-            !Study_user::where(Model::$AGREEMENT, $agreement->id)->exists();
+        return $agreement->{Model::$AGREEMENT_STATUS} == self::$STATUS_UNAPPROVED;
+
     }
 
 
 
     public static function hasNowTrial($agreement) {
 
-        return $agreement->{Model::$AGREEMENT_STATUS} == self::$STATUS_UNAPPROVED &&
-            !$agreement->{Model::$AGREEMENT_EXTENSION} &&
-            (Study_user::where(Model::$AGREEMENT, $agreement->id)->count() == 1) &&
-            (Study_user::where(Model::$AGREEMENT, $agreement->id)->first()->{Model::$STUDY_STATUS} != StudyTrait::$STATUS_REPORTED);
+        return $agreement->{Model::$AGREEMENT_STATUS} == self::$STATUS_PLANNED;
+
     }
 
 
@@ -266,7 +265,8 @@ trait AgreementTrait {
     public static function getStatusText($status) {
 
         switch ($status) {
-            case self::$STATUS_UNAPPROVED:          return "Onder voorbehoud";
+            case self::$STATUS_UNAPPROVED:
+            case self::$STATUS_TRIAL:               return "Onder voorbehoud";
             case self::$STATUS_PLANNED:             return "Gepland";
             case self::$STATUS_ACTIVE:              return "Actief";
             case self::$STATUS_EXPIRED:             return "Verlopen";
@@ -282,6 +282,7 @@ trait AgreementTrait {
         switch ($status) {
             case self::$STATUS_FINISHED:
             case self::$STATUS_PLANNED:             return Color::BLACK;
+            case self::$STATUS_TRIAL:
             case self::$STATUS_ACTIVE:
             case self::$STATUS_UNAPPROVED:
             case self::$STATUS_EXPIRED:
@@ -295,8 +296,9 @@ trait AgreementTrait {
 
         switch ($status) {
             case self::$STATUS_FINISHED:
-            case self::$STATUS_PLANNED:             return Color::GREY_90;
+            case self::$STATUS_TRIAL:               return Color::GREY_90;
             case self::$STATUS_ACTIVE:              return Color::GREEN;
+            case self::$STATUS_PLANNED:
             case self::$STATUS_UNAPPROVED:
             case self::$STATUS_EXPIRED:
             default:                                return Color::ORANGE;

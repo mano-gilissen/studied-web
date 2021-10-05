@@ -151,7 +151,7 @@ class User extends Authenticatable {
 
     public function getStudents() {
 
-        return self::getManyToMany(Model::$USER, Model::$AGREEMENT, Model::$EMPLOYEE, MODEL::$STUDENT)->whereIn(Model::$AGREEMENT . '.' . Model::$AGREEMENT_STATUS, array(AgreementTrait::$STATUS_UNAPPROVED, AgreementTrait::$STATUS_ACTIVE))->distinct();
+        return self::getManyToMany(Model::$USER, Model::$AGREEMENT, Model::$EMPLOYEE, MODEL::$STUDENT)->whereIn(Model::$AGREEMENT . '.' . Model::$AGREEMENT_STATUS, array(AgreementTrait::$STATUS_UNAPPROVED, AgreementTrait::$STATUS_TRIAL, AgreementTrait::$STATUS_ACTIVE))->distinct();
 
     }
 
@@ -159,7 +159,7 @@ class User extends Authenticatable {
 
     public function getEmployees() {
 
-        return self::getManyToMany(Model::$USER, Model::$AGREEMENT, Model::$STUDENT, MODEL::$EMPLOYEE)->whereIn(Model::$AGREEMENT . '.' . Model::$AGREEMENT_STATUS, array(AgreementTrait::$STATUS_UNAPPROVED, AgreementTrait::$STATUS_ACTIVE))->distinct();
+        return self::getManyToMany(Model::$USER, Model::$AGREEMENT, Model::$STUDENT, MODEL::$EMPLOYEE)->whereIn(Model::$AGREEMENT . '.' . Model::$AGREEMENT_STATUS, array(AgreementTrait::$STATUS_UNAPPROVED, AgreementTrait::$STATUS_TRIAL, AgreementTrait::$STATUS_ACTIVE))->distinct();
 
     }
 

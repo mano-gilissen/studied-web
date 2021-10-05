@@ -168,6 +168,7 @@ trait UserTrait {
         if (!$include_trial) {
 
             $query->where(Model::$AGREEMENT_STATUS, '!=', AgreementTrait::$STATUS_UNAPPROVED);
+            $query->where(Model::$AGREEMENT_STATUS, '!=', AgreementTrait::$STATUS_TRIAL);
 
         }
 
