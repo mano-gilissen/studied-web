@@ -7,14 +7,13 @@
             type                                        = "{{ $type ?? 'text' }}"
             name                                        = "{{ $id }}"
             placeholder                                 = "{{ $placeholder ?? '' }}"
-            value                                       = "{{ $value ?? '' }}"
             data-identifier                             = "{{ $identifier ?? '' }}"
             rows                                        = "{{ $rows ?? 1 }}"
             autocomplete                                = "off"
 
             @isset($required) required @endisset
 
-            @if($locked ?? false) disabled @endif></textarea>
+            @if($locked ?? false) disabled @endif>{{ $value ?? '' }}</textarea>
 
     </div>
 
