@@ -60,11 +60,11 @@
         $(function(){
 
             console.log('{{ $count }}');
-/*
-            let dot                                         = $("#dots_{{ $id }} .dot")['{{ $set }}' / 15];
+
+            let dot                                         = $("#dots_{{ $id }} .dot")['{{ $count }}'];
 
             report_dot_click(dot);
-            report_dot_leave(dot);*/
+            report_dot_leave(dot);
         });
 
     </script>
