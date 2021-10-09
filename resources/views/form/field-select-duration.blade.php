@@ -61,7 +61,7 @@
 
             console.log('{{ $count }}');
 
-            let dot                                         = $("#dots_{{ $id }} .dot").index(2);
+            let dot                                         = $("#dots_{{ $id }} .dot").index(0);
 
             report_dot_click(dot);
             report_dot_leave(dot);
