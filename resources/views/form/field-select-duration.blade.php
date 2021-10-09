@@ -57,8 +57,6 @@
 
         $(function(){
 
-            console.log('{{ ($set / 15) - 1 }}');
-
             let dot                                         = $("#dots_{{ $id }} .dot").eq({{ ($set / 15) - 1 }});
 
             report_dot_click(dot);
