@@ -57,7 +57,7 @@
 
         $(function(){
 
-            console.log($("#dots_{{ $id }} .dot"));
+            console.log('{{ $set }}' / 15);
 /*
             let dot                                         = $("#dots_{{ $id }} .dot")['{{ $set }}' / 15];
 
