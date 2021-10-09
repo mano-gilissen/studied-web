@@ -117,9 +117,9 @@
                 @if ($edit)
 
                     <script>
-                        /*
+
                         select_trigger($(this));
-                        */
+
                     </script>
 
                 @endif
