@@ -61,7 +61,7 @@
 
             console.log('{{ $count }}');
 
-            let dot                                         = $("#dots_{{ $id }} .dot")[parseInt('{{ $count }}')];
+            let dot                                         = $("#dots_{{ $id }} .dot").index('{{ $count }}');
 
             report_dot_click(dot);
             report_dot_leave(dot);
