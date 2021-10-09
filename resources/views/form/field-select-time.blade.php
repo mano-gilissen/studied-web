@@ -120,7 +120,7 @@
 
                         $(function(){
 
-                            console.log("ä");
+                            console.log($(this));
 
                             select_trigger($(this));
 
