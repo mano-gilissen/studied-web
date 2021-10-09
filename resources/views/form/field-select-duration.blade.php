@@ -53,11 +53,13 @@
 
 @if($set ?? false)
 
+    @php $count = $set / 15 @endphp
+
     <script>
 
         $(function(){
 
-            console.log('{{ $set }}' / 15);
+            console.log('{{ $count }}');
 /*
             let dot                                         = $("#dots_{{ $id }} .dot")['{{ $set }}' / 15];
 
