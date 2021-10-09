@@ -1,4 +1,4 @@
-@php if($time_available) { dd($time_available); } @endphp
+@php if($time_available ?? false) { dd($time_available); } @endphp
 
 @if ($time_available ?? false)
 
