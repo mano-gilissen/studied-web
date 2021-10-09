@@ -32,6 +32,8 @@
 
     <div class="block-note">Selecteer eerst het exacte start en eind tijdstip bovenaan.</div>
 
+    @php dd($time_available ?? false) @endphp
+
 @endif
 
 <script>
