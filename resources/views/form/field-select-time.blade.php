@@ -118,7 +118,11 @@
 
                     <script>
 
-                        select_trigger($(this));
+                        $(function(){
+
+                            select_trigger($(this));
+
+                        });
 
                     </script>
 
