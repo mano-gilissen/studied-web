@@ -1,3 +1,7 @@
+@php $edit = \App\Http\Traits\StudyTrait::isReported($study) @endphp
+
+
+
 <div class="field">
 
     <div class="name">Tijdstip</div>
@@ -26,7 +30,7 @@
 
                     if ($set_study ?? false) {
 
-                        $start                          = $report ? $report->start : $study->start;
+                        $start                          = $edit ? $study->getReports[0]->start : $study->start;
                         $is_selected                    = App\Http\Support\Format::datetime($start, App\Http\Support\Format::$TIME_SINGLE) == ($hours . ':' . $minutes);
 
                     }
@@ -77,9 +81,9 @@
 
                         if ($set_study ?? false) {
 
-                            if ($report ?? false) {
+                            if ($edit ?? false) {
 
-                                $end                        = $report ? $report->end : $study->end;
+                                $end                        = $edit ? $study->getReports[0]->end : $study->end;
                                 $is_selected                = App\Http\Support\Format::datetime($end, App\Http\Support\Format::$TIME_SINGLE) == ($hours . ':' . $minutes);
 
                             } else {
@@ -104,13 +108,13 @@
 
                 @endfor
 
-                @if(($set_study ?? false) && !($report ?? false) && $is_selected)
+                @if(($set_study ?? false) && !($edit ?? false) && $is_selected)
 
                     <option value="00:00" style="display:none" selected>--:--</option>
 
                 @endif
 
-                @if ($report)
+                @if ($edit)
 
                     <script>
 
