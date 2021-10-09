@@ -57,10 +57,12 @@
 
         $(function(){
 
+            console.log($("#dots_{{ $id }} .dot"));
+/*
             let dot                                         = $("#dots_{{ $id }} .dot")['{{ $set }}' / 15];
 
             report_dot_click(dot);
-            report_dot_leave(dot);
+            report_dot_leave(dot);*/
         });
 
     </script>
