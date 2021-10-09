@@ -53,13 +53,11 @@
 
 @if($set ?? false)
 
-    @php $count = $set / 15 @endphp
-
     <script>
 
         $(function(){
 
-            let dot                                         = $("#dots_{{ $id }} .dot").eq({{ $count }});
+            let dot                                         = $("#dots_{{ $id }} .dot").eq({{ ($set / 15) - 1 }});
 
             report_dot_click(dot);
             report_dot_leave(dot);
