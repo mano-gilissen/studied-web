@@ -99,8 +99,8 @@ trait ReportTrait {
 
         foreach ($report_subjects as $report_subject) {
 
-            if (($primary && StudyTrait::getSubject($study) == $report_subject->{Model::$SUBJECT}) ||
-               (!$primary && StudyTrait::getSubject($study) != $report_subject->{Model::$SUBJECT})) {
+            if (($primary && StudyTrait::getSubject($study)->{Model::$BASE_ID} == $report_subject->{Model::$SUBJECT}) ||
+               (!$primary && StudyTrait::getSubject($study)->{Model::$BASE_ID} != $report_subject->{Model::$SUBJECT})) {
 
                 return $report_subject;
 
