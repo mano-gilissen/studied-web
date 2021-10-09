@@ -62,8 +62,14 @@
             //console.log('{{ $count }}');
 
             let dot                                         = $("#dots_{{ $id }} .dot").last();
+            let dot2                                        = $("#dots_{{ $id }} .dot")[0];
+            let dot3                                        = $("#dots_{{ $id }} .dot").get(0);
+            let dot4                                        = $("#dots_{{ $id }} .dot").eq(0);
 
             console.log(dot);
+            console.log(dot2);
+            console.log(dot3);
+            console.log(dot4);
 /*
             report_dot_click(dot);
             report_dot_leave(dot);
