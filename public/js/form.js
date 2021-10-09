@@ -276,7 +276,7 @@ function report_subjects_load() {
     var time_available                              = ((end.substr(0, 2) * 60) + (1 * end.substr(3, 2))) - ((start.substr(0, 2) * 60) + (1 * start.substr(3, 2)));
 
     console.log(time_available);
-    /*
+
     $('.subjects').each(function( index ) {
 
         var subjects_ref                            = this;
@@ -304,7 +304,6 @@ function report_subjects_load() {
 
         }, 200);
     });
-    */
 }
 
 
