@@ -59,12 +59,14 @@
 
         $(function(){
 
-            console.log('{{ $count }}');
+            //console.log('{{ $count }}');
 
             let dot                                         = $("#dots_{{ $id }} .dot")[1];
 
+            console.log(dot);
+            /*
             report_dot_click(dot);
-            report_dot_leave(dot);
+            report_dot_leave(dot);*/
         });
 
     </script>
