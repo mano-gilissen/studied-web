@@ -59,15 +59,10 @@
 
         $(function(){
 
-            //console.log('{{ $count }}');
+            let dot                                         = $("#dots_{{ $id }} .dot").eq({{ $count }});
 
-            let dot                                         = $("#dots_{{ $id }} .dot").eq(0);
-
-            console.log(dot);
-/*
             report_dot_click(dot);
             report_dot_leave(dot);
-*/
         });
 
     </script>
