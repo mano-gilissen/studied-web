@@ -18,6 +18,7 @@ use App\Http\Traits\SubjectTrait;
 use App\Models\Agreement;
 use App\Models\Location;
 use App\Models\Person;
+use App\Models\Report;
 use App\Models\Service;
 use App\Models\Subject;
 use App\Models\Study;
@@ -358,10 +359,12 @@ class StudyController extends Controller {
         $study_id                                                           = $request->input(Model::$STUDY, null);
         $user_id                                                            = $request->input(Model::$USER, null);
         $agreement_id                                                       = $request->input(Model::$AGREEMENT, null);
+        $report_id                                                          = $request->input(Model::$REPORT, -1);
 
         $study                                                              = Study::find($study_id);
         $user                                                               = User::find($user_id);
         $agreement                                                          = Agreement::find($agreement_id);
+        $report                                                             = Report::find($report_id);
 
         $objects_subject_primary                                            = Subject::all();
         $objects_subject_secondary                                          = SubjectTrait::getActivities();
@@ -377,6 +380,7 @@ class StudyController extends Controller {
             Model::$STUDY                                                   => $study,
             Model::$USER                                                    => $user,
             Model::$AGREEMENT                                               => $agreement,
+            Model::$REPORT                                                  => $report,
 
             'time_available'                                                => $time_available,
 

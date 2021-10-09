@@ -28,6 +28,8 @@ Route::get('/les/{key}/bewerken',                   'StudyController@edit')->nam
 
 Route::get('/les/{key}/rapporteren',                'StudyController@report')->name('study.report')->middleware('auth', 'authorize');
 
+Route::get('/rapport/{key}/bewerken',               'ReportController@edit')->name(\App\Http\Support\Route::REPORT_EDIT)->middleware('auth', 'authorize');
+
 Route::get('/les/{key}/verwijderen',                'StudyController@delete')->name('study.delete')->middleware('auth', 'authorize');
 
 Route::get('/plannen',                              'StudyController@plan')->name('study.plan')->middleware('auth', 'authorize');
@@ -165,6 +167,8 @@ Route::post('/submit/study/plan',                   'StudyController@plan_submit
 Route::post('/submit/study/edit',                   'StudyController@edit_submit')->name('study.edit_submit')->middleware('auth', 'authorize');
 
 Route::post('/submit/study/report',                 'StudyController@report_submit')->name('study.report_submit')->middleware('auth', 'authorize');
+
+Route::post('/submit/report/edit',                  'ReportController@edit_submit')->name(\App\Http\Support\Route::REPORT_EDIT_SUBMIT)->middleware('auth', 'authorize');
 
 Route::post('/submit/student/create',               'StudentController@create_submit')->name('student.create_submit')->middleware('auth', 'authorize');
 

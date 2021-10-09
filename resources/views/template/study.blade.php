@@ -86,7 +86,7 @@
 
                         @if(\App\Http\Traits\StudyTrait::canReport_Edit($study))
 
-                            <div class="button icon">
+                            <div class="button icon" onclick="window.location.href='{{ route(\App\Http\Support\Route::REPORT_EDIT, [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}'">
 
                                 <img class="icon" src="/images_app/edit.svg">
 

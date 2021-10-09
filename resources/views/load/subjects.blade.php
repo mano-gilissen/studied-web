@@ -10,7 +10,7 @@
 
             <div id="button-subject-add-{{ $user->id }}" class="button grey">Er was nog een activiteit</div>
 
-            <div id="secondary-{{ $user->id }}" style="display: none">
+            <div id="secondary-{{ $user->id }}" style="display: {{ $report && $report->getReport_Subjects->count() > 1 ? 'block' : 'none' }}">
 
                 @include('form.field-report-subject', ['id' => 2, 'time_available' => $time_available, 'primary' => false])
 

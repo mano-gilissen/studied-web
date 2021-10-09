@@ -92,6 +92,28 @@ trait ReportTrait {
 
 
 
+    public static function getReportSubject($report, $primary = true) {
+
+        $report_subjects                                                    = $report->getReport_Subjects;
+        $study                                                              = $report->getStudy;
+
+        foreach ($report_subjects as $report_subject) {
+
+            if (($primary && StudyTrait::getSubject($study) == $report_subject->{Model::$SUBJECT}) ||
+               (!$primary && StudyTrait::getSubject($study) != $report_subject->{Model::$SUBJECT})) {
+
+                return $report_subject;
+
+            }
+        }
+
+        return null;
+    }
+
+
+
+
+
     public static function getVerslagText($report) {
 
         $report_subjects                                                    = $report->getReport_Subjects;

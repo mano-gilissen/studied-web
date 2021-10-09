@@ -283,6 +283,7 @@ function report_subjects_load() {
         var subjects_descendents                    = $(subjects.attr('id') + ' *');
         var user                                    = subjects.data('user');
         var agreement                               = subjects.data('agreement');
+        var report                                  = subjects.data('report');
 
         subjects_descendents                        .off();
         subjects                                    .animate({opacity: 0}, 200);
@@ -294,6 +295,7 @@ function report_subjects_load() {
                 study:                              study,
                 user:                               user,
                 agreement:                          agreement,
+                report:                             report,
                 time_available:                     time_available
 
             }).animate({opacity: 1}, 200);

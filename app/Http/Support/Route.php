@@ -31,6 +31,10 @@ const STUDY_PLAN                                = 'study.plan';
 
 
 
+const REPORT_EDIT                               = 'report.edit';
+
+
+
 const AGREEMENT_VIEW                            = 'agreement.view';
 
 const AGREEMENT_CREATE                          = 'agreement.create';
@@ -141,6 +145,8 @@ const STUDY_EDIT_SUBMIT                         = 'study.edit_submit';
 
 const STUDY_REPORT_SUBMIT                       = 'study.report_submit';
 
+const REPORT_EDIT_SUBMIT                        = 'report.edit_submit';
+
 const STUDENT_CREATE_SUBMIT                     = 'student.create_submit';
 
 const STUDENT_EDIT_SUBMIT                       = 'student.edit_submit';
@@ -225,6 +231,7 @@ const ALL_MANAGEMENT                            = [
 const ALL_EMPLOYEE                              = [
 
     self::STUDY_REPORT,
+    self::REPORT_EDIT,
     self::STUDY_EDIT,
     self::STUDY_PLAN,
     self::STUDENT_LIST,
@@ -235,7 +242,8 @@ const ALL_EMPLOYEE                              = [
     self::LOAD_STUDENT_FILTER,
     self::STUDY_PLAN_SUBMIT,
     self::STUDY_EDIT_SUBMIT,
-    self::STUDY_REPORT_SUBMIT
+    self::STUDY_REPORT_SUBMIT,
+    self::REPORT_EDIT_SUBMIT
 ];
 
 

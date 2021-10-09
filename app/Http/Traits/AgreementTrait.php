@@ -15,6 +15,7 @@ use App\Models\Study;
 use App\Models\Study_user;
 
 
+
 trait AgreementTrait {
 
 
