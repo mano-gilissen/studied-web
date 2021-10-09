@@ -1,5 +1,3 @@
-@php if($time_available ?? false) { dd($time_available); } @endphp
-
 @if ($time_available ?? false)
 
     @if ($time_available > 0)
