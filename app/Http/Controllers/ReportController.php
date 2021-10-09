@@ -72,7 +72,7 @@ class ReportController extends Controller {
 
         $study                                                              = Study::find($data['_' . Model::$STUDY]);
 
-        self::validate($data);
+        self::report_validate($data);
 
         //
 
@@ -81,7 +81,7 @@ class ReportController extends Controller {
 
 
 
-    public function validate(array $data) {
+    public function report_validate(array $data) {
 
         $messages                                                           = [
             'required'                                                      => 'Dit veld is verplicht.',
