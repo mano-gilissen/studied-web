@@ -61,9 +61,9 @@
 
             //console.log('{{ $count }}');
 
-            let dot                                         = $("#dots_{{ $id }} .dot").last();
+            let dot                                         = $("#dots_{{ $id }} .dot").get(0);
 
-            console.log(dot.parent);
+            console.log(dot);
             /*
             report_dot_click(dot);
             report_dot_leave(dot);
