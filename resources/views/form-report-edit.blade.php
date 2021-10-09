@@ -62,6 +62,8 @@
 
         <div class="title">{{ __('Hoe verloopt de begeleiding?') }}</div>
 
+        @php dd($report->{\App\Http\Support\Model::$REPORT_CONTENT_VOLGENDE_LES}) @endphp
+
         @include('form.field-textarea', ['id' => $id_user . 'content_volgende_les', 'tag' => 'Volgende les', 'required' => true, 'value' => $report->{\App\Http\Support\Model::$REPORT_CONTENT_VOLGENDE_LES}])
 
         @include('form.field-textarea', ['id' => $id_user . 'content_uitdagingen', 'tag' => 'Uitdagingen', 'required' => true, 'value' => $report->{\App\Http\Support\Model::$REPORT_CONTENT_UITDAGINGEN}])

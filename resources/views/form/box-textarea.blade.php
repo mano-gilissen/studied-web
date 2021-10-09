@@ -13,8 +13,6 @@
 
             @isset($required) required @endisset
 
-            @php dd($value) @endphp
-
             @if($locked ?? false) disabled @endif>{{ $value ?? '' }}</textarea>
 
     </div>
