@@ -1,5 +1,3 @@
-@php echo($time_available ?? "aa") @endphp
-
 @if ($time_available ?? false)
 
     @if ($time_available > 0)
@@ -10,7 +8,11 @@
 
             <div class="seperator small"></div>
 
-            <div id="button-subject-add-{{ $user->id }}" class="button grey">Er was nog een activiteit</div>
+            @if(!$report || ($report && $report->getReport_Subjects->count() == 1))
+
+                <div id="button-subject-add-{{ $user->id }}" class="button grey">Er was nog een activiteit</div>
+
+            @endif
 
             <div id="secondary-{{ $user->id }}" style="display: {{ $report && $report->getReport_Subjects->count() > 1 ? 'block' : 'none' }}">
 
