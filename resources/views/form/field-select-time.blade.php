@@ -120,6 +120,8 @@
 
                         $(function(){
 
+                            console.log("ä");
+
                             select_trigger($(this));
 
                         });
