@@ -64,10 +64,10 @@
             let dot                                         = $("#dots_{{ $id }} .dot").get(0);
 
             console.log(dot);
-            /*
+
             report_dot_click(dot);
             report_dot_leave(dot);
-            */
+
         });
 
     </script>
