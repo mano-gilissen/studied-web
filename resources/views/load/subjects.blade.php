@@ -1,3 +1,5 @@
+@php echo($time_available ?? "aa") @endphp
+
 @if ($time_available ?? false)
 
     @if ($time_available > 0)
@@ -31,8 +33,6 @@
 @else
 
     <div class="block-note">Selecteer eerst het exacte start en eind tijdstip bovenaan.</div>
-
-    @php dd($time_available ?? false) @endphp
 
 @endif
 
