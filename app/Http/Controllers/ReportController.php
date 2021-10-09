@@ -52,7 +52,7 @@ class ReportController extends Controller {
 
         $study                                                              = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
 
-        return view(Views::FORM_REPORT, [
+        return view(Views::FORM_REPORT_EDIT, [
 
             Key::PAGE_TITLE                                                 => 'Rapport bewerken',
             Key::SUBMIT_ACTION                                              => 'Opslaan',
