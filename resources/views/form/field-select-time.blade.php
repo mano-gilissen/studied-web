@@ -120,8 +120,6 @@
 
                         $(function(){
 
-                            console.log($("#end"));
-
                             select_trigger($("#end"));
 
                         });

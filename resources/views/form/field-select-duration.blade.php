@@ -50,3 +50,19 @@
     </script>
 
 @endif
+
+@if($set ?? false)
+
+    <script>
+
+        $(function(){
+
+            let dot                                         = $("#dots_{{ $id }} .dot")['{{ $set }}' / 15];
+
+            report_dot_click(dot);
+            report_dot_leave(dot);
+        });
+
+    </script>
+
+@endif
