@@ -61,7 +61,7 @@
 
             //console.log('{{ $count }}');
 
-            let dot                                         = $("#dots_{{ $id }} .dot").get(0);
+            let dot                                         = $("#dots_{{ $id }} .dot")[0];
 
             console.log(dot);
 /*
