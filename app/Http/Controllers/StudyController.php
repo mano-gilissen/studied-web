@@ -361,7 +361,7 @@ class StudyController extends Controller {
         $agreement_id                                                       = $request->input(Model::$AGREEMENT, null);
         $report_id                                                          = $request->input(Model::$REPORT, -1);
 
-        dd($time_available ?? "bb");
+        echo($time_available ?? "bb");
 
         $study                                                              = Study::find($study_id);
         $user                                                               = User::find($user_id);
