@@ -22,11 +22,11 @@
 
     <div class="title">{{ __('Goal - De doelstelling') }}</div>
 
-    @include('form.field-textarea', ['id' => 'pva_1', 'tag' => 'Wat wil de scholier bereiken?'])
+    @include('form.field-textarea', ['id' => 'pva_1', 'tag' => 'Wat wil de scholier bereiken?', 'value' => old('pva_1')])
 
-    @include('form.field-textarea', ['id' => 'pva_2', 'tag' => 'Wat is het verwachte resultaat n.a.v. bijles bij Studied?'])
+    @include('form.field-textarea', ['id' => 'pva_2', 'tag' => 'Wat is het verwachte resultaat n.a.v. bijles bij Studied?', 'value' => old('pva_2')])
 
-    @include('form.field-textarea', ['id' => 'pva_3', 'tag' => 'Wat is de looptijd van de doelstelling?'])
+    @include('form.field-textarea', ['id' => 'pva_3', 'tag' => 'Wat is de looptijd van de doelstelling?', 'value' => old('pva_3')])
 
     <div class="seperator"></div>
 
@@ -35,11 +35,11 @@
 
     <div class="title">{{ __('Reality - Stand van zaken') }}</div>
 
-    @include('form.field-textarea', ['id' => 'pva_4', 'tag' => 'Hoe ziet de situatie er nu uit? Waarom is deze problematisch?'])
+    @include('form.field-textarea', ['id' => 'pva_4', 'tag' => 'Hoe ziet de situatie er nu uit? Waarom is deze problematisch?', 'value' => old('pva_4')])
 
-    @include('form.field-textarea', ['id' => 'pva_5', 'tag' => 'Wat is reeds ondernomen? Waarom werkte dat wel of niet?'])
+    @include('form.field-textarea', ['id' => 'pva_5', 'tag' => 'Wat is reeds ondernomen? Waarom werkte dat wel of niet?', 'value' => old('pva_5')])
 
-    @include('form.field-textarea', ['id' => 'pva_6', 'tag' => 'Hoe ziet het eruit als de problematiek niet wordt opgelost?'])
+    @include('form.field-textarea', ['id' => 'pva_6', 'tag' => 'Hoe ziet het eruit als de problematiek niet wordt opgelost?', 'value' => old('pva_6')])
 
     <div class="seperator"></div>
 
@@ -47,7 +47,7 @@
 
     <div class="title">{{ __('Options - De mogelijkheden') }}</div>
 
-    @include('form.field-textarea', ['id' => 'pva_7', 'tag' => 'De mogelijkheden van de scholier bij Studied'])
+    @include('form.field-textarea', ['id' => 'pva_7', 'tag' => 'De mogelijkheden van de scholier bij Studied', 'value' => old('pva_7')])
 
     <div class="seperator"></div>
 
@@ -55,11 +55,11 @@
 
     <div class="title">{{ __('Will - De acties') }}</div>
 
-    @include('form.field-textarea', ['id' => 'pva_8', 'tag' => 'Worden er nog acties buiten Studied ondernomen?'])
+    @include('form.field-textarea', ['id' => 'pva_8', 'tag' => 'Worden er nog acties buiten Studied ondernomen?', 'value' => old('pva_8')])
 
-    @include('form.field-textarea', ['id' => 'pva_9', 'tag' => 'Wat zijn mogelijke obstakels voor behalen van het gewenste resultaat? Hoe kan hier rekening mee worden gehouden?'])
+    @include('form.field-textarea', ['id' => 'pva_9', 'tag' => 'Wat zijn mogelijke obstakels voor behalen van het gewenste resultaat? Hoe kan hier rekening mee worden gehouden?', 'value' => old('pva_9')])
 
-    @include('form.field-textarea', ['id' => 'pva_10', 'tag' => 'Ons adviesplan', 'Placeholder' => 'Wat wordt er als concludie van het voorgaande aangeraden? (Vak - periode - frequentie)'])
+    @include('form.field-textarea', ['id' => 'pva_10', 'tag' => 'Ons adviesplan', 'Placeholder' => 'Wat wordt er als concludie van het voorgaande aangeraden? (Vak - periode - frequentie)', 'value' => old('pva_10')])
 
     <div class="seperator"></div>
 
@@ -67,7 +67,7 @@
 
     <div class="title">{{ __('Extra gegevens') }}</div>
 
-    @include('form.field-textarea', ['id' => 'remarks', 'tag' => 'Opmerkingen'])
+    @include('form.field-textarea', ['id' => 'remarks', 'tag' => 'Opmerkingen', 'value' => old('remarks')])
 
     <div class="seperator large"></div>
 
