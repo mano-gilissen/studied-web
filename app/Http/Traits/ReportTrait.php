@@ -7,6 +7,7 @@ namespace App\Http\Traits;
 use App\Http\Support\Func;
 use App\Http\Support\Model;
 use App\Models\Report;
+use Illuminate\Support\Facades\Validator;
 
 
 
