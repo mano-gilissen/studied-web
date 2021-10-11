@@ -78,7 +78,7 @@ class ReportController extends Controller {
             $study->save();
         }
 
-        return redirect()->route('study.view', $study->{Model::$BASE_KEY});
+        return redirect()->route(Route::STUDY_VIEW, $study->{Model::$BASE_KEY});
     }
 
 
@@ -105,11 +105,11 @@ class ReportController extends Controller {
 
         //dd($data);
 
-        ReportTrait::update($data);
-
         $study                                                              = Study::find($data['_' . Model::$STUDY]);
 
-        return redirect()->route('study.view', $study->{Model::$BASE_KEY});
+        ReportTrait::update($data, $study);
+
+        return redirect()->route(Route::STUDY_VIEW, $study->{Model::$BASE_KEY});
     }
 
 
