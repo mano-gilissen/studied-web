@@ -208,7 +208,7 @@ Route::get('/template',                             'DebugController@template')-
 
 Route::get('/mail_test/{key}',                      'DebugController@mail_test')->name('mail_test');
 
-Route::get('/csv_test/{header}',                    'DebugController@csv_test')->name('csv_test');
+Route::get('/csv_test/{header}',                    'DebugController@csv_export_test')->name('csv_test');
 
 
 
