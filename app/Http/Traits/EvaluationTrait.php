@@ -131,7 +131,6 @@ trait EvaluationTrait {
     public static function validate(array $data) {
 
         $messages                                                           = [
-            'required'                                                      => 'Dit veld is verplicht.',
             'max'                                                           => 'Gebruik maximaal :max karakters.'
         ];
 
@@ -141,13 +140,13 @@ trait EvaluationTrait {
 
             if (Func::contains($key, [Model::$EVALUATION_PVA])) {
 
-                $rules[$key]                                                = ['required', 'max:999'];
+                $rules[$key]                                                = ['max:999'];
 
             }
 
             if (Func::contains($key, [Model::$EVALUATION_REMARKS])) {
 
-                $rules[$key]                                                = ['required', 'max:4999'];
+                $rules[$key]                                                = ['max:4999'];
 
             }
         }
