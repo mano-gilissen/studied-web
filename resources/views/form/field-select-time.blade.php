@@ -1,4 +1,4 @@
-@php $edit = \App\Http\Traits\StudyTrait::isReported($study) @endphp
+@php $edit = ($study ?? false) && \App\Http\Traits\StudyTrait::isReported($study) @endphp
 
 
 
