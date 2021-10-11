@@ -121,7 +121,7 @@
                                             <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">{{ $study->getHost->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME} }} heeft een les {{ strtolower(\App\Http\Traits\StudyTrait::getSubject($study)->{\App\Http\Support\Model::$SUBJECT_NAME}) }} met jou ingepland op {{ strtolower(\App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE)) }} van {{ \App\Http\Traits\StudyTrait::getTimeText($study, true) }}. De locatie is: {{ $study->{\App\Http\Support\Model::$STUDY_LOCATION_TEXT} }}. Kom op tijd en zorg ervoor dat je alles bij je hebt wat je normaal ook naar school zou meenemen.</p>
 
                                         @endif
-                                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">Je kunt de lesgegevens bekijken in onze web-app. Mocht je vragen hebben, aarzel dan niet contact met ons op te nemen!</p>
+                                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">Je kunt de lesgegevens bekijken in onze webapp. Mocht je vragen hebben, aarzel dan niet contact met ons op te nemen!</p>
                                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; box-sizing: border-box;">
                                             <tbody>
                                             <tr>

@@ -166,7 +166,24 @@ class PersonController extends Controller {
 
         }
 
-        Mail::userActivate_forEmployee($user);
+        switch ($user->role) {
+
+            case RoleTrait::$ID_ADMINISTRATOR:
+            case RoleTrait::$ID_BOARD:
+            case RoleTrait::$ID_MANAGEMENT:
+            case RoleTrait::$ID_EMPLOYEE:
+                Mail::userActivate_forEmployee($user);
+                break;
+
+            case RoleTrait::$ID_STUDENT:
+                Mail::userActivate_forStudent_noStudy($user);
+                break;
+
+            case RoleTrait::$ID_CUSTOMER:
+                Mail::userActivate_forCustomer_noStudy($user);
+                break;
+        }
+
 
         return view(Views::FEEDBACK, [
 

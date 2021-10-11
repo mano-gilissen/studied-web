@@ -5,6 +5,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Mail\Study_Planned_Student;
+use App\Http\Support\Func;
 use App\Models\Study;
 use App\Models\Subject;
 use App\Models\Person;
@@ -86,42 +87,12 @@ class DebugController extends Controller {
 
 
 
-    public static function csv_export($columnNames, $rows, $fileName = 'file.csv') {
-
-        $headers = [
-            "Content-type"                  => "text/csv",
-            "Content-Disposition"           => "attachment; filename=" . $fileName,
-            "Pragma"                        => "no-cache",
-            "Cache-Control"                 => "must-revalidate, post-check=0, pre-check=0",
-            "Expires"                       => "0"
-        ];
-
-        $callback = function() use ($columnNames, $rows ) {
-
-            $file                           = fopen('php://output', 'w');
-
-            fputcsv($file, $columnNames);
-
-            foreach ($rows as $row) {
-
-                fputcsv($file, $row);
-
-            }
-
-            fclose($file);
-        };
-
-        return response()->stream($callback, 200, $headers);
-    }
-
-
-
-    public function csv_export_test($header) {
+    public function export_csv_test($header) {
 
         $rows                   = [['a','b','c'],[1,2,3]];
         $columnNames            = [$header, 'yada', 'hmm'];
 
-        return self::csv_export($columnNames, $rows);
+        return Func::export_csv($columnNames, $rows);
     }
 
 

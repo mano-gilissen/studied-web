@@ -111,19 +111,9 @@
                                 <tr>
                                     <td style="font-family: sans-serif; font-size: 14px; vertical-align: top;">
                                         <img style="width: 110px;margin-bottom: 48px;margin-left:-4px" src="{{ $message->embed(public_path() . '/images_app/logo.png') }}">
-                                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 24px;">Beste {{ $employee->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME} }},</p>
-
-                                        @if(\App\Http\Traits\EvaluationTrait::hasLink($evaluation))
-
-                                            <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">Er is een gesprek met jou als student-student ingepland. Het gesprek is digitaal op {{ strtolower(\App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$DATETIME_SINGLE)) }} om {{ \App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$TIME_SINGLE) }}. Dit is de link naar het gesprek: <a href="{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_LINK} }}">{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_LINK} }}</a></p>
-
-                                        @else
-
-                                            <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">Er is een gesprek met jou als student-student ingepland. Het gesprek is op {{ strtolower(\App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$DATETIME_SINGLE)) }} om {{ \App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$TIME_SINGLE) }} en de locatie is: {{ $evaluation->{\App\Http\Support\Model::$EVALUATION_LOCATION_TEXT} }}</p>
-
-                                        @endif
-
-                                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">Je kunt de gegevens van het gesprek bekijken in onze webapp. Mocht je vragen hebben, aarzel dan niet contact op te nemen.</p>
+                                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 24px;">Beste {{ $user->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME} }},</p>
+                                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">We werken met onze eigen webapp. Hiermee krijgt je toegang tot de lessen, lesrapporten en overige gegevens met betrekking tot je begeleiding. Je wordt hierover op de hoogte gehouden middels automatisch gegenereerde e-mails. Zo wordt onze begeleiding nóg sneller, meer transparant en meer afgemeten op jou behoeftes.</p>
+                                        <p style="font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 32px;">Klik op de onderstaande knop om je account te activeren. Mocht je vragen hebben, aarzel dan niet contact op te nemen.</p>
                                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; box-sizing: border-box;">
                                             <tbody>
                                             <tr>
@@ -131,7 +121,7 @@
                                                     <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: auto;">
                                                         <tbody>
                                                         <tr>
-                                                            <td style="font-family: sans-serif; font-size: 12px; vertical-align: top; background-color: #FFDD34; border-radius: 16px; text-align: center;"> <a href="{{ route('evaluation.view', [$evaluation->{\App\Http\Support\Model::$BASE_KEY}]) }}" target="_blank" style="display: inline-block; color: #000000; background-color: #FFDD34; border: solid 1px #FFDD34; border-radius: 20px; box-sizing: border-box; cursor: pointer; text-decoration: none; font-size: 12px; font-weight: bold; margin: 0; padding: 7px 16px 6px; border-color: #FFDD34;">Gesprek bekijken</a> </td>
+                                                            <td style="font-family: sans-serif; font-size: 12px; vertical-align: top; background-color: #FFDD34; border-radius: 16px; text-align: center;"> <a href="{{ route('user.activate', [$user->{\App\Http\Support\Model::$USER_ACTIVATE_SECRET}]) }}" target="_blank" style="display: inline-block; color: #000000; background-color: #FFDD34; border: solid 1px #FFDD34; border-radius: 20px; box-sizing: border-box; cursor: pointer; text-decoration: none; font-size: 12px; font-weight: bold; margin: 0; padding: 7px 16px 6px; border-color: #FFDD34;">Account activeren</a> </td>
                                                         </tr>
                                                         </tbody>
                                                     </table>

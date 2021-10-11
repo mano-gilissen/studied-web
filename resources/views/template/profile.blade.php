@@ -187,6 +187,29 @@
                             @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
                             @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
                             @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
+
+                                @if(!(\App\Http\Traits\UserTrait::isActivated($person->getUser)) && \App\Http\Traits\UserTrait::sentActivation($person->getUser))
+
+                                    <div class="button green icon" onclick="window.location.href='{{ route('person.activate', [\App\Http\Support\Model::$PERSON_SLUG => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">
+
+                                        <img class="icon" src="/images_app/contact-white.svg">
+
+                                        <div class="text">Herstuur mail activeren</div>
+
+                                    </div>
+
+                                @endif
+
+                                <div class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_PARTICIPANT => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">
+
+                                    <img class="icon" src="/images_app/search.svg">
+
+                                    <div class="text">Lessen</div>
+
+                                </div>
+
+                                @break
+
                             @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
                                 <div class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_PARTICIPANT => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">
@@ -242,6 +265,29 @@
                             @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
                             @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
                             @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
+
+                                @if(!(\App\Http\Traits\UserTrait::isActivated($person->getUser)) && \App\Http\Traits\UserTrait::sentActivation($person->getUser))
+
+                                    <div class="button green icon" onclick="window.location.href='{{ route('person.activate', [\App\Http\Support\Model::$PERSON_SLUG => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">
+
+                                        <img class="icon" src="/images_app/contact-white.svg">
+
+                                        <div class="text">Herstuur mail activeren</div>
+
+                                    </div>
+
+                                @endif
+
+                                <div id="button-studies" class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_CUSTOMER => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">
+
+                                    <img class="icon" src="/images_app/search.svg">
+
+                                    <div class="text">Lessen</div>
+
+                                </div>
+
+                                @break
+
                             @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
                                 <div id="button-studies" class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_CUSTOMER => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">

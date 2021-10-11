@@ -18,9 +18,11 @@ use App\Http\Mail\Study_Edited_Student;
 use App\Http\Mail\Study_Planned_Employee;
 use App\Http\Mail\Study_Planned_Student;
 use App\Http\Mail\User_Activate_Customer;
+use App\Http\Mail\User_Activate_Customer_NoStudy;
 use App\Http\Mail\User_Activate_Employee;
 use App\Http\Mail\User_Activate_Relations;
 use App\Http\Mail\User_Activate_Student;
+use App\Http\Mail\User_Activate_Student_NoStudy;
 use Illuminate\Support\Facades\Mail as Mail_;
 
 
@@ -31,38 +33,43 @@ class Mail {
 
 
 
-    public static function userActivate_forEmployee($user) {
+    public static function userActivate($user, $mail) {
 
-        $mail                                               = new User_Activate_Employee($user);
         $recipient                                          = $user->{Model::$USER_EMAIL};
-        $user->{Model::$USER_ACTIVATE_SECRET}               = Func::generate_secret();
+        $user->{Model::$USER_ACTIVATE_SECRET}               = $user->{Model::$USER_ACTIVATE_SECRET} ?? Func::generate_secret();
         $user->save();
 
         self::mailTo($mail, $recipient);
     }
 
+    public static function userActivate_forEmployee($user) {
 
+        self::userActivate($user, new User_Activate_Employee($user));
+
+    }
 
     public static function userActivate_forStudent($user, $study) {
 
-        $mail                                               = new User_Activate_Student($user, $study);
-        $recipient                                          = $user->{Model::$USER_EMAIL};
-        $user->{Model::$USER_ACTIVATE_SECRET}               = Func::generate_secret();
-        $user->save();
+        self::userActivate($user, new User_Activate_Student($user, $study));
 
-        self::mailTo($mail, $recipient);
     }
-
-
 
     public static function userActivate_forCustomer($user, $study, $student) {
 
-        $mail                                               = new User_Activate_Customer($user, $study, $student);
-        $recipient                                          = $user->{Model::$USER_EMAIL};
-        $user->{Model::$USER_ACTIVATE_SECRET}               = Func::generate_secret();
-        $user->save();
+        self::userActivate($user, new User_Activate_Customer($user, $study, $student));
 
-        self::mailTo($mail, $recipient);
+    }
+
+    public static function userActivate_forStudent_noStudy($user) {
+
+        self::userActivate($user, new User_Activate_Student_NoStudy($user));
+
+    }
+
+    public static function userActivate_forCustomer_noStudy($user) {
+
+        self::userActivate($user, new User_Activate_Customer_NoStudy($user));
+
     }
 
 
@@ -74,8 +81,6 @@ class Mail {
 
         self::mailTo($mail, $recipient);
     }
-
-
 
 
 
