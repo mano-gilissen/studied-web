@@ -71,8 +71,6 @@ class ReportController extends Controller {
 
         $study                                                              = Study::find($data['_' . Model::$STUDY]);
 
-        self::create_validate($data);
-
         if (ReportTrait::create($data, $study) && StudyTrait::isReported($study)) {
 
             $study->{Model::$STUDY_STATUS}                                  = StudyTrait::$STATUS_REPORTED;
@@ -105,13 +103,11 @@ class ReportController extends Controller {
 
         $data                                                               = $request->all();
 
-        dd($data);
+        //dd($data);
+
+        ReportTrait::update($data);
 
         $study                                                              = Study::find($data['_' . Model::$STUDY]);
-
-        self::create_validate($data);
-
-        //
 
         return redirect()->route('study.view', $study->{Model::$BASE_KEY});
     }

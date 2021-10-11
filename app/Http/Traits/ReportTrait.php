@@ -20,6 +20,10 @@ trait ReportTrait {
 
 
 
+        self::validate($data);
+
+
+
         foreach ($study->getParticipants_User as $user) {
 
             $report                                                         = new Report;
@@ -70,6 +74,68 @@ trait ReportTrait {
 
 
 
+    public static function update(array $data, &$study) {
+
+
+
+        self::validate($data);
+
+
+
+        foreach ($study->getParticipants_User as $user) {
+
+            $report                                                         = $study->getReport($user);
+
+            if (!$report) {
+
+                $report                                                     = new Report;
+                $report->{Model::$STUDY}                                    = $study->{Model::$BASE_ID};
+                $report->{Model::$USER}                                     = $user->id;
+            }
+
+            $prefix                                                         = 'user_' . $user->id . '_';
+
+            $report->{Model::$REPORT_CONTENT_VOLGENDE_LES}                  = $data[$prefix . Model::$REPORT_CONTENT_VOLGENDE_LES];
+            $report->{Model::$REPORT_CONTENT_UITDAGINGEN}                   = $data[$prefix . Model::$REPORT_CONTENT_UITDAGINGEN];
+            $report->{Model::$REPORT_CONTENT_VOORTGANG}                     = $data[$prefix . Model::$REPORT_CONTENT_VOORTGANG];
+
+            $report->{Model::$REPORT_START}                                 = substr($study->start, 0, 10) . ' ' . $data[Model::$REPORT_START] . ':00';
+            $report->{Model::$REPORT_END}                                   = substr($study->end, 0, 10) . ' ' . $data[Model::$REPORT_END] . ':00';
+
+
+
+            $report->save();
+
+
+
+            foreach ($report->getReport_Subjects as $report_Subject) {
+
+                $report_Subject->delete();
+
+            }
+
+            foreach ($data as $key => $value) {
+
+                if (Func::contains($key, '_' . $prefix . Model::$SUBJECT) &&
+                    !Func::contains($key, Model::$AGREEMENT) &&
+                    !Func::contains($key, Model::$REPORT_SUBJECT_DURATION) &&
+                    !Func::contains($key, Model::$REPORT_SUBJECT_VERSLAG) &&
+                    strlen($data[$key]) > 0) {
+
+                    Report_SubjectTrait::create($data, $key, $report);
+
+                }
+            }
+
+        }
+
+
+
+        return true;
+    }
+
+
+
     public static function trial($result, $study, $user, $report) {
 
         $trail_success                                                      = $result == 2; // TODO: REPLACE 2 WITH SWITCH.YES CONST
@@ -86,6 +152,42 @@ trait ReportTrait {
             AgreementTrait::reject($study, $user);
 
         }
+    }
+
+
+
+    public static function validate(array $data) {
+
+        $messages                                                           = [
+            'required'                                                      => 'Dit veld is verplicht.',
+            'max'                                                           => 'Gebruik maximaal 1000 karakters.'
+        ];
+
+
+
+        $rules                                                              = [];
+
+        foreach ($data as $key => $value) {
+
+            if (Func::contains($key, [Model::$REPORT_CONTENT_VOORTGANG, Model::$REPORT_CONTENT_UITDAGINGEN, Model::$REPORT_CONTENT_VOLGENDE_LES])) {
+
+                $rules[$key]                                                = ['required', 'max:999'];
+
+            }
+
+            if (Func::contains($key, Model::$REPORT_SUBJECT_VERSLAG)) {
+
+                // TODO: FINISH
+                // Only add to rules if field belongs to primary subject or report for this user has secondary subject
+
+            }
+        }
+
+
+
+        $validator                                                          = Validator::make($data, $rules, $messages);
+
+        $validator->validate();
     }
 
 
