@@ -61,6 +61,14 @@
 
     @include('form.field-textarea', ['id' => 'pva_10', 'tag' => 'Ons adviesplan', 'Placeholder' => 'Wat wordt er als concludie van het voorgaande aangeraden? (Vak - periode - frequentie)'])
 
+    <div class="seperator"></div>
+
+
+
+    <div class="title">{{ __('Extra gegevens') }}</div>
+
+    @include('form.field-textarea', ['id' => 'remarks', 'tag' => 'Opmerkingen'])
+
     <div class="seperator large"></div>
 
 

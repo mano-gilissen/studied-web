@@ -13,6 +13,8 @@ use App\Models\Address;
 use App\Models\Employee;
 use App\Models\Evaluation;
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
+
 
 
 trait EvaluationTrait {
@@ -34,6 +36,8 @@ trait EvaluationTrait {
 
 
     public static function create($data) {
+
+        self::validate($data);
 
         $evaluation                                                 = new Evaluation();
 
@@ -108,6 +112,8 @@ trait EvaluationTrait {
 
     public static function updateFromEvaluation($data, $evaluation) {
 
+        self::validate($data);
+
         for ($i = 1; $i <= 10; $i++) {
 
             $evaluation[Model::$EVALUATION_PVA . $i]                = $data[Model::$EVALUATION_PVA . $i];
@@ -115,8 +121,40 @@ trait EvaluationTrait {
         }
 
         $evaluation[Model::$EVALUATION_PERFORMED]                   = true;
+        $evaluation[Model::$EVALUATION_REMARKS]                     = $data[Model::$EVALUATION_REMARKS];
 
         $evaluation->save();
+    }
+
+
+
+    public static function validate(array $data) {
+
+        $messages                                                           = [
+            'required'                                                      => 'Dit veld is verplicht.',
+            'max'                                                           => 'Gebruik maximaal :max karakters.'
+        ];
+
+        $rules                                                              = [];
+
+        foreach ($data as $key => $value) {
+
+            if (Func::contains($key, [Model::$EVALUATION_PVA])) {
+
+                $rules[$key]                                                = ['required', 'max:999'];
+
+            }
+
+            if (Func::contains($key, [Model::$EVALUATION_REMARKS])) {
+
+                $rules[$key]                                                = ['required', 'max:4999'];
+
+            }
+        }
+
+        $validator                                                          = Validator::make($data, $rules, $messages);
+
+        $validator->validate();
     }
 
 
