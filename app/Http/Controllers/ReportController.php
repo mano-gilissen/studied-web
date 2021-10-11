@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Support\Format;
 use App\Http\Support\Func;
+use App\Http\Support\Route;
 use App\Http\Support\Table;
 use App\Http\Traits\AgreementTrait;
 use App\Http\Traits\BaseTrait;
@@ -48,6 +49,42 @@ class ReportController extends Controller {
 
 
 
+    public function create($key) {
+
+        $study                                                              = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
+
+        return view(Views::FORM_REPORT, [
+
+            Key::PAGE_TITLE                                                 => 'Les rapporteren',
+            Key::SUBMIT_ACTION                                              => 'Rapporteren',
+            Key::SUBMIT_ROUTE                                               => Route::REPORT_CREATE_SUBMIT,
+
+            Model::$STUDY                                                   => $study
+        ]);
+    }
+
+
+
+    public function create_submit(Request $request) {
+
+        $data                                                               = $request->all();
+
+        $study                                                              = Study::find($data['_' . Model::$STUDY]);
+
+        self::create_validate($data);
+
+        if (ReportTrait::create($data, $study) && StudyTrait::isReported($study)) {
+
+            $study->{Model::$STUDY_STATUS}                                  = StudyTrait::$STATUS_REPORTED;
+
+            $study->save();
+        }
+
+        return redirect()->route('study.view', $study->{Model::$BASE_KEY});
+    }
+
+
+
     public function edit($key) {
 
         $study                                                              = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
@@ -56,7 +93,7 @@ class ReportController extends Controller {
 
             Key::PAGE_TITLE                                                 => 'Rapport bewerken',
             Key::SUBMIT_ACTION                                              => 'Opslaan',
-            Key::SUBMIT_ROUTE                                               => 'report.edit_submit',
+            Key::SUBMIT_ROUTE                                               => Route::REPORT_EDIT_SUBMIT,
 
             Model::$STUDY                                                   => $study
         ]);
@@ -72,7 +109,7 @@ class ReportController extends Controller {
 
         $study                                                              = Study::find($data['_' . Model::$STUDY]);
 
-        self::report_validate($data);
+        self::create_validate($data);
 
         //
 
@@ -81,7 +118,7 @@ class ReportController extends Controller {
 
 
 
-    public function report_validate(array $data) {
+    public function create_validate(array $data) {
 
         $messages                                                           = [
             'required'                                                      => 'Dit veld is verplicht.',

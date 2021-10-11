@@ -66,7 +66,7 @@
 
                             @if(!\App\Http\Traits\StudyTrait::isReported($study))
 
-                                <div class="button icon" onclick="window.location.href='{{ route('study.report', [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}'">
+                                <div class="button icon" onclick="window.location.href='{{ route(\App\Http\Support\Route::REPORT_CREATE, [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}'">
 
                                     <img class="icon" src="/images_app/contact.svg">
 

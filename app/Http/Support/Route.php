@@ -10,7 +10,6 @@ class Route {
 
 
 
-
 const LAB_VIEW                                  = 'lab.view';
 
 const FORM_TEST_VIEW                            = 'form_test.view';
@@ -21,8 +20,6 @@ const STUDY_LIST                                = 'study.list';
 
 const STUDY_VIEW                                = 'study.view';
 
-const STUDY_REPORT                              = 'study.report';
-
 const STUDY_EDIT                                = 'study.edit';
 
 const STUDY_DELETE                              = 'study.delete';
@@ -30,6 +27,8 @@ const STUDY_DELETE                              = 'study.delete';
 const STUDY_PLAN                                = 'study.plan';
 
 
+
+const REPORT_CREATE                             = 'report.create';
 
 const REPORT_EDIT                               = 'report.edit';
 
@@ -143,7 +142,7 @@ const STUDY_PLAN_SUBMIT                         = 'study.plan_submit';
 
 const STUDY_EDIT_SUBMIT                         = 'study.edit_submit';
 
-const STUDY_REPORT_SUBMIT                       = 'study.report_submit';
+const REPORT_CREATE_SUBMIT                      = 'report.create_submit';
 
 const REPORT_EDIT_SUBMIT                        = 'report.edit_submit';
 
@@ -230,7 +229,7 @@ const ALL_MANAGEMENT                            = [
 
 const ALL_EMPLOYEE                              = [
 
-    self::STUDY_REPORT,
+    self::REPORT_CREATE,
     self::REPORT_EDIT,
     self::STUDY_EDIT,
     self::STUDY_PLAN,
@@ -242,7 +241,7 @@ const ALL_EMPLOYEE                              = [
     self::LOAD_STUDENT_FILTER,
     self::STUDY_PLAN_SUBMIT,
     self::STUDY_EDIT_SUBMIT,
-    self::STUDY_REPORT_SUBMIT,
+    self::REPORT_CREATE_SUBMIT,
     self::REPORT_EDIT_SUBMIT
 ];
 
