@@ -1,7 +1,3 @@
-@php $edit = ($study ?? false) && \App\Http\Traits\StudyTrait::isReported($study) @endphp
-
-
-
 <div class="field">
 
     <div class="name">Tijdstip</div>
@@ -28,12 +24,7 @@
                     $hours                              = str_pad((int) ($i / 60), 2, "0", STR_PAD_LEFT);
                     $minutes                            = str_pad($i % 60, 2, "0", STR_PAD_LEFT);
 
-                    if ($set_study ?? false) {
-
-                        $start                          = $edit ? $study->getReports[0]->start : $study->start;
-                        $is_selected                    = App\Http\Support\Format::datetime($start, App\Http\Support\Format::$TIME_SINGLE) == ($hours . ':' . $minutes);
-
-                    }
+                    $is_selected                        = ($set_start ?? false) && App\Http\Support\Format::datetime($set_start, App\Http\Support\Format::$TIME_SINGLE) == ($hours . ':' . $minutes);
 
                 @endphp
 
@@ -41,7 +32,7 @@
 
                     value = "{{ $hours }}:{{ $minutes }}"
 
-                    @if(($set_study ?? false) && $is_selected) selected @endif>
+                    @if($is_selected) selected @endif>
 
                     {{ $hours }}:{{ $minutes }}
 
@@ -79,20 +70,7 @@
                         $hours                              = str_pad((int) ($i / 60), 2, "0", STR_PAD_LEFT);
                         $minutes                            = str_pad($i % 60, 2, "0", STR_PAD_LEFT);
 
-                        if ($set_study ?? false) {
-
-                            if ($edit ?? false) {
-
-                                $end                        = $edit ? $study->getReports[0]->end : $study->end;
-                                $is_selected                = App\Http\Support\Format::datetime($end, App\Http\Support\Format::$TIME_SINGLE) == ($hours . ':' . $minutes);
-
-                            } else {
-
-                                $is_selected                = "--:--";
-
-                            }
-
-                        }
+                        $is_selected                        = ($set_end ?? false) && App\Http\Support\Format::datetime($set_end, App\Http\Support\Format::$TIME_SINGLE) == ($hours . ':' . $minutes);
 
                     @endphp
 
@@ -100,7 +78,7 @@
 
                         value = "{{ $hours }}:{{ $minutes }}"
 
-                        @if(($set_study ?? false) && $is_selected) selected @endif>
+                        @if($is_selected) selected @endif>
 
                         {{ $hours }}:{{ $minutes }}
 
@@ -108,13 +86,14 @@
 
                 @endfor
 
-                @if(($set_study ?? false) && !($edit ?? false) && $is_selected)
+                <!-- TODO: ADD TRIGGER PREVENT FOR CONFIRM CASE (REPORT) -->
+                @if(!($set_end ?? false))
 
                     <option value="00:00" style="display:none" selected>--:--</option>
 
                 @endif
 
-                @if ($edit)
+                @if ($set_end ?? false)
 
                     <script>
 

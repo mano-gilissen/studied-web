@@ -22,7 +22,7 @@
 
     <div class="title">{{ __('Hoe lang duurde de les precies?') }}</div>
 
-    @include('form.field-select-time', ['set_study' => true, 'trigger' => 'report'])
+    @include('form.field-select-time', ['set_start' => $study->start, 'trigger' => 'report'])
 
     <div class="seperator"></div>
 
