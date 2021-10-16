@@ -4,186 +4,281 @@
 
 
 
-    <div class="subtitle">Goal - De doelstelling</div>
+    @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '1'}) > 0 ||
+        strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '2'}) > 0 ||
+        strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '3'}) > 0)
 
-    <div class="content-fold">
+        <div class="subtitle">Goal - De doelstelling</div>
 
-        <div class="item">
+        <div class="content-fold">
 
-            <div class="item-title">
+            @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '1'}) > 0)
 
-                <div>Wat wil de scholier bereiken?</div>
+                <div class="item">
 
-                <img src="/images_app/chevron-down.svg">
+                    <div class="item-title">
 
-            </div>
+                        <div>Wat wil de scholier bereiken?</div>
 
-            <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '1'} }}</p>
+                        <img src="/images_app/chevron-down.svg">
 
-        </div>
+                    </div>
 
-        <div class="seperator"></div>
+                    <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '1'} }}</p>
 
-        <div class="item">
+                </div>
 
-            <div class="item-title">
+                <div class="seperator"></div>
 
-                <div>Wat is het verwachte resultaat n.a.v. bijles bij Studied?</div>
+            @endif
 
-                <img src="/images_app/chevron-down.svg">
+            @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '2'}) > 0)
 
-            </div>
+                <div class="item">
 
-            <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '2'} }}</p>
+                    <div class="item-title">
 
-        </div>
+                        <div>Wat is het verwachte resultaat n.a.v. bijles bij Studied?</div>
 
-        <div class="seperator"></div>
+                        <img src="/images_app/chevron-down.svg">
 
-        <div class="item">
+                    </div>
 
-            <div class="item-title">
+                    <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '2'} }}</p>
 
-                <div>Wat is de looptijd van de doelstelling?</div>
+                </div>
 
-                <img src="/images_app/chevron-down.svg">
+                <div class="seperator"></div>
 
-            </div>
+            @endif
 
-            <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '3'} }}</p>
+            @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '3'}) > 0)
 
-        </div>
+                <div class="item">
 
-    </div>
+                    <div class="item-title">
 
+                        <div>Wat is de looptijd van de doelstelling?</div>
 
+                        <img src="/images_app/chevron-down.svg">
 
-    <div class="subtitle">Reality - Stand van zaken</div>
+                    </div>
 
-    <div class="content-fold">
+                    <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '3'} }}</p>
 
-        <div class="item">
+                </div>
 
-            <div class="item-title">
-
-                <div>Hoe ziet de situatie er nu uit? Waarom is deze problematisch?</div>
-
-                <img src="/images_app/chevron-down.svg">
-
-            </div>
-
-            <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '4'} }}</p>
+            @endif
 
         </div>
 
-        <div class="seperator"></div>
-
-        <div class="item">
-
-            <div class="item-title">
-
-                <div>Wat is reeds ondernomen? Waarom werkte dat wel of niet?</div>
-
-                <img src="/images_app/chevron-down.svg">
-
-            </div>
-
-            <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '5'} }}</p>
-
-        </div>
-
-        <div class="seperator"></div>
-
-        <div class="item">
-
-            <div class="item-title">
-
-                <div>Hoe ziet het eruit als de problematiek niet wordt opgelost?</div>
-
-                <img src="/images_app/chevron-down.svg">
-
-            </div>
-
-            <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '6'} }}</p>
-
-        </div>
-
-    </div>
+    @endif
 
 
 
-    <div class="subtitle">Options - De mogelijkheden</div>
-
-    <div class="content-fold">
-
-        <div class="item">
-
-            <div class="item-title">
-
-                <div>De mogelijkheden van de scholier bij Studied</div>
-
-                <img src="/images_app/chevron-down.svg">
-
-            </div>
-
-            <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '7'} }}</p>
-
-        </div>
-
-    </div>
 
 
+    @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '4'}) > 0 ||
+        strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '5'}) > 0 ||
+        strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '6'}) > 0)
 
-    <div class="subtitle">Will - De acties</div>
+        <div class="subtitle">Reality - Stand van zaken</div>
 
-    <div class="content-fold">
+        <div class="content-fold">
 
-        <div class="item">
+            @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '4'}) > 0)
 
-            <div class="item-title">
+                <div class="item">
 
-                <div>Worden er nog acties buiten Studied ondernomen?</div>
+                    <div class="item-title">
 
-                <img src="/images_app/chevron-down.svg">
+                        <div>Hoe ziet de situatie er nu uit? Waarom is deze problematisch?</div>
 
-            </div>
+                        <img src="/images_app/chevron-down.svg">
 
-            <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '8'} }}</p>
+                    </div>
+
+                    <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '4'} }}</p>
+
+                </div>
+
+                <div class="seperator"></div>
+
+            @endif
+
+            @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '5'}) > 0)
+
+                <div class="item">
+
+                    <div class="item-title">
+
+                        <div>Wat is reeds ondernomen? Waarom werkte dat wel of niet?</div>
+
+                        <img src="/images_app/chevron-down.svg">
+
+                    </div>
+
+                    <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '5'} }}</p>
+
+                </div>
+
+                <div class="seperator"></div>
+
+            @endif
+
+            @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '6'}) > 0)
+
+                <div class="item">
+
+                    <div class="item-title">
+
+                        <div>Hoe ziet het eruit als de problematiek niet wordt opgelost?</div>
+
+                        <img src="/images_app/chevron-down.svg">
+
+                    </div>
+
+                    <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '6'} }}</p>
+
+                </div>
+
+            @endif
 
         </div>
 
-        <div class="seperator"></div>
+    @endif
 
-        <div class="item">
 
-            <div class="item-title">
 
-                <div>Wat zijn mogelijke obstakels voor behalen van het gewenste resultaat? Hoe kan hier rekening mee worden gehouden?</div>
 
-                <img src="/images_app/chevron-down.svg">
 
-            </div>
+    @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '7'}) > 0)
 
-            <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '9'} }}</p>
+        <div class="subtitle">Options - De mogelijkheden</div>
 
-        </div>
+        <div class="content-fold">
 
-        <div class="seperator"></div>
+            <div class="item">
 
-        <div class="item">
+                <div class="item-title">
 
-            <div class="item-title">
+                    <div>De mogelijkheden van de scholier bij Studied</div>
 
-                <div>Ons adviesplan</div>
+                    <img src="/images_app/chevron-down.svg">
 
-                <img src="/images_app/chevron-down.svg">
+                </div>
+
+                <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '7'} }}</p>
 
             </div>
 
-            <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '10'} }}</p>
+        </div>
+
+    @endif
+
+
+
+
+
+    @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '8'}) > 0 ||
+        strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '9'}) > 0 ||
+        strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '10'}) > 0)
+
+        <div class="subtitle">Will - De acties</div>
+
+        <div class="content-fold">
+
+            @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '8'}) > 0)
+
+                <div class="item">
+
+                    <div class="item-title">
+
+                        <div>Worden er nog acties buiten Studied ondernomen?</div>
+
+                        <img src="/images_app/chevron-down.svg">
+
+                    </div>
+
+                    <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '8'} }}</p>
+
+                </div>
+
+                <div class="seperator"></div>
+
+            @endif
+
+            @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '9'}) > 0)
+
+                <div class="item">
+
+                    <div class="item-title">
+
+                        <div>Wat zijn mogelijke obstakels voor behalen van het gewenste resultaat? Hoe kan hier rekening mee worden gehouden?</div>
+
+                        <img src="/images_app/chevron-down.svg">
+
+                    </div>
+
+                    <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '9'} }}</p>
+
+                </div>
+
+                <div class="seperator"></div>
+
+            @endif
+
+            @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '10'}) > 0)
+
+                <div class="item">
+
+                    <div class="item-title">
+
+                        <div>Ons adviesplan</div>
+
+                        <img src="/images_app/chevron-down.svg">
+
+                    </div>
+
+                    <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '10'} }}</p>
+
+                </div>
+
+            @endif
 
         </div>
 
-    </div>
+    @endif
+
+
+
+
+
+    @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_REMARKS}) > 0)
+
+        <div class="subtitle">Options - De mogelijkheden</div>
+
+        <div class="content-fold">
+
+            <div class="item">
+
+                <div class="item-title">
+
+                    <div>De mogelijkheden van de scholier bij Studied</div>
+
+                    <img src="/images_app/chevron-down.svg">
+
+                </div>
+
+                <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_REMARKS} }}</p>
+
+            </div>
+
+        </div>
+
+    @endif
+
+
+
 
 </div>
