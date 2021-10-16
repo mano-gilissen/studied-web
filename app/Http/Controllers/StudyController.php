@@ -899,8 +899,11 @@ class StudyController extends Controller {
 
         array_push($counters, (object) [
             Table::COUNTER_LABEL                            => 'Medewerkers',
-            Table::COUNTER_VALUE                            => $query
-                ->with('getHost_User')->groupBy('getHost_User.id')->get()->pluck('getHost_User.id')
+            Table::COUNTER_VALUE                            => array_unique($query
+                ->with('getHost_User')
+                ->get()
+                ->pluck('getHost_User.id')
+                ->toArray())
 
                 /*
                 ->with('getHost_User')
