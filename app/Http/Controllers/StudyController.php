@@ -920,20 +920,23 @@ class StudyController extends Controller {
 
         array_push($counters, (object) [
             Table::COUNTER_LABEL                            => 'Leerlingen',
-            Table::COUNTER_VALUE                            => $query
-                ->where(Model::$STUDY_STATUS, StudyTrait::$STATUS_REPORTED)
-                ->select('study.*')
+            Table::COUNTER_VALUE                            => count(array_unique($query
+                ->with('getParticipants_User')
                 ->get()
-                ->count()
-        ]);
+                ->pluck('getParticipants_User.id')
+                ->toArray()))
 
-        array_push($counters, (object) [
-            Table::COUNTER_LABEL                            => 'Gerapporteerd',
-            Table::COUNTER_VALUE                            => $query
-                ->where(Model::$STUDY_STATUS, StudyTrait::$STATUS_REPORTED)
-                ->select('study.*')
-                ->get()
-                ->count()
+            /*
+            ->with('getHost_User')
+            ->groupBy('getHost_User.id')
+            ->pluck('getHost_User.id')
+            /*
+            ->with('getHost_User')
+            ->select('getHost_User.*')
+            ->get()
+            ->distinct()
+            ->count()
+            */
         ]);
 
         return view(Views::LOAD_COUNTERS, [
