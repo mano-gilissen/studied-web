@@ -889,6 +889,17 @@ class StudyController extends Controller {
                 ->count()
         ]);
 
+        dd($query
+            ->selectRaw('study.*, TIMESTAMPDIFF(minute, start, end) as duration')
+            ->get());
+        /*
+        array_push($counters, (object) [
+            Table::COUNTER_LABEL                            => 'Uren',
+            Table::COUNTER_VALUE                            => $query
+                ->selectRaw('study.*, TIMESTAMPDIFF(minute, start, end) as duration')
+                ->get()
+        ]);*/
+
         array_push($counters, (object) [
             Table::COUNTER_LABEL                            => 'Gerapporteerd',
             Table::COUNTER_VALUE                            => $query
