@@ -28,7 +28,12 @@
 
                 </div>
 
-                <div class="seperator"></div>
+                @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '2'}) > 0 ||
+                    strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '3'}) > 0)
+
+                    <div class="seperator"></div>
+
+                @endif
 
             @endif
 
@@ -48,7 +53,11 @@
 
                 </div>
 
-                <div class="seperator"></div>
+                @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '3'}) > 0)
+
+                    <div class="seperator"></div>
+
+                @endif
 
             @endif
 
@@ -102,7 +111,12 @@
 
                 </div>
 
-                <div class="seperator"></div>
+                @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '5'}) > 0 ||
+                    strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '6'}) > 0)
+
+                    <div class="seperator"></div>
+
+                @endif
 
             @endif
 
@@ -122,7 +136,11 @@
 
                 </div>
 
-                <div class="seperator"></div>
+                @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '6'}) > 0)
+
+                    <div class="seperator"></div>
+
+                @endif
 
             @endif
 
@@ -204,7 +222,12 @@
 
                 </div>
 
-                <div class="seperator"></div>
+                @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '9'}) > 0 ||
+                    strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '10'}) > 0)
+
+                    <div class="seperator"></div>
+
+                @endif
 
             @endif
 
@@ -224,7 +247,11 @@
 
                 </div>
 
-                <div class="seperator"></div>
+                @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_PVA . '10'}) > 0)
+
+                    <div class="seperator"></div>
+
+                @endif
 
             @endif
 
