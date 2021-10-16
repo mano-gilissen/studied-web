@@ -889,7 +889,6 @@ class StudyController extends Controller {
                 ->count()
         ]);
 
-
         array_push($counters, (object) [
             Table::COUNTER_LABEL                            => 'Uren',
             Table::COUNTER_VALUE                            => (float) array_sum($query

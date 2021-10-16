@@ -38,12 +38,19 @@ trait ReportTrait {
             $report->{Model::$REPORT_CONTENT_UITDAGINGEN}                   = $data[$prefix . Model::$REPORT_CONTENT_UITDAGINGEN];
             $report->{Model::$REPORT_CONTENT_VOORTGANG}                     = $data[$prefix . Model::$REPORT_CONTENT_VOORTGANG];
 
-            $report->{Model::$REPORT_START}                                 = substr($study->start, 0, 10) . ' ' . $data[Model::$REPORT_START] . ':00';
-            $report->{Model::$REPORT_END}                                   = substr($study->end, 0, 10) . ' ' . $data[Model::$REPORT_END] . ':00';
+            $start                                                          = substr($study->start, 0, 10) . ' ' . $data[Model::$REPORT_START] . ':00';
+            $end                                                            = substr($study->end, 0, 10) . ' ' . $data[Model::$REPORT_END] . ':00';
+
+            $report->{Model::$REPORT_START}                                 = $start;
+            $report->{Model::$REPORT_END}                                   = $end;
+
+            $study->{Model::$STUDY_STATUS}                                  = $start;
+            $study->{Model::$STUDY_END}                                     = $end;
 
 
 
             $report->save();
+            $study->save();
 
 
 
@@ -100,12 +107,19 @@ trait ReportTrait {
             $report->{Model::$REPORT_CONTENT_UITDAGINGEN}                   = $data[$prefix . Model::$REPORT_CONTENT_UITDAGINGEN];
             $report->{Model::$REPORT_CONTENT_VOORTGANG}                     = $data[$prefix . Model::$REPORT_CONTENT_VOORTGANG];
 
-            $report->{Model::$REPORT_START}                                 = substr($study->start, 0, 10) . ' ' . $data[Model::$REPORT_START] . ':00';
-            $report->{Model::$REPORT_END}                                   = substr($study->end, 0, 10) . ' ' . $data[Model::$REPORT_END] . ':00';
+            $start                                                          = substr($study->start, 0, 10) . ' ' . $data[Model::$REPORT_START] . ':00';
+            $end                                                            = substr($study->end, 0, 10) . ' ' . $data[Model::$REPORT_END] . ':00';
+
+            $report->{Model::$REPORT_START}                                 = $start;
+            $report->{Model::$REPORT_END}                                   = $end;
+
+            $study->{Model::$STUDY_STATUS}                                  = $start;
+            $study->{Model::$STUDY_END}                                     = $end;
 
 
 
             $report->save();
+            $study->save();
 
 
 
