@@ -256,7 +256,7 @@
 
     @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_REMARKS}) > 0)
 
-        <div class="subtitle">Options - De mogelijkheden</div>
+        <div class="subtitle">Extra afspraken of opmerkingen</div>
 
         <div class="content-fold">
 
@@ -264,7 +264,7 @@
 
                 <div class="item-title">
 
-                    <div>De mogelijkheden van de scholier bij Studied</div>
+                    <div>Opmerkingen</div>
 
                     <img src="/images_app/chevron-down.svg">
 
