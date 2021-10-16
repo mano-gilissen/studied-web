@@ -889,8 +889,9 @@ class StudyController extends Controller {
                 ->count()
         ]);
 
-        dd($query
-            ->selectRaw('TIMESTAMPDIFF(minute, start, end) as time')->pluck('time'));
+        echo($query->selectRaw('TIMESTAMPDIFF(minute, start, end) as time')->pluck('time'));
+        dd(array_sum($query->selectRaw('TIMESTAMPDIFF(minute, start, end) as time')->pluck('time')));
+
         /*
         array_push($counters, (object) [
             Table::COUNTER_LABEL                            => 'Uren',
