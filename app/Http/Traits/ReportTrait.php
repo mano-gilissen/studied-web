@@ -44,7 +44,7 @@ trait ReportTrait {
             $report->{Model::$REPORT_START}                                 = $start;
             $report->{Model::$REPORT_END}                                   = $end;
 
-            $study->{Model::$STUDY_STATUS}                                  = $start;
+            $study->{Model::$STUDY_START}                                  = $start;
             $study->{Model::$STUDY_END}                                     = $end;
 
 
@@ -113,7 +113,7 @@ trait ReportTrait {
             $report->{Model::$REPORT_START}                                 = $start;
             $report->{Model::$REPORT_END}                                   = $end;
 
-            $study->{Model::$STUDY_STATUS}                                  = $start;
+            $study->{Model::$STUDY_START}                                   = $start;
             $study->{Model::$STUDY_END}                                     = $end;
 
 
