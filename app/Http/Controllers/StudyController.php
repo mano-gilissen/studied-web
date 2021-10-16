@@ -890,7 +890,7 @@ class StudyController extends Controller {
         ]);
 
         dd($query
-            ->selectRaw('study.duration, TIMESTAMPDIFF(minute, start, end) as duration')
+            ->selectRaw('TIMESTAMPDIFF(minute, start, end) as duration')
             ->get());
         /*
         array_push($counters, (object) [
