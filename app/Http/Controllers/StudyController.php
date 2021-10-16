@@ -898,6 +898,25 @@ class StudyController extends Controller {
         ]);
 
         array_push($counters, (object) [
+            Table::COUNTER_LABEL                            => 'Medewerkers',
+            Table::COUNTER_VALUE                            => $query
+                ->with('getHost_User')
+                ->select('getHost_User.*')
+                ->get()
+                ->distinct()
+                ->count()
+        ]);
+
+        array_push($counters, (object) [
+            Table::COUNTER_LABEL                            => 'Leerlingen',
+            Table::COUNTER_VALUE                            => $query
+                ->where(Model::$STUDY_STATUS, StudyTrait::$STATUS_REPORTED)
+                ->select('study.*')
+                ->get()
+                ->count()
+        ]);
+
+        array_push($counters, (object) [
             Table::COUNTER_LABEL                            => 'Gerapporteerd',
             Table::COUNTER_VALUE                            => $query
                 ->where(Model::$STUDY_STATUS, StudyTrait::$STATUS_REPORTED)
