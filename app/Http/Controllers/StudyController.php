@@ -891,6 +891,7 @@ class StudyController extends Controller {
 
         dd($query
             ->selectRaw('sum(TIMESTAMPDIFF(minute, start, end)) as total_time')
+            ->groupBy('id')
             ->get());
         /*
         array_push($counters, (object) [
