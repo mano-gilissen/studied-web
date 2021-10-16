@@ -889,15 +889,14 @@ class StudyController extends Controller {
                 ->count()
         ]);
 
-        dd(array_sum($query->selectRaw('TIMESTAMPDIFF(minute, start, end) as time')->pluck('time')->toArray()));
 
-        /*
         array_push($counters, (object) [
             Table::COUNTER_LABEL                            => 'Uren',
-            Table::COUNTER_VALUE                            => $query
-                ->selectRaw('study.*, TIMESTAMPDIFF(minute, start, end) as duration')
-                ->get()
-        ]);*/
+            Table::COUNTER_VALUE                            => (float) array_sum($query
+                ->selectRaw('TIMESTAMPDIFF(minute, start, end) as time')
+                ->pluck('time')
+                ->toArray()) / 60
+        ]);
 
         array_push($counters, (object) [
             Table::COUNTER_LABEL                            => 'Gerapporteerd',
