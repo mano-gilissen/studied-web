@@ -62,8 +62,9 @@ class Func {
         $date_event                                         = strtotime(substr($datetime, 0, 10));
         $date_now                                           = strtotime($time ?? date(Format::$DATABASE_DATE, time()));
 
-        echo($datetime);
-        echo($time);
+        echo($date_event);
+        echo("\n");
+        echo($date_now);
         dd('a');
 
         if ($date_event < $date_now) {
