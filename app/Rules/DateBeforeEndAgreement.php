@@ -43,8 +43,6 @@ class DateBeforeEndAgreement implements Rule {
 
         }
 
-        dd(!Func::has_passed($agreement->{Model::$AGREEMENT_END}, $this->date));
-
         return !Func::has_passed($agreement->{Model::$AGREEMENT_END}, $this->date);
     }
 
