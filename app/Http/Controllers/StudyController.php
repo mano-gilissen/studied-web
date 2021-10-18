@@ -904,27 +904,22 @@ class StudyController extends Controller {
                 ->get()
                 ->pluck('getHost_User.id')
                 ->toArray()))
-
-                /*
-                ->with('getHost_User')
-                ->groupBy('getHost_User.id')
-                ->pluck('getHost_User.id')
-                /*
-                ->with('getHost_User')
-                ->select('getHost_User.*')
-                ->get()
-                ->distinct()
-                ->count()
-                */
         ]);
 
+        //TODO: FINISH
+
+        $studies = $query->with('getParticipants_User')->get();
+
+        echo($studies);
+
+        $users = $studies->getParticipants_User;
+
+        dd($users);
+
+        /*
         array_push($counters, (object) [
             Table::COUNTER_LABEL                            => 'Leerlingen',
-            Table::COUNTER_VALUE                            => count(array_unique($query
-                ->with('getParticipants_User')
-                ->get()
-                ->pluck('getParticipants_User.id')
-                ->toArray()))
+            Table::COUNTER_VALUE                            => count(array_unique()
 
             /*
             ->with('getHost_User')
@@ -936,8 +931,7 @@ class StudyController extends Controller {
             ->get()
             ->distinct()
             ->count()
-            */
-        ]);
+        ]);*/
 
         return view(Views::LOAD_COUNTERS, [
 
