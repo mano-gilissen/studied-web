@@ -906,32 +906,25 @@ class StudyController extends Controller {
                 ->toArray()))
         ]);
 
-        //TODO: FINISH
 
-        $studies = $query->with('getParticipants_User')->get();
 
-        echo($studies);
+        $studentIds = [];
 
-        $users = $studies->getParticipants_User;
+        foreach ($query->get() as $study) {
 
-        dd($users);
+            foreach ($study->getParticipants_User as $student) {
 
-        /*
+                array_push($studentIds, $student->{Model::$BASE_ID});
+
+            }
+        }
+
+        dd($studentIds);
+
         array_push($counters, (object) [
             Table::COUNTER_LABEL                            => 'Leerlingen',
-            Table::COUNTER_VALUE                            => count(array_unique()
-
-            /*
-            ->with('getHost_User')
-            ->groupBy('getHost_User.id')
-            ->pluck('getHost_User.id')
-            /*
-            ->with('getHost_User')
-            ->select('getHost_User.*')
-            ->get()
-            ->distinct()
-            ->count()
-        ]);*/
+            Table::COUNTER_VALUE                            => count(array_unique($studentIds))
+        ]);
 
         return view(Views::LOAD_COUNTERS, [
 
