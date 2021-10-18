@@ -44,8 +44,6 @@ trait StudyTrait {
 
     public static function create(array $data, &$study) {
 
-        dd($data);
-
         self::validate($data);
 
         $study                                                  = new Study;
