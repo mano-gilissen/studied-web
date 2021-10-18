@@ -484,6 +484,8 @@ class EmployeeController extends Controller {
 
         self::list_counters_load_total($query, $counters);
 
+        self::list_counters_load_min_max($query, $counters);
+
         return view(Views::LOAD_COUNTERS, [
 
             Table::VIEW_COUNTERS                            => $counters
