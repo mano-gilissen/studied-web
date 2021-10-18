@@ -887,9 +887,12 @@ class StudyController extends Controller {
 
         self::list_counters_load_hours($query, $counters);
 
-        self::list_counters_load_employees($query, $counters);
+        if (self::hasManagementRights()) {
 
-        self::list_counters_load_students($query, $counters);
+            self::list_counters_load_employees($query, $counters);
+
+            self::list_counters_load_students($query, $counters);
+        }
 
         return view(Views::LOAD_COUNTERS, [
 
