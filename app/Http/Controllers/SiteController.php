@@ -18,7 +18,7 @@ class SiteController extends Controller {
 
     public function home() {
 
-        return \File::get(public_path() . '/home.html');
+        return view(Views::WEBSITE_HOME);
 
     }
 

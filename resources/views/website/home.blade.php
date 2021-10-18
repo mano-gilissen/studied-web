@@ -1,0 +1,611 @@
+<!DOCTYPE html><!--  This site was created in Webflow. http://www.webflow.com  -->
+<!--  Last Published: Mon Aug 30 2021 14:15:51 GMT+0000 (Coordinated Universal Time)  -->
+<html data-wf-page="60ab5c331d30060cebefdca0" data-wf-site="60ab5c331d3006ab3cefdc9f">
+<head>
+  <meta charset="utf-8">
+  <title>Bijles bij Studied</title>
+  <meta content="Bij Studied bieden we persoonlijke begeleiding voor middelbare scholieren. Onze begeleiding varieert van privéles tot colleges." name="description">
+  <meta content="Studied Bijlesinstituut" property="og:title">
+  <meta content="Bij Studied bieden we persoonlijke begeleiding voor middelbare scholieren. Onze begeleiding varieert van privéles tot colleges." property="og:description">
+  <meta content="Studied Bijlesinstituut" property="twitter:title">
+  <meta content="Bij Studied bieden we persoonlijke begeleiding voor middelbare scholieren. Onze begeleiding varieert van privéles tot colleges." property="twitter:description">
+  <meta property="og:type" content="website">
+  <meta content="summary_large_image" name="twitter:card">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="Webflow" name="generator">
+  <link href="css/normalize.css" rel="stylesheet" type="text/css">
+  <link href="css/webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/studied.webflow.css" rel="stylesheet" type="text/css">
+  <style>@media (min-width:992px) {html.w-mod-js:not(.w-mod-ix) [data-w-id="b9179626-10c8-31d9-88fc-8081dfa59b1b"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="00a9cc4c-f8ac-c016-5614-226d804b64ee"] {color:rgb(255,255,255);}html.w-mod-js:not(.w-mod-ix) [data-w-id="a4cd1891-9c48-bafb-9307-9276775110f2"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="a4cd1891-9c48-bafb-9307-9276775110ee"] {color:rgb(255,255,255);}html.w-mod-js:not(.w-mod-ix) [data-w-id="01f7d392-9e75-ffc2-0ca2-1300331f3581"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="01f7d392-9e75-ffc2-0ca2-1300331f357d"] {color:rgb(255,255,255);}html.w-mod-js:not(.w-mod-ix) [data-w-id="bc044224-8922-c013-fe7e-f53bb8885345"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="bc044224-8922-c013-fe7e-f53bb8885341"] {color:rgb(255,255,255);}html.w-mod-js:not(.w-mod-ix) [data-w-id="f3d44b17-de71-b8ae-d88e-9cc0768aa206"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="f3d44b17-de71-b8ae-d88e-9cc0768aa202"] {color:rgb(255,255,255);}html.w-mod-js:not(.w-mod-ix) [data-w-id="0e55c35c-c000-4a79-c170-29ab15abd25d"] {opacity:0;}html.w-mod-js:not(.w-mod-ix) [data-w-id="0e55c35c-c000-4a79-c170-29ab15abd259"] {color:rgb(255,255,255);}}</style>
+  <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
+  <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+  <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+  <link href="images/webclip.png" rel="apple-touch-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <style>
+  input, textarea {
+	-webkit-appearance: none;
+	border-radius: 0; }
+  body:hover .cursor {
+    opacity:1.0;
+  }
+  /* Autofill background none*/
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+  }
+  .cursor {
+    pointer-events: none;
+  }
+  .body {
+  	overflow: overlay;
+  }
+  .body-scrolloff {
+  	overflow: hidden;
+  }
+  .w-checkbox-input--inputType-custom.w--redirected-focus {
+    box-shadow: none;
+   }
+  .wf--redirected-checked input[type="checkbox"]:focus + label::before {
+  	outline: none;
+   }
+  html {
+  	-webkit-tap-highlight-color: rgba(255,221,0,0);
+  }
+  .textarea {
+  	resize: none;
+  }
+  ::-webkit-scrollbar {
+     width: 5px;
+   }
+  ::-webkit-scrollbar-track {
+       background-color: rgba(0, 0, 0, .02);
+       -webkit-border-radius: 0px;
+       border-radius: 0px;
+   }
+   ::-webkit-scrollbar-thumb {
+       -webkit-border-radius: 10px;
+       border-radius: 10px;
+       background: #434343;
+   }
+   ::selection {
+    color: #1a1a1a;
+    background: rgba(255,221,0, .95);
+   }
+  @media screen and (max-width: 991px){
+      .mobile100vh {
+          height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+          height: calc(var(--vh, 1vh) * 100);
+        }
+  }
+  .active-text{
+	color: #fff;
+  }
+  .active-box{
+	background-color: #242424 !important;
+    border-color: #242424 !important;
+  }
+  .circle-big {
+	fill: #242424;
+    transition:
+    r .9s,
+    fill .5s .5s;
+  }
+  .circle-small {
+    fill: #fd0;
+    transition:
+    r .6s .3s,
+    fill .5s .1s;
+  }
+  .menu-open-txt {
+  	color: #fff !important;
+  	transition:
+    color .2s .5s;
+  }
+/*///////////// Nice select//////////*/
+.nice-select {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+          display:block !important;
+          padding: 0.25em 0;
+          float: none;
+          width: 100%;
+		  font-size: 1em;
+          height: auto;
+          border-radius: 0px;
+          border-style: solid;
+    	  border-width: 0 0 1px;
+    	  border: none;
+          border-bottom: 1px solid #e6e6e6;
+          color: #434343;
+          background-color: rgba(0,0,0,0);
+          margin-bottom: 3.5em;
+}
+.nice-select:active, .nice-select.open, .nice-select:focus + span.current {
+  color: #242424;
+}
+.nice-select .option.selected {
+    font-weight: 400;
+}
+.nice-select .list {
+width: 100% !important;
+overflow: auto !important;
+max-height: 200px !important;
+box-shadow: none !important;
+}
+.nice-select .option:hover, .nice-select .option.focus, .nice-select .option.selected.focus {
+    background-color: rgba(0,0,0,0);
+    color: #fd0 ;
+}
+.nice-select .option.focus, .nice-select .option.selected.focus {
+    background-color: rgba(0,0,0,0) !important;
+    color: #fd0 !important;
+}
+.nice-select.open:after {
+  -webkit-transform: rotate(-135deg);
+  -ms-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+.nice-select.open .list {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: scale(1) translateY(0);
+  -ms-transform: scale(1) translateY(0);
+  transform: scale(1) translateY(0);
+}
+.nice-select.disabled {
+  border-color: #ededed;
+  color: #999;
+  pointer-events: none;
+}
+.nice-select.disabled:after {
+  border-color: #e6e6e6;
+}
+.nice-select.wide {
+  width: 100%;
+}
+.nice-select.wide .list {
+  left: 0 !important;
+  right: 0 !important;
+}
+.nice-select.right {
+  float: right;
+}
+.nice-select.right .list {
+  left: auto;
+  right: 0;
+}
+.nice-select .list {
+	border-radius: 0;
+  background-color: white;
+  box-shadow: none;
+  box-sizing: border-box;
+  margin-top: 0px;
+  opacity: 0;
+  overflow: hidden;
+  padding: .5em 0px;
+  pointer-events: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: var(--list-max-height);
+  -webkit-transform-origin: 50% 0;
+  -ms-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+  -webkit-transform: scale(0.75) translateY(-21px);
+  -ms-transform: scale(0.75) translateY(-21px);
+  transform: scale(0.75) translateY(-21px);
+  -webkit-transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
+  transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
+  z-index: 9;
+  -webkit-box-shadow: 5px 4px 9px 2px rgba(0,0,0,0.04) !important;
+  box-shadow: 5px 4px 9px 2px rgba(0,0,0,0.04) !important;
+}
+.nice-select .list:hover .option:not(:hover) {
+  background-color: transparent !important;
+}
+.nice-select .option {
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  padding: 3px 1em;
+  font-weight: 400;
+  color: #434343;
+}
+.nice-select .option:first-child {
+	display: none;
+}
+span.current {
+	color: #e6e6e6;
+  font-weight: 400;
+}
+.nice-select .option.disabled {
+  background-color: transparent;
+  color: #434343;
+  opacity: .5;
+  cursor: default;
+}
+.no-csspointerevents .nice-select .list {
+display: none;
+}
+.no-csspointerevents .nice-select.open .list {
+display: block;
+}
+.nice-select:after {
+	  border-bottom: 2px solid #e6e6e6;
+    border-right: 2px solid #e6e6e6;
+}
+.w-input:focus, .w-select:focus {
+    border-color: #434343 !important;
+    outline: 0;
+}
+.checkbox:focus { outline: 0 !important}
+@media screen and (min-width: 1920px){
+  .nice-select {
+      font-size: 1.25em;
+  }
+}
+/*///////////// Nice select End//////////*/
+</style>
+</head>
+<body class="body">
+  <div class="pagetransition-container mobile100vh">
+    <div class="pt-textwrap">
+      <div class="pt-innertxt">
+        <p class="pt-text">Zet</p>
+      </div>
+      <div class="pt-innertxt">
+        <p class="pt-text">een</p>
+      </div>
+      <div class="pt-innertxt">
+        <p class="pt-text geel">punt</p>
+      </div>
+      <div class="pt-innertxt">
+        <p class="pt-text">achter</p>
+      </div>
+      <div class="pt-innertxt">
+        <p class="pt-text">je</p>
+      </div>
+      <div class="pt-innertxt">
+        <p class="pt-text last">onvoldoendes.</p>
+      </div>
+    </div>
+    <div class="pt-background">
+      <div class="pt-backcol col1">
+        <div class="backcol-inner colin1"></div>
+      </div>
+    </div>
+  </div>
+  <div class="menu-wrapper">
+    <div class="menu">
+      <div class="menu-content">
+        <div class="menu-innerwrap">
+          <a data-w-id="76d3e6d0-431d-bfa2-64fb-a13cdaf5dda3" href="/actueel" class="menu-linkblock pageleave">Actueel</a>
+          <a data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc8109" href="/begeleiding" class="menu-linkblock pageleave">Begeleiding</a>
+          <a data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc810b" href="/werkwijze" class="menu-linkblock pageleave">Werkwijze</a>
+          <a data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc810f" href="/werk" class="menu-linkblock pageleave">Werk</a>
+          <a data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc8111" href="/zakelijk" class="menu-linkblock pageleave">Zakelijk</a>
+          <div class="contact-info">
+            <p class="contact-info__tag">Vragen? Bel of mail ons!</p>
+            <div class="menu-contact-info__info">
+              <a href="tel:+31600000000" class="contact-info_txt">+31 6 31 23 44 35</a>
+            </div>
+            <div class="menu-contact-info__info">
+              <a href="mailto:info@studied.nl" class="contact-info_txt">info@studied.nl</a>
+            </div>
+          </div>
+        </div>
+        <div class="menu-extras">
+          <div class="login-container">
+            <p class="login-caption" style="margin:0 1em 0 0">Naar het portaal</p>
+            <a href="/inloggen" class="main-btn menu-btn pageleave">Inloggen</a>
+          </div>
+        </div>
+        <div class="site-name__wrap">
+          <a data-w-id="0321ca4e-998a-3e99-b443-597d2349ae85" href="/home" aria-current="page" class="home-link pageleave w--current">Studied<span class="geel">.</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="site-name__wrap">
+      <a data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc811b" href="/home" aria-current="page" class="home-link pageleave w--current">Studied<span class="geel">.</span></a>
+    </div>
+    <div class="menu-background w-embed"><svg width="54" height="54" style="overflow: inherit !important;">
+        <circle class="circle-radius" cx="50%" cy="50%" r="27" fill="#ffdd00"></circle>
+      </svg></div>
+    <div data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc811e" class="menu-openbtn w-embed">
+      <a class="pageleave">
+        <svg width="54" height="54">
+          <circle cx="50%" cy="50%" r="27" fill="#ffdd00"></circle>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div data-w-id="b55edc24-e315-df59-d4dc-be483f513682" class="pageheader mobile100vh">
+    <div class="scrolllottie-wrap">
+      <div data-w-id="b0a07e11-b904-ce10-8718-8d942b054410" data-animation-type="lottie" data-src="documents/53892-scroll-down-mouse.json" data-loop="1" data-direction="1" data-autoplay="0" data-is-ix2-target="1" data-renderer="svg" data-default-duration="2.4638745562178235" data-duration="3.5"></div>
+    </div>
+    <div class="pageheader__column bigcol">
+      <div class="pageheader-inner">
+        <h1 class="heading home-heading">Bij Studied bieden we persoonlijke begeleiding</h1>
+      </div>
+      <div class="videooverlay mobile100vh"></div>
+    </div>
+    <div class="pageheader__column smallcol">
+      <div data-poster-url="videos/Studied_brandfilm_web_9x16_FINAL-Comp-poster-00001.jpg" data-video-urls="videos/Studied_brandfilm_web_9x16_FINAL-Comp-transcode.mp4,videos/Studied_brandfilm_web_9x16_FINAL-Comp-transcode.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" data-hover="false" class="header-backgroundvideo mobile w-background-video w-background-video-atom"><video autoplay="" loop="" style="background-image:url(&quot;videos/Studied_brandfilm_web_9x16_FINAL-Comp-poster-00001.jpg&quot;)" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover">
+          <source src="videos/Studied_brandfilm_web_9x16_FINAL-Comp-transcode.mp4" data-wf-ignore="true">
+          <source src="videos/Studied_brandfilm_web_9x16_FINAL-Comp-transcode.webm" data-wf-ignore="true">
+        </video></div>
+      <div data-poster-url="videos/Studied_brandfilm_web_16x9_FINAL-Comp-poster-00001.jpg" data-video-urls="videos/Studied_brandfilm_web_16x9_FINAL-Comp-transcode.mp4,videos/Studied_brandfilm_web_16x9_FINAL-Comp-transcode.webm" data-autoplay="true" data-loop="true" data-wf-ignore="true" data-hover="false" class="header-backgroundvideo w-background-video w-background-video-atom"><video autoplay="" loop="" style="background-image:url(&quot;videos/Studied_brandfilm_web_16x9_FINAL-Comp-poster-00001.jpg&quot;)" muted="" playsinline="" data-wf-ignore="true" data-object-fit="cover">
+          <source src="videos/Studied_brandfilm_web_16x9_FINAL-Comp-transcode.mp4" data-wf-ignore="true">
+          <source src="videos/Studied_brandfilm_web_16x9_FINAL-Comp-transcode.webm" data-wf-ignore="true">
+        </video></div>
+    </div>
+  </div>
+  <div class="pagesmenu-container">
+    <a data-w-id="f3d44b17-de71-b8ae-d88e-9cc0768aa200" href="/actueel" class="pagesmenu-inner__wrap pageleave w-inline-block">
+      <div class="inner-container">
+        <div class="inner-main">
+          <p data-w-id="f3d44b17-de71-b8ae-d88e-9cc0768aa202" class="inner-subtekst">Het laatste nieuws</p>
+          <h2 class="pagesmenu-heading">Actueel</h2>
+        </div>
+        <div data-w-id="f3d44b17-de71-b8ae-d88e-9cc0768aa206" class="inner-secondary">
+          <p class="main-menu__paragraph">We houden u graag op de hoogte van de meest relevante ontwikkelingen in en rondom onze organisatie. Lees hier het laatste nieuws van Studied.</p>
+        </div>
+      </div>
+    </a>
+    <a data-w-id="0c66e4b1-54ba-0654-9413-582f50e2b1ff" href="/begeleiding" class="pagesmenu-inner__wrap pageleave w-inline-block">
+      <div class="inner-container">
+        <div class="inner-main">
+          <p data-w-id="00a9cc4c-f8ac-c016-5614-226d804b64ee" class="inner-subtekst">Zet een punt achter je onvoldoendes</p>
+          <h2 class="pagesmenu-heading">Begeleiding</h2>
+        </div>
+        <div data-w-id="b9179626-10c8-31d9-88fc-8081dfa59b1b" class="inner-secondary">
+          <p class="main-menu__paragraph">We bieden verschillende soorten begeleiding voor middelbare scholieren. Afhankelijk van wat de scholier nodig heeft, kan dit variëren van privéles tot colleges.</p>
+        </div>
+      </div>
+    </a>
+    <a data-w-id="bc044224-8922-c013-fe7e-f53bb888533f" href="/werkwijze" class="pagesmenu-inner__wrap pageleave w-inline-block">
+      <div class="inner-container">
+        <div class="inner-main">
+          <p data-w-id="bc044224-8922-c013-fe7e-f53bb8885341" class="inner-subtekst">Bekijk onze aanpak</p>
+          <h2 class="pagesmenu-heading">Werkwijze</h2>
+        </div>
+        <div data-w-id="bc044224-8922-c013-fe7e-f53bb8885345" class="inner-secondary">
+          <p class="main-menu__paragraph">De behoefte van de scholier staat bij ons centraal. Bij alles wat we doen vragen we ons af: Past dit bij wat de middelbare scholieren nodig hebben?</p>
+        </div>
+      </div>
+    </a>
+    <a data-w-id="01f7d392-9e75-ffc2-0ca2-1300331f357b" href="/werk" class="pagesmenu-inner__wrap pageleave w-inline-block">
+      <div class="inner-container">
+        <div class="inner-main">
+          <p data-w-id="01f7d392-9e75-ffc2-0ca2-1300331f357d" class="inner-subtekst">Word jij ons nieuwe teamlid?</p>
+          <h2 class="pagesmenu-heading">Werk</h2>
+        </div>
+        <div data-w-id="01f7d392-9e75-ffc2-0ca2-1300331f3581" class="inner-secondary">
+          <p class="main-menu__paragraph">Persoonlijke begeleiding is meer dan les geven. Begeleid onze scholieren als student-docent of sluit je aan bij ons hoofdkantoor!</p>
+        </div>
+      </div>
+    </a>
+    <a data-w-id="a4cd1891-9c48-bafb-9307-9276775110ec" href="/zakelijk" class="pagesmenu-inner__wrap pageleave w-inline-block">
+      <div class="inner-container">
+        <div class="inner-main">
+          <p data-w-id="a4cd1891-9c48-bafb-9307-9276775110ee" class="inner-subtekst">Samenwerken? Graag!</p>
+          <h2 class="pagesmenu-heading">Zakelijk</h2>
+        </div>
+        <div data-w-id="a4cd1891-9c48-bafb-9307-9276775110f2" class="inner-secondary">
+          <p class="main-menu__paragraph">We werken graag samen met andere organisaties. Zo sponsoren we jaarlijks sportteams, de laatste schooldag, en het gala van onze bijleskids.</p>
+        </div>
+      </div>
+    </a>
+    <a href="#" data-hover="false" data-w-id="0e55c35c-c000-4a79-c170-29ab15abd257" class="pagesmenu-inner__wrap menu-contact pageleave w-inline-block">
+      <div class="inner-container">
+        <div class="inner-main">
+          <p data-w-id="0e55c35c-c000-4a79-c170-29ab15abd259" class="inner-subtekst">Meer informatie nodig?</p>
+          <h2 class="pagesmenu-heading">Contact</h2>
+        </div>
+        <div data-w-id="0e55c35c-c000-4a79-c170-29ab15abd25d" class="inner-secondary">
+          <p class="main-menu__paragraph">Als je nog vragen hebt, neem dan gerust contact op met ons hoofdkantoor! We zullen de aanvraag direct in behandeling nemen.</p>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div id="contactDiv" data-hover="false" style="display:none" class="subpage-section contactform hp-contact">
+    <div class="cf-container">
+      <div class="cf-header home-contact">
+        <h3 class="b2 bk">Neem contact op</h3>
+      </div>
+      <div class="form-wrapper w-form">
+          <form action="https://submit-form.com/xSgds62z" id="email-form" data-name="Email Form" autocomplete="off" class="cf-body"> <!-- name="email-form" -->
+
+              <input type="hidden" name="_feedback.dark" value="false" />
+              <input type="hidden" name="_feedback.language" value="nl" />
+              <input type="hidden" name="_feedback.success.title" value="Je verzoek is verstuurd!" />
+              <input type="hidden" name="_feedback.success.message" value="Ga terug naar waar je was:" />
+          <div class="cf-selectcontainer">
+            <div class="cf-title">
+              <div class="cf-title__number bk">
+                <p class="cf-number">01</p>
+              </div>
+              <p class="cf-sechead bk">Onderwerp</p>
+            </div>
+            <div class="cf-innerwrap"><label class="w-checkbox cf-select">
+                <div class="w-checkbox-input w-checkbox-input--inputType-custom cf-select__btn"></div><input type="checkbox" id="Begeleiding" name="Begeleiding" data-name="Begeleiding" data-hover="false" style="opacity:0;position:absolute;z-index:-1"><span for="Begeleiding" data-hover="false" class="cf-select__text w-form-label">Begeleiding</span>
+              </label><label class="w-checkbox cf-select">
+                <div class="w-checkbox-input w-checkbox-input--inputType-custom cf-select__btn"></div><input type="checkbox" id="Zakelijk" name="Zakelijk" data-name="Zakelijk" data-hover="false" style="opacity:0;position:absolute;z-index:-1"><span for="Zakelijk" data-hover="false" class="cf-select__text w-form-label">Werk</span>
+              </label></div>
+            <div class="cf-innerwrap"><label class="w-checkbox cf-select">
+                <div class="w-checkbox-input w-checkbox-input--inputType-custom cf-select__btn"></div><input type="checkbox" id="Vactures" name="Vactures" data-name="Vactures" data-hover="false" style="opacity:0;position:absolute;z-index:-1"><span for="Vactures" data-hover="false" class="cf-select__text w-form-label">Zakelijk</span>
+              </label><label class="w-checkbox cf-select">
+                <div class="w-checkbox-input w-checkbox-input--inputType-custom cf-select__btn"></div><input type="checkbox" id="Anders" name="Anders" data-name="Anders" data-hover="false" style="opacity:0;position:absolute;z-index:-1"><span for="Anders" data-hover="false" class="cf-select__text w-form-label">Anders</span>
+              </label></div>
+          </div>
+          <div class="cf-main">
+            <div class="cf-title">
+              <div class="cf-title__number bk">
+                <p class="cf-number">02</p>
+              </div>
+              <p class="cf-sechead bk">Jouw gegevens</p>
+            </div>
+            <div class="cf-colwrap">
+              <div class="cf-column left"><label for="Voornaam" data-hover="false" class="cf-fieldlabel">Voornaam</label><input type="text" class="cf-textfield w-input" autocomplete="off" maxlength="256" name="Voornaam" data-name="Voornaam" placeholder="Jouw voornaam" data-hover="false" id="Voornaam" required=""></div>
+              <div class="cf-column right"><label for="Achternaam" data-hover="false" class="cf-fieldlabel">Achternaam</label><input type="text" class="cf-textfield w-input" autocomplete="off" maxlength="256" name="Achternaam" data-name="Achternaam" placeholder="Jouw Achternaam" data-hover="false" id="Achternaam" required=""></div>
+            </div>
+            <div class="cf-colwrap">
+              <div class="cf-column left"><label for="Email" data-hover="false" class="cf-fieldlabel">Email</label><input type="email" class="cf-textfield w-input" autocomplete="off" maxlength="256" name="Email" data-name="Email" placeholder="Jouw email adres" data-hover="false" id="Email" required=""></div>
+              <div class="cf-column right"><label for="Telefoon" data-hover="false" class="cf-fieldlabel">Telefoonnummer</label><input type="tel" class="cf-textfield w-input" autocomplete="off" maxlength="256" name="Telefoon" data-name="Telefoon" placeholder="Jouw telefoonnummer" data-hover="false" id="Telefoon"></div>
+            </div>
+            <div class="cf-colwrap">
+              <div class="cf-column left"><label for="Stad" data-hover="false" class="cf-fieldlabel">Stad</label><select id="Stad" name="Stad" data-name="Stad" required="" data-hover="false" class="w-select">
+                  <option value="Geen stad geselecteerd">Selecteer een stad</option>
+                  <option value="Hoofdkantoor">Hoofdkantoor</option>
+                  <option value="Amsterdam">Amsterdam</option>
+                  <option value="Eindhoven">Eindhoven</option>
+                  <option value="Maastricht">Maastricht</option>
+                  <option value="Nijmegen">Nijmegen</option>
+                  <option value="Tilburg">Tilburg</option>
+                  <option value="Utrecht">Utrecht</option>
+                </select></div>
+              <div class="cf-column right"></div>
+            </div><label for="Bericht" data-hover="false" class="cf-fieldlabel">Email</label><textarea class="textarea w-input" autocomplete="off" maxlength="5000" name="Bericht" data-name="Bericht" placeholder="Jouw bericht" data-hover="false" id="Bericht" required=""></textarea><input type="submit" value="Versturen" data-wait="Please wait..." data-hover="false" class="cf-submit w-button">
+          </div>
+        </form>
+        <div class="success-message w-form-done">
+          <div>Dank voor het bericht! We zullen jouw vraag zo snel mogelijk in behandeling nemen.</div>
+        </div>
+        <div class="error-message w-form-fail">
+          <div>Oei! Er is iets misgegaan met versturen, probeer het later nog eens.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=60ab5c331d3006ab3cefdc9f" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="js/webflow.js" type="text/javascript"></script>
+  <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
+  <script>
+function internalLink(myLink) {
+    return (myLink.host == window.location.host);
+}
+$('a').each(function() {
+  if (internalLink(this) && (this).href.indexOf('#') === -1) {
+  $(this).click(function(e){
+  e.preventDefault();
+  var moduleURL = jQuery(this).attr("href");
+  setTimeout( function() { window.location = moduleURL }, 950 );
+  // Class that has page out interaction tied to click
+  $('.page-transition').click();
+});
+    }
+});
+</script>
+  <script>
+  // .cursor class needs to have a mouse click interaction applied
+    $('a.pageleave').mouseenter(function() {
+    $('.cursor').click();
+  });
+  $('a.pageleave').mouseleave(function() {
+    $('.cursor').click();
+  });
+  // Check if browser is on mobile
+  (function(a){(jQuery.browser=jQuery.browser||{}).mobile=/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))})(navigator.userAgent||navigator.vendor||window.opera);
+  let isMobile = jQuery.browser.mobile;
+  if(isMobile === true){
+      $('html').addClass('is-mobile');
+  }
+  // Custom viewheight for mobile
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+  // Delay link
+  function delay (URL) {
+  setTimeout( function() { window.location = URL }, 850 );
+  }
+  // Checkboxes add classes
+  $('.cf-select__btn, .cf-select__text').on('click', function(){
+        setTimeout(function(){
+          $('.cf-select__btn').each(function(index){
+            if($(this).hasClass('w--redirected-checked')){
+                console.log(index + 'is active')
+                $(this).addClass('active-box');
+                $(this).siblings('.cf-select__text').addClass('active-text');
+            } else {
+              $(this).removeClass('active-box');
+              $(this).siblings('.cf-select__text').removeClass('active-text');
+            }
+          })
+        }, 50);
+  })
+// Fullscreen menu
+ let screenWidth = $(window).width();
+ let screenHeight = $(window).height();
+ let screenDiagonal = 1.1 * Math.sqrt(screenWidth*screenWidth + screenHeight*screenHeight);
+ let currentSize = $(".circle-radius").attr("r");
+ let matrixFactor = screenDiagonal / currentSize;
+ $('.menu-background').css('transition', 'transform .95s .1s');
+ console.log(currentSize)
+    $(".menu-openbtn").on('click', function(){
+        // Closing Click
+        let clicks = $(this).data('clicks');
+        currentSize = '27';
+        console.log(currentSize)
+            if(clicks){
+                $('.menu-background').css('transform', 'matrix(1,0,0,1,0,0)');
+                $(".circle-radius").addClass("circle-small");
+                if($(".circle-radius").hasClass('circle-small')){
+                    $(".circle-radius").removeClass("circle-big");
+                    $('.home-link').removeClass('menu-open-txt');
+                    $('.body').removeClass('body-scrolloff');
+                    $('.menu-background').css('transition', 'transform .95s .2s');
+                }
+            }else{
+                $('.menu-background').css('transform', 'matrix('+ matrixFactor +',0,0,'+ matrixFactor +',0,0)');
+                $(".circle-radius").addClass("circle-big");
+                if($(".circle-radius").hasClass('circle-big')){
+                    $(".circle-radius").removeClass("circle-small");
+                    $('.home-link').addClass('menu-open-txt');
+                    $('.body').addClass('body-scrolloff');
+                }
+            }
+        $(this).data('clicks', !clicks);
+    })
+    $(window).resize( function(){
+    screenWidth = $(window).width();
+    screenHeight = $(window).height();
+    screenDiagonal = 1.1 * Math.sqrt(screenWidth*screenWidth + screenHeight*screenHeight)
+    matrixFactor = screenDiagonal / currentSize;
+    if($(".circle-radius").hasClass('circle-big')){
+        $('.menu-background').css('transform', 'matrix('+ matrixFactor +',0,0,'+ matrixFactor +',0,0)')
+                             .css('transition', 'transform .95s');
+    }
+    })
+//Nice select
+	$(document).ready(function() {
+  	$('select').niceSelect();
+	});
+</script>
+  <script>
+$(".menu-contact").click(function() {
+		event.preventDefault();
+    setTimeout(function(){
+    $('html, body').animate({
+        scrollTop: $("#contactDiv").offset().top
+    }, 500, 'swing');
+    }, 100)
+});
+</script>
+</body>
+</html>
