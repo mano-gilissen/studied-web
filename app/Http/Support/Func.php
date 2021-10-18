@@ -65,20 +65,23 @@ class Func {
         echo($date_event);
         echo("\n");
         echo($date_now);
-        dd('a');
 
         if ($date_event < $date_now) {
 
+            dd('1');
             return true;
 
         } else if ($date_event > $date_now) {
 
+            dd('2');
             return false;
 
         } else {
 
             $time_event                                     = strtotime($datetime);
             $time_now                                       = strtotime($time ?? date(Format::$DATABASE_TIME, time()));
+
+            dd('3');
 
             return $time_event < $time_now;
         }
