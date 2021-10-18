@@ -640,6 +640,13 @@ class StudentController extends Controller {
                 ->count()
         ]);
 
+        array_push($counters, (object) [
+            Table::COUNTER_LABEL                            => 'Min/Max',
+            Table::COUNTER_VALUE                            =>
+                $query->select('student.*')->get()->sum('min') . '/' .
+                $query->select('student.*')->get()->sum('max')
+        ]);
+
         return view(Views::LOAD_COUNTERS, [
 
             Table::VIEW_COUNTERS                            => $counters
