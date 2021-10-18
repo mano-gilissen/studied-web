@@ -42,7 +42,7 @@ class SiteController extends Controller {
 
     public function begeleiding() {
 
-        return \File::get(public_path() . '/begeleiding.html');
+        return view(Views::WEBSITE_BEGELEIDING);
 
     }
 
@@ -50,7 +50,7 @@ class SiteController extends Controller {
 
     public function werk() {
 
-        return \File::get(public_path() . '/werk.html');
+        return view(Views::WEBSITE_WERK);
 
     }
 
@@ -58,7 +58,7 @@ class SiteController extends Controller {
 
     public function werkwijze() {
 
-        return \File::get(public_path() . '/werkwijze.html');
+        return view(Views::WEBSITE_WERKWIJZE);
 
     }
 
@@ -66,7 +66,7 @@ class SiteController extends Controller {
 
     public function zakelijk() {
 
-        return \File::get(public_path() . '/zakelijk.html');
+        return view(Views::WEBSITE_ZAKELIJK);
 
     }
 

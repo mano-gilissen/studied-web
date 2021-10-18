@@ -44,6 +44,10 @@ class Views {
 
     const WEBSITE_ACTUEEL                       = "website.actueel";
     const WEBSITE_ARTICLE                       = "website.article";
+    const WEBSITE_BEGELEIDING                   = "website.begeleiding";
+    const WEBSITE_WERK                          = "website.werk";
+    const WEBSITE_WERKWIJZE                     = "website.werkwijze";
+    const WEBSITE_ZAKELIJK                      = "website.zakelijk";
 
     const LAB                                   = "lab";
     const FEEDBACK                              = "feedback";
