@@ -516,9 +516,6 @@ class EmployeeController extends Controller {
             ->pluck('getUser.' . 'id')
             ->toArray();
 
-        echo($employeeIds);
-        echo('\n\n');
-
         $studentIds = User::whereHas('getAgreements_asStudent', function ($q) use ($employeeIds) {
 
             $q->where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATETIME, time()));
@@ -528,9 +525,6 @@ class EmployeeController extends Controller {
             ->get()
             ->pluck(Model::$STUDENT)
             ->toArray();
-
-        echo($studentIds);
-        echo('\n\n');
 
         $min                                                = Student::whereIn(Model::$BASE_ID, $studentIds)->sum(Model::$STUDENT_MIN);
         $max                                                = Student::whereIn(Model::$BASE_ID, $studentIds)->sum(Model::$STUDENT_MAX);
