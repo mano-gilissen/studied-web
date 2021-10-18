@@ -516,6 +516,8 @@ class EmployeeController extends Controller {
             ->pluck('getUser.' . 'id')
             ->toArray();
 
+        dd($employeeIds);
+
         $studentIds = User::whereHas('getAgreements_asStudent', function ($q) use ($employeeIds) {
 
             $q->where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATETIME, time()));
