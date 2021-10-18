@@ -919,8 +919,6 @@ class StudyController extends Controller {
             }
         }
 
-        dd($studentIds);
-
         array_push($counters, (object) [
             Table::COUNTER_LABEL                            => 'Leerlingen',
             Table::COUNTER_VALUE                            => count(array_unique($studentIds))
