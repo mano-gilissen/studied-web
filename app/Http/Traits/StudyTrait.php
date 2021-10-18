@@ -16,6 +16,7 @@ use App\Models\Agreement;
 use App\Models\Report;
 use App\Models\Study;
 use App\Models\User;
+use App\Rules\DateBeforeEndAgreement;
 use Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -265,6 +266,15 @@ trait StudyTrait {
         $rules['date']                                              = ['required'];
         $rules[Model::$STUDY_START]                                 = ['required'];
         $rules[Model::$STUDY_END]                                   = ['required'];
+
+        foreach ($data as $key => $value) {
+
+            if (Func::contains($key, '_' . Model::$AGREEMENT)) {
+
+                $rules[$key]                                        = [new DateBeforeEndAgreement(array_key_exists('date', $data) ? $data['date'] : null)];
+
+            }
+        }
 
         $validator                                                  = Validator::make($data, $rules, BaseTrait::getValidationMessages());
 

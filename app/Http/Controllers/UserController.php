@@ -131,10 +131,7 @@ class UserController extends Controller {
     public function form_study_agreements_load(Request $request) {
 
         $user_id                                            = $request->input(Model::$USER, null);
-        $date                                               = $request->input('date', null);
         $user                                               = null;
-
-        echo($date);
 
         if ($user_id > 0) {
 
@@ -144,8 +141,8 @@ class UserController extends Controller {
 
         return view(Views::LOAD_AGREEMENTS, [
 
-            Model::$USER                                    => $user,
-            'date'                                          => $date
+            Model::$USER                                    => $user
+
         ]);
     }
 
