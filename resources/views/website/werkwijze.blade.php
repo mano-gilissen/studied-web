@@ -320,10 +320,10 @@
         <div class="menu-content">
             <div class="menu-innerwrap">
                 <a data-w-id="76d3e6d0-431d-bfa2-64fb-a13cdaf5dda3" href="/actueel" class="menu-linkblock pageleave">Actueel</a>
-                <a data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc8109" href="begeleiding.html" class="menu-linkblock pageleave">Begeleiding</a>
-                <a data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc810b" href="werkwijze.html" aria-current="page" class="menu-linkblock pageleave w--current">Werkwijze</a>
-                <a data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc810f" href="werk.html" class="menu-linkblock pageleave">Werk</a>
-                <a data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc8111" href="zakelijk.html" class="menu-linkblock pageleave">Zakelijk</a>
+                <a data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc8109" href="/begeleiding" class="menu-linkblock pageleave">Begeleiding</a>
+                <a data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc810b" href="/werkwijze" aria-current="page" class="menu-linkblock pageleave w--current">Werkwijze</a>
+                <a data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc810f" href="/werk" class="menu-linkblock pageleave">Werk</a>
+                <a data-w-id="4c17008c-8cec-bf04-ab47-0e03fffc8111" href="/zakelijk" class="menu-linkblock pageleave">Zakelijk</a>
                 <div class="contact-info">
                     <p class="contact-info__tag">Vragen? Bel of mail ons!</p>
                     <div class="menu-contact-info__info">
@@ -1068,16 +1068,16 @@
                     <a href="/actueel" class="footer-link">Actueel</a>
                 </div>
                 <div class="footer-linkwrap">
-                    <a href="begeleiding.html" class="footer-link">Begeleiding</a>
+                    <a href="/begeleiding" class="footer-link">Begeleiding</a>
                 </div>
                 <div class="footer-linkwrap">
-                    <a href="werkwijze.html" aria-current="page" class="footer-link w--current">Werkwijze</a>
+                    <a href="/werkwijze" aria-current="page" class="footer-link w--current">Werkwijze</a>
                 </div>
                 <div class="footer-linkwrap">
-                    <a href="werk.html" class="footer-link">Werk</a>
+                    <a href="/werk" class="footer-link">Werk</a>
                 </div>
                 <div class="footer-linkwrap">
-                    <a href="zakelijk.html" class="footer-link">Zakelijk</a>
+                    <a href="/zakelijk" class="footer-link">Zakelijk</a>
                 </div>
             </div>
         </div>
