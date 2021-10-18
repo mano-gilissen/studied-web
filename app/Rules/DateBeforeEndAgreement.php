@@ -23,7 +23,6 @@ class DateBeforeEndAgreement implements Rule {
 
         $this->date = $date;
 
-        dd($date);
     }
 
 
@@ -35,6 +34,8 @@ class DateBeforeEndAgreement implements Rule {
             return false;
 
         }
+
+        dd($date);
 
         $agreement = Agreement::find($value);
 
