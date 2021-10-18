@@ -6,14 +6,6 @@
 
 
 
-    @foreach ($errors->all() as $error)
-
-        <div>{{ $error }}</div>
-
-    @endforeach
-
-
-
     <div class="title">{{ __('Tijd en locatie') }}</div>
 
     @include('form.field-input', ['id' => 'date', 'type' => 'date', 'tag' => 'Datum', 'placeholder' => 'Kies een datum', 'required' => true, 'trigger' => 'agreements'])
