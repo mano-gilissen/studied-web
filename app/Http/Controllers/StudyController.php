@@ -873,6 +873,8 @@ class StudyController extends Controller {
 
 
 
+
+
     public function list_counters_load(Request $request) {
 
         $sort                                               = $request->input(Table::DATA_SORT, null);
@@ -881,6 +883,25 @@ class StudyController extends Controller {
         $query                                              = Table::query($this, $sort, $filter);
         $counters                                           = [];
 
+        self::list_counters_load_total($query, $counters);
+
+        self::list_counters_load_hours($query, $counters);
+
+        self::list_counters_load_employees($query, $counters);
+
+        self::list_counters_load_students($query, $counters);
+
+        return view(Views::LOAD_COUNTERS, [
+
+            Table::VIEW_COUNTERS                            => $counters
+
+        ]);
+    }
+
+
+
+    public function list_counters_load_total($query, &$counters) {
+
         array_push($counters, (object) [
             Table::COUNTER_LABEL                            => 'Totaal',
             Table::COUNTER_VALUE                            => $query
@@ -888,6 +909,11 @@ class StudyController extends Controller {
                 ->get()
                 ->count()
         ]);
+    }
+
+
+
+    public function list_counters_load_hours($query, &$counters) {
 
         array_push($counters, (object) [
             Table::COUNTER_LABEL                            => 'Uren',
@@ -896,6 +922,11 @@ class StudyController extends Controller {
                 ->pluck('time')
                 ->toArray()) / 60
         ]);
+    }
+
+
+
+    public function list_counters_load_employees($query, &$counters) {
 
         array_push($counters, (object) [
             Table::COUNTER_LABEL                            => 'Medewerkers',
@@ -905,8 +936,11 @@ class StudyController extends Controller {
                 ->pluck('getHost_User.id')
                 ->toArray()))
         ]);
+    }
 
 
+
+    public function list_counters_load_students($query, &$counters) {
 
         $studentIds = [];
 
@@ -923,14 +957,7 @@ class StudyController extends Controller {
             Table::COUNTER_LABEL                            => 'Leerlingen',
             Table::COUNTER_VALUE                            => count(array_unique($studentIds))
         ]);
-
-        return view(Views::LOAD_COUNTERS, [
-
-            Table::VIEW_COUNTERS                            => $counters
-
-        ]);
     }
-
 
 
 
