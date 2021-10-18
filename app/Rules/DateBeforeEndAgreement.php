@@ -35,8 +35,6 @@ class DateBeforeEndAgreement implements Rule {
 
         }
 
-        dd($this->date);
-
         $agreement = Agreement::find($value);
 
         if (!$agreement) {
@@ -44,6 +42,8 @@ class DateBeforeEndAgreement implements Rule {
             return false;
 
         }
+
+        dd($agreement);
 
         return !Func::has_passed($agreement->{Model::$AGREEMENT_END}, $this->date);
     }
