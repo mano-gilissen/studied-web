@@ -39,7 +39,7 @@ class DateBeforeEndAgreement implements Rule {
 
         if (!$agreement) {
 
-            return false;
+            return true;
 
         }
 
