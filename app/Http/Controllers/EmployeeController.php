@@ -518,15 +518,13 @@ class EmployeeController extends Controller {
 
         $userIds_students = User::whereHas('getAgreements_asStudent', function ($q) use ($userIds_employees) {
 
-            //$q->where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATETIME, time()));
+            $q->where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATETIME, time()));
             $q->whereIn(Model::$EMPLOYEE, $userIds_employees);
 
         })
             ->get()
             ->pluck(Model::$BASE_ID)
             ->toArray();
-
-        dd($userIds_students);
 
         $min                                                = Student::whereIn(Model::$USER, $userIds_students)->sum(Model::$STUDENT_MIN);
         $max                                                = Student::whereIn(Model::$USER, $userIds_students)->sum(Model::$STUDENT_MAX);
