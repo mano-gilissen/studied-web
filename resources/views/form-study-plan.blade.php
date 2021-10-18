@@ -6,20 +6,6 @@
 
 
 
-    @foreach($errors->getMessages() as $key => $message)
-
-        @if(\App\Http\Support\Func::contains($key, \App\Http\Support\Model::$AGREEMENT))
-
-            <div class="block-note error">De vakafspraak moet op de datum van de les actief zijn.</div>
-
-            <div class="seperator"></div>
-
-        @endif
-
-    @endforeach
-
-
-
     <div class="title">{{ __('Tijd en locatie') }}</div>
 
     @include('form.field-input', ['id' => 'date', 'type' => 'date', 'tag' => 'Datum', 'placeholder' => 'Kies een datum', 'required' => true, 'trigger' => 'agreements'])
@@ -57,6 +43,16 @@
         @include('form.field-select-agreement')
 
     @endisset
+
+    @foreach($errors->getMessages() as $key => $message)
+
+        @if(\App\Http\Support\Func::contains($key, \App\Http\Support\Model::$AGREEMENT))
+
+            <div class="block-note error">De vakafspraak moet op de datum van de les actief zijn.</div>
+
+        @endif
+
+    @endforeach
 
     <div class="seperator"></div>
 
