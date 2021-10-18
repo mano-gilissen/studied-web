@@ -29,7 +29,10 @@ trait AgreementTrait {
         $STATUS_ACTIVE                          = 3,
         $STATUS_EXPIRED                         = 4,
         $STATUS_FINISHED                        = 5,
-        $STATUS_PLANNED                         = 6;
+        $STATUS_PLANNED                         = 6,
+
+        $TRIAL_NO                               = 1,
+        $TRIAL_YES                              = 2;
 
 
 
@@ -66,6 +69,16 @@ trait AgreementTrait {
                 $agreement->{Model::$AGREEMENT_EXTENSION}       = $agreement_replace->{Model::$AGREEMENT_IDENTIFIER};
                 $agreement->{Model::$AGREEMENT_STATUS}          = self::$STATUS_ACTIVE;
             }
+        }
+
+
+
+        $trial                                                  = array_key_exists('trial' . $suffix, $data) ? $data['trial' . $suffix] : self::$TRIAL_YES;
+
+        if ($trial == self::$TRIAL_NO) {
+
+            $agreement->{Model::$AGREEMENT_STATUS}              = self::$STATUS_ACTIVE;
+
         }
 
 
