@@ -510,26 +510,26 @@ class EmployeeController extends Controller {
 
     public function list_counters_load_min_max($query, &$counters) {
 
-        $employeeIds = $query
+        $userIds_employees = $query
             ->with('getUser')
             ->get()
             ->pluck('getUser.' . 'id')
             ->toArray();
 
-        $studentIds = User::whereHas('getAgreements_asStudent', function ($q) use ($employeeIds) {
+        $userIds_students = User::whereHas('getAgreements_asStudent', function ($q) use ($userIds_employees) {
 
-            $q->where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATETIME, time()));
-            $q->whereIn(Model::$EMPLOYEE, $employeeIds);
+            //$q->where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATETIME, time()));
+            $q->whereIn(Model::$EMPLOYEE, $userIds_employees);
 
         })
             ->get()
-            ->pluck(Model::$STUDENT)
+            ->pluck(Model::$BASE_ID)
             ->toArray();
 
-        dd($studentIds);
+        dd($userIds_students);
 
-        $min                                                = Student::whereIn(Model::$BASE_ID, $studentIds)->sum(Model::$STUDENT_MIN);
-        $max                                                = Student::whereIn(Model::$BASE_ID, $studentIds)->sum(Model::$STUDENT_MAX);
+        $min                                                = Student::whereIn(Model::$USER, $userIds_students)->sum(Model::$STUDENT_MIN);
+        $max                                                = Student::whereIn(Model::$USER, $userIds_students)->sum(Model::$STUDENT_MAX);
 
         array_push($counters, (object) [
             Table::COUNTER_LABEL                            => 'Min/Max',
