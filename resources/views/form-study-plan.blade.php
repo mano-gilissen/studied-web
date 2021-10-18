@@ -22,7 +22,17 @@
 
     @if(Auth::user()->role == \App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
-        <div class="title">{{ __('Activiteit') }}</div>
+        <div class="title">{{ __('Activiteit(en)') }}</div>
+
+        @foreach($errors->getMessages() as $key => $message)
+
+            @if(\App\Http\Support\Func::contains($key, \App\Http\Support\Model::$AGREEMENT))
+
+                <div class="block-note error" style="margin-bottom: 24px">>De vakafspraak moet op de datum van de les actief zijn.</div>
+
+            @endif
+
+        @endforeach
 
         @include('form.field-hidden', ['id' => '_host', 'value' => Auth::id()])
 
@@ -40,19 +50,19 @@
 
         <div class="title">{{ __('Activiteit(en)') }}</div>
 
+        @foreach($errors->getMessages() as $key => $message)
+
+            @if(\App\Http\Support\Func::contains($key, \App\Http\Support\Model::$AGREEMENT))
+
+                <div class="block-note error" style="margin-bottom: 24px">De vakafspraak moet op de datum van de les actief zijn.</div>
+
+            @endif
+
+        @endforeach
+
         @include('form.field-select-agreement')
 
     @endisset
-
-    @foreach($errors->getMessages() as $key => $message)
-
-        @if(\App\Http\Support\Func::contains($key, \App\Http\Support\Model::$AGREEMENT))
-
-            <div class="block-note error">De vakafspraak moet op de datum van de les actief zijn.</div>
-
-        @endif
-
-    @endforeach
 
     <div class="seperator"></div>
 
