@@ -54,7 +54,7 @@
 
             @if(\App\Http\Support\Func::contains($key, \App\Http\Support\Model::$AGREEMENT))
 
-                <div class="block-note error" style="margin-bottom: 24px">Alle geselecteerde vakafspraken moet op de datum van de les nog actief zijn.</div>
+                <div class="block-note error" style="margin-bottom: 24px">De vakafspraak moet op de datum van de les nog actief zijn.</div>
 
             @endif
 
