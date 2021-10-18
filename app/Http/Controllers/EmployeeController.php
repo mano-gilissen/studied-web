@@ -484,8 +484,6 @@ class EmployeeController extends Controller {
 
         self::list_counters_load_total($query, $counters);
 
-        self::list_counters_load_min_max($query, $counters);
-
         return view(Views::LOAD_COUNTERS, [
 
             Table::VIEW_COUNTERS                            => $counters
@@ -503,35 +501,6 @@ class EmployeeController extends Controller {
                 ->select('employee.*')
                 ->get()
                 ->count()
-        ]);
-    }
-
-
-
-    public function list_counters_load_min_max($query, &$counters) {
-
-        $userIds_employees = $query
-            ->with('getUser')
-            ->get()
-            ->pluck('getUser.' . 'id')
-            ->toArray();
-
-        $userIds_students = User::whereHas('getAgreements_asStudent', function ($q) use ($userIds_employees) {
-
-            $q->where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATETIME, time()));
-            $q->whereIn(Model::$EMPLOYEE, $userIds_employees);
-
-        })
-            ->get()
-            ->pluck(Model::$BASE_ID)
-            ->toArray();
-
-        $min                                                = Student::whereIn(Model::$USER, $userIds_students)->sum(Model::$STUDENT_MIN);
-        $max                                                = Student::whereIn(Model::$USER, $userIds_students)->sum(Model::$STUDENT_MAX);
-
-        array_push($counters, (object) [
-            Table::COUNTER_LABEL                            => 'Min/Max',
-            Table::COUNTER_VALUE                            => $min . '/' . $max
         ]);
     }
 
