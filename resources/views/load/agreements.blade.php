@@ -12,64 +12,72 @@
 
         @if($user ?? false)
 
-            @php $agreements = \App\Http\Traits\UserTrait::getAgreements($user, true, false); @endphp
+            @if($date ?? false)
 
-            @if($agreements->count() > 0)
+                @php $agreements = \App\Http\Traits\UserTrait::getAgreements($user, false, false, false, $date); @endphp
 
-                @foreach($agreements as $agreement)
+                @if($agreements->count() > 0)
 
-                    @if(!(\App\Http\Traits\AgreementTrait::hasNowTrial($agreement)))
+                    @foreach($agreements as $agreement)
 
-                        <div class="agreement" id="{{ $agreement->id }}" data-subject="{{ $agreement->subject }}">
+                        @if(!(\App\Http\Traits\AgreementTrait::hasNowTrial($agreement)))
 
-                            <div class="top">
+                            <div class="agreement" id="{{ $agreement->id }}" data-subject="{{ $agreement->subject }}">
 
-                                <div class="title">{{ $agreement->identifier }}</div>
+                                <div class="top">
 
-                                <img class="selector" src="/images_app/check-white.svg"/>
+                                    <div class="title">{{ $agreement->identifier }}</div>
+
+                                    <img class="selector" src="/images_app/check-white.svg"/>
+
+                                </div>
+
+                                <div class="bottom">
+
+                                    @if($agreement->getStudent->getPerson->avatar)
+
+                                        <img src="{{ asset("storage/avatar/" . $agreement->getStudent->getPerson->avatar) }}"/>
+
+                                    @else
+
+                                        <div>
+
+                                            <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials($agreement->getStudent->getPerson) }}</div>
+
+                                        </div>
+
+                                    @endif
+
+                                    <div>{!! \App\Http\Traits\AgreementTrait::getDescription($agreement, true) !!} @if(\App\Http\Traits\AgreementTrait::planNowTrial($agreement)) <span class="trial"> (Proefles)</span> @endif</div>
+
+                                </div>
+
+                                <input
+                                    id                                          = "_agreement_{{ $agreement->id }}"
+                                    name                                        = "_agreement_{{ $agreement->id }}"
+                                    type                                        = "hidden">
 
                             </div>
 
-                            <div class="bottom">
+                        @endif
 
-                                @if($agreement->getStudent->getPerson->avatar)
+                    @endforeach
 
-                                    <img src="{{ asset("storage/avatar/" . $agreement->getStudent->getPerson->avatar) }}"/>
+                    <script>
 
-                                @else
+                        study_agreements_set_active(0);
 
-                                    <div>
+                    </script>
 
-                                        <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials($agreement->getStudent->getPerson) }}</div>
+                @else
 
-                                    </div>
+                    <div class="block-note">Deze student-docent heeft geen actieve vakafspraken op deze datum.</div>
 
-                                @endif
-
-                                <div>{!! \App\Http\Traits\AgreementTrait::getDescription($agreement, true) !!} @if(\App\Http\Traits\AgreementTrait::planNowTrial($agreement)) <span class="trial"> (Proefles)</span> @endif</div>
-
-                            </div>
-
-                            <input
-                                id                                          = "_agreement_{{ $agreement->id }}"
-                                name                                        = "_agreement_{{ $agreement->id }}"
-                                type                                        = "hidden">
-
-                        </div>
-
-                    @endif
-
-                @endforeach
-
-                <script>
-
-                    study_agreements_set_active(0);
-
-                </script>
+                @endif
 
             @else
 
-                <div class="block-note">Deze student-docent heeft geen actieve vakafspraken.</div>
+                <div class="block-note">Selecteer eerst een datum.</div>
 
             @endif
 

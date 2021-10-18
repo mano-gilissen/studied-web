@@ -141,7 +141,7 @@ trait UserTrait {
 
 
 
-    public static function getAgreements($user, $active_only = false, $include_trial = true, $include_finished = false) {
+    public static function getAgreements($user, $active_only = false, $include_trial = true, $include_finished = false, $on_date = null) {
 
         $query                                              = Agreement::query();
 
@@ -174,6 +174,12 @@ trait UserTrait {
         if (!$include_finished) {
 
             $query->where(Model::$AGREEMENT_STATUS, '!=', AgreementTrait::$STATUS_FINISHED);
+
+        }
+
+        if ($on_date) {
+
+            $query->where(Model::$AGREEMENT_END, '>=', $on_date);
 
         }
 
