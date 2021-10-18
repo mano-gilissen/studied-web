@@ -12,7 +12,7 @@
 
         @if($user ?? false)
 
-            @php $agreements = \App\Http\Traits\UserTrait::getAgreements($user, false, false, false, $date); @endphp
+            @php $agreements = \App\Http\Traits\UserTrait::getAgreements($user, true, false, false); @endphp
 
             @if($agreements->count() > 0)
 
