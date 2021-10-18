@@ -10,7 +10,7 @@
 
         @if(\App\Http\Support\Func::contains($key, \App\Http\Support\Model::$AGREEMENT))
 
-            <!--<div class="block-note error"></div>-->
+           <div class="block-note error">asdsdf</div>
 
             <div class="seperator"></div>
 
