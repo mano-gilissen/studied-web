@@ -632,6 +632,23 @@ class StudentController extends Controller {
         $query                                              = Table::query($this, $sort, $filter);
         $counters                                           = [];
 
+        self::list_counters_load_total($query, $counters);
+
+        if (self::hasEmployeeRights()) {
+
+            self::list_counters_load_min_max($query, $counters);
+
+        }
+
+        return view(Views::LOAD_COUNTERS, [
+
+            Table::VIEW_COUNTERS                            => $counters
+
+        ]);
+    }
+
+    public function list_counters_load_total($query, &$counters) {
+
         array_push($counters, (object) [
             Table::COUNTER_LABEL                            => 'Totaal',
             Table::COUNTER_VALUE                            => $query
@@ -639,18 +656,15 @@ class StudentController extends Controller {
                 ->get()
                 ->count()
         ]);
+    }
+
+    public function list_counters_load_min_max($query, &$counters) {
 
         array_push($counters, (object) [
             Table::COUNTER_LABEL                            => 'Min/Max',
             Table::COUNTER_VALUE                            =>
                 $query->select('student.*')->get()->sum('min') . '/' .
                 $query->select('student.*')->get()->sum('max')
-        ]);
-
-        return view(Views::LOAD_COUNTERS, [
-
-            Table::VIEW_COUNTERS                            => $counters
-
         ]);
     }
 
