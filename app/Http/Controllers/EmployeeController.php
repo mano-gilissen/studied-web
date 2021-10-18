@@ -21,6 +21,7 @@ use App\Http\Support\Model;
 use App\Models\Agreement;
 use App\Models\Employee;
 use App\Models\Person;
+use App\Models\Student;
 use Illuminate\Database\Eloquent\Builder;
 use App\Models\Subject;
 use App\Models\User;
@@ -481,6 +482,19 @@ class EmployeeController extends Controller {
         $query                                              = Table::query($this, $sort, $filter);
         $counters                                           = [];
 
+        self::list_counters_load_total($query, $counters);
+
+        return view(Views::LOAD_COUNTERS, [
+
+            Table::VIEW_COUNTERS                            => $counters
+
+        ]);
+    }
+
+
+
+    public function list_counters_load_total($query, &$counters) {
+
         array_push($counters, (object) [
             Table::COUNTER_LABEL                            => 'Totaal',
             Table::COUNTER_VALUE                            => $query
@@ -488,11 +502,40 @@ class EmployeeController extends Controller {
                 ->get()
                 ->count()
         ]);
+    }
 
-        return view(Views::LOAD_COUNTERS, [
 
-            Table::VIEW_COUNTERS                            => $counters
 
+    public function list_counters_load_min_max($query, &$counters) {
+
+        $employeeIds = $query
+            ->with('getUser')
+            ->get()
+            ->pluck('getUser.' . 'id')
+            ->toArray();
+
+        echo($employeeIds);
+        echo('\n\n');
+
+        $studentIds = User::whereHas('getAgreements_asStudent', function ($q) use ($employeeIds) {
+
+            $q->where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATETIME, time()));
+            $q->whereIn(Model::$EMPLOYEE, $employeeIds);
+
+        })
+            ->get()
+            ->pluck(Model::$STUDENT)
+            ->toArray();
+
+        echo($studentIds);
+        echo('\n\n');
+
+        $min                                                = Student::whereIn(Model::$BASE_ID, $studentIds)->sum(Model::$STUDENT_MIN);
+        $max                                                = Student::whereIn(Model::$BASE_ID, $studentIds)->sum(Model::$STUDENT_MAX);
+
+        array_push($counters, (object) [
+            Table::COUNTER_LABEL                            => 'Min/Max',
+            Table::COUNTER_VALUE                            => $min . '/' . $max
         ]);
     }
 
