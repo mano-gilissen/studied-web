@@ -22,6 +22,8 @@ class DateBeforeEndAgreement implements Rule {
     public function __construct($date) {
 
         $this->date = $date;
+
+        dd($date);
     }
 
 
