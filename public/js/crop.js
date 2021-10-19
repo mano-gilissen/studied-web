@@ -9,8 +9,6 @@ $(function(){
 
     $('#avatar-upload').change(function(event) {
 
-        console.log("a");
-
         var files                                       = event.target.files;
 
         var done = function(url) {

@@ -631,7 +631,16 @@ class StudyController extends Controller {
                     break;
 
                 case self::$COLUMN_SERVICE:
-                    $query->where(Model::$SERVICE, $value);
+
+                    switch ($value) {
+
+                        case -1:
+                            $query->where(Model::$STUDY_TRIAL, true);
+                            break;
+
+                        default:
+                            $query->where(Model::$SERVICE, $value);
+                    }
                     break;
 
                 case self::$COLUMN_SUBJECT:
@@ -781,11 +790,17 @@ class StudyController extends Controller {
 
             case self::$COLUMN_SERVICE:
 
-                return $query
+                dd(array_merge($query
                     ->with('getService')
                     ->get()
                     ->pluck('getService.' . Model::$SERVICE_NAME, 'getService.' . Model::$BASE_ID)
-                    ->toArray();
+                    ->toArray(), ['Proefles' => -1]));
+
+                return array_merge($query
+                    ->with('getService')
+                    ->get()
+                    ->pluck('getService.' . Model::$SERVICE_NAME, 'getService.' . Model::$BASE_ID)
+                    ->toArray(), ['Proefles' => -1]);
 
             case self::$COLUMN_SUBJECT:
 
@@ -839,7 +854,7 @@ class StudyController extends Controller {
                     break;
 
                 case self::$COLUMN_SERVICE:
-                    $display                                = Service::find($value)->{Model::$SERVICE_NAME};
+                    $display                                = $value > 0 ? Service::find($value)->{Model::$SERVICE_NAME} : "Proefles";
                     break;
 
                 case self::$COLUMN_SUBJECT:
