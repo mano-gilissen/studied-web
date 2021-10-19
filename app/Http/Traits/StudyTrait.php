@@ -183,6 +183,7 @@ trait StudyTrait {
         } else {
 
             $study->{Model::$STUDY_LOCATION_TEXT}                   = $data[Model::$LOCATION];
+            $study->{Model::$ADDRESS}                               = null;
 
         }
 
