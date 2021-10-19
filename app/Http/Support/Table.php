@@ -42,6 +42,7 @@ class Table {
     const SORT_MODE                                         = "mode";
     const SORT_MODE_ASC                                     = "asc";
     const SORT_MODE_DESC                                    = "desc";
+    const SORT_MODE_NONE                                    = "none";
     const SORT_DISABLED                                     = "no_sort";
 
     const FILTER_COLUMN                                     = "column";

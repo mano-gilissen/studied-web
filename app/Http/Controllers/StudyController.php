@@ -561,32 +561,35 @@ class StudyController extends Controller {
 
         foreach ($sort as $column => $mode) {
 
-            switch ($column) {
+            if ($mode != Table::SORT_MODE_NONE) {
 
-                case self::$COLUMN_DATE:
-                    $query->orderBy(Model::$STUDY_START, $mode);
-                    break;
+                switch ($column) {
 
-                case self::$COLUMN_HOST:
-                    $query->join(Model::$USER, Model::$USER . '.' . Model::$BASE_ID, '=', Model::$STUDY . '.' . Model::$STUDY_HOST_USER);
-                    $query->join(Model::$PERSON, Model::$PERSON . '.' . Model::$BASE_ID, '=', Model::$USER . '.' . Model::$PERSON);
-                    $query->orderBy(Model::$PERSON . '.' . Model::$PERSON_FIRST_NAME, $mode);
-                    break;
+                    case self::$COLUMN_DATE:
+                        $query->orderBy(Model::$STUDY_START, $mode);
+                        break;
 
-                case self::$COLUMN_SERVICE:
-                    $query->join(Model::$SERVICE, Model::$SERVICE . '.' . Model::$BASE_ID, '=', Model::$STUDY . '.' . Model::$SERVICE);
-                    $query->orderBy(Model::$SERVICE . '.' . Model::$SERVICE_NAME, $mode);
-                    break;
+                    case self::$COLUMN_HOST:
+                        $query->join(Model::$USER, Model::$USER . '.' . Model::$BASE_ID, '=', Model::$STUDY . '.' . Model::$STUDY_HOST_USER);
+                        $query->join(Model::$PERSON, Model::$PERSON . '.' . Model::$BASE_ID, '=', Model::$USER . '.' . Model::$PERSON);
+                        $query->orderBy(Model::$PERSON . '.' . Model::$PERSON_FIRST_NAME, $mode);
+                        break;
 
-                case self::$COLUMN_TIME:
-                    $query->orderBy(Model::$STUDY_START, $mode);
-                    $query->orderBy(Model::$STUDY_END, $mode);
-                    break;
+                    case self::$COLUMN_SERVICE:
+                        $query->join(Model::$SERVICE, Model::$SERVICE . '.' . Model::$BASE_ID, '=', Model::$STUDY . '.' . Model::$SERVICE);
+                        $query->orderBy(Model::$SERVICE . '.' . Model::$SERVICE_NAME, $mode);
+                        break;
 
-                case self::$COLUMN_STATUS:
-                    $query->orderBy(Model::$STUDY_STATUS, $mode);
-                    $query->orderBy(Model::$STUDY_START, $mode == Table::SORT_MODE_DESC ? TABLE::SORT_MODE_ASC : Table::SORT_MODE_DESC);
-                    break;
+                    case self::$COLUMN_TIME:
+                        $query->orderBy(Model::$STUDY_START, $mode);
+                        $query->orderBy(Model::$STUDY_END, $mode);
+                        break;
+
+                    case self::$COLUMN_STATUS:
+                        $query->orderBy(Model::$STUDY_STATUS, $mode);
+                        $query->orderBy(Model::$STUDY_START, $mode == Table::SORT_MODE_DESC ? TABLE::SORT_MODE_ASC : Table::SORT_MODE_DESC);
+                        break;
+                }
             }
         }
     }

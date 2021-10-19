@@ -100,7 +100,19 @@ function load() {
 
 function sort(column) {
 
-    this.data_sort                          = {[column] : (this.data_sort[column] ? (this.data_sort[column] == 'desc' ? 'asc' : 'desc') : 'desc')};
+    $mode_sort = 'asc';
+
+    if (this.data_sort[column]) {
+
+        switch (this.data_sort[column]) {
+
+            case 'asc':                     $mode_sort = 'desc'; break;
+            case 'desc':                    $mode_sort = 'none'; break;
+            case 'none':                    $mode_sort = 'asc'; break;
+        }
+    }
+
+    this.data_sort                          = {[column] : $mode_sort};
 
     load();
 }

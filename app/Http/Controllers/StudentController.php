@@ -398,26 +398,29 @@ class StudentController extends Controller {
 
         foreach ($sort as $column => $mode) {
 
-            switch ($column) {
+            if ($mode != Table::SORT_MODE_NONE) {
 
-                case self::$COLUMN_NAME:
-                    $query->join(Model::$USER, Model::$USER . '.' . Model::$BASE_ID, '=', Model::$STUDENT . '.' . Model::$USER);
-                    $query->join(Model::$PERSON, Model::$PERSON . '.' . Model::$BASE_ID, '=', Model::$USER . '.' . Model::$PERSON);
-                    $query->orderBy(Model::$PERSON . '.' . Model::$PERSON_FIRST_NAME, $mode);
-                    break;
+                switch ($column) {
 
-                case self::$COLUMN_NIVEAU:
-                    $query->orderBy(Model::$STUDENT_NIVEAU, $mode);
-                    break;
+                    case self::$COLUMN_NAME:
+                        $query->join(Model::$USER, Model::$USER . '.' . Model::$BASE_ID, '=', Model::$STUDENT . '.' . Model::$USER);
+                        $query->join(Model::$PERSON, Model::$PERSON . '.' . Model::$BASE_ID, '=', Model::$USER . '.' . Model::$PERSON);
+                        $query->orderBy(Model::$PERSON . '.' . Model::$PERSON_FIRST_NAME, $mode);
+                        break;
 
-                case self::$COLUMN_LEERJAAR:
-                    $query->orderBy(Model::$STUDENT_LEERJAAR, $mode);
-                    break;
+                    case self::$COLUMN_NIVEAU:
+                        $query->orderBy(Model::$STUDENT_NIVEAU, $mode);
+                        break;
 
-                case self::$COLUMN_STATUS:
-                    $query->join(Model::$USER, Model::$USER . '.' . Model::$BASE_ID, '=', Model::$STUDENT . '.' . Model::$USER);
-                    $query->orderBy(Model::$USER . '.' . Model::$USER_STATUS, $mode);
-                    break;
+                    case self::$COLUMN_LEERJAAR:
+                        $query->orderBy(Model::$STUDENT_LEERJAAR, $mode);
+                        break;
+
+                    case self::$COLUMN_STATUS:
+                        $query->join(Model::$USER, Model::$USER . '.' . Model::$BASE_ID, '=', Model::$STUDENT . '.' . Model::$USER);
+                        $query->orderBy(Model::$USER . '.' . Model::$USER_STATUS, $mode);
+                        break;
+                }
             }
         }
     }
