@@ -63,7 +63,15 @@
 
                         <div class="name">{{ $report_subject->getAgreement ? \App\Http\Traits\AgreementTrait::getVakcode($report_subject->getAgreement) : $report_subject->getSubject->{ \App\Http\Support\Model::$SUBJECT_NAME} }}</div>
 
-                        <div class="dots">
+                        <div class="bar-wrap">
+
+                            <div class="bar-duration" style="width: {{ $report_subject->{\App\Http\Support\Model::$REPORT_SUBJECT_DURATION} / \App\Http\Traits\ReportTrait::getDurationTotal($report) }}">
+
+                            </div>
+
+                        </div>
+
+                        <div class="dots" style="display: none">
 
                             @for ($i = 0; $i < \App\Http\Traits\ReportTrait::getDurationDots_Total($report); $i++)
 

@@ -84,6 +84,20 @@
     text-align:                         end;
 }
 
+.report .bar-wrap {
+    width:                              104px;
+    height:                             9px;
+    background:                         #F0F0F0;
+    border-radius:                      5px;
+}
+
+.report .bar-duration {
+    position:                           absolute;
+    height:                             9px;
+    background:                         #FFDD34;
+    border-radius:                      5px;
+}
+
 .report .dots {
     display:                            grid;
     grid-auto-flow:                     column;
