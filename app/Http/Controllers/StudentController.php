@@ -230,7 +230,7 @@ class StudentController extends Controller {
                     Table::column(self::$COLUMN_EMAIL, self::list_column_label(self::$COLUMN_EMAIL), 3, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_PHONE, self::list_column_label(self::$COLUMN_PHONE), 3, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_NIVEAU, self::list_column_label(self::$COLUMN_NIVEAU), 2, true, $sort, true, $filter),
-                    Table::column(self::$COLUMN_LEERJAAR, self::list_column_label(self::$COLUMN_LEERJAAR), 1.5, true, $sort, true, $filter),
+                    Table::column(self::$COLUMN_LEERJAAR, self::list_column_label(self::$COLUMN_LEERJAAR), 2, true, $sort, true, $filter),
                     Table::column(self::$COLUMN_AGREEMENTS, self::list_column_label(self::$COLUMN_AGREEMENTS), 3.5, false, $sort, true, $filter),
                     Table::column(self::$COLUMN_MIN_MAX, self::list_column_label(self::$COLUMN_MIN_MAX), 2, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_CUSTOMER, self::list_column_label(self::$COLUMN_CUSTOMER), 3, true, $sort, true, $filter),
@@ -244,7 +244,7 @@ class StudentController extends Controller {
                     Table::column(self::$COLUMN_EMAIL, self::list_column_label(self::$COLUMN_EMAIL), 3, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_PHONE, self::list_column_label(self::$COLUMN_PHONE), 3, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_NIVEAU, self::list_column_label(self::$COLUMN_NIVEAU), 2, true, $sort, true, $filter),
-                    Table::column(self::$COLUMN_LEERJAAR, self::list_column_label(self::$COLUMN_LEERJAAR), 1.5, true, $sort, true, $filter),
+                    Table::column(self::$COLUMN_LEERJAAR, self::list_column_label(self::$COLUMN_LEERJAAR), 2, true, $sort, true, $filter),
                     Table::column(self::$COLUMN_AGREEMENTS, self::list_column_label(self::$COLUMN_AGREEMENTS), 3.5, false, $sort, true, $filter),
                     Table::column(self::$COLUMN_MIN_MAX, self::list_column_label(self::$COLUMN_MIN_MAX), 2, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 2, true, $sort, true, $filter, true)
@@ -257,7 +257,7 @@ class StudentController extends Controller {
                     Table::column(self::$COLUMN_EMAIL, self::list_column_label(self::$COLUMN_EMAIL), 3, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_PHONE, self::list_column_label(self::$COLUMN_PHONE), 3, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_NIVEAU, self::list_column_label(self::$COLUMN_NIVEAU), 2, false, $sort, false, $filter),
-                    Table::column(self::$COLUMN_LEERJAAR, self::list_column_label(self::$COLUMN_LEERJAAR), 1.5, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_LEERJAAR, self::list_column_label(self::$COLUMN_LEERJAAR), 2, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_AGREEMENTS, self::list_column_label(self::$COLUMN_AGREEMENTS), 3.5, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_MIN_MAX, self::list_column_label(self::$COLUMN_MIN_MAX), 2, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 2, false, $sort, false, $filter, true)
