@@ -65,7 +65,7 @@
 
                         <div class="bar-wrap">
 
-                            <div class="bar-duration" style="width: {{ $report_subject->{\App\Http\Support\Model::$REPORT_SUBJECT_DURATION} / \App\Http\Traits\ReportTrait::getDurationTotal($report) }}">
+                            <div class="bar-duration" style="width: {{ ($report_subject->{\App\Http\Support\Model::$REPORT_SUBJECT_DURATION} / \App\Http\Traits\ReportTrait::getDurationTotal($report)) * 100 }}%">
 
                             </div>
 
