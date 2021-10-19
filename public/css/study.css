@@ -98,19 +98,6 @@
     border-radius:                      4px;
 }
 
-.report .dots {
-    display:                            grid;
-    grid-auto-flow:                     column;
-    width:                              104px;
-    height:                             9px;
-}
-
-.report .dot {
-    width:                              9px;
-    height:                             9px;
-    border-radius:                      4.5px;
-}
-
 .report-tabs {
     display:                            flex;
     margin-top:                         8px;

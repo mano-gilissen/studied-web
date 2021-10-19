@@ -71,24 +71,6 @@
 
                         </div>
 
-                        <div class="dots" style="display: none">
-
-                            @for ($i = 0; $i < \App\Http\Traits\ReportTrait::getDurationDots_Total($report); $i++)
-
-                                @if($i < \App\Http\Traits\Report_SubjectTrait::getDurationDots($report_subject))
-
-                                    <div class="dot" style="background:#FFDD34"></div>
-
-                                @else
-
-                                    <div class="dot" style="background:#E6E6E6"></div>
-
-                                @endif
-
-                            @endfor
-
-                        </div>
-
                         <div class="duration">{{ \App\Http\Traits\Report_SubjectTrait::getDurationReadable($report_subject) }}</div>
 
                     </div>

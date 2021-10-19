@@ -57,12 +57,4 @@ trait Report_SubjectTrait {
 
 
 
-    public static function getDurationDots($report_subject) {
-
-        return (int) ($report_subject->{Model::$REPORT_SUBJECT_DURATION} / 15);
-
-    }
-
-
-
 }
