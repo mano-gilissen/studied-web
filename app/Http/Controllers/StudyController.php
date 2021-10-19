@@ -848,7 +848,7 @@ class StudyController extends Controller {
                     break;
 
                 case self::$COLUMN_SERVICE:
-                    $display                                = $value > 0 ? Service::find($value)->{Model::$SERVICE_NAME} : "Proefles";
+                    $display                                = $value == -1 ? "Proefles" : Service::find($value)->{Model::$SERVICE_NAME};
                     break;
 
                 case self::$COLUMN_SUBJECT:
