@@ -81,7 +81,13 @@ class CustomerController extends Controller {
 
         }
 
-        return redirect()->route(Route::PERSON_VIEW, [Model::$PERSON_SLUG => $customer->getUser->getPerson->{Model::$PERSON_SLUG}]);
+        return view(Views::FEEDBACK, [
+
+            Key::PAGE_TITLE                                                 => 'Klant aangemaakt',
+            Key::PAGE_NEXT                                                  => route(Route::PERSON_VIEW, [Model::$PERSON_SLUG => $customer->getUser->getPerson->{Model::$PERSON_SLUG}]),
+            Key::PAGE_ACTION                                                => 'Naar de profielpagina',
+            Key::ICON                                                       => 'check-circle-green.svg'
+        ]);
     }
 
 
@@ -127,7 +133,13 @@ class CustomerController extends Controller {
 
         $person->refresh();
 
-        return redirect()->route('person.view', $person->{Model::$PERSON_SLUG});
+        return view(Views::FEEDBACK, [
+
+            Key::PAGE_TITLE                                                 => 'Klant gewijzigd',
+            Key::PAGE_NEXT                                                  => route('person.view', $person->{Model::$PERSON_SLUG}),
+            Key::PAGE_ACTION                                                => 'Naar de profielpagina',
+            Key::ICON                                                       => 'check-circle-green.svg'
+        ]);
     }
 
 

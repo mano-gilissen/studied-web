@@ -85,7 +85,13 @@ class EmployeeController extends Controller {
 
         }
 
-        return redirect()->route(Route::PERSON_VIEW, [Model::$PERSON_SLUG => $employee->getUser->getPerson->{Model::$PERSON_SLUG}]);
+        return view(Views::FEEDBACK, [
+
+            Key::PAGE_TITLE                                                 => 'Medewerker aangemaakt',
+            Key::PAGE_NEXT                                                  => route(Route::PERSON_VIEW, [Model::$PERSON_SLUG => $employee->getUser->getPerson->{Model::$PERSON_SLUG}]),
+            Key::PAGE_ACTION                                                => 'Naar de profielpagina',
+            Key::ICON                                                       => 'check-circle-green.svg'
+        ]);
     }
 
 
@@ -132,7 +138,13 @@ class EmployeeController extends Controller {
 
         $person->refresh();
 
-        return redirect()->route('person.view', $person->{Model::$PERSON_SLUG});
+        return view(Views::FEEDBACK, [
+
+            Key::PAGE_TITLE                                                 => 'Medewerker gewijzigd',
+            Key::PAGE_NEXT                                                  => route('person.view', $person->{Model::$PERSON_SLUG}),
+            Key::PAGE_ACTION                                                => 'Naar de profielpagina',
+            Key::ICON                                                       => 'check-circle-green.svg'
+        ]);
     }
 
 

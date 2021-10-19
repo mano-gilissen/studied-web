@@ -80,7 +80,14 @@ class ReportController extends Controller {
 
         $study->refresh();
 
-        return redirect()->route(Route::STUDY_VIEW, $study->{Model::$BASE_KEY});
+        return view(Views::FEEDBACK, [
+
+            Key::PAGE_TITLE                                                 => 'Rapport verstuurd',
+            Key::PAGE_MESSAGE                                               => 'De deelnemers en ouders hiervan kunnen dit nu bekijken.',
+            Key::PAGE_NEXT                                                  => route(Route::STUDY_VIEW, $study->{Model::$BASE_KEY}),
+            Key::PAGE_ACTION                                                => 'Naar de les',
+            Key::ICON                                                       => 'check-circle-green.svg'
+        ]);
     }
 
 
@@ -111,7 +118,13 @@ class ReportController extends Controller {
 
         $study->refresh();
 
-        return redirect()->route(Route::STUDY_VIEW, $study->{Model::$BASE_KEY});
+        return view(Views::FEEDBACK, [
+
+            Key::PAGE_TITLE                                                 => 'Rapport gewijzigd',
+            Key::PAGE_NEXT                                                  => route(Route::STUDY_VIEW, $study->{Model::$BASE_KEY}),
+            Key::PAGE_ACTION                                                => 'Naar de les',
+            Key::ICON                                                       => 'check-circle-green.svg'
+        ]);
     }
 
 

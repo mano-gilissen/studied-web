@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Support\Format;
 use App\Http\Support\Func;
+use App\Http\Support\Route;
 use App\Http\Support\Table;
 use App\Http\Traits\AgreementTrait;
 use App\Http\Traits\BaseTrait;
@@ -118,7 +119,14 @@ class StudyController extends Controller {
 
         StudyTrait::create($data, $study);
 
-        return redirect()->route('study.view', $study->{Model::$BASE_KEY});
+        return view(Views::FEEDBACK, [
+
+            Key::PAGE_TITLE                                                 => 'Les ingepland',
+            Key::PAGE_MESSAGE                                               => 'Alle deelnemers worden per email op de hoogte gebracht.',
+            Key::PAGE_NEXT                                                  => route(Route::STUDY_VIEW, $study->{Model::$BASE_KEY}),
+            Key::PAGE_ACTION                                                => 'Naar de les',
+            Key::ICON                                                       => 'check-circle-green.svg'
+        ]);
     }
 
 
@@ -158,7 +166,14 @@ class StudyController extends Controller {
 
         StudyTrait::update($data, $study);
 
-        return redirect()->route('study.view', $study->{Model::$BASE_KEY});
+        return view(Views::FEEDBACK, [
+
+            Key::PAGE_TITLE                                                 => 'Les gewijzigd',
+            Key::PAGE_MESSAGE                                               => 'Alle deelnemers worden per email op de hoogte gebracht.',
+            Key::PAGE_NEXT                                                  => route(Route::STUDY_VIEW, $study->{Model::$BASE_KEY}),
+            Key::PAGE_ACTION                                                => 'Naar de les',
+            Key::ICON                                                       => 'check-circle-green.svg'
+        ]);
     }
 
 
