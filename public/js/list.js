@@ -114,6 +114,8 @@ function sort(column) {
 
     this.data_sort                          = {[column] : $mode_sort};
 
+    console.log(this.data_sort);
+
     load();
 }
 
