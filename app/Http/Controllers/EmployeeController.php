@@ -188,7 +188,7 @@ class EmployeeController extends Controller {
             Table::column(self::$COLUMN_EMAIL, self::list_column_label(self::$COLUMN_EMAIL), 3, false, $sort, false, $filter),
             Table::column(self::$COLUMN_PHONE, self::list_column_label(self::$COLUMN_PHONE), 3, false, $sort, false, $filter),
             Table::column(self::$COLUMN_SUBJECTS, self::list_column_label(self::$COLUMN_SUBJECTS), 3, false, $sort, true, $filter),
-            Table::column(self::$COLUMN_AGREEMENTS, self::list_column_label(self::$COLUMN_AGREEMENTS), 3, false, $sort, true, $filter),
+            Table::column(self::$COLUMN_AGREEMENTS, self::list_column_label(self::$COLUMN_AGREEMENTS), 3.5, false, $sort, true, $filter),
             Table::column(self::$COLUMN_CAPACITY, self::list_column_label(self::$COLUMN_CAPACITY), 2, false, $sort, false, $filter),
             Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 2, true, $sort, true, $filter, true)
         );
