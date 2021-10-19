@@ -44,6 +44,8 @@ trait StudyTrait {
 
     public static function create(array $data, &$study) {
 
+        dd($data);
+
         self::validate($data);
 
         $study                                                  = new Study;
@@ -141,41 +143,48 @@ trait StudyTrait {
 
     public static function create_set_location(&$study, $data) {
 
-        if ($data[Key::AUTOCOMPLETE_ID . Model::$LOCATION] == Key::CURRENT_ID) {
+        if (array_key_exists(Key::AUTOCOMPLETE_ID . Model::$LOCATION, $data)) {
 
-            return;
+            if ($data[Key::AUTOCOMPLETE_ID . Model::$LOCATION] == Key::CURRENT_ID) {
 
-        }
+                return;
 
-        if ($data[Key::AUTOCOMPLETE_ID . Model::$LOCATION] == StudyController::$STUDY_PLAN_LOCATION_HOST) {
-
-            $employee                                               = User::find($study->{Model::$STUDY_HOST_USER});
-
-            if ($employee) {
-
-                $study->{Model::$STUDY_LOCATION_TEXT}               = 'Thuis bij ' . $employee->getPerson->{Model::$PERSON_FIRST_NAME} . ' (Docent)';
-
-                $study->{Model::$ADDRESS}                           = User::find($study->{Model::$STUDY_HOST_USER})->getPerson->{Model::$ADDRESS};
             }
 
-        } else {
+            if ($data[Key::AUTOCOMPLETE_ID . Model::$LOCATION] == StudyController::$STUDY_PLAN_LOCATION_HOST) {
 
-            $address                                                = Address::find($data[Key::AUTOCOMPLETE_ID . Model::$LOCATION]);
+                $employee                                               = User::find($study->{Model::$STUDY_HOST_USER});
 
-            if ($address) {
+                if ($employee) {
 
-                if ($address->getLocation) {
+                    $study->{Model::$STUDY_LOCATION_TEXT}               = 'Thuis bij ' . $employee->getPerson->{Model::$PERSON_FIRST_NAME} . ' (Docent)';
 
-                    $study->{Model::$STUDY_LOCATION_TEXT}           = $address->getLocation->{Model::$LOCATION_NAME};
-
-                } else if ($address->getPerson) {
-
-                    $study->{Model::$STUDY_LOCATION_TEXT}           = 'Thuis bij ' . $address->getPerson->{Model::$PERSON_FIRST_NAME} . ' (Leerling)';
-
+                    $study->{Model::$ADDRESS}                           = User::find($study->{Model::$STUDY_HOST_USER})->getPerson->{Model::$ADDRESS};
                 }
 
-                $study->{Model::$ADDRESS}                           = $data[Key::AUTOCOMPLETE_ID . Model::$LOCATION];
+            } else {
+
+                $address                                                = Address::find($data[Key::AUTOCOMPLETE_ID . Model::$LOCATION]);
+
+                if ($address) {
+
+                    if ($address->getLocation) {
+
+                        $study->{Model::$STUDY_LOCATION_TEXT}           = $address->getLocation->{Model::$LOCATION_NAME};
+
+                    } else if ($address->getPerson) {
+
+                        $study->{Model::$STUDY_LOCATION_TEXT}           = 'Thuis bij ' . $address->getPerson->{Model::$PERSON_FIRST_NAME} . ' (Leerling)';
+
+                    }
+
+                    $study->{Model::$ADDRESS}                           = $data[Key::AUTOCOMPLETE_ID . Model::$LOCATION];
+                }
             }
+        } else {
+
+            //
+
         }
 
         if (array_key_exists(Model::$STUDY_LINK, $data)) {
@@ -185,8 +194,6 @@ trait StudyTrait {
         }
 
         // TODO:   STUDY.LOCATION IF NOT AUTOCOMPLETED (CUSTOM TEXT, NO ADDRESS)
-        // TODO:   _LOCATION FIELD SHOULD BE EMPTY AFTER NON-AUTOCOMPLETE
-        // TODO:   REJECT-OTHER SHOULD BE OFF FOR LOCATION FIELD
     }
 
 
