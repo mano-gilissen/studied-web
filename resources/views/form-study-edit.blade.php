@@ -12,7 +12,7 @@
 
     @include('form.field-select-time', ['set_start' => $study->start, 'set_end' => $study->end])
 
-    @include('form.field-input', ['id' => 'location', 'tag' => 'Locatie', 'icon' => 'search.svg', 'placeholder' => 'Zoek een locatie', 'required' => true, 'data' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true, 'set_id' => ($current_location ?? false) ? $current_location : -1])
+    @include('form.field-input', ['id' => 'location', 'tag' => 'Locatie', 'icon' => 'search.svg', 'placeholder' => 'Zoek een locatie', 'required' => true, 'data' => true, 'show_all' => true, 'uses_id' => true, 'set_id' => ($current_location ?? false) ? $current_location : -1])
 
     @include('form.field-input', ['id' => 'link', 'tag' => 'Digitale les', 'icon' => 'url.svg', 'placeholder' => 'Plak een URL', 'value' => $study->{\App\Http\Support\Model::$STUDY_LINK}])
 
