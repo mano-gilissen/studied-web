@@ -332,19 +332,17 @@ class StudentController extends Controller {
                 $agreements                                 = UserTrait::getAgreements($student->getUser, true);
                 $subjects                                   = [];
 
-                if (count($agreements) == 0) {
-
-                    return "Geen actief";
-
-                }
-
                 foreach ($agreements as $agreement) {
 
                     array_push($subjects, AgreementTrait::getVakcode($agreement));
 
                 }
 
-                return implode(", ", $subjects);
+                switch (count($subjects)) {
+                    case 0:                                 return "Geen actief";
+                    case 1:                                 return $subjects[0];
+                    default:                                return $subjects[0] . ', ' . $subjects[1] . ' en nog ' . (count($subjects) - 2);
+                }
 
             case self::$COLUMN_MIN_MAX:
 
