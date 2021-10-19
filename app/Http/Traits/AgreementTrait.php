@@ -147,6 +147,25 @@ trait AgreementTrait {
         $agreement->{Model::$AGREEMENT_STATUS}                  = self::$STATUS_FINISHED;
         $agreement->save();
 
+
+
+        $studiesToCancel = Study::whereHas('getAgreements', function ($q) use ($agreement) {
+
+            $q->where(Model::$AGREEMENT, $agreement->{Model::$BASE_ID});
+
+        })->where(Model::$STUDY_STATUS, StudyTrait::$STATUS_PLANNED)->get();
+
+        foreach ($studiesToCancel as $study) {
+
+            if (!StudyTrait::hasStarted($study)) {
+
+                $study->{Model::$STUDY_STATUS}                      = StudyTrait::$STATUS_CANCELLED;
+                $study->save();
+            }
+        }
+
+
+
         Mail::agreementFinished_forEmployee($agreement);
 
         return true;
