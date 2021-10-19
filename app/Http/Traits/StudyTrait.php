@@ -266,6 +266,8 @@ trait StudyTrait {
         $rules['date']                                              = ['required'];
         $rules[Model::$STUDY_START]                                 = ['required'];
         $rules[Model::$STUDY_END]                                   = ['required'];
+        $rules[Model::$LOCATION]                                    = ['required_if:link,""'];
+        $rules[Model::$STUDY_LINK]                                  = ['required_if:location,""'];
 
         foreach ($data as $key => $value) {
 
