@@ -119,6 +119,8 @@ trait BaseTrait {
 
         $messages                                                           = [];
         $messages['required']                                               = 'Dit veld is verplicht.';
+        $messages['required_if']                                            = 'Dit veld is verplicht als de :other leeg is.';
+
         $messages['numeric']                                                = 'Vul een getal in.';
         $messages['unique']                                                 = 'Dit email adres is al in gebruik.';
         $messages['zipcode.max']                                            = 'Vul een geldige postcode in.';
