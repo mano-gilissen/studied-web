@@ -798,8 +798,6 @@ class StudyController extends Controller {
 
                 $services[-1] = 'Proefles';
 
-                dd($services);
-
                 return $services;
 
             case self::$COLUMN_SUBJECT:
