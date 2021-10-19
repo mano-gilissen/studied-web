@@ -790,17 +790,17 @@ class StudyController extends Controller {
 
             case self::$COLUMN_SERVICE:
 
-                dd(array_merge($query
+                $services = $query
                     ->with('getService')
                     ->get()
                     ->pluck('getService.' . Model::$SERVICE_NAME, 'getService.' . Model::$BASE_ID)
-                    ->toArray(), [-1 => 'Proefles']));
+                    ->toArray();
 
-                return array_merge($query
-                    ->with('getService')
-                    ->get()
-                    ->pluck('getService.' . Model::$SERVICE_NAME, 'getService.' . Model::$BASE_ID)
-                    ->toArray(), [-1 => 'Proefles']);
+                $services[-1] = 'Proefles';
+
+                dd($services);
+
+                return $services;
 
             case self::$COLUMN_SUBJECT:
 
