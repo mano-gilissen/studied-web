@@ -86,16 +86,16 @@
 
 .report .bar-wrap {
     width:                              104px;
-    height:                             9px;
+    height:                             8px;
     background:                         #F0F0F0;
-    border-radius:                      5px;
+    border-radius:                      4px;
 }
 
 .report .bar-duration {
     position:                           absolute;
-    height:                             9px;
+    height:                             8px;
     background:                         #FFDD34;
-    border-radius:                      5px;
+    border-radius:                      4px;
 }
 
 .report .dots {
