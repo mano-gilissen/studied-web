@@ -24,7 +24,7 @@
 
                         <div class="bottom">
 
-                            @php $forHost = $person->getUser->role != \App\Http\Traits\RoleTrait::$ID_STUDENT @endphp
+                            @php $forHost = false @endphp
 
                             @if($forHost ? $agreement->getStudent->getPerson->avatar : $agreement->getEmployee->getPerson->avatar)
 
