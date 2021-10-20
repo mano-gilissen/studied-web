@@ -64,3 +64,46 @@
     font-family:                        'Circular', serif;
     font-weight:                        100;
 }
+
+
+
+
+
+.agreements {
+    padding-top:                        24px;
+    margin-bottom:                      48px;
+}
+
+.agreements .title {
+    padding:                            16px 0 16px 4px;
+}
+
+.agreements .wrap {
+    width:                              712px;
+    overflow-x:                         hidden;
+}
+
+.agreements #button-previous,
+.agreements #button-next {
+    width:                              32px;
+    height:                             32px;
+    border-radius:                      16px;
+    padding:                            8px;
+    background:                         transparent;
+    display:                            none;
+    pointer-events:                     all;
+}
+
+.agreements #button-previous:hover,
+.agreements #button-next:hover {
+    background:                         #E6E6E6;
+}
+
+.agreements #button-previous {
+    margin-left:                        -60px;
+    margin-right:                       28px;
+}
+
+.agreements #button-next {
+    margin-right:                       -60px;
+}
