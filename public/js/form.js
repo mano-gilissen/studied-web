@@ -64,13 +64,13 @@ $(function(){
     });
 
 
-/*
+
     $(OBJECT_FORM).on('click', CLASS_SWITCH + ' ' + CLASS_BUTTON, function() {
 
         switch_click($(this));
 
     });
-*/
+
 
 
 });

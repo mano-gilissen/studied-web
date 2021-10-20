@@ -4,6 +4,7 @@
 
 @section('scripts')
 
+    <script src="{{ asset('js/form.js') }}"></script>
     <script src="{{ asset('js/evaluation.js') }}"></script>
 
 @endsection
