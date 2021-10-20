@@ -384,6 +384,8 @@ function report_time_selected_text(time) {
 
 function switch_click(button) {
 
+    console.log('áef');
+
     var buttons                                     = button.parent().children(CLASS_BUTTON);
     var input                                       = button.parent().find('input')[0];
 
