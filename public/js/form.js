@@ -64,13 +64,13 @@ $(function(){
     });
 
 
-
+/*
     $(OBJECT_FORM).on('click', CLASS_SWITCH + ' ' + CLASS_BUTTON, function() {
 
         switch_click($(this));
 
     });
-
+*/
 
 
 });
@@ -383,8 +383,6 @@ function report_time_selected_text(time) {
 
 
 function switch_click(button) {
-
-    console.log('áef');
 
     var buttons                                     = button.parent().children(CLASS_BUTTON);
     var input                                       = button.parent().find('input')[0];
