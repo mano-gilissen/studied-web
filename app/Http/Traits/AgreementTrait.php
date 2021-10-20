@@ -11,6 +11,7 @@ use App\Http\Support\Key;
 use App\Http\Support\Mail;
 use App\Http\Support\Model;
 use App\Models\Agreement;
+use App\Models\Evaluation;
 use App\Models\Study;
 use App\Models\Study_user;
 
@@ -79,6 +80,14 @@ trait AgreementTrait {
 
             $agreement->{Model::$AGREEMENT_STATUS}              = self::$STATUS_ACTIVE;
 
+        }
+
+
+
+        if (array_key_exists(Key::AUTOCOMPLETE_ID . Model::$EVALUATION, $data)) {
+
+            $evaluation                                         = Evaluation::findOrFail($data[Key::AUTOCOMPLETE_ID . Model::$EVALUATION]);
+            $agreement->{Model::$EVALUATION}                    = $evaluation->{Model::$BASE_ID};
         }
 
 
