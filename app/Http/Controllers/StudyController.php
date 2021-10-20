@@ -122,7 +122,7 @@ class StudyController extends Controller {
         return view(Views::FEEDBACK, [
 
             Key::PAGE_TITLE                                                 => 'Les ingepland',
-            Key::PAGE_MESSAGE                                               => 'Alle deelnemers worden per email op de hoogte gebracht.',
+            Key::PAGE_MESSAGE                                               => 'Alle deelnemers worden per email<br>op de hoogte gebracht.',
             Key::PAGE_NEXT                                                  => route(Route::STUDY_VIEW, $study->{Model::$BASE_KEY}),
             Key::PAGE_ACTION                                                => 'Naar de les',
             Key::ICON                                                       => 'check-circle-green.svg'
@@ -169,7 +169,7 @@ class StudyController extends Controller {
         return view(Views::FEEDBACK, [
 
             Key::PAGE_TITLE                                                 => 'Les gewijzigd',
-            Key::PAGE_MESSAGE                                               => 'Alle deelnemers worden per email op de hoogte gebracht.',
+            Key::PAGE_MESSAGE                                               => 'Alle deelnemers worden per email<br>op de hoogte gebracht.',
             Key::PAGE_NEXT                                                  => route(Route::STUDY_VIEW, $study->{Model::$BASE_KEY}),
             Key::PAGE_ACTION                                                => 'Naar de les',
             Key::ICON                                                       => 'check-circle-green.svg'
