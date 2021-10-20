@@ -155,7 +155,7 @@ trait StudyTrait {
 
                 if ($employee) {
 
-                    $study->{Model::$STUDY_LOCATION_TEXT}           = 'Thuis bij ' . $employee->getPerson->{Model::$PERSON_FIRST_NAME} . ' (Docent)';
+                    $study->{Model::$STUDY_LOCATION_TEXT}           = 'Thuis bij ' . PersonTrait::getFullName($employee->getPerson);
 
                     $study->{Model::$ADDRESS}                       = User::find($study->{Model::$STUDY_HOST_USER})->getPerson->{Model::$ADDRESS};
                 }
@@ -172,7 +172,7 @@ trait StudyTrait {
 
                     } else if ($address->getPerson) {
 
-                        $study->{Model::$STUDY_LOCATION_TEXT}       = 'Thuis bij ' . $address->getPerson->{Model::$PERSON_FIRST_NAME} . ' (Leerling)';
+                        $study->{Model::$STUDY_LOCATION_TEXT}       = 'Thuis bij ' . PersonTrait::getFullName($address->getPerson);
 
                     }
 
