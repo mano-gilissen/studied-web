@@ -1,6 +1,6 @@
 <div id="pva" class="block-attributes">
 
-    <div class="title">Plan van Aanpak</div>
+    <div class="title">Besproken plan van aanpak</div>
 
 
 

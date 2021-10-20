@@ -1,6 +1,6 @@
     <div class="agreements">
 
-    <div class="title">Vakafspraken</div>
+    <div class="title">Nieuwe vakafspraken</div>
 
     <div style="display: flex; align-items: center">
 
