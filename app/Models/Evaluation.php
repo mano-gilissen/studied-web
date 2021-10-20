@@ -59,4 +59,12 @@ class Evaluation extends ModelClass {
 
 
 
+    public function getAgreements() {
+
+        return self::getOneToMany(Model::$AGREEMENT, Model::$EVALUATION);
+
+    }
+
+
+
 }

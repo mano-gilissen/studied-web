@@ -150,6 +150,8 @@
 
                         @include('block.evaluation-pva')
 
+                        @include('block.evaluation-agreements')
+
                     </div>
 
                 @endif
