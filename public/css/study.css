@@ -86,14 +86,14 @@
 
 .report .bar-wrap {
     width:                              104px;
-    height:                             8px;
+    height:                             7px;
     background:                         #F0F0F0;
     border-radius:                      4px;
 }
 
 .report .bar-duration {
     position:                           absolute;
-    height:                             8px;
+    height:                             7px;
     background:                         #FFDD34;
     border-radius:                      4px;
 }
