@@ -8,13 +8,13 @@
 
     <div class="title">{{ __('Tijd en locatie') }}</div>
 
-    @include('form.field-input', ['id' => 'date', 'type' => 'date', 'tag' => 'Datum', 'placeholder' => 'Kies een datum', 'required' => true])
+    @include('form.field-input', ['id' => 'date', 'type' => 'date', 'tag' => 'Datum', 'placeholder' => 'Kies een datum', 'required' => true, 'value' => old('date')])
 
     @include('form.field-select-time', ['end' => false])
 
-    @include('form.field-input', ['id' => 'location', 'tag' => 'Locatie', 'icon' => 'search.svg', 'placeholder' => 'Zoek een locatie', 'required' => true, 'data' => true, 'show_all' => true, 'uses_id' => true])
+    @include('form.field-input', ['id' => 'location', 'tag' => 'Locatie', 'icon' => 'search.svg', 'placeholder' => 'Zoek een locatie', 'required' => true, 'data' => true, 'show_all' => true, 'uses_id' => true, 'value' => old('location')])
 
-    @include('form.field-input', ['id' => 'link', 'tag' => 'Digitale meeting', 'icon' => 'url.svg', 'placeholder' => 'Plak een URL'])
+    @include('form.field-input', ['id' => 'link', 'tag' => 'Digitale meeting', 'icon' => 'url.svg', 'placeholder' => 'Plak een URL', 'value' => old('link')])
 
     <div class="seperator"></div>
 
