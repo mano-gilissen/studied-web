@@ -266,7 +266,7 @@
                             @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
                             @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
 
-                                @if(!(\App\Http\Traits\UserTrait::isActivated($person->getUser)) && \App\Http\Traits\UserTrait::sentActivation($person->getUser))
+                                @if(!(\App\Http\Traits\UserTrait::isActivated($person->getUser)))
 
                                     <div class="button green icon" onclick="window.location.href='{{ route('person.activate', [\App\Http\Support\Model::$PERSON_SLUG => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">
 
