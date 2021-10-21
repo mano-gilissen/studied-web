@@ -112,7 +112,12 @@ function csv() {
         success: function(response) {
             console.log(response);
             var encodedUri = encodeURI(response);
-            window.open(encodedUri);
+            var link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "export.csv");
+            document.body.appendChild(link);
+
+            link.click();
         },
         error: function(xhr) {
             console.log('csv error');
