@@ -40,7 +40,7 @@
 
     @include('form.field-input', ['id' => 'regarding', 'tag' => 'Onderwerp', 'required' => true, 'data' => true, 'uses_id' => true, 'show_all' => true, 'reject_other' => true])
 
-    @include('form.field-textarea', ['id' => 'remark', 'tag' => 'Opmerking'])
+    @include('form.field-textarea', ['id' => 'remark', 'tag' => 'Opmerking', 'value' => old('remark')])
 
 
 

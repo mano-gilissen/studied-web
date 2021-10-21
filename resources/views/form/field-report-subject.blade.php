@@ -9,7 +9,7 @@
 
 @include('form.field-select-duration', ['id' => $id_user . 'subject_' . $id . '_duration', 'set_max' => !$report_subject && $primary, 'set' => $report_subject ? $report_subject->{\App\Http\Support\Model::$REPORT_SUBJECT_DURATION} : false])
 
-@include('form.field-textarea', ['id' => '_' . $id_user . 'subject_'. $id . '_content_verslag', 'tag' => 'Beschrijf de les', 'required' => true, 'placeholder' => 'Typ het lesverslag', 'locked' => false, 'value' => $report_subject ? $report_subject->{\App\Http\Support\Model::$REPORT_SUBJECT_VERSLAG} : ''])
+@include('form.field-textarea', ['id' => '_' . $id_user . 'subject_'. $id . '_content_verslag', 'tag' => 'Beschrijf de les', 'required' => true, 'placeholder' => 'Typ het lesverslag', 'locked' => false, 'value' => $report_subject ? $report_subject->{\App\Http\Support\Model::$REPORT_SUBJECT_VERSLAG} : old('_' . $id_user . 'subject_'. $id . '_content_verslag')])
 
 
 

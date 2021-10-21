@@ -85,11 +85,11 @@
 
         <div class="title">{{ __('Hoe verloopt de begeleiding?') }}</div>
 
-        @include('form.field-textarea', ['id' => $id_user . 'content_volgende_les', 'tag' => 'Volgende les', 'required' => true])
+        @include('form.field-textarea', ['id' => $id_user . 'content_volgende_les', 'tag' => 'Volgende les', 'required' => true, 'value' => old($id_user . 'content_volgende_les')])
 
-        @include('form.field-textarea', ['id' => $id_user . 'content_uitdagingen', 'tag' => 'Uitdagingen', 'required' => true])
+        @include('form.field-textarea', ['id' => $id_user . 'content_uitdagingen', 'tag' => 'Uitdagingen', 'required' => true, 'value' => old($id_user . 'content_uitdagingen')])
 
-        @include('form.field-textarea', ['id' => $id_user . 'content_voortgang', 'tag' => 'Voortgang', 'required' => true])
+        @include('form.field-textarea', ['id' => $id_user . 'content_voortgang', 'tag' => 'Voortgang', 'required' => true, 'value' => old($id_user . 'content_voortgang')])
 
         <div class="seperator"></div>
 

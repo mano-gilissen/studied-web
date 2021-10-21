@@ -62,13 +62,13 @@
 
     <div class="title">{{ __('Educatie') }}</div>
 
-    @include('form.field-input', ['id' => 'school', 'tag' => 'School', 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true])
+    @include('form.field-input', ['id' => 'school', 'tag' => 'School', 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'value' => old('school')])
 
-    @include('form.field-input', ['id' => 'niveau', 'tag' => 'Niveau', 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true])
+    @include('form.field-input', ['id' => 'niveau', 'tag' => 'Niveau', 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true, 'value' => old('niveau')])
 
-    @include('form.field-input', ['id' => 'leerjaar', 'tag' => 'Leerjaar', 'data' => true, 'icon' => 'dropdown.svg', 'required' => true, 'show_all' => true, 'show_always' => true, 'reject_other' => true, 'uses_id' => true])
+    @include('form.field-input', ['id' => 'leerjaar', 'tag' => 'Leerjaar', 'data' => true, 'icon' => 'dropdown.svg', 'required' => true, 'show_all' => true, 'show_always' => true, 'reject_other' => true, 'uses_id' => true, 'value' => old('leerjaar')])
 
-    @include('form.field-input', ['id' => 'profile', 'tag' => 'Profiel', 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true])
+    @include('form.field-input', ['id' => 'profile', 'tag' => 'Profiel', 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'value' => old('profile')])
 
     <div class="seperator"></div>
 
@@ -80,11 +80,11 @@
 
         <div class="name">Min</div>
 
-        @include('form.box-input', ['id' => 'min', 'size' => 'width-third'])
+        @include('form.box-input', ['id' => 'min', 'size' => 'width-third', 'value' => old('min')])
 
         <div class="note width-third">Max</div>
 
-        @include('form.box-input', ['id' => 'max', 'size' => 'width-third'])
+        @include('form.box-input', ['id' => 'max', 'size' => 'width-third', 'value' => old('max')])
 
     </div>
 
@@ -96,21 +96,21 @@
 
     @include('form.field-input', ['id' => 'customer', 'tag' => 'Klant', 'icon' => 'search.svg', 'placeholder' => 'Zoek een klant', 'required' => false, 'data' => true, 'additional' => true, 'reject_other' => true, 'uses_id' => true])
 
-    @include('form.field-input', ['id' => 'name_mentor', 'tag' => 'Naam mentor'])
+    @include('form.field-input', ['id' => 'name_mentor', 'tag' => 'Naam mentor', 'value' => old('name_mentor')])
 
-    @include('form.field-input', ['id' => 'email_mentor', 'type' => 'email', 'tag' => 'Email mentor'])
+    @include('form.field-input', ['id' => 'email_mentor', 'type' => 'email', 'tag' => 'Email mentor', 'value' => old('email_mentor')])
 
-    @include('form.field-input', ['id' => 'name_vakdocent_1','tag' => 'Naam vakdocent 1'])
+    @include('form.field-input', ['id' => 'name_vakdocent_1','tag' => 'Naam vakdocent 1', 'value' => old('name_vakdocent_1')])
 
-    @include('form.field-input', ['id' => 'email_vakdocent_1', 'type' => 'email', 'tag' => 'Email vakdocent 1'])
+    @include('form.field-input', ['id' => 'email_vakdocent_1', 'type' => 'email', 'tag' => 'Email vakdocent 1', 'value' => old('email_vakdocent_1')])
 
-    @include('form.field-input', ['id' => 'name_vakdocent_2', 'tag' => 'Naam vakdocent 2'])
+    @include('form.field-input', ['id' => 'name_vakdocent_2', 'tag' => 'Naam vakdocent 2', 'value' => old('name_vakdocent_2')])
 
-    @include('form.field-input', ['id' => 'email_vakdocent_2', 'type' => 'email', 'tag' => 'Email vakdocent 2'])
+    @include('form.field-input', ['id' => 'email_vakdocent_2', 'type' => 'email', 'tag' => 'Email vakdocent 2', 'value' => old('email_vakdocent_2')])
 
-    @include('form.field-input', ['id' => 'name_vakdocent_3', 'tag' => 'Naam vakdocent 3'])
+    @include('form.field-input', ['id' => 'name_vakdocent_3', 'tag' => 'Naam vakdocent 3', 'value' => old('name_vakdocent_3')])
 
-    @include('form.field-input', ['id' => 'email_vakdocent_3', 'type' => 'email', 'tag' => 'Email vakdocent 3'])
+    @include('form.field-input', ['id' => 'email_vakdocent_3', 'type' => 'email', 'tag' => 'Email vakdocent 3', 'value' => old('email_vakdocent_3')])
 
     <div class="seperator"></div>
 
