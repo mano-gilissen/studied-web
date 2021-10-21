@@ -30,7 +30,7 @@
 
                 <div>
 
-                    <div class="title">{{ dd(strtotime($study->{\App\Http\Support\Model::$STUDY_END})) /*$study->{\App\Http\Support\Model::$STUDY_SUBJECT_TEXT}*/ }}</div>
+                    <div class="title">{{ dd((strtotime($study->{\App\Http\Support\Model::$STUDY_END}) - strtotime($study->{\App\Http\Support\Model::$STUDY_START})) / 60) /*$study->{\App\Http\Support\Model::$STUDY_SUBJECT_TEXT}*/ }}</div>
 
                     <div class="subtitle">{{ \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE) }}@if($study->{\App\Http\Support\Model::$STUDY_TRIAL})<span> - Proefles</span>@endif</div>
 
