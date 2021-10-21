@@ -34,6 +34,14 @@ class Report_subject extends ModelClass {
 
 
 
+    public function getLevel() {
+
+        return self::getThisToOne(Model::$LEVEL);
+
+    }
+
+
+
     public function getAgreement() {
 
         return self::getThisToOne(Model::$AGREEMENT);

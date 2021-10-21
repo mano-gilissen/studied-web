@@ -12,6 +12,14 @@
 
         @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
 
+            <div class="button grey icon" onclick="csv()">
+
+                <img class="icon" src="/images_app/fix.svg">
+
+                <div class="text">{{ __('Exporteren') }}</div>
+
+            </div>
+
         @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
             <div class="button grey icon" onclick="window.location.href='{{ route('study.plan') }}'">

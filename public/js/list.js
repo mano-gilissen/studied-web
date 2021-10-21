@@ -98,6 +98,28 @@ function load() {
 
 
 
+// TODO: OBJECT TYPE INDEPENDENT (NON-LESSEN)
+function csv() {
+
+    $.ajax({
+        url: "/lessen/export",
+        data: {
+            data_sort:                      data_sort,
+            data_filter:                    data_filter
+        },
+        cache: false,
+        type: "POST",
+        success: function(response) {
+            console.log(response);
+        },
+        error: function(xhr) {
+            console.log('csv error');
+        }
+    });
+}
+
+
+
 function sort(column) {
 
     $mode_sort = 'asc';

@@ -18,6 +18,8 @@ const FORM_TEST_VIEW                            = 'form_test.view';
 
 const STUDY_LIST                                = 'study.list';
 
+const STUDY_LIST_EXPORT                         = 'study.list.export';
+
 const STUDY_VIEW                                = 'study.view';
 
 const STUDY_EDIT                                = 'study.edit';
@@ -193,6 +195,7 @@ const ALL_MANAGEMENT                            = [
     self::PERSON_EDIT,
     self::PERSON_DELETE,
     self::PERSON_ACTIVATE,
+    self::STUDY_LIST_EXPORT,
     self::STUDY_DELETE,
     self::AGREEMENT_FINISH,
     self::AGREEMENT_CREATE,

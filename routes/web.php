@@ -22,6 +22,8 @@ Route::get('/form-test',                            'DebugController@form_test')
 
 Route::get('/lessen',                               'StudyController@list')->name('study.list')->middleware('auth', 'authorize');
 
+Route::post('/lessen/export',                       'StudyController@list_export_csv')->name('study.list.export')->middleware('auth', 'authorize');
+
 Route::get('/les/{key}',                            'StudyController@view')->name('study.view')->middleware('auth', 'authorize');
 
 Route::get('/les/{key}/bewerken',                   'StudyController@edit')->name('study.edit')->middleware('auth', 'authorize');

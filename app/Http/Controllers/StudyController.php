@@ -35,7 +35,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Validator;
 use Auth;
 use DB;
-
+use MongoDB\Driver\Exception\LogicException;
 
 
 class StudyController extends Controller {
@@ -992,6 +992,68 @@ class StudyController extends Controller {
             Table::COUNTER_VALUE                            => count(array_unique($studentIds))
         ]);
     }
+
+
+
+
+
+    public function list_export_csv(Request $request) {
+
+        $sort                                               = $request->input(Table::DATA_SORT, null);
+        $filter                                             = $request->input(Table::DATA_FILTER, null);
+
+        $query                                              = Table::query($this, $sort, $filter);
+        $studies                                            = $query->get();
+
+        $rows                                               = [];
+
+        foreach ($studies as $study) {
+
+            foreach ($study->getParticipants_User as $participant) {
+
+                switch ($study->{Model::$STUDY_STATUS}) {
+
+                    case StudyTrait::$STATUS_REPORTED:
+
+                        $report                                     = $study->getReport($participant);
+                        $duration                                   = 0;
+                        $subjects                                   = '';
+
+                        if (!$report) {
+
+                            continue;
+
+                        }
+
+                        foreach ($report->getReport_Subjects as $report_Subject) {
+
+                            $duration                              += $report_Subject->{Model::$REPORT_SUBJECT_DURATION};
+                            $subjects                              .= (strlen($subjects) > 0 ? ', ' : '') . $report_Subject->getSubject->{Model::$SUBJECT_CODE};
+                        }
+
+                        array_push($rows, [
+                            PersonTrait::getFullName($participant->getPerson),
+                            PersonTrait::getFullName($study->getHost_User),
+                            $subjects,
+                            Format::datetime($study->start, Format::$DATETIME_SINGLE),
+                            Format::datetime(StudyTrait::getStartTime($study), Format::$TIME_SINGLE),
+                            ReportTrait::getDurationTotal($report),
+                            $study->{Model::$STUDY_LOCATION_TEXT},
+                            StudyTrait::getStatusText(StudyTrait::getStatus($study)),
+                            $study->{Model::$STUDY_REMARK},
+                            'https://studied.nl/les/' . $study->{Model::$BASE_KEY}
+                        ]);
+
+                        break;
+                }
+            }
+        }
+
+        $columnNames            = ['Leerling', 'Medewerker', 'Onderwerp', 'Datum', 'Tijdstip', 'Duurtijd', 'Locatie', 'Status', 'Opmerkingen', 'Link naar les'];
+
+        return Func::export_csv($columnNames, $rows);
+    }
+
 
 
 
