@@ -1046,7 +1046,7 @@ class StudyController extends Controller {
                     case StudyTrait::$STATUS_ABSENT:
 
                         $duration                           = (strtotime($study->{Model::$STUDY_END}) - strtotime($study->{Model::$STUDY_START})) / 60;
-                        $subjects                           = $study->{Model::$STUDY_LOCATION_TEXT}; //TODO: CHANGE TO VAKCODE
+                        $subjects                           = $study->{Model::$STUDY_SUBJECT_TEXT}; //TODO: CHANGE TO VAKCODE
                         break;
                 }
 
