@@ -111,6 +111,8 @@ function csv() {
         type: "POST",
         success: function(response) {
             console.log(response);
+            var encodedUri = encodeURI(response);
+            window.open(encodedUri);
         },
         error: function(xhr) {
             console.log('csv error');
