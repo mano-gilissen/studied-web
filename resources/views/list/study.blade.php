@@ -12,14 +12,6 @@
 
         @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
 
-            <div class="button grey icon" onclick="csv()">
-
-                <img class="icon" src="/images_app/fix.svg">
-
-                <div class="text">{{ __('Exporteren') }}</div>
-
-            </div>
-
         @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
             <div class="button grey icon" onclick="window.location.href='{{ route('study.plan') }}'">
@@ -27,6 +19,26 @@
                 <img class="icon" src="/images_app/add.svg">
 
                 <div class="text">{{ __('Inplannen') }}</div>
+
+            </div>
+
+            @break
+
+    @endswitch
+
+    @switch(Auth::user()->role)
+
+        @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
+
+        @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
+
+        @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
+
+            <div class="button grey icon" onclick="csv()">
+
+                <img class="icon" src="/images_app/fix.svg">
+
+                <div class="text">{{ __('Exporteren') }}</div>
 
             </div>
 
