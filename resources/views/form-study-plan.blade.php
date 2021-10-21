@@ -8,13 +8,13 @@
 
     <div class="title">{{ __('Tijd en locatie') }}</div>
 
-    @include('form.field-input', ['id' => 'date', 'type' => 'date', 'tag' => 'Datum', 'placeholder' => 'Kies een datum', 'required' => true, 'trigger' => 'agreements'])
+    @include('form.field-input', ['id' => 'date', 'type' => 'date', 'tag' => 'Datum', 'placeholder' => 'Kies een datum', 'required' => true, 'trigger' => 'agreements', 'value' => old('date')])
 
     @include('form.field-select-time')
 
     @include('form.field-input', ['id' => 'location', 'tag' => 'Locatie', 'icon' => 'search.svg', 'placeholder' => 'Zoek een locatie', 'required' => true, 'data' => true, 'show_all' => true, 'uses_id' => true])
 
-    @include('form.field-input', ['id' => 'link', 'tag' => 'Digitale les', 'icon' => 'url.svg', 'placeholder' => 'Plak een URL'])
+    @include('form.field-input', ['id' => 'link', 'tag' => 'Digitale les', 'icon' => 'url.svg', 'placeholder' => 'Plak een URL', 'value' => old('link')])
 
     <div class="seperator"></div>
 
@@ -70,7 +70,7 @@
 
     <div class="title">{{ __('Details') }}</div>
 
-    @include('form.field-input', ['id' => 'remark', 'tag' => 'Opmerking'])
+    @include('form.field-input', ['id' => 'remark', 'tag' => 'Opmerking', 'value' => old('remark')])
 
 
 
