@@ -98,31 +98,38 @@ function load() {
 
 
 
-// TODO: OBJECT TYPE INDEPENDENT (NON-LESSEN)
-// TODO: CLEAN
-function csv() {
+function csv(type) {
 
     $.ajax({
-        url: "/lessen/export",
+
+        url:                                "/" + type + "/export",
+        type:                               "POST",
+        cache:                              false,
+
         data: {
             data_sort:                      data_sort,
             data_filter:                    data_filter
         },
-        cache: false,
-        type: "POST",
+
         success: function(response) {
-            var blob = new Blob([response], { type: 'text/csv;charset=utf-8;' });
-            var link = document.createElement("a");
-            var url = URL.createObjectURL(blob);
-            link.setAttribute("href", url);
-            link.setAttribute("download", "export");
-            link.style.visibility = 'hidden';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+
+            var blob                        = new Blob([response], { type: 'text/csv;charset=utf-8;' });
+            var link                        = document.createElement("a");
+            var url                         = URL.createObjectURL(blob);
+
+            link                            .setAttribute("href", url);
+            link                            .setAttribute("download", "export_" + type);
+            link.style.visibility           = 'hidden';
+
+            document.body                   .appendChild(link);
+            link                            .click();
+            document.body                   .removeChild(link);
         },
+
         error: function(xhr) {
-            console.log('csv error');
+
+            console.log('Error downloading CSV export');
+
         }
     });
 }
