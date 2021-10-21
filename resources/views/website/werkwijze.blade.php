@@ -1145,7 +1145,7 @@
                 <div>
                     <p class="footer-tag">Aangesloten bij</p>
                     <div class="footer-innercol socials">
-                        <a href="https://www.instagram.com/studied.nl/" target="_blank" class="social-btn w-inline-block">
+                        <a href="https://lvsi.nl/instituut/studied/" target="_blank" class="social-btn w-inline-block">
                             <div class="html-embed w-embed"><img id="lvsi" src="images/lvsi_logo.svg" style="height: 32px; max-width: unset">
                                 <style>
                                     #lvsi:hover {
