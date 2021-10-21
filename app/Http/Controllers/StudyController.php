@@ -1033,9 +1033,9 @@ class StudyController extends Controller {
 
                         array_push($rows, [
                             PersonTrait::getFullName($participant->getPerson),
-                            PersonTrait::getFullName($study->getHost_User),
+                            PersonTrait::getFullName($study->getHost_User->getPerson),
                             $subjects,
-                            Format::datetime($study->start, Format::$DATETIME_SINGLE),
+                            Format::datetime($study->start, Format::$DATETIME_FORM),
                             Format::datetime(StudyTrait::getStartTime($study), Format::$TIME_SINGLE),
                             ReportTrait::getDurationTotal($report),
                             $study->{Model::$STUDY_LOCATION_TEXT},

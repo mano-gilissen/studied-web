@@ -99,6 +99,7 @@ function load() {
 
 
 // TODO: OBJECT TYPE INDEPENDENT (NON-LESSEN)
+// TODO: CLEAN
 function csv() {
 
     $.ajax({
@@ -110,15 +111,6 @@ function csv() {
         cache: false,
         type: "POST",
         success: function(response) {
-            console.log(response);
-            /*var encodedUri = encodeURI(response);
-            var link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
-            link.setAttribute("download", "export.csv");
-            document.body.appendChild(link);
-
-            link.click();*/
-
             var blob = new Blob([response], { type: 'text/csv;charset=utf-8;' });
             var link = document.createElement("a");
             var url = URL.createObjectURL(blob);
