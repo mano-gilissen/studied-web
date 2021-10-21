@@ -111,13 +111,23 @@ function csv() {
         type: "POST",
         success: function(response) {
             console.log(response);
-            var encodedUri = encodeURI(response);
+            /*var encodedUri = encodeURI(response);
             var link = document.createElement("a");
             link.setAttribute("href", encodedUri);
             link.setAttribute("download", "export.csv");
             document.body.appendChild(link);
 
+            link.click();*/
+
+            var blob = new Blob([response], { type: 'text/csv;charset=utf-8;' });
+            var link = document.createElement("a");
+            var url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", "export");
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
             link.click();
+            document.body.removeChild(link);
         },
         error: function(xhr) {
             console.log('csv error');
