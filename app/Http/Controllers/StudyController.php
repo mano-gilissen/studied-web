@@ -1048,6 +1048,10 @@ class StudyController extends Controller {
                         $duration                           = (strtotime($study->{Model::$STUDY_END}) - strtotime($study->{Model::$STUDY_START})) / 60;
                         $subjects                           = $study->{Model::$STUDY_SUBJECT_TEXT}; //TODO: CHANGE TO VAKCODE
                         break;
+
+                    default:
+
+                        continue;
                 }
 
                 array_push($rows, [$first_name, $last_name, $subjects, $date, $time, $duration, $location, $status, $remark, $link]);
