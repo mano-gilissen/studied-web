@@ -1009,58 +1009,69 @@ class StudyController extends Controller {
 
         foreach ($studies as $study) {
 
-            foreach ($study->getParticipants_User as $participant) {
+            switch ($study->{Model::$STUDY_STATUS}) {
 
-                $first_name                                 = PersonTrait::getFullName($participant->getPerson);
-                $last_name                                  = PersonTrait::getFullName($study->getHost_User->getPerson);
+                case StudyTrait::$STATUS_CANCELLED:
+                case StudyTrait::$STATUS_ABSENT:
+                case StudyTrait::$STATUS_REPORTED:
 
-                $date                                       = Format::datetime($study->start, Format::$DATETIME_FORM);
-                $time                                       = Format::datetime(StudyTrait::getStartTime($study), Format::$TIME_SINGLE);
-                $location                                   = $study->{Model::$STUDY_LOCATION_TEXT};
-                $status                                     = StudyTrait::getStatusText(StudyTrait::getStatus($study));
-                $remark                                     = $study->{Model::$STUDY_REMARK};
-                $link                                       = 'https://studied.nl/les/' . $study->{Model::$BASE_KEY};
-
-                $duration                                   = 0;
-                $subjects                                   = '';
-
-                switch ($study->{Model::$STUDY_STATUS}) {
-
-                    case StudyTrait::$STATUS_REPORTED:
-
-                        $report                             = $study->getReport($participant);
-                        $duration                           = ReportTrait::getDurationTotal($report);
-
-                        if ($report) {
-
-                            foreach ($report->getReport_Subjects as $report_Subject) {
-
-                                $subjects                   .= (strlen($subjects) > 0 ? ', ' : '') . $report_Subject->getSubject->{Model::$SUBJECT_CODE};
-
-                            }
-                        }
-
-                        break;
-
-                    case StudyTrait::$STATUS_CANCELLED:
-                    case StudyTrait::$STATUS_ABSENT:
-
-                        $duration                           = (strtotime($study->{Model::$STUDY_END}) - strtotime($study->{Model::$STUDY_START})) / 60;
-                        $subjects                           = $study->{Model::$STUDY_SUBJECT_TEXT}; //TODO: CHANGE TO VAKCODE
-                        break;
-
-                    default:
-
-                        continue;
-                }
-
-                array_push($rows, [$first_name, $last_name, $subjects, $date, $time, $duration, $location, $status, $remark, $link]);
+                    self::list_export_csv_row($study, $rows);
+                    break;
             }
         }
 
         $columnNames = ['Leerling', 'Medewerker', 'Onderwerp', 'Datum', 'Tijdstip', 'Duurtijd', 'Locatie', 'Status', 'Opmerkingen', 'Link naar les'];
 
         return Func::export_csv($columnNames, $rows);
+    }
+
+
+
+    public function list_export_csv_row($study, &$rows) {
+
+        foreach ($study->getParticipants_User as $participant) {
+
+            $first_name                                     = PersonTrait::getFullName($participant->getPerson);
+            $last_name                                      = PersonTrait::getFullName($study->getHost_User->getPerson);
+
+            $date                                           = Format::datetime($study->start, Format::$DATETIME_FORM);
+            $time                                           = Format::datetime(StudyTrait::getStartTime($study), Format::$TIME_SINGLE);
+            $location                                       = $study->{Model::$STUDY_LOCATION_TEXT};
+            $status                                         = StudyTrait::getStatusText(StudyTrait::getStatus($study));
+            $remark                                         = $study->{Model::$STUDY_REMARK};
+            $link                                           = 'https://studied.nl/les/' . $study->{Model::$BASE_KEY};
+
+            $duration                                       = 0;
+            $subjects                                       = '';
+
+            switch ($study->{Model::$STUDY_STATUS}) {
+
+                case StudyTrait::$STATUS_REPORTED:
+
+                    $report                                 = $study->getReport($participant);
+                    $duration                               = ReportTrait::getDurationTotal($report);
+
+                    if ($report) {
+
+                        foreach ($report->getReport_Subjects as $report_Subject) {
+
+                            $subjects                      .= (strlen($subjects) > 0 ? ', ' : '') . $report_Subject->getSubject->{Model::$SUBJECT_CODE};
+
+                        }
+                    }
+
+                    break;
+
+                case StudyTrait::$STATUS_CANCELLED:
+                case StudyTrait::$STATUS_ABSENT:
+
+                    $duration                               = (strtotime($study->{Model::$STUDY_END}) - strtotime($study->{Model::$STUDY_START})) / 60;
+                    $subjects                               = $study->{Model::$STUDY_SUBJECT_TEXT}; //TODO: CHANGE TO VAKCODE
+                    break;
+            }
+
+            array_push($rows, [$first_name, $last_name, $subjects, $date, $time, $duration, $location, $status, $remark, $link]);
+        }
     }
 
 
