@@ -45,7 +45,7 @@ trait ReportTrait {
             $report->{Model::$REPORT_END}                                   = $end;
 
             $study->{Model::$STUDY_START}                                   = $start;
-            $study->{Model::$STUDY_END}                                     = $end;
+            $study->{Model::$STUDY_END}                                     = strtotime($study->{Model::$STUDY_END}) < strtotime($end) ? $end : $study->{Model::$STUDY_END};
 
 
 
