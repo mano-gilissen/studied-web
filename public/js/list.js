@@ -98,11 +98,11 @@ function load() {
 
 
 
-function csv(type) {
+function csv(type, method) {
 
     $.ajax({
 
-        url:                                "/" + type + "/export",
+        url:                                "/" + type + "/export/" + method,
         type:                               "POST",
         cache:                              false,
 

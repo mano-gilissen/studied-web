@@ -34,11 +34,19 @@
 
         @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
 
-            <div class="button grey icon" onclick="csv('lessen')">
+            <div class="button grey icon" onclick="csv('lessen', 'data')">
 
                 <img class="icon" src="/images_app/fix.svg">
 
-                <div class="text">{{ __('Exporteren') }}</div>
+                <div class="text">{{ __('Data exporteren') }}</div>
+
+            </div>
+
+            <div class="button grey icon" onclick="csv('lessen', 'overview')">
+
+                <img class="icon" src="/images_app/fix.svg">
+
+                <div class="text">{{ __('Urenoverzicht') }}</div>
 
             </div>
 

@@ -198,6 +198,7 @@ const ALL_MANAGEMENT                            = [
     self::PERSON_DELETE,
     self::PERSON_ACTIVATE,
     self::STUDY_LIST_EXPORT,
+    self::STUDY_OVERVIEW_EXPORT,
     self::STUDY_DELETE,
     self::AGREEMENT_FINISH,
     self::AGREEMENT_CREATE,
