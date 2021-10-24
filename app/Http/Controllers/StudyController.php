@@ -1015,7 +1015,7 @@ class StudyController extends Controller {
                 case StudyTrait::$STATUS_ABSENT:
                 case StudyTrait::$STATUS_REPORTED:
 
-                    self::list_export_csv_row($study, $rows);
+                    self::data_export_csv_row($study, $rows);
                     break;
             }
         }
