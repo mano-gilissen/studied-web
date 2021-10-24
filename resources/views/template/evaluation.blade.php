@@ -22,11 +22,7 @@
 
     @include('block.header')
 
-    @empty($back)
-
-        @include('block.menu')
-
-    @endempty
+    @include('block.menu')
 
     <div id="wrap">
 
