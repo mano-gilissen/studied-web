@@ -1087,7 +1087,7 @@ class StudyController extends Controller {
         $ID_ROW_TOTAL                                       = 99999;
 
         $rows                                               = [];
-        $rows[$ID_ROW_TOTAL]                                = ['Totaal', 0, 0, 0, 0, 0, 0];
+        $row_total                                          = ['Totaal', 0, 0, 0, 0, 0, 0];
 
         foreach ($studies as $study) {
 
@@ -1117,10 +1117,14 @@ class StudyController extends Controller {
 
                 $rows[$employee->{Model::$BASE_ID}][1]                                  += $duration / 60;
                 $rows[$employee->{Model::$BASE_ID}][$study->{Model::$SERVICE} + 1]      += $duration / 60;
-                $rows[$ID_ROW_TOTAL][1]                                                 += $duration / 60;
-                $rows[$ID_ROW_TOTAL][$study->{Model::$SERVICE} + 1]                     += $duration / 60;
+                $row_total[1]                                                           += $duration / 60;
+                $row_total[$study->{Model::$SERVICE} + 1]                               += $duration / 60;
             }
         }
+
+        array_push($rows, ['', '', '', '', '', '', '']);
+        array_push($rows, $row_total);
+        //$rows[$ID_ROW_TOTAL]                                = $row_total;
 
         $columnNames = ['Medewerker', 'Uren', 'Privelessen', 'Groepslessen', 'Colleges', 'Trainingen', 'Hoofdkantoor'];
 
