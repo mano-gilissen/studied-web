@@ -1115,10 +1115,10 @@ class StudyController extends Controller {
                     ];
                 }
 
-                $rows[$employee->{Model::$BASE_ID}][1]                                  += $duration;
-                $rows[$employee->{Model::$BASE_ID}][$study->{Model::$SERVICE} + 1]      += $duration;
-                $rows[$ID_ROW_TOTAL][1]                                                 += $duration;
-                $rows[$ID_ROW_TOTAL][$study->{Model::$SERVICE} + 1]                     += $duration;
+                $rows[$employee->{Model::$BASE_ID}][1]                                  += $duration / 60;
+                $rows[$employee->{Model::$BASE_ID}][$study->{Model::$SERVICE} + 1]      += $duration / 60;
+                $rows[$ID_ROW_TOTAL][1]                                                 += $duration / 60;
+                $rows[$ID_ROW_TOTAL][$study->{Model::$SERVICE} + 1]                     += $duration / 60;
             }
         }
 

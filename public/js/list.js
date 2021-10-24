@@ -118,7 +118,7 @@ function csv(type, method) {
             var url                         = URL.createObjectURL(blob);
 
             link                            .setAttribute("href", url);
-            link                            .setAttribute("download", "export_" + type);
+            link                            .setAttribute("download", "export_" + type + "_" + method);
             link.style.visibility           = 'hidden';
 
             document.body                   .appendChild(link);
