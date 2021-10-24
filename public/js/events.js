@@ -72,7 +72,7 @@ $(function(){
 
 
 
-    $(OBJECT_BUTTON_MENU).click(function() {
+    $(OBJECT_BUTTON_MENU + ', ' + OBJECT_PAGE_TITLE).click(function() {
 
         this.menu_open                          = !this.menu_open;
 
@@ -122,6 +122,12 @@ $(function(){
 
     });
 
+    $(OBJECT_APP).on('mousemove', OBJECT_PAGE_TITLE, function() {
+
+        set_tooltip("Menu");
+
+    });
+
     $(OBJECT_APP).on('mousemove', OBJECT_BUTTON_LOGOUT, function() {
 
         set_tooltip("Uitloggen");
@@ -148,6 +154,7 @@ $(function(){
         CLASS_HEADER + "." + ATTR_SELECT_FILTER + ":not(." + ATTR_NO_FILTER + ")" + ", " +
         CLASS_PERSON_REPORT + ", " +
         CLASS_PERSON + ", " +
+        OBJECT_PAGE_TITLE + ", " +
         OBJECT_BUTTON_LOGOUT + ", " +
         OBJECT_BUTTON_SETTINGS +
         CLASS_CONTACT_POPOUT,
@@ -165,6 +172,7 @@ $(function(){
         CLASS_HEADER + "." + ATTR_SELECT_FILTER + ":not(." + ATTR_NO_FILTER + ")" + ", " +
         CLASS_PERSON_REPORT + ", " +
         CLASS_PERSON + ", " +
+        OBJECT_PAGE_TITLE + ", " +
         OBJECT_BUTTON_LOGOUT + ", " +
         OBJECT_BUTTON_SETTINGS +
         CLASS_CONTACT_POPOUT,

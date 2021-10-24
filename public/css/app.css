@@ -29,6 +29,7 @@ html {
 .title.page {
     font-size:                          30px;
     letter-spacing:                     -1px;
+    cursor:                             pointer;
 }
 
 .title.page.dot {
