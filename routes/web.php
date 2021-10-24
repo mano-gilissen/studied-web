@@ -22,7 +22,9 @@ Route::get('/form-test',                            'DebugController@form_test')
 
 Route::get('/lessen',                               'StudyController@list')->name('study.list')->middleware('auth', 'authorize');
 
-Route::post('/lessen/export',                       'StudyController@list_export_csv')->name('study.list.export')->middleware('auth', 'authorize');
+Route::post('/lessen/export/data',                  'StudyController@data_export_csv')->name('study.data.export')->middleware('auth', 'authorize');
+
+Route::post('/lessen/export/overview',              'StudyController@overview_export_csv')->name('study.overview.export')->middleware('auth', 'authorize');
 
 Route::get('/les/{key}',                            'StudyController@view')->name('study.view')->middleware('auth', 'authorize');
 

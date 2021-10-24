@@ -328,6 +328,40 @@ trait StudyTrait {
 
 
 
+    public static function getDuration($study, $participant = null) {
+
+        switch ($study->{Model::$STUDY_STATUS}) {
+
+            case StudyTrait::$STATUS_REPORTED:
+
+                if ($participant) {
+
+                    return ReportTrait::getDurationTotal($study->getReport($participant));
+
+                } else {
+
+                    $durationMax                                    = 0;
+
+                    foreach ($study->getReports as $report) {
+
+                        if (ReportTrait::getDurationTotal($report) > $durationMax) {
+
+                            $durationMax = ReportTrait::getDurationTotal($report);
+
+                        }
+                    }
+
+                    return $durationMax;
+                }
+
+            default:
+
+                return strtotime($study->{Model::$STUDY_END}) - strtotime($study->{Model::$STUDY_START}) / 60;
+        }
+    }
+
+
+
     public static function getSubject($study) {
 
         return $study->getAgreements[0]->getSubject;

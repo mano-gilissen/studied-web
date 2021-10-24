@@ -18,7 +18,9 @@ const FORM_TEST_VIEW                            = 'form_test.view';
 
 const STUDY_LIST                                = 'study.list';
 
-const STUDY_LIST_EXPORT                         = 'study.list.export';
+const STUDY_LIST_EXPORT                         = 'study.data.export';
+
+const STUDY_OVERVIEW_EXPORT                     = 'study.overview.export';
 
 const STUDY_VIEW                                = 'study.view';
 

@@ -997,7 +997,7 @@ class StudyController extends Controller {
 
 
 
-    public function list_export_csv(Request $request) {
+    public function data_export_csv(Request $request) {
 
         $sort                                               = $request->input(Table::DATA_SORT, null);
         $filter                                             = $request->input(Table::DATA_FILTER, null);
@@ -1027,7 +1027,7 @@ class StudyController extends Controller {
 
 
 
-    public function list_export_csv_row($study, &$rows) {
+    public function data_export_csv_row($study, &$rows) {
 
         foreach ($study->getParticipants_User as $participant) {
 
@@ -1065,13 +1065,66 @@ class StudyController extends Controller {
                 case StudyTrait::$STATUS_CANCELLED:
                 case StudyTrait::$STATUS_ABSENT:
 
-                    $duration                               = (strtotime($study->{Model::$STUDY_END}) - strtotime($study->{Model::$STUDY_START})) / 60;
+                    $duration                               = StudyTrait::getDuration($study);
                     $subjects                               = $study->{Model::$STUDY_SUBJECT_TEXT}; //TODO: CHANGE TO VAKCODE
                     break;
             }
 
             array_push($rows, [$first_name, $last_name, $subjects, $date, $time, $duration, $location, $status, $remark, $link]);
         }
+    }
+
+
+
+    public function overview_export_csv(Request $request) {
+
+        $sort                                               = $request->input(Table::DATA_SORT, null);
+        $filter                                             = $request->input(Table::DATA_FILTER, null);
+
+        $query                                              = Table::query($this, $sort, $filter);
+        $studies                                            = $query->get();
+
+        $ID_ROW_TOTAL                                       = 99999;
+
+        $rows                                               = [];
+        $rows[$ID_ROW_TOTAL]                                = ['Totaal', 0, 0, 0, 0, 0, 0];
+
+        foreach ($studies as $study) {
+
+            if ($study->{Model::$STUDY_STATUS} == StudyTrait::$STATUS_REPORTED) {
+
+                $duration                                   = StudyTrait::getDuration($study);
+                $employee                                   = $study->getHost_User;
+
+                if (!$employee) {
+
+                    continue;
+
+                }
+
+                if (!array_key_exists($employee->{Model::$BASE_ID}, $rows)) {
+
+                    $rows[$employee->{Model::$BASE_ID}] = [
+                        PersonTrait::getFullName($employee->getPerson),
+                        0, // Total
+                        0, // Privéles
+                        0, // Groepsles
+                        0, // College
+                        0, // Training
+                        0  // Hoofdkantoor
+                    ];
+                }
+
+                $rows[$employee->{Model::$BASE_ID}][1]                                  += $duration;
+                $rows[$employee->{Model::$BASE_ID}][$study->{Model::$SERVICE} + 1]      += $duration;
+                $rows[$ID_ROW_TOTAL][1]                                                 += $duration;
+                $rows[$ID_ROW_TOTAL][$study->{Model::$SERVICE} + 1]                     += $duration;
+            }
+        }
+
+        $columnNames = ['Medewerker', 'Uren', 'Privelessen', 'Groepslessen', 'Colleges', 'Trainingen', 'Hoofdkantoor'];
+
+        return Func::export_csv($columnNames, $rows);
     }
 
 
