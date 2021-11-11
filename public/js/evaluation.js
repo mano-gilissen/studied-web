@@ -1,7 +1,7 @@
 
 
 
-var agreements_index_active                     = 0;
+var agreements_index_active                         = 0;
 
 
 
@@ -65,8 +65,8 @@ function evaluation_agreement_load(evaluation_id) {
 
     $('#agreements-wrap').append( jQuery('<div>').load('/load/evaluation/agreement', {
 
-        evaluation:                         evaluation_id,
-        id:                                 $('#agreements-wrap').children().length + 1
+        evaluation:                             evaluation_id,
+        id:                                     $('#agreements-wrap').children().length + 1
     }));
 }
 
