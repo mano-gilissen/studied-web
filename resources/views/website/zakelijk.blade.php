@@ -422,7 +422,7 @@
             <div class="partner-gridwrap">
                 <div class="w-layout-grid partners-logogrid">
                     <a href="https://rijschoolmarcelmingels.nl" target="_blank" class="logo-linkblock w-inline-block"><img src="images/marcelmingels.svg" loading="lazy" alt="Logo van Rijschool Marcel Mingels" class="partners-image"></a>
-                    <a href="https://vormklever.studio" target="_blank" class="logo-linkblock w-inline-block"><img src="images/vormklever.svg" loading="lazy" alt="Logo van Vormklever" class="partners-image"></a>
+                    <a href="https://vormklever.studio" target="_blank" class="logo-linkblock w-inline-block"><img src="images/vormklever.png" loading="lazy" alt="Logo van Vormklever" class="partners-image"></a>
                     <a href="https://www.reuring.studio" target="_blank" class="logo-linkblock w-inline-block"><img src="images/reuring.svg" loading="lazy" alt="Logo van Studio Reuring" class="partners-image"></a>
                     <a href="https://pitersbelastingadviseurs.nl" target="_blank" class="logo-linkblock w-inline-block"><img src="images/pitersbelastingadviseurs.svg" loading="lazy" alt="Logo van Piters Belastingadviseurs" class="partners-image"></a><img src="images/codeforge.svg" loading="lazy" alt="Logo van Code Forge" class="partners-image code-forge">
                     <a href="https://msrvsaurus.nl" target="_blank" class="logo-linkblock w-inline-block"><img src="images/saurus.svg" loading="lazy" alt="Logo van MSRV Saurus" class="partners-image"></a>
@@ -439,7 +439,7 @@
                         <a href="https://rijschoolmarcelmingels.nl" target="_blank" class="logo-linkblock w-inline-block"><img src="images/marcelmingels.svg" loading="lazy" alt="Logo van Rijschool Marcel Mingels" class="partners-image"></a>
                     </div>
                     <div class="swiper-slide">
-                        <a href="https://vormklever.studio" target="_blank" class="logo-linkblock w-inline-block"><img src="images/vormklever.svg" loading="lazy" alt="Logo van Vormklever" class="partners-image"></a>
+                        <a href="https://vormklever.studio" target="_blank" class="logo-linkblock w-inline-block"><img src="images/vormklever.png" loading="lazy" alt="Logo van Vormklever" class="partners-image"></a>
                     </div>
                     <div class="swiper-slide">
                         <a href="https://www.reuring.studio" target="_blank" class="logo-linkblock w-inline-block"><img src="images/reuring.svg" loading="lazy" alt="Logo van Studio Reuring" class="partners-image"></a>
