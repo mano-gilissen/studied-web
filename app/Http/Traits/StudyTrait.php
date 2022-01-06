@@ -232,27 +232,31 @@ trait StudyTrait {
 
 
 
-        // TODO: PUBLIC SERVICES (COLLEGE/GROEPSLES)
-
-
-
         $study->save();
 
 
 
-        foreach ($study->getParticipants_User as $user) {
+        // TODO: PUBLIC SERVICES (COLLEGE/TRAININGEN)
 
-            if (UserTrait::isActivated($user)) {
 
-                Mail::studyEdited_forStudent($study, $user);
+
+        // TODO: REMOVE TEMPORARY CHECK, REPLACE WITH EMAILS FOR PUBLIC SERVICES (COLLEGE/TRAININGEN)
+        if (self::hasAgreements($study)) {
+
+            foreach ($study->getParticipants_User as $user) {
+
+                if (UserTrait::isActivated($user)) {
+
+                    Mail::studyEdited_forStudent($study, $user);
+
+                }
+            }
+
+            if ($study->{Model::$STUDY_HOST_USER} != Auth::id()) {
+
+                Mail::studyEdited_forEmployee($study);
 
             }
-        }
-
-        if ($study->{Model::$STUDY_HOST_USER} != Auth::id()) {
-
-            Mail::studyEdited_forEmployee($study);
-
         }
 
 
