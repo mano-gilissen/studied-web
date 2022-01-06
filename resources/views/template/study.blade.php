@@ -189,6 +189,7 @@
                                     @break
 
                                     @case(\App\Http\Traits\ServiceTrait::$ID_COLLEGE)
+                                    @case(\App\Http\Traits\ServiceTrait::$ID_TRAINING)
 
                                         @include('block.study-details')
 
@@ -243,6 +244,7 @@
                                     @break
 
                                     @case(\App\Http\Traits\ServiceTrait::$ID_COLLEGE)
+                                    @case(\App\Http\Traits\ServiceTrait::$ID_TRAINING)
 
                                         @include('block.study-host-college')
 
