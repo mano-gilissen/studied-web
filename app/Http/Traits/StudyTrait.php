@@ -414,20 +414,20 @@ trait StudyTrait {
 
     public static function getStartTime($study) {
 
-        return self::isReported($study) ?
+        return self::hasReporting($study) && self::isReported($study) ?
 
-            $study->getReports[0]->{Model::$REPORT_START}
+                $study->getReports[0]->{Model::$REPORT_START}
 
-            :
+                :
 
-            $study->{Model::$REPORT_START};
+                $study->{Model::$REPORT_START};
     }
 
 
 
     public static function getEndTime($study) {
 
-        return self::isReported($study) ?
+        return self::hasReporting($study) && self::isReported($study) ?
 
             $study->getReports[0]->{Model::$REPORT_END}
 
