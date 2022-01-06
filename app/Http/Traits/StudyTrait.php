@@ -370,6 +370,14 @@ trait StudyTrait {
 
 
 
+    public static function getBanner($study) {
+
+        return self::hasAgreements($study) ? (self::getSubject($study)->{Model::$SUBJECT_BANNER} . '.png') : "ALG_3.png";
+
+    }
+
+
+
     public static function getStatus($study) {
 
         switch ($study->status) {

@@ -28,7 +28,7 @@
 
         <div id="column">
 
-            <div id="banner" style="background-image:url({{url('images_banner/' . (\App\Http\Traits\StudyTrait::hasAgreements($study) ? \App\Http\Traits\StudyTrait::getSubject($study)->{\App\Http\Support\Model::$SUBJECT_BANNER} . '.png' : "ALG_3.png")}})">
+            <div id="banner" style="background-image:url({{url('images_banner/' . \App\Http\Traits\StudyTrait::getBanner($study))}})">
 
                 <div>
 
