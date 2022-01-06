@@ -328,7 +328,6 @@ class Model {
         $STUDY_HOST_USER                                = 'host_user',
         $STUDY_HOST_RELATION                            = 'host_relation',
         $STUDY_SUBJECT_TEXT                             = 'subject_text',
-        $STUDY_SUBJECT_DESCRIPTION                      = 'subject_description',
         $STUDY_LOCATION_TEXT                            = 'location_text',
         $STUDY_LINK                                     = 'link',
         $STUDY_START                                    = 'start',
