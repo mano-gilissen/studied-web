@@ -202,8 +202,8 @@ function set_visibility_load_more() {
 
 function more_available() {
 
-    console.log(item_total());
-    console.log(item_count());
+    console.log('<br>it: ' + item_total());
+    console.log('<br>ic: ' + item_count());
 
     return item_total() >= 0 ? item_count() < item_total() : true;
 
