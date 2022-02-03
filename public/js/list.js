@@ -116,7 +116,7 @@ function append() {
 
         }, function(data) {
 
-            $(data).find('.item')           .appendTo('#items');
+            $(data).append('#items');
 
         }
     );
