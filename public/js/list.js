@@ -67,7 +67,7 @@ $(function() {
 
 
 
-    $(OBJECT_BUTTON_LOAD_MORE).on('click', function() {
+    $(OBJECT_APP).on('click', OBJECT_BUTTON_LOAD_MORE, function() {
 
         append();
 
