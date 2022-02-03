@@ -150,7 +150,7 @@ class Table {
 
 
 
-    public static function objects($controller, $query, $offset = 0, $limit = 30) {
+    public static function objects($controller, $query, $offset = 0, $limit = 20) {
 
         return $query->select($controller->list_type() . '.*')->offset($offset)->limit($limit)->get();
 
