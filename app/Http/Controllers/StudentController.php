@@ -663,6 +663,7 @@ class StudentController extends Controller {
     public function list_counters_load_total($query, &$counters) {
 
         array_push($counters, (object) [
+            Table::COUNTER_ID                               => 'counter-total',
             Table::COUNTER_LABEL                            => 'Totaal',
             Table::COUNTER_VALUE                            => $query
                 ->select('student.*')

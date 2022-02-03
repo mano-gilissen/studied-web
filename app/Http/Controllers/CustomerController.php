@@ -493,6 +493,7 @@ class CustomerController extends Controller {
         $counters                                                           = [];
 
         array_push($counters, (object) [
+            Table::COUNTER_ID                                               => 'counter-total',
             Table::COUNTER_LABEL                                            => 'Totaal',
             Table::COUNTER_VALUE                                            => $query
                 ->select('customer.*')
