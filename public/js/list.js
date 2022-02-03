@@ -88,12 +88,20 @@ function load() {
         data_sort:                          data_sort,
         data_filter:                        data_filter
 
+    }, function() {
+
+        set_visibility_load_more();
+
     });
 
     $(OBJECT_COUNTERS).load('/load/' + data_type + '/counters', {
 
         data_sort:                          data_sort,
         data_filter:                        data_filter
+
+    }, function() {
+
+        set_visibility_load_more();
 
     });
 
@@ -102,8 +110,6 @@ function load() {
         data_filter:                        data_filter
 
     });
-
-    set_visibility_load_more();
 }
 
 
@@ -121,6 +127,7 @@ function append() {
         $(OBJECT_ITEMS)                     .children().last().before(data);
 
         set_visibility_load_more();
+
     });
 }
 
