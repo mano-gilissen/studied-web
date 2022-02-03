@@ -108,7 +108,7 @@ function load() {
 
 function append() {
 
-    $.get('/load/' + data_type + '/list', {
+    $.post('/load/' + data_type + '/list', {
 
             data_sort:                      data_sort,
             data_filter:                    data_filter,
