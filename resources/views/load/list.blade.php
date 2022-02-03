@@ -60,6 +60,6 @@
 
     @endempty
 
-    <div id="button-load-more" class="load-more">Meer laden</div>
+    <div id="button-load-more" class="button load-more">Meer laden</div>
 
 </div>

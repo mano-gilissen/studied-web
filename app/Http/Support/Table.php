@@ -25,6 +25,7 @@ class Table {
     const VIEW_ITEMS                                        = "items";
     const VIEW_FILTERS                                      = "filters";
 
+    const COUNTER_ID                                        = "id";
     const COUNTER_LABEL                                     = "label";
     const COUNTER_VALUE                                     = "value";
 

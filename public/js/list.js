@@ -102,6 +102,8 @@ function load() {
         data_filter:                        data_filter
 
     });
+
+    set_visibility_load_more();
 }
 
 
@@ -112,12 +114,13 @@ function append() {
 
         data_sort:                          data_sort,
         data_filter:                        data_filter,
-        data_offset:                        $(OBJECT_ITEMS).children().length
+        data_offset:                        item_count()
 
     }, function(data) {
 
         $(OBJECT_ITEMS)                     .append(data);
 
+        set_visibility_load_more();
     });
 }
 
@@ -178,6 +181,46 @@ function sort(column) {
     this.data_sort                          = {[column] : $mode_sort};
 
     load();
+}
+
+
+
+function set_visibility_load_more() {
+
+    if (more_available()) {
+
+        $(OBJECT_BUTTON_LOAD_MORE)          .show();
+
+    } else {
+
+        $(OBJECT_BUTTON_LOAD_MORE)          .hide();
+
+    }
+}
+
+
+
+function more_available() {
+
+    return item_total >= 0 ? item_count() < item_total() : true;
+
+}
+
+
+
+function item_count() {
+
+    return $(OBJECT_ITEMS).find('.item').length;
+
+}
+
+
+
+function item_total() {
+
+    var value                               = $('#counter-total').find('.value').text();
+
+    return value.length > 0 ? value : -1;
 }
 
 
