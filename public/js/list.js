@@ -116,7 +116,7 @@ function append() {
 
         }, function(data) {
 
-            $(data).append('#items');
+            $('#items').append(data);
 
         }
     );
