@@ -118,7 +118,7 @@ function append() {
 
     }, function(data) {
 
-        $(OBJECT_ITEMS)                     .last().before(data);
+        $(OBJECT_ITEMS)                     .children().last().before(data);
 
         set_visibility_load_more();
     });
