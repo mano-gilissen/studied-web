@@ -67,7 +67,7 @@ $(function() {
 
 
 
-    $('#button-load-more').on('click', function() {
+    $(OBJECT_BUTTON_LOAD_MORE).on('click', function() {
 
         append();
 
@@ -110,16 +110,15 @@ function append() {
 
     $.post('/load/' + data_type + '/list', {
 
-            data_sort:                      data_sort,
-            data_filter:                    data_filter,
-            data_offset:                    items_count()
+        data_sort:                          data_sort,
+        data_filter:                        data_filter,
+        data_offset:                        $(OBJECT_ITEMS).children().length
 
-        }, function(data) {
+    }, function(data) {
 
-            $('#items').append(data);
+        $(OBJECT_ITEMS)                     .append(data);
 
-        }
-    );
+    });
 }
 
 
@@ -179,14 +178,6 @@ function sort(column) {
     this.data_sort                          = {[column] : $mode_sort};
 
     load();
-}
-
-
-
-function items_count() {
-
-    return $('#items').children().length;
-
 }
 
 

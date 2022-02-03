@@ -48,14 +48,6 @@
 
                     </div>
 
-                    <div id="button-load-more" class="button icon">
-
-                        <img class="icon" src="/images_app/add-white.svg">
-
-                        <div class="text">{{ __('Meer laden') }}</div>
-
-                    </div>
-
                     <div id="filters">
 
 
