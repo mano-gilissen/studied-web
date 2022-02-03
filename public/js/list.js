@@ -67,6 +67,14 @@ $(function() {
 
 
 
+    $('#button-load-more').on('click', function() {
+
+        append();
+
+    });
+
+
+
 });
 
 
@@ -94,6 +102,24 @@ function load() {
         data_filter:                        data_filter
 
     });
+}
+
+
+
+function append() {
+
+    $.get('/load/' + data_type + '/list', {
+
+            data_sort:                      data_sort,
+            data_filter:                    data_filter,
+            data_offset:                    items_count()
+
+        }, function(data) {
+
+            $(data).find('.item')           .appendTo('#items');
+
+        }
+    );
 }
 
 
@@ -153,6 +179,14 @@ function sort(column) {
     this.data_sort                          = {[column] : $mode_sort};
 
     load();
+}
+
+
+
+function items_count() {
+
+    return $('#items').children().length;
+
 }
 
 

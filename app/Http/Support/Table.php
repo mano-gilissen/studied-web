@@ -38,6 +38,7 @@ class Table {
     const DATA_TYPE                                         = "data_type";
     const DATA_SORT                                         = "data_sort";
     const DATA_FILTER                                       = "data_filter";
+    const DATA_OFFSET                                       = "data_offset";
 
     const SORT_MODE                                         = "mode";
     const SORT_MODE_ASC                                     = "asc";
@@ -62,13 +63,14 @@ class Table {
 
         $sort                                               = $request->input(Table::DATA_SORT, null);
         $filter                                             = $request->input(Table::DATA_FILTER, null);
+        $offset                                             = $request->input(Table::DATA_OFFSET, 0);
 
         $view_data                                          = [];
 
         $columns                                            = $controller->list_columns($sort, $filter);
         $spacing                                            = self::spacing($columns);
         $query                                              = self::query($controller, $sort, $filter);
-        $objects                                            = self::objects($controller, $query);
+        $objects                                            = self::objects($controller, $query, $offset);
         $items                                              = [];
 
         foreach ($columns as $column) {
@@ -98,7 +100,7 @@ class Table {
         $view_data[self::VIEW_SPACING]                      = $spacing;
         $view_data[self::VIEW_ITEMS]                        = $items;
 
-        return view(Views::LOAD_LIST, $view_data);
+        return view($offset > 0 ? Views::LOAD_ITEMS : Views::LOAD_LIST, $view_data);
     }
 
 
@@ -146,9 +148,10 @@ class Table {
 
 
 
-    public static function objects($controller, $query) {
 
-        return $query->select($controller->list_type() . '.*')->get();
+    public static function objects($controller, $query, $offset = 0, $limit = 10) {
+
+        return $query->select($controller->list_type() . '.*')->offset($offset)->limit($limit)->get();
 
     }
 

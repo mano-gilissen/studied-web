@@ -36,6 +36,7 @@ class Views {
     const FORM_PERSON_EDIT                      = "form-person-edit";
 
     const LOAD_LIST                             = "load.list";
+    const LOAD_ITEMS                            = "load.items";
     const LOAD_FILTERS                          = "load.filters";
     const LOAD_COUNTERS                         = "load.counters";
     const LOAD_AGREEMENT                        = "load.agreement";
