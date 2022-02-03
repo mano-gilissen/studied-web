@@ -60,6 +60,12 @@
 
     @endempty
 
-    <div id="button-load-more" class="button load-more">Meer laden</div>
+    <div id="button-load-more" class="button load-more transparent icon">
+
+        <img class="icon" src="/images_app/add.svg">
+
+        <div class="text">{{ __('Meer laden') }}</div>
+
+    </div>
 
 </div>
