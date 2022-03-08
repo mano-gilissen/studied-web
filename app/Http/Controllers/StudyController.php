@@ -793,6 +793,9 @@ class StudyController extends Controller {
 
             case self::$COLUMN_SERVICE:
 
+                echo($query);
+                echo("<br><br><br>");
+
                 $services = $query
                     ->with('getService')
                     ->get()
