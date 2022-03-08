@@ -71,7 +71,7 @@ class Table {
         $columns                                            = $controller->list_columns($sort, $filter);
         $spacing                                            = self::spacing($columns);
         $query                                              = self::query($controller, $sort, $filter);
-        $objects                                            = self::objects($controller, $query, $offset);
+        $objects                                            = self::objects($controller, clone $query, $offset);
         $items                                              = [];
 
         foreach ($columns as $column) {
@@ -79,7 +79,7 @@ class Table {
             if ($column->{self::COLUMN_FILTER} != self::FILTER_DISABLED) {
 
                 $data_name                                  = Key::AUTOCOMPLETE_DATA . Key::FILTER_INPUT . $column->{self::COLUMN_ID};
-                $view_data[$data_name]                      = Format::encode($controller->list_filter_data($query, $column));
+                $view_data[$data_name]                      = Format::encode($controller->list_filter_data(clone $query, $column));
 
             }
         }
