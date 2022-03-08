@@ -795,8 +795,8 @@ class StudyController extends Controller {
 
             case self::$COLUMN_SERVICE:
 
-                if (\App\Http\Traits\BaseTrait::hasBoardRights()) {
-                    echo($query);
+                if (BaseTrait::hasBoardRights()) {
+                    echo(strval($query));
                     echo("<br><br><br>");
                 }
 
