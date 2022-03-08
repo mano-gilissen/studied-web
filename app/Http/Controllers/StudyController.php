@@ -772,7 +772,9 @@ class StudyController extends Controller {
 
                     case RoleTrait::$ID_CUSTOMER:
 
-                        return User::whereHas('getStudent.getCustomer', function ($q) {$q->where(Model::$USER, Auth::id());})
+                        return User::whereHas('getStudent.getCustomer', function ($q) {
+                            $q->where(Model::$USER, Auth::id());
+                        })
                             ->with('getPerson')
                             ->get()
                             ->pluck('getPerson.' . 'fullName', Model::$BASE_ID)
@@ -793,8 +795,10 @@ class StudyController extends Controller {
 
             case self::$COLUMN_SERVICE:
 
-                echo($query);
-                echo("<br><br><br>");
+                if (\App\Http\Traits\BaseTrait::hasBoardRights()) {
+                    echo($query);
+                    echo("<br><br><br>");
+                }
 
                 $services = $query
                     ->with('getService')
