@@ -797,7 +797,8 @@ class StudyController extends Controller {
 
                 if (BaseTrait::hasBoardRights()) {
                     echo("<span style='font-size:2px'>");
-                    echo(print_r($query->get()->toArray()));
+                    //echo(print_r($query->get()->toArray()));
+                    echo($query->toSql());
                     echo("</span>");
                 }
 
