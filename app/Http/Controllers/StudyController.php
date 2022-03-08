@@ -794,12 +794,12 @@ class StudyController extends Controller {
                     ->toArray();
 
             case self::$COLUMN_SERVICE:
-
+/*
                 if (BaseTrait::hasBoardRights()) {
                     echo(strval($query));
                     echo("<br><br><br>");
                 }
-
+*/
                 $services = $query
                     ->with('getService')
                     ->get()
