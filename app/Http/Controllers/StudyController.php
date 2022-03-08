@@ -795,13 +795,6 @@ class StudyController extends Controller {
 
             case self::$COLUMN_SERVICE:
 
-                if (BaseTrait::hasBoardRights()) {
-                    echo("<span style='font-size:2px'>");
-                    //echo(print_r($query->get()->toArray()));
-                    echo($query->toSql());
-                    echo("</span>");
-                }
-
                 $services = $query
                     ->with('getService')
                     ->get()
