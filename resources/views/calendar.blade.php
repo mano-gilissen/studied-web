@@ -74,7 +74,7 @@
 
                             <div class="date" style="grid-column-start:1;grid-column-end:5;">{{ $date }}</div>
 
-                            @foreach(\App\Models\Study::whereDate('created_at', '=', $date)->get() as $study)
+                            @foreach(\App\Models\Study::whereDate('start', '=', $date)->get() as $study)
 
                                 @php $start = ((substr($study->start, 11, 2) * 4) + substr($study->start, 14, 2)) - 23 @endphp
                                 @php $end = ((substr($study->end, 11, 2) * 4) + substr($study->end, 14, 2)) - 23 @endphp
