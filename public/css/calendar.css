@@ -1,18 +1,24 @@
 #column {
-    width:                              712px;
-    margin:                             40px auto 128px;
+    margin:                             128px 64px 0;
 }
 
 .calendar-header,
 .calendar-day {
-    display:                    grid;
-    grid-auto-flow:             column;
-    grid-template-columns:      repeat(72, 1fr);
-    grid-gap:                   2px;
+    display:                            grid;
+    grid-auto-flow:                     column;
+    grid-gap:                           2px;
+}
+
+.calendar-header {
+    grid-template-columns:              repeat(18, 1fr);
+}
+
+.calendar-day {
+    grid-template-columns:              repeat(18, 1fr);
 }
 
 .study {
-    background:                 lightblue;
-    color:                      black;
-    border-radius:              4px;
+    background:                         lightblue;
+    color:                              black;
+    border-radius:                      4px;
 }
