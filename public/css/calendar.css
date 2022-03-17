@@ -30,6 +30,11 @@
     color:                              black;
     border-radius:                      4px;
     outline:                            1px solid white;
+    cursor:                             pointer;
+}
+
+.study:hover {
+    background:                         #d4ebf2;
 }
 
 .study p {
