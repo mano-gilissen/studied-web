@@ -29,6 +29,7 @@
     background:                         lightblue;
     color:                              black;
     border-radius:                      4px;
+    outline:                            1px solid white;
 }
 
 .study p {
