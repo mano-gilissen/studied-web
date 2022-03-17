@@ -7,7 +7,7 @@
     height:                             64px;
     display:                            grid;
     grid-auto-flow:                     column;
-    grid-gap:                           2px;
+    grid-gap:                           4px;
 }
 
 .calendar-header {
@@ -17,6 +17,7 @@
 
 .calendar-day {
     grid-template-columns:              repeat(72, 1fr);
+    margin-bottom:                      4px;
 }
 
 .calendar-day .date {
@@ -24,7 +25,12 @@
 }
 
 .study {
+    padding:                            4px;
     background:                         lightblue;
     color:                              black;
     border-radius:                      4px;
+}
+
+.study p {
+    width:                              fit-content;
 }

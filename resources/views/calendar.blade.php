@@ -79,7 +79,7 @@
                                 @php $start = ((substr($study->start, 11, 2) * 4) + substr($study->start, 14, 2)) - 23 @endphp
                                 @php $end = ((substr($study->end, 11, 2) * 4) + substr($study->end, 14, 2)) - 23 @endphp
 
-                                <div class="study" style="grid-column-start:{{ $start }};grid-column-end:{{ $end }};">
+                                <div class="study" style="grid-column-start:{{ $start }};grid-column-end:{{ $end }};grid-row-start:1">
 
                                     <p>{{ \App\Http\Traits\PersonTrait::getFullName($study->getHost->getPerson) }}</p>
 
