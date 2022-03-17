@@ -10,11 +10,11 @@
 }
 
 .calendar-header {
-    grid-template-columns:              repeat(72, 1fr);
+    grid-template-columns:              repeat(18, 1fr);
 }
 
 .calendar-day {
-    grid-template-columns:              repeat(18, 1fr);
+    grid-template-columns:              repeat(72, 1fr);
 }
 
 .study {
