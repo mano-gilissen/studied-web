@@ -79,7 +79,7 @@
                                 @php $start = ((substr($study->start, 11, 2) * 4) + (substr($study->start, 14, 2) / 15)) - 23 @endphp
                                 @php $end = ((substr($study->end, 11, 2) * 4) + (substr($study->end, 14, 2)/ 15)) - 23 @endphp
 
-                                <div class="study" style="grid-column-start:{{ $start }};grid-column-end:{{ $end }};grid-row-start:1">
+                                <div class="study" style="grid-column-start:{{ $start }};grid-column-end:{{ $end }};grid-row-start:1" onclick="window.location.href='{{ route('study.view', ['key' => $study->{\App\Http\Support\Model::$BASE_KEY}]) }}'">
 
                                     <p>{{ \App\Http\Traits\PersonTrait::getFullName($study->getHost->getPerson) }}</p>
 
