@@ -11,7 +11,7 @@
 }
 
 .calendar-header {
-    place-items:                        start center;
+    place-items:                        center start;
     grid-template-columns:              repeat(18, 1fr);
 }
 
@@ -20,7 +20,7 @@
 }
 
 .calendar-day .date {
-    place-self:                         start center;
+    place-self:                         center start;
 }
 
 .study {
