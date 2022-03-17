@@ -68,7 +68,7 @@
 
                 @for ($i = 0; $i < 14; $i++)
 
-                    @php use Carbon\Carbon; $date = Carbon::today()->addDays($i)->toDateString(); @endphp
+                    @php $date = \Carbon\Carbon::today()->addDays($i)->toDateString(); @endphp
 
                     <div class="calendar-day">
 
