@@ -4,17 +4,23 @@
 
 .calendar-header,
 .calendar-day {
+    height:                             64px;
     display:                            grid;
     grid-auto-flow:                     column;
     grid-gap:                           2px;
 }
 
 .calendar-header {
+    place-items:                        start center;
     grid-template-columns:              repeat(18, 1fr);
 }
 
 .calendar-day {
     grid-template-columns:              repeat(72, 1fr);
+}
+
+.calendar-day .date {
+    place-self:                         start center;
 }
 
 .study {
