@@ -20,6 +20,8 @@
 
                 @include('block.menu-item', ['label' => 'Mijn profiel', 'route' => route('person.self')])
 
+                @include('block.menu-item', ['label' => 'Locatieagenda', 'route' => route('study.calendar')])
+
                 @break
 
             @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)

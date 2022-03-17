@@ -18,6 +18,8 @@ const FORM_TEST_VIEW                            = 'form_test.view';
 
 const STUDY_LIST                                = 'study.list';
 
+const STUDY_CALENDAR                            = 'study.calendar';
+
 const STUDY_LIST_EXPORT                         = 'study.data.export';
 
 const STUDY_OVERVIEW_EXPORT                     = 'study.overview.export';
@@ -239,6 +241,7 @@ const ALL_EMPLOYEE                              = [
     self::REPORT_EDIT,
     self::STUDY_EDIT,
     self::STUDY_PLAN,
+    self::STUDY_CALENDAR,
     self::STUDENT_LIST,
     self::LOAD_STUDY_AGREEMENTS,
     self::LOAD_STUDY_SUBJECTS,

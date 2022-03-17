@@ -180,6 +180,18 @@ class StudyController extends Controller {
 
 
 
+    public function calendar() {
+
+        $data                                                               = [];
+        $data[Key::PAGE_TITLE]                                              = 'Locatieagenda';
+
+        return view(Views::CALENDAR, $data);
+    }
+
+
+
+
+
     public function delete($key) {
 
         $study                                                              = Study::where(Model::$BASE_KEY, $key)->firstOrFail();

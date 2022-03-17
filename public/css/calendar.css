@@ -1,0 +1,13 @@
+.calendar-header,
+.calendar-day {
+    display:                    grid;
+    grid-auto-flow:             column;
+    grid-template-columns:      repeat(72, 1fr);
+    grid-gap:                   2px;
+}
+
+.study {
+    background:                 lightblue;
+    color:                      black;
+    border-radius:              4px;
+}

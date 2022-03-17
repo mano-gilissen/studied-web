@@ -56,6 +56,7 @@ class Views {
     const ACTIVATE                              = "activate";
     const PROFILE_EDIT                          = "profile-edit";
     const LANDING                               = "landing";
+    const CALENDAR                              = "calendar";
 
 
 

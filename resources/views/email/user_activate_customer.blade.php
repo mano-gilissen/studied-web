@@ -5,12 +5,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>{{ $subject }}</title>
     <style>
-        /* -------------------------------------
-            INLINED WITH htmlemail.io/inline
-        ------------------------------------- */
-        /* -------------------------------------
-            RESPONSIVE AND MOBILE FRIENDLY STYLES
-        ------------------------------------- */
         @media only screen and (max-width: 620px) {
             table[class=body] h1 {
                 font-size: 14px !important;
@@ -53,9 +47,6 @@
             }
         }
 
-        /* -------------------------------------
-            PRESERVE THESE STYLES IN THE HEAD
-        ------------------------------------- */
         @media all {
             .ExternalClass {
                 width: 100%;
