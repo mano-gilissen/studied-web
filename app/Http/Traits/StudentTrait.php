@@ -225,6 +225,7 @@ trait StudentTrait {
             case 10:                                        return "TTO havo";
             case 11:                                        return "TTO vwo";
             case 12:                                        return "TTO gymnasium";
+            case 13:                                        return "MBO";
             default:                                        return Key::UNKNOWN;
         }
     }
@@ -245,7 +246,8 @@ trait StudentTrait {
             9                                               => self::getNiveauText(9),
             10                                              => self::getNiveauText(10),
             11                                              => self::getNiveauText(11),
-            12                                              => self::getNiveauText(12)
+            12                                              => self::getNiveauText(12),
+            13                                              => self::getNiveauText(13)
         ];
     }
 
