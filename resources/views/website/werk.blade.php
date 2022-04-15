@@ -1759,7 +1759,6 @@ display: block;
       <div class="form-wrapper w-form">
         <form action="https://submit-form.com/xSgds62z" id="email-form" data-name="Email Form" autocomplete="off" class="cf-body"> <!-- name="email-form" -->
 
-            <div class="g-recaptcha" data-sitekey="6Lf_HAMdAAAAAAd_W2EK30A8Yz71TmZxacFIjkbH"></div>
             <input type="hidden" name="_feedback.dark" value="false" />
             <input type="hidden" name="_feedback.language" value="nl" />
             <input type="hidden" name="_feedback.success.title" value="Je verzoek is verstuurd!" />
@@ -1811,7 +1810,8 @@ display: block;
                   <option value="Utrecht">Utrecht</option>
                 </select></div>
               <div class="cf-column right"></div>
-            </div><label for="Email-2" class="cf-fieldlabel">Email</label><textarea placeholder="Jouw bericht" maxlength="5000" id="field-2" name="field-2" required="" autocomplete="off" class="textarea w-input"></textarea><input type="submit" value="Versturen" data-wait="Even geduld..." class="cf-submit w-button">
+            </div><label for="Email-2" class="cf-fieldlabel">Email</label><textarea placeholder="Jouw bericht" maxlength="5000" id="field-2" name="field-2" required="" autocomplete="off" class="textarea w-input"></textarea>
+              <div class="g-recaptcha" style="margin-bottom:48px" data-sitekey="6Lf_HAMdAAAAAAd_W2EK30A8Yz71TmZxacFIjkbH"></div><input type="submit" value="Versturen" data-wait="Even geduld..." class="cf-submit w-button">
           </div>
         </form>
         <div class="success-message w-form-done">
