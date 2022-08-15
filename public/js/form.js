@@ -240,7 +240,7 @@ function study_agreement_toggle_selected(id) {
 
             $(CLASS_AGREEMENT).each(function( index ) {
 
-                if ($(this).attr('data-subject') != agreement.attr('data-subject') || $(this).attr('data-service') != agreement.attr('data-service')) {
+                if (($(this).attr('data-subject') != agreement.attr('data-subject')) || ($(this).attr('data-service') != agreement.attr('data-service'))) {
 
                     $(this)                         .addClass(ATTR_DISABLED);
 
