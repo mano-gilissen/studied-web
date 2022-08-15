@@ -144,56 +144,56 @@
 
                             @case(\App\Http\Traits\StudyTrait::$STATUS_REPORTED)
 
-                                @switch($study->service)
+                                @switch($study->getParticipants_User->count())
 
-                                    @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
+                                    @case(1)
 
                                         @include('block.study-participants-priveles')
 
-                                        @include('block.study-details')
+                                        @break
 
-                                        @include('block.study-location')
-
-                                    @break
-
-                                    @case(\App\Http\Traits\ServiceTrait::$ID_GROEPSLES)
+                                    @default
 
                                         @include('block.study-participants-groepsles')
 
-                                        @include('block.study-details')
-
-                                        @include('block.study-location')
-
-                                    @break
+                                        @break
 
                                 @endswitch
+
+                                @include('block.study-details')
+
+                                @include('block.study-location')
 
                             @break
 
                             @default
 
-                                @switch($study->service)
+                                @switch($study->getParticipants_User->count())
 
-                                    @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
+                                    @case(1)
 
                                         @include('block.study-host-priveles')
 
-                                    @break
+                                        @break
 
-                                    @case(\App\Http\Traits\ServiceTrait::$ID_GROEPSLES)
-
-                                        @include('block.study-details')
-
-                                        @include('block.study-location')
-
-                                    @break
-
-                                    @case(\App\Http\Traits\ServiceTrait::$ID_COLLEGE)
-                                    @case(\App\Http\Traits\ServiceTrait::$ID_TRAINING)
+                                    @default
 
                                         @include('block.study-details')
 
                                         @include('block.study-location')
+
+                                        @break
+
+                                    <!--
+
+                                    case(\App\Http\Traits\ServiceTrait::$ID_COLLEGE)
+                                    case(\App\Http\Traits\ServiceTrait::$ID_TRAINING)
+
+                                        include('block.study-details')
+
+                                        include('block.study-location')
+
+                                    -->
 
                             @endswitch
 
@@ -207,48 +207,52 @@
 
                             @case(\App\Http\Traits\StudyTrait::$STATUS_REPORTED)
 
-                                @switch($study->service)
+                                @switch($study->getParticipants_User->count())
 
-                                    @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
-
-                                        @include('block.study-report')
-
-                                    @break
-
-                                    @case(\App\Http\Traits\ServiceTrait::$ID_GROEPSLES)
+                                    @case(1)
 
                                         @include('block.study-report')
 
-                                    @break
+                                        @break
+
+                                    @default
+
+                                        @include('block.study-report')
+
+                                        @break
 
                                 @endswitch
 
-                            @break;
+                            @break
 
                             @default
 
-                                @switch($study->service)
+                                @switch($study->getParticipants_User->count())
 
-                                    @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
+                                    @case(1)
 
                                         @include('block.study-participants-priveles')
 
-                                    @break
+                                        @break
 
-                                    @case(\App\Http\Traits\ServiceTrait::$ID_GROEPSLES)
+                                    @default
 
                                         @include('block.study-host-groepsles')
 
                                         @include('block.study-participants-groepsles')
 
-                                    @break
+                                        @break
 
-                                    @case(\App\Http\Traits\ServiceTrait::$ID_COLLEGE)
-                                    @case(\App\Http\Traits\ServiceTrait::$ID_TRAINING)
+                                    <!--
 
-                                        @include('block.study-host-college')
+                                    case(\App\Http\Traits\ServiceTrait::$ID_COLLEGE)
+                                    case(\App\Http\Traits\ServiceTrait::$ID_TRAINING)
 
-                                        @include('block.study-participants-college')
+                                        include('block.study-host-college')
+
+                                        include('block.study-participants-college')
+
+                                    -->
 
                                 @endswitch
 
@@ -270,13 +274,13 @@
 
                             @default
 
-                                @switch($study->service)
+                                @switch($study->getParticipants_User->count())
 
-                                    @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
+                                    @case(1)
 
-                                    @include('block.study-details')
+                                        @include('block.study-details')
 
-                                    @break
+                                        @break
 
                                 @endswitch
 
@@ -294,13 +298,13 @@
 
                             @default
 
-                                @switch($study->service)
+                                @switch($study->getParticipants_User->count())
 
-                                    @case(\App\Http\Traits\ServiceTrait::$ID_PRIVELES)
+                                    @case(1)
 
-                                    @include('block.study-location')
+                                        @include('block.study-location')
 
-                                    @break
+                                        @break
 
                                 @endswitch
 
