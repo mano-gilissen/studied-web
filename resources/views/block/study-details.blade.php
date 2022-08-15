@@ -14,6 +14,14 @@
 
         <div class="attribute">
 
+            <div class="name">Dienst</div>
+
+            <div class="value">{{ $study->getService->{\App\Http\Support\Model::$SERVICE_NAME} }}</div>
+
+        </div>
+
+        <div class="attribute">
+
             <div class="name">Datum</div>
 
             <div class="value">{{ \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE) }}</div>
