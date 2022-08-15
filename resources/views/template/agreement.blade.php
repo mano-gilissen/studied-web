@@ -26,7 +26,7 @@
 
                 <div class="title">Vakafspraak</div>
 
-                <div class="subtitle">{{ $agreement->getSubject->{\App\Http\Support\Model::$SUBJECT_NAME} }}</div>
+                <div class="subtitle">{{ $agreement->getSubject->{\App\Http\Support\Model::$SUBJECT_NAME} . " (" . $agreement->getService->{\App\Http\Support\Model::$SERVICE_NAME} . ")" }}</div>
 
             </div>
 
