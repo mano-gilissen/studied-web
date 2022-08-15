@@ -77,7 +77,7 @@ class StudyController extends Controller {
 
         return view(Views::STUDY, [
 
-            Key::PAGE_TITLE                                                 => $study->getService->{Model::$SERVICE_NAME},
+            Key::PAGE_TITLE                                                 => $study->getService->{Model::$SERVICE_SHORT},
             Key::PAGE_BACK                                                  => true,
 
             Model::$STUDY                                                   => $study
@@ -543,7 +543,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_LOCATION:
 
-                return StudyTrait::hasLink($study) ? "Digitaal (Zoom)" : $study->{Model::$STUDY_LOCATION_TEXT};
+                return StudyTrait::hasLink($study) ? "Digitaal" : $study->{Model::$STUDY_LOCATION_TEXT};
 
             case self::$COLUMN_TIME:
 

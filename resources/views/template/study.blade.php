@@ -176,7 +176,10 @@
 
                                         @break
 
-                                    @default
+                                    @case(2)
+                                    @case(3)
+                                    @case(4)
+                                    @case(5)
 
                                         @include('block.study-details')
 
@@ -184,16 +187,13 @@
 
                                         @break
 
-                                    <!--
+                                    @default
 
-                                    case(\App\Http\Traits\ServiceTrait::$ID_COLLEGE)
-                                    case(\App\Http\Traits\ServiceTrait::$ID_TRAINING)
+                                        @include('block.study-details')
 
-                                        include('block.study-details')
+                                        @include('block.study-location')
 
-                                        include('block.study-location')
-
-                                    -->
+                                        @break
 
                             @endswitch
 
@@ -235,7 +235,10 @@
 
                                         @break
 
-                                    @default
+                                    @case(2)
+                                    @case(3)
+                                    @case(4)
+                                    @case(5)
 
                                         @include('block.study-host-groepsles')
 
@@ -243,16 +246,13 @@
 
                                         @break
 
-                                    <!--
+                                    @default
 
-                                    case(\App\Http\Traits\ServiceTrait::$ID_COLLEGE)
-                                    case(\App\Http\Traits\ServiceTrait::$ID_TRAINING)
+                                        @include('block.study-host-college')
 
-                                        include('block.study-host-college')
+                                        @include('block.study-participants-college')
 
-                                        include('block.study-participants-college')
-
-                                    -->
+                                        @break
 
                                 @endswitch
 

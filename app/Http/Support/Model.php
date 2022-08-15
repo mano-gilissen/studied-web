@@ -273,6 +273,7 @@ class Model {
         $SERVICE                                        = 'service',
 
         $SERVICE_NAME                                   = 'name',
+        $SERVICE_SHORT                                  = 'short',
         $SERVICE_DESCRIPTION                            = 'description',
         $SERVICE_CODE                                   = 'code';
 
