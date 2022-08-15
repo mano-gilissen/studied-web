@@ -820,8 +820,8 @@ class StudyController extends Controller {
                     ->toArray();
 
                 $services[-1]                               = 'Proefles';
-                $services[-2]                               = 'Alle basisschool';
-                $services[-3]                               = 'Alle middelbare school';
+                $services[-2]                               = 'Alle BO';
+                $services[-3]                               = 'Alle VO';
                 $services[-4]                               = 'Alle MBO/HBO/WO';
 
                 return $services;
@@ -882,8 +882,8 @@ class StudyController extends Controller {
                     switch($value) {
 
                         case -1: $display                   = "Proefles"; break;
-                        case -2: $display                   = "Alle basisschool"; break;
-                        case -3: $display                   = "Alle middelbare school"; break;
+                        case -2: $display                   = "Alle BO"; break;
+                        case -3: $display                   = "Alle VO"; break;
                         case -4: $display                   = "Alle MBO/HBO/WO"; break;
                         default: $display                   = Service::find($value)->{Model::$SERVICE_NAME}; break;
                     }
