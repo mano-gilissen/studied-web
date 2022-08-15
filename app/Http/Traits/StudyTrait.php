@@ -198,6 +198,9 @@ trait StudyTrait {
 
     public static function create_set_service(&$study, $data) {
 
+        $study->{Model::$SERVICE}                                   = $study->getAgreements->first()->{Model::$SERVICE};
+
+        /*
         switch ($study->getAgreements->count()) {
 
             case 0:
@@ -209,7 +212,7 @@ trait StudyTrait {
             default:
                 $study->{Model::$SERVICE}                           = ServiceTrait::$ID_GROEPSLES;
                 break;
-        }
+        }*/
     }
 
 

@@ -15,6 +15,7 @@ use App\Http\Support\Model;
 use App\Models\Evaluation;
 use App\Models\Level;
 use App\Models\Person;
+use App\Models\Service;
 use App\Models\Student;
 use App\Models\Subject;
 use App\Models\User;
@@ -112,6 +113,7 @@ class AgreementController extends Controller {
 
         $objects_employee                                                   = User::whereIn(Model::$ROLE, array(RoleTrait::$ID_BOARD, RoleTrait::$ID_MANAGEMENT, RoleTrait::$ID_EMPLOYEE))->with('getPerson')->get();
         $objects_student                                                    = User::where(Model::$ROLE, RoleTrait::$ID_STUDENT)->with('getPerson')->get();
+        $objects_service                                                    = Service::all();
         $objects_subject                                                    = Subject::all();
         $objects_level                                                      = Level::all();
         $objects_agreement                                                  = Agreement::where(Model::$STUDENT, $student_id)->with('getSubject')->get();
@@ -124,6 +126,7 @@ class AgreementController extends Controller {
         $ac_data_student                                                    = $objects_student->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
         $ac_additional_student                                              = $objects_student->pluck(Model::$USER_EMAIL, Model::$BASE_ID)->toArray();
 
+        $ac_data_service                                                    = $objects_service->pluck(Model::$SERVICE_NAME, Model::$BASE_ID)->toArray();
         $ac_data_subject                                                    = $objects_subject->pluck(Model::$SUBJECT_NAME, Model::$BASE_ID)->toArray();
         $ac_data_level                                                      = $objects_level->pluck('withYear', Model::$BASE_ID)->toArray();
 
@@ -140,6 +143,7 @@ class AgreementController extends Controller {
         $data[Key::AUTOCOMPLETE_DATA . Model::$STUDENT]                     = Format::encode($ac_data_student);
         $data[Key::AUTOCOMPLETE_ADDITIONAL . Model::$STUDENT]               = Format::encode($ac_additional_student);
 
+        $data[Key::AUTOCOMPLETE_DATA . Model::$SERVICE]                     = Format::encode($ac_data_service);
         $data[Key::AUTOCOMPLETE_DATA . Model::$SUBJECT]                     = Format::encode($ac_data_subject);
         $data[Key::AUTOCOMPLETE_DATA . Model::$LEVEL]                       = Format::encode($ac_data_level);
 

@@ -44,11 +44,21 @@ class Agreement extends ModelClass {
 
 
 
+    public function getService() {
+
+        return self::getThisToOne(Model::$SERVICE);
+
+    }
+
+
+
     public function getSubject() {
 
         return self::getThisToOne(Model::$SUBJECT);
 
     }
+
+
 
     public function getLevel() {
 

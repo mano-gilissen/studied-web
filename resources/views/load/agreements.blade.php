@@ -20,7 +20,7 @@
 
                     @if(!(\App\Http\Traits\AgreementTrait::hasNowTrial($agreement)))
 
-                        <div class="agreement" id="{{ $agreement->id }}" data-subject="{{ $agreement->subject }}">
+                        <div class="agreement" id="{{ $agreement->id }}" data-subject="{{ $agreement->subject }}" data-service="{{ $agreement->service }}">
 
                             <div class="top">
 

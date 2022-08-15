@@ -18,6 +18,8 @@
 
 @include('form.field-input', ['id' => 'employee_' . $id, 'tag' => 'Student-docent', 'icon' => 'search.svg', 'required' => true, 'data' => true, 'additional' => true, 'reject_other' => true, 'show_all' => true, 'ac_data' => 'employee', 'uses_id' => true, 'value' => old('employee_' . $id)])
 
+@include('form.field-input', ['id' => 'service_' . $id, 'tag' => 'Dienst', 'required' => true, 'data' => true, 'reject_other' => true, 'show_all' => true, 'ac_data' => 'service', 'uses_id' => true, 'value' => old('service_' . $id)])
+
 <div class="field">
 
     <div class="name">Vak</div>

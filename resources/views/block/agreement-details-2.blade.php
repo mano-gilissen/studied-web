@@ -6,6 +6,14 @@
 
         <div class="attribute">
 
+            <div class="name">Dienst</div>
+
+            <div class="value">{{ $agreement->getService->{\App\Http\Support\Model::$SERVICE_NAME} }}</div>
+
+        </div>
+
+        <div class="attribute">
+
             <div class="name">{{ $agreement->{\App\Http\Support\Model::$AGREEMENT_EXTENSION} ? 'Verlenging van' : 'Verlenging' }}</div>
 
             <div class="value">{{ $agreement->{\App\Http\Support\Model::$AGREEMENT_EXTENSION} ?? 'Nee' }}</div>
