@@ -518,28 +518,22 @@ class StudyController extends Controller {
 
             case self::$COLUMN_SUBJECT:
 
-                switch ($study->{Model::$SERVICE}) {
+                if (strlen($study->{Model::$STUDY_SUBJECT_TEXT}) > 0) {
 
-                    case ServiceTrait::$ID_COLLEGE:
-                    case ServiceTrait::$ID_TRAINING:
+                    return $study->{Model::$STUDY_SUBJECT_TEXT};
 
-                        return $study->{Model::$STUDY_SUBJECT_TEXT};
+                } else {
 
-                    case ServiceTrait::$ID_GROEPSLES:
-                    case ServiceTrait::$ID_PRIVELES:
+                    $subjects                                   = "";
 
-                        $subjects                                   = "";
+                    foreach ($study->getAgreements as $agreement) {
 
-                        foreach ($study->getAgreements as $agreement) {
+                        $subjects                              .= (strlen($subjects) > 0 ? ', ' : '') . AgreementTrait::getVakcode($agreement);
 
-                            $subjects                              .= (strlen($subjects) > 0 ? ', ' : '') . AgreementTrait::getVakcode($agreement);
+                    }
 
-                        }
-
-                        return $subjects;
+                    return $subjects;
                 }
-
-                return $study->{Model::$STUDY_SUBJECT_TEXT};
 
             case self::$COLUMN_LOCATION:
 
@@ -648,6 +642,18 @@ class StudyController extends Controller {
                 case self::$COLUMN_SERVICE:
 
                     switch ($value) {
+
+                        case -4:
+                            $query->whereIn(Model::$SERVICE, array(ServiceTrait::$ID_BIJLES_MBO_HBO_WO, ServiceTrait::$ID_TENTAMENTRAINING));
+                            break;
+
+                        case -3:
+                            $query->whereIn(Model::$SERVICE, array(ServiceTrait::$ID_BIJLES_VO, ServiceTrait::$ID_EXAMENTRAINING, ServiceTrait::$ID_HUISWERKBEGELEIDING));
+                            break;
+
+                        case -2:
+                            $query->whereIn(Model::$SERVICE, array(ServiceTrait::$ID_BIJLES_BO, ServiceTrait::$ID_CITO_TRAINING));
+                            break;
 
                         case -1:
                             $query->where(Model::$STUDY_TRIAL, true);
@@ -813,7 +819,10 @@ class StudyController extends Controller {
                     ->pluck('getService.' . Model::$SERVICE_NAME, 'getService.' . Model::$BASE_ID)
                     ->toArray();
 
-                $services[-1] = 'Proefles';
+                $services[-1]                               = 'Proefles';
+                $services[-2]                               = 'Alle basisschool';
+                $services[-3]                               = 'Alle middelbare school';
+                $services[-4]                               = 'Alle MBO/HBO/WO';
 
                 return $services;
 

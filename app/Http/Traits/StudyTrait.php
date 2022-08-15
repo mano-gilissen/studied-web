@@ -529,7 +529,7 @@ trait StudyTrait {
 
     public static function hasReporting($study) {
 
-        return !in_array($study->{Model::$SERVICE}, [ServiceTrait::$ID_COLLEGE, ServiceTrait::$ID_TRAINING]);
+        return true; //!in_array($study->{Model::$SERVICE}, [ServiceTrait::$ID_COLLEGE, ServiceTrait::$ID_TRAINING]);
 
     }
 
@@ -553,7 +553,7 @@ trait StudyTrait {
 
     public static function hasAgreements($study) {
 
-        return !in_array($study->{Model::$SERVICE}, [ServiceTrait::$ID_COLLEGE, ServiceTrait::$ID_TRAINING]);
+        return true; //!in_array($study->{Model::$SERVICE}, [ServiceTrait::$ID_COLLEGE, ServiceTrait::$ID_TRAINING]);
 
     }
 
