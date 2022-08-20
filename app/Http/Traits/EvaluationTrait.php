@@ -27,6 +27,8 @@ trait EvaluationTrait {
 
         $ID_INTAKE                              = 1,
         $ID_EVALUATION                          = 2,
+        $ID_YEAR_END                            = 3,
+        $ID_EXIT                                = 4,
 
         $STATUS_PLANNED                         = 1,
         $STATUS_FINISHED                        = 2;
@@ -180,6 +182,14 @@ trait EvaluationTrait {
 
                 return "Evaluatiegesprek";
 
+            case self::$ID_YEAR_END:
+
+                return "Eindejaarsgesprek";
+
+            case self::$ID_EXIT:
+
+                return "Exitgesprek";
+
             default:
 
                 return "Gesprek";
@@ -192,7 +202,9 @@ trait EvaluationTrait {
 
         return [
             self::$ID_INTAKE                        => self::getRegardingText(self::$ID_INTAKE),
-            self::$ID_EVALUATION                    => self::getRegardingText(self::$ID_EVALUATION)
+            self::$ID_EVALUATION                    => self::getRegardingText(self::$ID_EVALUATION),
+            self::$ID_YEAR_END                      => self::getRegardingText(self::$ID_YEAR_END),
+            self::$ID_EXIT                          => self::getRegardingText(self::$ID_EXIT)
         ];
     }
 

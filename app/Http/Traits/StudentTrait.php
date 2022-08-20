@@ -225,7 +225,17 @@ trait StudentTrait {
             case 10:                                        return "TTO havo";
             case 11:                                        return "TTO vwo";
             case 12:                                        return "TTO gymnasium";
-            case 13:                                        return "MBO";
+            case 13:                                        return "MBO-1";
+            case 14:                                        return "MBO-2";
+            case 15:                                        return "MBO-3";
+            case 16:                                        return "MBO-4";
+            case 17:                                        return "HBO Associate degree";
+            case 18:                                        return "HBO Bachelor";
+            case 19:                                        return "HBO Master";
+            case 20:                                        return "WO Bachelor";
+            case 21:                                        return "WO Pre-master";
+            case 22:                                        return "WO Master";
+            case 23:                                        return "Basisschool";
             default:                                        return Key::UNKNOWN;
         }
     }
@@ -247,7 +257,17 @@ trait StudentTrait {
             10                                              => self::getNiveauText(10),
             11                                              => self::getNiveauText(11),
             12                                              => self::getNiveauText(12),
-            13                                              => self::getNiveauText(13)
+            13                                              => self::getNiveauText(13),
+            14                                              => self::getNiveauText(14),
+            15                                              => self::getNiveauText(15),
+            16                                              => self::getNiveauText(16),
+            17                                              => self::getNiveauText(17),
+            18                                              => self::getNiveauText(18),
+            19                                              => self::getNiveauText(19),
+            20                                              => self::getNiveauText(20),
+            21                                              => self::getNiveauText(21),
+            22                                              => self::getNiveauText(22),
+            23                                              => self::getNiveauText(23)
         ];
     }
 
@@ -261,7 +281,9 @@ trait StudentTrait {
             3                                               => 3,
             4                                               => 4,
             5                                               => 5,
-            6                                               => 6
+            6                                               => 6,
+            7                                               => 7,
+            8                                               => 8
         ];
     }
 
