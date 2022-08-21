@@ -82,6 +82,30 @@
 
                                     @break
 
+                            @case(\App\Http\Traits\EvaluationTrait::$ID_YEAR_END)
+
+                                <div class="button icon" onclick="window.location.href='{{ route('evaluation.evaluation', ['key' => $evaluation->key]) }}'">
+
+                                    <img class="icon" src="/images_app/contact.svg">
+
+                                    <div class="text">Eindejaarsgesprek</div>
+
+                                </div>
+
+                                @break
+
+                            @case(\App\Http\Traits\EvaluationTrait::$ID_EXIT)
+
+                                <div class="button icon" onclick="window.location.href='{{ route('evaluation.evaluation', ['key' => $evaluation->key]) }}'">
+
+                                    <img class="icon" src="/images_app/contact.svg">
+
+                                    <div class="text">Exitgesprek</div>
+
+                                </div>
+
+                                @break
+
                             @endswitch
 
                         @endif
