@@ -116,14 +116,17 @@ trait EvaluationTrait {
 
         self::validate($data);
 
-        for ($i = 1; $i <= 10; $i++) {
+        for ($i = 1; $i <= 56; $i++) {
 
-            $evaluation[Model::$EVALUATION_PVA . $i]                = $data[Model::$EVALUATION_PVA . $i];
+            if (array_key_exists(Model::$EVALUATION_QUESTION . $i, $data)) {
 
+                $evaluation[Model::$EVALUATION_QUESTION . $i]               = $data[Model::$EVALUATION_QUESTION . $i];
+
+            }
         }
 
-        $evaluation[Model::$EVALUATION_PERFORMED]                   = true;
-        $evaluation[Model::$EVALUATION_REMARKS]                     = $data[Model::$EVALUATION_REMARKS];
+        $evaluation[Model::$EVALUATION_PERFORMED]                           = true;
+        $evaluation[Model::$EVALUATION_REMARKS]                             = $data[Model::$EVALUATION_REMARKS];
 
         $evaluation->save();
     }

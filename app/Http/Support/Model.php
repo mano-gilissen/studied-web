@@ -139,7 +139,7 @@ class Model {
         $EVALUATION_LINK                                = 'link',
         $EVALUATION_REGARDING                           = 'regarding',
         $EVALUATION_REMARKS                             = 'remarks',
-        $EVALUATION_PVA                                 = 'pva_',
+        $EVALUATION_QUESTION                            = 'q_',
         $EVALUATION_PERFORMED                           = 'performed';
 
 
