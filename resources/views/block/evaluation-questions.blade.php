@@ -374,7 +374,7 @@
 
         <div class="title">Evaluatie</div>
 
-        <div class="subtitle">Evaluatie</div>
+        <div class="subtitle">Bevindingen</div>
 
         <div class="content-fold">
 
