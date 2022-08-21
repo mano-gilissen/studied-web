@@ -1,7 +1,5 @@
 <div id="pva" class="block-attributes">
 
-    <div class="title">Plan van Aanpak</div>
-
 
 
     @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '1'}) > 0 ||
@@ -10,7 +8,9 @@
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '4'}) > 0 ||
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '5'}) > 0)
 
-        <div class="subtitle">PVA - Goal - De doelstelling</div>
+        <div class="title">Plan van Aanpak</div>
+
+        <div class="subtitle">Goal - De doelstelling</div>
 
         <div class="content-fold">
 
@@ -97,7 +97,7 @@
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '8'}) > 0 ||
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '9'}) > 0)
 
-        <div class="subtitle">PVA - Reality - Stand van zaken</div>
+        <div class="subtitle">Reality - Stand van zaken</div>
 
         <div class="content-fold">
 
@@ -169,7 +169,7 @@
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '11'}) > 0 ||
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '12'}) > 0)
 
-        <div class="subtitle">PVA - Options - De mogelijkheden</div>
+        <div class="subtitle">Options - De mogelijkheden</div>
 
         <div class="content-fold">
 
@@ -227,7 +227,7 @@
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '14'}) > 0 ||
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '15'}) > 0)
 
-        <div class="subtitle">PVA - Will - De acties</div>
+        <div class="subtitle">Will - De acties</div>
 
         <div class="content-fold">
 
@@ -372,6 +372,8 @@
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '22'}) > 0 ||
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '23'}) > 0)
 
+        <div class="title">Evaluatie</div>
+
         <div class="subtitle">Evaluatie</div>
 
         <div class="content-fold">
@@ -442,7 +444,9 @@
 
     @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '24'}) > 0)
 
-        <div class="subtitle">Eind schooljaar</div>
+        <div class="title">Afgelopen schooljaar</div>
+
+        <div class="subtitle">Bevindingen</div>
 
         <div class="content-fold">
 
@@ -732,7 +736,9 @@
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '41'}) > 0 ||
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '42'}) > 0)
 
-        <div class="subtitle">Exit</div>
+        <div class="title">Einde begeleiding</div>
+
+        <div class="subtitle">Bevindingen</div>
 
         <div class="content-fold">
 
