@@ -126,7 +126,6 @@ trait EvaluationTrait {
         }
 
         $evaluation[Model::$EVALUATION_PERFORMED]                           = true;
-        $evaluation[Model::$EVALUATION_REMARKS]                             = $data[Model::$EVALUATION_REMARKS];
 
         $evaluation->save();
     }
@@ -146,12 +145,6 @@ trait EvaluationTrait {
             if (Func::contains($key, [Model::$EVALUATION_QUESTION])) {
 
                 $rules[$key]                                                = ['max:999'];
-
-            }
-
-            if (Func::contains($key, [Model::$EVALUATION_REMARKS])) {
-
-                $rules[$key]                                                = ['max:4999'];
 
             }
         }
