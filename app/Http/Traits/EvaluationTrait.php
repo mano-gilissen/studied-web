@@ -143,7 +143,7 @@ trait EvaluationTrait {
 
         foreach ($data as $key => $value) {
 
-            if (Func::contains($key, [Model::$EVALUATION_PVA])) {
+            if (Func::contains($key, [Model::$EVALUATION_QUESTION])) {
 
                 $rules[$key]                                                = ['max:999'];
 
