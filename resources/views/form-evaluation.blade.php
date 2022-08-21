@@ -101,7 +101,7 @@
 
 
 
-    @if($evaluation->{\App\Http\Support\Model::$EVALUATION_REGARDING} = \App\Http\Traits\EvaluationTrait::$ID_YEAR_END)
+    @if($evaluation->{\App\Http\Support\Model::$EVALUATION_REGARDING} == \App\Http\Traits\EvaluationTrait::$ID_YEAR_END)
 
         <div class="title">{{ __('Eind schooljaar') }}</div>
 
@@ -155,7 +155,7 @@
 
 
 
-    @if($evaluation->{\App\Http\Support\Model::$EVALUATION_REGARDING} = \App\Http\Traits\EvaluationTrait::$ID_EXIT)
+    @if($evaluation->{\App\Http\Support\Model::$EVALUATION_REGARDING} == \App\Http\Traits\EvaluationTrait::$ID_EXIT)
 
         <div class="title">{{ __('Exit') }}</div>
 
