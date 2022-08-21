@@ -1028,19 +1028,23 @@
 
         <div class="content-fold">
 
-            <div class="item">
+            @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '55'}) > 0)
 
-                <div class="item-title">
+                <div class="item">
 
-                    <div>Heb je nog andere suggesties voor Studied?</div>
+                    <div class="item-title">
 
-                    <img src="/images_app/chevron-down.svg">
+                        <div>Heb je nog andere suggesties voor Studied?</div>
+
+                        <img src="/images_app/chevron-down.svg">
+
+                    </div>
+
+                    <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '55'} }}</p>
 
                 </div>
 
-                <p>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '55'} }}</p>
-
-            </div>
+            @endif
 
             <div class="item">
 
