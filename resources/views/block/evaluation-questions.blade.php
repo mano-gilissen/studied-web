@@ -285,7 +285,7 @@
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '17'}) > 0 ||
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '18'}) > 0)
 
-        <div class="subtitle">Afspraken</div>
+        <div class="title">Afspraken</div>
 
         <div class="content-fold">
 
@@ -341,7 +341,7 @@
 
     @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '19'}) > 0)
 
-        <div class="subtitle">Proefles</div>
+        <div class="title">Proefles</div>
 
         <div class="content-fold">
 
@@ -444,9 +444,9 @@
 
     @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '24'}) > 0)
 
-        <div class="title">Afgelopen schooljaar</div>
+        <div class="title">Afgelopen en volgend schooljaar</div>
 
-        <div class="subtitle">Bevindingen</div>
+        <div class="subtitle">Afgelopen schooljaaar</div>
 
         <div class="content-fold">
 
@@ -738,7 +738,7 @@
 
         <div class="title">Einde begeleiding</div>
 
-        <div class="subtitle">Bevindingen</div>
+        <div class="subtitle">Exit</div>
 
         <div class="content-fold">
 
