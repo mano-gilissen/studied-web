@@ -100,6 +100,22 @@
 
         </div>
 
+        @if($person->getUser->{\App\Http\Support\Model::$USER_POINTS} > 0)
+
+            <div class="attribute">
+
+                <div class="name">Gele punten</div>
+
+                <div class="value">
+
+                    <div class="value">{{ $person->getUser->{\App\Http\Support\Model::$USER_POINTS} }}</div>
+
+                </div>
+
+            </div>
+
+        @endif
+
     </div>
 
 </div>
