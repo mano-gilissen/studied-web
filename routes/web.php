@@ -216,24 +216,24 @@ Route::get('/mail_test/{key}',                      'DebugController@mail_test')
 
 
 
-Route::get('/home',                                 'SiteController@home')->name('home');
+#Route::get('/home',                                 'SiteController@home')->name('home');
 
-Route::get('/actueel',                              'SiteController@actueel')->name('website.actueel');
+#Route::get('/actueel',                              'SiteController@actueel')->name('website.actueel');
 
-Route::get('/artikel/{slug}',                       'SiteController@article')->name('website.article');
+#Route::get('/artikel/{slug}',                       'SiteController@article')->name('website.article');
 
-Route::get('/begeleiding',                          'SiteController@begeleiding')->name('begeleiding');
+#Route::get('/begeleiding',                          'SiteController@begeleiding')->name('begeleiding');
 
-Route::get('/werk',                                 'SiteController@werk')->name('werk');
+#Route::get('/werk',                                 'SiteController@werk')->name('werk');
 
-Route::get('/werkwijze',                            'SiteController@werkwijze')->name('werkwijze');
+#Route::get('/werkwijze',                            'SiteController@werkwijze')->name('werkwijze');
 
-Route::get('/zakelijk',                             'SiteController@zakelijk')->name('zakelijk');
+#Route::get('/zakelijk',                             'SiteController@zakelijk')->name('zakelijk');
 
 
 
 Route::get('/', function () {
 
-    return Auth::check() ? redirect('/lessen') : redirect('/home');
+    return Auth::check() ? redirect('/lessen') : redirect('/inloggen');
 
 });

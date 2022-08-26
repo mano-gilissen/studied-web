@@ -1071,7 +1071,7 @@ class StudyController extends Controller {
             $location                                       = $study->{Model::$STUDY_LOCATION_TEXT};
             $status                                         = StudyTrait::getStatusText(StudyTrait::getStatus($study));
             $remark                                         = $study->{Model::$STUDY_REMARK};
-            $link                                           = 'https://studied.nl/les/' . $study->{Model::$BASE_KEY};
+            $link                                           = 'https://studied.app/les/' . $study->{Model::$BASE_KEY};
 
             $duration                                       = 0;
             $subjects                                       = '';
