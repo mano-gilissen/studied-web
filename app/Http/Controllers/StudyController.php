@@ -1052,7 +1052,7 @@ class StudyController extends Controller {
             }
         }
 
-        $columnNames = ['Leerling', 'Medewerker', 'Onderwerp', 'Datum', 'Tijdstip', 'Duurtijd', 'Locatie', 'Status', 'Opmerkingen', 'Link naar les'];
+        $columnNames = ['Leerling', 'Medewerker', 'Onderwerp', 'Dienst', 'Datum', 'Tijdstip', 'Duurtijd', 'Locatie', 'Status', 'Opmerkingen', 'Link naar les'];
 
         return Func::export_csv($columnNames, $rows);
     }
@@ -1069,6 +1069,7 @@ class StudyController extends Controller {
             $date                                           = Format::datetime($study->start, Format::$DATETIME_FORM);
             $time                                           = Format::datetime(StudyTrait::getStartTime($study), Format::$TIME_SINGLE);
             $location                                       = $study->{Model::$STUDY_LOCATION_TEXT};
+            $service                                        = $study->getService->{Model::$SERVICE_NAME};
             $status                                         = StudyTrait::getStatusText(StudyTrait::getStatus($study));
             $remark                                         = $study->{Model::$STUDY_REMARK};
             $link                                           = 'https://studied.app/les/' . $study->{Model::$BASE_KEY};
@@ -1102,7 +1103,7 @@ class StudyController extends Controller {
                     break;
             }
 
-            array_push($rows, [$first_name, $last_name, $subjects, $date, $time, $duration, $location, $status, $remark, $link]);
+            array_push($rows, [$first_name, $last_name, $subjects, $service, $date, $time, $duration, $location, $status, $remark, $link]);
         }
     }
 
