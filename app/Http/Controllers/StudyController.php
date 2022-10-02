@@ -1120,7 +1120,7 @@ class StudyController extends Controller {
         $ID_ROW_TOTAL                                       = 99999;
 
         $rows                                               = [];
-        $row_total                                          = ['Totaal', 0, 0, 0, 0, 0, 0, 0, 0];
+        $row_total                                          = ['Totaal', 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
         foreach ($studies as $study) {
 
@@ -1146,6 +1146,7 @@ class StudyController extends Controller {
                         0,
                         0,
                         0,
+                        0,
                         0
                     ];
                 }
@@ -1157,11 +1158,11 @@ class StudyController extends Controller {
             }
         }
 
-        array_push($rows, ['', '', '', '', '', '', '', '', '']);
+        array_push($rows, ['', '', '', '', '', '', '', '', '', '']);
         array_push($rows, $row_total);
         //$rows[$ID_ROW_TOTAL]                                = $row_total;
 
-        $columnNames = ['Medewerker', 'Uren', 'Bijles BO', 'Bijles VO', 'Bijles MBO/HBO/WO', 'Cito-training', 'Huiswerkbegeleiding', 'Examentraining', 'Tentamentraining'];
+        $columnNames = ['Medewerker', 'Uren', 'Bijles BO', 'Bijles VO', 'Bijles MBO/HBO/WO', 'Cito-training', 'Huiswerkbegeleiding', 'Examentraining', 'Tentamentraining', 'Huiswerkbegeleiding VO'];
 
         return Func::export_csv($columnNames, $rows);
     }
