@@ -48,7 +48,7 @@ trait StudyTrait {
 
         $study                                                  = new Study;
 
-        $study->{Model::$BASE_KEY}                              = Func::generate_key();
+        $study->{Model::$BASE_KEY}                              = Func::generate_key(Model::$STUDY);
 
         $study->{Model::$STUDY_START}                           = $data['date'] . ' ' . $data[Model::$STUDY_START] . ':00';
         $study->{Model::$STUDY_END}                             = $data['date'] . ' ' . $data[Model::$STUDY_END] . ':00';

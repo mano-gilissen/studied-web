@@ -43,7 +43,7 @@ trait EvaluationTrait {
 
         $evaluation                                                 = new Evaluation();
 
-        $evaluation->{Model::$BASE_KEY}                             = Func::generate_key();
+        $evaluation->{Model::$BASE_KEY}                             = Func::generate_key(Model::$EVALUATION);
 
         $evaluation->{Model::$EVALUATION_DATETIME}                  = $data['date'] . ' ' . $data['start'] . ':00';
         $evaluation->{Model::$EVALUATION_REGARDING}                 = $data[Key::AUTOCOMPLETE_ID . Model::$EVALUATION_REGARDING];

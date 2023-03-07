@@ -6,6 +6,9 @@ namespace App\Http\Support;
 
 
 
+use App\Models\Evaluation;
+use App\Models\Study;
+
 class Func {
 
 
@@ -19,10 +22,21 @@ class Func {
 
 
 
-    public static function generate_key() {
+    public static function generate_key($application = 'misc') {
 
-        return rand(100000, 999999);
+        $key = rand(100000, 999999);
 
+        switch ($application) {
+
+            case Model::$STUDY:
+                return Study::where(Model::$BASE_KEY, $key)->exists() ? self::generate_key($application) : $key;
+
+            case Model::$EVALUATION:
+                return Evaluation::where(Model::$BASE_KEY, $key)->exists() ? self::generate_key($application) : $key;
+
+            default:
+                return $key;
+        }
     }
 
 
