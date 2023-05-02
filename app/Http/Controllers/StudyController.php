@@ -643,16 +643,20 @@ class StudyController extends Controller {
 
                     switch ($value) {
 
+                        case -5:
+                            $query->whereIn(Model::$SERVICE, array(ServiceTrait::$ID_TAALCURSUS_TO, ServiceTrait::$ID_TAALLES_TO));
+                            break;
+
                         case -4:
                             $query->whereIn(Model::$SERVICE, array(ServiceTrait::$ID_BIJLES_MBO_HBO_WO, ServiceTrait::$ID_TENTAMENTRAINING));
                             break;
 
                         case -3:
-                            $query->whereIn(Model::$SERVICE, array(ServiceTrait::$ID_BIJLES_VO, ServiceTrait::$ID_EXAMENTRAINING, ServiceTrait::$ID_HUISWERKBEGELEIDING));
+                            $query->whereIn(Model::$SERVICE, array(ServiceTrait::$ID_BIJLES_VO, ServiceTrait::$ID_EXAMENTRAINING, ServiceTrait::$ID_HUISWERKBEGELEIDING_VO));
                             break;
 
                         case -2:
-                            $query->whereIn(Model::$SERVICE, array(ServiceTrait::$ID_BIJLES_BO, ServiceTrait::$ID_CITO_TRAINING));
+                            $query->whereIn(Model::$SERVICE, array(ServiceTrait::$ID_BIJLES_BO, ServiceTrait::$ID_CITO_TRAINING, ServiceTrait::$ID_HUISWERKBEGELEIDING_BO));
                             break;
 
                         case -1:
@@ -823,6 +827,7 @@ class StudyController extends Controller {
                 $services[-2]                               = 'Alle BO';
                 $services[-3]                               = 'Alle VO';
                 $services[-4]                               = 'Alle MBO/HBO/WO';
+                $services[-5]                               = 'Alle Taal';
 
                 return $services;
 
@@ -885,6 +890,7 @@ class StudyController extends Controller {
                         case -2: $display                   = "Alle BO"; break;
                         case -3: $display                   = "Alle VO"; break;
                         case -4: $display                   = "Alle MBO/HBO/WO"; break;
+                        case -5: $display                   = "Alle Taal"; break;
                         default: $display                   = Service::find($value)->{Model::$SERVICE_NAME}; break;
                     }
                     break;
@@ -1162,7 +1168,7 @@ class StudyController extends Controller {
         array_push($rows, $row_total);
         //$rows[$ID_ROW_TOTAL]                                = $row_total;
 
-        $columnNames = ['Medewerker', 'Uren', 'Bijles BO', 'Bijles VO', 'Bijles MBO/HBO/WO', 'Cito-training', 'Huiswerkbegeleiding', 'Examentraining', 'Tentamentraining', 'Huiswerkbegeleiding VO'];
+        $columnNames = ['Medewerker', 'Uren', 'Bijles BO', 'Bijles VO', 'Bijles MBO/HBO/WO', 'Cito-training', 'Huiswerkbegeleiding BO', 'Examentraining', 'Tentamentraining', 'Huiswerkbegeleiding VO'];
 
         return Func::export_csv($columnNames, $rows);
     }
