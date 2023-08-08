@@ -174,11 +174,11 @@ Route::post('/load/customer/filter',                'CustomerController@list_fil
 
 
 
-Route::post('/load/agreement/list',                 'AgreementController@list_load')->name('load.agreements.list')->middleware('auth', 'authorize');
+Route::post('/load/agreement/list',                 'AgreementController@list_load')->name('load.agreement.list')->middleware('auth', 'authorize');
 
-Route::post('/load/agreement/counters',             'AgreementController@list_counters_load')->name('load.agreements.counters')->middleware('auth', 'authorize');
+Route::post('/load/agreement/counters',             'AgreementController@list_counters_load')->name('load.agreement.counters')->middleware('auth', 'authorize');
 
-Route::post('/load/agreement/filter',               'AgreementController@list_filter_load')->name('load.agreements.filter')->middleware('auth', 'authorize');
+Route::post('/load/agreement/filter',               'AgreementController@list_filter_load')->name('load.agreement.filter')->middleware('auth', 'authorize');
 
 
 
