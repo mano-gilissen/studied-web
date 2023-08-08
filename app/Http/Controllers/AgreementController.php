@@ -224,7 +224,7 @@ class AgreementController extends Controller {
 
         array_push($columns,
 
-            Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 1, false, $sort, false, $filter),
+            Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 1, false, $sort, false, $filter, true),
             Table::column(self::$COLUMN_EMPLOYEE, self::list_column_label(self::$COLUMN_EMPLOYEE), 1, false, $sort, false, $filter),
             Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 1, false, $sort, false, $filter),
             Table::column(self::$COLUMN_PLAN, self::list_column_label(self::$COLUMN_PLAN), 1, false, $sort, false, $filter),
@@ -233,7 +233,7 @@ class AgreementController extends Controller {
             Table::column(self::$COLUMN_END, self::list_column_label(self::$COLUMN_END), 1, true, $sort, true, $filter),
             Table::column(self::$COLUMN_HOURS_AGREED, self::list_column_label(self::$COLUMN_HOURS_AGREED), 1, false, $sort, false, $filter),
             Table::column(self::$COLUMN_HOURS_MADE, self::list_column_label(self::$COLUMN_HOURS_MADE), 1, false, $sort, false, $filter),
-            Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 1, false, $sort, true, $filter)
+            Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 1, false, $sort, true, $filter, true)
         );
 
         return $columns;
@@ -271,7 +271,7 @@ class AgreementController extends Controller {
 
             case self::$COLUMN_EMPLOYEE:
 
-                return PersonTrait::getFullName($agreement->getStudent->getEmployee);
+                return PersonTrait::getFullName($agreement->getEmployee->getPerson);
 
             case self::$COLUMN_SERVICE:
 
@@ -291,7 +291,7 @@ class AgreementController extends Controller {
 
             case self::$COLUMN_END:
 
-                return $agreement->{Model::$AGREEMENT_END} ? Format::datetime($agreement->{Model::$AGREEMENT_END}, Format::$DATETIME_LIST) : '';
+                return $agreement->{Model::$AGREEMENT_END} ? Format::datetime($agreement->{Model::$AGREEMENT_END}, Format::$DATETIME_LIST) : '-';
 
             case self::$COLUMN_HOURS_AGREED:
 
@@ -301,7 +301,7 @@ class AgreementController extends Controller {
 
                 // TODO: CREATE LOAD IN (ECHO JS TO AJAX BELOW CODE)
 
-                return 0; //AgreementTrait::getHoursMade($agreement);
+                return AgreementTrait::getHoursMade($agreement);
 
             case self::$COLUMN_STATUS:
 
