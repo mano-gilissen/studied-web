@@ -146,6 +146,14 @@ const LOAD_CUSTOMER_FILTER                      = 'load.customer.filter';
 
 
 
+const LOAD_AGREEMENT_LIST                       = 'load.agreement.list';
+
+const LOAD_AGREEMENT_COUNTERS                   = 'load.agreement.counters';
+
+const LOAD_AGREEMENT_FILTER                     = 'load.agreement.filter';
+
+
+
 const STUDY_PLAN_SUBMIT                         = 'study.plan_submit';
 
 const STUDY_EDIT_SUBMIT                         = 'study.edit_submit';
@@ -225,6 +233,9 @@ const ALL_MANAGEMENT                            = [
     self::LOAD_CUSTOMER_LIST,
     self::LOAD_CUSTOMER_COUNTERS,
     self::LOAD_CUSTOMER_FILTER,
+    self::LOAD_AGREEMENT_LIST,
+    self::LOAD_AGREEMENT_COUNTERS,
+    self::LOAD_AGREEMENT_FILTER,
     self::STUDENT_CREATE_SUBMIT,
     self::STUDENT_EDIT_SUBMIT,
     self::CUSTOMER_CREATE_SUBMIT,
