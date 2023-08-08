@@ -254,6 +254,8 @@ class AgreementController extends Controller {
             case self::$COLUMN_HOURS_AGREED:        return "Uren afspraak";
             case self::$COLUMN_HOURS_MADE:          return "Uren gemaakt";
             case self::$COLUMN_STATUS:              return "Status";
+
+            case Table::FILTER_SEARCH:              return "Bevat";
         }
 
         return Key::UNKNOWN;
@@ -449,6 +451,11 @@ class AgreementController extends Controller {
             $display                                        = '';
 
             switch ($filter) {
+
+                case Table::FILTER_SEARCH:
+
+                    $display                                = $value;
+                    break;
 
                 case self::$COLUMN_START:
                 case self::$COLUMN_END:

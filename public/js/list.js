@@ -279,8 +279,6 @@ function filter_search() {
 
     this.data_filter[FILTER_SEARCH]         = $(OBJECT_INPUT_FILTER_SEARCH).val();
 
-    console.log(this.data_filter);
-
     if (filter_search_timeout) {
 
         clearTimeout(filter_search_timeout);
