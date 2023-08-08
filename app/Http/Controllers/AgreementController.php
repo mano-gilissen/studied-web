@@ -345,7 +345,7 @@ class AgreementController extends Controller {
 
     public function list_sort_default($query) {
 
-        $query->orderBy(Model::$AGREEMENT_END, Table::SORT_MODE_ASC);
+        $query->orderBy(Model::$AGREEMENT_END, Table::SORT_MODE_DESC);
 
     }
 
