@@ -59,7 +59,11 @@
 
                     @include('form.box-input', ['id' => 'input-filter-search', 'placeholder' => 'Zoeken..', 'icon' => 'search.svg', 'style_box' => 'margin: -10px 0 0 32px'])
 
-                    <div id="loader-list" class="loader" style="margin: 2px 0 2px 32px; display: none"></div>
+                    <div id="loader-list" style="margin: 2px 0 2px 32px; display: none">
+
+                        <div class="loader"></div>
+
+                    </div>
 
                 </div>
 
