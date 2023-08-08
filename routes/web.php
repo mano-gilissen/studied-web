@@ -174,6 +174,16 @@ Route::post('/load/customer/filter',                'CustomerController@list_fil
 
 
 
+Route::post('/load/agreement/list',                 'AgreementController@list_load')->name('load.agreements.list')->middleware('auth', 'authorize');
+
+Route::post('/load/agreement/counters',             'AgreementController@list_counters_load')->name('load.agreements.counters')->middleware('auth', 'authorize');
+
+Route::post('/load/agreement/filter',               'AgreementController@list_filter_load')->name('load.agreements.filter')->middleware('auth', 'authorize');
+
+
+
+
+
 Route::post('/submit/study/plan',                   'StudyController@plan_submit')->name('study.plan_submit')->middleware('auth', 'authorize');
 
 Route::post('/submit/study/edit',                   'StudyController@edit_submit')->name('study.edit_submit')->middleware('auth', 'authorize');
