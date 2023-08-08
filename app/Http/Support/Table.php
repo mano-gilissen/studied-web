@@ -41,7 +41,6 @@ class Table {
     const DATA_FILTER                                       = "data_filter";
     const DATA_OFFSET                                       = "data_offset";
 
-    const SORT_MODE                                         = "mode";
     const SORT_MODE_ASC                                     = "asc";
     const SORT_MODE_DESC                                    = "desc";
     const SORT_MODE_NONE                                    = "none";
@@ -51,6 +50,7 @@ class Table {
     const FILTER_VALUE                                      = "value";
     const FILTER_ACTIVE                                     = "filtered";
     const FILTER_DISABLED                                   = "no_filter";
+    const FILTER_SEARCH                                     = "search";
 
     const ITEM_LINK                                         = "link";
 

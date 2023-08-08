@@ -55,6 +55,8 @@ class Model {
         $AGREEMENT_IDENTIFIER                           = 'identifier',
         $AGREEMENT_START                                = 'start',
         $AGREEMENT_END                                  = 'end',
+        $AGREEMENT_HOURS                                = 'hours',
+        $AGREEMENT_PLAN                                 = 'plan',
         $AGREEMENT_REMARK                               = 'remark',
         $AGREEMENT_EXTENSION                            = 'extension';
 
@@ -294,8 +296,6 @@ class Model {
         $STUDENT_NIVEAU                                 = 'niveau',
         $STUDENT_LEERJAAR                               = 'leerjaar',
         $STUDENT_PROFILE                                = 'profile',
-        $STUDENT_MIN                                    = 'min',
-        $STUDENT_MAX                                    = 'max',
         $STUDENT_NAME_MENTOR                            = 'name_mentor',
         $STUDENT_NAME_VAKDOCENT_1                       = 'name_vakdocent_1',
         $STUDENT_NAME_VAKDOCENT_2                       = 'name_vakdocent_2',

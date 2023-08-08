@@ -625,6 +625,37 @@ class StudyController extends Controller {
 
             switch ($column) {
 
+                case Table::FILTER_SEARCH:
+
+                    $query->where(function($query, $value) {
+
+                        $query
+
+                            ->whereHas('getService', function (Builder $q) use ($value) {
+
+                                $q->where(Model::$SERVICE_NAME, 'LIKE', '%'.$value.'%');
+
+                            })
+
+                            ->orWhereHas('getParticipants_User.getPerson', function (Builder $q) use ($value) {
+
+                                $q
+
+                                    ->where(Model::$PERSON_FIRST_NAME, 'LIKE', '%'.$value.'%')
+                                    ->orWhere(Model::$PERSON_LAST_NAME, 'LIKE', '%'.$value.'%');
+                            })
+
+                            ->orWhereHas('getHost_User.getPerson', function (Builder $q) use ($value) {
+
+                                $q
+
+                                    ->where(Model::$PERSON_FIRST_NAME, 'LIKE', '%'.$value.'%')
+                                    ->orWhere(Model::$PERSON_LAST_NAME, 'LIKE', '%'.$value.'%');
+                            });
+                    });
+
+                    break;
+
                 case self::$COLUMN_DATE:
                     $query
                         ->where(Model::$STUDY_START, '>=', substr($value, 0, 10))
@@ -642,6 +673,14 @@ class StudyController extends Controller {
                 case self::$COLUMN_SERVICE:
 
                     switch ($value) {
+
+                        case -7:
+                            $query->has('getParticipants_User', '>' , 1);
+                            break;
+
+                        case -6:
+                            $query->has('getParticipants_User', '==' , 1);
+                            break;
 
                         case -5:
                             $query->whereIn(Model::$SERVICE, array(ServiceTrait::$ID_TAALCURSUS_TO, ServiceTrait::$ID_TAALLES_TO));
@@ -828,6 +867,8 @@ class StudyController extends Controller {
                 $services[-3]                               = 'Alle VO';
                 $services[-4]                               = 'Alle MBO/HBO/WO';
                 $services[-5]                               = 'Alle Taal';
+                $services[-6]                               = 'Alle Privéles';
+                $services[-7]                               = 'Alle Groepsles';
 
                 return $services;
 
@@ -891,6 +932,8 @@ class StudyController extends Controller {
                         case -3: $display                   = "Alle VO"; break;
                         case -4: $display                   = "Alle MBO/HBO/WO"; break;
                         case -5: $display                   = "Alle Taal"; break;
+                        case -6: $display                   = "Alle Privéles"; break;
+                        case -7: $display                   = "Alle Groepsles"; break;
                         default: $display                   = Service::find($value)->{Model::$SERVICE_NAME}; break;
                     }
                     break;
@@ -1058,7 +1101,20 @@ class StudyController extends Controller {
             }
         }
 
-        $columnNames = ['Leerling', 'Medewerker', 'Onderwerp', 'Dienst', 'Datum', 'Tijdstip', 'Duurtijd', 'Locatie', 'Status', 'Opmerkingen', 'Link naar les'];
+        usort($rows, function($a, $b) {
+
+            $nameComparison = strcmp($a['Leerling'], $b['Leerling']);
+
+            if ($nameComparison !== 0) {
+
+                return $nameComparison;
+
+            }
+
+            return strtotime($a['Datum']) - strtotime($b['Datum']);
+        });
+
+        $columnNames = ['Leerling', 'Medewerker', 'Onderwerp', 'Dienst', 'Deelnemers', 'Datum', 'Tijdstip', 'Duurtijd', 'Locatie', 'Status', 'Opmerkingen', 'Link naar les'];
 
         return Func::export_csv($columnNames, $rows);
     }
@@ -1076,6 +1132,7 @@ class StudyController extends Controller {
             $time                                           = Format::datetime(StudyTrait::getStartTime($study), Format::$TIME_SINGLE);
             $location                                       = $study->{Model::$STUDY_LOCATION_TEXT};
             $service                                        = $study->getService->{Model::$SERVICE_NAME};
+            $participants                                   = StudyTrait::countParticipants($study) > 1 ? 'Privéles' : 'Groepsles';
             $status                                         = StudyTrait::getStatusText(StudyTrait::getStatus($study));
             $remark                                         = $study->{Model::$STUDY_REMARK};
             $link                                           = 'https://studied.app/les/' . $study->{Model::$BASE_KEY};
@@ -1109,7 +1166,7 @@ class StudyController extends Controller {
                     break;
             }
 
-            array_push($rows, [$first_name, $last_name, $subjects, $service, $date, $time, $duration, $location, $status, $remark, $link]);
+            array_push($rows, [$first_name, $last_name, $subjects, $service, $participants, $date, $time, $duration, $location, $status, $remark, $link]);
         }
     }
 

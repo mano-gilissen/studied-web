@@ -20,6 +20,14 @@
 
         </div>
 
+        <div class="attribute">
+
+            <div class="name">Uren</div>
+
+            <div class="value">{{ $agreement->{\App\Http\Support\Model::$AGREEMENT_HOURS} . ' per week, ' . \App\Http\Traits\AgreementTrait::getHoursTotal($agreement) . ' in totaal'}}</div>
+
+        </div>
+
         @if(\App\Http\Traits\AgreementTrait::getTrial($agreement))
 
             <div class="attribute">

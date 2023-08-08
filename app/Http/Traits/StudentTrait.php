@@ -40,10 +40,6 @@ trait StudentTrait {
         $student->{Model::$STUDENT_NIVEAU}                                  = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_NIVEAU];
         $student->{Model::$STUDENT_LEERJAAR}                                = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_LEERJAAR];
 
-        $student->{Model::$STUDENT_MIN}                                     = $data[Model::$STUDENT_MIN];
-        $student->{Model::$STUDENT_MAX}                                     = $data[Model::$STUDENT_MAX];
-
-
 
         // TODO: REPLACE WITH RELATIONS SYSTEM
 
@@ -94,9 +90,6 @@ trait StudentTrait {
         $student->{Model::$STUDENT_NIVEAU}                                  = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_NIVEAU];
         $student->{Model::$STUDENT_LEERJAAR}                                = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_LEERJAAR];
 
-        $student->{Model::$STUDENT_MIN}                                     = $data[Model::$STUDENT_MIN];
-        $student->{Model::$STUDENT_MAX}                                     = $data[Model::$STUDENT_MAX];
-
 
 
         // TODO: REPLACE WITH RELATIONS SYSTEM
@@ -143,9 +136,6 @@ trait StudentTrait {
         $rules[Model::$STUDENT_NIVEAU]                                      = ['required'];
         $rules[Model::$STUDENT_LEERJAAR]                                    = ['required'];
 
-        $rules[Model::$STUDENT_MIN]                                         = ['numeric'];
-        $rules[Model::$STUDENT_MAX]                                         = ['numeric'];
-
         $validator                                                          = Validator::make($data, $rules, BaseTrait::getValidationMessages());
 
         $validator->validate();
@@ -161,7 +151,7 @@ trait StudentTrait {
 
         if ($student->{Model::$STUDENT_NAME_MENTOR} != null && $student->{Model::$STUDENT_EMAIL_MENTOR} != null) {
 
-            Mail::userActivate_forRelations($user, $student->{Model::$STUDENT_NAME_MENTOR}, $student->{Model::$STUDENT_EMAIL_MENTOR});                Mail::userActivate_forRelations($user, $student->{Model::$STUDENT_NAME_MENTOR}, $student->{Model::$STUDENT_EMAIL_MENTOR});
+            Mail::userActivate_forRelations($user, $student->{Model::$STUDENT_NAME_MENTOR}, $student->{Model::$STUDENT_EMAIL_MENTOR});                          Mail::userActivate_forRelations($user, $student->{Model::$STUDENT_NAME_MENTOR}, $student->{Model::$STUDENT_EMAIL_MENTOR});
 
         }
 

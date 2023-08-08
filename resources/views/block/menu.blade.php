@@ -18,6 +18,8 @@
 
                 @include('block.menu-item', ['label' => 'Medewerkers', 'route' => route('employee.list')])
 
+                @include('block.menu-item', ['label' => 'Vakafspraken', 'route' => route('agreement.list')])
+
                 @include('block.menu-item', ['label' => 'Mijn profiel', 'route' => route('person.self')])
 
                 @include('block.menu-item', ['label' => 'Locatieagenda', 'route' => route('study.calendar')])

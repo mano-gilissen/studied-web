@@ -674,8 +674,6 @@
 
                                     @include('block.profile-education')
 
-                                    @include('block.profile-minmax')
-
                                     @include('block.profile-education-relations')
 
                                     @break
@@ -687,8 +685,6 @@
                                         @if($employee->id == Auth::user()->id)
 
                                             @include('block.profile-education')
-
-                                            @include('block.profile-minmax')
 
                                             @break
 
@@ -704,8 +700,6 @@
 
                                         @include('block.profile-education')
 
-                                        @include('block.profile-minmax')
-
                                     @endif
 
                                     @break
@@ -715,8 +709,6 @@
                                     @if($person->getUser->getStudent->customer == Auth::user()->getCustomer->id)
 
                                         @include('block.profile-education')
-
-                                        @include('block.profile-minmax')
 
                                     @endif
 

@@ -49,10 +49,9 @@ class StudentController extends Controller {
         $COLUMN_NIVEAU                                                      = 204,
         $COLUMN_LEERJAAR                                                    = 205,
         $COLUMN_AGREEMENTS                                                  = 206,
-        $COLUMN_MIN_MAX                                                     = 207,
-        $COLUMN_STATUS                                                      = 208,
-        $COLUMN_CUSTOMER                                                    = 209,
-        $COLUMN_EMPLOYEE                                                    = 210,
+        $COLUMN_STATUS                                                      = 207,
+        $COLUMN_CUSTOMER                                                    = 208,
+        $COLUMN_EMPLOYEE                                                    = 209,
 
         $PARAMETER_CUSTOMER                                                 = "klant",
         $PARAMETER_EMPLOYEE                                                 = "medewerker";
@@ -244,7 +243,6 @@ class StudentController extends Controller {
                     Table::column(self::$COLUMN_NIVEAU, self::list_column_label(self::$COLUMN_NIVEAU), 2, true, $sort, true, $filter),
                     Table::column(self::$COLUMN_LEERJAAR, self::list_column_label(self::$COLUMN_LEERJAAR), 2, true, $sort, true, $filter),
                     Table::column(self::$COLUMN_AGREEMENTS, self::list_column_label(self::$COLUMN_AGREEMENTS), 3.5, false, $sort, true, $filter),
-                    Table::column(self::$COLUMN_MIN_MAX, self::list_column_label(self::$COLUMN_MIN_MAX), 2, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_CUSTOMER, self::list_column_label(self::$COLUMN_CUSTOMER), 3, true, $sort, true, $filter),
                     Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 2, true, $sort, true, $filter, true)
                 );
@@ -258,7 +256,6 @@ class StudentController extends Controller {
                     Table::column(self::$COLUMN_NIVEAU, self::list_column_label(self::$COLUMN_NIVEAU), 2, true, $sort, true, $filter),
                     Table::column(self::$COLUMN_LEERJAAR, self::list_column_label(self::$COLUMN_LEERJAAR), 2, true, $sort, true, $filter),
                     Table::column(self::$COLUMN_AGREEMENTS, self::list_column_label(self::$COLUMN_AGREEMENTS), 3.5, false, $sort, true, $filter),
-                    Table::column(self::$COLUMN_MIN_MAX, self::list_column_label(self::$COLUMN_MIN_MAX), 2, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 2, true, $sort, true, $filter, true)
                 );
                 break;
@@ -271,7 +268,6 @@ class StudentController extends Controller {
                     Table::column(self::$COLUMN_NIVEAU, self::list_column_label(self::$COLUMN_NIVEAU), 2, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_LEERJAAR, self::list_column_label(self::$COLUMN_LEERJAAR), 2, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_AGREEMENTS, self::list_column_label(self::$COLUMN_AGREEMENTS), 3.5, false, $sort, false, $filter),
-                    Table::column(self::$COLUMN_MIN_MAX, self::list_column_label(self::$COLUMN_MIN_MAX), 2, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 2, false, $sort, false, $filter, true)
                 );
                 break;
@@ -302,7 +298,6 @@ class StudentController extends Controller {
                     case self::$COLUMN_NIVEAU:              return "Niveau";
                     case self::$COLUMN_LEERJAAR:            return "Leerjaar";
                     case self::$COLUMN_AGREEMENTS:          return "Vakafspraken";
-                    case self::$COLUMN_MIN_MAX:             return "MIN/MAX";
                     case self::$COLUMN_STATUS:              return "Status";
                     case self::$COLUMN_CUSTOMER:            return 'Klant';
                     case self::$COLUMN_EMPLOYEE:            return 'Student-docent';
@@ -354,18 +349,6 @@ class StudentController extends Controller {
                     case 0:                                 return "Geen actief";
                     case 1:                                 return $subjects[0];
                     default:                                return $subjects[0] . ', ' . $subjects[1] . ' en nog ' . (count($subjects) - 2);
-                }
-
-            case self::$COLUMN_MIN_MAX:
-
-                if ($student->{Model::$STUDENT_MAX} && ($student->{Model::$STUDENT_MAX} > 0)) {
-
-                    return $student->{Model::$STUDENT_MIN} . " tot " . $student->{Model::$STUDENT_MAX} . " uur";
-
-                } else {
-
-                    return "Onbekend";
-
                 }
 
             case self::$COLUMN_STATUS:
@@ -451,6 +434,29 @@ class StudentController extends Controller {
         foreach ($filter as $column => $value) {
 
             switch ($column) {
+
+                case Table::FILTER_SEARCH:
+
+                    $query->where(function($query, $value) {
+
+                        $query
+
+                            ->whereHas('getUser.getPerson', function (Builder $q) use ($value) {
+
+                                $q
+
+                                    ->where(Model::$PERSON_FIRST_NAME, 'LIKE', '%'.$value.'%')
+                                    ->orWhere(Model::$PERSON_LAST_NAME, 'LIKE', '%'.$value.'%');
+                            })
+
+                            ->orWhereHas('getUser', function (Builder $q) use ($value) {
+
+                                $q->where(Model::$USER_EMAIL, 'LIKE', '%'.$value.'%');
+
+                            });
+                    });
+
+                    break;
 
                 case self::$COLUMN_NIVEAU:
                     $query->where(Model::$STUDENT_NIVEAU, $value);
@@ -647,12 +653,6 @@ class StudentController extends Controller {
 
         self::list_counters_load_total($query, $counters);
 
-        if (self::hasEmployeeRights()) {
-
-            self::list_counters_load_min_max($query, $counters);
-
-        }
-
         return view(Views::LOAD_COUNTERS, [
 
             Table::VIEW_COUNTERS                            => $counters
@@ -669,16 +669,6 @@ class StudentController extends Controller {
                 ->select('student.*')
                 ->get()
                 ->count()
-        ]);
-    }
-
-    public function list_counters_load_min_max($query, &$counters) {
-
-        array_push($counters, (object) [
-            Table::COUNTER_LABEL                            => 'Min/Max',
-            Table::COUNTER_VALUE                            =>
-                $query->select('student.*')->get()->sum('min') . '/' .
-                $query->select('student.*')->get()->sum('max')
         ]);
     }
 

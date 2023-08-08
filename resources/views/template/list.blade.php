@@ -54,6 +54,8 @@
 
                     </div>
 
+                    @include('form.box-input', ['id' => 'input-filter-search', 'placeholder' => 'Zoeken..', 'icon' => '/images_app/search.svg'])
+
                     @yield('actions')
 
                 </div>

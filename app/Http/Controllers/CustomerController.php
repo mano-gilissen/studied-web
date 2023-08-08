@@ -48,8 +48,7 @@ class CustomerController extends Controller {
         $COLUMN_STUDENTS                                                    = 404,
         $COLUMN_EMPLOYEES                                                   = 405,
         $COLUMN_AGREEMENTS                                                  = 406,
-        $COLUMN_MIN_MAX                                                     = 407,
-        $COLUMN_STATUS                                                      = 408;
+        $COLUMN_STATUS                                                      = 407;
 
 
 
@@ -197,7 +196,6 @@ class CustomerController extends Controller {
             Table::column(self::$COLUMN_STUDENTS, self::list_column_label(self::$COLUMN_STUDENTS), 3, false, $sort, false, $filter),
             Table::column(self::$COLUMN_EMPLOYEES, self::list_column_label(self::$COLUMN_EMPLOYEES), 3, false, $sort, false, $filter),
             Table::column(self::$COLUMN_AGREEMENTS, self::list_column_label(self::$COLUMN_AGREEMENTS), 3, false, $sort, true, $filter),
-            Table::column(self::$COLUMN_MIN_MAX, self::list_column_label(self::$COLUMN_MIN_MAX), 2, false, $sort, false, $filter),
             Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 2, true, $sort, true, $filter, true)
         );
 
@@ -215,7 +213,6 @@ class CustomerController extends Controller {
             case self::$COLUMN_STUDENTS:                                    return "Leerling(en)";
             case self::$COLUMN_EMPLOYEES:                                   return "Student-docent(en)";
             case self::$COLUMN_AGREEMENTS:                                  return "Vakafspraken";
-            case self::$COLUMN_MIN_MAX:                                     return "MIN/MAX";
             case self::$COLUMN_STATUS:                                      return "Status";
         }
 
@@ -273,37 +270,6 @@ class CustomerController extends Controller {
                     case 1:                                                 return AgreementTrait::getVakcode($agreements[0]);
                     case 2:                                                 return AgreementTrait::getVakcode($agreements[0]) . ", " . AgreementTrait::getVakcode($agreements[1]);
                     default:                                                return AgreementTrait::getVakcode($agreements[0]) . ", " . AgreementTrait::getVakcode($agreements[1]) . " en nog " . (count($agreements) - 2);
-                }
-
-            case self::$COLUMN_MIN_MAX:
-
-                $students = User::whereHas('getStudent.getCustomer', function ($q) use ($customer) {$q->where(Model::$CUSTOMER, $customer->{Model::$BASE_ID});})
-                    ->with('getPerson')
-                    ->get();
-
-                if (count($students) == 0) {
-
-                    return "Geen leerlingen";
-
-                }
-
-                $min                                                        = 0;
-                $max                                                        = 0;
-
-                foreach($students as $student) {
-
-                    $min += $student->getStudent->{Model::$STUDENT_MIN};
-                    $max = $student->getStudent->{Model::$STUDENT_MAX} ? $max + $student->getStudent->{Model::$STUDENT_MAX} : $max;
-                }
-
-                if ($max > 0) {
-
-                    return $min . " tot " . $max . " uur";
-
-                } else {
-
-                    return "Onbekend";
-
                 }
 
             case self::$COLUMN_STATUS:
@@ -367,6 +333,29 @@ class CustomerController extends Controller {
         foreach ($filter as $column => $value) {
 
             switch ($column) {
+
+                case Table::FILTER_SEARCH:
+
+                    $query->where(function($query, $value) {
+
+                        $query
+
+                            ->whereHas('getUser.getPerson', function (Builder $q) use ($value) {
+
+                                $q
+
+                                    ->where(Model::$PERSON_FIRST_NAME, 'LIKE', '%'.$value.'%')
+                                    ->orWhere(Model::$PERSON_LAST_NAME, 'LIKE', '%'.$value.'%');
+                            })
+
+                            ->orWhereHas('getUser', function (Builder $q) use ($value) {
+
+                                $q->where(Model::$USER_EMAIL, 'LIKE', '%'.$value.'%');
+
+                            });
+                    });
+
+                    break;
 
                 case self::$COLUMN_AGREEMENTS:
                     $query->whereHas('getStudents.getUser.getAgreements_asStudent', function (Builder $q) use ($value) {

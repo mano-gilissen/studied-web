@@ -68,4 +68,12 @@ class Agreement extends ModelClass {
 
 
 
+    public function getStudies() {
+
+        return self::getManyToMany(Model::$STUDY, Model::$STUDY_USER, Model::$AGREEMENT);
+
+    }
+
+
+
 }

@@ -20,6 +20,8 @@
 
 @include('form.field-input', ['id' => 'service_' . $id, 'tag' => 'Dienst', 'required' => true, 'data' => true, 'reject_other' => true, 'show_all' => true, 'ac_data' => 'service', 'uses_id' => true, 'value' => old('service_' . $id)])
 
+@include('form.field-input', ['id' => 'plan_' . $id, 'tag' => 'Begeleidingsvorm', 'required' => true, 'data' => true, 'reject_other' => true, 'show_all' => true, 'ac_data' => 'plan', 'uses_id' => true, 'value' => old('plan_' . $id)])
+
 <div class="field">
 
     <div class="name">Vak</div>
@@ -31,6 +33,8 @@
     @include('form.box-input', ['id' => 'level_' . $id, 'required' => true, 'data' => true, 'reject_other' => true, 'show_all' => true, 'ac_data' => 'level', 'uses_id' => true, 'size' => 'width-third', 'value' => old('level_' . $id)])
 
 </div>
+
+@include('form.field-input', ['id' => 'hours_' . $id, 'type' => 'number', 'tag' => 'Uren per week', 'required' => true, 'value' => old('hours_' . $id, 0)])
 
 @include('form.field-input', ['id' => 'start_' . $id, 'type' => 'date', 'tag' => 'Geldig vanaf', 'required' => true, 'value' => old('start_' . $id)])
 

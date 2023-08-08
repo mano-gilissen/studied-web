@@ -335,6 +335,29 @@ class EmployeeController extends Controller {
 
             switch ($column) {
 
+                case Table::FILTER_SEARCH:
+
+                    $query->where(function($query, $value) {
+
+                        $query
+
+                            ->whereHas('getUser.getPerson', function (Builder $q) use ($value) {
+
+                                $q
+
+                                    ->where(Model::$PERSON_FIRST_NAME, 'LIKE', '%'.$value.'%')
+                                    ->orWhere(Model::$PERSON_LAST_NAME, 'LIKE', '%'.$value.'%');
+                            })
+
+                            ->orWhereHas('getUser', function (Builder $q) use ($value) {
+
+                                $q->where(Model::$USER_EMAIL, 'LIKE', '%'.$value.'%');
+
+                            });
+                    });
+
+                    break;
+
                 case self::$COLUMN_SUBJECTS:
 
                     break;

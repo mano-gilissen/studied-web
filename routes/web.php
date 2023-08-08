@@ -54,6 +54,8 @@ Route::get('/vakafspraak/{identifier}/afhandelen',  'AgreementController@finish'
 
 Route::get('/vakafspraak/aanmaken/{leerling?}',     'AgreementController@create')->name('agreement.create')->middleware('auth', 'authorize');
 
+Route::get('/vakafspraken',                         'AgreementController@list')->name('agreement.list')->middleware('auth', 'authorize');
+
 
 
 

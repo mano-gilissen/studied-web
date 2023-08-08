@@ -4,8 +4,12 @@
 
 
 var filters_select_active                       = false;
+var filter_search_timeout;
 
 const COLUMN_DATE                               = 101;
+const FILTER_SEARCH                             = 'search';
+
+const OBJECT_INPUT_FILTER_SEARCH                = '#input-filter-search';
 
 
 
@@ -70,6 +74,14 @@ $(function() {
     $(OBJECT_APP).on('click', OBJECT_BUTTON_LOAD_MORE, function() {
 
         append();
+
+    });
+
+
+
+    $(OBJECT_APP).on('change', OBJECT_INPUT_FILTER_SEARCH, function() {
+
+        filter_search();
 
     });
 
@@ -259,6 +271,23 @@ function filter_column_date() {
 
         load();
     }
+}
+
+
+
+function filter_search() {
+
+    this.data_filter[FILTER_SEARCH]         = $(OBJECT_INPUT_FILTER_SEARCH).val();
+
+    console.log(this.data_filter);
+
+    if (filter_search_timeout) {
+
+        clearTimeout(filter_search_timeout);
+
+    }
+
+    filter_search_timeout                   = setTimeout(function () { load(); }, 500);
 }
 
 

@@ -12,6 +12,7 @@ use App\Http\Support\Mail;
 use App\Http\Support\Model;
 use App\Models\Agreement;
 use App\Models\Evaluation;
+use App\Models\Report;
 use App\Models\Study;
 use App\Models\Study_user;
 
@@ -31,6 +32,10 @@ trait AgreementTrait {
         $STATUS_EXPIRED                         = 4,
         $STATUS_FINISHED                        = 5,
         $STATUS_PLANNED                         = 6,
+
+        $PLAN_INCIDENTEEL                       = 1,
+        $PLAN_STRUCTUREEL                       = 2,
+        $PLAN_GEINTEGREERD                      = 3,
 
         $TRIAL_NO                               = 1,
         $TRIAL_YES                              = 2;
@@ -53,7 +58,9 @@ trait AgreementTrait {
         $agreement->{Model::$SERVICE}                           = $data[Key::AUTOCOMPLETE_ID . Model::$SERVICE . $suffix];
         $agreement->{Model::$SUBJECT}                           = $data[Key::AUTOCOMPLETE_ID . Model::$SUBJECT . $suffix];
         $agreement->{Model::$LEVEL}                             = $data[Key::AUTOCOMPLETE_ID . Model::$LEVEL . $suffix];
+        $agreement->{Model::$AGREEMENT_PLAN}                    = $data[Key::AUTOCOMPLETE_ID . Model::$AGREEMENT_PLAN . $suffix];
 
+        $agreement->{Model::$AGREEMENT_HOURS}                   = is_numeric($data[Model::$AGREEMENT_HOURS . $suffix]) ? $data[Model::$AGREEMENT_HOURS . $suffix] : 0;
         $agreement->{Model::$AGREEMENT_START}                   = $data[Model::$AGREEMENT_START . $suffix];
         $agreement->{Model::$AGREEMENT_END}                     = $data[Model::$AGREEMENT_END . $suffix];
         $agreement->{Model::$AGREEMENT_REMARK}                  = $data[Model::$AGREEMENT_REMARK . $suffix];
@@ -305,6 +312,46 @@ trait AgreementTrait {
 
 
 
+    public static function getHoursTotal($agreement) {
+
+        return $agreement->{Model::$AGREEMENT_HOURS} * round((strtotime($agreement->{Model::$AGREEMENT_END}) - strtotime($agreement->{Model::$AGREEMENT_START})) / 604800);
+
+    }
+
+
+
+    public static function getHoursMade($agreement) {
+
+        $total = 0;
+
+        foreach ($agreement->getStudies() as $study) {
+
+            $report = Report::where(Model::$STUDY, $study->{Model::$BASE_ID})->where(Model::$USER, $agreement->getStudent->id);
+
+            if ($report) {
+
+                $total += ReportTrait::getDurationTotal($report);
+
+            }
+        }
+
+        return $total;
+    }
+
+
+
+    public static function getPlanText($plan) {
+
+        switch ($plan) {
+            case self::$PLAN_INCIDENTEEL:           return "Incidenteel";
+            case self::$PLAN_STRUCTUREEL:           return "Structureel";
+            case self::$PLAN_GEINTEGREERD:          return "Geïntegreerd";
+            default:                                return Key::UNKNOWN;
+        }
+    }
+
+
+
     public static function getStatusText($status) {
 
         switch ($status) {
@@ -346,6 +393,31 @@ trait AgreementTrait {
             case self::$STATUS_EXPIRED:
             default:                                return Color::ORANGE;
         }
+    }
+
+
+
+    public static function getStatusFilterData() {
+
+        return [
+            AgreementTrait::$STATUS_UNAPPROVED                      => AgreementTrait::getStatusText(AgreementTrait::$STATUS_UNAPPROVED),
+            AgreementTrait::$STATUS_TRIAL                           => AgreementTrait::getStatusText(AgreementTrait::$STATUS_TRIAL),
+            AgreementTrait::$STATUS_ACTIVE                          => AgreementTrait::getStatusText(AgreementTrait::$STATUS_ACTIVE),
+            AgreementTrait::$STATUS_EXPIRED                         => AgreementTrait::getStatusText(AgreementTrait::$STATUS_EXPIRED),
+            AgreementTrait::$STATUS_FINISHED                        => AgreementTrait::getStatusText(AgreementTrait::$STATUS_FINISHED),
+            AgreementTrait::$STATUS_PLANNED                         => AgreementTrait::getStatusText(AgreementTrait::$STATUS_PLANNED)
+        ];
+    }
+
+
+
+    public static function getPlanData() {
+
+        return [
+            1                                               => self::$PLAN_INCIDENTEEL,
+            2                                               => self::$PLAN_STRUCTUREEL,
+            3                                               => self::$PLAN_GEINTEGREERD
+        ];
     }
 
 
