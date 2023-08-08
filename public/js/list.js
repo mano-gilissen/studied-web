@@ -9,6 +9,7 @@ var filter_search_timeout;
 const COLUMN_DATE                               = 101;
 
 const OBJECT_INPUT_FILTER_SEARCH                = '#input-filter-search';
+const OBJECT_LOADER                             = '#loader-list';
 
 
 
@@ -94,6 +95,8 @@ $(function() {
 
 function load() {
 
+    OBJECT_LOADER                           .css('display', 'block');
+
     $(OBJECT_LIST).load('/load/' + data_type + '/list', {
 
         data_sort:                          data_sort,
@@ -103,6 +106,8 @@ function load() {
     }, function() {
 
         set_visibility_load_more();
+
+        OBJECT_LOADER                       .css('display', 'none');
 
     });
 
