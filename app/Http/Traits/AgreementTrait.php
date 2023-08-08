@@ -326,7 +326,7 @@ trait AgreementTrait {
 
         foreach ($agreement->getStudies as $study) {
 
-            $report = Report::where(Model::$STUDY, $study->{Model::$BASE_ID})->where(Model::$USER, $agreement->{Model::$STUDENT});
+            $report = Report::where(Model::$STUDY, $study->{Model::$BASE_ID})->where(Model::$USER, $agreement->{Model::$STUDENT})->first();
 
             if ($report) {
 
