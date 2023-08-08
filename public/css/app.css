@@ -224,8 +224,8 @@ button:focus {
 
 
 .loader {
-    border:                             4px solid #666666;
-    border-top:                         4px solid #F0F0F0;
+    border:                             3px solid #F0F0F0;
+    border-top:                         3px solid #CCCCCC;
     border-radius:                      50%;
     width:                              24px;
     height:                             24px;
