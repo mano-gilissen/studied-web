@@ -335,7 +335,7 @@ trait AgreementTrait {
             }
         }
 
-        return $total;
+        return (float) $total / 60.0;
     }
 
 
