@@ -1,6 +1,6 @@
-<div>
+<div @isset($style_outer) style="{{ $style_outer }}" @endisset>
 
-    <div class="box-input @error($id) invalid @enderror @isset($size) {{ $size }} @endisset" @isset($id_box) id="{{ $id_box }}" @endisset @isset($style_box) style="{{ $style_box }}" @endisset>
+    <div class="box-input @error($id) invalid @enderror @isset($size) {{ $size }} @endisset" @isset($id_box) id="{{ $id_box }}" @endisset>
 
         <input
             id                                          = "{{ $id }}"

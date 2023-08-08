@@ -57,9 +57,9 @@
 
                     @yield('actions')
 
-                    @include('form.box-input', ['id' => 'input-filter-search', 'placeholder' => 'Zoeken..', 'icon' => 'search.svg', 'style_box' => 'margin: -10px 0 0 32px'])
+                    @include('form.box-input', ['id' => 'input-filter-search', 'placeholder' => 'Zoeken..', 'icon' => 'search.svg', 'style_outer' => 'margin: -10px 0 0 32px'])
 
-                    <div id="loader-list" style="margin: 2px 0 2px 32px; display: none">
+                    <div id="loader-list" style="margin: 2px 0 2px 16px; display: none">
 
                         <div class="loader"></div>
 
