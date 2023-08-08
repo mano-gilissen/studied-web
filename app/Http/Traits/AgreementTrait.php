@@ -324,9 +324,9 @@ trait AgreementTrait {
 
         $total = 0;
 
-        foreach ($agreement->getStudies() as $study) {
+        foreach ($agreement->getStudies as $study) {
 
-            $report = Report::where(Model::$STUDY, $study->{Model::$BASE_ID})->where(Model::$USER, $agreement->getStudent->id);
+            $report = Report::where(Model::$STUDY, $study->{Model::$BASE_ID})->where(Model::$USER, $agreement->{Model::$STUDENT});
 
             if ($report) {
 
