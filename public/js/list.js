@@ -95,7 +95,7 @@ $(function() {
 
 function load() {
 
-    OBJECT_LOADER                           .css('display', 'block');
+    $(OBJECT_LOADER)                        .css('display', 'block');
 
     $(OBJECT_LIST).load('/load/' + data_type + '/list', {
 
@@ -107,7 +107,7 @@ function load() {
 
         set_visibility_load_more();
 
-        OBJECT_LOADER                       .css('display', 'none');
+        $(OBJECT_LOADER)                    .css('display', 'none');
 
     });
 
