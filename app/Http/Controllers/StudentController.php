@@ -437,7 +437,7 @@ class StudentController extends Controller {
 
                 case Table::FILTER_SEARCH:
 
-                    $query->where(function($query, $value) {
+                    $query->where(function($query) use ($value) {
 
                         $query
 
