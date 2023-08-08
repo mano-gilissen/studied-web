@@ -287,7 +287,7 @@ class AgreementController extends Controller {
 
             case self::$COLUMN_START:
 
-                return Format::datetime($agreement->{Model::$AGREEMENT_START}, Format::$DATETIME_LIST);
+                return $agreement->{Model::$AGREEMENT_START} ? Format::datetime($agreement->{Model::$AGREEMENT_START}, Format::$DATETIME_LIST) : '-';
 
             case self::$COLUMN_END:
 
