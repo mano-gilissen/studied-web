@@ -335,29 +335,6 @@ class EmployeeController extends Controller {
 
             switch ($column) {
 
-                case Table::FILTER_SEARCH:
-
-                    $query->where(function($query) use ($value) {
-
-                        $query
-
-                            ->whereHas('getUser.getPerson', function (Builder $q) use ($value) {
-
-                                $q
-
-                                    ->where(Model::$PERSON_FIRST_NAME, 'LIKE', '%'.$value.'%')
-                                    ->orWhere(Model::$PERSON_LAST_NAME, 'LIKE', '%'.$value.'%');
-                            })
-
-                            ->orWhereHas('getUser', function (Builder $q) use ($value) {
-
-                                $q->where(Model::$USER_EMAIL, 'LIKE', '%'.$value.'%');
-
-                            });
-                    });
-
-                    break;
-
                 case self::$COLUMN_SUBJECTS:
 
                     break;
@@ -387,6 +364,30 @@ class EmployeeController extends Controller {
                     break;
             }
         }
+    }
+
+
+
+    public function list_filter_search($query, $value) {
+
+        $query->where(function($query) use ($value) {
+
+            $query
+
+                ->whereHas('getUser.getPerson', function (Builder $q) use ($value) {
+
+                    $q
+
+                        ->where(Model::$PERSON_FIRST_NAME, 'LIKE', '%'.$value.'%')
+                        ->orWhere(Model::$PERSON_LAST_NAME, 'LIKE', '%'.$value.'%');
+                })
+
+                ->orWhereHas('getUser', function (Builder $q) use ($value) {
+
+                    $q->where(Model::$USER_EMAIL, 'LIKE', '%'.$value.'%');
+
+                });
+        });
     }
 
 
@@ -516,8 +517,9 @@ class EmployeeController extends Controller {
 
         $sort                                               = $request->input(Table::DATA_SORT, null);
         $filter                                             = $request->input(Table::DATA_FILTER, null);
+        $search                                             = $request->input(Table::DATA_SEARCH, null);
 
-        $query                                              = Table::query($this, $sort, $filter);
+        $query                                              = Table::query($this, $sort, $filter, $search);
         $counters                                           = [];
 
         self::list_counters_load_total($query, $counters);

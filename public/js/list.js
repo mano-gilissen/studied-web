@@ -7,7 +7,6 @@ var filters_select_active                       = false;
 var filter_search_timeout;
 
 const COLUMN_DATE                               = 101;
-const FILTER_SEARCH                             = 'search';
 
 const OBJECT_INPUT_FILTER_SEARCH                = '#input-filter-search';
 
@@ -98,7 +97,8 @@ function load() {
     $(OBJECT_LIST).load('/load/' + data_type + '/list', {
 
         data_sort:                          data_sort,
-        data_filter:                        data_filter
+        data_filter:                        data_filter,
+        data_search:                        data_search
 
     }, function() {
 
@@ -109,7 +109,8 @@ function load() {
     $(OBJECT_COUNTERS).load('/load/' + data_type + '/counters', {
 
         data_sort:                          data_sort,
-        data_filter:                        data_filter
+        data_filter:                        data_filter,
+        data_search:                        data_search
 
     }, function() {
 
@@ -132,6 +133,7 @@ function append() {
 
         data_sort:                          data_sort,
         data_filter:                        data_filter,
+        data_search:                        data_search,
         data_offset:                        item_count()
 
     }, function(data) {
@@ -155,7 +157,8 @@ function csv(type, method) {
 
         data: {
             data_sort:                      data_sort,
-            data_filter:                    data_filter
+            data_filter:                    data_filter,
+            data_search:                    data_search
         },
 
         success: function(response) {
@@ -277,7 +280,7 @@ function filter_column_date() {
 
 function filter_search() {
 
-    this.data_filter[FILTER_SEARCH]         = $(OBJECT_INPUT_FILTER_SEARCH).val();
+    this.data_search                        = $(OBJECT_INPUT_FILTER_SEARCH).val();
 
     if (filter_search_timeout) {
 

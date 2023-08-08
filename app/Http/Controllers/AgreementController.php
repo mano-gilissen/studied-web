@@ -254,8 +254,6 @@ class AgreementController extends Controller {
             case self::$COLUMN_HOURS_AGREED:        return "Uren afspraak";
             case self::$COLUMN_HOURS_MADE:          return "Uren gemaakt";
             case self::$COLUMN_STATUS:              return "Status";
-
-            case Table::FILTER_SEARCH:              return "Bevat";
         }
 
         return Key::UNKNOWN;
@@ -359,29 +357,6 @@ class AgreementController extends Controller {
 
             switch ($column) {
 
-                case Table::FILTER_SEARCH:
-
-                    $query->where(function($query) use ($value) {
-
-                        $query
-
-                            ->whereHas('getEmployee.getPerson', function (Builder $q) use ($value) {
-
-                                $q
-                                    ->where(Model::$PERSON_FIRST_NAME, 'LIKE', '%'.$value.'%')
-                                    ->orWhere(Model::$PERSON_LAST_NAME, 'LIKE', '%'.$value.'%');
-                            })
-
-                            ->orWhereHas('getStudent.getPerson', function (Builder $q) use ($value) {
-
-                                $q
-                                    ->where(Model::$PERSON_FIRST_NAME, 'LIKE', '%'.$value.'%')
-                                    ->orWhere(Model::$PERSON_LAST_NAME, 'LIKE', '%'.$value.'%');
-                            });
-                    });
-
-                    break;
-
                 case self::$COLUMN_START:
                     $query
                         ->where(Model::$AGREEMENT_START, '>=', substr($value, 0, 10))
@@ -399,6 +374,30 @@ class AgreementController extends Controller {
                     break;
             }
         }
+    }
+
+
+
+    public function list_filter_search($query, $value) {
+
+        $query->where(function($query) use ($value) {
+
+            $query
+
+                ->whereHas('getEmployee.getPerson', function (Builder $q) use ($value) {
+
+                    $q
+                        ->where(Model::$PERSON_FIRST_NAME, 'LIKE', '%'.$value.'%')
+                        ->orWhere(Model::$PERSON_LAST_NAME, 'LIKE', '%'.$value.'%');
+                })
+
+                ->orWhereHas('getStudent.getPerson', function (Builder $q) use ($value) {
+
+                    $q
+                        ->where(Model::$PERSON_FIRST_NAME, 'LIKE', '%'.$value.'%')
+                        ->orWhere(Model::$PERSON_LAST_NAME, 'LIKE', '%'.$value.'%');
+                });
+        });
     }
 
 
@@ -452,11 +451,6 @@ class AgreementController extends Controller {
 
             switch ($filter) {
 
-                case Table::FILTER_SEARCH:
-
-                    $display                                = $value;
-                    break;
-
                 case self::$COLUMN_START:
                 case self::$COLUMN_END:
 
@@ -504,8 +498,9 @@ class AgreementController extends Controller {
 
         $sort                                               = $request->input(Table::DATA_SORT, null);
         $filter                                             = $request->input(Table::DATA_FILTER, null);
+        $search                                             = $request->input(Table::DATA_SEARCH, null);
 
-        $query                                              = Table::query($this, $sort, $filter);
+        $query                                              = Table::query($this, $sort, $filter, $search);
         $counters                                           = [];
 
         self::list_counters_load_total($query, $counters);

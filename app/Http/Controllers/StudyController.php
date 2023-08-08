@@ -625,37 +625,6 @@ class StudyController extends Controller {
 
             switch ($column) {
 
-                case Table::FILTER_SEARCH:
-
-                    $query->where(function($query) use ($value) {
-
-                        $query
-
-                            ->whereHas('getService', function (Builder $q) use ($value) {
-
-                                $q->where(Model::$SERVICE_NAME, 'LIKE', '%'.$value.'%');
-
-                            })
-
-                            ->orWhereHas('getParticipants_User.getPerson', function (Builder $q) use ($value) {
-
-                                $q
-
-                                    ->where(Model::$PERSON_FIRST_NAME, 'LIKE', '%'.$value.'%')
-                                    ->orWhere(Model::$PERSON_LAST_NAME, 'LIKE', '%'.$value.'%');
-                            })
-
-                            ->orWhereHas('getHost_User.getPerson', function (Builder $q) use ($value) {
-
-                                $q
-
-                                    ->where(Model::$PERSON_FIRST_NAME, 'LIKE', '%'.$value.'%')
-                                    ->orWhere(Model::$PERSON_LAST_NAME, 'LIKE', '%'.$value.'%');
-                            });
-                    });
-
-                    break;
-
                 case self::$COLUMN_DATE:
                     $query
                         ->where(Model::$STUDY_START, '>=', substr($value, 0, 10))
@@ -746,6 +715,38 @@ class StudyController extends Controller {
                     break;
             }
         }
+    }
+
+
+
+    public function list_filter_search($query, $value) {
+
+        $query->where(function($query) use ($value) {
+
+            $query
+
+                ->whereHas('getService', function (Builder $q) use ($value) {
+
+                    $q->where(Model::$SERVICE_NAME, 'LIKE', '%'.$value.'%');
+
+                })
+
+                ->orWhereHas('getParticipants_User.getPerson', function (Builder $q) use ($value) {
+
+                    $q
+
+                        ->where(Model::$PERSON_FIRST_NAME, 'LIKE', '%'.$value.'%')
+                        ->orWhere(Model::$PERSON_LAST_NAME, 'LIKE', '%'.$value.'%');
+                })
+
+                ->orWhereHas('getHost_User.getPerson', function (Builder $q) use ($value) {
+
+                    $q
+
+                        ->where(Model::$PERSON_FIRST_NAME, 'LIKE', '%'.$value.'%')
+                        ->orWhere(Model::$PERSON_LAST_NAME, 'LIKE', '%'.$value.'%');
+                });
+        });
     }
 
 
@@ -990,8 +991,9 @@ class StudyController extends Controller {
 
         $sort                                               = $request->input(Table::DATA_SORT, null);
         $filter                                             = $request->input(Table::DATA_FILTER, null);
+        $search                                             = $request->input(Table::DATA_SEARCH, null);
 
-        $query                                              = Table::query($this, $sort, $filter);
+        $query                                              = Table::query($this, $sort, $filter, $search);
         $counters                                           = [];
 
         self::list_counters_load_total($query, $counters);
@@ -1082,8 +1084,9 @@ class StudyController extends Controller {
 
         $sort                                               = $request->input(Table::DATA_SORT, null);
         $filter                                             = $request->input(Table::DATA_FILTER, null);
+        $search                                             = $request->input(Table::DATA_SEARCH, null);
 
-        $query                                              = Table::query($this, $sort, $filter);
+        $query                                              = Table::query($this, $sort, $filter, $search);
         $studies                                            = $query->get();
 
         $rows                                               = [];
@@ -1176,8 +1179,9 @@ class StudyController extends Controller {
 
         $sort                                               = $request->input(Table::DATA_SORT, null);
         $filter                                             = $request->input(Table::DATA_FILTER, null);
+        $search                                             = $request->input(Table::DATA_SEARCH, null);
 
-        $query                                              = Table::query($this, $sort, $filter);
+        $query                                              = Table::query($this, $sort, $filter, $search);
         $studies                                            = $query->get();
 
         $ID_ROW_TOTAL                                       = 99999;

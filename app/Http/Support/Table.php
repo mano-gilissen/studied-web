@@ -39,6 +39,7 @@ class Table {
     const DATA_TYPE                                         = "data_type";
     const DATA_SORT                                         = "data_sort";
     const DATA_FILTER                                       = "data_filter";
+    const DATA_SEARCH                                       = "data_search";
     const DATA_OFFSET                                       = "data_offset";
 
     const SORT_MODE_ASC                                     = "asc";
@@ -50,9 +51,6 @@ class Table {
     const FILTER_VALUE                                      = "value";
     const FILTER_ACTIVE                                     = "filtered";
     const FILTER_DISABLED                                   = "no_filter";
-    const FILTER_SEARCH                                     = "search";
-
-    const FILTERS_NO_DISPLAY                                = [self::FILTER_SEARCH];
 
     const ITEM_LINK                                         = "link";
 
@@ -66,13 +64,14 @@ class Table {
 
         $sort                                               = $request->input(Table::DATA_SORT, null);
         $filter                                             = $request->input(Table::DATA_FILTER, null);
+        $search                                             = $request->input(Table::DATA_SEARCH, null);
         $offset                                             = $request->input(Table::DATA_OFFSET, 0);
 
         $view_data                                          = [];
 
         $columns                                            = $controller->list_columns($sort, $filter);
         $spacing                                            = self::spacing($columns);
-        $query                                              = self::query($controller, $sort, $filter);
+        $query                                              = self::query($controller, $sort, $filter, $search);
         $objects                                            = self::objects($controller, clone $query, $offset);
         $items                                              = [];
 
@@ -123,7 +122,7 @@ class Table {
 
 
 
-    public static function query($controller, $sort, $filter) {
+    public static function query($controller, $sort, $filter, $search) {
 
         $query                                              = self::getModelClass($controller->list_type())::query();
 
@@ -132,6 +131,12 @@ class Table {
         if ($filter) {
 
             $controller->list_filter($query, $filter);
+
+        }
+
+        if ($search) {
+
+            $controller->list_filter_search($query, $search);
 
         }
 
