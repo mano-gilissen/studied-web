@@ -52,6 +52,8 @@ class Table {
     const FILTER_DISABLED                                   = "no_filter";
     const FILTER_SEARCH                                     = "search";
 
+    const FILTERS_NO_DISPLAY                                = [self::FILTER_SEARCH];
+
     const ITEM_LINK                                         = "link";
 
     const WIDTH_END_ACTION                                  = "48px";

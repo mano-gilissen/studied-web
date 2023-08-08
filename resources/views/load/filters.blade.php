@@ -1,11 +1,15 @@
 @foreach($filters as $filter)
 
-    <div id="{{ $filter->id }}" class="button icon filter">
+    @if (!in_array($filter->column, \App\Http\Support\Table::FILTERS_NO_DISPLAY))
 
-        <img class="icon" src="/images_app/close.svg">
+        <div id="{{ $filter->id }}" class="button icon filter">
 
-        <div class="text">{{ $filter->column }} : {{ $filter->value }}</div>
+            <img class="icon" src="/images_app/close.svg">
 
-    </div>
+            <div class="text">{{ $filter->column }} : {{ $filter->value }}</div>
+
+        </div>
+
+    @endif
 
 @endforeach

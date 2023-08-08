@@ -79,7 +79,7 @@ $(function() {
 
 
 
-    $(OBJECT_APP).on('change', OBJECT_INPUT_FILTER_SEARCH, function() {
+    $(OBJECT_APP).on('input', OBJECT_INPUT_FILTER_SEARCH, function() {
 
         filter_search();
 
