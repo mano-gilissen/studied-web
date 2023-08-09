@@ -1117,7 +1117,7 @@ class StudyController extends Controller {
             return strtotime($a['Datum']) - strtotime($b['Datum']);
         });
 
-        $columnNames = ['Leerling', 'Medewerker', 'Onderwerp', 'Dienst', 'Deelnemers', 'Datum', 'Tijdstip', 'Duurtijd', 'Locatie', 'Status', 'Opmerkingen', 'Link naar les'];
+        $columnNames = ['Leerling', 'Medewerker', 'Onderwerp', 'Dienst', 'Deelnemers', 'Begeleidingsvorm', 'Datum', 'Tijdstip', 'Duurtijd', 'Locatie', 'Status', 'Opmerkingen', 'Link naar les'];
 
         return Func::export_csv($columnNames, $rows);
     }
@@ -1136,6 +1136,7 @@ class StudyController extends Controller {
             $location                                       = $study->{Model::$STUDY_LOCATION_TEXT};
             $service                                        = $study->getService->{Model::$SERVICE_NAME};
             $participants                                   = StudyTrait::countParticipants($study) > 1 ? 'Privéles' : 'Groepsles';
+            $plan                                           = AgreementTrait::getPlanText(StudyTrait::getPlan($study, $participant));
             $status                                         = StudyTrait::getStatusText(StudyTrait::getStatus($study));
             $remark                                         = $study->{Model::$STUDY_REMARK};
             $link                                           = 'https://studied.app/les/' . $study->{Model::$BASE_KEY};
@@ -1169,7 +1170,7 @@ class StudyController extends Controller {
                     break;
             }
 
-            array_push($rows, [$first_name, $last_name, $subjects, $service, $participants, $date, $time, $duration, $location, $status, $remark, $link]);
+            array_push($rows, [$first_name, $last_name, $subjects, $service, $participants, $plan, $date, $time, $duration, $location, $status, $remark, $link]);
         }
     }
 

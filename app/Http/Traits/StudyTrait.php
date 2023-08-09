@@ -70,10 +70,6 @@ trait StudyTrait {
 
 
 
-        // TODO: PUBLIC SERVICES (COLLEGE/GROEPSLES)
-
-
-
         $study->save();
 
 
@@ -200,19 +196,6 @@ trait StudyTrait {
 
         $study->{Model::$SERVICE}                                   = $study->getAgreements->first()->{Model::$SERVICE};
 
-        /*
-        switch ($study->getAgreements->count()) {
-
-            case 0:
-                $study->{Model::$SERVICE}                           = ServiceTrait::$ID_COLLEGE;
-                break;
-            case 1:
-                $study->{Model::$SERVICE}                           = ServiceTrait::$ID_PRIVELES;
-                break;
-            default:
-                $study->{Model::$SERVICE}                           = ServiceTrait::$ID_GROEPSLES;
-                break;
-        }*/
     }
 
 
@@ -392,6 +375,22 @@ trait StudyTrait {
             case self::$STATUS_PLANNED:                             return self::hasStarted($study) ? (self::hasFinished($study) ? self::$STATUS_FINISHED : self::$STATUS_ACTIVE) : self::$STATUS_PLANNED;
             default:                                                return $study->status;
         }
+    }
+
+
+
+    public static function getPlan($study, $participant) {
+
+        foreach($study->getAgreements as $agreement) {
+
+            if ($agreement->{Model::$STUDENT} == $participant->{Model::$BASE_ID}) {
+
+                return $agreement->{Model::$AGREEMENT_PLAN};
+
+            }
+        }
+
+        return null;
     }
 
 

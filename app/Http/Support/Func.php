@@ -106,7 +106,7 @@ class Func {
             "Expires"                                       => "0"
         ];
 
-        $callback = function() use ($columns, $rows ) {
+        $callback = function() use ($columns, $rows) {
 
             $file                                           = fopen('php://output', 'w');
 
