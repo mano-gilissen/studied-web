@@ -152,6 +152,8 @@ const LOAD_AGREEMENT_COUNTERS                   = 'load.agreement.counters';
 
 const LOAD_AGREEMENT_FILTER                     = 'load.agreement.filter';
 
+const LOAD_AGREEMENT_EXTEND                     = 'load.agreement.extend';
+
 
 
 const STUDY_PLAN_SUBMIT                         = 'study.plan_submit';
@@ -236,6 +238,7 @@ const ALL_MANAGEMENT                            = [
     self::LOAD_AGREEMENT_LIST,
     self::LOAD_AGREEMENT_COUNTERS,
     self::LOAD_AGREEMENT_FILTER,
+    self::LOAD_AGREEMENT_EXTEND,
     self::STUDENT_CREATE_SUBMIT,
     self::STUDENT_EDIT_SUBMIT,
     self::CUSTOMER_CREATE_SUBMIT,
