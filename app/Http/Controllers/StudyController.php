@@ -1135,7 +1135,7 @@ class StudyController extends Controller {
             $time                                           = Format::datetime(StudyTrait::getStartTime($study), Format::$TIME_SINGLE);
             $location                                       = $study->{Model::$STUDY_LOCATION_TEXT};
             $service                                        = $study->getService->{Model::$SERVICE_NAME};
-            $participants                                   = StudyTrait::countParticipants($study) > 1 ? 'Privéles' : 'Groepsles';
+            $participants                                   = StudyTrait::countParticipants($study) > 1 ? 'Groepsles' : 'Privéles';
             $plan                                           = AgreementTrait::getPlanText(StudyTrait::getPlan($study, $participant));
             $status                                         = StudyTrait::getStatusText(StudyTrait::getStatus($study));
             $remark                                         = $study->{Model::$STUDY_REMARK};
