@@ -307,7 +307,7 @@ function autocomplete(input, data, additional, reject_other, show_all, show_alwa
 
 
 
-    return self;
+    return this;
 
 
 
