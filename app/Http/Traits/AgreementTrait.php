@@ -99,7 +99,7 @@ trait AgreementTrait {
             $agreement->{Model::$EVALUATION}                    = $evaluation->{Model::$BASE_ID};
         }
 
-        
+
 
         $agreement->save();
 
@@ -412,12 +412,12 @@ trait AgreementTrait {
 
 
 
-    public static function getPlanData() {
+    public static function getPlanFilterData() {
 
         return [
-            1                                                       => AgreementTrait::getPlanText(self::$PLAN_INCIDENTEEL),
-            2                                                       => AgreementTrait::getPlanText(self::$PLAN_STRUCTUREEL),
-            3                                                       => AgreementTrait::getPlanText(self::$PLAN_GEINTEGREERD)
+            AgreementTrait::$PLAN_INCIDENTEEL                       => AgreementTrait::getPlanText(self::$PLAN_INCIDENTEEL),
+            AgreementTrait::$PLAN_STRUCTUREEL                       => AgreementTrait::getPlanText(self::$PLAN_STRUCTUREEL),
+            AgreementTrait::$PLAN_GEINTEGREERD                      => AgreementTrait::getPlanText(self::$PLAN_GEINTEGREERD)
         ];
     }
 

@@ -30,7 +30,7 @@
 
         <div class="attribute">
 
-            <div class="name">Begeleidingsvorm</div>
+            <div class="name">Begeleiding</div>
 
             <div class="value">{{ \App\Http\Traits\AgreementTrait::getPlanText($agreement->{\App\Http\Support\Model::$AGREEMENT_PLAN}) }}</div>
 

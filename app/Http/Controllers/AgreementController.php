@@ -165,7 +165,7 @@ class AgreementController extends Controller {
         $data[Key::AUTOCOMPLETE_DATA . Model::$STUDENT]                     = Format::encode($ac_data_student);
         $data[Key::AUTOCOMPLETE_ADDITIONAL . Model::$STUDENT]               = Format::encode($ac_additional_student);
 
-        $data[Key::AUTOCOMPLETE_DATA . Model::$AGREEMENT_PLAN]              = Format::encode(AgreementTrait::getPlanData());
+        $data[Key::AUTOCOMPLETE_DATA . Model::$AGREEMENT_PLAN]              = Format::encode(AgreementTrait::getPlanFilterData());
         $data[Key::AUTOCOMPLETE_DATA . Model::$SERVICE]                     = Format::encode($ac_data_service);
         $data[Key::AUTOCOMPLETE_DATA . Model::$SUBJECT]                     = Format::encode($ac_data_subject);
         $data[Key::AUTOCOMPLETE_DATA . Model::$LEVEL]                       = Format::encode($ac_data_level);
@@ -227,7 +227,7 @@ class AgreementController extends Controller {
             Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 1, false, $sort, false, $filter, true),
             Table::column(self::$COLUMN_EMPLOYEE, self::list_column_label(self::$COLUMN_EMPLOYEE), 1, false, $sort, false, $filter),
             Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 1, false, $sort, false, $filter),
-            Table::column(self::$COLUMN_PLAN, self::list_column_label(self::$COLUMN_PLAN), 1, false, $sort, false, $filter),
+            Table::column(self::$COLUMN_PLAN, self::list_column_label(self::$COLUMN_PLAN), 1, false, $sort, true, $filter),
             Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 1, false, $sort, false, $filter),
             Table::column(self::$COLUMN_START, self::list_column_label(self::$COLUMN_START), 1, false, $sort, true, $filter),
             Table::column(self::$COLUMN_END, self::list_column_label(self::$COLUMN_END), 1, true, $sort, true, $filter),
@@ -372,6 +372,10 @@ class AgreementController extends Controller {
                 case self::$COLUMN_STATUS:
                     $query->where(Model::$AGREEMENT_STATUS, $value);
                     break;
+
+                case self::$COLUMN_PLAN:
+                    $query->where(Model::$AGREEMENT_PLAN, $value);
+                    break;
             }
         }
     }
@@ -426,6 +430,10 @@ class AgreementController extends Controller {
 
                 return AgreementTrait::getStatusFilterData();
 
+            case self::$COLUMN_PLAN:
+
+                return AgreementTrait::getPlanFilterData();
+
             default:
 
                 return [];
@@ -462,6 +470,10 @@ class AgreementController extends Controller {
 
                 case self::$COLUMN_STATUS:
                     $display                                = AgreementTrait::getStatusText($value);
+                    break;
+
+                case self::$COLUMN_PLAN:
+                    $display                                = AgreementTrait::getPlanText($value);
                     break;
             }
 
