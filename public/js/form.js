@@ -273,7 +273,7 @@ function agreements_extend_load(id, index) {
 
     $.get('/load/agreement/extend/' + id, function(data, status){
 
-        $('_' + index)
+        console.log(data);
 
     });
 }
