@@ -59,7 +59,7 @@ trait AgreementTrait {
         $agreement->{Model::$SUBJECT}                           = $data[Key::AUTOCOMPLETE_ID . Model::$SUBJECT . $suffix];
         $agreement->{Model::$LEVEL}                             = $data[Key::AUTOCOMPLETE_ID . Model::$LEVEL . $suffix];
 
-        dd($data);
+        dd($data[Key::AUTOCOMPLETE_ID . Model::$AGREEMENT_PLAN . $suffix]);
 
         $agreement->{Model::$AGREEMENT_PLAN}                    = $data[Key::AUTOCOMPLETE_ID . Model::$AGREEMENT_PLAN . $suffix];
 
