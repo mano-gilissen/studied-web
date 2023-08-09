@@ -1106,7 +1106,7 @@ class StudyController extends Controller {
 
         usort($rows, function($a, $b) {
 
-            $nameComparison = strcmp($a['Leerling'], $b['Leerling']);
+            $nameComparison = strcmp($a[0], $b[0]);
 
             if ($nameComparison !== 0) {
 
@@ -1114,7 +1114,7 @@ class StudyController extends Controller {
 
             }
 
-            return strtotime($a['Datum']) - strtotime($b['Datum']);
+            return strtotime($a[6]) - strtotime($b[6]);
         });
 
         $columnNames = ['Leerling', 'Medewerker', 'Onderwerp', 'Dienst', 'Deelnemers', 'Begeleidingsvorm', 'Datum', 'Tijdstip', 'Duurtijd', 'Locatie', 'Status', 'Opmerkingen', 'Link naar les'];
@@ -1131,7 +1131,7 @@ class StudyController extends Controller {
             $first_name                                     = PersonTrait::getFullName($participant->getPerson);
             $last_name                                      = PersonTrait::getFullName($study->getHost_User->getPerson);
 
-            $date                                           = Format::datetime($study->start, Format::$DATETIME_FORM);
+            $date                                           = Format::datetime($study->start, Format::$DATETIME_EXPORT);
             $time                                           = Format::datetime(StudyTrait::getStartTime($study), Format::$TIME_SINGLE);
             $location                                       = $study->{Model::$STUDY_LOCATION_TEXT};
             $service                                        = $study->getService->{Model::$SERVICE_NAME};

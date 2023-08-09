@@ -15,6 +15,7 @@ class Format {
             $DATABASE_DATETIME                  = "Y-m-d H:i:s",
             $DATABASE_DATE                      = "Y-m-d",
             $DATABASE_TIME                      = "H:i",
+            $DATETIME_EXPORT                    = "d-m-Y",
 
             $DATETIME_LIST                      = "%e %b. %Y",
             $DATETIME_AGREEMENT                 = "%e %B, %Y",
