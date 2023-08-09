@@ -34,7 +34,7 @@
 
 </div>
 
-@include('form.field-input', ['id' => 'hours_' . $id, 'type' => 'number', 'tag' => 'Uren per week', 'required' => true, 'value' => old('hours_' . $id, 0)])
+@include('form.field-input', ['id' => 'hours_' . $id, 'type' => 'number', 'tag' => 'Uren per week', 'required' => true, 'value' => old('hours_' . $id, 1)])
 
 @include('form.field-input', ['id' => 'start_' . $id, 'type' => 'date', 'tag' => 'Geldig vanaf', 'required' => true, 'value' => old('start_' . $id)])
 
