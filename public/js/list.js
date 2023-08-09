@@ -201,6 +201,11 @@ function sort(column) {
             case 'none':                    this.data_sort = {[column] : 'asc'}; break;
             case 'desc':                    this.data_sort = {}; break;
         }
+
+    } else {
+
+        this.data_sort                      = {[column] : 'asc'};
+
     }
 
     load();
