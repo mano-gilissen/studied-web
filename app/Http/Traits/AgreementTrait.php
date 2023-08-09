@@ -99,8 +99,8 @@ trait AgreementTrait {
             $agreement->{Model::$EVALUATION}                    = $evaluation->{Model::$BASE_ID};
         }
 
+        
 
-        dd($agreement);
         $agreement->save();
 
 
