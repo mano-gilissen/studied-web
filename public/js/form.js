@@ -273,8 +273,12 @@ function agreements_extend_load(id, index) {
 
     $.get('/load/agreement/extend/' + id, function(data, status){
 
-        $('#_employee_' + index).val(data['employee']);
-
+        $('#_employee_' + index).val(data['employee']).trigger('change');
+        $('#_service_' + index).val(data['service']).trigger('change');
+        $('#_subject_' + index).val(data['subject']).trigger('change');
+        $('#_level_' + index).val(data['level']).trigger('change');
+        $('#_hours_' + index).val(data['hours']).trigger('change');
+        $('#_plan_' + index).val(data['plan']).trigger('change');
     });
 }
 
