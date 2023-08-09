@@ -193,8 +193,6 @@ function csv(type, method) {
 
 function sort(column) {
 
-    $mode_sort = 'asc';
-
     if (this.data_sort[column]) {
 
         switch (this.data_sort[column]) {
