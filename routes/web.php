@@ -180,7 +180,7 @@ Route::post('/load/agreement/counters',                     'AgreementController
 
 Route::post('/load/agreement/filter',                       'AgreementController@list_filter_load')->name('load.agreement.filter')->middleware('auth', 'authorize');
 
-Route::post('/load/agreement/extend/{id}',                  'AgreementController@create_extend')->name('load.agreement.extend')->middleware('auth', 'authorize');
+Route::get('/load/agreement/extend/{id}',                   'AgreementController@create_extend')->name('load.agreement.extend')->middleware('auth', 'authorize');
 
 
 

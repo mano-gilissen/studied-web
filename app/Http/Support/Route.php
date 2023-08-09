@@ -238,6 +238,7 @@ const ALL_MANAGEMENT                            = [
     self::LOAD_AGREEMENT_LIST,
     self::LOAD_AGREEMENT_COUNTERS,
     self::LOAD_AGREEMENT_FILTER,
+    self::LOAD_AGREEMENT_EXTEND,
     self::STUDENT_CREATE_SUBMIT,
     self::STUDENT_EDIT_SUBMIT,
     self::CUSTOMER_CREATE_SUBMIT,
@@ -303,7 +304,6 @@ const ALL_AUTH                                  = [
     self::LOAD_STUDY_LIST,
     self::LOAD_STUDY_COUNTERS,
     self::LOAD_STUDY_FILTER,
-    self::LOAD_AGREEMENT_EXTEND,
     self::USER_PASSWORD_SUBMIT
 ];
 
