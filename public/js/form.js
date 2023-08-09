@@ -275,7 +275,7 @@ function agreements_extend_load(id, index) {
 
         console.log(data);
 
-        $('_employee_' + id).val(data['employee']);
+        $('#_employee_' + id).val(data['employee']);
 
     });
 }
