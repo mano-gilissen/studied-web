@@ -336,6 +336,10 @@ class AgreementController extends Controller {
                     case self::$COLUMN_STATUS:
                         $query->orderBy(Model::$AGREEMENT . '.' . Model::$AGREEMENT_STATUS, $mode);
                         break;
+
+                    case self::$COLUMN_END:
+                        $query->orderBy(Model::$AGREEMENT . '.' . Model::$AGREEMENT_END, $mode);
+                        break;
                 }
             }
         }
