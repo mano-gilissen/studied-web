@@ -28,6 +28,14 @@
 
         </div>
 
+        <div class="attribute">
+
+            <div class="name">Begeleidingsvorm</div>
+
+            <div class="value">{{ \App\Http\Traits\AgreementTrait::getPlanText($agreement->{\App\Http\Support\Model::$AGREEMENT_PLAN}) }}</div>
+
+        </div>
+
         @if(\App\Http\Traits\AgreementTrait::getTrial($agreement))
 
             <div class="attribute">
