@@ -199,13 +199,11 @@ function sort(column) {
 
         switch (this.data_sort[column]) {
 
-            case 'asc':                     $mode_sort = 'desc'; break;
-            case 'desc':                    $mode_sort = 'none'; break;
-            case 'none':                    $mode_sort = 'asc'; break;
+            case 'asc':                     this.data_sort = {[column] : 'desc'}; break;
+            case 'none':                    this.data_sort = {[column] : 'asc'}; break;
+            case 'desc':                    this.data_sort = {}; break;
         }
     }
-
-    this.data_sort                          = {[column] : $mode_sort};
 
     load();
 }
