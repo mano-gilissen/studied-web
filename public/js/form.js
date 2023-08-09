@@ -269,7 +269,7 @@ function study_agreement_toggle_selected(id) {
 
 function agreements_extend_load(id, index) {
 
-    console.log(key);
+    console.log(id);
 
     $.get('/load/agreement/extend/' + id, function(data, status){
 
