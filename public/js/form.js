@@ -267,6 +267,15 @@ function study_agreement_toggle_selected(id) {
 
 
 
+function agreements_extend_load(id) {
+
+    console.log(id);
+
+}
+
+
+
+
 
 function report_subjects_load() {
 

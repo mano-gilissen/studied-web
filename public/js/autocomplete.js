@@ -2,6 +2,7 @@
 
 
 const TRIGGER_AGREEMENTS                            = "agreements";
+const TRIGGER_AGREEMENT_EXTEND                      = "agreement_extend";
 const TRIGGER_FILTER                                = "filter";
 
 
@@ -276,6 +277,10 @@ function autocomplete(input, data, additional, reject_other, show_all, show_alwa
 
             case TRIGGER_AGREEMENTS:
                 study_agreements_load(key);
+                break;
+
+            case TRIGGER_AGREEMENT_EXTEND:
+                agreements_extend_load(key);
                 break;
 
             case TRIGGER_FILTER:
