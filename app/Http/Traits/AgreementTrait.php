@@ -414,9 +414,9 @@ trait AgreementTrait {
     public static function getPlanData() {
 
         return [
-            1                                               => self::$PLAN_INCIDENTEEL,
-            2                                               => self::$PLAN_STRUCTUREEL,
-            3                                               => self::$PLAN_GEINTEGREERD
+            1                                                       => AgreementTrait::getPlanText(self::$PLAN_INCIDENTEEL),
+            2                                                       => AgreementTrait::getPlanText(self::$PLAN_STRUCTUREEL),
+            3                                                       => AgreementTrait::getPlanText(self::$PLAN_GEINTEGREERD)
         ];
     }
 
