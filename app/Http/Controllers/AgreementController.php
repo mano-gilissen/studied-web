@@ -98,6 +98,25 @@ class AgreementController extends Controller {
 
 
 
+    public function create_extend($id) {
+
+        $agreement                                                          = Agreement::findOrFail($id);
+
+        $data                                                               = [];
+
+        $data[Model::$AGREEMENT_HOURS]                                      = $agreement->{Model::$AGREEMENT_HOURS};
+        $data[Model::$AGREEMENT_PLAN]                                       = $agreement->{Model::$AGREEMENT_PLAN};
+
+        $data[Model::$EMPLOYEE]                                             = $agreement->{Model::$EMPLOYEE};
+        $data[Model::$SERVICE]                                              = $agreement->{Model::$SERVICE};
+        $data[Model::$SUBJECT]                                              = $agreement->{Model::$SUBJECT};
+        $data[Model::$LEVEL]                                                = $agreement->{Model::$LEVEL};
+
+        return $data;
+    }
+
+
+
     public function create_submit(Request $request) {
 
         $data                                                               = $request->all();

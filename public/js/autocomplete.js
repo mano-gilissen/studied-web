@@ -280,7 +280,7 @@ function autocomplete(input, data, additional, reject_other, show_all, show_alwa
                 break;
 
             case TRIGGER_AGREEMENT_EXTEND:
-                agreements_extend_load(key);
+                agreements_extend_load(key, identifier);
                 break;
 
             case TRIGGER_FILTER:
@@ -304,6 +304,10 @@ function autocomplete(input, data, additional, reject_other, show_all, show_alwa
         return Object.keys(array).length;
 
     }
+
+
+
+    return self;
 
 
 

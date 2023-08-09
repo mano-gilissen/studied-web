@@ -40,7 +40,7 @@
 
     <script>
 
-        autocomplete(
+        {{ $id }}_autocomplete = autocomplete(
 
             /* Input field ID */
             $('#{{ $id }}'),
