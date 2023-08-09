@@ -20,7 +20,7 @@ function autocomplete(input, data, additional, reject_other, show_all, show_alwa
 
     if (uses_id) {
 
-        var input_id                                    = $("_" + input.attr('name'));
+        var input_id                                    = $("#_" + input.attr('name'));
 
         input_id.on("change", function(e) {
 
