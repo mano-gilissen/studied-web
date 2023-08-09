@@ -6,12 +6,28 @@ const TRIGGER_AGREEMENT_EXTEND                      = "agreement_extend";
 const TRIGGER_FILTER                                = "filter";
 
 
+
 function autocomplete(input, data, additional, reject_other, show_all, show_always, uses_id, set_id, locked, trigger, form) {
 
 
 
     var currentFocus,
         autocompleted                               = false;
+
+
+
+
+
+    if (uses_id) {
+
+        var input_id                                    = $("_" + input.attr('name'));
+
+        input_id.on("change", function(e) {
+
+            set_value(input_id.val())
+
+        });
+    }
 
 
 
@@ -177,8 +193,6 @@ function autocomplete(input, data, additional, reject_other, show_all, show_alwa
 
     function set_value(key) {
 
-        var input_id;
-
         input                           .val(data[key]);
 
         input.parent()                  .addClass("autocomplete");
@@ -187,8 +201,7 @@ function autocomplete(input, data, additional, reject_other, show_all, show_alwa
 
         if (uses_id) {
 
-            input_id                    = document.getElementById("_" + input.attr('name'));
-            input_id.value              = key;
+            input_id                    .val(key);
 
             call_trigger(key, input.data('identifier'));
         }
@@ -306,8 +319,6 @@ function autocomplete(input, data, additional, reject_other, show_all, show_alwa
     }
 
 
-
-    return this;
 
 
 
