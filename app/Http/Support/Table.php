@@ -128,7 +128,7 @@ class Table {
 
         $controller->list_filter_default($query);
 
-        if ($filter) {
+        if ($filter && !empty($filter)) {
 
             $controller->list_filter($query, $filter);
 
@@ -140,7 +140,7 @@ class Table {
 
         }
 
-        if ($sort) {
+        if ($sort && !empty($sort)) {
 
             $controller->list_sort($query, $sort);
 
