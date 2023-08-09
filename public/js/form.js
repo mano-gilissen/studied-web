@@ -274,6 +274,7 @@ function agreements_extend_load(id, index) {
     $.get('/load/agreement/extend/' + id, function(data, status){
 
         console.log(data);
+        console.log('#_employee_' + id);
         console.log($('#_employee_' + id));
 
         $('#_employee_' + id).val(data['employee']);
