@@ -323,7 +323,7 @@ class AgreementController extends Controller {
 
             case self::$COLUMN_STATUS:
 
-                $status = AgreementTrait::getStatus($agreement->{Model::$AGREEMENT_STATUS});
+                $status = AgreementTrait::getStatus($agreement);
 
                 return "<div class='tag' style='background:" . AgreementTrait::getStatusColor($status) . ";color:" . AgreementTrait::getStatusTextColor($status) . "'>".AgreementTrait::getStatusText($status)."</div>";
 
