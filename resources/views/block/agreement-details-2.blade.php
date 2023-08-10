@@ -22,22 +22,6 @@
 
         <div class="attribute">
 
-            <div class="name">Uren afspraak</div>
-
-            <div class="value">{{ $agreement->{\App\Http\Support\Model::$AGREEMENT_HOURS} . ' per week, ' . \App\Http\Traits\AgreementTrait::getHoursTotal($agreement) . ' in totaal'}}</div>
-
-        </div>
-
-        <div class="attribute">
-
-            <div class="name">Uren gemaakt</div>
-
-            <div class="value">{{ \App\Http\Traits\AgreementTrait::getHoursMade($agreement) }}</div>
-
-        </div>
-
-        <div class="attribute">
-
             <div class="name">Begeleiding</div>
 
             <div class="value">{{ \App\Http\Traits\AgreementTrait::getPlanText($agreement->{\App\Http\Support\Model::$AGREEMENT_PLAN}) }}</div>
@@ -55,6 +39,26 @@
             </div>
 
         @endif
+
+    </div>
+
+    <div class="list-attributes">
+
+        <div class="attribute">
+
+            <div class="name">Uren afspraak</div>
+
+            <div class="value">{{ $agreement->{\App\Http\Support\Model::$AGREEMENT_HOURS} . ' per week, ' . \App\Http\Traits\AgreementTrait::getHoursTotal($agreement) . ' in totaal'}}</div>
+
+        </div>
+
+        <div class="attribute">
+
+            <div class="name">Uren gemaakt</div>
+
+            <div class="value">{{ \App\Http\Traits\AgreementTrait::getHoursMade($agreement) }}</div>
+
+        </div>
 
     </div>
 
