@@ -267,14 +267,14 @@ function filter(value, column) {
 
 
 
-function filter_column_date() {
+function filter_column_date(id) {
 
-    var after                               = $('#filter_input_' + COLUMN_DATE + '_after')[0].value;
-    var before                              = $('#filter_input_' + COLUMN_DATE + '_before')[0].value;
+    var after                               = $('#filter_input_' + id + '_after')[0].value;
+    var before                              = $('#filter_input_' + id + '_before')[0].value;
 
     if (before !== '' && after !== '') {
 
-        this.data_filter[COLUMN_DATE]       = after + ':' + before;
+        this.data_filter[id]                = after + ':' + before;
 
         filters_close();
 
