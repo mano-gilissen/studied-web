@@ -4,7 +4,7 @@
 
 @section('css')
 
-    <link href="{{ asset('css/form.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/form_100823.css') }}" rel="stylesheet">
 
 @endsection
 
@@ -12,7 +12,7 @@
 
 @section('scripts')
 
-    <script src="{{ asset('js/form.js') }}"></script>
+    <script src="{{ asset('js/form_100823.js') }}"></script>
 
 @endsection
 

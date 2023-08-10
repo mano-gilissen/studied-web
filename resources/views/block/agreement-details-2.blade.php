@@ -22,9 +22,17 @@
 
         <div class="attribute">
 
-            <div class="name">Uren</div>
+            <div class="name">Uren afspraak</div>
 
             <div class="value">{{ $agreement->{\App\Http\Support\Model::$AGREEMENT_HOURS} . ' per week, ' . \App\Http\Traits\AgreementTrait::getHoursTotal($agreement) . ' in totaal'}}</div>
+
+        </div>
+
+        <div class="attribute">
+
+            <div class="name">Uren gemaakt</div>
+
+            <div class="value">{{ \App\Http\Traits\AgreementTrait::getHoursMade($agreement) }}</div>
 
         </div>
 

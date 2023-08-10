@@ -62,9 +62,9 @@ trait StudyTrait {
 
 
 
-        self::create_set_location($study, $data);
-
         self::create_set_agreements($study, $data);
+
+        self::create_set_location($study, $data);
 
         self::create_set_service($study, $data);
 
@@ -147,13 +147,13 @@ trait StudyTrait {
 
             if ($data[Key::AUTOCOMPLETE_ID . Model::$LOCATION] == StudyController::$STUDY_PLAN_LOCATION_HOST) {
 
-                $employee                                           = User::find($study->{Model::$STUDY_HOST_USER});
+                $employee                                           = $study->getHost_User;
 
                 if ($employee) {
 
                     $study->{Model::$STUDY_LOCATION_TEXT}           = 'Thuis bij ' . PersonTrait::getFullName($employee->getPerson);
 
-                    $study->{Model::$ADDRESS}                       = User::find($study->{Model::$STUDY_HOST_USER})->getPerson->{Model::$ADDRESS};
+                    $study->{Model::$ADDRESS}                       = $employee->getPerson->{Model::$ADDRESS};
                 }
 
             } else {

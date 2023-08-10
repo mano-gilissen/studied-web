@@ -5,6 +5,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Support\Format;
+use App\Http\Support\Func;
 use App\Http\Support\Table;
 use App\Http\Traits\AgreementTrait;
 use App\Http\Traits\BaseTrait;
@@ -318,13 +319,11 @@ class AgreementController extends Controller {
 
             case self::$COLUMN_HOURS_MADE:
 
-                // TODO: CREATE LOAD IN (ECHO JS TO AJAX BELOW CODE)
-
                 return AgreementTrait::getHoursMade($agreement);
 
             case self::$COLUMN_STATUS:
 
-                $status = $agreement->{Model::$AGREEMENT_STATUS};
+                $status = AgreementTrait::getStatus($agreement->{Model::$AGREEMENT_STATUS});
 
                 return "<div class='tag' style='background:" . AgreementTrait::getStatusColor($status) . ";color:" . AgreementTrait::getStatusTextColor($status) . "'>".AgreementTrait::getStatusText($status)."</div>";
 
@@ -393,7 +392,33 @@ class AgreementController extends Controller {
                     break;
 
                 case self::$COLUMN_STATUS:
-                    $query->where(Model::$AGREEMENT_STATUS, $value);
+
+                    switch($value) {
+
+                        case AgreementTrait::$STATUS_ACTIVE:
+                            $query
+                                ->where(Model::$AGREEMENT_STATUS, AgreementTrait::$STATUS_ACTIVE)
+                                ->where(Model::$AGREEMENT_START, '<=', date('Y-m-d'))
+                                ->where(Model::$AGREEMENT_END, '>', date('Y-m-d'));
+                            break;
+
+                        case AgreementTrait::$STATUS_EXPIRED:
+                            $query
+                                ->where(Model::$AGREEMENT_STATUS, AgreementTrait::$STATUS_ACTIVE)
+                                ->where(Model::$AGREEMENT_START, '<', date('Y-m-d'))
+                                ->where(Model::$AGREEMENT_END, '<=', date('Y-m-d'));
+                            break;
+
+                        case AgreementTrait::$STATUS_PLANNED:
+                            $query
+                                ->where(Model::$AGREEMENT_STATUS, AgreementTrait::$STATUS_ACTIVE)
+                                ->where(Model::$AGREEMENT_START, '>', date('Y-m-d'));
+                            break;
+
+                        default:
+                            $query->where(Model::$AGREEMENT_STATUS, $value);
+                            break;
+                    }
                     break;
 
                 case self::$COLUMN_PLAN:

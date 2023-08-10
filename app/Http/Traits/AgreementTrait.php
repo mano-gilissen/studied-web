@@ -401,7 +401,6 @@ trait AgreementTrait {
     public static function getStatusFilterData() {
 
         return [
-            AgreementTrait::$STATUS_UNAPPROVED                      => AgreementTrait::getStatusText(AgreementTrait::$STATUS_UNAPPROVED),
             AgreementTrait::$STATUS_TRIAL                           => AgreementTrait::getStatusText(AgreementTrait::$STATUS_TRIAL),
             AgreementTrait::$STATUS_ACTIVE                          => AgreementTrait::getStatusText(AgreementTrait::$STATUS_ACTIVE),
             AgreementTrait::$STATUS_EXPIRED                         => AgreementTrait::getStatusText(AgreementTrait::$STATUS_EXPIRED),

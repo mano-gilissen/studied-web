@@ -15,8 +15,8 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="{{ asset('js/autocomplete.js') }}"></script>
-    <script src="{{ asset('js/events.js') }}"></script>
+    <script src="{{ asset('js/autocomplete_100823.js') }}"></script>
+    <script src="{{ asset('js/events_100823.js') }}"></script>
 
 
 
@@ -29,9 +29,9 @@
 
 
 
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app_100823.css') }}" rel="stylesheet">
     @yield('css')
-    <link href="{{ asset('css/mobile.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/mobile_100823.css') }}" rel="stylesheet">
 
 
 

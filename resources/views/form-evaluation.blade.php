@@ -4,8 +4,8 @@
 
 @section('scripts')
 
-    <script src="{{ asset('js/form.js') }}"></script>
-    <script src="{{ asset('js/evaluation.js') }}"></script>
+    <script src="{{ asset('js/form_100823.js') }}"></script>
+    <script src="{{ asset('js/evaluation_100823.js') }}"></script>
 
 @endsection
 

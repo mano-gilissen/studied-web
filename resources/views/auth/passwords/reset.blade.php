@@ -4,8 +4,8 @@
 
 @section('css')
 
-    <link href="{{ asset('css/form.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/form_100823.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/reset_100823.css') }}" rel="stylesheet">
 
 @endsection
 

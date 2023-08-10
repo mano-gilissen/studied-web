@@ -4,7 +4,7 @@
 
 @section('css')
 
-    <link href="{{ asset('css/landing.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/landing_100823.css') }}" rel="stylesheet">
 
 @endsection
 
