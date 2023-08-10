@@ -42,7 +42,7 @@
 
     </div>
 
-    <div class="list-attributes">
+    <div class="list-attributes" style="margin-top: 24px;">
 
         <div class="attribute">
 
