@@ -172,7 +172,7 @@ trait EvaluationTrait {
 
             case self::$ID_INTAKE:
 
-                return "Kennismakingsgesprek";
+                return "Intakegesprek";
 
             case self::$ID_EVALUATION:
 
