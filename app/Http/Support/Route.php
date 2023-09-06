@@ -216,7 +216,6 @@ const ALL_MANAGEMENT                            = [
     self::STUDY_DELETE,
     self::AGREEMENT_FINISH,
     self::AGREEMENT_CREATE,
-    self::AGREEMENT_LIST,
     self::STUDENT_CREATE,
     self::STUDENT_EDIT,
     self::CUSTOMER_CREATE,
@@ -254,6 +253,7 @@ const ALL_MANAGEMENT                            = [
 
 const ALL_EMPLOYEE                              = [
 
+    self::AGREEMENT_LIST,
     self::REPORT_CREATE,
     self::REPORT_EDIT,
     self::STUDY_EDIT,

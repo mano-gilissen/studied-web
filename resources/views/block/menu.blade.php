@@ -32,6 +32,8 @@
 
                 @include('block.menu-item', ['label' => 'Leerlingen', 'route' => route('student.list')])
 
+                @include('block.menu-item', ['label' => 'Vakafspraken', 'route' => route('agreement.list')])
+
                 @include('block.menu-item', ['label' => 'Mijn profiel', 'route' => route('person.self')])
 
                 @include('block.menu-item', ['label' => 'Locatieagenda', 'route' => route('study.calendar')])

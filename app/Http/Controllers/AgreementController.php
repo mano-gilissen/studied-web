@@ -243,19 +243,43 @@ class AgreementController extends Controller {
 
         $columns                                            = [];
 
-        array_push($columns,
+        switch (self::getUserRole()) {
 
-            Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 1, false, $sort, false, $filter, true),
-            Table::column(self::$COLUMN_EMPLOYEE, self::list_column_label(self::$COLUMN_EMPLOYEE), 1, false, $sort, false, $filter),
-            Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 1, false, $sort, false, $filter),
-            Table::column(self::$COLUMN_PLAN, self::list_column_label(self::$COLUMN_PLAN), 1, false, $sort, true, $filter),
-            Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 1, false, $sort, false, $filter),
-            Table::column(self::$COLUMN_START, self::list_column_label(self::$COLUMN_START), 1, false, $sort, true, $filter),
-            Table::column(self::$COLUMN_END, self::list_column_label(self::$COLUMN_END), 1, true, $sort, true, $filter),
-            Table::column(self::$COLUMN_HOURS_AGREED, self::list_column_label(self::$COLUMN_HOURS_AGREED), 1, false, $sort, false, $filter),
-            Table::column(self::$COLUMN_HOURS_MADE, self::list_column_label(self::$COLUMN_HOURS_MADE), 1, false, $sort, false, $filter),
-            Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 1, false, $sort, true, $filter, true)
-        );
+            case RoleTrait::$ID_ADMINISTRATOR:
+            case RoleTrait::$ID_BOARD:
+            case RoleTrait::$ID_MANAGEMENT:
+                array_push($columns,
+                    Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 1, false, $sort, false, $filter, true),
+                    Table::column(self::$COLUMN_EMPLOYEE, self::list_column_label(self::$COLUMN_EMPLOYEE), 1, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 1, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_PLAN, self::list_column_label(self::$COLUMN_PLAN), 1, false, $sort, true, $filter),
+                    Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 1, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_START, self::list_column_label(self::$COLUMN_START), 1, false, $sort, true, $filter),
+                    Table::column(self::$COLUMN_END, self::list_column_label(self::$COLUMN_END), 1, true, $sort, true, $filter),
+                    Table::column(self::$COLUMN_HOURS_AGREED, self::list_column_label(self::$COLUMN_HOURS_AGREED), 1, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_HOURS_MADE, self::list_column_label(self::$COLUMN_HOURS_MADE), 1, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 1, false, $sort, true, $filter, true)
+                );
+                break;
+
+            case RoleTrait::$ID_EMPLOYEE:
+                array_push($columns,
+                    Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 1, false, $sort, false, $filter, true),
+                    Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 1, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_PLAN, self::list_column_label(self::$COLUMN_PLAN), 1, false, $sort, true, $filter),
+                    Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 1, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_START, self::list_column_label(self::$COLUMN_START), 1, false, $sort, true, $filter),
+                    Table::column(self::$COLUMN_END, self::list_column_label(self::$COLUMN_END), 1, true, $sort, true, $filter),
+                    Table::column(self::$COLUMN_HOURS_AGREED, self::list_column_label(self::$COLUMN_HOURS_AGREED), 1, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_HOURS_MADE, self::list_column_label(self::$COLUMN_HOURS_MADE), 1, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 1, false, $sort, true, $filter, true)
+                );
+                break;
+
+            default:
+
+                break;
+        }
 
         return $columns;
     }
@@ -457,8 +481,17 @@ class AgreementController extends Controller {
 
     public function list_filter_default($query) {
 
-        //
+        switch (self::getUserRole()) {
 
+            case RoleTrait::$ID_ADMINISTRATOR:
+            case RoleTrait::$ID_BOARD:
+            case RoleTrait::$ID_MANAGEMENT:
+                break;
+
+            case RoleTrait::$ID_EMPLOYEE:
+                $query->where(Model::$EMPLOYEE, Auth::id());
+                break;
+        }
     }
 
 
