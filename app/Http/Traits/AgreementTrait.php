@@ -315,7 +315,7 @@ trait AgreementTrait {
 
     public static function getHoursTotal($agreement) {
 
-        return $agreement->{Model::$AGREEMENT_HOURS} * round((strtotime($agreement->{Model::$AGREEMENT_END}) - strtotime($agreement->{Model::$AGREEMENT_START})) / 604800);
+        return $agreement->{Model::$AGREEMENT_HOURS} * round((strtotime($agreement->{Model::$AGREEMENT_END}) - strtotime($agreement->{Model::$AGREEMENT_START})) / 604800, 1);
 
     }
 
