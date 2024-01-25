@@ -177,13 +177,13 @@ trait UserTrait {
 
         }
 
-        $query->whereHas('getStudent', function (Builder $q1) {
+        $query->whereHas('getStudent', function ($q1) {
 
             $q1->where(Model::$BASE_DELETED_AT, null);
 
         });
 
-        $query->whereHas('getEmployee', function (Builder $q2) {
+        $query->whereHas('getEmployee', function ($q2) {
 
             $q2->where(Model::$BASE_DELETED_AT, null);
 
