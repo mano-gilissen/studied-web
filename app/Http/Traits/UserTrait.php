@@ -177,6 +177,18 @@ trait UserTrait {
 
         }
 
+        $query->whereHas('getStudent', function (Builder $q1) {
+
+            $q1->where(Model::$BASE_DELETED_AT, null);
+
+        });
+
+        $query->whereHas('getEmployee', function (Builder $q2) {
+
+            $q2->where(Model::$BASE_DELETED_AT, null);
+
+        });
+
         return $query->get()->sortByDesc(Model::$SUBJECT);
     }
 
