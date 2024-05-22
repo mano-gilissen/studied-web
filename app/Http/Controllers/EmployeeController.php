@@ -44,14 +44,14 @@ class EmployeeController extends Controller {
 
     public static
 
-        $COLUMN_NAME                                        = 301,
-        $COLUMN_EMAIL                                       = 302,
-        $COLUMN_PHONE                                       = 303,
-        $COLUMN_SUBJECTS                                    = 304,
-        $COLUMN_STUDENTS                                    = 305,
-        $COLUMN_AGREEMENTS                                  = 306,
-        $COLUMN_CAPACITY                                    = 307,
-        $COLUMN_STATUS                                      = 308;
+        $COLUMN_NAME                                                        = 301,
+        $COLUMN_EMAIL                                                       = 302,
+        $COLUMN_PHONE                                                       = 303,
+        $COLUMN_SUBJECTS                                                    = 304,
+        $COLUMN_STUDENTS                                                    = 305,
+        $COLUMN_AGREEMENTS                                                  = 306,
+        $COLUMN_CAPACITY                                                    = 307,
+        $COLUMN_STATUS                                                      = 308;
 
 
 
@@ -61,8 +61,8 @@ class EmployeeController extends Controller {
 
         return view(Views::FORM_EMPLOYEE_CREATE, [
 
-            Key::PAGE_TITLE                                                 => 'Medewerker aanmaken',
-            Key::SUBMIT_ACTION                                              => 'Aanmaken',
+            Key::PAGE_TITLE                                                 => __('Medewerker aanmaken'),
+            Key::SUBMIT_ACTION                                              => __('Aanmaken'),
             Key::SUBMIT_ROUTE                                               => 'employee.create_submit',
             Key::BACK_ROUTE                                                 => 'employee.list',
 
@@ -87,9 +87,9 @@ class EmployeeController extends Controller {
 
         return view(Views::FEEDBACK, [
 
-            Key::PAGE_TITLE                                                 => 'Medewerker aangemaakt',
+            Key::PAGE_TITLE                                                 => __('Medewerker aangemaakt'),
             Key::PAGE_NEXT                                                  => route(Route::PERSON_VIEW, [Model::$PERSON_SLUG => $employee->getUser->getPerson->{Model::$PERSON_SLUG}]),
-            Key::PAGE_ACTION                                                => 'Naar de profielpagina',
+            Key::PAGE_ACTION                                                => __('Naar de profielpagina'),
             Key::ICON                                                       => 'check-circle-green.svg'
         ]);
     }
@@ -106,8 +106,8 @@ class EmployeeController extends Controller {
 
         $data[Model::$PERSON]                                               = $person;
 
-        $data[Key::PAGE_TITLE]                                              = 'Medewerker bewerken';
-        $data[Key::SUBMIT_ACTION]                                           = 'Opslaan';
+        $data[Key::PAGE_TITLE]                                              = __('Medewerker bewerken');
+        $data[Key::SUBMIT_ACTION]                                           = __('Opslaan');
         $data[Key::SUBMIT_ROUTE]                                            = 'employee.edit_submit';
 
         $data[Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX]               = Format::encode(PersonTrait::getPrefixData());
@@ -140,9 +140,9 @@ class EmployeeController extends Controller {
 
         return view(Views::FEEDBACK, [
 
-            Key::PAGE_TITLE                                                 => 'Medewerker gewijzigd',
+            Key::PAGE_TITLE                                                 => __('Medewerker gewijzigd'),
             Key::PAGE_NEXT                                                  => route('person.view', $person->{Model::$PERSON_SLUG}),
-            Key::PAGE_ACTION                                                => 'Naar de profielpagina',
+            Key::PAGE_ACTION                                                => __('Naar de profielpagina'),
             Key::ICON                                                       => 'check-circle-green.svg'
         ]);
     }
@@ -185,7 +185,7 @@ class EmployeeController extends Controller {
 
     public function list_title() {
 
-        return 'Medewerkers';
+        return __('Medewerkers');
 
     }
 
@@ -213,17 +213,17 @@ class EmployeeController extends Controller {
     public static function list_column_label($column) {
 
         switch ($column) {
-            case self::$COLUMN_NAME:                return "Naam";
-            case self::$COLUMN_EMAIL:               return "E-mailadres";
-            case self::$COLUMN_PHONE:               return "Telefoonnummer";
-            case self::$COLUMN_SUBJECTS:            return "Vakken";
-            case self::$COLUMN_STUDENTS:            return "Leerling(en)";
-            case self::$COLUMN_AGREEMENTS:          return "Vakafspraken";
-            case self::$COLUMN_CAPACITY:            return "Capaciteit";
-            case self::$COLUMN_STATUS:              return "Status";
+            case self::$COLUMN_NAME:                return __('Naam');
+            case self::$COLUMN_EMAIL:               return __('E-mailadres');
+            case self::$COLUMN_PHONE:               return __('Telefoonnummer');
+            case self::$COLUMN_SUBJECTS:            return __('Vakken');
+            case self::$COLUMN_STUDENTS:            return __('Leerling(en)');
+            case self::$COLUMN_AGREEMENTS:          return __('Vakafspraken');
+            case self::$COLUMN_CAPACITY:            return __('Capaciteit');
+            case self::$COLUMN_STATUS:              return __('Status');
         }
 
-        return Key::UNKNOWN;
+        return __('Onbekend');
     }
 
 
@@ -246,14 +246,14 @@ class EmployeeController extends Controller {
 
             case self::$COLUMN_SUBJECTS:
 
-                return "Geen gekoppeld";
+                return __('Geen gekoppeld');
 
             case self::$COLUMN_STUDENTS:
 
                 $students                                   = $employee->getUser->getStudents;
 
                 switch (count($students)) {
-                    case 0:                                 return "Geen leerlingen";
+                    case 0:                                 return __('Geen leerlingen');
                     case 1:                                 return PersonTrait::getFullName($students[0]->getPerson);
                     default:                                return implode(", ", $students->pluck('getPerson.' . Model::$PERSON_FIRST_NAME)->toArray());
                 }
@@ -263,15 +263,15 @@ class EmployeeController extends Controller {
                 $agreements                                 = UserTrait::getAgreements($employee->getUser, true);
 
                 switch (count($agreements)) {
-                    case 0:                                 return "Geen actief";
+                    case 0:                                 return __('Geen actief');
                     case 1:                                 return AgreementTrait::getVakcode($agreements[0]);
                     case 2:                                 return AgreementTrait::getVakcode($agreements[0]) . ", " . AgreementTrait::getVakcode($agreements[1]);
-                    default:                                return AgreementTrait::getVakcode($agreements[0]) . ", " . AgreementTrait::getVakcode($agreements[1]) . " en nog " . (count($agreements) - 2);
+                    default:                                return AgreementTrait::getVakcode($agreements[0]) . ", " . AgreementTrait::getVakcode($agreements[1]) . __(' en nog :count', ['count' => (count($agreements) - 2)]);
                 }
 
             case self::$COLUMN_CAPACITY:
 
-                return $employee->{Model::$EMPLOYEE_CAPACITY} . " uur";
+                return $employee->{Model::$EMPLOYEE_CAPACITY} . __(" uur");
 
             case self::$COLUMN_STATUS:
 
@@ -281,7 +281,7 @@ class EmployeeController extends Controller {
 
             default:
 
-                return Key::UNKNOWN;
+                return __('Onbekend');
         }
     }
 
@@ -537,7 +537,7 @@ class EmployeeController extends Controller {
 
         array_push($counters, (object) [
             Table::COUNTER_ID                               => 'counter-total',
-            Table::COUNTER_LABEL                            => 'Totaal',
+            Table::COUNTER_LABEL                            => __('Totaal'),
             Table::COUNTER_VALUE                            => $query
                 ->select('employee.*')
                 ->get()

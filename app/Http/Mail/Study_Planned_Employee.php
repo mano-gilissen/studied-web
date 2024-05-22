@@ -35,7 +35,7 @@ class Study_Planned_Employee extends Mailable {
 
         $this->study                                = $study;
         $this->employee                             = $study->getHost;
-        $this->subject                              = 'Er is een ' . strtolower($study->getService->{Model::$SERVICE_NAME}) . ' voor je ingepland met ' . StudyTrait::getParticipantsText($study);
+        $this->subject                              = __('Er is een :service voor je ingepland met :participants', ['service' => strtolower($study->getService->{Model::$SERVICE_NAME}), 'participants' => StudyTrait::getParticipantsText($study)]);
     }
 
 

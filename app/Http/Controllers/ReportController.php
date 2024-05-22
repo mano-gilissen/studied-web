@@ -55,8 +55,8 @@ class ReportController extends Controller {
 
         return view(Views::FORM_REPORT, [
 
-            Key::PAGE_TITLE                                                 => 'Les rapporteren',
-            Key::SUBMIT_ACTION                                              => 'Rapporteren',
+            Key::PAGE_TITLE                                                 => __('Les rapporteren'),
+            Key::SUBMIT_ACTION                                              => __('Rapporteren'),
             Key::SUBMIT_ROUTE                                               => Route::REPORT_CREATE_SUBMIT,
 
             Model::$STUDY                                                   => $study
@@ -82,10 +82,10 @@ class ReportController extends Controller {
 
         return view(Views::FEEDBACK, [
 
-            Key::PAGE_TITLE                                                 => 'Rapport verstuurd',
-            Key::PAGE_MESSAGE                                               => 'De deelnemers en ouders hiervan kunnen dit nu bekijken.',
+            Key::PAGE_TITLE                                                 => __('Rapport verstuurd'),
+            Key::PAGE_MESSAGE                                               => __('De deelnemers en ouders hiervan kunnen dit nu bekijken.'),
             Key::PAGE_NEXT                                                  => route(Route::STUDY_VIEW, $study->{Model::$BASE_KEY}),
-            Key::PAGE_ACTION                                                => 'Naar de les',
+            Key::PAGE_ACTION                                                => __('Naar de les'),
             Key::ICON                                                       => 'check-circle-green.svg'
         ]);
     }
@@ -98,8 +98,8 @@ class ReportController extends Controller {
 
         return view(Views::FORM_REPORT_EDIT, [
 
-            Key::PAGE_TITLE                                                 => 'Rapport bewerken',
-            Key::SUBMIT_ACTION                                              => 'Opslaan',
+            Key::PAGE_TITLE                                                 => __('Rapport bewerken'),
+            Key::SUBMIT_ACTION                                              => __('Opslaan'),
             Key::SUBMIT_ROUTE                                               => Route::REPORT_EDIT_SUBMIT,
 
             Model::$STUDY                                                   => $study
@@ -120,9 +120,9 @@ class ReportController extends Controller {
 
         return view(Views::FEEDBACK, [
 
-            Key::PAGE_TITLE                                                 => 'Rapport gewijzigd',
+            Key::PAGE_TITLE                                                 => __('Rapport gewijzigd'),
             Key::PAGE_NEXT                                                  => route(Route::STUDY_VIEW, $study->{Model::$BASE_KEY}),
-            Key::PAGE_ACTION                                                => 'Naar de les',
+            Key::PAGE_ACTION                                                => __('Naar de les'),
             Key::ICON                                                       => 'check-circle-green.svg'
         ]);
     }
@@ -132,8 +132,8 @@ class ReportController extends Controller {
     public function create_validate(array $data) {
 
         $messages                                                           = [
-            'required'                                                      => 'Dit veld is verplicht.',
-            'max'                                                           => 'Gebruik maximaal 1000 karakters.'
+            'required'                                                      => __('Dit veld is verplicht.'),
+            'max'                                                           => __('Gebruik maximaal 1000 karakters.')
         ];
 
 

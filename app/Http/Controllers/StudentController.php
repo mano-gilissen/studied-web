@@ -64,8 +64,8 @@ class StudentController extends Controller {
 
         $data                                                               = [];
 
-        $data[Key::PAGE_TITLE]                                              = 'Leerling aanmaken';
-        $data[Key::SUBMIT_ACTION]                                           = 'Aanmaken';
+        $data[Key::PAGE_TITLE]                                              = __('Leerling aanmaken');
+        $data[Key::SUBMIT_ACTION]                                           = __('Aanmaken');
         $data[Key::SUBMIT_ROUTE]                                            = 'student.create_submit';
 
         $data[Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX]               = Format::encode(PersonTrait::getPrefixData());
@@ -100,9 +100,9 @@ class StudentController extends Controller {
 
         return view(Views::FEEDBACK, [
 
-            Key::PAGE_TITLE                                                 => 'Student aangemaakt',
+            Key::PAGE_TITLE                                                 => __('Student aangemaakt'),
             Key::PAGE_NEXT                                                  => route(Route::PERSON_VIEW, [Model::$PERSON_SLUG => $student->getUser->getPerson->{Model::$PERSON_SLUG}]),
-            Key::PAGE_ACTION                                                => 'Naar de profielpagina',
+            Key::PAGE_ACTION                                                => __('Naar de profielpagina'),
             Key::ICON                                                       => 'check-circle-green.svg'
         ]);
     }
@@ -121,8 +121,8 @@ class StudentController extends Controller {
 
         $data[Model::$PERSON]                                               = $person;
 
-        $data[Key::PAGE_TITLE]                                              = 'Leerling bewerken';
-        $data[Key::SUBMIT_ACTION]                                           = 'Opslaan';
+        $data[Key::PAGE_TITLE]                                              = __('Leerling bewerken');
+        $data[Key::SUBMIT_ACTION]                                           = __('Opslaan');
         $data[Key::SUBMIT_ROUTE]                                            = 'student.edit_submit';
 
         $data[Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX]               = Format::encode(PersonTrait::getPrefixData());
@@ -161,9 +161,9 @@ class StudentController extends Controller {
 
         return view(Views::FEEDBACK, [
 
-            Key::PAGE_TITLE                                                 => 'Student gewijzigd',
+            Key::PAGE_TITLE                                                 => __('Student gewijzigd'),
             Key::PAGE_NEXT                                                  => route('person.view', $person->{Model::$PERSON_SLUG}),
-            Key::PAGE_ACTION                                                => 'Naar de profielpagina',
+            Key::PAGE_ACTION                                                => __('Naar de profielpagina'),
             Key::ICON                                                       => 'check-circle-green.svg'
         ]);
     }
@@ -221,7 +221,7 @@ class StudentController extends Controller {
 
     public function list_title() {
 
-        return 'Leerlingen';
+        return __('Leerlingen');
 
     }
 
@@ -292,20 +292,20 @@ class StudentController extends Controller {
             case RoleTrait::$ID_EMPLOYEE:
             case RoleTrait::$ID_CUSTOMER:
                 switch ($column) {
-                    case self::$COLUMN_NAME:                return "Naam";
-                    case self::$COLUMN_EMAIL:               return "E-mailadres";
-                    case self::$COLUMN_PHONE:               return "Telefoonnummer";
-                    case self::$COLUMN_NIVEAU:              return "Niveau";
-                    case self::$COLUMN_LEERJAAR:            return "Leerjaar";
-                    case self::$COLUMN_AGREEMENTS:          return "Vakafspraken";
-                    case self::$COLUMN_STATUS:              return "Status";
-                    case self::$COLUMN_CUSTOMER:            return 'Klant';
-                    case self::$COLUMN_EMPLOYEE:            return 'Student-docent';
+                    case self::$COLUMN_NAME:                return __('Naam');
+                    case self::$COLUMN_EMAIL:               return __('E-mailadres');
+                    case self::$COLUMN_PHONE:               return __('Telefoonnummer');
+                    case self::$COLUMN_NIVEAU:              return __('Niveau');
+                    case self::$COLUMN_LEERJAAR:            return __('Leerjaar');
+                    case self::$COLUMN_AGREEMENTS:          return __('Vakafspraken');
+                    case self::$COLUMN_STATUS:              return __('Status');
+                    case self::$COLUMN_CUSTOMER:            return __('Klant');
+                    case self::$COLUMN_EMPLOYEE:            return __('Student-docent');
                 }
                 break;
         }
 
-        return Key::UNKNOWN;
+        return __('Onbekend');
     }
 
 
@@ -346,9 +346,9 @@ class StudentController extends Controller {
                 }
 
                 switch (count($subjects)) {
-                    case 0:                                 return "Geen actief";
+                    case 0:                                 return __('Geen actief');
                     case 1:                                 return $subjects[0];
-                    default:                                return $subjects[0] . ', ' . $subjects[1] . ' en nog ' . (count($subjects) - 2);
+                    default:                                return $subjects[0] . ', ' . $subjects[1] . __(' en nog :count', ['count' => (count($subjects) - 2)]);
                 }
 
             case self::$COLUMN_STATUS:
@@ -359,11 +359,11 @@ class StudentController extends Controller {
 
             case self::$COLUMN_CUSTOMER:
 
-                return StudentTrait::hasCustomer($student) ? PersonTrait::getFullName($student->getCustomer->getUser->getPerson) : "Geen klant";
+                return StudentTrait::hasCustomer($student) ? PersonTrait::getFullName($student->getCustomer->getUser->getPerson) : __('Geen klant');
 
             default:
 
-                return Key::UNKNOWN;
+                return __('Onbekend');
         }
     }
 
@@ -666,7 +666,7 @@ class StudentController extends Controller {
 
         array_push($counters, (object) [
             Table::COUNTER_ID                               => 'counter-total',
-            Table::COUNTER_LABEL                            => 'Totaal',
+            Table::COUNTER_LABEL                            => __('Totaal'),
             Table::COUNTER_VALUE                            => $query
                 ->select('student.*')
                 ->get()

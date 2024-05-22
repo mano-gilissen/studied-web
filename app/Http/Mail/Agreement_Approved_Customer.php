@@ -27,6 +27,7 @@ class Agreement_Approved_Customer extends Mailable {
     public
 
         $user,
+
         $student,
         $study,
         $agreement,
@@ -41,7 +42,7 @@ class Agreement_Approved_Customer extends Mailable {
         $this->study                        = $study;
         $this->agreement                    = $agreement;
 
-        $this->subject                      = 'De proefles ' . StudyTrait::getSubject($study)->{Model::$SUBJECT_NAME} . ' voor ' . $student->getPerson->{Model::$PERSON_FIRST_NAME} . ' was een succes!';
+        $this->subject                      = __('De proefles :subject voor :name was een succes!', ['subject' => StudyTrait::getSubject($study)->{Model::$SUBJECT_NAME}, 'name' => $student->getPerson->{Model::$PERSON_FIRST_NAME}]);
     }
 
 

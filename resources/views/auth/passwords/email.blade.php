@@ -40,7 +40,7 @@
                     name                        ="email"
                     value                       ="{{ old('email') }}"
                     autocomplete                ="email"
-                    placeholder                 ="Vul je email adres in"
+                    placeholder                 ="{{ __('Vul je email adres in') }}"
                     required
                     autofocus>
 

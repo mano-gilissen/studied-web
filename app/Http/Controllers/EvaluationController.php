@@ -44,7 +44,7 @@ class EvaluationController extends Controller {
 
         return view(Views::EVALUATION, [
 
-            Key::PAGE_TITLE                                                 => 'Gesprek',
+            Key::PAGE_TITLE                                                 => __('Gesprek'),
             Key::PAGE_BACK                                                  => true,
 
             Model::$EVALUATION                                              => $evaluation
@@ -59,8 +59,8 @@ class EvaluationController extends Controller {
 
         $data                                                               = [];
 
-        $data[Key::PAGE_TITLE]                                              = 'Gesprek aanmaken';
-        $data[Key::SUBMIT_ACTION]                                           = 'Aanmaken';
+        $data[Key::PAGE_TITLE]                                              = __('Gesprek aanmaken');
+        $data[Key::SUBMIT_ACTION]                                           = __('Aanmaken');
         $data[Key::SUBMIT_ROUTE]                                            = 'evaluation.plan_submit';
 
 
@@ -157,7 +157,7 @@ class EvaluationController extends Controller {
         $data                                                               = [];
 
         $data[Key::PAGE_TITLE]                                              = EvaluationTrait::getRegardingText($evaluation->{Model::$EVALUATION_REGARDING});
-        $data[Key::SUBMIT_ACTION]                                           = 'Voltooien';
+        $data[Key::SUBMIT_ACTION]                                           = __('Voltooien');
         $data[Key::SUBMIT_ROUTE]                                            = 'evaluation.perform_submit';
         $data[Model::$EVALUATION]                                           = $evaluation;
 

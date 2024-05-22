@@ -118,13 +118,13 @@ trait BaseTrait {
     public static function getValidationMessages() {
 
         $messages                                                           = [];
-        $messages['required']                                               = 'Dit veld is verplicht.';
-        $messages['required_if']                                            = 'Dit veld is verplicht als de :other leeg is.';
+        $messages['required']                                               = __('Dit veld is verplicht.');
+        $messages['required_if']                                            = __('Dit veld is verplicht als de :other leeg is.');
 
-        $messages['numeric']                                                = 'Vul een getal in.';
-        $messages['unique']                                                 = 'Dit email adres is al in gebruik.';
-        $messages['zipcode.max']                                            = 'Vul een geldige postcode in.';
-        $messages['iban.max']                                               = 'Vul een geldige IBAN in.';
+        $messages['numeric']                                                = __('Vul een getal in.');
+        $messages['unique']                                                 = __('Dit email adres is al in gebruik.');
+        $messages['zipcode.max']                                            = __('Vul een geldige postcode in.');
+        $messages['iban.max']                                               = __('Vul een geldige IBAN in.');
 
         return $messages;
     }

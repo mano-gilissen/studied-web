@@ -58,8 +58,8 @@ class CustomerController extends Controller {
 
         return view(Views::FORM_CUSTOMER_CREATE, [
 
-            Key::PAGE_TITLE                                                 => 'Klant aanmaken',
-            Key::SUBMIT_ACTION                                              => 'Aanmaken',
+            Key::PAGE_TITLE                                                 => __('Klant aanmaken'),
+            Key::SUBMIT_ACTION                                              => __('Aanmaken'),
             Key::SUBMIT_ROUTE                                               => 'customer.create_submit',
 
             Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX                  => Format::encode(PersonTrait::getPrefixData()),
@@ -82,9 +82,9 @@ class CustomerController extends Controller {
 
         return view(Views::FEEDBACK, [
 
-            Key::PAGE_TITLE                                                 => 'Klant aangemaakt',
+            Key::PAGE_TITLE                                                 => __('Klant aangemaakt'),
             Key::PAGE_NEXT                                                  => route(Route::PERSON_VIEW, [Model::$PERSON_SLUG => $customer->getUser->getPerson->{Model::$PERSON_SLUG}]),
-            Key::PAGE_ACTION                                                => 'Naar de profielpagina',
+            Key::PAGE_ACTION                                                => __('Naar de profielpagina'),
             Key::ICON                                                       => 'check-circle-green.svg'
         ]);
     }
@@ -101,8 +101,8 @@ class CustomerController extends Controller {
 
         $data[Model::$PERSON]                                               = $person;
 
-        $data[Key::PAGE_TITLE]                                              = 'Klant bewerken';
-        $data[Key::SUBMIT_ACTION]                                           = 'Opslaan';
+        $data[Key::PAGE_TITLE]                                              = __('Klant bewerken');
+        $data[Key::SUBMIT_ACTION]                                           = __('Opslaan');
         $data[Key::SUBMIT_ROUTE]                                            = 'customer.edit_submit';
 
         $data[Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX]               = Format::encode(PersonTrait::getPrefixData());
@@ -134,9 +134,9 @@ class CustomerController extends Controller {
 
         return view(Views::FEEDBACK, [
 
-            Key::PAGE_TITLE                                                 => 'Klant gewijzigd',
+            Key::PAGE_TITLE                                                 => __('Klant gewijzigd'),
             Key::PAGE_NEXT                                                  => route('person.view', $person->{Model::$PERSON_SLUG}),
-            Key::PAGE_ACTION                                                => 'Naar de profielpagina',
+            Key::PAGE_ACTION                                                => __('Naar de profielpagina'),
             Key::ICON                                                       => 'check-circle-green.svg'
         ]);
     }
@@ -179,7 +179,7 @@ class CustomerController extends Controller {
 
     public function list_title() {
 
-        return 'Klanten';
+        return __('Klanten');
 
     }
 
@@ -207,16 +207,16 @@ class CustomerController extends Controller {
     public static function list_column_label($column) {
 
         switch ($column) {
-            case self::$COLUMN_NAME:                                        return "Naam";
-            case self::$COLUMN_EMAIL:                                       return "E-mailadres";
-            case self::$COLUMN_PHONE:                                       return "Telefoonnummer";
-            case self::$COLUMN_STUDENTS:                                    return "Leerling(en)";
-            case self::$COLUMN_EMPLOYEES:                                   return "Student-docent(en)";
-            case self::$COLUMN_AGREEMENTS:                                  return "Vakafspraken";
-            case self::$COLUMN_STATUS:                                      return "Status";
+            case self::$COLUMN_NAME:                                        return __('Naam');
+            case self::$COLUMN_EMAIL:                                       return __('E-mailadres');
+            case self::$COLUMN_PHONE:                                       return __('Telefoonnummer');
+            case self::$COLUMN_STUDENTS:                                    return __('Leerling(en)');
+            case self::$COLUMN_EMPLOYEES:                                   return __('Student-docent(en)');
+            case self::$COLUMN_AGREEMENTS:                                  return __('Vakafspraken');
+            case self::$COLUMN_STATUS:                                      return __('Status');
         }
 
-        return Key::UNKNOWN;
+        return __('Onbekend');
     }
 
 
@@ -254,7 +254,7 @@ class CustomerController extends Controller {
                 })->with('getPerson')->get();
 
                 switch (count($employees)) {
-                    case 0:                                                 return "Geen leerlingen";
+                    case 0:                                                 return __("Geen leerlingen");
                     case 1:                                                 return PersonTrait::getFullName($employees[0]->getPerson);
                     default:                                                return implode(", ", $employees->pluck('getPerson.' . Model::$PERSON_FIRST_NAME)->toArray());
                 }
@@ -266,10 +266,10 @@ class CustomerController extends Controller {
                     ->get();
 
                 switch (count($agreements)) {
-                    case 0:                                                 return "Geen actief";
+                    case 0:                                                 return __("Geen actief");
                     case 1:                                                 return AgreementTrait::getVakcode($agreements[0]);
                     case 2:                                                 return AgreementTrait::getVakcode($agreements[0]) . ", " . AgreementTrait::getVakcode($agreements[1]);
-                    default:                                                return AgreementTrait::getVakcode($agreements[0]) . ", " . AgreementTrait::getVakcode($agreements[1]) . " en nog " . (count($agreements) - 2);
+                    default:                                                return AgreementTrait::getVakcode($agreements[0]) . ", " . AgreementTrait::getVakcode($agreements[1]) . __(' en nog :count', ['count' => (count($agreements) - 2)]);
                 }
 
             case self::$COLUMN_STATUS:
@@ -280,7 +280,7 @@ class CustomerController extends Controller {
 
             default:
 
-                return Key::UNKNOWN;
+                return __('Onbekend');
         }
     }
 
@@ -485,7 +485,7 @@ class CustomerController extends Controller {
 
         array_push($counters, (object) [
             Table::COUNTER_ID                                               => 'counter-total',
-            Table::COUNTER_LABEL                                            => 'Totaal',
+            Table::COUNTER_LABEL                                            => __('Totaal'),
             Table::COUNTER_VALUE                                            => $query
                 ->select('customer.*')
                 ->get()

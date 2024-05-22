@@ -47,7 +47,7 @@ class PersonController extends Controller {
 
             Model::$PERSON                                          => $person,
 
-            Key::PAGE_TITLE                                         =>'Profielpagina',
+            Key::PAGE_TITLE                                         => __('Profielpagina'),
             Key::PAGE_BACK                                          => false,
             Key::COMMENT                                            => PersonTrait::getProfileComment($person)
         ]);
@@ -65,7 +65,7 @@ class PersonController extends Controller {
 
             Model::$PERSON                                          => $person,
 
-            Key::PAGE_TITLE                                         =>'Profielpagina',
+            Key::PAGE_TITLE                                         => __('Profielpagina'),
             Key::PAGE_BACK                                          => false,
             Key::COMMENT                                            => PersonTrait::getProfileComment($person)
         ]);
@@ -187,9 +187,9 @@ class PersonController extends Controller {
 
         return view(Views::FEEDBACK, [
 
-            Key::PAGE_TITLE                                         => 'Mail verstuurd',
+            Key::PAGE_TITLE                                         => __('Mail verstuurd'),
             Key::PAGE_NEXT                                          => route('person.view', [Model::$PERSON_SLUG => $slug]),
-            Key::PAGE_ACTION                                        => 'Terug',
+            Key::PAGE_ACTION                                        => __('Terug'),
             Key::ICON                                               => 'check-circle-green.svg'
         ]);
     }

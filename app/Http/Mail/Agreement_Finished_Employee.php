@@ -39,7 +39,7 @@ class Agreement_Finished_Employee extends Mailable {
         $this->student                      = $student;
         $this->agreement                    = $agreement;
 
-        $this->subject                      = 'Je vakafspraak ' . $agreement->getSubject->{Model::$SUBJECT_NAME} . ' met ' . $student->getPerson->{Model::$PERSON_FIRST_NAME} . ' is afgehandeld.';
+        $this->subject                      = __('Je vakafspraak :subject met :name is afgehandeld.', ['subject' => $agreement->getSubject->{Model::$SUBJECT_NAME}, 'name' => $student->getPerson->{Model::$PERSON_FIRST_NAME}]);
     }
 
 

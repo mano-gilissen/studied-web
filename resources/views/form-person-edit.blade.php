@@ -16,7 +16,7 @@
 
     @include('form.field-input', ['id' => 'last_name', 'tag' => 'Achternaam', 'required' => true, 'value' => $person->{\App\Http\Support\Model::$PERSON_LAST_NAME}])
 
-    @include('form.field-input', ['id' => 'birth_date', 'type' => 'date', 'tag' => 'Geboortedatum', 'placeholder' => 'Kies een datum', 'required' => true, 'value' => ($person->{\App\Http\Support\Model::$PERSON_BIRTH_DATE} ? \App\Http\Support\Format::datetime($person->{\App\Http\Support\Model::$PERSON_BIRTH_DATE}, \App\Http\Support\Format::$DATETIME_FORM) : \App\Http\Support\Key::UNKNOWN)])
+    @include('form.field-input', ['id' => 'birth_date', 'type' => 'date', 'tag' => 'Geboortedatum', 'placeholder' => 'Kies een datum', 'required' => true, 'value' => ($person->{\App\Http\Support\Model::$PERSON_BIRTH_DATE} ? \App\Http\Support\Format::datetime($person->{\App\Http\Support\Model::$PERSON_BIRTH_DATE}, \App\Http\Support\Format::$DATETIME_FORM) : __('Onbekend'))])
 
     @include('form.field-input', ['id' => 'refer', 'tag' => 'Referentie', 'placeholder' => 'Hoe komt deze persoon bij Studied terecht?', 'icon' => 'dropdown.svg', 'required' => true, 'data' => true, 'show_all' => true, 'show_always' => true, 'value' => $person->{\App\Http\Support\Model::$PERSON_REFER}])
 

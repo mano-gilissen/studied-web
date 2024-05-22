@@ -39,7 +39,7 @@ class Agreement_Extended_Employee extends Mailable {
         $this->student                      = $student;
         $this->agreement                    = $agreement;
 
-        $this->subject                      = 'Jou vakafspraak ' . $agreement->getSubject->{Model::$SUBJECT_NAME}. ' met ' . $student->getPerson->{Model::$PERSON_FIRST_NAME} . ' is verlengd!';
+        $this->subject                      = __('Jou vakafspraak :subject met :name is verlengd!', ['subject' => $agreement->getSubject->{Model::$SUBJECT_NAME}, 'name' => $student->getPerson->{Model::$PERSON_FIRST_NAME}]);
     }
 
 

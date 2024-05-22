@@ -39,7 +39,7 @@ class Evaluation_Created_Student extends Mailable {
         $this->student                      = $student;
         $this->evaluation                   = $evaluation;
 
-        $this->subject                      = 'Er is een ' . strtolower(EvaluationTrait::getRegardingText($evaluation->{Model::$EVALUATION_REGARDING})) . ' met je ingepland!';
+        $this->subject                      = __('Er is een :regarding met je ingepland!', ['regarding' => strtolower(EvaluationTrait::getRegardingText($evaluation->{Model::$EVALUATION_REGARDING}))]);
     }
 
 

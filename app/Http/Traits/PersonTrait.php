@@ -160,7 +160,7 @@ trait PersonTrait {
             case RoleTrait::$ID_CUSTOMER:
                 return UserTrait::getRoleName($user, true);
             default:
-                return "Gebruiker";
+                return __("Gebruiker");
         }
     }
 
@@ -180,19 +180,19 @@ trait PersonTrait {
 
                 case RoleTrait::$ID_ADMINISTRATOR:
                 case RoleTrait::$ID_BOARD:
-                    return strlen($person->getUser->getEmployee->{Model::$EMPLOYEE_PROFILE_TEXT}) > 0 ? $person->getUser->getEmployee->{Model::$EMPLOYEE_PROFILE_TEXT} : 'Hoi Ik ben ' . $person->{Model::$PERSON_FIRST_NAME} . ' en ik zit bij het bestuur van Studied.';
+                    return strlen($person->getUser->getEmployee->{Model::$EMPLOYEE_PROFILE_TEXT}) > 0 ? $person->getUser->getEmployee->{Model::$EMPLOYEE_PROFILE_TEXT} : __('Hoi Ik ben :first_name en ik zit bij het bestuur van Studied.', ['first_name' => $person->{Model::$PERSON_FIRST_NAME}]);
 
                 case RoleTrait::$ID_MANAGEMENT:
-                    return strlen($person->getUser->getEmployee->{Model::$EMPLOYEE_PROFILE_TEXT}) > 0 ? $person->getUser->getEmployee->{Model::$EMPLOYEE_PROFILE_TEXT} : 'Hoi Ik ben ' . $person->{Model::$PERSON_FIRST_NAME} . ' en ik werk bij Studied als managing-student.';
+                    return strlen($person->getUser->getEmployee->{Model::$EMPLOYEE_PROFILE_TEXT}) > 0 ? $person->getUser->getEmployee->{Model::$EMPLOYEE_PROFILE_TEXT} : __('Hoi Ik ben :first_name en ik werk bij Studied als managing-student.', ['first_name' => $person->{Model::$PERSON_FIRST_NAME}]);
 
                 case RoleTrait::$ID_EMPLOYEE:
-                    return 'Hoi! Ik ben ' . $person->{Model::$PERSON_FIRST_NAME} . ' en ik studeer ' . $person->getUser->getEmployee->{Model::$EMPLOYEE_PROFILE_CURRENT} . '.';
+                    return __('Hoi! Ik ben :first_name en ik studeer :current_study.', ['first_name' => $person->{Model::$PERSON_FIRST_NAME}, 'current_study' => $person->getUser->getEmployee->{Model::$EMPLOYEE_PROFILE_CURRENT}]);
 
                 case RoleTrait::$ID_STUDENT:
-                    return 'Hoi! Ik ben ' . $person->{Model::$PERSON_FIRST_NAME} . ' en ik zit op ' . StudentTrait::getNiveauText($person->getUser->getStudent->niveau) . ' ' . $person->getUser->getStudent->leerjaar . ($person->getUser->getStudent->school ? ' van ' . $person->getUser->getStudent->school . '.' : '');
+                    return __('Hoi! Ik ben :first_name en ik zit op :niveau_text :leerjaar:school', ['first_name' => $person->{Model::$PERSON_FIRST_NAME}, 'niveau_text' => StudentTrait::getNiveauText($person->getUser->getStudent->niveau), 'leerjaar' => $person->getUser->getStudent->leerjaar, 'school' => $person->getUser->getStudent->school ? ' van ' . $person->getUser->getStudent->school . '.' : '']);
 
                 case RoleTrait::$ID_CUSTOMER:
-                    return $person->getUser->getCustomer->getStudents->count() > 0 ? 'Hoi! Ik ben ' . $person->{Model::$PERSON_FIRST_NAME} . ' en ik ben de ouder/verzorger van ' . CustomerTrait::getStudentsText($person->getUser->getCustomer, true) . '.' : 'Hoi! Ik ben een ouder/verzorger en mijn kinderen hebben hopelijk snel begeleiding bij Studied!';
+                    return $person->getUser->getCustomer->getStudents->count() > 0 ? __('Hoi! Ik ben :first_name en ik ben de ouder/verzorger van :students_text.', ['first_name' => $person->{Model::$PERSON_FIRST_NAME}, 'stunts_text' => CustomerTrait::getStudentsText($person->getUser->getCustomer, true)]) : __('Hoi! Ik ben een ouder/verzorger en mijn kinderen hebben hopelijk snel begeleiding bij Studied!');
             }
         }
 
@@ -204,8 +204,8 @@ trait PersonTrait {
     public static function getPrefixData() {
 
         return [
-            "meneer",
-            "mevrouw"
+            __("meneer"),
+            __("mevrouw")
         ];
     }
 
@@ -214,12 +214,12 @@ trait PersonTrait {
     public static function getReferData() {
 
         return [
-            "Promotie op social-media, zoals Instagram en Facebook",
-            "Promotie in mijn stad, zoals posters en flyers",
-            "Door te zoeken op internet, bijvoorbeeld met Google",
-            "Op aanraden van een vakdocent",
-            "Op aanraden van een kennis",
-            "Ik heb al eerder gebruik gemaakt van jullie begeleiding, bijvoorbeeld voor mijn andere zoon/dochter"
+            __("Promotie op social-media, zoals Instagram en Facebook"),
+            __("Promotie in mijn stad, zoals posters en flyers"),
+            __("Door te zoeken op internet, bijvoorbeeld met Google"),
+            __("Op aanraden van een vakdocent"),
+            __("Op aanraden van een kennis"),
+            __("Ik heb al eerder gebruik gemaakt van jullie begeleiding, bijvoorbeeld voor mijn andere zoon/dochter")
         ];
     }
 

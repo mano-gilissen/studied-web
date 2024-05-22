@@ -174,8 +174,8 @@ trait ReportTrait {
     public static function validate(array $data) {
 
         $messages                                                           = [
-            'required'                                                      => 'Dit veld is verplicht.',
-            'max'                                                           => 'Gebruik maximaal 1000 karakters.'
+            'required'                                                      => __('Dit veld is verplicht.'),
+            'max'                                                           => __('Gebruik maximaal 1000 karakters.')
         ];
 
 

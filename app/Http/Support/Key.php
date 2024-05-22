@@ -34,8 +34,6 @@ class Key {
 
     const FILTER_INPUT                          = "filter_input_";
 
-    const UNKNOWN                               = "Onbekend";
-
 
 
 

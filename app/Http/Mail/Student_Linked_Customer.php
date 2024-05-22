@@ -37,7 +37,7 @@ class Student_Linked_Customer extends Mailable {
         $this->student                      = $student;
         $this->customer                     = $customer;
 
-        $this->subject                      = $student->getPerson->{Model::$PERSON_FIRST_NAME} . ' is als leerling bij u toegevoegd!';
+        $this->subject                      = __(':name is als leerling bij u toegevoegd!', ['name' => $student->getPerson->{Model::$PERSON_FIRST_NAME}]);
     }
 
 

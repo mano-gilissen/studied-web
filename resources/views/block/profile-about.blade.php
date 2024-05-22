@@ -26,7 +26,7 @@
 
                     <div class="name">Opleiding</div>
 
-                    <div class="value">{{ $person->getUser->getEmployee->profile_current ? $person->getUser->getEmployee->profile_current : \App\Http\Support\Key::UNKNOWN}}</div>
+                    <div class="value">{{ $person->getUser->getEmployee->profile_current ? $person->getUser->getEmployee->profile_current : __('Onbekend')}}</div>
 
                 </div>
 
@@ -34,7 +34,7 @@
 
                     <div class="name">Werkzaam</div>
 
-                    <div class="value">{{ $person->getUser->getEmployee->start_employment ? ('Sinds ' . \App\Http\Support\Format::datetime($person->getUser->getEmployee->start_employment, \App\Http\Support\Format::$DATETIME_PROFILE)) : \App\Http\Support\Key::UNKNOWN }}</div>
+                    <div class="value">{{ $person->getUser->getEmployee->start_employment ? ('Sinds ' . \App\Http\Support\Format::datetime($person->getUser->getEmployee->start_employment, \App\Http\Support\Format::$DATETIME_PROFILE)) : __('Onbekend') }}</div>
 
                 </div>
 
@@ -46,7 +46,7 @@
 
                     <div class="name">School</div>
 
-                    <div class="value">{{ $person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_SCHOOL} ? $person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_SCHOOL} : \App\Http\Support\Key::UNKNOWN}}</div>
+                    <div class="value">{{ $person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_SCHOOL} ? $person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_SCHOOL} : __('Onbekend')}}</div>
 
                 </div>
 
@@ -62,7 +62,7 @@
 
                     <div class="name">Profiel</div>
 
-                    <div class="value">{{ strlen($person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_PROFILE}) > 0 ? $person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_PROFILE} : \App\Http\Support\Key::UNKNOWN }}</div>
+                    <div class="value">{{ strlen($person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_PROFILE}) > 0 ? $person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_PROFILE} : __('Onbekend') }}</div>
 
                 </div>
 

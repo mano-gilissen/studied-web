@@ -68,7 +68,7 @@ class AgreementController extends Controller {
 
         return view(Views::AGREEMENT, [
 
-            Key::PAGE_TITLE                                                 => 'Vakafspraak',
+            Key::PAGE_TITLE                                                 => __('Vakafspraak'),
             Key::PAGE_BACK                                                  => false,
 
             Model::$AGREEMENT                                               => $agreement
@@ -84,8 +84,8 @@ class AgreementController extends Controller {
 
         $data                                                               = [];
 
-        $data[Key::PAGE_TITLE]                                              = 'Nieuwe vakafspraak';
-        $data[Key::SUBMIT_ACTION]                                           = 'Aanmaken';
+        $data[Key::PAGE_TITLE]                                              = __('Nieuwe vakafspraak');
+        $data[Key::SUBMIT_ACTION]                                           = __('Aanmaken');
         $data[Key::SUBMIT_ROUTE]                                            = 'agreement.create_submit';
         $data[Key::SINGLE]                                                  = true;
 
@@ -289,19 +289,19 @@ class AgreementController extends Controller {
     public static function list_column_label($column) {
 
         switch ($column) {
-            case self::$COLUMN_STUDENT:             return "Leerling";
-            case self::$COLUMN_EMPLOYEE:            return "Medewerker";
-            case self::$COLUMN_SERVICE:             return "Dienst";
-            case self::$COLUMN_PLAN:                return "Begeleidingsvorm";
-            case self::$COLUMN_SUBJECT:             return "Vak";
-            case self::$COLUMN_START:               return "Start";
-            case self::$COLUMN_END:                 return "Einde";
-            case self::$COLUMN_HOURS_AGREED:        return "Uren afspraak";
-            case self::$COLUMN_HOURS_MADE:          return "Uren gemaakt";
-            case self::$COLUMN_STATUS:              return "Status";
+            case self::$COLUMN_STUDENT:             return __('Leerling');
+            case self::$COLUMN_EMPLOYEE:            return __('Medewerker');
+            case self::$COLUMN_SERVICE:             return __('Dienst');
+            case self::$COLUMN_PLAN:                return __('Begeleidingsvorm');
+            case self::$COLUMN_SUBJECT:             return __('Vak');
+            case self::$COLUMN_START:               return __('Start');
+            case self::$COLUMN_END:                 return __('Einde');
+            case self::$COLUMN_HOURS_AGREED:        return __('Uren afspraak');
+            case self::$COLUMN_HOURS_MADE:          return __('Uren gemaakt');
+            case self::$COLUMN_STATUS:              return __('Status');
         }
 
-        return Key::UNKNOWN;
+        return __('Onbekend');
     }
 
 
@@ -354,7 +354,7 @@ class AgreementController extends Controller {
 
             default:
 
-                return Key::UNKNOWN;
+                return __('Onbekend');
         }
     }
 
@@ -547,7 +547,7 @@ class AgreementController extends Controller {
                     $after                                  = Format::datetime(Carbon::createFromFormat(Format::$DATABASE_DATE, substr($value, 0, 10)), Format::$DATETIME_LIST);
                     $before                                 = Format::datetime(Carbon::createFromFormat(Format::$DATABASE_DATE, substr($value, 11, 10)), Format::$DATETIME_LIST);
 
-                    $display                                = ' ' . $after . ' tot ' . $before;
+                    $display                                = ' ' . $after . __(' tot ') . $before;
                     break;
 
                 case self::$COLUMN_STATUS:
@@ -616,7 +616,7 @@ class AgreementController extends Controller {
 
         $counters[] = (object)[
             Table::COUNTER_ID                               => 'counter-total',
-            Table::COUNTER_LABEL                            => 'Totaal',
+            Table::COUNTER_LABEL                            => __('Totaal'),
             Table::COUNTER_VALUE                            => $query
                 ->select('agreement.*')
                 ->get()
@@ -637,7 +637,7 @@ class AgreementController extends Controller {
         }
 
         $counters[] = (object)[
-            Table::COUNTER_LABEL => 'Uren afgesproken',
+            Table::COUNTER_LABEL => __('Uren afgesproken'),
             Table::COUNTER_VALUE => $total
         ];
     }
@@ -655,7 +655,7 @@ class AgreementController extends Controller {
         }
 
         $counters[] = (object)[
-            Table::COUNTER_LABEL => 'Uren gemaakt',
+            Table::COUNTER_LABEL => __('Uren gemaakt'),
             Table::COUNTER_VALUE => $total
         ];
     }
@@ -676,9 +676,9 @@ class AgreementController extends Controller {
 
         return view(Views::FEEDBACK, [
 
-            Key::PAGE_TITLE                                                 => 'Vakafspraak afgehandeld',
+            Key::PAGE_TITLE                                                 => __('Vakafspraak afgehandeld'),
             Key::PAGE_NEXT                                                  => route('agreement.view', [Model::$AGREEMENT_IDENTIFIER => $agreement->{Model::$AGREEMENT_IDENTIFIER}]),
-            Key::PAGE_ACTION                                                => 'Naar de vakafspraak',
+            Key::PAGE_ACTION                                                => __('Naar de vakafspraak'),
             Key::ICON                                                       => 'check-circle-green.svg'
         ]);
     }

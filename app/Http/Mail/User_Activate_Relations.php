@@ -38,7 +38,7 @@ class User_Activate_Relations extends Mailable {
         $this->relation_name                = $relation_name;
         $this->relation_email               = $relation_email;
 
-        $this->subject                      = $student->getPerson->{Model::$PERSON_FIRST_NAME} . ' heeft nu begeleiding van ons!';
+        $this->subject                      = __(':name heeft nu begeleiding van ons!', ['name' => $student->getPerson->{Model::$PERSON_FIRST_NAME}]);
     }
 
 

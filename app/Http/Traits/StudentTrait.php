@@ -190,10 +190,10 @@ trait StudentTrait {
     public static function getSchoolData() {
 
         return [
-            'Porta Mosana College',
-            'Sint-Maartens College',
-            'Stella Maris College',
-            'Bonnefantencollege'
+            __('Porta Mosana College'),
+            __('Sint-Maartens College'),
+            __('Stella Maris College'),
+            __('Bonnefantencollege')
         ];
     }
 
@@ -203,30 +203,30 @@ trait StudentTrait {
 
         switch ($niveau) {
 
-            case 1:                                         return "Vmbo-bb";
-            case 2:                                         return "Vmbo-kb";
-            case 3:                                         return "Vmbo-gl";
-            case 4:                                         return "Vmbo-tl";
-            case 5:                                         return "Tl-Havo";
-            case 6:                                         return "Havo";
-            case 7:                                         return "Havo/vwo";
-            case 8:                                         return "Vwo";
-            case 9:                                         return "Gymnasium";
-            case 10:                                        return "TTO havo";
-            case 11:                                        return "TTO vwo";
-            case 12:                                        return "TTO gymnasium";
-            case 13:                                        return "MBO-1";
-            case 14:                                        return "MBO-2";
-            case 15:                                        return "MBO-3";
-            case 16:                                        return "MBO-4";
-            case 17:                                        return "HBO Associate degree";
-            case 18:                                        return "HBO Bachelor";
-            case 19:                                        return "HBO Master";
-            case 20:                                        return "WO Bachelor";
-            case 21:                                        return "WO Pre-master";
-            case 22:                                        return "WO Master";
-            case 23:                                        return "Basisschool";
-            default:                                        return Key::UNKNOWN;
+            case 1:                                         return __("Vmbo-bb");
+            case 2:                                         return __("Vmbo-kb");
+            case 3:                                         return __("Vmbo-gl");
+            case 4:                                         return __("Vmbo-tl");
+            case 5:                                         return __("Tl-Havo");
+            case 6:                                         return __("Havo");
+            case 7:                                         return __("Havo/vwo");
+            case 8:                                         return __("Vwo");
+            case 9:                                         return __("Gymnasium");
+            case 10:                                        return __("TTO havo");
+            case 11:                                        return __("TTO vwo");
+            case 12:                                        return __("TTO gymnasium");
+            case 13:                                        return __("MBO-1");
+            case 14:                                        return __("MBO-2");
+            case 15:                                        return __("MBO-3");
+            case 16:                                        return __("MBO-4");
+            case 17:                                        return __("HBO Associate degree");
+            case 18:                                        return __("HBO Bachelor");
+            case 19:                                        return __("HBO Master");
+            case 20:                                        return __("WO Bachelor");
+            case 21:                                        return __("WO Pre-master");
+            case 22:                                        return __("WO Master");
+            case 23:                                        return __("Basisschool");
+            default:                                        return __('Onbekend');
         }
     }
 
@@ -282,25 +282,25 @@ trait StudentTrait {
     public static function getProfileData() {
 
         return [
-            'CM',
-            'EM',
-            'NG',
-            'NT',
-            'CM & EM',
-            'NG & NT',
-            'Overige profielcombinatie',
-            'BWI',
-            'DP',
-            'EO',
-            'G',
-            'HBR',
-            'MTE',
-            'MVI',
-            'MTR',
-            'Onderbouw',
-            'PIE',
-            'VRTE',
-            'ZWE',
+            __('CM'),
+            __('EM'),
+            __('NG'),
+            __('NT'),
+            __('CM & EM'),
+            __('NG & NT'),
+            __('Overige profielcombinatie'),
+            __('BWI'),
+            __('DP'),
+            __('EO'),
+            __('G'),
+            __('HBR'),
+            __('MTE'),
+            __('MVI'),
+            __('MTR'),
+            __('Onderbouw'),
+            __('PIE'),
+            __('VRTE'),
+            __('ZWE'),
         ];
     }
 

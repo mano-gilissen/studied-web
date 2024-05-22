@@ -80,9 +80,9 @@ trait CustomerTrait {
             ->get();
 
         switch (count($students)) {
-            case 0:                                             return "Geen leerlingen";
+            case 0:                                             return __("Geen leerlingen");
             case 1:                                             return PersonTrait::getFullName($students[0]->getPerson);
-            default:                                            return implode($en ? " en " : ", ", $students->pluck('getPerson.' . Model::$PERSON_FIRST_NAME)->toArray());
+            default:                                            return implode($en ? __(" en ") : ", ", $students->pluck('getPerson.' . Model::$PERSON_FIRST_NAME)->toArray());
         }
     }
 

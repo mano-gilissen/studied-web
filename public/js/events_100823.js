@@ -101,49 +101,49 @@ $(function(){
 
     $(OBJECT_APP).on('mousemove', CLASS_PERSON, function() {
 
-        set_tooltip("Profiel bekijken");
+        set_tooltip(translated("Profiel bekijken"));
 
     });
 
     $(OBJECT_APP).on('mousemove', CLASS_PERSON_REPORT + "," + CLASS_PERSON + "." + ATTR_GRID, function() {
 
-        set_tooltip("Profiel van " + $(this).attr("id") + " bekijken");
+        set_tooltip(translated("Profiel van ") + $(this).attr("id") + translated(" bekijken"));
 
     });
 
     $(OBJECT_APP).on('mousemove', CLASS_HEADER + ":not(." + ATTR_NO_SORT + ",." + ATTR_SELECT_FILTER + ")", function() {
 
-        set_tooltip("Sorteren");
+        set_tooltip(translated("Sorteren"));
 
     });
 
     $(OBJECT_APP).on('mousemove', CLASS_HEADER + "." + ATTR_SELECT_FILTER + ":not(." + ATTR_NO_FILTER + ")", function() {
 
-        set_tooltip("Filteren");
+        set_tooltip(translated("Filteren"));
 
     });
 
     $(OBJECT_APP).on('mousemove', OBJECT_PAGE_TITLE, function() {
 
-        set_tooltip("Menu");
+        set_tooltip(translated("Menu"));
 
     });
 
     $(OBJECT_APP).on('mousemove', OBJECT_BUTTON_LOGOUT, function() {
 
-        set_tooltip("Uitloggen");
+        set_tooltip(translated("Uitloggen"));
 
     });
 
     $(OBJECT_APP).on('mousemove', OBJECT_BUTTON_SETTINGS, function() {
 
-        set_tooltip("Instellingen");
+        set_tooltip(translated("Instellingen"));
 
     });
 
     $(OBJECT_APP).on('mousemove', CLASS_CONTACT_POPOUT, function() {
 
-        set_tooltip("Kopiëren");
+        set_tooltip(translated("Kopiëren"));
 
     });
 

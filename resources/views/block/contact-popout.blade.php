@@ -6,9 +6,9 @@
 
     <div class="contact-popout">
 
-        <div class="contact-item">{{ $user->{\App\Http\Support\Model::$USER_EMAIL} ? $user->{\App\Http\Support\Model::$USER_EMAIL} : \App\Http\Support\Key::UNKNOWN }}</div>
+        <div class="contact-item">{{ $user->{\App\Http\Support\Model::$USER_EMAIL} ? $user->{\App\Http\Support\Model::$USER_EMAIL} : __('Onbekend') }}</div>
 
-        <div class="contact-item">{{ $user->getPerson->{\App\Http\Support\Model::$PERSON_PHONE} ? $user->getPerson->{\App\Http\Support\Model::$PERSON_PHONE} : \App\Http\Support\Key::UNKNOWN }}</div>
+        <div class="contact-item">{{ $user->getPerson->{\App\Http\Support\Model::$PERSON_PHONE} ? $user->getPerson->{\App\Http\Support\Model::$PERSON_PHONE} : __('Onbekend') }}</div>
 
     </div>
 

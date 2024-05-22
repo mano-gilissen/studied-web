@@ -39,7 +39,7 @@ class Evaluation_Created_Host extends Mailable {
         $this->employee                     = $employee;
         $this->evaluation                   = $evaluation;
 
-        $this->subject                      = 'Er is een ' . strtolower(EvaluationTrait::getRegardingText($evaluation->{Model::$EVALUATION_REGARDING})) . ' met jou als deelnemer ingepland.';
+        $this->subject                      = __('Er is een :regarding met jou als deelnemer ingepland.', ['regarding' => strtolower(EvaluationTrait::getRegardingText($evaluation->{Model::$EVALUATION_REGARDING}))]);
     }
 
 

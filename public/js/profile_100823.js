@@ -11,7 +11,7 @@ $(function() {
 
     $(OBJECT_APP).on('mousemove', CLASS_AGREEMENT, function() {
 
-        set_tooltip("Vakafspraak bekijken");
+        set_tooltip(translated("Vakafspraak bekijken"));
 
     });
 

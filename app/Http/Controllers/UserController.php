@@ -39,7 +39,7 @@ class UserController extends Controller {
 
             Model::$USER                                    => $user,
 
-            Key::PAGE_TITLE                                 =>'Profiel activeren',
+            Key::PAGE_TITLE                                 => __('Profiel activeren'),
             Key::NAVIGATION                                 => false,
         ]);
     }
@@ -65,10 +65,10 @@ class UserController extends Controller {
 
         return view(Views::FEEDBACK, [
 
-            Key::PAGE_TITLE                                 => 'Account geactiveerd',
-            Key::PAGE_MESSAGE                               => 'Gefeliciteerd! Je account is geactiveerd en klaar voor gebruik.',
+            Key::PAGE_TITLE                                 => __('Account geactiveerd'),
+            Key::PAGE_MESSAGE                               => __('Gefeliciteerd! Je account is geactiveerd en klaar voor gebruik.'),
             Key::PAGE_NEXT                                  => route('person.self'),
-            Key::PAGE_ACTION                                => 'Naar mijn profiel',
+            Key::PAGE_ACTION                                => __('Naar mijn profiel'),
             Key::ICON                                       => 'check-circle-green.svg'
         ]);
     }
@@ -81,7 +81,7 @@ class UserController extends Controller {
 
         return view(Views::PROFILE_EDIT, [
 
-            Key::PAGE_TITLE                                 => 'Profiel wijzigen',
+            Key::PAGE_TITLE                                 => __('Profiel wijzigen'),
             Key::PAGE_BACK                                  => true,
             Key::BACK_ROUTE                                 => 'person.self'
         ]);
@@ -99,10 +99,10 @@ class UserController extends Controller {
 
         return view(Views::FEEDBACK, [
 
-            Key::PAGE_TITLE                                 => 'Wachtwoord gewijzigd',
-            Key::PAGE_MESSAGE                               => 'Je wachtwoord is gewijzigd, zorg dat je het goed onthoudt. Deel je inloggegevens nooit deelt met anderen.',
+            Key::PAGE_TITLE                                 => __('Wachtwoord gewijzigd'),
+            Key::PAGE_MESSAGE                               => __('Je wachtwoord is gewijzigd, zorg dat je het goed onthoudt. Deel je inloggegevens nooit deelt met anderen.'),
             Key::PAGE_NEXT                                  => route('person.self'),
-            Key::PAGE_ACTION                                => 'Naar mijn profiel',
+            Key::PAGE_ACTION                                => __('Naar mijn profiel'),
             Key::ICON                                       => 'check-circle-green.svg'
         ]);
     }
@@ -112,9 +112,9 @@ class UserController extends Controller {
     public function password_validate(array $data) {
 
         $messages = [
-            'password.required'                             => 'Vul een wachtwoord in.',
-            'password.min'                                  => 'Het wachtwoord moet uit minimaal 8 characters bestaan.',
-            'password.confirmed'                            => 'Het wachtwoord komt niet overeen, probeer het opnieuw.'
+            'password.required'                             => __('Vul een wachtwoord in.'),
+            'password.min'                                  => __('Het wachtwoord moet uit minimaal 8 characters bestaan.'),
+            'password.confirmed'                            => __('Het wachtwoord komt niet overeen, probeer het opnieuw.')
         ];
 
         $validator = Validator::make($data, [

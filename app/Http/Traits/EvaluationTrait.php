@@ -55,7 +55,7 @@ trait EvaluationTrait {
         $link                                                       = $data[Model::$EVALUATION_LINK];
 
         $evaluation->{Model::$ADDRESS}                              = $address ? $address->{Model::$BASE_ID} : -1;
-        $evaluation->{Model::$EVALUATION_LOCATION_TEXT}             = $link ? "Digitaal" : ($location ? $location->{Model::$LOCATION_NAME} : $data[Model::$LOCATION]);
+        $evaluation->{Model::$EVALUATION_LOCATION_TEXT}             = $link ? __("Digitaal") : ($location ? $location->{Model::$LOCATION_NAME} : $data[Model::$LOCATION]);
         $evaluation->{Model::$EVALUATION_LINK}                      = $link;
 
 
@@ -135,7 +135,7 @@ trait EvaluationTrait {
     public static function validate(array $data) {
 
         $messages                                                           = [
-            'max'                                                           => 'Gebruik maximaal :max karakters.'
+            'max'                                                           => __('Gebruik maximaal :max karakters.')
         ];
 
         $rules                                                              = [];
@@ -172,23 +172,23 @@ trait EvaluationTrait {
 
             case self::$ID_INTAKE:
 
-                return "Intakegesprek";
+                return __("Intakegesprek");
 
             case self::$ID_EVALUATION:
 
-                return "Evaluatiegesprek";
+                return __("Evaluatiegesprek");
 
             case self::$ID_YEAR_END:
 
-                return "Eindejaarsgesprek";
+                return __("Eindejaarsgesprek");
 
             case self::$ID_EXIT:
 
-                return "Exitgesprek";
+                return __("Exitgesprek");
 
             default:
 
-                return "Gesprek";
+                return __("Gesprek");
         }
     }
 
@@ -217,9 +217,9 @@ trait EvaluationTrait {
     public static function getStatusText($status) {
 
         switch ($status) {
-            case self::$STATUS_PLANNED:             return "Ingepland";
-            case self::$STATUS_FINISHED:            return "Afgelopen";
-            default:                                return Key::UNKNOWN;
+            case self::$STATUS_PLANNED:             return __("Ingepland");
+            case self::$STATUS_FINISHED:            return __("Afgelopen");
+            default:                                return __('Onbekend');
         }
     }
 

@@ -44,7 +44,7 @@
                     name                                = "email"
                     value                               = "{{ $email ?? old('email') }}"
                     autocomplete                        = "email"
-                    placeholder                         = "Vul je email adres in"
+                    placeholder                         = "{{ __('Vul je email adres in') }}"
                     required
                     autofocus>
 
@@ -60,7 +60,7 @@
                     class                               = "form-control @error('password') is-invalid @enderror"
                     name                                = "password"
                     autocomplete                        = "new-password"
-                    placeholder                         = "Kies een wachtwoord"
+                    placeholder                         = "{{ __('Kies een wachtwoord') }}"
                     required>
 
             </div>
@@ -75,7 +75,7 @@
                     class                               = "form-control"
                     name                                = "password_confirmation"
                     autocomplete                        = "new-password"
-                    placeholder                         = "Bevestig het wachtwoord"
+                    placeholder                         = "{{ __('Bevestig het wachtwoord') }}"
                     required>
 
             </div>

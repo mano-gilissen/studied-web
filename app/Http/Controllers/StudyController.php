@@ -92,8 +92,8 @@ class StudyController extends Controller {
 
         $data                                                               = [];
 
-        $data[Key::PAGE_TITLE]                                              = 'Les inplannen';
-        $data[Key::SUBMIT_ACTION]                                           = 'Inplannen';
+        $data[Key::PAGE_TITLE]                                              = __('Les inplannen');
+        $data[Key::SUBMIT_ACTION]                                           = __('Inplannen');
         $data[Key::SUBMIT_ROUTE]                                            = 'study.plan_submit';
         $data[Key::BACK_ROUTE]                                              = 'study.list';
 
@@ -121,10 +121,10 @@ class StudyController extends Controller {
 
         return view(Views::FEEDBACK, [
 
-            Key::PAGE_TITLE                                                 => 'Les ingepland',
+            Key::PAGE_TITLE                                                 => __('Les ingepland'),
             Key::PAGE_MESSAGE                                               => 'Alle deelnemers worden per email<br>op de hoogte gebracht.',
             Key::PAGE_NEXT                                                  => route(Route::STUDY_VIEW, $study->{Model::$BASE_KEY}),
-            Key::PAGE_ACTION                                                => 'Naar de les',
+            Key::PAGE_ACTION                                                => __('Naar de les'),
             Key::ICON                                                       => 'check-circle-green.svg'
         ]);
     }
@@ -137,8 +137,8 @@ class StudyController extends Controller {
 
         $data                                                               = [];
 
-        $data[Key::PAGE_TITLE]                                              = 'Les bewerken';
-        $data[Key::SUBMIT_ACTION]                                           = 'Opslaan';
+        $data[Key::PAGE_TITLE]                                              = __('Les bewerken');
+        $data[Key::SUBMIT_ACTION]                                           = __('Opslaan');
         $data[Key::SUBMIT_ROUTE]                                            = 'study.edit_submit';
 
 
@@ -168,10 +168,10 @@ class StudyController extends Controller {
 
         return view(Views::FEEDBACK, [
 
-            Key::PAGE_TITLE                                                 => 'Les gewijzigd',
-            Key::PAGE_MESSAGE                                               => 'Alle deelnemers worden per email<br>op de hoogte gebracht.',
+            Key::PAGE_TITLE                                                 => __('Les gewijzigd'),
+            Key::PAGE_MESSAGE                                               => __('Alle deelnemers worden per email<br>op de hoogte gebracht.'),
             Key::PAGE_NEXT                                                  => route(Route::STUDY_VIEW, $study->{Model::$BASE_KEY}),
-            Key::PAGE_ACTION                                                => 'Naar de les',
+            Key::PAGE_ACTION                                                => __('Naar de les'),
             Key::ICON                                                       => 'check-circle-green.svg'
         ]);
     }
@@ -183,7 +183,7 @@ class StudyController extends Controller {
     public function calendar() {
 
         $data                                                               = [];
-        $data[Key::PAGE_TITLE]                                              = 'Locatieagenda';
+        $data[Key::PAGE_TITLE]                                              = __('Locatieagenda');
 
         return view(Views::CALENDAR, $data);
     }
@@ -225,7 +225,7 @@ class StudyController extends Controller {
 
         $ac_data                                                            = Location::with('getAddress')->get()->pluck(Model::$LOCATION_NAME, 'getAddress.' . Model::$BASE_ID)->toArray();
 
-        $ac_data[self::$STUDY_PLAN_LOCATION_HOST]                           = self::hasManagementRights() ? 'Thuis bij de student-docent' : 'Thuis bij jou (' . Auth::user()->getPerson->{Model::$PERSON_FIRST_NAME} . ')';
+        $ac_data[self::$STUDY_PLAN_LOCATION_HOST]                           = self::hasManagementRights() ? __('Thuis bij de student-docent') : __('Thuis bij jou (:name)', ['name' => Auth::user()->getPerson->{Model::$PERSON_FIRST_NAME}]);
 
         $students                                                           = self::hasManagementRights() ? User::where(Model::$ROLE, RoleTrait::$ID_STUDENT)->get() : Auth::user()->getStudents;
 
@@ -235,7 +235,7 @@ class StudyController extends Controller {
 
             if ($address) {
 
-                $ac_data[$address->{Model::$BASE_ID}]                       = 'Thuis bij ' . PersonTrait::getFullName($student->getPerson);
+                $ac_data[$address->{Model::$BASE_ID}]                       = __('Thuis bij :name', ['count' => PersonTrait::getFullName($student->getPerson)]);
 
             }
         }
@@ -384,7 +384,7 @@ class StudyController extends Controller {
 
     public function list_title() {
 
-        return 'Lessen';
+        return __('Lessen');
 
     }
 
@@ -455,43 +455,43 @@ class StudyController extends Controller {
             case RoleTrait::$ID_MANAGEMENT:
             case RoleTrait::$ID_CUSTOMER:
                 switch ($column) {
-                    case self::$COLUMN_DATE:                        return 'Datum';
-                    case self::$COLUMN_STUDENT:                     return 'Leerling';
-                    case self::$COLUMN_HOST:                        return 'Student';
-                    case self::$COLUMN_SERVICE:                     return 'Dienst';
-                    case self::$COLUMN_SUBJECT:                     return 'Onderwerp';
-                    case self::$COLUMN_LOCATION:                    return 'Locatie';
-                    case self::$COLUMN_TIME:                        return 'Tijdstip';
-                    case self::$COLUMN_STATUS:                      return 'Status';
+                    case self::$COLUMN_DATE:                        return __('Datum');
+                    case self::$COLUMN_STUDENT:                     return __('Leerling');
+                    case self::$COLUMN_HOST:                        return __('Student');
+                    case self::$COLUMN_SERVICE:                     return __('Dienst');
+                    case self::$COLUMN_SUBJECT:                     return __('Onderwerp');
+                    case self::$COLUMN_LOCATION:                    return __('Locatie');
+                    case self::$COLUMN_TIME:                        return __('Tijdstip');
+                    case self::$COLUMN_STATUS:                      return __('Status');
                 }
                 break;
 
             case RoleTrait::$ID_EMPLOYEE:
                 switch ($column) {
-                    case self::$COLUMN_DATE:                        return 'Datum';
-                    case self::$COLUMN_STUDENT:                     return 'Leerling';
-                    case self::$COLUMN_SERVICE:                     return 'Type';
-                    case self::$COLUMN_SUBJECT:                     return 'Vak';
-                    case self::$COLUMN_LOCATION:                    return 'Locatie';
-                    case self::$COLUMN_TIME:                        return 'Tijdstip';
-                    case self::$COLUMN_STATUS:                      return 'Status';
+                    case self::$COLUMN_DATE:                        return __('Datum');
+                    case self::$COLUMN_STUDENT:                     return __('Leerling');
+                    case self::$COLUMN_SERVICE:                     return __('Type');
+                    case self::$COLUMN_SUBJECT:                     return __('Vak');
+                    case self::$COLUMN_LOCATION:                    return __('Locatie');
+                    case self::$COLUMN_TIME:                        return __('Tijdstip');
+                    case self::$COLUMN_STATUS:                      return __('Status');
                 }
                 break;
 
             case RoleTrait::$ID_STUDENT:
                 switch ($column) {
-                    case self::$COLUMN_DATE:                        return 'Datum';
-                    case self::$COLUMN_HOST:                        return 'Student-docent';
-                    case self::$COLUMN_SERVICE:                     return 'Type';
-                    case self::$COLUMN_SUBJECT:                     return 'Vak';
-                    case self::$COLUMN_LOCATION:                    return 'Locatie';
-                    case self::$COLUMN_TIME:                        return 'Tijdstip';
-                    case self::$COLUMN_STATUS:                      return 'Status';
+                    case self::$COLUMN_DATE:                        return __('Datum');
+                    case self::$COLUMN_HOST:                        return __('Student-docent');
+                    case self::$COLUMN_SERVICE:                     return __('Type');
+                    case self::$COLUMN_SUBJECT:                     return __('Vak');
+                    case self::$COLUMN_LOCATION:                    return __('Locatie');
+                    case self::$COLUMN_TIME:                        return __('Tijdstip');
+                    case self::$COLUMN_STATUS:                      return __('Status');
                 }
                 break;
         }
 
-        return Key::UNKNOWN;
+        return __('Onbekend');
     }
 
 
@@ -502,7 +502,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_DATE:
 
-                return $study->{Model::$STUDY_START} != null ? "<div style='font-weight: 400'>" . Format::datetime($study->{Model::$STUDY_START}, Format::$DATETIME_LIST) . "</div>" : Key::UNKNOWN;
+                return $study->{Model::$STUDY_START} != null ? "<div style='font-weight: 400'>" . Format::datetime($study->{Model::$STUDY_START}, Format::$DATETIME_LIST) . "</div>" : __('Onbekend');
 
             case self::$COLUMN_STUDENT:
 
@@ -514,7 +514,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_SERVICE:
 
-                return $study->getService->{Model::$SERVICE_NAME} . ($study->{Model::$STUDY_TRIAL} ? '&nbsp;&nbsp;<span style="color:#FF0000">(Proefles)</span>' : '');
+                return $study->getService->{Model::$SERVICE_NAME} . ($study->{Model::$STUDY_TRIAL} ? '&nbsp;&nbsp;<span style="color:#FF0000">' . __('(Proefles)') . '</span>' : '');
 
             case self::$COLUMN_SUBJECT:
 
@@ -537,7 +537,7 @@ class StudyController extends Controller {
 
             case self::$COLUMN_LOCATION:
 
-                return StudyTrait::hasLink($study) ? "Digitaal" : $study->{Model::$STUDY_LOCATION_TEXT};
+                return StudyTrait::hasLink($study) ? __('Digitaal') : $study->{Model::$STUDY_LOCATION_TEXT};
 
             case self::$COLUMN_TIME:
 
@@ -549,7 +549,7 @@ class StudyController extends Controller {
 
             default:
 
-                return Key::UNKNOWN;
+                return __('Onbekend');
         }
     }
 
@@ -863,13 +863,13 @@ class StudyController extends Controller {
                     ->pluck('getService.' . Model::$SERVICE_NAME, 'getService.' . Model::$BASE_ID)
                     ->toArray();
 
-                $services[-1]                               = 'Proefles';
-                $services[-2]                               = 'Alle BO';
-                $services[-3]                               = 'Alle VO';
-                $services[-4]                               = 'Alle MBO/HBO/WO';
-                $services[-5]                               = 'Alle Taal';
-                $services[-6]                               = 'Alle Privéles';
-                $services[-7]                               = 'Alle Groepsles';
+                $services[-1]                               = __('Proefles');
+                $services[-2]                               = __('Alle BO');
+                $services[-3]                               = __('Alle VO');
+                $services[-4]                               = __('Alle MBO/HBO/WO');
+                $services[-5]                               = __('Alle Taal');
+                $services[-6]                               = __('Alle Privéles');
+                $services[-7]                               = __('Alle Groepsles');
 
                 return $services;
 
@@ -915,7 +915,7 @@ class StudyController extends Controller {
                     $after                                  = Format::datetime(Carbon::createFromFormat(Format::$DATABASE_DATE, substr($value, 0, 10)), Format::$DATETIME_LIST);
                     $before                                 = Format::datetime(Carbon::createFromFormat(Format::$DATABASE_DATE, substr($value, 11, 10)), Format::$DATETIME_LIST);
 
-                    $display                                = ' ' . $after . ' tot ' . $before;
+                    $display                                = ' ' . $after . __(' tot ') . $before;
                     break;
 
                 case self::$COLUMN_STUDENT:
@@ -928,13 +928,13 @@ class StudyController extends Controller {
 
                     switch($value) {
 
-                        case -1: $display                   = "Proefles"; break;
-                        case -2: $display                   = "Alle BO"; break;
-                        case -3: $display                   = "Alle VO"; break;
-                        case -4: $display                   = "Alle MBO/HBO/WO"; break;
-                        case -5: $display                   = "Alle Taal"; break;
-                        case -6: $display                   = "Alle Privéles"; break;
-                        case -7: $display                   = "Alle Groepsles"; break;
+                        case -1: $display                   = __('Proefles'); break;
+                        case -2: $display                   = __('Alle BO'); break;
+                        case -3: $display                   = __('Alle VO'); break;
+                        case -4: $display                   = __('Alle MBO/HBO/WO'); break;
+                        case -5: $display                   = __('Alle Taal'); break;
+                        case -6: $display                   = __('Alle Privéles'); break;
+                        case -7: $display                   = __('Alle Groepsles'); break;
                         default: $display                   = Service::find($value)->{Model::$SERVICE_NAME}; break;
                     }
                     break;
@@ -1071,7 +1071,7 @@ class StudyController extends Controller {
         }
 
         array_push($counters, (object) [
-            Table::COUNTER_LABEL                            => 'Leerlingen',
+            Table::COUNTER_LABEL                            => __('Leerlingen'),
             Table::COUNTER_VALUE                            => count(array_unique($studentIds))
         ]);
     }
@@ -1117,7 +1117,21 @@ class StudyController extends Controller {
             return strtotime($a[6]) - strtotime($b[6]);
         });
 
-        $columnNames = ['Leerling', 'Medewerker', 'Onderwerp', 'Dienst', 'Deelnemers', 'Begeleidingsvorm', 'Datum', 'Tijdstip', 'Duurtijd', 'Locatie', 'Status', 'Opmerkingen', 'Link naar les'];
+        $columnNames = [
+            __('Leerling'),
+            __('Medewerker'),
+            __('Onderwerp'),
+            __('Dienst'),
+            __('Deelnemers'),
+            __('Begeleidingsvorm'),
+            __('Datum'),
+            __('Tijdstip'),
+            __('Duurtijd'),
+            __('Locatie'),
+            __('Status'),
+            __('Opmerkingen'),
+            __('Link naar les')
+        ];
 
         return Func::export_csv($columnNames, $rows);
     }
@@ -1135,7 +1149,7 @@ class StudyController extends Controller {
             $time                                           = Format::datetime(StudyTrait::getStartTime($study), Format::$TIME_SINGLE);
             $location                                       = $study->{Model::$STUDY_LOCATION_TEXT};
             $service                                        = $study->getService->{Model::$SERVICE_NAME};
-            $participants                                   = StudyTrait::countParticipants($study) > 1 ? 'Groepsles' : 'Privéles';
+            $participants                                   = StudyTrait::countParticipants($study) > 1 ? __('Groepsles') : __('Privéles');
             $plan                                           = AgreementTrait::getPlanText(StudyTrait::getPlan($study, $participant));
             $status                                         = StudyTrait::getStatusText(StudyTrait::getStatus($study));
             $remark                                         = $study->{Model::$STUDY_REMARK};
@@ -1188,7 +1202,7 @@ class StudyController extends Controller {
         $ID_ROW_TOTAL                                       = 99999;
 
         $rows                                               = [];
-        $row_total                                          = ['Totaal', 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        $row_total                                          = [__('Totaal'), 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
         foreach ($studies as $study) {
 
@@ -1230,7 +1244,18 @@ class StudyController extends Controller {
         array_push($rows, $row_total);
         //$rows[$ID_ROW_TOTAL]                                = $row_total;
 
-        $columnNames = ['Medewerker', 'Uren', 'Bijles BO', 'Bijles VO', 'Bijles MBO/HBO/WO', 'Cito-training', 'Huiswerkbegeleiding BO', 'Examentraining', 'Tentamentraining', 'Huiswerkbegeleiding VO'];
+        $columnNames = [
+            __('Medewerker'),
+            __('Uren'),
+            __('Bijles BO'),
+            __('Bijles VO'),
+            __('Bijles MBO/HBO/WO'),
+            __('Cito-training'),
+            __('Huiswerkbegeleiding BO'),
+            __('Examentraining'),
+            __('Tentamentraining'),
+            __('Huiswerkbegeleiding VO')
+        ];
 
         return Func::export_csv($columnNames, $rows);
     }

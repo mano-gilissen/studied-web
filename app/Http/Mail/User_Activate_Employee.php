@@ -32,7 +32,7 @@ class User_Activate_Employee extends Mailable {
     public function __construct(User $user) {
 
         $this->user                         = $user;
-        $this->subject                      = 'Activeer je account voor onze webapp.';
+        $this->subject                      = __('Activeer je account voor onze webapp.');
     }
 
 

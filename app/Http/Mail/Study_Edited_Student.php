@@ -35,7 +35,7 @@ class Study_Edited_Student extends Mailable {
 
         $this->study                                = $study;
         $this->participant                          = $participant;
-        $this->subject                              = 'De gegevens van je les ' . strtolower(StudyTrait::getSubject($study)->{Model::$SUBJECT_NAME}) . ' met ' . PersonTrait::getFullName($study->getHost->getPerson) . ' zijn gewijzigd.';
+        $this->subject                              = __('De gegevens van je les :subject met :name zijn gewijzigd.', ['subject' => strtolower(StudyTrait::getSubject($study)->{Model::$SUBJECT_NAME}), 'name' => PersonTrait::getFullName($participant->getPerson)]);
     }
 
 

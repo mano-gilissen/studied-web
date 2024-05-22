@@ -275,9 +275,9 @@ trait AgreementTrait {
 
     public static function getDescription($agreement, $for_host = false) {
 
-        return $agreement->getService->{Model::$SERVICE_SHORT} . " " . $agreement->getSubject->{Model::$SUBJECT_NAME} . ' met <span style="font-weight: 600">'
+        return $agreement->getService->{Model::$SERVICE_SHORT} . " " . $agreement->getSubject->{Model::$SUBJECT_NAME} . ' ' . __('met') . ' <span style="font-weight: 600">'
             . ($for_host ? $agreement->getStudent->getPerson->{Model::$PERSON_FIRST_NAME} : $agreement->getEmployee->getPerson->{Model::$PERSON_FIRST_NAME})
-            . '</span>,<br> actief tot ' . Format::datetime($agreement->{Model::$AGREEMENT_END}, Format::$DATETIME_AGREEMENT) . '.';
+            . '</span>,<br> ' . __('actief tot') . ' ' . Format::datetime($agreement->{Model::$AGREEMENT_END}, Format::$DATETIME_AGREEMENT) . '.';
     }
 
 
@@ -344,10 +344,10 @@ trait AgreementTrait {
     public static function getPlanText($plan) {
 
         switch ($plan) {
-            case self::$PLAN_INCIDENTEEL:           return "Incidenteel";
-            case self::$PLAN_STRUCTUREEL:           return "Structureel";
-            case self::$PLAN_GEINTEGREERD:          return "Geïntegreerd";
-            default:                                return Key::UNKNOWN;
+            case self::$PLAN_INCIDENTEEL:           return __('Incidenteel');
+            case self::$PLAN_STRUCTUREEL:           return __('Structureel');
+            case self::$PLAN_GEINTEGREERD:          return __('Geïntegreerd');
+            default:                                return __('Onbekend');
         }
     }
 
@@ -357,12 +357,12 @@ trait AgreementTrait {
 
         switch ($status) {
             case self::$STATUS_UNAPPROVED:
-            case self::$STATUS_TRIAL:               return "Onder voorbehoud";
-            case self::$STATUS_PLANNED:             return "Gepland";
-            case self::$STATUS_ACTIVE:              return "Actief";
-            case self::$STATUS_EXPIRED:             return "Verlopen";
-            case self::$STATUS_FINISHED:            return "Afgehandeld";
-            default:                                return Key::UNKNOWN;
+            case self::$STATUS_TRIAL:               return __('Onder voorbehoud');
+            case self::$STATUS_PLANNED:             return __('Gepland');
+            case self::$STATUS_ACTIVE:              return __('Actief');
+            case self::$STATUS_EXPIRED:             return __('Verlopen');
+            case self::$STATUS_FINISHED:            return __('Afgehandeld');
+            default:                                return __('Onbekend');
         }
     }
 

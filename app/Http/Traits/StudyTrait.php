@@ -151,7 +151,7 @@ trait StudyTrait {
 
                 if ($employee) {
 
-                    $study->{Model::$STUDY_LOCATION_TEXT}           = 'Thuis bij ' . PersonTrait::getFullName($employee->getPerson);
+                    $study->{Model::$STUDY_LOCATION_TEXT}           = __('Thuis bij ') . PersonTrait::getFullName($employee->getPerson);
 
                     $study->{Model::$ADDRESS}                       = $employee->getPerson->{Model::$ADDRESS};
                 }
@@ -168,7 +168,7 @@ trait StudyTrait {
 
                     } else if ($address->getPerson) {
 
-                        $study->{Model::$STUDY_LOCATION_TEXT}       = 'Thuis bij ' . PersonTrait::getFullName($address->getPerson);
+                        $study->{Model::$STUDY_LOCATION_TEXT}       = __('Thuis bij ') . PersonTrait::getFullName($address->getPerson);
 
                     }
 
@@ -400,11 +400,11 @@ trait StudyTrait {
         $participants                                               = StudyTrait::getParticipants_Person($study);
 
         switch(count($participants)) {
-            case 0:                                                 return "Geen deelnemers";
+            case 0:                                                 return __("Geen deelnemers");
             case 1:                                                 return PersonTrait::getFullName($participants[0]);
-            case 2:                                                 return $participants[0]->{Model::$PERSON_FIRST_NAME} . " en " . $participants[1]->{Model::$PERSON_FIRST_NAME};
-            case 3:                                                 return $participants[0]->{Model::$PERSON_FIRST_NAME} . ", " . $participants[1]->{Model::$PERSON_FIRST_NAME} . " en " . $participants[2]->{Model::$PERSON_FIRST_NAME};
-            default:                                                return count($participants) . " deelnemers";
+            case 2:                                                 return $participants[0]->{Model::$PERSON_FIRST_NAME} . __(" en ") . $participants[1]->{Model::$PERSON_FIRST_NAME};
+            case 3:                                                 return $participants[0]->{Model::$PERSON_FIRST_NAME} . ", " . $participants[1]->{Model::$PERSON_FIRST_NAME} . __(" en ") . $participants[2]->{Model::$PERSON_FIRST_NAME};
+            default:                                                return count($participants) . __(" deelnemers");
         }
     }
 
@@ -412,7 +412,7 @@ trait StudyTrait {
 
     public static function getTimeText($study, $tot = false) {
 
-        return $study->start != null && $study->end != null ? Format::datetime(self::getStartTime($study), Format::$TIME_SINGLE) . ($tot ? ' tot ' : ' - ') . Format::datetime(self::getEndTime($study), Format::$TIME_SINGLE) : Key::UNKNOWN;
+        return $study->start != null && $study->end != null ? Format::datetime(self::getStartTime($study), Format::$TIME_SINGLE) . ($tot ? __(' tot ') : ' - ') . Format::datetime(self::getEndTime($study), Format::$TIME_SINGLE) : __('Onbekend');
 
     }
 
@@ -448,14 +448,14 @@ trait StudyTrait {
 
         switch ($status) {
 
-            case self::$STATUS_CREATED:                             return "Aangemaakt";
-            case self::$STATUS_PLANNED:                             return "Ingepland";
-            case self::$STATUS_ACTIVE:                              return "Bezig";
-            case self::$STATUS_FINISHED:                            return "Afgelopen";
-            case self::$STATUS_REPORTED:                            return "Gerapporteerd";
-            case self::$STATUS_CANCELLED:                           return "Geannuleerd";
-            case self::$STATUS_ABSENT:                              return "Verzuimd";
-            default:                                                return Key::UNKNOWN;
+            case self::$STATUS_CREATED:                             return __("Aangemaakt");
+            case self::$STATUS_PLANNED:                             return __("Ingepland");
+            case self::$STATUS_ACTIVE:                              return __("Bezig");
+            case self::$STATUS_FINISHED:                            return __("Afgelopen");
+            case self::$STATUS_REPORTED:                            return __("Gerapporteerd");
+            case self::$STATUS_CANCELLED:                           return __("Geannuleerd");
+            case self::$STATUS_ABSENT:                              return __("Verzuimd");
+            default:                                                return __('Onbekend');
         }
     }
 

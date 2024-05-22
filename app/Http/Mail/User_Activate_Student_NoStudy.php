@@ -33,7 +33,7 @@ class User_Activate_Student_NoStudy extends Mailable {
 
         $this->user                         = $user;
 
-        $this->subject                      = 'Activeer je account voor onze webapp';
+        $this->subject                      = __('Activeer je account voor onze webapp');
     }
 
 

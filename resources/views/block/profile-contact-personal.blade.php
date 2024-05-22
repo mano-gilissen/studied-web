@@ -8,7 +8,7 @@
 
             <div class="name">Email</div>
 
-            <div class="value">{{ $person->getUser->{\App\Http\Support\Model::$USER_EMAIL} ? $person->getUser->{\App\Http\Support\Model::$USER_EMAIL} : \App\Http\Support\Key::UNKNOWN }}</div>
+            <div class="value">{{ $person->getUser->{\App\Http\Support\Model::$USER_EMAIL} ? $person->getUser->{\App\Http\Support\Model::$USER_EMAIL} : __('Onbekend') }}</div>
 
         </div>
 
@@ -16,7 +16,7 @@
 
             <div class="name">Telefoon</div>
 
-            <div class="value">{{ $person->{\App\Http\Support\Model::$PERSON_PHONE} ? $person->{\App\Http\Support\Model::$PERSON_PHONE} : \App\Http\Support\Key::UNKNOWN }}</div>
+            <div class="value">{{ $person->{\App\Http\Support\Model::$PERSON_PHONE} ? $person->{\App\Http\Support\Model::$PERSON_PHONE} : __('Onbekend') }}</div>
 
         </div>
 
@@ -34,7 +34,7 @@
 
                 <div class="name">Geboortedatum</div>
 
-                <div class="value">{{ $person->{\App\Http\Support\Model::$PERSON_BIRTH_DATE} ? \App\Http\Support\Format::datetime($person->{\App\Http\Support\Model::$PERSON_BIRTH_DATE}, \App\Http\Support\Format::$DATETIME_PROFILE) : \App\Http\Support\Key::UNKNOWN }}</div>
+                <div class="value">{{ $person->{\App\Http\Support\Model::$PERSON_BIRTH_DATE} ? \App\Http\Support\Format::datetime($person->{\App\Http\Support\Model::$PERSON_BIRTH_DATE}, \App\Http\Support\Format::$DATETIME_PROFILE) : __('Onbekend') }}</div>
 
             </div>
 
@@ -46,7 +46,7 @@
 
                 <div class="name">Referentie</div>
 
-                <div class="value">{{ $person->{\App\Http\Support\Model::$PERSON_REFER} ? $person->{\App\Http\Support\Model::$PERSON_REFER} : \App\Http\Support\Key::UNKNOWN }}</div>
+                <div class="value">{{ $person->{\App\Http\Support\Model::$PERSON_REFER} ? $person->{\App\Http\Support\Model::$PERSON_REFER} : __('Onbekend') }}</div>
 
             </div>
 

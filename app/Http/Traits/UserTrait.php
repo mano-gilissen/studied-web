@@ -249,11 +249,11 @@ trait UserTrait {
 
         switch ($status) {
 
-            case self::$STATUS_INTAKE:                      return "Intake";
-            case self::$STATUS_ACTIVE:                      return "Actief";
-            case self::$STATUS_PASSIVE:                     return "Passief";
-            case self::$STATUS_ENDED:                       return "Beëindigd";
-            default:                                        return Key::UNKNOWN;
+            case self::$STATUS_INTAKE:                      return __("Intake");
+            case self::$STATUS_ACTIVE:                      return __("Actief");
+            case self::$STATUS_PASSIVE:                     return __("Passief");
+            case self::$STATUS_ENDED:                       return __("Beëindigd");
+            default:                                        return __('Onbekend');
         }
     }
 

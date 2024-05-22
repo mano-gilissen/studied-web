@@ -32,7 +32,7 @@
 
             @include('form.box-input', ['id'                    => 'email',
                                         'type'                  => 'email',
-                                        'placeholder'           => 'Email adres',
+                                        'placeholder'           => __('Email adres'),
                                         'value'                 => old('email'),
                                         'required'              => true])
 
@@ -41,7 +41,7 @@
             @include('form.box-input', ['id_box'                => 'box-input-password',
                                         'id'                    => 'password',
                                         'type'                  => 'password',
-                                        'placeholder'           => 'Wachtwoord',
+                                        'placeholder'           => __('Wachtwoord'),
                                         'autocomplete'          => 'current-password',
                                         'required'              => true])
 

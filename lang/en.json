@@ -1,0 +1,396 @@
+{
+    "" : "",
+
+}
+'Vakafspraak'
+'Nieuwe vakafspraak'
+'Aanmaken'
+'Leerling'
+'Medewerker'
+'Dienst'
+'Begeleidingsvorm'
+'Vak'
+'Start'
+'Einde'
+'Uren afspraak'
+'Uren gemaakt'
+'Status'
+' tot '
+'Totaal'
+'Uren afgesproken'
+'Uren gemaakt'
+'Vakafspraak afgehandeld'
+'Naar de vakafspraak'
+'Klant aanmaken'
+'Aanmaken'
+'Klant aangemaakt'
+'Naar de profielpagina'
+'Klant bewerken'
+'Opslaan'
+'Klant gewijzigd'
+'Naar de profielpagina'
+'Klanten'
+'Naam'
+'E-mailadres'
+'Telefoonnummer'
+'Leerling(en)'
+'Student-docent(en)'
+'Vakafspraken'
+'Status'
+"Geen leerlingen"
+"Geen actief"
+" en nog :count"
+'Totaal'
+'Medewerker aanmaken'
+'Aanmaken'
+'Medewerker aangemaakt'
+'Naar de profielpagina'
+'Medewerker bewerken'
+'Opslaan'
+'Medewerker gewijzigd'
+'Naar de profielpagina'
+'Medewerkers'
+'Naam'
+'E-mailadres'
+'Telefoonnummer'
+'Vakken'
+'Leerling(en)'
+'Vakafspraken'
+'Capaciteit'
+'Status'
+"Geen gekoppeld"
+"Geen leerlingen"
+"Geen actief"
+" uur"
+'Totaal'
+'Gesprek'
+'Gesprek aanmaken'
+'Aanmaken'
+'Voltooien'
+'Profielpagina'
+'Profielpagina'
+'Mail verstuurd'
+'Terug'
+'Les rapporteren'
+'Rapporteren'
+'Rapport verstuurd'
+'De deelnemers en ouders hiervan kunnen dit nu bekijken.'
+'Naar de les'
+'Rapport bewerken'
+'Opslaan'
+'Rapport gewijzigd'
+'Naar de les'
+'Dit veld is verplicht.'
+'Gebruik maximaal 1000 karakters.'
+'Leerling aanmaken'
+'Aanmaken'
+'Student aangemaakt'
+'Naar de profielpagina'
+'Leerling bewerken'
+'Opslaan'
+'Student gewijzigd'
+'Naar de profielpagina'
+'Leerlingen'
+'Naam'
+'E-mailadres'
+'Telefoonnummer'
+'Niveau'
+'Leerjaar'
+'Vakafspraken'
+'Status'
+'Klant'
+'Student-docent''Geen actief'
+'Geen klant'
+'Totaal'
+'Les inplannen'
+'Inplannen'
+'Les ingepland'
+'Naar de les'
+'Les bewerken'
+'Opslaan'
+'Les gewijzigd'
+'Alle deelnemers worden per email<br>op de hoogte gebracht.'
+'Naar de les'
+'Locatieagenda'
+'Thuis bij de student-docent'
+'Thuis bij jou (:name)'
+'Thuis bij :name'
+'Lessen'
+'Datum'
+'Leerling'
+'Student'
+'Dienst'
+'Onderwerp'
+'Locatie'
+'Tijdstip'
+'Status'
+'Type'
+'Vak'
+'Student-docent'
+'(Proefles)'
+'Digitaal'
+'Proefles'
+'Alle BO'
+'Alle VO'
+'Alle MBO/HBO/WO'
+'Alle Taal'
+'Alle Privéles'
+'Alle Groepsles'
+' tot '
+'Leerlingen'
+'Leerling'
+'Medewerker'
+'Onderwerp'
+'Dienst'
+'Deelnemers'
+'Begeleidingsvorm'
+'Datum'
+'Tijdstip'
+'Duurtijd'
+'Locatie'
+'Status'
+'Opmerkingen'
+'Link naar les'
+'Groepsles'
+'Privéles'
+'Totaal'
+'Medewerker'
+'Uren'
+'Bijles BO'
+'Bijles VO'
+'Bijles MBO/HBO/WO'
+'Cito-training'
+'Huiswerkbegeleiding BO'
+'Examentraining'
+'Tentamentraining'
+'Huiswerkbegeleiding VO'
+'Profiel activeren'
+'Account geactiveerd'
+'Gefeliciteerd! Je account is geactiveerd en klaar voor gebruik.'
+'Naar mijn profiel'
+'Profiel wijzigen'
+'Wachtwoord gewijzigd'
+'Je wachtwoord is gewijzigd, zorg dat je het goed onthoudt. Deel je inloggegevens nooit deelt met anderen.'
+'Naar mijn profiel'
+'Vul een wachtwoord in.'
+'Het wachtwoord moet uit minimaal 8 characters bestaan.'
+'Het wachtwoord komt niet overeen, probeer het opnieuw.'
+'De proefles :subject voor :name was een succes!'
+'Er is een vakafspraak met je voor :subject met :name aangemaakt.'
+'Jou vakafspraak :subject met :name is verlengd!'
+'Je vakafspraak :subject met :name is afgehandeld.'
+'Er is een :regarding met u ingepland.'
+'Er is een :regarding met jou als deelnemer ingepland.'
+'Er is een :regarding met je ingepland!'
+':name is als leerling bij u toegevoegd!'
+'De gegevens van je les :subject met :participants zijn gewijzigd.'
+'Er is een :service voor je ingepland met :participants'
+'Er is een :service voor je ingepland door :name'
+'Proefles voor :name gelukt! Activeer uw account voor onze webapp'
+'Activeer uw account voor onze webapp'
+':name heeft nu begeleiding van ons!'
+'Proefles gelukt! Activeer je account voor onze webapp'
+'Activeer je account voor onze webapp'
+"Onbekend"
+'met'
+'actief tot'
+'Incidenteel'
+'Structureel'
+'Geïntegreerd'
+'Onder voorbehoud'
+'Gepland'
+'Actief'
+'Verlopen'
+'Afgehandeld'
+'Dit veld is verplicht.'
+'Dit veld is verplicht als de :other leeg is.'
+'Vul een getal in.'
+'Dit email adres is al in gebruik.'
+'Vul een geldige postcode in.'
+'Vul een geldige IBAN in.'
+"Geen leerlingen"
+" en "
+"Digitaal"
+'Gebruik maximaal :max karakters.'
+"Intakegesprek"
+"Evaluatiegesprek"
+"Eindejaarsgesprek"
+"Exitgesprek"
+"Gesprek"
+"Ingepland"
+"Afgelopen"
+"Gebruiker"
+"meneer"
+"mevrouw"
+"Promotie op social-media, zoals Instagram en Facebook",
+"Promotie in mijn stad, zoals posters en flyers",
+"Door te zoeken op internet, bijvoorbeeld met Google",
+"Op aanraden van een vakdocent",
+"Op aanraden van een kennis",
+"Ik heb al eerder gebruik gemaakt van jullie begeleiding, bijvoorbeeld voor mijn andere zoon/dochter"
+' uur'
+'Dit veld is verplicht.',
+'Gebruik maximaal 1000 karakters.'
+'Porta Mosana College'
+'Sint-Maartens College'
+'Stella Maris College'
+'Bonnefantencollege'
+"Vmbo-bb"
+"Vmbo-kb"
+"Vmbo-gl"
+"Vmbo-tl"
+"Tl-Havo"
+"Havo"
+"Havo/vwo"
+"Vwo"
+"Gymnasium"
+"TTO havo"
+"TTO vwo"
+"TTO gymnasium"
+"MBO-1"
+"MBO-2"
+"MBO-3"
+"MBO-4"
+"HBO Associate degree"
+"HBO Bachelor"
+"HBO Master"
+"WO Bachelor"
+"WO Pre-master"
+"WO Master"
+"Basisschool"
+'CM'
+'EM'
+'NG'
+'NT'
+'CM & EM'
+'NG & NT'
+'Overige profielcombinatie'
+'BWI'
+'DP'
+'EO'
+'G'
+'HBR'
+'MTE'
+'MVI'
+'MTR'
+'Onderbouw'
+'PIE'
+'VRTE'
+'ZWE'
+'Thuis bij '
+'Thuis bij '
+'Thuis bij '
+"Geen deelnemers"
+" deelnemers"
+" en "
+" en "
+' tot '
+"Aangemaakt"
+"Ingepland"
+"Bezig"
+"Afgelopen"
+"Gerapporteerd"
+"Geannuleerd"
+"Verzuimd"
+"Intake"
+"Actief"
+"Passief"
+"Beëindigd"
+'Inloggen'
+'Persoonsgegevens'
+'Contact- en inloggegevens'
+'Woonadres'
+'Persoonsgegevens'
+'Contact- en inloggegevens'
+'Woonadres'
+'Educatie huidig'
+'Educatie middelbare'
+'Arbeidgegevens'
+'Profielgegevens'
+'Bestanden'
+'Tijd en locatie'
+'Aanwezigen'
+'Details'
+'PVA Goal - De doelstelling'
+'PVA Reality - Stand van zaken'
+'PVA - Options - De mogelijkheden'
+'PVA - Will - De acties'
+'Afspraken'
+'Proefles'
+'Evaluatie'
+'Eind schooljaar'
+'Begeleiding'
+'Webapp'
+'Leslocatie'
+'Volgend schooljaar'
+'Exit'
+'Begeleiding'
+'Webapp'
+'Leslocatie'
+'Overig'
+'Persoonsgegevens'
+'Contact- en accountgegevens'
+'Woonadres'
+'Acties'
+'Hoe lang duurde de les precies?'
+'Wat is er behandeld?'
+'Hoe verloopt de begeleiding?'
+'Hoe lang duurde de les precies?'
+'Wat is er behandeld?'
+'Hoe ging de proefles?'
+'Hoe verloopt de begeleiding?'
+'Persoonsgegevens'
+'Contact- en inloggegevens'
+'Woonadres'
+'Educatie'
+'Relaties'
+'Tijd en locatie'
+'Gegevens'
+'Acties'
+'Tijd en locatie'
+'Activiteit(en)'
+'Medewerker'
+'Activiteit(en)'
+'Details'
+'Basis elementen'
+'Autocomplete'
+'Formulier pagina'
+'Les pagina'
+'Icon button'
+'Reverse icon button'
+'Uitloggen'
+'Inloggen'
+'Wachtwoord vergeten?'
+'Register'
+'Confirm Password'
+'Forgot Your Password?'
+'Link sturen'
+'Link sturen'
+'Wachtwoord herstellen'
+'Educatie huidig'
+'Educatie middelbare'
+'Arbeidgegevens'
+'Profielgegevens'
+'Bestanden'
+'Educatie'
+'Relaties'
+'Aanmaken'
+'Aanmaken'
+'Aanmaken'
+'Inplannen'
+'Data exporteren'
+'Urenoverzicht'
+'Vakafspraak'
+'Meer laden'
+'Annuleren'
+'Filter'
+"Vul je email adres in"
+'Wachtwoord'
+'Email adres'
+Vul je email adres in
+Kies een wachtwoord
+Bevestig het wachtwoord
+Vak en niveau
+Geldig vanaf
+Geldig tot
+Status
