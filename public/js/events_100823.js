@@ -238,3 +238,27 @@ function set_tooltip(text) {
     $(OBJECT_TOOLTIP)                       .css({left: (16 + event.clientX) + "px"});
     $(OBJECT_TOOLTIP)                       .css({top: (10 + event.clientY) + "px"});
 }
+
+
+
+function set_language(language) {
+
+    $.ajax({
+
+        url:                                "/submit/language",
+        type:                               "POST",
+        data:                               { value: language },
+
+        success: function(data) {
+
+            location.reload();
+
+        },
+
+        error: function() {
+
+            alert(translated("Er is iets fout gegaan bij het wijzigen van de taal. Check je internetverbinding en probeer het nog eens."));
+
+        }
+    });
+}

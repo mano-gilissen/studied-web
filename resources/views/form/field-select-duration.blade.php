@@ -1,6 +1,6 @@
 <div class="field">
 
-    <div class="name">Duratie</div>
+    <div class="name">{{ __('Duratie') }}</div>
 
     <div class="box-clear">
 

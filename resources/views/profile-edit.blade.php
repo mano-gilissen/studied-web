@@ -78,7 +78,7 @@
 
                     <input id="avatar-upload" type="file" name="image" accept="image/*"/>
 
-                    <label id="avatar-upload-button" for="avatar-upload" class="button transparent">Foto uploaden</label>
+                    <label id="avatar-upload-button" for="avatar-upload" class="button transparent">{{ __('Foto uploaden') }}</label>
 
                 </form>
 
@@ -92,7 +92,7 @@
 
                 </div>
 
-                <button type="button" id="avatar-crop-button" class="button">Opslaan</button>
+                <button type="button" id="avatar-crop-button" class="button">{{ __('Opslaan') }}</button>
 
             </div>
 
@@ -102,15 +102,15 @@
 
                 @csrf
 
-                <div class="title">Wachtwoord wijzigen</div>
+                <div class="title">{{ __('Wachtwoord wijzigen') }}</div>
 
-                @include('form.field-input', ['id' => 'password', 'type' => 'password', 'tag' => 'Wachtwoord', 'placeholder' => 'Kies een wachtwoord', 'required' => true, 'max' => 30])
+                @include('form.field-input', ['id' => 'password', 'type' => 'password', 'tag' => __('Wachtwoord'), 'placeholder' => __('Kies een wachtwoord'), 'required' => true, 'max' => 30])
 
-                @include('form.field-input', ['id' => 'password_confirmation', 'type' => 'password', 'tag' => 'Wachtwoord bevestigen', 'placeholder' => 'Typ je wachtwoord opnieuw', 'required' => true, 'max' => 30])
+                @include('form.field-input', ['id' => 'password_confirmation', 'type' => 'password', 'tag' => __('Wachtwoord bevestigen'), 'placeholder' => __('Typ je wachtwoord opnieuw'), 'required' => true, 'max' => 30])
 
                 <button class="button" id="button-submit" type="submit">
 
-                    Wijzigen
+                    {{ __('Wijzigen') }}
 
                 </button>
 

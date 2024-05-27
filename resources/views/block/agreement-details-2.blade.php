@@ -6,7 +6,7 @@
 
         <div class="attribute">
 
-            <div class="name">Dienst</div>
+            <div class="name">{{ __('Dienst') }}</div>
 
             <div class="value">{{ $agreement->getService->{\App\Http\Support\Model::$SERVICE_NAME} }}</div>
 
@@ -14,15 +14,15 @@
 
         <div class="attribute">
 
-            <div class="name">{{ $agreement->{\App\Http\Support\Model::$AGREEMENT_EXTENSION} ? 'Verlenging van' : 'Verlenging' }}</div>
+            <div class="name">{{ $agreement->{\App\Http\Support\Model::$AGREEMENT_EXTENSION} ? __('Verlenging van') : __('Verlenging') }}</div>
 
-            <div class="value">{{ $agreement->{\App\Http\Support\Model::$AGREEMENT_EXTENSION} ?? 'Nee' }}</div>
+            <div class="value">{{ $agreement->{\App\Http\Support\Model::$AGREEMENT_EXTENSION} ?? __('Nee') }}</div>
 
         </div>
 
         <div class="attribute">
 
-            <div class="name">Begeleiding</div>
+            <div class="name">{{ __('Begeleiding') }}</div>
 
             <div class="value">{{ \App\Http\Traits\AgreementTrait::getPlanText($agreement->{\App\Http\Support\Model::$AGREEMENT_PLAN}) }}</div>
 
@@ -34,7 +34,7 @@
 
                 <div class="name">{{ 'Proefles' }}</div>
 
-                <div class="value"><div class="button" onclick="window.location.href='{{ route('study.view', ['key' => \App\Http\Traits\AgreementTrait::getTrial($agreement)->{\App\Http\Support\Model::$BASE_KEY}]) }}'">Bekijken</div></div>
+                <div class="value"><div class="button" onclick="window.location.href='{{ route('study.view', ['key' => \App\Http\Traits\AgreementTrait::getTrial($agreement)->{\App\Http\Support\Model::$BASE_KEY}]) }}'">{{ __('Bekijken') }}</div></div>
 
             </div>
 
@@ -46,15 +46,15 @@
 
         <div class="attribute">
 
-            <div class="name">Uren afspraak</div>
+            <div class="name">{{ __('Uren afspraak') }}</div>
 
-            <div class="value">{{ $agreement->{\App\Http\Support\Model::$AGREEMENT_HOURS} . ' per week, ' . \App\Http\Traits\AgreementTrait::getHoursTotal($agreement) . ' in totaal'}}</div>
+            <div class="value">{{ $agreement->{\App\Http\Support\Model::$AGREEMENT_HOURS} . __(' per week, ') . \App\Http\Traits\AgreementTrait::getHoursTotal($agreement) . __(' in totaal')}}</div>
 
         </div>
 
         <div class="attribute">
 
-            <div class="name">Uren gemaakt</div>
+            <div class="name">{{ __('Uren gemaakt') }}</div>
 
             <div class="value">{{ \App\Http\Traits\AgreementTrait::getHoursMade($agreement) }}</div>
 
@@ -68,7 +68,7 @@
 
             <div class="item-title">
 
-                <div>Opmerking</div>
+                <div>{{ __('Opmerking') }}</div>
 
                 <img src="/images_app/chevron-down.svg">
 

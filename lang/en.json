@@ -1,396 +1,513 @@
 {
-    "" : "",
-
+    " (Proefles)" : " (Trial lesson)",
+    " deelnemers" : " participants",
+    " en " : " and",
+    " en nog :count" : " and :count others",
+    " heeft nog geen gesprekken." : " has no interviews yet.",
+    " in totaal" : " in total",
+    " per week, " : " per week,",
+    " tot " : " until",
+    " uur" : " hour",
+    "(Proefles)" : "(Trial lesson)",
+    ":name heeft nu begeleiding van ons!" : ":name is guided by us now!",
+    ":name is als leerling bij u toegevoegd!" : ":name has been added to you as a student!",
+    "Aangemaakt" : "Created",
+    "Aanmaken" : "Create",
+    "Aanwezigen" : "Participants",
+    "Account geactiveerd" : "Account activated",
+    "Achternaam" : "Last name",
+    "actief tot" : "Active until",
+    "Actief" : "Active",
+    "Acties" : "Actions",
+    "Activeer je account voor onze webapp" : "Activate your account in our webapp",
+    "Activeer uw account voor onze webapp" : "Activate your account in our webapp",
+    "Activeren" : "Activate",
+    "Activiteit(en)" : "Activities",
+    "Adres" : "Address",
+    "Afgehandeld" : "Closed",
+    "Afgelopen en volgend schooljaar" : "Last and next academic year",
+    "Afgelopen schooljaar" : "Last academic year",
+    "Afgelopen" : "Finished",
+    "Afhandelen" : "Complete",
+    "Afspraken" : "Agreements",
+    "Alle BO" : "All primary education",
+    "Alle deelnemers worden per email<br>op de hoogte gebracht." : "All participants will<br>be notified via email.",
+    "Alle Groepsles" : "All group lessons",
+    "Alle MBO/HBO/WO" : "All higher education",
+    "Alle Privéles" : "All individual lessons",
+    "Alle Taal" : "All language education",
+    "Alle VO" : "All secundary education",
+    "Alleen gebruikersnaam" : "Only username",
+    "Annuleren" : "Cancel",
+    "Arbeidgegevens" : "Employment data",
+    "Autocomplete" : "Autocomplete",
+    "Basis elementen" : "Basic elements",
+    "Basisschool" : "Primary school",
+    "Begeleiding" : "Guidance",
+    "Begeleidingsvorm" : "Type of guidance",
+    "Bekijken" : "View",
+    "Bestanden" : "Files",
+    "Betreft" : "Regarding",
+    "Bevestig het wachtwoord" : "Confirm password",
+    "Bevindingen" : "Observations",
+    "Bewerken" : "Edit",
+    "Bezig" : "In progress",
+    "Beëindigd" : "Terminated",
+    "Bij welke vakken kunnen we je ondersteunen om het doel te bereiken?" : "Which subjects can we guide to make you achieve your goal?",
+    "Bijles BO" : "Tutoring primary education",
+    "Bijles MBO/HBO/WO" : "Tutoring higher education",
+    "Bijles VO" : "Tutoring secondary education",
+    "Bonnefantencollege" : "Bonnefantencollege",
+    "BWI" : "BWI",
+    "Capaciteit" : "Capacity",
+    "Cito-training" : "Cito-training",
+    "CM & EM" : "CM & EM",
+    "CM" : "CM & EM",
+    "Confirm Password" : "Confirm password",
+    "Connecties" : "Connections",
+    "Contact- en accountgegevens" : "Contact and account information",
+    "Contact- en inloggegevens" : "Contact and log in information",
+    "Contacteer " : "Contact",
+    "Contacteer" : "Contact",
+    "Contract" : "Agreement",
+    "CV" : "CV",
+    "Data exporteren" : "Export data",
+    "date" : "date",
+    "Datum" : "Date",
+    "De deelnemers en ouders hiervan kunnen dit nu bekijken." : "The participants and partens can now view this.",
+    "De gegevens van je les :subject met :participants zijn gewijzigd." : "The information of your lesson :subject with :participants has been changed.",
+    "De proefles :subject voor :name was een succes!" : "The trial lesson :subject of :name was a success! ",
+    "De vakafspraak moet op de datum van de les actief zijn." : "The subject agreement has to be active on the lesson date.",
+    "De vakafspraak moet op de datum van de les nog actief zijn." : "The subject agreement must still be active on the lesson date.",
+    "Deelnemers" : "Participants",
+    "Details" : "Details",
+    "Deze proefles was geen succes. Dat betekent dat de vakafspraak die hierbij hoort afgesloten is en niet gebruikt gaat worden." : "This trial lesson was a succes. This means that the subject agreement that belongs to this trial lesson has been closed because it's not going to be used.",
+    "Deze student-docent heeft geen actieve vakafspraken op deze datum." : "The student-tutor has no active subject agreements on this date.",
+    "Dienst" : "Service",
+    "Dienstbetrekking" : "Employment",
+    "Digitaal" : "Digital",
+    "Digitale les" : "Digital lesson",
+    "Digitale meeting" : "Digital meeting",
+    "Diploma" : "Diploma",
+    "Dit email adres is al in gebruik." : "This email address is already in use.",
+    "Dit is het gesprek van " : "This is the interview of",
+    "Dit is het rapport voor " : "This is the report for",
+    "Dit veld is verplicht als de :other leeg is." : "This field is mandatory if the :other is empty.",
+    "Dit veld is verplicht." : "This field is mandatory.",
+    "Door middel van welke diensten kunnen we deze vakken ondersteunen om het doel te bereiken?" : "Through which services can we guide these subjects to achieve the goal?",
+    "Door te zoeken op internet, bijvoorbeeld met Google" : "By searching on internet, for example Google.",
+    "DP" : "DP",
+    "Duratie" : "Duration",
+    "Duurtijd" : "Duration",
+    "E-mailadres" : "Email address",
+    "Educatie huidig" : "Current education",
+    "Educatie middelbare" : "Education secondary education",
+    "Educatie" : "Education",
+    "Een les kan maximaal 3 uur duren, kies een ander start en eind tijdstip." : "A lesson can last a maximum of 3 hours, please choose a different start and end time.",
+    "Eind schooljaar" : "End academic year",
+    "Einde begeleiding" : "End guidance",
+    "Einde" : "End",
+    "Eindejaarsgesprek" : "End of the year interview",
+    "EM" : "EM",
+    "Email adres" : "Email address",
+    "Email mentor" : "Email address mentor",
+    "Email vakdocent 1" : "Email address teacher 1",
+    "Email vakdocent 2" : "Email address teacher 2",
+    "Email vakdocent 3" : "Email address teacher 3",
+    "Email" : "Email",
+    "Email-adres" : "Email address",
+    "Engels" : "English",
+    "EO" : "EO",
+    "Er is een :regarding met je ingepland!" : "A :regarding with you has been scheduled!",
+    "Er is een :regarding met jou als deelnemer ingepland." : "A :regarding with you as participant has been scheduled.",
+    "Er is een :regarding met u ingepland." : "A :regarding with you has been scheduled.",
+    "Er is een :service voor je ingepland door :name" : "A :service: for you has been scheduled by :name.",
+    "Er is een :service voor je ingepland met :participants" : "A :service: for you has been scheduled with :participants.",
+    "Er is een vakafspraak met je voor :subject met :name aangemaakt." : "A subject agreement with you for :subject with :name has been created.  ",
+    "Er was nog een activiteit" : "There was another activity.",
+    "Er zijn geen resultaten gevonden." : "No results have been found.",
+    "Er zijn na aanleiding van dit gesprek geen nieuwe vakafspraken aangemaakt." : "No new subject agreements have been created following this interview.",
+    "Evaluatie" : "Evaluation",
+    "Evaluatiegesprek" : "Evaluation interview",
+    "Examentraining" : "Exam training",
+    "Exit" : "Exit",
+    "Exitgesprek" : "Exit interview",
+    "Filter" : "Filter",
+    "Forgot Your Password?" : "Forgot Your Password?",
+    "Formulier pagina" : "Form page",
+    "Foto uploaden" : "Upload picture",
+    "Foto- en wachtwoord wijzigen" : "Change picture and password.",
+    "Functie" : "Function",
+    "G" : "Guidance",
+    "Geannuleerd" : "Cancelled",
+    "Geboortedatum" : "Birth date",
+    "Gebruik het Studied webportaal<br>door het op een desktop of laptop<br>te bezoeken!" : "Use the Studied webportal<br>by visiting it on a desktop or laptop!",
+    "Gebruik maximaal 1000 karakters." : "Use a maximum of 1000 characters.",
+    "Gebruik maximaal :max karakters." : "Use a maximum of :max characters.",
+    "Gebruiker verwijderen" : "Delete user.",
+    "Gebruiker" : "User",
+    "Geen actief" : "None active",
+    "Geen adres bekend" : "No address known.",
+    "Geen deelnemers" : "No participants.",
+    "Geen gekoppeld" : "No connection.",
+    "Geen klant" : "No customer.",
+    "Geen leerlingen" : "No students.",
+    "Gefeliciteerd! Je account is geactiveerd en klaar voor gebruik." : "Congratulations! Your account has been activated and is ready to use.",
+    "Gegevens" : "Information",
+    "Gehele URL van het profiel" : "Full URL of the profile",
+    "Geldig tot" : "Valid until",
+    "Geldig vanaf" : "Valid as of",
+    "Gele punten" : "Yellow points",
+    "Gepland" : "Scheduled",
+    "Gerapporteerd" : "Reported",
+    "Gesprek aanmaken" : "Create interview",
+    "Gesprek" : "Interview",
+    "Gesprekken" : "Interviews",
+    "Geïntegreerd" : "Integrated",
+    "Goal - De doelstelling" : "Goal - Setting a goal",
+    "Groepsles" : "Group lesson",
+    "Gymnasium" : "Gymnasium",
+    "Havo" : "Havo",
+    "Havo/vwo" : "Havo / Vwo",
+    "HBO Associate degree" : "HBO Associate degree",
+    "HBO Bachelor" : "HBO Bachelor",
+    "HBO Master" : "HBO Master",
+    "HBR" : "HBR",
+    "Heb je nog andere suggesties voor Studied?" : "Do you have any other suggestions for Studied?",
+    "heeft geen actieve vakafspraken." : "has no active subject agreements.",
+    "heeft geen leerlingen" : "has no students.",
+    "Herstuur mail activeren" : "Activate resend mail",
+    "Het is belangrijk om goed aan te geven of de proefles een succes was of niet. Dit bepaalt namelijk of de vakafspraak definitief is en of de leerling les van jou blijft krijgen in dit vak. Contacteer de managing-student voordat je het rapport instuurt als je het niet zeker weet." : "It is important to clearly indicate whether the trial lesson was a success or not. This determines whether the subject agreement is final and whether the student will continue to receive lessons from you for this subject. If you are unsure, contact the managing-student before submitting the report.",
+    "Het wachtwoord komt niet overeen, probeer het opnieuw." : "The password does not match, please try again.",
+    "Het wachtwoord moet uit minimaal 8 characters bestaan." : "The password must consist of at least 8 characters.",
+    "Hoe ervaart de klant de begeleiding voor het bereiken van het doel?" : "How does the customer experience the guidance to achieve the goal?",
+    "Hoe ervaart de leerling de begeleiding voor het bereiken van het doel?" : "How does the student experience the guidance for achieving the goal?",
+    "Hoe ervaart de student-docent de begeleiding voor het bereiken van het doel?" : "How does the student-tutor experience the guidance to achieve the goal?",
+    "Hoe ging de proefles?" : "How did the trial lesson go?",
+    "Hoe is het afgelopen schooljaar de scholier bevallen?" : "How did the student experience the last academic year?",
+    "Hoe kan de begeleiding worden verbeterd om het doel te behalen?  " : "How can the guidance be improved to achieve the goal?",
+    "Hoe kan de begeleiding worden verbeterd om het doel te behalen?" : "How can the guidance be improved to achieve the goal?",
+    "Hoe komt deze persoon bij Studied terecht?" : "How did this person end up at Studied?",
+    "Hoe lang duurde de les precies?" : "How long was the lesson exactly?",
+    "Hoe verloopt de begeleiding?" : "How does the guidance go?",
+    "Hoe vond je begeleiding op de leslocatie?" : "How did you experience guidance at the lesson location?",
+    "Hoe vond je de locatie van de lessen dit afgelopen schooljaar?" : "How did you experience the location of the lessons this past academic year?",
+    "Hoe vond je het gebruik van de webapp dit afgelopen schooljaar?" : "How did you experience the use of the web app this past academic year?",
+    "Hoe vond je het gebruik van de webapp?" : "How did you experience the use of the web app?",
+    "Hoe weet je dat het doel is bereikt?" : "How do you know the goal has been achieved?",
+    "Hoe ziet de situatie er nu uit?" : "How does the current situation look like?",
+    "Hoe ziet de situatie eruit als de problemen niet worden opgelost?" : "What will the situation look like if the problems are not resolved?",
+    "Host" : "Host",
+    "Huidige onderwijsinstelling" : "Current educational institution",
+    "Huidige opleiding" : "Current study program",
+    "Huisnummer" : "House number",
+    "Huiswerkbegeleiding BO" : "Homework coaching primary education",
+    "Huiswerkbegeleiding VO" : "Homework coaching secondary education",
+    "IBAN" : "IBAN",
+    "Icon button" : "Icon button",
+    "Identificatie" : "Identification",
+    "Ik heb al eerder gebruik gemaakt van jullie begeleiding, bijvoorbeeld voor mijn andere zoon/dochter" : "I have used your guidance before, for example for my other son/daughter",
+    "Incidenteel" : "Incidental",
+    "Indiensttreding" : "Entry into employment",
+    "Ingepland door" : "Scheduled by",
+    "Ingepland" : "Scheduled",
+    "Inloggen" : "Log in",
+    "Inplannen" : "Schedule",
+    "Instagram" : "Instagram",
+    "Intake" : "Intake",
+    "Intakegesprek" : "Intake interview",
+    "Is de proefles gelukt?" : "Was the trial lesson successful?",
+    "Is het doel acceptabel?" : "Is the goal acceptable?",
+    "Is het doel realistisch?" : "Is the goal realistic?",
+    "Ja" : "Yes",
+    "Je vakafspraak :subject met :name is afgehandeld." : "Your subject agreement :subject with :name is closed.",
+    "Je wachtwoord is gewijzigd, zorg dat je het goed onthoudt. Deel je inloggegevens nooit deelt met anderen." : "Your password has been changed, make sure you remember it. Never share your login details with others.",
+    "Jou vakafspraak :subject met :name is verlengd!" : "Your subject agreement :subject with :name is extended!",
+    "Kennismaking" : "Introduction",
+    "Kies een datum" : "Choose a date",
+    "Kies een status" : "Choose a status",
+    "Kies een wachtwoord" : "Choose a password",
+    "Klant aangemaakt" : "Customer created",
+    "Klant aanmaken" : "Create customer",
+    "Klant bewerken" : "Edit customer",
+    "Klant gewijzigd" : "Customer changed",
+    "Klant sinds" : "Customer since",
+    "Klant" : "Customer",
+    "Klanten" : "Customers",
+    "Land" : "Country",
+    "Leerjaar" : "Grade",
+    "Leerling aanmaken" : "Create student",
+    "Leerling bewerken" : "Edit student",
+    "Leerling" : "Student",
+    "Leerling(en)" : "Student(s)",
+    "Leerlingen" : "Students",
+    "Les bewerken" : "Edit lesson",
+    "Les gewijzigd" : "Lesson changed",
+    "Les ingepland" : "Lesson scheduled",
+    "Les inplannen" : "Schedule a lesson",
+    "Les pagina" : "Lesson page",
+    "Les rapporteren" : "Report lesson",
+    "Les verwijderen" : "Delete lesson",
+    "Leslocatie" : "Lesson location",
+    "Lessen" : "Lessons",
+    "Link gesprek" : "Link interview",
+    "Link les" : "Link lesson",
+    "Link naar les" : "Link to lesson",
+    "Link sturen" : "Send link",
+    "LinkedIn" : "LinkedIn",
+    "Locatie" : "Location",
+    "Locatieagenda" : "Location agenda",
+    "Loonheffing" : "Payroll tax",
+    "Loopbaan" : "Career",
+    "Mail verstuurd" : "Email sent",
+    "Managing-student" : "Managing student",
+    "MBO-1" : "MBO-1",
+    "MBO-2" : "MBO-2",
+    "MBO-3" : "MBO-3",
+    "MBO-4" : "MBO-4",
+    "Medewerker aangemaakt" : "Employee created",
+    "Medewerker aanmaken" : "Create employee",
+    "Medewerker bewerken" : "Edit employee",
+    "Medewerker gewijzigd" : "Employee changed",
+    "Medewerker" : "Employee",
+    "Medewerkers" : "Employees",
+    "Meer laden" : "Load more",
+    "meneer" : "mr.",
+    "Mentor" : "Mentor",
+    "Mentoren en vakdocenten" : "Mentor and teachers",
+    "met" : "with",
+    "mevrouw" : "mrs.",
+    "Middelbare school niveau" : "Secondary education level",
+    "Middelbare school" : "Secondary education",
+    "Mijn leerling" : "My student",
+    "Mijn leerlingen" : "My students",
+    "Mijn profiel" : "My profile",
+    "Motivatie" : "Motivation",
+    "MTE" : "MTE",
+    "MTR" : "MTR",
+    "MVI" : "MVI",
+    "Naam mentor" : "Mentor name",
+    "Naam vakdocent 1" : "Name of teacher 1",
+    "Naam vakdocent 2" : "Name of teacher 2",
+    "Naam vakdocent 3" : "Name of teacher 3",
+    "Naam" : "Name",
+    "Naar de les" : "To the lesson",
+    "Naar de profielpagina" : "To the profile page",
+    "Naar de vakafspraak" : "To the subject agreement",
+    "Naar mijn profiel" : "To my profile",
+    "Nederlands" : "Dutch",
+    "Nee" : "No",
+    "NG & NT" : "NG & NT",
+    "NG" : "NG",
+    "Nieuwe vakafspraak" : "New subject agreement",
+    "Nieuwe vakafspraken" : "New subject agreements",
+    "Niveau" : "Level",
+    "NT" : "NT",
+    "Omschrijving" : "Description",
+    "Onbekend" : "Unknown",
+    "Onder voorbehoud" : "Conditional",
+    "Onderbouw" : "Junior",
+    "Onderwerp" : "Subject",
+    "Onderwijs" : "Education",
+    "Onderwijsinstelling" : "Educational institution",
+    "Ons adviesplan om het doel te bereiken." : "Our advisory plan to achieve the goal.",
+    "Op aanraden van een kennis" : "On the advice of an acquaintance",
+    "Op aanraden van een vakdocent" : "On the recommendation of a teacher",
+    "Opleiding" : "Study program",
+    "Opmerking" : "Remark",
+    "Opmerkingen" : "Remarks",
+    "Opslaan" : "Save",
+    "Options - De mogelijkheden" : "Options - The possibilities",
+    "Ouder/verzorger" : "Parent/guardian",
+    "Overig" : "Other",
+    "Overige profielcombinatie" : "Other profile combination",
+    "Overige vragen of opmerkingen?" : "Other questions or comments?",
+    "Passief" : "Passive",
+    "Per wanneer ga je weg?" : "When are you leaving?",
+    "Persoonlijk" : "Personal",
+    "Persoonsgegevens" : "Personal data",
+    "PIE" : "PIE",
+    "Plak een URL" : "Paste a URL",
+    "Plan van Aanpak" : "Plan of action",
+    "Platform" : "Platform",
+    "Porta Mosana College" : "Porta Mosana College",
+    "Postcode" : "Postal Code",
+    "Privéles" : "Individual lesson",
+    "Proefles gelukt! Activeer je account voor onze webapp" : "Trial lesson successful! Activate your account for our web app",
+    "Proefles voor :name gelukt! Activeer uw account voor onze webapp" : "Trial lesson of :name succesful! Activate your account for our web app",
+    "Proefles" : "Trial lesson",
+    "Profiel activeren" : "Activate profile",
+    "Profiel middelbare school" : "Secondary education profile",
+    "Profiel wijzigen" : "Change profile",
+    "Profiel" : "Profile",
+    "Profielgegevens" : "Profile information",
+    "Profielpagina" : "Profile page",
+    "Profieltekst" : "Profile text",
+    "Promotie in mijn stad, zoals posters en flyers" : "Promotion in my city, such as posters and flyers",
+    "Promotie op social-media, zoals Instagram en Facebook" : "Promotion on social media, such as Instagram and Facebook",
+    "PVA - Options - De mogelijkheden" : "POA - Options - The possibilities",
+    "PVA - Will - De acties" : "POA - Will - The actions",
+    "PVA Goal - De doelstelling" : "POA Goal - The objective",
+    "PVA Reality - Stand van zaken" : "POA Reality - State of affairs",
+    "Rapport bewerken" : "Edit report",
+    "Rapport gewijzigd" : "Report changed",
+    "Rapport verstuurd" : "Report sent",
+    "Rapport wijzigen" : "Change report",
+    "Rapportage" : "Report",
+    "Rapporteren" : "Report",
+    "Reality - Stand van zaken" : "Reality - State of affairs",
+    "Referentie" : "Reference",
+    "Register" : "Register",
+    "Rekeningnummer (IBAN)" : "Account number / IBAN)",
+    "Relaties" : "Relations",
+    "Reverse icon button" : "Reverse icon button",
+    "School" : "School",
+    "Selecteer een eind tijdstip dat eerder is als het start tijdstip." : "Select an end time that is earlier than the start time.",
+    "Selecteer eerst een student-docent." : "First select a student-tutor.",
+    "Selecteer eerst het exacte start en eind tijdstip bovenaan." : "First select the exact start and end time at the top.",
+    "Selecteer.." : "Select..",
+    "Sinds " : "Since",
+    "Sint-Maartens College" : "Sint Maartens College",
+    "Spreker" : "Speaker",
+    "Stad" : "City",
+    "Start" : "Start",
+    "Status" : "Status",
+    "Stella Maris College" : "Stella Maris College",
+    "Straatnaam" : "Street name",
+    "Structureel" : "Structurally",
+    "Student aangemaakt" : "Student created",
+    "Student gewijzigd" : "Student changed",
+    "Student" : "Student",
+    "Student-docent #1" : "Student-tutor #1",
+    "Student-docent #2" : "Student-tutor #2",
+    "Student-docent #3" : "Student-tutor #3",
+    "Student-docent" : "Student-tutor",
+    "Student-docent""Geen actief" : "Student-tutorNo active",
+    "Student-docent(en)" : "Student-tutor(s)",
+    "Telefoon" : "Telephone",
+    "Telefoonnummer met landcode" : "Phone number with country code",
+    "Telefoonnummer" : "Phone number",
+    "Tentamentraining" : "Exam training",
+    "Terug" : "Back",
+    "Thuis bij " : "At home at",
+    "Thuis bij :name" : "At the home of :name",
+    "Thuis bij de student-docent" : "At the home of the student-tutor",
+    "Thuis bij jou (:name)" : "At your home (:name)",
+    "Tijd en locatie" : "Time and location",
+    "Tijdstip" : "Time",
+    "Titel" : "Titel",
+    "Tl-Havo" : "Tl-Havo",
+    "Toevoeging" : "Toevoeging",
+    "tot" : "until",
+    "Totaal" : "Total",
+    "TTO gymnasium" : "TTO gymnasium",
+    "TTO havo" : "TTO havo",
+    "TTO vwo" : "TTO vwo",
+    "Tussenvoegsel" : "Prefixes",
+    "Typ het lesverslag" : "Typ the lesson report",
+    "Typ je wachtwoord opnieuw" : "Retype your password",
+    "Type" : "Type",
+    "Uitdagingen" : "Challenges",
+    "Uitloggen" : "Log out",
+    "Uren afgesproken" : "Agreed hours",
+    "Uren afspraak" : "Hours agreement",
+    "Uren gemaakt" : "Hours spent",
+    "Uren per week" : "Hours per week",
+    "Uren" : "Hours",
+    "Urenoverzicht" : "Hours overview",
+    "Vak en niveau" : "Subject and level",
+    "Vak" : "Subject",
+    "Vakafspraak afgehandeld" : "Subject agreement closed",
+    "Vakafspraak toevoegen" : "Add subject agreement",
+    "Vakafspraak" : "Subject agreement",
+    "Vakafspraken" : "Subject agreements",
+    "Vakdocent 1 Email" : "Teacher 1 email address",
+    "Vakdocent 1 Naam" : "Teacher 1 name",
+    "Vakdocent 2 Email" : "Teacher 2 email address",
+    "Vakdocent 2 Naam" : "Teacher 2 name",
+    "Vakdocent 3 Email" : "Teacher 3 email address",
+    "Vakdocent 3 Naam" : "Teacher 3 name",
+    "Vakken" : "Subjects",
+    "Verlenging van" : "Extension of",
+    "Verlenging" : "Extension",
+    "Verlopen" : "Expired",
+    "Vervangt (optioneel)" : "Replaces (optional)",
+    "Verwijderen" : "To delete",
+    "Verzuimd" : "Neglected",
+    "Vmbo-bb" : "Vmbo-bb",
+    "Vmbo-gl" : "Vmbo-gl",
+    "Vmbo-kb" : "Vmbo-kb",
+    "Vmbo-tl" : "Vmbo-tl",
+    "Volgend schooljaar" : "Next academic year",
+    "Volgende les" : "Next lesson",
+    "Voltooien" : "Complete",
+    "Voornaam" : "First name",
+    "Voortgang" : "Progress",
+    "VRTE" : "VRTE",
+    "Vul de juiste gegevens in en probeer het opnieuw." : "Fill in the correct details and try again.",
+    "Vul een geldige IBAN in." : "Enter a valid IBAN.",
+    "Vul een geldige postcode in." : "Enter a valid postal code.",
+    "Vul een getal in." : "Enter a number.",
+    "Vul een wachtwoord in." : "Fill in a password.",
+    "Vul je email adres in" : "Enter your email address",
+    "Vwo" : "Vwo",
+    "Waarom ga je weg?" : "Why are you leaving?",
+    "Waarom is de situatie problematisch?" : "Why is the situation problematic?",
+    "Waarom wil deze persoon bij Studied werken?" : "Why does this person want to work at Studied?",
+    "Wachtwoord bevestigen" : "Confirm Password",
+    "Wachtwoord gewijzigd" : "Password changed",
+    "Wachtwoord herstellen" : "Recover password",
+    "Wachtwoord vergeten?" : "Forgot your password?",
+    "Wachtwoord wijzigen" : "Change password",
+    "Wachtwoord" : "Password",
+    "Wanneer wil je het doel bereiken?" : "When do you want to achieve the goal?",
+    "Wanneer wordt de uitvoering van de afspraken geëvalueerd?" : "When will the execution of the agreements be evaluated?",
+    "Wat gaat de scholier volgend schooljaar doen?" : "What is the student going to do next academic year?",
+    "Wat is er afgesproken over de proefles(sen)?" : "What has been agreed about the trial lesson(s)?",
+    "Wat is er behandeld?" : "What material was covered?",
+    "Wat is reeds ondernomen om de problemen te verhelpen? Waarom werkte dat wel of niet?" : "What has already been done to solve the problem(s)? Why did that work or not?",
+    "Wat kunnen we verbeteren aan de begeleiding van Studied?" : "What can we improve about our guidance?",
+    "Wat kunnen we verbeteren aan de webapp?" : "What can we improve about our web app?",
+    "Wat kunnen we verbeteren bij Studied?" : "What can we improve at Studied?",
+    "Wat kunnen we verbeteren qua begeleiding bij Studied?" : "What can we improve about our guidance at Studied?",
+    "Wat kunnen we verbeteren voor begeleiding op de leslocatie?" : "What can we improve for guidance at the lesson location?",
+    "Wat kunnen we verbeteren voor begeleiding op deze leslocatie?" : "What can we improve for guidance at this lesson location?",
+    "Wat vind je een minpunt van begeleiding bij Studied?" : "What do you think is a disadvantage of guidance at Studied?",
+    "Wat vind je een minpunt van begeleiding op de leslocatie?" : "What do you think is a disadvantage of guidance at the lesson location?",
+    "Wat vind je een minpunt van begeleiding op deze leslocatie?" : "What do you think is a disadvantage of guidance at this lesson location?",
+    "Wat vind je een minpunt van de webapp?" : "What do you think is a disadvantage of the web app?",
+    "Wat vind je een pluspunt van begeleiding bij Studied?" : "What do you think is an advantage of guidance at Studied?",
+    "Wat vind je een pluspunt van begeleiding op de leslocatie?" : "What do you think is a plus of guidance at the lesson location?",
+    "Wat vind je een pluspunt van begeleiding op deze leslocatie?" : "What do you think is an advantage of guidance at this lesson location?",
+    "Wat vind je een pluspunt van de webapp?" : "What do you think is a plus of the web app?",
+    "Wat vond je fijn aan begeleiding bij Studied?" : "What did you like about guidance at Studied?",
+    "Wat vond je van de begeleiding dit afgelopen schooljaar?" : "What did you think of the guidance this past academic year?",
+    "Wat vond je van de begeleiding?" : "What did you think of the guidance?",
+    "Wat wil je bereiken?" : "What do you want to achieve?",
+    "Wat wordt er als concludie van het voorgaande aangeraden? (Vak - periode - frequentie)" : "What is the concluding recommendation that follows from the foregoing? (Subject - period - frequency)",
+    "Wat zijn mogelijke obstakels voor het behalen van het gewenste resultaat? Hoe kan hier rekening mee worden gehouden?" : "What are possible obstacles to achieve the desired result? How can this be taken into account?",
+    "Webapp" : "Web app",
+    "Welke acties ga je buiten Studied ondernemen om het doel te bereiken?" : "What actions will you take outside Studied to achieve the goal?",
+    "Welke afspraken worden er gemaakt over de vakken, uren en looptijd? " : "What agreements are made about the subjects, hours and duration?",
+    "Welke afspraken worden er gemaakt over de vakken, uren en looptijd?" : "What agreements are made about the subjects, hours and duration?",
+    "Welke mogelijkheden heb je om het doel te bereiken?" : "What options do you have to achieve the goal?",
+    "Welke vakafspraak wordt vervangen?" : "Which agreement is being replaced?",
+    "Werkcapaciteit" : "Werkcapaciteit",
+    "Werkzaam" : "Active",
+    "Wijzigen" : "Modify",
+    "Wil de scholier volgend schooljaar weer begeleiding bij Studied?" : "Does the student want guidance from Studied again next academic year?",
+    "Will - De acties" : "Will - The actions",
+    "WO Bachelor" : "WO Bachelor",
+    "WO Master" : "WO Master",
+    "WO Pre-master" : "WO Pre-master",
+    "Woonadres" : "Residential address",
+    "Zijn er nog andere afspraken gemaakt?" : "Have any other agreements been made?",
+    "Zoek een activiteit" : "Find an activity",
+    "Zoek een klant" : "Find a customer",
+    "Zoek een locatie" : "Find a location",
+    "Zoek een medewerker" : "Find an employee",
+    "Zoek een student" : "Find a student",
+    "Zoek een student-docent" : "Find a student-tutor",
+    "Zoeken.." : "Searching..",
+    "ZWE" : "ZWE"
 }
-'Vakafspraak'
-'Nieuwe vakafspraak'
-'Aanmaken'
-'Leerling'
-'Medewerker'
-'Dienst'
-'Begeleidingsvorm'
-'Vak'
-'Start'
-'Einde'
-'Uren afspraak'
-'Uren gemaakt'
-'Status'
-' tot '
-'Totaal'
-'Uren afgesproken'
-'Uren gemaakt'
-'Vakafspraak afgehandeld'
-'Naar de vakafspraak'
-'Klant aanmaken'
-'Aanmaken'
-'Klant aangemaakt'
-'Naar de profielpagina'
-'Klant bewerken'
-'Opslaan'
-'Klant gewijzigd'
-'Naar de profielpagina'
-'Klanten'
-'Naam'
-'E-mailadres'
-'Telefoonnummer'
-'Leerling(en)'
-'Student-docent(en)'
-'Vakafspraken'
-'Status'
-"Geen leerlingen"
-"Geen actief"
-" en nog :count"
-'Totaal'
-'Medewerker aanmaken'
-'Aanmaken'
-'Medewerker aangemaakt'
-'Naar de profielpagina'
-'Medewerker bewerken'
-'Opslaan'
-'Medewerker gewijzigd'
-'Naar de profielpagina'
-'Medewerkers'
-'Naam'
-'E-mailadres'
-'Telefoonnummer'
-'Vakken'
-'Leerling(en)'
-'Vakafspraken'
-'Capaciteit'
-'Status'
-"Geen gekoppeld"
-"Geen leerlingen"
-"Geen actief"
-" uur"
-'Totaal'
-'Gesprek'
-'Gesprek aanmaken'
-'Aanmaken'
-'Voltooien'
-'Profielpagina'
-'Profielpagina'
-'Mail verstuurd'
-'Terug'
-'Les rapporteren'
-'Rapporteren'
-'Rapport verstuurd'
-'De deelnemers en ouders hiervan kunnen dit nu bekijken.'
-'Naar de les'
-'Rapport bewerken'
-'Opslaan'
-'Rapport gewijzigd'
-'Naar de les'
-'Dit veld is verplicht.'
-'Gebruik maximaal 1000 karakters.'
-'Leerling aanmaken'
-'Aanmaken'
-'Student aangemaakt'
-'Naar de profielpagina'
-'Leerling bewerken'
-'Opslaan'
-'Student gewijzigd'
-'Naar de profielpagina'
-'Leerlingen'
-'Naam'
-'E-mailadres'
-'Telefoonnummer'
-'Niveau'
-'Leerjaar'
-'Vakafspraken'
-'Status'
-'Klant'
-'Student-docent''Geen actief'
-'Geen klant'
-'Totaal'
-'Les inplannen'
-'Inplannen'
-'Les ingepland'
-'Naar de les'
-'Les bewerken'
-'Opslaan'
-'Les gewijzigd'
-'Alle deelnemers worden per email<br>op de hoogte gebracht.'
-'Naar de les'
-'Locatieagenda'
-'Thuis bij de student-docent'
-'Thuis bij jou (:name)'
-'Thuis bij :name'
-'Lessen'
-'Datum'
-'Leerling'
-'Student'
-'Dienst'
-'Onderwerp'
-'Locatie'
-'Tijdstip'
-'Status'
-'Type'
-'Vak'
-'Student-docent'
-'(Proefles)'
-'Digitaal'
-'Proefles'
-'Alle BO'
-'Alle VO'
-'Alle MBO/HBO/WO'
-'Alle Taal'
-'Alle Privéles'
-'Alle Groepsles'
-' tot '
-'Leerlingen'
-'Leerling'
-'Medewerker'
-'Onderwerp'
-'Dienst'
-'Deelnemers'
-'Begeleidingsvorm'
-'Datum'
-'Tijdstip'
-'Duurtijd'
-'Locatie'
-'Status'
-'Opmerkingen'
-'Link naar les'
-'Groepsles'
-'Privéles'
-'Totaal'
-'Medewerker'
-'Uren'
-'Bijles BO'
-'Bijles VO'
-'Bijles MBO/HBO/WO'
-'Cito-training'
-'Huiswerkbegeleiding BO'
-'Examentraining'
-'Tentamentraining'
-'Huiswerkbegeleiding VO'
-'Profiel activeren'
-'Account geactiveerd'
-'Gefeliciteerd! Je account is geactiveerd en klaar voor gebruik.'
-'Naar mijn profiel'
-'Profiel wijzigen'
-'Wachtwoord gewijzigd'
-'Je wachtwoord is gewijzigd, zorg dat je het goed onthoudt. Deel je inloggegevens nooit deelt met anderen.'
-'Naar mijn profiel'
-'Vul een wachtwoord in.'
-'Het wachtwoord moet uit minimaal 8 characters bestaan.'
-'Het wachtwoord komt niet overeen, probeer het opnieuw.'
-'De proefles :subject voor :name was een succes!'
-'Er is een vakafspraak met je voor :subject met :name aangemaakt.'
-'Jou vakafspraak :subject met :name is verlengd!'
-'Je vakafspraak :subject met :name is afgehandeld.'
-'Er is een :regarding met u ingepland.'
-'Er is een :regarding met jou als deelnemer ingepland.'
-'Er is een :regarding met je ingepland!'
-':name is als leerling bij u toegevoegd!'
-'De gegevens van je les :subject met :participants zijn gewijzigd.'
-'Er is een :service voor je ingepland met :participants'
-'Er is een :service voor je ingepland door :name'
-'Proefles voor :name gelukt! Activeer uw account voor onze webapp'
-'Activeer uw account voor onze webapp'
-':name heeft nu begeleiding van ons!'
-'Proefles gelukt! Activeer je account voor onze webapp'
-'Activeer je account voor onze webapp'
-"Onbekend"
-'met'
-'actief tot'
-'Incidenteel'
-'Structureel'
-'Geïntegreerd'
-'Onder voorbehoud'
-'Gepland'
-'Actief'
-'Verlopen'
-'Afgehandeld'
-'Dit veld is verplicht.'
-'Dit veld is verplicht als de :other leeg is.'
-'Vul een getal in.'
-'Dit email adres is al in gebruik.'
-'Vul een geldige postcode in.'
-'Vul een geldige IBAN in.'
-"Geen leerlingen"
-" en "
-"Digitaal"
-'Gebruik maximaal :max karakters.'
-"Intakegesprek"
-"Evaluatiegesprek"
-"Eindejaarsgesprek"
-"Exitgesprek"
-"Gesprek"
-"Ingepland"
-"Afgelopen"
-"Gebruiker"
-"meneer"
-"mevrouw"
-"Promotie op social-media, zoals Instagram en Facebook",
-"Promotie in mijn stad, zoals posters en flyers",
-"Door te zoeken op internet, bijvoorbeeld met Google",
-"Op aanraden van een vakdocent",
-"Op aanraden van een kennis",
-"Ik heb al eerder gebruik gemaakt van jullie begeleiding, bijvoorbeeld voor mijn andere zoon/dochter"
-' uur'
-'Dit veld is verplicht.',
-'Gebruik maximaal 1000 karakters.'
-'Porta Mosana College'
-'Sint-Maartens College'
-'Stella Maris College'
-'Bonnefantencollege'
-"Vmbo-bb"
-"Vmbo-kb"
-"Vmbo-gl"
-"Vmbo-tl"
-"Tl-Havo"
-"Havo"
-"Havo/vwo"
-"Vwo"
-"Gymnasium"
-"TTO havo"
-"TTO vwo"
-"TTO gymnasium"
-"MBO-1"
-"MBO-2"
-"MBO-3"
-"MBO-4"
-"HBO Associate degree"
-"HBO Bachelor"
-"HBO Master"
-"WO Bachelor"
-"WO Pre-master"
-"WO Master"
-"Basisschool"
-'CM'
-'EM'
-'NG'
-'NT'
-'CM & EM'
-'NG & NT'
-'Overige profielcombinatie'
-'BWI'
-'DP'
-'EO'
-'G'
-'HBR'
-'MTE'
-'MVI'
-'MTR'
-'Onderbouw'
-'PIE'
-'VRTE'
-'ZWE'
-'Thuis bij '
-'Thuis bij '
-'Thuis bij '
-"Geen deelnemers"
-" deelnemers"
-" en "
-" en "
-' tot '
-"Aangemaakt"
-"Ingepland"
-"Bezig"
-"Afgelopen"
-"Gerapporteerd"
-"Geannuleerd"
-"Verzuimd"
-"Intake"
-"Actief"
-"Passief"
-"Beëindigd"
-'Inloggen'
-'Persoonsgegevens'
-'Contact- en inloggegevens'
-'Woonadres'
-'Persoonsgegevens'
-'Contact- en inloggegevens'
-'Woonadres'
-'Educatie huidig'
-'Educatie middelbare'
-'Arbeidgegevens'
-'Profielgegevens'
-'Bestanden'
-'Tijd en locatie'
-'Aanwezigen'
-'Details'
-'PVA Goal - De doelstelling'
-'PVA Reality - Stand van zaken'
-'PVA - Options - De mogelijkheden'
-'PVA - Will - De acties'
-'Afspraken'
-'Proefles'
-'Evaluatie'
-'Eind schooljaar'
-'Begeleiding'
-'Webapp'
-'Leslocatie'
-'Volgend schooljaar'
-'Exit'
-'Begeleiding'
-'Webapp'
-'Leslocatie'
-'Overig'
-'Persoonsgegevens'
-'Contact- en accountgegevens'
-'Woonadres'
-'Acties'
-'Hoe lang duurde de les precies?'
-'Wat is er behandeld?'
-'Hoe verloopt de begeleiding?'
-'Hoe lang duurde de les precies?'
-'Wat is er behandeld?'
-'Hoe ging de proefles?'
-'Hoe verloopt de begeleiding?'
-'Persoonsgegevens'
-'Contact- en inloggegevens'
-'Woonadres'
-'Educatie'
-'Relaties'
-'Tijd en locatie'
-'Gegevens'
-'Acties'
-'Tijd en locatie'
-'Activiteit(en)'
-'Medewerker'
-'Activiteit(en)'
-'Details'
-'Basis elementen'
-'Autocomplete'
-'Formulier pagina'
-'Les pagina'
-'Icon button'
-'Reverse icon button'
-'Uitloggen'
-'Inloggen'
-'Wachtwoord vergeten?'
-'Register'
-'Confirm Password'
-'Forgot Your Password?'
-'Link sturen'
-'Link sturen'
-'Wachtwoord herstellen'
-'Educatie huidig'
-'Educatie middelbare'
-'Arbeidgegevens'
-'Profielgegevens'
-'Bestanden'
-'Educatie'
-'Relaties'
-'Aanmaken'
-'Aanmaken'
-'Aanmaken'
-'Inplannen'
-'Data exporteren'
-'Urenoverzicht'
-'Vakafspraak'
-'Meer laden'
-'Annuleren'
-'Filter'
-"Vul je email adres in"
-'Wachtwoord'
-'Email adres'
-Vul je email adres in
-Kies een wachtwoord
-Bevestig het wachtwoord
-Vak en niveau
-Geldig vanaf
-Geldig tot
-Status

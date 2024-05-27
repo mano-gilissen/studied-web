@@ -1,6 +1,6 @@
 <div class="block-users">
 
-    <div class="title">Leerling</div>
+    <div class="title">{{ __('Leerling') }}</div>
 
     @foreach($study->getParticipants_User as $participant)
 

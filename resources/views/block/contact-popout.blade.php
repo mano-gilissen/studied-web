@@ -2,7 +2,7 @@
 
     <img class="icon" src="/images_app/contact.svg" style="height:28px;padding: 6px 0 6px" onclick="$(this).parent().toggleClass('clicked')">
 
-    <div class="text" style="padding: 5px 0 7px" onclick="$(this).parent().toggleClass('clicked')">{{($tag ?? false) ? $tag : 'Contacteer ' . $user->getPerson->first_name }}</div>
+    <div class="text" style="padding: 5px 0 7px" onclick="$(this).parent().toggleClass('clicked')">{{($tag ?? false) ? $tag : __('Contacteer ') . $user->getPerson->first_name }}</div>
 
     <div class="contact-popout">
 

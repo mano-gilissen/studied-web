@@ -3,6 +3,7 @@
 
 
 namespace App\Http\Controllers;
+use App\Http\Middleware\Locale;
 use App\Http\Support\Format;
 use App\Http\Support\Key;
 use App\Http\Traits\BaseTrait;
@@ -122,6 +123,28 @@ class UserController extends Controller {
         ], $messages);
 
         $validator->validate();
+    }
+
+
+
+
+
+    public function language_submit(Request $request) {
+
+        $data                                               = $request->all();
+        $language                                           = $data['value'];
+
+        if (!in_array($language, Locale::getOptions())) {
+
+            abort(403);
+
+        }
+
+        $user                                               = Auth::user();
+        $user->{Model::$USER_LANGUAGE}                      = $language;
+        $user->save();
+
+        return $language;
     }
 
 

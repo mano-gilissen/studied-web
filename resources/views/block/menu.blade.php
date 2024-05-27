@@ -88,4 +88,6 @@
 
     </div>
 
+    @include('block.language-select')
+
 </div>

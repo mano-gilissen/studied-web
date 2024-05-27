@@ -1,6 +1,6 @@
 <div class="field">
 
-    <div class="name">Tijdstip</div>
+    <div class="name">{{ __('Tijdstip') }}</div>
 
     <div class="box-select @if($end ?? true) width-third @endif">
 
@@ -46,7 +46,7 @@
 
     @if ($end ?? true)
 
-        <div class="note width-third">tot</div>
+        <div class="note width-third">{{ __('tot') }}</div>
 
         <div class="box-select width-third">
 

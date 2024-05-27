@@ -50,7 +50,7 @@
 
                             <img class="icon" src="/images_app/edit.svg">
 
-                            <div class="text">Bewerken</div>
+                            <div class="text">{{ __('Bewerken') }}</div>
 
                         </div>
 
@@ -64,7 +64,7 @@
 
                                         <img class="icon" src="/images_app/contact.svg">
 
-                                        <div class="text">Kennismaking</div>
+                                        <div class="text">{{ __('Kennismaking') }}</div>
 
                                     </div>
 
@@ -76,7 +76,7 @@
 
                                         <img class="icon" src="/images_app/contact.svg">
 
-                                        <div class="text">Evaluatie</div>
+                                        <div class="text">{{ __('Evaluatie') }}</div>
 
                                     </div>
 
@@ -88,7 +88,7 @@
 
                                     <img class="icon" src="/images_app/contact.svg">
 
-                                    <div class="text">Eindejaarsgesprek</div>
+                                    <div class="text">{{ __('Eindejaarsgesprek') }}</div>
 
                                 </div>
 
@@ -100,7 +100,7 @@
 
                                     <img class="icon" src="/images_app/contact.svg">
 
-                                    <div class="text">Exitgesprek</div>
+                                    <div class="text">{{ __('Exitgesprek') }}</div>
 
                                 </div>
 
@@ -130,15 +130,15 @@
 
                         <div class="block-users">
 
-                            <div class="title">Aanwezigen</div>
+                            <div class="title">{{ __('Aanwezigen') }}</div>
 
                             <div class="list-users">
 
-                                @include('block.person', ['person' => $evaluation->getHost->getPerson, 'subtitle' => 'Managing-student'])
+                                @include('block.person', ['person' => $evaluation->getHost->getPerson, 'subtitle' => __('Managing-student')])
 
                                 @foreach($evaluation->getEmployees as $employee)
 
-                                    @include('block.person', ['person' => $employee->getPerson, 'subtitle' => 'Student-docent'])
+                                    @include('block.person', ['person' => $employee->getPerson, 'subtitle' => __('Student-docent')])
 
                                 @endforeach
 
@@ -156,11 +156,11 @@
 
                             <div class="list-users">
 
-                                @include('block.person', ['person' => $evaluation->getStudent->getPerson, 'subtitle' => 'Leerling'])
+                                @include('block.person', ['person' => $evaluation->getStudent->getPerson, 'subtitle' => __('Leerling')])
 
                                 @if($evaluation->getStudent->getStudent->getCustomer)
 
-                                    @include('block.person', ['person' => $evaluation->getStudent->getStudent->getCustomer->getUser->getPerson, 'subtitle' => 'Ouder/verzorger'])
+                                    @include('block.person', ['person' => $evaluation->getStudent->getStudent->getCustomer->getUser->getPerson, 'subtitle' => __('Ouder/verzorger')])
 
                                 @endif
 

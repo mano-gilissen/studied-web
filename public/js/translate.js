@@ -30,6 +30,7 @@ function translateEn(value) {
         "Uitloggen"
         "Instellingen"
         "Kopiëren"
+        "Er is iets fout gegaan bij het wijzigen van de taal. Check je internetverbinding en probeer het nog eens."
 
         default:
             return value;

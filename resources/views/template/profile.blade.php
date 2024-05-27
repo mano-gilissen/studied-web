@@ -89,7 +89,7 @@
 
                                         <img class="icon" src="/images_app/contact-white.svg">
 
-                                        <div class="text">Activeren</div>
+                                        <div class="text">{{ __('Activeren') }}</div>
 
                                     </div>
 
@@ -99,7 +99,7 @@
 
                                     <img class="icon" src="/images_app/search.svg">
 
-                                    <div class="text">Lessen</div>
+                                    <div class="text">{{ __('Lessen') }}</div>
 
                                 </div>
 
@@ -113,7 +113,7 @@
 
                                         <img class="icon" src="/images_app/search.svg">
 
-                                        <div class="text">Lessen</div>
+                                        <div class="text">{{ __('Lessen') }}</div>
 
                                     </div>
 
@@ -125,7 +125,7 @@
 
                                             <img class="icon" src="/images_app/social-instagram.svg">
 
-                                            <div class="text">Instagram</div>
+                                            <div class="text">{{ __('Instagram') }}</div>
 
                                         </div>
 
@@ -137,7 +137,7 @@
 
                                             <img class="icon" src="/images_app/social-linkedin.svg">
 
-                                            <div class="text">LinkedIn</div>
+                                            <div class="text">{{ __('LinkedIn') }}</div>
 
                                         </div>
 
@@ -156,7 +156,7 @@
 
                                         <img class="icon" src="/images_app/social-instagram.svg">
 
-                                        <div class="text">Instagram</div>
+                                        <div class="text">{{ __('Instagram') }}</div>
 
                                     </div>
 
@@ -168,7 +168,7 @@
 
                                         <img class="icon" src="/images_app/social-linkedin.svg">
 
-                                        <div class="text">LinkedIn</div>
+                                        <div class="text">{{ __('LinkedIn') }}</div>
 
                                     </div>
 
@@ -194,7 +194,7 @@
 
                                         <img class="icon" src="/images_app/contact-white.svg">
 
-                                        <div class="text">Herstuur mail activeren</div>
+                                        <div class="text">{{ __('Herstuur mail activeren') }}</div>
 
                                     </div>
 
@@ -204,7 +204,7 @@
 
                                     <img class="icon" src="/images_app/search.svg">
 
-                                    <div class="text">Lessen</div>
+                                    <div class="text">{{ __('Lessen') }}</div>
 
                                 </div>
 
@@ -216,7 +216,7 @@
 
                                     <img class="icon" src="/images_app/search.svg">
 
-                                    <div class="text">Lessen</div>
+                                    <div class="text">{{ __('Lessen') }}</div>
 
                                 </div>
 
@@ -230,7 +230,7 @@
 
                                         <img class="icon" src="/images_app/search.svg">
 
-                                        <div class="text">Lessen</div>
+                                        <div class="text">{{ __('Lessen') }}</div>
 
                                     </div>
 
@@ -246,7 +246,7 @@
 
                                         <img class="icon" src="/images_app/search.svg">
 
-                                        <div class="text">Lessen</div>
+                                        <div class="text">{{ __('Lessen') }}</div>
 
                                     </div>
 
@@ -272,7 +272,7 @@
 
                                         <img class="icon" src="/images_app/contact-white.svg">
 
-                                        <div class="text">Herstuur mail activeren</div>
+                                        <div class="text">{{ __('Herstuur mail activeren') }}</div>
 
                                     </div>
 
@@ -282,7 +282,7 @@
 
                                     <img class="icon" src="/images_app/search.svg">
 
-                                    <div class="text">Lessen</div>
+                                    <div class="text">{{ __('Lessen') }}</div>
 
                                 </div>
 
@@ -294,7 +294,7 @@
 
                                     <img class="icon" src="/images_app/search.svg">
 
-                                    <div class="text">Lessen</div>
+                                    <div class="text">{{ __('Lessen') }}</div>
 
                                 </div>
 
@@ -312,7 +312,7 @@
 
                                         <img class="icon" src="/images_app/search.svg">
 
-                                        <div class="text">Lessen</div>
+                                        <div class="text">{{ __('Lessen') }}</div>
 
                                     </div>
 
@@ -332,7 +332,7 @@
 
                             <img class="icon" src="/images_app/edit.svg">
 
-                            <div class="text">Foto- en wachtwoord wijzigen</div>
+                            <div class="text">{{ __('Foto- en wachtwoord wijzigen') }}</div>
 
                         </div>
 
@@ -344,13 +344,13 @@
 
                             <img class="icon" src="/images_app/edit.svg">
 
-                            <div class="text">Bewerken</div>
+                            <div class="text">{{ __('Bewerken') }}</div>
 
                         </div>
 
                     @else
 
-                        @include('block.contact-popout', ['tag' => 'Contacteer', 'user' => $person->getUser])
+                        @include('block.contact-popout', ['tag' => __('Contacteer'), 'user' => $person->getUser])
 
                     @endif
 
@@ -360,13 +360,13 @@
 
                         <img class="icon" src="/images_app/edit.svg">
 
-                        <div class="text">Bewerken</div>
+                        <div class="text">{{ __('Bewerken') }}</div>
 
                     </div>
 
                 @else
 
-                    @include('block.contact-popout', ['tag' => 'Contacteer', 'user' => $person->getUser])
+                    @include('block.contact-popout', ['tag' => __('Contacteer'), 'user' => $person->getUser])
 
                 @endif
 

@@ -212,6 +212,8 @@ Route::post('/submit/evaluation/plan',                      'EvaluationControlle
 
 Route::post('/submit/evaluation/perform',                   'EvaluationController@perform_submit')->name('evaluation.perform_submit')->middleware('auth', 'authorize');
 
+Route::post('/submit/language',                             'UserController@language_submit')->name('user.language_submit')->middleware('auth', 'authorize');
+
 Route::post('/submit/activate',                             'UserController@activate_submit')->name('user.activate_submit');
 
 Route::post('/submit/password',                             'UserController@password_submit')->name('user.password_submit')->middleware('auth', 'authorize');
@@ -229,20 +231,6 @@ Route::get('/template',                                     'DebugController@tem
 Route::get('/mail_test/{key}',                              'DebugController@mail_test')->name('mail_test');
 
 
-
-#Route::get('/home',                                         'SiteController@home')->name('home');
-
-#Route::get('/actueel',                                      'SiteController@actueel')->name('website.actueel');
-
-#Route::get('/artikel/{slug}',                               'SiteController@article')->name('website.article');
-
-#Route::get('/begeleiding',                                  'SiteController@begeleiding')->name('begeleiding');
-
-#Route::get('/werk',                                         'SiteController@werk')->name('werk');
-
-#Route::get('/werkwijze',                                    'SiteController@werkwijze')->name('werkwijze');
-
-#Route::get('/zakelijk',                                     'SiteController@zakelijk')->name('zakelijk');
 
 
 

@@ -1,6 +1,6 @@
     <div class="agreements">
 
-    <div class="title">Nieuwe vakafspraken</div>
+    <div class="title">{{ __('Nieuwe vakafspraken') }}</div>
 
     <div style="display: flex; align-items: center">
 
@@ -42,7 +42,7 @@
 
                                 @endif
 
-                                <div>{!! \App\Http\Traits\AgreementTrait::getDescription($agreement, $forHost) !!} @if(\App\Http\Traits\AgreementTrait::getStatus($agreement) == \App\Http\Traits\AgreementTrait::$STATUS_EXPIRED) <span class="expired"> (Verlopen)</span> @elseif($agreement->{\App\Http\Support\Model::$AGREEMENT_STATUS} == \App\Http\Traits\AgreementTrait::$STATUS_UNAPPROVED || $agreement->{\App\Http\Support\Model::$AGREEMENT_STATUS} == \App\Http\Traits\AgreementTrait::$STATUS_TRIAL) <span class="trial"> (Proefles)</span> @endif</div>
+                                <div>{!! \App\Http\Traits\AgreementTrait::getDescription($agreement, $forHost) !!} @if(\App\Http\Traits\AgreementTrait::getStatus($agreement) == \App\Http\Traits\AgreementTrait::$STATUS_EXPIRED) <span class="expired"> (Verlopen)</span> @elseif($agreement->{\App\Http\Support\Model::$AGREEMENT_STATUS} == \App\Http\Traits\AgreementTrait::$STATUS_UNAPPROVED || $agreement->{\App\Http\Support\Model::$AGREEMENT_STATUS} == \App\Http\Traits\AgreementTrait::$STATUS_TRIAL) <span class="trial">{{ __(' (Proefles)') }}</span> @endif</div>
 
                             </div>
 
@@ -52,7 +52,7 @@
 
                 @else
 
-                    <div class="block-note">Er zijn na aanleiding van dit gesprek geen nieuwe vakafspraken aangemaakt.</div>
+                    <div class="block-note">{{ __('Er zijn na aanleiding van dit gesprek geen nieuwe vakafspraken aangemaakt.') }}</div>
 
                 @endif
 

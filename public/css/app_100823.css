@@ -699,6 +699,68 @@ button:focus {
 
 
 
+.language-select {
+    position: fixed;
+    bottom: 24px;
+    right: 64px;
+    height: 40px;
+    width: 112px;
+    display: flex;
+    align-items: center;
+    background: #000000;
+    border-radius: 12px;
+    padding: 0 16px;
+    z-index: 100;
+    cursor: pointer;
+}
+
+.language-select .flag {
+    width: 24px;
+    margin-right: 8px;
+}
+
+.language-select .value {
+    font-weight: 500;
+    color: white;
+}
+
+.language-select .options {
+    display: none;
+    position: absolute;
+    margin-top: -100px;
+}
+
+.language-select .option {
+    height: 30px;
+    background: #E6E6E6;
+    border-bottom: 1px solid #888888;
+    padding: 10px 16px;
+    cursor: pointer;
+}
+
+.language-select .option:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.language-select .option:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: none;
+}
+
+.language-select.open .chevron {
+    transform: rotate(180deg);
+}
+
+.language-select.open .options {
+    display: block;
+}
+
+
+
+
+
 input,
 textarea {
     width:                              100%;

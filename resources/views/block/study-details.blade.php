@@ -1,12 +1,12 @@
 <div class="block-attributes">
 
-    <div class="title">Gegevens</div>
+    <div class="title">{{ __('Gegevens') }}</div>
 
     <div class="list-attributes">
 
         <div class="attribute">
 
-            <div class="name">Vak</div>
+            <div class="name">{{ __('Vak') }}</div>
 
             <div class="value">{{ $study->{\App\Http\Support\Model::$STUDY_SUBJECT_TEXT} }}</div>
 
@@ -14,7 +14,7 @@
 
         <div class="attribute">
 
-            <div class="name">Dienst</div>
+            <div class="name">{{ __('Dienst') }}</div>
 
             <div class="value">{{ $study->getService->{\App\Http\Support\Model::$SERVICE_NAME} }}</div>
 
@@ -22,7 +22,7 @@
 
         <div class="attribute">
 
-            <div class="name">Datum</div>
+            <div class="name">{{ __('Datum') }}</div>
 
             <div class="value">{{ \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE) }}</div>
 
@@ -30,7 +30,7 @@
 
         <div class="attribute">
 
-            <div class="name">Tijdstip</div>
+            <div class="name">{{ __('Tijdstip') }}</div>
 
             <div class="value">{{ \App\Http\Traits\StudyTrait::getTimeText($study) }}</div>
 
@@ -38,7 +38,7 @@
 
         <div class="attribute">
 
-            <div class="name">Status</div>
+            <div class="name">{{ __('Status') }}</div>
 
             <div class="value">
 

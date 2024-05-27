@@ -43,7 +43,7 @@
 
             <div class="seperator"></div>
 
-            <div class="block-note">Dit is het rapport voor <span style="font-weight: 400">{{ \App\Http\Traits\PersonTrait::getFullName($user->getPerson) }}</span></div>
+            <div class="block-note">{{ __('Dit is het rapport voor ') }}<span style="font-weight: 400">{{ \App\Http\Traits\PersonTrait::getFullName($user->getPerson) }}</span></div>
 
             <div class="seperator"></div>
 
@@ -63,9 +63,9 @@
 
             <div class="title">{{ __('Hoe ging de proefles?') }}</div>
 
-            <div class="block-note" id="note-trial">Het is belangrijk om goed aan te geven of de proefles een succes was of niet. Dit bepaalt namelijk of de vakafspraak definitief is en of de leerling les van jou blijft krijgen in dit vak. Contacteer de managing-student voordat je het rapport instuurt als je het niet zeker weet.</div>
+            <div class="block-note" id="note-trial">{{ __('Het is belangrijk om goed aan te geven of de proefles een succes was of niet. Dit bepaalt namelijk of de vakafspraak definitief is en of de leerling les van jou blijft krijgen in dit vak. Contacteer de managing-student voordat je het rapport instuurt als je het niet zeker weet.') }}</div>
 
-            @include('form.switch', ['id' => 'user_' . $user->id . '_trial', 'tag' => 'Is de proefles gelukt?'])
+            @include('form.switch', ['id' => 'user_' . $user->id . '_trial', 'tag' => __('Is de proefles gelukt?')])
 
             <div class="seperator"></div>
 
@@ -85,11 +85,11 @@
 
         <div class="title">{{ __('Hoe verloopt de begeleiding?') }}</div>
 
-        @include('form.field-textarea', ['id' => $id_user . 'content_volgende_les', 'tag' => 'Volgende les', 'required' => true, 'value' => old($id_user . 'content_volgende_les')])
+        @include('form.field-textarea', ['id' => $id_user . 'content_volgende_les', 'tag' => __('Volgende les'), 'required' => true, 'value' => old($id_user . 'content_volgende_les')])
 
-        @include('form.field-textarea', ['id' => $id_user . 'content_uitdagingen', 'tag' => 'Uitdagingen', 'required' => true, 'value' => old($id_user . 'content_uitdagingen')])
+        @include('form.field-textarea', ['id' => $id_user . 'content_uitdagingen', 'tag' => __('Uitdagingen'), 'required' => true, 'value' => old($id_user . 'content_uitdagingen')])
 
-        @include('form.field-textarea', ['id' => $id_user . 'content_voortgang', 'tag' => 'Voortgang', 'required' => true, 'value' => old($id_user . 'content_voortgang')])
+        @include('form.field-textarea', ['id' => $id_user . 'content_voortgang', 'tag' => __('Voortgang'), 'required' => true, 'value' => old($id_user . 'content_voortgang')])
 
         <div class="seperator"></div>
 

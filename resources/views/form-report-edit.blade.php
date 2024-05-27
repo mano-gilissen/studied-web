@@ -44,7 +44,7 @@
 
             <div class="seperator"></div>
 
-            <div class="block-note">Dit is het rapport voor <span style="font-weight: 400">{{ \App\Http\Traits\PersonTrait::getFullName($user->getPerson) }}</span></div>
+            <div class="block-note">{{ __('Dit is het rapport voor ') }}<span style="font-weight: 400">{{ \App\Http\Traits\PersonTrait::getFullName($user->getPerson) }}</span></div>
 
             <div class="seperator"></div>
 
@@ -62,11 +62,11 @@
 
         <div class="title">{{ __('Hoe verloopt de begeleiding?') }}</div>
 
-        @include('form.field-textarea', ['id' => $id_user . 'content_volgende_les', 'tag' => 'Volgende les', 'required' => true, 'value' => $report->{\App\Http\Support\Model::$REPORT_CONTENT_VOLGENDE_LES}])
+        @include('form.field-textarea', ['id' => $id_user . 'content_volgende_les', 'tag' => __('Volgende les'), 'required' => true, 'value' => $report->{\App\Http\Support\Model::$REPORT_CONTENT_VOLGENDE_LES}])
 
-        @include('form.field-textarea', ['id' => $id_user . 'content_uitdagingen', 'tag' => 'Uitdagingen', 'required' => true, 'value' => $report->{\App\Http\Support\Model::$REPORT_CONTENT_UITDAGINGEN}])
+        @include('form.field-textarea', ['id' => $id_user . 'content_uitdagingen', 'tag' => __('Uitdagingen'), 'required' => true, 'value' => $report->{\App\Http\Support\Model::$REPORT_CONTENT_UITDAGINGEN}])
 
-        @include('form.field-textarea', ['id' => $id_user . 'content_voortgang', 'tag' => 'Voortgang', 'required' => true, 'value' => $report->{\App\Http\Support\Model::$REPORT_CONTENT_VOORTGANG}])
+        @include('form.field-textarea', ['id' => $id_user . 'content_voortgang', 'tag' => __('Voortgang'), 'required' => true, 'value' => $report->{\App\Http\Support\Model::$REPORT_CONTENT_VOORTGANG}])
 
         <div class="seperator"></div>
 

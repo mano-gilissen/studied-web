@@ -46,7 +46,7 @@
 
                                 @endif
 
-                                <div>{!! \App\Http\Traits\AgreementTrait::getDescription($agreement, true) !!} @if(\App\Http\Traits\AgreementTrait::planNowTrial($agreement)) <span class="trial"> (Proefles)</span> @endif</div>
+                                <div>{!! \App\Http\Traits\AgreementTrait::getDescription($agreement, true) !!} @if(\App\Http\Traits\AgreementTrait::planNowTrial($agreement)) <span class="trial">{{ __(' (Proefles)') }}</span> @endif</div>
 
                             </div>
 
@@ -69,13 +69,13 @@
 
             @else
 
-                <div class="block-note">Deze student-docent heeft geen actieve vakafspraken op deze datum.</div>
+                <div class="block-note">{{ __('Deze student-docent heeft geen actieve vakafspraken op deze datum.') }}}</div>
 
             @endif
 
         @else
 
-            <div class="block-note">Selecteer eerst een student-docent.</div>
+            <div class="block-note">{{ __('Selecteer eerst een student-docent.') }}</div>
 
         @endif
 

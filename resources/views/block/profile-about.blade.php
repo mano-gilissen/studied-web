@@ -16,7 +16,7 @@
 
                 <div class="attribute">
 
-                    <div class="name">{{ $person->getUser->getEmployee->school_current ? 'School' : 'Functie'}}</div>
+                    <div class="name">{{ $person->getUser->getEmployee->school_current ? __('School') : __('Functie')}}</div>
 
                     <div class="value">{{ $person->getUser->getEmployee->school_current ?? \App\Http\Traits\UserTrait::getRoleName($person->getUser, true) }}</div>
 
@@ -24,7 +24,7 @@
 
                 <div class="attribute">
 
-                    <div class="name">Opleiding</div>
+                    <div class="name">{{ __('Opleiding') }}</div>
 
                     <div class="value">{{ $person->getUser->getEmployee->profile_current ? $person->getUser->getEmployee->profile_current : __('Onbekend')}}</div>
 
@@ -32,9 +32,9 @@
 
                 <div class="attribute">
 
-                    <div class="name">Werkzaam</div>
+                    <div class="name">{{ __('Werkzaam') }}</div>
 
-                    <div class="value">{{ $person->getUser->getEmployee->start_employment ? ('Sinds ' . \App\Http\Support\Format::datetime($person->getUser->getEmployee->start_employment, \App\Http\Support\Format::$DATETIME_PROFILE)) : __('Onbekend') }}</div>
+                    <div class="value">{{ $person->getUser->getEmployee->start_employment ? (__('Sinds ') . \App\Http\Support\Format::datetime($person->getUser->getEmployee->start_employment, \App\Http\Support\Format::$DATETIME_PROFILE)) : __('Onbekend') }}</div>
 
                 </div>
 
@@ -44,7 +44,7 @@
 
                 <div class="attribute">
 
-                    <div class="name">School</div>
+                    <div class="name">{{ __('School') }}</div>
 
                     <div class="value">{{ $person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_SCHOOL} ? $person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_SCHOOL} : __('Onbekend')}}</div>
 
@@ -52,7 +52,7 @@
 
                 <div class="attribute">
 
-                    <div class="name">Leerjaar</div>
+                    <div class="name">{{ __('Leerjaar') }}</div>
 
                     <div class="value">{{ \App\Http\Traits\StudentTrait::getNiveauText($person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_NIVEAU}) . ' ' . $person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_LEERJAAR} }}</div>
 
@@ -60,7 +60,7 @@
 
                 <div class="attribute">
 
-                    <div class="name">Profiel</div>
+                    <div class="name">{{ __('Profiel') }}</div>
 
                     <div class="value">{{ strlen($person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_PROFILE}) > 0 ? $person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_PROFILE} : __('Onbekend') }}</div>
 
@@ -74,7 +74,7 @@
 
                     <div class="attribute">
 
-                        <div class="name">Klant sinds</div>
+                        <div class="name">{{ __('Klant sinds') }}</div>
 
                         <div class="value">{{ \App\Http\Support\Format::datetime($person->getUser->{\App\Http\Support\Model::$USER_ACTIVATED}, \App\Http\Support\Format::$DATETIME_PROFILE) }}</div>
 
@@ -88,7 +88,7 @@
 
         <div class="attribute">
 
-            <div class="name">Status</div>
+            <div class="name">{{ __('Status') }}</div>
 
             <div class="value">
 
@@ -104,7 +104,7 @@
 
             <div class="attribute">
 
-                <div class="name">Gele punten</div>
+                <div class="name">{{ __('Gele punten') }}</div>
 
                 <div class="value">
 

@@ -8,13 +8,13 @@
 
     <div class="title">{{ __('Tijd en locatie') }}</div>
 
-    @include('form.field-input', ['id' => 'date', 'type' => 'date', 'tag' => 'Datum', 'placeholder' => 'Kies een datum', 'required' => true, 'trigger' => 'agreements', 'value' => old('date')])
+    @include('form.field-input', ['id' => 'date', 'type' => 'date', 'tag' => __('Datum'), 'placeholder' => __('Kies een datum'), 'required' => true, 'trigger' => 'agreements', 'value' => old('date')])
 
     @include('form.field-select-time')
 
-    @include('form.field-input', ['id' => 'location', 'tag' => 'Locatie', 'icon' => 'search.svg', 'placeholder' => 'Zoek een locatie', 'required' => true, 'data' => true, 'show_all' => true, 'uses_id' => true])
+    @include('form.field-input', ['id' => 'location', 'tag' => __('Locatie'), 'icon' => 'search.svg', 'placeholder' => __('Zoek een locatie'), 'required' => true, 'data' => true, 'show_all' => true, 'uses_id' => true])
 
-    @include('form.field-input', ['id' => 'link', 'tag' => 'Digitale les', 'icon' => 'url.svg', 'placeholder' => 'Plak een URL', 'value' => old('link')])
+    @include('form.field-input', ['id' => 'link', 'tag' => __('Digitale les'), 'icon' => 'url.svg', 'placeholder' => __('Plak een URL'), 'value' => old('link')])
 
     <div class="seperator"></div>
 
@@ -28,7 +28,7 @@
 
             @if(\App\Http\Support\Func::contains($key, \App\Http\Support\Model::$AGREEMENT))
 
-                <div class="block-note error" style="margin-bottom: 24px">>De vakafspraak moet op de datum van de les actief zijn.</div>
+                <div class="block-note error" style="margin-bottom: 24px">>{{ __('De vakafspraak moet op de datum van de les actief zijn.') }}</div>
 
             @endif
 
@@ -54,7 +54,7 @@
 
             @if(\App\Http\Support\Func::contains($key, \App\Http\Support\Model::$AGREEMENT))
 
-                <div class="block-note error" style="margin: 24px 0">De vakafspraak moet op de datum van de les nog actief zijn.</div>
+                <div class="block-note error" style="margin: 24px 0">{{ __('De vakafspraak moet op de datum van de les nog actief zijn.') }}</div>
 
             @endif
 

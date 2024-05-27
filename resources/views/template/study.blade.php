@@ -34,7 +34,7 @@
 
                     <div class="title">{{ $study->{\App\Http\Support\Model::$STUDY_SUBJECT_TEXT} }}</div>
 
-                    <div class="subtitle">{{ \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE) }}@if($study->{\App\Http\Support\Model::$STUDY_TRIAL})<span> - Proefles</span>@endif</div>
+                    <div class="subtitle">{{ \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE) }}@if($study->{\App\Http\Support\Model::$STUDY_TRIAL})<span> - {{ __('Proefles') }}</span>@endif</div>
 
                 </div>
 
@@ -52,7 +52,7 @@
 
                                 <img class="icon" src="/images_app/edit.svg">
 
-                                <div class="text">Bewerken</div>
+                                <div class="text">{{ __('Bewerken') }}</div>
 
                             </div>
 
@@ -72,7 +72,7 @@
 
                                     <img class="icon" src="/images_app/contact.svg">
 
-                                    <div class="text">Rapporteren</div>
+                                    <div class="text">{{ __('Rapporteren') }}</div>
 
                                 </div>
 
@@ -92,7 +92,7 @@
 
                                 <img class="icon" src="/images_app/edit.svg">
 
-                                <div class="text">Rapport wijzigen</div>
+                                <div class="text">{{ __('Rapport wijzigen') }}</div>
 
                             </div>
 
@@ -118,7 +118,7 @@
 
                                 <img class="icon" src="/images_app/edit.svg">
 
-                                <div class="text">Bewerken</div>
+                                <div class="text">{{ __('Bewerken') }}</div>
 
                             </div>
 

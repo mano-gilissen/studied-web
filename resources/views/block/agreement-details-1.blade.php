@@ -6,7 +6,7 @@
 
         <div class="attribute">
 
-            <div class="name">Vak en niveau</div>
+            <div class="name">{{ __('Vak en niveau') }}</div>
 
             <div class="value">{{ \App\Http\Traits\AgreementTrait::getVakcode($agreement) }}</div>
 
@@ -14,7 +14,7 @@
 
         <div class="attribute">
 
-            <div class="name">Geldig vanaf</div>
+            <div class="name">{{ __('Geldig vanaf') }}</div>
 
             <div class="value">{{ \App\Http\Support\Format::datetime($agreement->start, \App\Http\Support\Format::$DATETIME_SINGLE) }}</div>
 
@@ -22,7 +22,7 @@
 
         <div class="attribute">
 
-            <div class="name">Geldig tot</div>
+            <div class="name">{{ __('Geldig tot') }}</div>
 
             <div class="value">{{ \App\Http\Support\Format::datetime($agreement->end, \App\Http\Support\Format::$DATETIME_SINGLE) }}</div>
 
@@ -30,7 +30,7 @@
 
         <div class="attribute">
 
-            <div class="name">Status</div>
+            <div class="name">{{ __('Status') }}</div>
 
             <div class="value">
 

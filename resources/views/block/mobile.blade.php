@@ -4,7 +4,7 @@
 
         <img src="/images_app/logo-white.svg">
 
-        <p>Gebruik het Studied webportaal<br>door het op een desktop of laptop<br>te bezoeken!</p>
+        <p>{{ __('Gebruik het Studied webportaal<br>door het op een desktop of laptop<br>te bezoeken!') }}</p>
 
     </div>
 

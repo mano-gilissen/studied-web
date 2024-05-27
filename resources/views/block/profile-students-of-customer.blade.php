@@ -1,6 +1,6 @@
 <div class="block-users">
 
-    <div class="title">Leerlingen</div>
+    <div class="title">{{ __('Leerlingen') }}</div>
 
     <div class="list-users">
 
@@ -14,7 +14,7 @@
 
         @else
 
-            <div class="block-note">{{ $person->{\App\Http\Support\Model::$PERSON_FIRST_NAME} }} heeft geen leerlingen</div>
+            <div class="block-note">{{ $person->{\App\Http\Support\Model::$PERSON_FIRST_NAME} . __(' heeft geen leerlingen') }}</div>
 
         @endif
 

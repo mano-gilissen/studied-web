@@ -6,13 +6,13 @@
 
             <img class="button-add" src="/images_app/add-unboxed.svg" onclick="window.location.href='{{ route('evaluation.plan', ['leerling' => $person->slug]) }}'">
 
-            <div class="title">Gesprekken</div>
+            <div class="title">{{ __('Gesprekken') }}</div>
 
         </div>
 
     @else
 
-        <div class="title">Gesprekken</div>
+        <div class="title">{{ __('Gesprekken') }}</div>
 
     @endif
 
@@ -24,13 +24,13 @@
 
             <div id="headers" style="grid-template-columns: 1fr 1fr 1fr 1fr 48px">
 
-                <div class="header no_sort no_filter">Datum</div>
+                <div class="header no_sort no_filter">{{ __('Datum') }}</div>
 
-                <div class="header no_sort no_filter">Ingepland door</div>
+                <div class="header no_sort no_filter">{{ __('Ingepland door') }}</div>
 
-                <div class="header no_sort no_filter">Locatie</div>
+                <div class="header no_sort no_filter">{{ __('Locatie') }}</div>
 
-                <div class="header no_sort no_filter">Betreft</div>
+                <div class="header no_sort no_filter">{{ __('Betreft') }}</div>
 
             </div>
 
@@ -38,7 +38,7 @@
 
                 @empty($evaluations)
 
-                    <div class="no-items">{{ $person->first_name }} heeft nog geen gesprekken.</div>
+                    <div class="no-items">{{ $person->first_name . __(' heeft nog geen gesprekken.') }}</div>
 
                 @else
 
@@ -94,7 +94,7 @@
 
     @else
 
-        <div class="block-note">{{ $person->{\App\Http\Support\Model::$PERSON_FIRST_NAME} }} heeft nog geen gesprekken.</div>
+        <div class="block-note">{{ $person->{\App\Http\Support\Model::$PERSON_FIRST_NAME} . __(' heeft nog geen gesprekken.') }}</div>
 
     @endif
 

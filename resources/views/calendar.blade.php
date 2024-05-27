@@ -26,7 +26,7 @@
 
                 <div class="calendar-header">
 
-                    <div>Datum</div>
+                    <div>{{ __('Datum') }}</div>
 
                     <div>07:00</div>
 

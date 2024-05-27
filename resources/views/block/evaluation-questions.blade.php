@@ -8,9 +8,9 @@
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '4'}) > 0 ||
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '5'}) > 0)
 
-        <div class="title">Plan van Aanpak</div>
+        <div class="title">{{ __('Plan van Aanpak') }}</div>
 
-        <div class="subtitle">Goal - De doelstelling</div>
+        <div class="subtitle">{{ __('Goal - De doelstelling') }}</div>
 
         <div class="content-fold">
 
@@ -18,7 +18,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat wil je bereiken?</div>
+                    <div>{{ __('Wat wil je bereiken?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -32,7 +32,7 @@
 
                 <div class="item-title">
 
-                    <div>Hoe weet je dat het doel is bereikt?</div>
+                    <div>{{ __('Hoe weet je dat het doel is bereikt?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -46,7 +46,7 @@
 
                 <div class="item-title">
 
-                    <div>Is het doel acceptabel?</div>
+                    <div>{{ __('Is het doel acceptabel?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -60,7 +60,7 @@
 
                 <div class="item-title">
 
-                    <div>Is het doel realistisch?</div>
+                    <div>{{ __('Is het doel realistisch?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -74,7 +74,7 @@
 
                 <div class="item-title">
 
-                    <div>Wanneer wil je het doel bereiken?</div>
+                    <div>{{ __('Wanneer wil je het doel bereiken?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -97,7 +97,7 @@
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '8'}) > 0 ||
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '9'}) > 0)
 
-        <div class="subtitle">Reality - Stand van zaken</div>
+        <div class="subtitle">{{ __('Reality - Stand van zaken') }}</div>
 
         <div class="content-fold">
 
@@ -105,7 +105,7 @@
 
                 <div class="item-title">
 
-                    <div>Hoe ziet de situatie er nu uit?</div>
+                    <div>{{ __('Hoe ziet de situatie er nu uit?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -119,7 +119,7 @@
 
                 <div class="item-title">
 
-                    <div>Waarom is de situatie problematisch?</div>
+                    <div>{{ __('Waarom is de situatie problematisch?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -133,7 +133,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat is reeds ondernomen om de problemen te verhelpen? Waarom werkte dat wel of niet?</div>
+                    <div>{{ __('Wat is reeds ondernomen om de problemen te verhelpen? Waarom werkte dat wel of niet?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -147,7 +147,7 @@
 
                 <div class="item-title">
 
-                    <div>Hoe ziet de situatie eruit als de problemen niet worden opgelost?</div>
+                    <div>{{ __('Hoe ziet de situatie eruit als de problemen niet worden opgelost?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -169,7 +169,7 @@
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '11'}) > 0 ||
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '12'}) > 0)
 
-        <div class="subtitle">Options - De mogelijkheden</div>
+        <div class="subtitle">{{ __('Options - De mogelijkheden') }}</div>
 
         <div class="content-fold">
 
@@ -177,7 +177,7 @@
 
                 <div class="item-title">
 
-                    <div>Welke mogelijkheden heb je om het doel te bereiken?</div>
+                    <div>{{ __('Welke mogelijkheden heb je om het doel te bereiken?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -191,7 +191,7 @@
 
                 <div class="item-title">
 
-                    <div>Bij welke vakken kunnen we je ondersteunen om het doel te bereiken?</div>
+                    <div>{{ __('Bij welke vakken kunnen we je ondersteunen om het doel te bereiken?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -205,7 +205,7 @@
 
                 <div class="item-title">
 
-                    <div>Door middel van welke diensten kunnen we deze vakken ondersteunen om het doel te bereiken?</div>
+                    <div>{{ __('Door middel van welke diensten kunnen we deze vakken ondersteunen om het doel te bereiken?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -227,7 +227,7 @@
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '14'}) > 0 ||
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '15'}) > 0)
 
-        <div class="subtitle">Will - De acties</div>
+        <div class="subtitle">{{ __('Will - De acties') }}</div>
 
         <div class="content-fold">
 
@@ -235,7 +235,7 @@
 
                 <div class="item-title">
 
-                    <div>Welke acties ga je buiten Studied ondernemen om het doel te bereiken?</div>
+                    <div>{{ __('Welke acties ga je buiten Studied ondernemen om het doel te bereiken?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -249,7 +249,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat zijn mogelijke obstakels voor het behalen van het gewenste resultaat? Hoe kan hier rekening mee worden gehouden?</div>
+                    <div>{{ __('Wat zijn mogelijke obstakels voor het behalen van het gewenste resultaat? Hoe kan hier rekening mee worden gehouden?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -263,7 +263,7 @@
 
                 <div class="item-title">
 
-                    <div>Ons adviesplan om het doel te bereiken.</div>
+                    <div>{{ __('Ons adviesplan om het doel te bereiken.') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -285,7 +285,7 @@
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '17'}) > 0 ||
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '18'}) > 0)
 
-        <div class="title">Afspraken</div>
+        <div class="title">{{ __('Afspraken') }}</div>
 
         <div class="content-fold">
 
@@ -293,7 +293,7 @@
 
                 <div class="item-title">
 
-                    <div>Welke afspraken worden er gemaakt over de vakken, uren en looptijd?</div>
+                    <div>{{ __('Welke afspraken worden er gemaakt over de vakken, uren en looptijd?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -307,7 +307,7 @@
 
                 <div class="item-title">
 
-                    <div>Zijn er nog andere afspraken gemaakt?</div>
+                    <div>{{ __('Zijn er nog andere afspraken gemaakt?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -321,7 +321,7 @@
 
                 <div class="item-title">
 
-                    <div>Wanneer wordt de uitvoering van de afspraken geëvalueerd?</div>
+                    <div>{{ __('Wanneer wordt de uitvoering van de afspraken geëvalueerd?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -341,7 +341,7 @@
 
     @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '19'}) > 0)
 
-        <div class="title">Proefles</div>
+        <div class="title">{{ __('Proefles') }}</div>
 
         <div class="content-fold">
 
@@ -349,7 +349,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat is er afgesproken over de proefles(sen)?</div>
+                    <div>{{ __('Wat is er afgesproken over de proefles(sen)?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -372,9 +372,9 @@
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '22'}) > 0 ||
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '23'}) > 0)
 
-        <div class="title">Evaluatie</div>
+        <div class="title">{{ __('Evaluatie') }}</div>
 
-        <div class="subtitle">Bevindingen</div>
+        <div class="subtitle">{{ __('Bevindingen') }}</div>
 
         <div class="content-fold">
 
@@ -382,7 +382,7 @@
 
                 <div class="item-title">
 
-                    <div>Hoe ervaart de leerling de begeleiding voor het bereiken van het doel?</div>
+                    <div>{{ __('Hoe ervaart de leerling de begeleiding voor het bereiken van het doel?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -396,7 +396,7 @@
 
                 <div class="item-title">
 
-                    <div>Hoe ervaart de klant de begeleiding voor het bereiken van het doel?</div>
+                    <div>{{ __('Hoe ervaart de klant de begeleiding voor het bereiken van het doel?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -410,7 +410,7 @@
 
                 <div class="item-title">
 
-                    <div>Hoe ervaart de student-docent de begeleiding voor het bereiken van het doel?</div>
+                    <div>{{ __('Hoe ervaart de student-docent de begeleiding voor het bereiken van het doel?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -424,7 +424,7 @@
 
                 <div class="item-title">
 
-                    <div>Hoe kan de begeleiding worden verbeterd om het doel te behalen?</div>
+                    <div>{{ __('Hoe kan de begeleiding worden verbeterd om het doel te behalen?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -444,9 +444,9 @@
 
     @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '24'}) > 0)
 
-        <div class="title">Afgelopen en volgend schooljaar</div>
+        <div class="title">{{ __('Afgelopen en volgend schooljaar') }}</div>
 
-        <div class="subtitle">Afgelopen schooljaaar</div>
+        <div class="subtitle">{{ __('Afgelopen schooljaar') }}</div>
 
         <div class="content-fold">
 
@@ -454,7 +454,7 @@
 
                 <div class="item-title">
 
-                    <div>Hoe is het afgelopen schooljaar de scholier bevallen?</div>
+                    <div>{{ __('Hoe is het afgelopen schooljaar de scholier bevallen?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -477,7 +477,7 @@
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '27'}) > 0 ||
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '28'}) > 0)
 
-        <div class="subtitle">Begeleiding</div>
+        <div class="subtitle">{{ __('Begeleiding') }}</div>
 
         <div class="content-fold">
 
@@ -485,7 +485,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat vond je van de begeleiding dit afgelopen schooljaar?</div>
+                    <div>{{ __('Wat vond je van de begeleiding dit afgelopen schooljaar?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -499,7 +499,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat vind je een pluspunt van begeleiding bij Studied?</div>
+                    <div>{{ __('Wat vind je een pluspunt van begeleiding bij Studied?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -513,7 +513,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat vind je een minpunt van begeleiding bij Studied?</div>
+                    <div>{{ __('Wat vind je een minpunt van begeleiding bij Studied?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -527,7 +527,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat kunnen we verbeteren aan de begeleiding van Studied?</div>
+                    <div>{{ __('Wat kunnen we verbeteren aan de begeleiding van Studied?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -558,7 +558,7 @@
 
                 <div class="item-title">
 
-                    <div>Hoe vond je het gebruik van de webapp dit afgelopen schooljaar?</div>
+                    <div>{{ __('Hoe vond je het gebruik van de webapp dit afgelopen schooljaar?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -572,7 +572,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat vind je een pluspunt van de webapp?</div>
+                    <div>{{ __('Wat vind je een pluspunt van de webapp?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -586,7 +586,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat vind je een minpunt van de webapp?</div>
+                    <div>{{ __('Wat vind je een minpunt van de webapp?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -600,7 +600,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat kunnen we verbeteren aan de webapp?</div>
+                    <div>{{ __('Wat kunnen we verbeteren aan de webapp?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -622,7 +622,7 @@
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '35'}) > 0 ||
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '36'}) > 0)
 
-        <div class="subtitle">Leslocatie</div>
+        <div class="subtitle">{{ __('Leslocatie') }}</div>
 
         <div class="content-fold">
 
@@ -630,7 +630,7 @@
 
                 <div class="item-title">
 
-                    <div>Hoe vond je de locatie van de lessen dit afgelopen schooljaar?</div>
+                    <div>{{ __('Hoe vond je de locatie van de lessen dit afgelopen schooljaar?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -644,7 +644,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat vind je een pluspunt van begeleiding op deze leslocatie?</div>
+                    <div>{{ __('Wat vind je een pluspunt van begeleiding op deze leslocatie?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -658,7 +658,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat vind je een minpunt van begeleiding op deze leslocatie?</div>
+                    <div>{{ __('Wat vind je een minpunt van begeleiding op deze leslocatie?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -672,7 +672,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat kunnen we verbeteren voor begeleiding op deze leslocatie?</div>
+                    <div>{{ __('Wat kunnen we verbeteren voor begeleiding op deze leslocatie?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -692,7 +692,7 @@
     @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '37'}) > 0 ||
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '38'}) > 0)
 
-        <div class="subtitle">Volgend schooljaar</div>
+        <div class="subtitle">{{ __('Volgend schooljaar') }}</div>
 
         <div class="content-fold">
 
@@ -700,7 +700,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat gaat de scholier volgend schooljaar doen?</div>
+                    <div>{{ __('Wat gaat de scholier volgend schooljaar doen?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -714,7 +714,7 @@
 
                 <div class="item-title">
 
-                    <div>Wil de scholier volgend schooljaar weer begeleiding bij Studied?</div>
+                    <div>{{ __('Wil de scholier volgend schooljaar weer begeleiding bij Studied?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -736,9 +736,9 @@
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '41'}) > 0 ||
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '42'}) > 0)
 
-        <div class="title">Einde begeleiding</div>
+        <div class="title">{{ __('Einde begeleiding') }}</div>
 
-        <div class="subtitle">Exit</div>
+        <div class="subtitle">{{ __('Exit') }}</div>
 
         <div class="content-fold">
 
@@ -746,7 +746,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat vond je fijn aan begeleiding bij Studied?</div>
+                    <div>{{ __('Wat vond je fijn aan begeleiding bij Studied?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -760,7 +760,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat kunnen we verbeteren bij Studied?</div>
+                    <div>{{ __('Wat kunnen we verbeteren bij Studied?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -774,7 +774,7 @@
 
                 <div class="item-title">
 
-                    <div>Per wanneer ga je weg?</div>
+                    <div>{{ __('Per wanneer ga je weg?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -788,7 +788,7 @@
 
                 <div class="item-title">
 
-                    <div>Waarom ga je weg?</div>
+                    <div>{{ __('Waarom ga je weg?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -810,7 +810,7 @@
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '45'}) > 0 ||
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '46'}) > 0)
 
-        <div class="subtitle">Begeleiding</div>
+        <div class="subtitle">{{ __('Begeleiding') }}</div>
 
         <div class="content-fold">
 
@@ -818,7 +818,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat vond je van de begeleiding?</div>
+                    <div>{{ __('Wat vond je van de begeleiding?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -832,7 +832,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat vind je een pluspunt van begeleiding bij Studied?</div>
+                    <div>{{ __('Wat vind je een pluspunt van begeleiding bij Studied?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -846,7 +846,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat vind je een minpunt van begeleiding bij Studied?</div>
+                    <div>{{ __('Wat vind je een minpunt van begeleiding bij Studied?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -860,7 +860,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat kunnen we verbeteren qua begeleiding bij Studied?</div>
+                    <div>{{ __('Wat kunnen we verbeteren qua begeleiding bij Studied?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -882,7 +882,7 @@
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '49'}) > 0 ||
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '50'}) > 0)
 
-        <div class="subtitle">Webapp</div>
+        <div class="subtitle">{{ __('Webapp') }}</div>
 
         <div class="content-fold">
 
@@ -890,7 +890,7 @@
 
                 <div class="item-title">
 
-                    <div>Hoe vond je het gebruik van de webapp?</div>
+                    <div>{{ __('Hoe vond je het gebruik van de webapp?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -904,7 +904,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat vind je een pluspunt van de webapp?</div>
+                    <div>{{ __('Wat vind je een pluspunt van de webapp?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -918,7 +918,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat vind je een minpunt van de webapp?</div>
+                    <div>{{ __('Wat vind je een minpunt van de webapp?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -932,7 +932,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat kunnen we verbeteren aan de webapp?</div>
+                    <div>{{ __('Wat kunnen we verbeteren aan de webapp?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -954,7 +954,7 @@
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '53'}) > 0 ||
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '54'}) > 0)
 
-        <div class="subtitle">Leslocatie</div>
+        <div class="subtitle">{{ __('Leslocatie') }}</div>
 
         <div class="content-fold">
 
@@ -962,7 +962,7 @@
 
                 <div class="item-title">
 
-                    <div>Hoe vond je begeleiding op de leslocatie?</div>
+                    <div>{{ __('Hoe vond je begeleiding op de leslocatie?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -976,7 +976,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat vind je een pluspunt van begeleiding op de leslocatie?</div>
+                    <div>{{ __('Wat vind je een pluspunt van begeleiding op de leslocatie?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -990,7 +990,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat vind je een minpunt van begeleiding op de leslocatie?</div>
+                    <div>{{ __('Wat vind je een minpunt van begeleiding op de leslocatie?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -1004,7 +1004,7 @@
 
                 <div class="item-title">
 
-                    <div>Wat kunnen we verbeteren voor begeleiding op de leslocatie?</div>
+                    <div>{{ __('Wat kunnen we verbeteren voor begeleiding op de leslocatie?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 
@@ -1024,7 +1024,7 @@
     @if(strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '55'}) > 0 ||
         strlen($evaluation->{\App\Http\Support\Model::$EVALUATION_QUESTION . '56'}) > 0)
 
-        <div class="subtitle">Overig</div>
+        <div class="subtitle">{{ __('Overig') }}</div>
 
         <div class="content-fold">
 
@@ -1034,7 +1034,7 @@
 
                     <div class="item-title">
 
-                        <div>Heb je nog andere suggesties voor Studied?</div>
+                        <div>{{ __('Heb je nog andere suggesties voor Studied?') }}</div>
 
                         <img src="/images_app/chevron-down.svg">
 
@@ -1050,7 +1050,7 @@
 
                 <div class="item-title">
 
-                    <div>Overige vragen of opmerkingen?</div>
+                    <div>{{ __('Overige vragen of opmerkingen?') }}</div>
 
                     <img src="/images_app/chevron-down.svg">
 

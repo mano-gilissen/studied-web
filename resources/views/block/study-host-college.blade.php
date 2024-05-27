@@ -1,6 +1,6 @@
 <div class="block-users">
 
-    <div class="title">Spreker</div>
+    <div class="title">{{ __('Spreker') }}</div>
 
     @include('block.person', ['person' => $study->getHost->getPerson, 'size' => 'large'])
 

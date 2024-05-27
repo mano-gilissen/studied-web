@@ -1,6 +1,6 @@
 <div class="block-attributes">
 
-    <div class="title">Rapportage</div>
+    <div class="title">{{ __('Rapportage') }}</div>
 
     @if(\App\Http\Traits\StudyTrait::hasGroupReporting($study))
 
@@ -50,7 +50,7 @@
 
             @if(\App\Http\Traits\StudyTrait::isTrial($study) && !($report->{\App\Http\Support\Model::$REPORT_TRIAL_SUCCESS}))
 
-                <div class="block-note error small">Deze proefles was geen succes. Dat betekent dat de vakafspraak die hierbij hoort afgesloten is en niet gebruikt gaat worden.</div>
+                <div class="block-note error small">{{ __('Deze proefles was geen succes. Dat betekent dat de vakafspraak die hierbij hoort afgesloten is en niet gebruikt gaat worden.') }}</div>
 
             @endif
 
@@ -85,7 +85,7 @@
 
                     <div class="item-title">
 
-                        <div>Voortgang</div>
+                        <div>{{ __('Voortgang') }}</div>
 
                         <img src="/images_app/chevron-down.svg">
 
@@ -101,7 +101,7 @@
 
                     <div class="item-title">
 
-                        <div>Volgende les</div>
+                        <div>{{ __('Volgende les') }}</div>
 
                         <img src="/images_app/chevron-down.svg">
 
@@ -117,7 +117,7 @@
 
                     <div class="item-title">
 
-                        <div>Uitdagingen</div>
+                        <div>{{ __('Uitdagingen') }}</div>
 
                         <img src="/images_app/chevron-down.svg">
 

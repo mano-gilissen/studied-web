@@ -1,12 +1,12 @@
 <div class="block-attributes">
 
-    <div class="title">Gegevens</div>
+    <div class="title">{{ __('Gegevens') }}</div>
 
     <div class="list-attributes">
 
         <div class="attribute">
 
-            <div class="name">Datum</div>
+            <div class="name">{{ __('Datum') }}</div>
 
             <div class="value">{{ \App\Http\Support\Format::datetime($evaluation->datetime, \App\Http\Support\Format::$DATETIME_SINGLE) }}</div>
 
@@ -14,7 +14,7 @@
 
         <div class="attribute">
 
-            <div class="name">Tijdstip</div>
+            <div class="name">{{ __('Tijdstip') }}</div>
 
             <div class="value">{{ \App\Http\Support\Format::datetime($evaluation->datetime, \App\Http\Support\Format::$TIME_SINGLE) }}</div>
 
@@ -22,7 +22,7 @@
 
         <div class="attribute">
 
-            <div class="name">Status</div>
+            <div class="name">{{ __('Status') }}</div>
 
             <div class="value">
 

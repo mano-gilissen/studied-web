@@ -1,6 +1,6 @@
 <div class="block-users">
 
-    <div class="title">Deelnemers</div>
+    <div class="title">{{ __('Deelnemers') }}</div>
 
     <div class="list-users">
 

@@ -1,6 +1,6 @@
 <div class="block-users">
 
-    <div class="title">Deelnemers ({{\App\Http\Traits\StudyTrait::countParticipants($study)}})</div>
+    <div class="title">{{ __('Deelnemers') }} ({{\App\Http\Traits\StudyTrait::countParticipants($study)}})</div>
 
     <div class="list-users grid">
 

@@ -24,7 +24,7 @@
 
                 <img src="/images_app/agreement.jpg">
 
-                <div class="title">Vakafspraak</div>
+                <div class="title">{{ __('Vakafspraak') }}</div>
 
                 <div class="subtitle">{{ $agreement->getService->{\App\Http\Support\Model::$SERVICE_SHORT} . " " . $agreement->getSubject->{\App\Http\Support\Model::$SUBJECT_NAME} }}</div>
 
@@ -44,7 +44,7 @@
 
                                 <img class="icon" src="/images_app/edit.svg">
 
-                                <div class="text">Afhandelen</div>
+                                <div class="text">{{ __('Afhandelen') }}</div>
 
                             </div>
 
@@ -54,7 +54,7 @@
 
                             <img class="icon" src="/images_app/edit.svg">
 
-                            <div class="text">Bewerken</div>
+                            <div class="text">{{ __('Bewerken') }}</div>
 
                         </div>
 
@@ -76,7 +76,7 @@
 
                         <div class="block-users">
 
-                            <div class="title">Student-docent</div>
+                            <div class="title">{{ __('Student-docent') }}</div>
 
                             <div class="list-users">
 
@@ -94,7 +94,7 @@
 
                         <div class="block-users">
 
-                            <div class="title">Leerling</div>
+                            <div class="title">{{ __('Leerling') }}</div>
 
                             <div class="list-users">
 

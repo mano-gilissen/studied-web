@@ -59,7 +59,7 @@
 
                     @if(\App\Http\Traits\BaseTrait::hasManagementRights(Auth::user()))
 
-                        @include('form.box-input', ['id' => 'input-filter-search', 'placeholder' => 'Zoeken..', 'icon' => 'search.svg', 'style_outer' => 'margin: -10px 0 0 32px'])
+                        @include('form.box-input', ['id' => 'input-filter-search', 'placeholder' => __('Zoeken..'), 'icon' => 'search.svg', 'style_outer' => 'margin: -10px 0 0 32px'])
 
                     @endif
 

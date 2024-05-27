@@ -48,7 +48,7 @@
 
     @empty($items)
 
-        <div class="no-items">Er zijn geen resultaten gevonden.</div>
+        <div class="no-items">{{ __('Er zijn geen resultaten gevonden.') }}</div>
 
     @else
 

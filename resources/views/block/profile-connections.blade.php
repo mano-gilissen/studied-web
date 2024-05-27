@@ -1,6 +1,6 @@
 <div class="block-users">
 
-    <div class="title">Connecties</div>
+    <div class="title">{{ __('Connecties') }}</div>
 
     <div class="list-users">
 
@@ -16,7 +16,7 @@
 
                 @foreach($person->getUser->getEmployees as $employee)
 
-                    @include('block.person', ['person' => $employee->getPerson, 'subtitle' => 'Student-docent'])
+                    @include('block.person', ['person' => $employee->getPerson, 'subtitle' => __('Student-docent')])
 
                 @endforeach
 

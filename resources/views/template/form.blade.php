@@ -44,7 +44,7 @@
 
                 @if($errors->any())
 
-                    <div class="block-note error">Vul de juiste gegevens in en probeer het opnieuw.</div>
+                    <div class="block-note error">{{ __('Vul de juiste gegevens in en probeer het opnieuw.') }}</div>
 
                     <div class="seperator"></div>
 
