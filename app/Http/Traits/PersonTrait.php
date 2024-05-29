@@ -180,10 +180,10 @@ trait PersonTrait {
 
                 case RoleTrait::$ID_ADMINISTRATOR:
                 case RoleTrait::$ID_BOARD:
-                    return strlen($person->getUser->getEmployee->{Model::$EMPLOYEE_PROFILE_TEXT}) > 0 ? $person->getUser->getEmployee->{Model::$EMPLOYEE_PROFILE_TEXT} : __('Hoi Ik ben :first_name en ik zit bij het bestuur van Studied.', ['first_name' => $person->{Model::$PERSON_FIRST_NAME}]);
+                    return strlen($person->getUser->getEmployee->{Model::$EMPLOYEE_PROFILE_TEXT}) > 0 ? __($person->getUser->getEmployee->{Model::$EMPLOYEE_PROFILE_TEXT}) : __('Hoi Ik ben :first_name en ik zit bij het bestuur van Studied.', ['first_name' => $person->{Model::$PERSON_FIRST_NAME}]);
 
                 case RoleTrait::$ID_MANAGEMENT:
-                    return strlen($person->getUser->getEmployee->{Model::$EMPLOYEE_PROFILE_TEXT}) > 0 ? $person->getUser->getEmployee->{Model::$EMPLOYEE_PROFILE_TEXT} : __('Hoi Ik ben :first_name en ik werk bij Studied als managing-student.', ['first_name' => $person->{Model::$PERSON_FIRST_NAME}]);
+                    return strlen($person->getUser->getEmployee->{Model::$EMPLOYEE_PROFILE_TEXT}) > 0 ? __($person->getUser->getEmployee->{Model::$EMPLOYEE_PROFILE_TEXT}) : __('Hoi Ik ben :first_name en ik werk bij Studied als managing-student.', ['first_name' => $person->{Model::$PERSON_FIRST_NAME}]);
 
                 case RoleTrait::$ID_EMPLOYEE:
                     return __('Hoi! Ik ben :first_name en ik studeer :current_study.', ['first_name' => $person->{Model::$PERSON_FIRST_NAME}, 'current_study' => $person->getUser->getEmployee->{Model::$EMPLOYEE_PROFILE_CURRENT}]);
