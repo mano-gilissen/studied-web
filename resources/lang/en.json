@@ -515,6 +515,6 @@
     "Hoi! Ik ben :first_name en ik studeer :current_study." : "Hi! I'm :first_name and I study :current_study.",
     "Hoi! Ik ben :first_name en ik zit op :niveau_text :leerjaar:school" : "Hi! I'm :first_name and I'm in :niveau_text :leerjaar:school",
     "Hoi! Ik ben :first_name en ik ben de ouder/verzorger van :students_text." : "Hi! I'm :first_name and I'm the parent/guardian of :students_text.",
-    "Hoi! Ik ben een ouder/verzorger en mijn kinderen hebben hopelijk snel begeleiding bij Studied!" : "Hi! I'm a parent/guardian and I hope my children will soon receive guidance from Studied!",
+    "Hoi! Ik ben een ouder/verzorger en mijn kinderen hebben hopelijk snel begeleiding bij Studied!" : "Hi! I'm a parent/guardian and I hope my children will soon receive guidance from Studied!"
 
 }
