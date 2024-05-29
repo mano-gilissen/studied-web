@@ -4,7 +4,7 @@
 
 @section('actions')
 
-    {{ Illuminate\Support\Facades\App::getLocale()); }}
+    {{ Illuminate\Support\Facades\App::getLocale() }}
 
     @switch(Auth::user()->role)
 
