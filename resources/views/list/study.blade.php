@@ -4,6 +4,8 @@
 
 @section('actions')
 
+    @php App::getLocale() @endphp
+
     @switch(Auth::user()->role)
 
         @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
