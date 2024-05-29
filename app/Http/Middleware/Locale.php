@@ -30,9 +30,6 @@ class Locale {
 
         App::setLocale(self::getActive());
 
-        dd(self::getActive());
-        dd(App::getLocale());
-
         ini_set( 'date.timezone', 'Europe/Amsterdam');
 
         date_default_timezone_set('Europe/Amsterdam');
@@ -43,6 +40,8 @@ class Locale {
 
 
     public static function getActive() {
+
+        dd(Auth::user()->{Model::$USER_LANGUAGE});
 
         return Auth::check() ? Auth::user()->{Model::$USER_LANGUAGE} : self::LOCALE_NL;
 
