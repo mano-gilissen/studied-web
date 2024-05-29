@@ -41,6 +41,8 @@ class Locale {
 
     public static function getActive() {
 
+        dd(Auth::user()->{Model::$USER_LANGUAGE});
+
         return Auth::check() ? Auth::user()->{Model::$USER_LANGUAGE} : self::LOCALE_NL;
 
     }
