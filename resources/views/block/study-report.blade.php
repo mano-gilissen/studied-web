@@ -61,7 +61,7 @@
 
                     <div class="subject">
 
-                        <div class="name">{{ $report_subject->getAgreement ? \App\Http\Traits\AgreementTrait::getVakcode($report_subject->getAgreement) : $report_subject->getSubject->{ \App\Http\Support\Model::$SUBJECT_NAME} }}</div>
+                        <div class="name">{{ __($report_subject->getAgreement ? \App\Http\Traits\AgreementTrait::getVakcode($report_subject->getAgreement) : $report_subject->getSubject->{ \App\Http\Support\Model::$SUBJECT_NAME}) }}</div>
 
                         <div class="bar-wrap">
 
