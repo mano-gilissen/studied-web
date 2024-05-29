@@ -4,8 +4,6 @@
 
 @section('actions')
 
-    {{ Illuminate\Support\Facades\App::getLocale() }}
-
     @switch(Auth::user()->role)
 
         @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
