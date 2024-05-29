@@ -704,18 +704,18 @@ button:focus {
     bottom: 24px;
     right: 64px;
     height: 40px;
-    width: 112px;
+    width: 160px;
     display: flex;
     align-items: center;
     background: #000000;
     border-radius: 12px;
-    padding: 0 16px;
+    padding: 0 8px 0 16px;
     z-index: 100;
     cursor: pointer;
 }
 
 .language-select .flag {
-    width: 24px;
+    width: 20px;
     margin-right: 8px;
 }
 
@@ -724,18 +724,29 @@ button:focus {
     color: white;
 }
 
+.language-select .chevron {
+    width: 24px;
+    margin-left: 16px;
+}
+
 .language-select .options {
     display: none;
     position: absolute;
-    margin-top: -100px;
+    margin-top: -144px;
+    margin-left: -16px;
 }
 
 .language-select .option {
     height: 30px;
+    width: 160px;
     background: #E6E6E6;
-    border-bottom: 1px solid #888888;
-    padding: 10px 16px;
+    border-bottom: 1px solid #CCCCCC;
+    padding: 10px 24px 0px 16px;
     cursor: pointer;
+}
+
+.language-select .option:hover {
+    background: #CCCCCC;
 }
 
 .language-select .option:first-child {
