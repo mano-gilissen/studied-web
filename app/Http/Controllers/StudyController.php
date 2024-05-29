@@ -1020,7 +1020,7 @@ class StudyController extends Controller {
 
         array_push($counters, (object) [
             Table::COUNTER_ID                               => 'counter-total',
-            Table::COUNTER_LABEL                            => 'Totaal',
+            Table::COUNTER_LABEL                            => __('Totaal'),
             Table::COUNTER_VALUE                            => $query
                 ->select('study.*')
                 ->get()
@@ -1033,7 +1033,7 @@ class StudyController extends Controller {
     public function list_counters_load_hours($query, &$counters) {
 
         array_push($counters, (object) [
-            Table::COUNTER_LABEL                            => 'Uren',
+            Table::COUNTER_LABEL                            => __('Uren'),
             Table::COUNTER_VALUE                            => (float) array_sum($query
                 ->selectRaw('TIMESTAMPDIFF(minute, start, end) as time')
                 ->pluck('time')
@@ -1046,7 +1046,7 @@ class StudyController extends Controller {
     public function list_counters_load_employees($query, &$counters) {
 
         array_push($counters, (object) [
-            Table::COUNTER_LABEL                            => 'Medewerkers',
+            Table::COUNTER_LABEL                            => __('Medewerkers'),
             Table::COUNTER_VALUE                            => count(array_unique($query
                 ->with('getHost_User')
                 ->get()
