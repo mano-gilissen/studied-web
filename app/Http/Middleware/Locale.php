@@ -30,6 +30,8 @@ class Locale {
 
         App::setLocale(self::getActive());
 
+        dd(App::getLocale());
+
         ini_set( 'date.timezone', 'Europe/Amsterdam');
 
         date_default_timezone_set('Europe/Amsterdam');
