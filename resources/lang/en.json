@@ -578,7 +578,6 @@
     "Adviesrapport" : "Advisory Report",
     "Bespreking na les" :  "Meeting",
     "Tijdelijk oplossing voor niet facturabele tijd" : "Temporary solution to non-invoicable hours",
-    "Verzuimd" :  "Absent",
     "Alle onderwerpen van de LVS-toetsen" : "All subjects of LVS-tests",
     "Adviseren" :  "Advise",
     "Koreaans" : "Korean",
@@ -586,5 +585,10 @@
     "Privaatrecht 2" : "Private Law",
     "Publiekrecht 2" :  "Public Law",
     "Denken en Doen II" : "Thinking",
-    "Verteer en Verweer I" :  "Digest"
+    "Verteer en Verweer I" :  "Digest",
+    "Bijles" : "Tutoring",
+    "Taalles" :  "Language Lessons",
+    "Taalcursus" : "Language Course",
+    "Coaching" :  "Coaching"
+
 }

@@ -46,7 +46,7 @@
 
                 <div class="name">{{ __('Referentie') }}</div>
 
-                <div class="value">{{ $person->{\App\Http\Support\Model::$PERSON_REFER} ? $person->{\App\Http\Support\Model::$PERSON_REFER} : __('Onbekend') }}</div>
+                <div class="value">{{ __($person->{\App\Http\Support\Model::$PERSON_REFER}) ? $person->{\App\Http\Support\Model::$PERSON_REFER} : __('Onbekend') }}</div>
 
             </div>
 
