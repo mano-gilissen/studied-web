@@ -737,11 +737,11 @@ button:focus {
 }
 
 .language-select .option {
-    height: 30px;
+    height: 40px;
     width: 160px;
     background: #E6E6E6;
     border-bottom: 1px solid #CCCCCC;
-    padding: 10px 24px 0px 16px;
+    padding: 10px 0 0 16px;
     cursor: pointer;
 }
 
