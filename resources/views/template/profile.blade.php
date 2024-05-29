@@ -64,7 +64,7 @@
 
                 <div class="name">{{ \App\Http\Traits\PersonTrait::getFullName($person) }}</div>
 
-                <div class="role">{{ \App\Http\Traits\UserTrait::getRoleName($person->getUser, true) }}</div>
+                <div class="role">{{ __(\App\Http\Traits\UserTrait::getRoleName($person->getUser, true)) }}</div>
 
             </div>
 

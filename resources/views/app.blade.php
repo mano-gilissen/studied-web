@@ -37,7 +37,7 @@
 
 
 
-    <link href="{{ asset('css/app_100823.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app_290524.css') }}" rel="stylesheet">
     @yield('css')
     <link href="{{ asset('css/mobile_100823.css') }}" rel="stylesheet">
 

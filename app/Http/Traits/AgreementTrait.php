@@ -275,7 +275,7 @@ trait AgreementTrait {
 
     public static function getDescription($agreement, $for_host = false) {
 
-        return $agreement->getService->{Model::$SERVICE_SHORT} . " " . $agreement->getSubject->{Model::$SUBJECT_NAME} . ' ' . __('met') . ' <span style="font-weight: 600">'
+        return __($agreement->getService->{Model::$SERVICE_SHORT}) . " " . __($agreement->getSubject->{Model::$SUBJECT_NAME}) . ' ' . __('met') . ' <span style="font-weight: 600">'
             . ($for_host ? $agreement->getStudent->getPerson->{Model::$PERSON_FIRST_NAME} : $agreement->getEmployee->getPerson->{Model::$PERSON_FIRST_NAME})
             . '</span>,<br> ' . __('actief tot') . ' ' . Format::datetime($agreement->{Model::$AGREEMENT_END}, Format::$DATETIME_AGREEMENT) . '.';
     }

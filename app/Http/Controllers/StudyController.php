@@ -77,7 +77,7 @@ class StudyController extends Controller {
 
         return view(Views::STUDY, [
 
-            Key::PAGE_TITLE                                                 => $study->getService->{Model::$SERVICE_SHORT},
+            Key::PAGE_TITLE                                                 => __($study->getService->{Model::$SERVICE_SHORT}),
             Key::PAGE_BACK                                                  => true,
 
             Model::$STUDY                                                   => $study
@@ -235,7 +235,7 @@ class StudyController extends Controller {
 
             if ($address) {
 
-                $ac_data[$address->{Model::$BASE_ID}]                       = __('Thuis bij :name', ['count' => PersonTrait::getFullName($student->getPerson)]);
+                $ac_data[$address->{Model::$BASE_ID}]                       = __('Thuis bij :name', ['name' => PersonTrait::getFullName($student->getPerson)]);
 
             }
         }

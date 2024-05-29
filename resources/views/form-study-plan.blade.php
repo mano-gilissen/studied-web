@@ -42,7 +42,7 @@
 
         <div class="title">{{ __('Medewerker') }}</div>
 
-        @include('form.field-input', ['id' => 'host', 'tag' => 'Student-docent', 'icon' => 'search.svg', 'placeholder' => 'Zoek een medewerker', 'required' => true, 'data' => true, 'additional' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true, 'trigger' => 'agreements'])
+        @include('form.field-input', ['id' => 'host', 'tag' => __('Student-docent'), 'icon' => 'search.svg', 'placeholder' => __('Zoek een medewerker'), 'required' => true, 'data' => true, 'additional' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true, 'trigger' => 'agreements'])
 
         <div class="seperator"></div>
 
@@ -70,7 +70,7 @@
 
     <div class="title">{{ __('Details') }}</div>
 
-    @include('form.field-input', ['id' => 'remark', 'tag' => 'Opmerking', 'value' => old('remark')])
+    @include('form.field-input', ['id' => 'remark', 'tag' => __('Opmerking'), 'value' => old('remark')])
 
 
 

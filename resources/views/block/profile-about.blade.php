@@ -1,6 +1,6 @@
 <div class="block-attributes">
 
-    <div class="title">Over {{ $person->first_name }}</div>
+    <div class="title">{{ __('Over') . ' ' . $person->first_name }}</div>
 
     <div class="list-attributes">
 
@@ -54,7 +54,7 @@
 
                     <div class="name">{{ __('Leerjaar') }}</div>
 
-                    <div class="value">{{ \App\Http\Traits\StudentTrait::getNiveauText($person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_NIVEAU}) . ' ' . $person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_LEERJAAR} }}</div>
+                    <div class="value">{{ \App\Http\Traits\StudentTrait::getNiveauText($person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_NIVEAU}) . ' ' . __($person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_LEERJAAR}) }}</div>
 
                 </div>
 
@@ -62,7 +62,7 @@
 
                     <div class="name">{{ __('Profiel') }}</div>
 
-                    <div class="value">{{ strlen($person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_PROFILE}) > 0 ? $person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_PROFILE} : __('Onbekend') }}</div>
+                    <div class="value">{{ __(strlen($person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_PROFILE}) > 0 ? $person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_PROFILE} : 'Onbekend') }}</div>
 
                 </div>
 

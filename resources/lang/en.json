@@ -144,7 +144,7 @@
     "Gebruik het Studied webportaal<br>door het op een desktop of laptop<br>te bezoeken!" : "Use the Studied webportal<br>by visiting it on a desktop or laptop!",
     "Gebruik maximaal 1000 karakters." : "Use a maximum of 1000 characters.",
     "Gebruik maximaal :max karakters." : "Use a maximum of :max characters.",
-    "Gebruiker verwijderen" : "Delete user.",
+    "Gebruiker verwijderen" : "Delete user",
     "Gebruiker" : "User",
     "Geen actief" : "None active",
     "Geen adres bekend" : "No address known.",
@@ -176,7 +176,7 @@
     "Heb je nog andere suggesties voor Studied?" : "Do you have any other suggestions for Studied?",
     "heeft geen actieve vakafspraken." : "has no active subject agreements.",
     "heeft geen leerlingen" : "has no students.",
-    "Herstuur mail activeren" : "Activate resend mail",
+    "Herstuur mail activeren" : "Resend activation mail",
     "Het is belangrijk om goed aan te geven of de proefles een succes was of niet. Dit bepaalt namelijk of de vakafspraak definitief is en of de leerling les van jou blijft krijgen in dit vak. Contacteer de managing-student voordat je het rapport instuurt als je het niet zeker weet." : "It is important to clearly indicate whether the trial lesson was a success or not. This determines whether the subject agreement is final and whether the student will continue to receive lessons from you for this subject. If you are unsure, contact the managing-student before submitting the report.",
     "Het wachtwoord komt niet overeen, probeer het opnieuw." : "The password does not match, please try again.",
     "Het wachtwoord moet uit minimaal 8 characters bestaan." : "The password must consist of at least 8 characters.",
@@ -366,7 +366,7 @@
     "Selecteer eerst een student-docent." : "First select a student-tutor.",
     "Selecteer eerst het exacte start en eind tijdstip bovenaan." : "First select the exact start and end time at the top.",
     "Selecteer.." : "Select..",
-    "Sinds " : "Since",
+    "Sinds " : "Since ",
     "Sint-Maartens College" : "Sint Maartens College",
     "Spreker" : "Speaker",
     "Stad" : "City",
@@ -431,7 +431,7 @@
     "Verlenging" : "Extension",
     "Verlopen" : "Expired",
     "Vervangt (optioneel)" : "Replaces (optional)",
-    "Verwijderen" : "To delete",
+    "Verwijderen" : "Delete",
     "Verzuimd" : "Neglected",
     "Vmbo-bb" : "Vmbo-bb",
     "Vmbo-gl" : "Vmbo-gl",
@@ -508,5 +508,6 @@
     "Zoek een student" : "Find a student",
     "Zoek een student-docent" : "Find a student-tutor",
     "Zoeken.." : "Searching..",
-    "ZWE" : "ZWE"
+    "ZWE" : "ZWE",
+    "Over" : "About"
 }

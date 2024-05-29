@@ -233,7 +233,7 @@ class AgreementController extends Controller {
 
     public function list_title() {
 
-        return 'Vakafspraken';
+        return __('Vakafspraken');
 
     }
 
@@ -320,7 +320,7 @@ class AgreementController extends Controller {
 
             case self::$COLUMN_SERVICE:
 
-                return $agreement->getService->{Model::$SERVICE_SHORT};
+                return __($agreement->getService->{Model::$SERVICE_SHORT});
 
             case self::$COLUMN_PLAN:
 

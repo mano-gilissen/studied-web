@@ -56,7 +56,7 @@
 
                                 @endif
 
-                                <div>{!! \App\Http\Traits\AgreementTrait::getDescription($agreement, $forHost) !!} @if(\App\Http\Traits\AgreementTrait::getStatus($agreement) == \App\Http\Traits\AgreementTrait::$STATUS_EXPIRED) <span class="expired"> (Verlopen)</span> @elseif($agreement->{\App\Http\Support\Model::$AGREEMENT_STATUS} == \App\Http\Traits\AgreementTrait::$STATUS_UNAPPROVED || $agreement->{\App\Http\Support\Model::$AGREEMENT_STATUS} == \App\Http\Traits\AgreementTrait::$STATUS_TRIAL) <span class="trial">{{ __(' (Proefles)') }}</span> @endif</div>
+                                <div>{!! \App\Http\Traits\AgreementTrait::getDescription($agreement, $forHost) !!} @if(\App\Http\Traits\AgreementTrait::getStatus($agreement) == \App\Http\Traits\AgreementTrait::$STATUS_EXPIRED) <span class="expired"> ({{ __('Verlopen') }})</span> @elseif($agreement->{\App\Http\Support\Model::$AGREEMENT_STATUS} == \App\Http\Traits\AgreementTrait::$STATUS_UNAPPROVED || $agreement->{\App\Http\Support\Model::$AGREEMENT_STATUS} == \App\Http\Traits\AgreementTrait::$STATUS_TRIAL) <span class="trial">{{ __(' (Proefles)') }}</span> @endif</div>
 
                             </div>
 
@@ -66,7 +66,7 @@
 
                 @else
 
-                    <div class="block-note">{{ $person->{\App\Http\Support\Model::$PERSON_FIRST_NAME} . __(' heeft geen actieve vakafspraken.') }}</div>
+                    <div class="block-note">{{ $person->{\App\Http\Support\Model::$PERSON_FIRST_NAME} . ' ' . __('heeft geen actieve vakafspraken.') }}</div>
 
                 @endif
 

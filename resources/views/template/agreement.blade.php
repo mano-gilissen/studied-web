@@ -26,7 +26,7 @@
 
                 <div class="title">{{ __('Vakafspraak') }}</div>
 
-                <div class="subtitle">{{ $agreement->getService->{\App\Http\Support\Model::$SERVICE_SHORT} . " " . $agreement->getSubject->{\App\Http\Support\Model::$SUBJECT_NAME} }}</div>
+                <div class="subtitle">{{ __($agreement->getService->{\App\Http\Support\Model::$SERVICE_SHORT}) . " " . __($agreement->getSubject->{\App\Http\Support\Model::$SUBJECT_NAME}) }}</div>
 
             </div>
 
