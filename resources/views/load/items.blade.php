@@ -6,7 +6,7 @@
 
             <div class="attribute">
 
-                <div>@if($column->html){!! $item->{$column->id} !!}@else{{ $item->{$column->id} }}@endif</div>
+                <div>@if($column->html){!! __($item->{$column->id}) !!}@else{{ __($item->{$column->id}) }}@endif</div>
 
             </div>
 
