@@ -22,7 +22,7 @@ function translateEn(value) {
         case "": return "";
         case "Vakafspraak bekijken": return "View agreement";
         case "Profiel bekijken": return "View profile";
-        case "View profile of ": return "Profile of ";
+        case "Profiel van ": return "View profile of ";
         case " bekijken": return "";
         case "Sorteren": return "Sort";
         case "Filteren": return "Filter";
