@@ -212,6 +212,12 @@ class PersonController extends Controller {
         $user                                                       = User::findOrFail($request->{Model::$USER});
         $person                                                     = $user->getPerson;
 
+        if ($user->{Model::$BASE_ID} != Auth::id() && !BaseTrait::hasBoardRights()) {
+
+            abort(403);
+
+        }
+
         $image_parts                                                = explode(";base64,", $request->image);
         $image_base64                                               = base64_decode($image_parts[1]);
         $file_name                                                  = "avatar_" . $user->{Model::$BASE_ID} . "_" . time() . ".png";

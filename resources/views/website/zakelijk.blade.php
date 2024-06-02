@@ -1757,8 +1757,8 @@
         <div class="footer-col">
             <p class="footer-tag">Hoofdkantoor</p>
             <div class="footer-innercol">
-                <p class="footer-p">Capucijnenstraat 21-C03</p>
-                <p class="footer-p">6211RN, Maastricht</p>
+                <p class="footer-p">Stationsstraat 19 B02</p>
+                <p class="footer-p">6221BN, Maastricht</p>
                 <a href="mailto:info@studied.nl" class="footer-link">info@studied.nl</a>
                 <a href="tel:+31(6)13654615" class="footer-link">+31 (6) 13 65 46 15</a>
             </div>

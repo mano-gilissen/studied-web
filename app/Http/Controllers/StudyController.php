@@ -1229,7 +1229,6 @@ class StudyController extends Controller {
                         0,
                         0,
                         0,
-                        0,
                         0
                     ];
                 }

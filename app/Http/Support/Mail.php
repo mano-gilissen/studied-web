@@ -21,6 +21,7 @@ use App\Http\Mail\User_Activate_Customer;
 use App\Http\Mail\User_Activate_Customer_NoStudy;
 use App\Http\Mail\User_Activate_Employee;
 use App\Http\Mail\User_Activate_Relations;
+use App\Http\Mail\User_Activate_Reminder;
 use App\Http\Mail\User_Activate_Student;
 use App\Http\Mail\User_Activate_Student_NoStudy;
 use Illuminate\Support\Facades\Mail as Mail_;
@@ -69,6 +70,12 @@ class Mail {
     public static function userActivate_forCustomer_noStudy($user) {
 
         self::userActivate($user, new User_Activate_Customer_NoStudy($user));
+
+    }
+
+    public static function userActivate_reminder($user) {
+
+        self::mailTo(new User_Activate_Reminder($user), $user->{Model::$USER_EMAIL});
 
     }
 

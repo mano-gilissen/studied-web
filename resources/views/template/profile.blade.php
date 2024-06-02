@@ -326,7 +326,7 @@
 
                 @if(\App\Http\Traits\BaseTrait::hasManagementRights())
 
-                    @if($person->getUser->id == Auth::id())
+                    @if($person->getUser->id == Auth::id() || \App\Http\Traits\BaseTrait::hasBoardRights())
 
                         <div class="button icon grey" onclick="window.location.href='{{ route('user.edit') }}'">
 

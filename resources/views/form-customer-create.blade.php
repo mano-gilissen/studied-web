@@ -60,4 +60,10 @@
 
 
 
+    @include('form.field-input', ['id' => 'category', 'tag' => __('Categorie'), 'placeholder' => __('Welk soort klant is deze persoon?'), 'icon' => 'dropdown.svg', 'required' => true, 'data' => true, 'show_all' => true, 'reject_others' => true, 'show_always' => true, 'value' => old('category')])
+
+    <div class="seperator"></div>
+
+
+
 @endsection

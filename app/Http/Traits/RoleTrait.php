@@ -19,7 +19,10 @@ trait RoleTrait {
         $ID_MANAGEMENT                                  = 3,
         $ID_EMPLOYEE                                    = 4,
         $ID_STUDENT                                     = 5,
-        $ID_CUSTOMER                                    = 6;
+        $ID_CUSTOMER                                    = 6,
+
+        $CATEGORY_CUSTOMER_PARENT                       = 61,
+        $CATEGORY_CUSTOMER_COMPANY                      = 62;
 
 
 

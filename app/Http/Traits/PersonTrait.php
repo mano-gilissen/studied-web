@@ -6,6 +6,7 @@ namespace App\Http\Traits;
 
 use App\Http\Support\Model;
 use App\Models\Person;
+use App\Models\Role;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -192,7 +193,16 @@ trait PersonTrait {
                     return __('Hoi! Ik ben :first_name en ik zit op :niveau_text :leerjaar:school', ['first_name' => $person->{Model::$PERSON_FIRST_NAME}, 'niveau_text' => StudentTrait::getNiveauText($person->getUser->getStudent->niveau), 'leerjaar' => $person->getUser->getStudent->leerjaar, 'school' => $person->getUser->getStudent->school ? ' van ' . $person->getUser->getStudent->school . '.' : '']);
 
                 case RoleTrait::$ID_CUSTOMER:
-                    return $person->getUser->getCustomer->getStudents->count() > 0 ? __('Hoi! Ik ben :first_name en ik ben de ouder/verzorger van :students_text.', ['first_name' => $person->{Model::$PERSON_FIRST_NAME}, 'stunts_text' => CustomerTrait::getStudentsText($person->getUser->getCustomer, true)]) : __('Hoi! Ik ben een ouder/verzorger en mijn kinderen hebben hopelijk snel begeleiding bij Studied!');
+
+                    switch ($person->getUser->getCustomer->{Model::$CUSTOMER_CATEGORY}) {
+
+                        case RoleTrait::$CATEGORY_CUSTOMER_COMPANY:
+                            return '';
+
+                        default:
+                        case RoleTrait::$CATEGORY_CUSTOMER_PARENT:
+                            return $person->getUser->getCustomer->getStudents->count() > 0 ? __('Hoi! Ik ben :first_name en ik ben de ouder/verzorger van :students_text.', ['first_name' => $person->{Model::$PERSON_FIRST_NAME}, 'students_text' => CustomerTrait::getStudentsText($person->getUser->getCustomer, true)]) : __('Hoi! Ik ben een ouder/verzorger en mijn kinderen hebben hopelijk snel begeleiding bij Studied!');
+                    }
             }
         }
 

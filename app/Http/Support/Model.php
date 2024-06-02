@@ -30,7 +30,9 @@ class Model {
         $USER_PASSWORD                                  = 'password',
         $USER_LANGUAGE                                  = 'language',
         $USER_ACTIVATED                                 = 'activated',
-        $USER_ACTIVATE_SECRET                           = 'activate_secret';
+        $USER_ACTIVATE_SECRET                           = 'activate_secret',
+        $USER_ACTIVATE_REMINDER_1WEEK                   = 'activate_reminder_1week',
+        $USER_ACTIVATE_REMINDER_2WEEK                   = 'activate_reminder_2week';
 
 
 
@@ -102,7 +104,8 @@ class Model {
 
     public static
 
-        $CUSTOMER                                       = 'customer';
+        $CUSTOMER                                       = 'customer',
+        $CUSTOMER_CATEGORY                              = 'category';
 
 
 
@@ -266,8 +269,7 @@ class Model {
 
         $ROLE                                           = 'role',
 
-        $ROLE_LABEL                                     = 'label',
-        $ROLE_LABEL_PUBLIC                              = 'label_public';
+        $ROLE_LABEL                                     = 'label';
 
 
 

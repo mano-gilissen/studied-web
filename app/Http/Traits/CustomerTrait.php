@@ -4,6 +4,7 @@
 
 namespace App\Http\Traits;
 
+use App\Http\Support\Key;
 use App\Http\Support\Model;
 use App\Models\Customer;
 use App\Models\User;
@@ -31,6 +32,7 @@ trait CustomerTrait {
         }
 
         $customer->{Model::$USER}                               = $user->{Model::$BASE_ID};
+        $customer->{Model::$CUSTOMER_CATEGORY}                  = $data[Key::AUTOCOMPLETE_ID . Model::$CUSTOMER_CATEGORY];
 
         $customer->save();
 
@@ -84,6 +86,16 @@ trait CustomerTrait {
             case 1:                                             return PersonTrait::getFullName($students[0]->getPerson);
             default:                                            return implode($en ? __(" en ") : ", ", $students->pluck('getPerson.' . Model::$PERSON_FIRST_NAME)->toArray());
         }
+    }
+
+
+
+    public static function getCategoryData() {
+
+        return [
+            RoleTrait::$CATEGORY_CUSTOMER_PARENT                => __("Ouder/verzorger"),
+            RoleTrait::$CATEGORY_CUSTOMER_COMPANY               => __("Bedrijf")
+        ];
     }
 
 

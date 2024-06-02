@@ -11,6 +11,7 @@ use App\Http\Support\Mail;
 use App\Http\Support\Model;
 use App\Models\Agreement;
 use App\Models\Evaluation;
+use App\Models\Role;
 use App\Models\User;
 use Auth;
 use Carbon\Carbon;
@@ -55,8 +56,8 @@ trait UserTrait {
         $person->{Model::$ADDRESS}                          = $address->{Model::$BASE_ID};
 
         $user->{Model::$USER_EMAIL}                         = $data[Model::$USER_EMAIL];
-        $user->{Model::$ROLE}                               = $role;
         $user->{Model::$USER_STATUS}                        = $status ? $status : self::$STATUS_INTAKE;
+        $user->{Model::$ROLE}                               = $role;
 
         $user->save();
         $person->save();
@@ -116,10 +117,16 @@ trait UserTrait {
 
 
 
-    public static function password_set($data) {
+    public static function password_set($data, $user = null) {
 
-        Auth::user()->{Model::$USER_PASSWORD}                               = Hash::make($data['password']);
-        Auth::user()->save();
+        if(!$user) {
+
+            $user                                                           = Auth::user();
+
+        }
+
+        $user->{Model::$USER_PASSWORD}                                      = Hash::make($data['password']);
+        $user->save();
     }
 
 
@@ -136,7 +143,21 @@ trait UserTrait {
 
         }
 
-        return $public ? $role->{Model::$ROLE_LABEL_PUBLIC} : $role->{Model::$ROLE_LABEL};
+        if ($public && $user->{Model::$ROLE} == RoleTrait::$ID_CUSTOMER) {
+
+            switch ($user->getCustomer->{Model::$CUSTOMER_CATEGORY}) {
+
+                case RoleTrait::$CATEGORY_CUSTOMER_PARENT:
+
+                    return __('Ouder/verzorger');
+
+                case RoleTrait::$CATEGORY_CUSTOMER_COMPANY:
+
+                    return __('Bedrijf');
+            }
+        }
+
+        return $role->{Model::$ROLE_LABEL};
     }
 
 

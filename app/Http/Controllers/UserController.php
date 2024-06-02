@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Http\Middleware\Locale;
 use App\Http\Support\Format;
 use App\Http\Support\Key;
+use App\Http\Support\Mail;
 use App\Http\Traits\BaseTrait;
 use App\Http\Traits\EmployeeTrait;
 use App\Http\Traits\PersonTrait;
@@ -93,6 +94,13 @@ class UserController extends Controller {
     public function password_submit(Request $request) {
 
         $data                                               = $request->all();
+        $user                                               = $data['user'] ?? Auth::user();
+
+        if ($user->{Model::$BASE_ID} != Auth::id() && !BaseTrait::hasBoardRights()) {
+
+            abort(403);
+
+        }
 
         self::password_validate($data);
 
@@ -188,6 +196,36 @@ class UserController extends Controller {
         }
 
         $data[Key::AUTOCOMPLETE_DATA . Model::$USER_STATUS]                 = Format::encode($ac_data);
+    }
+
+
+
+
+
+    public static function scheduled_activation_reminder() {
+
+        $users                                                              = User::where(Model::$USER_STATUS, UserTrait::$STATUS_INTAKE)->where(Model::$BASE_DELETED_AT, null)->get();
+
+        foreach ($users as $user) {
+
+            if (strtotime($user->{Model::$BASE_CREATED_AT}) < strtotime('-2 week') && !$user->{Model::$USER_ACTIVATE_REMINDER_2WEEK}) {
+
+                $user->{Model::$USER_ACTIVATE_REMINDER_2WEEK}               = true;
+                $user->save();
+
+                Mail::userActivate_reminder($user);
+
+                continue;
+            }
+
+            if (strtotime($user->{Model::$BASE_CREATED_AT}) < strtotime('-1 week') && !$user->{Model::$USER_ACTIVATE_REMINDER_1WEEK}) {
+
+                $user->{Model::$USER_ACTIVATE_REMINDER_1WEEK}               = true;
+                $user->save();
+
+                Mail::userActivate_reminder($user);
+            }
+        }
     }
 
 

@@ -19,6 +19,7 @@ use App\Http\Support\Views;
 use App\Http\Support\Key;
 use App\Http\Support\Model;
 use App\Models\Person;
+use Cassandra\Custom;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Subject;
@@ -63,7 +64,8 @@ class CustomerController extends Controller {
             Key::SUBMIT_ROUTE                                               => 'customer.create_submit',
 
             Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX                  => Format::encode(PersonTrait::getPrefixData()),
-            Key::AUTOCOMPLETE_DATA . Model::$PERSON_REFER                   => Format::encode(PersonTrait::getReferData())
+            Key::AUTOCOMPLETE_DATA . Model::$PERSON_REFER                   => Format::encode(PersonTrait::getReferData()),
+            Key::AUTOCOMPLETE_DATA . Model::$CUSTOMER_CATEGORY              => Format::encode(CustomerTrait::getCategoryData())
         ]);
     }
 
