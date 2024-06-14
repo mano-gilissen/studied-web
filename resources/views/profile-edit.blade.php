@@ -22,7 +22,7 @@
 
     <script>
 
-        var user = '{{ Auth::user()->{\App\Http\Support\Model::$BASE_ID} }}';
+        var user = '{{ $user->{\App\Http\Support\Model::$BASE_ID} }}';
 
     </script>
 
