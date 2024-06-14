@@ -104,7 +104,7 @@ class UserController extends Controller {
     public function password_submit(Request $request) {
 
         $data                                               = $request->all();
-        $user                                               = $data['user'] ?? Auth::user();
+        $user                                               = $data['user'] ? User::findOrFail($data['user']) : Auth::user();
 
         if ($user->{Model::$BASE_ID} != Auth::id() && !BaseTrait::hasBoardRights()) {
 
