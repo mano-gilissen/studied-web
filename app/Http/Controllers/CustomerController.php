@@ -65,7 +65,7 @@ class CustomerController extends Controller {
 
             Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX                  => Format::encode(PersonTrait::getPrefixData()),
             Key::AUTOCOMPLETE_DATA . Model::$PERSON_REFER                   => Format::encode(PersonTrait::getReferData()),
-            Key::AUTOCOMPLETE_DATA . Model::$CUSTOMER_CATEGORY              => Format::encode(CustomerTrait::getCategoryData())
+            Key::AUTOCOMPLETE_DATA . Model::$USER_CATEGORY                  => Format::encode(CustomerTrait::getCategoryData())
         ]);
     }
 

@@ -32,7 +32,6 @@ trait CustomerTrait {
         }
 
         $customer->{Model::$USER}                               = $user->{Model::$BASE_ID};
-        $customer->{Model::$CUSTOMER_CATEGORY}                  = $data[Key::AUTOCOMPLETE_ID . Model::$CUSTOMER_CATEGORY];
 
         $customer->save();
 

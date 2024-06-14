@@ -59,6 +59,12 @@ trait UserTrait {
         $user->{Model::$USER_STATUS}                        = $status ? $status : self::$STATUS_INTAKE;
         $user->{Model::$ROLE}                               = $role;
 
+        if (array_key_exists(Key::AUTOCOMPLETE_ID . Model::$USER_CATEGORY, $data)) {
+
+            $user->{Model::$USER_CATEGORY}                  = $data[Key::AUTOCOMPLETE_ID . Model::$USER_CATEGORY];
+
+        }
+
         $user->save();
         $person->save();
         $address->save();
@@ -145,15 +151,16 @@ trait UserTrait {
 
         if ($public && $user->{Model::$ROLE} == RoleTrait::$ID_CUSTOMER) {
 
-            switch ($user->getCustomer->{Model::$CUSTOMER_CATEGORY}) {
-
-                case RoleTrait::$CATEGORY_CUSTOMER_PARENT:
-
-                    return __('Ouder/verzorger');
+            switch ($user->{Model::$USER_CATEGORY}) {
 
                 case RoleTrait::$CATEGORY_CUSTOMER_COMPANY:
 
                     return __('Bedrijf');
+
+                default:
+                case RoleTrait::$CATEGORY_CUSTOMER_PARENT:
+
+                    return __('Ouder/verzorger');
             }
         }
 

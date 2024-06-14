@@ -24,6 +24,7 @@ class Model {
     public static
 
         $USER                                           = 'user',
+        $USER_CATEGORY                                  = 'category',
         $USER_STATUS                                    = 'status',
         $USER_POINTS                                    = 'points',
         $USER_EMAIL                                     = 'email',
@@ -104,8 +105,7 @@ class Model {
 
     public static
 
-        $CUSTOMER                                       = 'customer',
-        $CUSTOMER_CATEGORY                              = 'category';
+        $CUSTOMER                                       = 'customer';
 
 
 
