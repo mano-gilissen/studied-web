@@ -52,13 +52,17 @@
 
                     </div>
 
-                    <div id="comment">
+                    @if(strlen($comment) > 0)
 
-                        <div class="comment-tail"></div>
+                        <div id="comment">
 
-                        <div class="comment">"{{ $comment }}"</div>
+                            <div class="comment-tail"></div>
 
-                    </div>
+                            <div class="comment">"{{ $comment }}"</div>
+
+                        </div>
+
+                    @endif
 
                 </div>
 
