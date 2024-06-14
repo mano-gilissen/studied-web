@@ -197,7 +197,7 @@ trait PersonTrait {
                     switch ($person->getUser->getCustomer->{Model::$CUSTOMER_CATEGORY}) {
 
                         case RoleTrait::$CATEGORY_CUSTOMER_COMPANY:
-                            return '';
+                            return __('Hoi! Ik ben :first_name en ik ben de contactpersoon van :company.', ['first_name' => $person->{Model::$PERSON_FIRST_NAME}, 'company' => $person->getUser->getCustomer->company_name]);
 
                         default:
                         case RoleTrait::$CATEGORY_CUSTOMER_PARENT:
