@@ -82,7 +82,7 @@ class UserController extends Controller {
 
 
 
-    public function edit($slug) {
+    public function edit($slug = null) {
 
         if ($slug && !BaseTrait::hasBoardRights()) {
 
