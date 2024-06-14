@@ -98,7 +98,7 @@ Route::get('/profiel/{slug}/activeren',                     'PersonController@ac
 
 Route::get('/activeren/{secret}',                           'UserController@activate')->name('user.activate');
 
-Route::get('/gegevens/wijzigen',                            'UserController@edit')->name('user.edit')->middleware('auth', 'authorize');
+Route::get('/gegevens/wijzigen/{slug?}',                    'UserController@edit')->name('user.edit')->middleware('auth', 'authorize');
 
 
 

@@ -64,17 +64,19 @@
 
                     <div>
 
-                        <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials(Auth::user()->getPerson) }}</div>
+                        <div class="no-avatar">{{ \App\Http\Traits\PersonTrait::getInitials($user->getPerson) }}</div>
 
                     </div>
 
-                    <img id="avatar-img" class="@if(!(Auth::user()->getPerson->avatar)) invisible @endif" src="{{ asset("/storage/avatar/" . Auth::user()->getPerson->avatar) }}"/>
+                    <img id="avatar-img" class="@if(!($user->getPerson->avatar)) invisible @endif" src="{{ asset("/storage/avatar/" . $user->getPerson->avatar) }}"/>
 
                 </div>
 
                 <form method="POST" id="avatar-form" action="{{ route('person.avatar_submit') }}" novalidate enctype="multipart/form-data">
 
                     @csrf
+
+                    <input id="user" type="hidden" name="user" value="{{ $user->{\App\Http\Support\Model::$BASE_ID} }}"/>
 
                     <input id="avatar-upload" type="file" name="image" accept="image/*"/>
 
@@ -104,7 +106,7 @@
 
                 <div class="title">{{ __('Wachtwoord wijzigen') }}</div>
 
-                @include('form.field-hidden', ['id' => 'user', 'value' => Auth::id()])
+                @include('form.field-hidden', ['id' => 'user', 'value' => $user->{\App\Http\Support\Model::$BASE_ID}])
 
                 @include('form.field-input', ['id' => 'password', 'type' => 'password', 'tag' => __('Wachtwoord'), 'placeholder' => __('Kies een wachtwoord'), 'required' => true, 'max' => 30])
 

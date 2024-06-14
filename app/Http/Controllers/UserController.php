@@ -7,14 +7,17 @@ use App\Http\Middleware\Locale;
 use App\Http\Support\Format;
 use App\Http\Support\Key;
 use App\Http\Support\Mail;
+use App\Http\Support\Route;
 use App\Http\Traits\BaseTrait;
 use App\Http\Traits\EmployeeTrait;
 use App\Http\Traits\PersonTrait;
 use App\Http\Traits\StudyTrait;
 use App\Http\Traits\UserTrait;
+use App\Models\Person;
 use App\Models\User;
 use App\Http\Support\Views;
 use App\Http\Support\Model;
+use Couchbase\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Auth;
@@ -79,13 +82,20 @@ class UserController extends Controller {
 
 
 
-    public function edit() {
+    public function edit($slug) {
+
+        if ($slug && !BaseTrait::hasBoardRights()) {
+
+            abort(403);
+
+        }
 
         return view(Views::PROFILE_EDIT, [
 
+            Model::$USER                                    => $slug ? Person::where(Model::$PERSON_SLUG, $slug)->firstOrFail()->getUser : Auth::user(),
+
             Key::PAGE_TITLE                                 => __('Profiel wijzigen'),
-            Key::PAGE_BACK                                  => true,
-            Key::BACK_ROUTE                                 => 'person.self'
+            Key::PAGE_BACK                                  => true
         ]);
     }
 
@@ -104,16 +114,30 @@ class UserController extends Controller {
 
         self::password_validate($data);
 
-        UserTrait::password_set($data);
+        UserTrait::password_set($data, $user);
 
-        return view(Views::FEEDBACK, [
+        if ($user->{Model::$BASE_ID} == Auth::id()) {
 
-            Key::PAGE_TITLE                                 => __('Wachtwoord gewijzigd'),
-            Key::PAGE_MESSAGE                               => __('Je wachtwoord is gewijzigd, zorg dat je het goed onthoudt. Deel je inloggegevens nooit deelt met anderen.'),
-            Key::PAGE_NEXT                                  => route('person.self'),
-            Key::PAGE_ACTION                                => __('Naar mijn profiel'),
-            Key::ICON                                       => 'check-circle-green.svg'
-        ]);
+            return view(Views::FEEDBACK, [
+
+                Key::PAGE_TITLE                             => __('Wachtwoord gewijzigd'),
+                Key::PAGE_MESSAGE                           => __('Je wachtwoord is gewijzigd, zorg dat je het goed onthoudt. Deel je inloggegevens nooit deelt met anderen.'),
+                Key::PAGE_NEXT                              => route('person.self'),
+                Key::PAGE_ACTION                            => __('Naar mijn profiel'),
+                Key::ICON                                   => 'check-circle-green.svg'
+            ]);
+
+        } else {
+
+            return view(Views::FEEDBACK, [
+
+                Key::PAGE_TITLE                             => __('Wachtwoord gewijzigd'),
+                Key::PAGE_MESSAGE                           => __('Het wachtwoord is gewijzigd.'),
+                Key::PAGE_NEXT                              => route(Route::PERSON_VIEW, [Model::$PERSON_SLUG => $user->getPerson->{Model::$PERSON_SLUG}]),
+                Key::PAGE_ACTION                            => __('Naar mijn profiel'),
+                Key::ICON                                   => 'check-circle-green.svg'
+            ]);
+        }
     }
 
 
