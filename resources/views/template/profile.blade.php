@@ -332,7 +332,7 @@
 
                     @if($person->getUser->id == Auth::id() || \App\Http\Traits\BaseTrait::hasBoardRights())
 
-                        <div class="button icon grey" onclick="window.location.href='{{ route('user.edit') }}'">
+                        <div class="button icon grey" onclick="window.location.href='{{ route('user.edit', $person->{\App\Http\Support\Model::$PERSON_SLUG}) }}'">
 
                             <img class="icon" src="/images_app/edit.svg">
 
@@ -342,7 +342,7 @@
 
                     @endif
 
-                    @if(\App\Http\Traits\BaseTrait::hasBoardRights() || $person->getUser->role != \App\Http\Traits\RoleTrait::$ID_BOARD)
+                    @if(\App\Http\Traits\BaseTrait::hasBoardRights() && $person->getUser->role != \App\Http\Traits\RoleTrait::$ID_BOARD)
 
                         <div class="button icon" onclick="window.location.href='{{ route('person.edit', $person->{\App\Http\Support\Model::$PERSON_SLUG}) }}'">
 
