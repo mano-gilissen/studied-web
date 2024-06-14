@@ -242,7 +242,7 @@ class UserController extends Controller {
                 continue;
             }
 
-            if (strtotime($user->{Model::$BASE_CREATED_AT}) < strtotime('-1 week') && !$user->{Model::$USER_ACTIVATE_REMINDER_1WEEK}) {
+            if (strtotime($user->{Model::$BASE_CREATED_AT}) < strtotime('-1 week') && !$user->{Model::$USER_ACTIVATE_REMINDER_1WEEK} && !$user->{Model::$USER_ACTIVATE_REMINDER_2WEEK}) {
 
                 $user->{Model::$USER_ACTIVATE_REMINDER_1WEEK}               = true;
                 $user->save();
