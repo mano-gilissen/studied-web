@@ -233,12 +233,6 @@ class UserController extends Controller {
 
         foreach ($users as $user) {
 
-            if (strpos($user->{Model::$USER_EMAIL}, 'studied.nl') !== false) {
-
-                continue;
-
-            }
-
             if (!$user->{Model::$USER_ACTIVATE_SECRET}) {
 
                 continue;
