@@ -17,7 +17,18 @@ class Kernel extends ConsoleKernel {
     protected function schedule(Schedule $schedule) {
 
         $schedule
-            ->call(function() { UserController::scheduled_activation_reminder(); })
+            ->call(function() {
+
+                try {
+
+                    UserController::scheduled_activation_reminder();
+
+                } catch (Exception $e) {
+
+                    $this->info($e->getMessage());
+
+                }
+            })
             ->hourly()
             ->emailOutputOnFailure('mano.gilissen@gmail.com');
     }
