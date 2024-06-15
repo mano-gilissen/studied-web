@@ -239,6 +239,12 @@ class UserController extends Controller {
 
             }
 
+            if (strpos($user->{Model::$USER_EMAIL}, '@studied.nl') !== false) {
+
+                continue;
+
+            }
+
             if (strtotime($user->{Model::$BASE_CREATED_AT}) < strtotime('-2 week') && !$user->{Model::$USER_ACTIVATE_REMINDER_2WEEK}) {
 
                 $user->{Model::$USER_ACTIVATE_REMINDER_2WEEK}               = true;
