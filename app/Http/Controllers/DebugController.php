@@ -97,6 +97,14 @@ class DebugController extends Controller {
 
 
 
+    public function activate_reminder_test() {
+
+        UserController::scheduled_activation_reminder();
+
+    }
+
+
+
 
 
 }
