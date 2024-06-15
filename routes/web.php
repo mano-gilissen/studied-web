@@ -230,7 +230,7 @@ Route::get('/template',                                     'DebugController@tem
 
 //Route::get('/mail_test/{key}',                              'DebugController@mail_test')->name('mail_test');
 
-//Route::get('/schedule_test/activate_reminder',              'DebugController@activate_reminder_test')->name('activate_reminder_test');
+Route::get('/schedule_test/activate_reminder',              'DebugController@activate_reminder_test')->name('activate_reminder_test');
 
 
 
