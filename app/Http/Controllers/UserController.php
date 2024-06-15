@@ -5,6 +5,7 @@
 namespace App\Http\Controllers;
 use App\Http\Middleware\Locale;
 use App\Http\Support\Format;
+use App\Http\Support\Func;
 use App\Http\Support\Key;
 use App\Http\Support\Mail;
 use App\Http\Support\Route;
@@ -235,6 +236,7 @@ class UserController extends Controller {
             if (strtotime($user->{Model::$BASE_CREATED_AT}) < strtotime('-2 week') && !$user->{Model::$USER_ACTIVATE_REMINDER_2WEEK}) {
 
                 $user->{Model::$USER_ACTIVATE_REMINDER_2WEEK}               = true;
+                $user->{Model::$USER_ACTIVATE_SECRET}                       = $user->{Model::$USER_ACTIVATE_SECRET} ?? Func::generate_secret();
                 $user->save();
 
                 Mail::userActivate_reminder($user);
@@ -245,6 +247,7 @@ class UserController extends Controller {
             if (strtotime($user->{Model::$BASE_CREATED_AT}) < strtotime('-1 week') && !$user->{Model::$USER_ACTIVATE_REMINDER_1WEEK} && !$user->{Model::$USER_ACTIVATE_REMINDER_2WEEK}) {
 
                 $user->{Model::$USER_ACTIVATE_REMINDER_1WEEK}               = true;
+                $user->{Model::$USER_ACTIVATE_SECRET}                       = $user->{Model::$USER_ACTIVATE_SECRET} ?? Func::generate_secret();
                 $user->save();
 
                 Mail::userActivate_reminder($user);
