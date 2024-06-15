@@ -228,9 +228,9 @@ Route::get('/encrypt/{value}',                              'LoginController@enc
 
 Route::get('/template',                                     'DebugController@template')->name('template');
 
-Route::get('/mail_test/{key}',                              'DebugController@mail_test')->name('mail_test');
+//Route::get('/mail_test/{key}',                              'DebugController@mail_test')->name('mail_test');
 
-Route::get('/schedule_test/activate_reminder',              'DebugController@activate_reminder_test')->name('activate_reminder_test');
+//Route::get('/schedule_test/activate_reminder',              'DebugController@activate_reminder_test')->name('activate_reminder_test');
 
 
 
