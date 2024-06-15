@@ -233,10 +233,21 @@ class UserController extends Controller {
 
         foreach ($users as $user) {
 
+            if (strpos($user->{Model::$USER_EMAIL}, 'studied.nl') !== false) {
+
+                continue;
+
+            }
+
+            if (!$user->{Model::$USER_ACTIVATE_SECRET}) {
+
+                continue;
+
+            }
+
             if (strtotime($user->{Model::$BASE_CREATED_AT}) < strtotime('-2 week') && !$user->{Model::$USER_ACTIVATE_REMINDER_2WEEK}) {
 
                 $user->{Model::$USER_ACTIVATE_REMINDER_2WEEK}               = true;
-                $user->{Model::$USER_ACTIVATE_SECRET}                       = $user->{Model::$USER_ACTIVATE_SECRET} ?? Func::generate_secret();
                 $user->save();
 
                 Mail::userActivate_reminder($user);
@@ -247,7 +258,6 @@ class UserController extends Controller {
             if (strtotime($user->{Model::$BASE_CREATED_AT}) < strtotime('-1 week') && !$user->{Model::$USER_ACTIVATE_REMINDER_1WEEK} && !$user->{Model::$USER_ACTIVATE_REMINDER_2WEEK}) {
 
                 $user->{Model::$USER_ACTIVATE_REMINDER_1WEEK}               = true;
-                $user->{Model::$USER_ACTIVATE_SECRET}                       = $user->{Model::$USER_ACTIVATE_SECRET} ?? Func::generate_secret();
                 $user->save();
 
                 Mail::userActivate_reminder($user);
