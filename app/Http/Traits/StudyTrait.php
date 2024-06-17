@@ -445,13 +445,25 @@ trait StudyTrait {
 
     public static function getEndTime($study) {
 
-        return self::hasReporting($study) && self::isReported($study) ?
+        if (self::hasReporting($study) && self::isReported($study)) {
 
-            $study->getReports[0]->{Model::$REPORT_END}
+            $reports                                                = $study->getReports;
 
-            :
+            if ($reports->count() > 0) {
 
-            $study->{Model::$STUDY_END};
+                return $study->getReports[0]->{Model::$REPORT_END};
+
+            } else {
+
+                return $study->{Model::$STUDY_END};
+
+            }
+
+        } else {
+
+            return $study->{Model::$STUDY_END};
+
+        }
     }
 
 
