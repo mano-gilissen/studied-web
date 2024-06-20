@@ -19,7 +19,7 @@ class Kernel extends ConsoleKernel {
         $schedule
             ->call(function() {
 
-                UserController::scheduled_activation_reminder();
+                //UserController::scheduled_activation_reminder();
 
             })
             ->hourly()
