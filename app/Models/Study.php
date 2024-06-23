@@ -62,7 +62,6 @@ class Study extends ModelClass {
             default:
                 return null;
         }
-
     }
 
 

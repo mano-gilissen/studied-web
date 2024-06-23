@@ -78,8 +78,6 @@ class ReportController extends Controller {
             $study->save();
         }
 
-        $study->refresh();
-
         return view(Views::FEEDBACK, [
 
             Key::PAGE_TITLE                                                 => __('Rapport verstuurd'),
