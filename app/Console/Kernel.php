@@ -19,6 +19,7 @@ class Kernel extends ConsoleKernel {
         $schedule
             ->call(function() {
 
+                return 5;
                 //UserController::scheduled_activation_reminder();
 
             })
