@@ -1,6 +1,14 @@
 <div class="block-attributes">
 
-    <div class="title">{{ __('Persoonlijk') }}</div>
+    @if($person->getUser->role == \App\Http\Traits\RoleTrait::$ID_CUSTOMER && $person->getUser->{\App\Http\Support\Model::$USER_CATEGORY} == \App\Http\Traits\RoleTrait::$CATEGORY_CUSTOMER_COMPANY)
+
+        <div class="title">{{ __('Bedrijfsgegevens') }}</div>
+
+    @else
+
+        <div class="title">{{ __('Persoonlijk') }}</div>
+
+    @endif
 
     <div class="list-attributes">
 
@@ -30,13 +38,27 @@
 
             </div>
 
-            <div class="attribute">
+            @if($person->getUser->role == \App\Http\Traits\RoleTrait::$ID_CUSTOMER && $person->getUser->{\App\Http\Support\Model::$USER_CATEGORY} == \App\Http\Traits\RoleTrait::$CATEGORY_CUSTOMER_COMPANY)
 
-                <div class="name">{{ __('Geboortedatum') }}</div>
+                <div class="attribute">
 
-                <div class="value">{{ $person->{\App\Http\Support\Model::$PERSON_BIRTH_DATE} ? \App\Http\Support\Format::datetime($person->{\App\Http\Support\Model::$PERSON_BIRTH_DATE}, \App\Http\Support\Format::$DATETIME_PROFILE) : __('Onbekend') }}</div>
+                    <div class="name">{{ __('Contactpersoon') }}</div>
 
-            </div>
+                    <div class="value">{{ \App\Http\Traits\PersonTrait::getFullName($person)  }}</div>
+
+                </div>
+
+            @else
+
+                <div class="attribute">
+
+                    <div class="name">{{ __('Geboortedatum') }}</div>
+
+                    <div class="value">{{ $person->{\App\Http\Support\Model::$PERSON_BIRTH_DATE} ? \App\Http\Support\Format::datetime($person->{\App\Http\Support\Model::$PERSON_BIRTH_DATE}, \App\Http\Support\Format::$DATETIME_PROFILE) : __('Onbekend') }}</div>
+
+                </div>
+
+            @endif
 
         @endif
 

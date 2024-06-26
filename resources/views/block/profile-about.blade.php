@@ -42,6 +42,14 @@
 
             @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
 
+                @php $customer = $person->getUser->getStudent->getCustomer; @endphp
+
+                @if(!$customer || $customer->getUser->{\App\Http\Support\Model::$USER_CATEGORY} != \App\Http\Traits\RoleTrait::$CATEGORY_CUSTOMER_COMPANY)
+
+                    @break;
+
+                @endif
+
                 <div class="attribute">
 
                     <div class="name">{{ __('School') }}</div>

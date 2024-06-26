@@ -66,7 +66,7 @@
 
                 </div>
 
-                <div class="name">{{ \App\Http\Traits\PersonTrait::getFullName($person) }}</div>
+                <div class="name">{{ \App\Http\Traits\PersonTrait::getProfileTitle($person) }}</div>
 
                 <div class="role">{{ __(\App\Http\Traits\UserTrait::getRoleName($person->getUser, true)) }}</div>
 
@@ -670,55 +670,61 @@
 
                         @if($person->getUser->role == \App\Http\Traits\RoleTrait::$ID_STUDENT)
 
-                            @switch(\App\Http\Traits\BaseTrait::getUserRole())
+                            @php $customer = $person->getUser->getStudent->getCustomer; @endphp
 
-                                @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
-                                @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
-                                @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
+                            @if($customer && $customer->getUser->{\App\Http\Support\Model::$USER_CATEGORY} == \App\Http\Traits\RoleTrait::$CATEGORY_CUSTOMER_PARENT)
 
-                                    @include('block.profile-education')
+                                @switch(\App\Http\Traits\BaseTrait::getUserRole())
 
-                                    @include('block.profile-education-relations')
+                                    @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
+                                    @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
+                                    @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
 
-                                    @break
+                                        @include('block.profile-education')
 
-                                @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
+                                        @include('block.profile-education-relations')
 
-                                    @foreach($person->getUser->getEmployees as $employee)
+                                        @break
 
-                                        @if($employee->id == Auth::user()->id)
+                                    @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
+
+                                        @foreach($person->getUser->getEmployees as $employee)
+
+                                            @if($employee->id == Auth::user()->id)
+
+                                                @include('block.profile-education')
+
+                                                @break
+
+                                            @endif
+
+                                        @endforeach
+
+                                        @break
+
+                                    @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
+
+                                        @if($person->getUser->id == Auth::user()->id)
 
                                             @include('block.profile-education')
 
-                                            @break
+                                        @endif
+
+                                        @break
+
+                                    @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
+
+                                        @if($person->getUser->getStudent->customer == Auth::user()->getCustomer->id)
+
+                                            @include('block.profile-education')
 
                                         @endif
 
-                                    @endforeach
+                                        @break
 
-                                    @break
+                                @endswitch
 
-                                @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
-
-                                    @if($person->getUser->id == Auth::user()->id)
-
-                                        @include('block.profile-education')
-
-                                    @endif
-
-                                    @break
-
-                                @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
-
-                                    @if($person->getUser->getStudent->customer == Auth::user()->getCustomer->id)
-
-                                        @include('block.profile-education')
-
-                                    @endif
-
-                                    @break
-
-                            @endswitch
+                            @endif
 
                         @endif <!-- PROFILE-EDUCATION -->
 

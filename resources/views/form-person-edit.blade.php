@@ -16,7 +16,15 @@
 
     @include('form.field-input', ['id' => 'last_name', 'tag' => __('Achternaam'), 'required' => true, 'value' => $person->{\App\Http\Support\Model::$PERSON_LAST_NAME}])
 
-    @include('form.field-input', ['id' => 'birth_date', 'type' => 'date', 'tag' => __('Geboortedatum'), 'placeholder' => __('Kies een datum'), 'required' => true, 'value' => ($person->{\App\Http\Support\Model::$PERSON_BIRTH_DATE} ? \App\Http\Support\Format::datetime($person->{\App\Http\Support\Model::$PERSON_BIRTH_DATE}, \App\Http\Support\Format::$DATETIME_FORM) : __('Onbekend'))])
+    @if(\App\Http\Traits\PersonTrait::isCompany($person))
+
+        @include('form.field-input', ['id' => 'company', 'tag' => __('Bedrijfsnaam'), 'required' => true, 'value' => $person->{\App\Http\Support\Model::$PERSON_COMPANY}])
+
+    @else
+
+        @include('form.field-input', ['id' => 'birth_date', 'type' => 'date', 'tag' => __('Geboortedatum'), 'required' => true, 'placeholder' => __('Kies een datum'), 'value' => ($person->{\App\Http\Support\Model::$PERSON_BIRTH_DATE} ? \App\Http\Support\Format::datetime($person->{\App\Http\Support\Model::$PERSON_BIRTH_DATE}, \App\Http\Support\Format::$DATETIME_FORM) : __('Onbekend'))])
+
+    @endif
 
     @include('form.field-input', ['id' => 'refer', 'tag' => __('Referentie'), 'placeholder' => __('Hoe komt deze persoon bij Studied terecht?'), 'icon' => 'dropdown.svg', 'required' => true, 'data' => true, 'show_all' => true, 'show_always' => true, 'value' => $person->{\App\Http\Support\Model::$PERSON_REFER}])
 
@@ -36,7 +44,7 @@
 
 
 
-    <div class="title">{{ __('Woonadres') }}</div>
+    <div class="title">{{ __('Adresgegevens') }}</div>
 
     @include('form.field-input', ['id' => 'street', 'tag' => __('Straatnaam'), 'required' => true, 'value' => $person->getAddress->{\App\Http\Support\Model::$ADDRESS_STREET}])
 
