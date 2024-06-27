@@ -28,7 +28,11 @@ class ActivateReminder extends Command {
 
         $result = UserController::scheduled_activation_reminder();
 
-        $this->info('Activation reminders have been sent to ' . $result);
+        if ($result) {
+
+            $this->info('Activation reminders have been sent to ' . $result);
+
+        }
     }
 
 

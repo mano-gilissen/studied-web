@@ -269,7 +269,7 @@ class UserController extends Controller {
             }
         }
 
-        return implode(', ', $sent);
+        return sizeof($sent) > 0 ? implode(', ', $sent) : null;
     }
 
 
