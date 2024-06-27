@@ -19,12 +19,12 @@ class Kernel extends ConsoleKernel {
         $schedule
             ->call(function() {
 
-                return 5;
+                return 'job finished';
                 //UserController::scheduled_activation_reminder();
 
             })
-            ->hourly()
-            ->emailOutputOnFailure('mano.gilissen@gmail.com');
+            ->everyMinute()
+            ->emailOutputTo('mano.gilissen@gmail.com');
     }
 
 
