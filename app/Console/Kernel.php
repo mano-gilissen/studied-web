@@ -16,17 +16,10 @@ class Kernel extends ConsoleKernel {
 
     protected function schedule(Schedule $schedule) {
 
-        $schedule->command('demo:cron')->everyMinute()->emailOutputTo('mano.gilissen@gmail.com');
-        /*
         $schedule
-            ->call(function() {
-                \Log::info("Cron test");
-                return 'job finished';
-                //UserController::scheduled_activation_reminder();
-
-            })
+            ->command('activate:reminder')
             ->everyMinute()
-            ->emailOutputTo('mano.gilissen@gmail.com');*/
+            ->emailOutputTo('mano.gilissen@gmail.com');
     }
 
 

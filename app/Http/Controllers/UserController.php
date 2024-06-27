@@ -230,6 +230,7 @@ class UserController extends Controller {
     public static function scheduled_activation_reminder() {
 
         $users                                                              = User::where(Model::$USER_STATUS, UserTrait::$STATUS_INTAKE)->where(Model::$BASE_DELETED_AT, null)->get();
+        $sent                                                               = [];
 
         foreach ($users as $user) {
 
@@ -252,6 +253,8 @@ class UserController extends Controller {
 
                 Mail::userActivate_reminder($user);
 
+                $sent[]                                                     = $user->{Model::$USER_EMAIL};
+
                 continue;
             }
 
@@ -261,8 +264,12 @@ class UserController extends Controller {
                 $user->save();
 
                 Mail::userActivate_reminder($user);
+
+                $sent[]                                                     = $user->{Model::$USER_EMAIL};
             }
         }
+
+        return implode($sent, ', ');
     }
 
 
