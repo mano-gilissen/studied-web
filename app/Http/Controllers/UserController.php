@@ -269,7 +269,7 @@ class UserController extends Controller {
             }
         }
 
-        return implode($sent, ', ');
+        return implode(', ', $sent);
     }
 
 
