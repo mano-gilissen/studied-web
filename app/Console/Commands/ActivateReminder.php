@@ -30,8 +30,9 @@ class ActivateReminder extends Command {
 
         if ($result) {
 
-            $this->info('Activation reminders have been sent to ' . $result);
+            \Log::info('Activation reminders have been sent to ' . $result);
 
+            $this->info('Activation reminders have been sent to ' . $result);
         }
     }
 
