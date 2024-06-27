@@ -119,31 +119,47 @@ class PersonController extends Controller {
 
         if (PersonTrait::isUser($person)) {
 
-            $person->getAddress                                     ->delete();
-            $person->getUser                                        ->delete();
-            $person                                                 ->delete();
+            $redirect;
 
             switch ($person->getUser->role) {
 
                 case RoleTrait::$ID_MANAGEMENT:
                 case RoleTrait::$ID_EMPLOYEE:
 
-                    $person->getUser->getEmployee                   ->delete();
+                    foreach ($person->getUser->getStudies as $study) {
 
-                    return redirect()->route(Route::EMPLOYEE_LIST);
+                        $study                                      ->delete();
+
+                    }
+
+                    $person->getUser->getEmployee                   ->delete();
+                    $redirect                                       = Route::EMPLOYEE_LIST;
+                    break;
 
                 case RoleTrait::$ID_STUDENT:
 
-                    $person->getUser->getStudent                    ->delete();
+                    foreach ($person->getUser->getStudies as $study) {
 
-                    return redirect()->route(Route::STUDENT_LIST);
+                        $study                                      ->delete();
+
+                    }
+
+                    $person->getUser->getStudent                    ->delete();
+                    $redirect                                       = Route::STUDENT_LIST;
+                    break;
 
                 case RoleTrait::$ID_CUSTOMER:
 
                     $person->getUser->getCustomer                   ->delete();
-
-                    return redirect()->route(Route::CUSTOMER_LIST);
+                    $redirect                                       = Route::CUSTOMER_LIST;
+                    break;
             }
+
+            $person->getAddress                                     ->delete();
+            $person->getUser                                        ->delete();
+            $person                                                 ->delete();
+
+            return redirect()->route($redirect);
 
         } else {
 
