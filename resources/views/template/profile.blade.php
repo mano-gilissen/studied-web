@@ -481,9 +481,9 @@
                             @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
                             @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
 
-                            @include('block.profile-contact-personal')
+                                @include('block.profile-contact-personal')
 
-                            @break
+                                @break
 
                             @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 

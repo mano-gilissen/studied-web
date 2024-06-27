@@ -44,7 +44,7 @@
 
                 @php $customer = $person->getUser->getStudent->getCustomer; @endphp
 
-                @if(!$customer || $customer->getUser->{\App\Http\Support\Model::$USER_CATEGORY} != \App\Http\Traits\RoleTrait::$CATEGORY_CUSTOMER_COMPANY)
+                @if($customer && $customer->getUser->{\App\Http\Support\Model::$USER_CATEGORY} == \App\Http\Traits\RoleTrait::$CATEGORY_CUSTOMER_COMPANY)
 
                     @break;
 
