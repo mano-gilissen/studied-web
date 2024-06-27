@@ -670,7 +670,7 @@
 
                         @if($person->getUser->role == \App\Http\Traits\RoleTrait::$ID_STUDENT)
 
-                            @php $customer = $person->getUser->getStudent->getCustomer; @endphp
+                            @php $customer = $person->getUser->getStudent->getCustomer; dd($customer == null); @endphp
 
                             @if(!$customer || $customer->getUser->{\App\Http\Support\Model::$USER_CATEGORY} == \App\Http\Traits\RoleTrait::$CATEGORY_CUSTOMER_PARENT)
 
