@@ -1123,9 +1123,11 @@ class StudyController extends Controller {
             __('Onderwerp'),
             __('Dienst'),
             __('Deelnemers'),
+            __('Proefles'),
             __('Begeleidingsvorm'),
             __('Datum'),
-            __('Tijdstip'),
+            __('Start'),
+            __('Einde'),
             __('Duurtijd'),
             __('Locatie'),
             __('Status'),
@@ -1146,7 +1148,8 @@ class StudyController extends Controller {
             $last_name                                      = PersonTrait::getFullName($study->getHost_User->getPerson);
 
             $date                                           = Format::datetime($study->start, Format::$DATETIME_EXPORT);
-            $time                                           = Format::datetime(StudyTrait::getStartTime($study), Format::$TIME_SINGLE);
+            $start                                          = Format::datetime(StudyTrait::getStartTime($study), Format::$TIME_SINGLE);
+            $end                                            = Format::datetime(StudyTrait::getEndTime($study), Format::$TIME_SINGLE);
             $location                                       = $study->{Model::$STUDY_LOCATION_TEXT};
             $service                                        = $study->getService->{Model::$SERVICE_NAME};
             $participants                                   = StudyTrait::countParticipants($study) > 1 ? __('Groepsles') : __('Privéles');
@@ -1154,7 +1157,7 @@ class StudyController extends Controller {
             $status                                         = StudyTrait::getStatusText(StudyTrait::getStatus($study));
             $remark                                         = $study->{Model::$STUDY_REMARK};
             $link                                           = 'https://studied.app/les/' . $study->{Model::$BASE_KEY};
-
+            $trial                                          = StudyTrait::isTrial($study) ? __('Ja') : __('Nee');
             $duration                                       = 0;
             $subjects                                       = '';
 
@@ -1163,9 +1166,11 @@ class StudyController extends Controller {
                 case StudyTrait::$STATUS_REPORTED:
 
                     $report                                 = $study->getReport($participant);
-                    $duration                               = ReportTrait::getDurationTotal($report);
 
                     if ($report) {
+
+                        $duration                           = ReportTrait::getDurationTotal($report);
+                        $trial                              = $report->{Model::$REPORT_TRIAL_SUCCESS} ? __('Succes') : __('Mislukt');
 
                         foreach ($report->getReport_Subjects as $report_Subject) {
 
@@ -1180,11 +1185,11 @@ class StudyController extends Controller {
                 case StudyTrait::$STATUS_ABSENT:
 
                     $duration                               = StudyTrait::getDuration($study);
-                    $subjects                               = $study->{Model::$STUDY_SUBJECT_TEXT}; //TODO: CHANGE TO VAKCODE
+                    $subjects                               = $study->{Model::$STUDY_SUBJECT_TEXT};
                     break;
             }
 
-            array_push($rows, [$first_name, $last_name, $subjects, $service, $participants, $plan, $date, $time, $duration, $location, $status, $remark, $link]);
+            array_push($rows, [$first_name, $last_name, $subjects, $service, $participants, $trial, $plan, $date, $start, $end, $duration, $location, $status, $remark, $link]);
         }
     }
 
@@ -1198,8 +1203,6 @@ class StudyController extends Controller {
 
         $query                                              = Table::query($this, $sort, $filter, $search);
         $studies                                            = $query->get();
-
-        $ID_ROW_TOTAL                                       = 99999;
 
         $rows                                               = [];
         $row_total                                          = [__('Totaal'), 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -1242,7 +1245,6 @@ class StudyController extends Controller {
 
         array_push($rows, ['', '', '', '', '', '', '', '', '', '']);
         array_push($rows, $row_total);
-        //$rows[$ID_ROW_TOTAL]                                = $row_total;
 
         $columnNames = [
             __('Medewerker'),

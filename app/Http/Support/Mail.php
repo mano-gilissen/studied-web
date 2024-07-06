@@ -38,6 +38,7 @@ class Mail {
 
         $recipient                                          = $user->{Model::$USER_EMAIL};
         $user->{Model::$USER_ACTIVATE_SECRET}               = $user->{Model::$USER_ACTIVATE_SECRET} ?? Func::generate_secret();
+        $user->{Model::$USER_ACTIVATE_SENT}                 = date('Y-m-d H:i:s');
         $user->save();
 
         self::mailTo($mail, $recipient);

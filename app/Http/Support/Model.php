@@ -31,6 +31,7 @@ class Model {
         $USER_PASSWORD                                  = 'password',
         $USER_LANGUAGE                                  = 'language',
         $USER_ACTIVATED                                 = 'activated',
+        $USER_ACTIVATE_SENT                             = 'activate_sent',
         $USER_ACTIVATE_SECRET                           = 'activate_secret',
         $USER_ACTIVATE_REMINDER_1WEEK                   = 'activate_reminder_1week',
         $USER_ACTIVATE_REMINDER_2WEEK                   = 'activate_reminder_2week';

@@ -234,7 +234,7 @@ class UserController extends Controller {
 
         foreach ($users as $user) {
 
-            if (!$user->{Model::$USER_ACTIVATE_SECRET}) {
+            if (!$user->{Model::$USER_ACTIVATE_SECRET} || !$user->{Model::$USER_ACTIVATE_SENT}) {
 
                 continue;
 
@@ -246,7 +246,7 @@ class UserController extends Controller {
 
             }
 
-            if (strtotime($user->{Model::$BASE_CREATED_AT}) < strtotime('-2 week') && !$user->{Model::$USER_ACTIVATE_REMINDER_2WEEK}) {
+            if (strtotime($user->{Model::$USER_ACTIVATE_SENT}) < strtotime('-2 week') && !$user->{Model::$USER_ACTIVATE_REMINDER_2WEEK}) {
 
                 $user->{Model::$USER_ACTIVATE_REMINDER_2WEEK}               = true;
                 $user->save();
@@ -258,7 +258,7 @@ class UserController extends Controller {
                 continue;
             }
 
-            if (strtotime($user->{Model::$BASE_CREATED_AT}) < strtotime('-1 week') && !$user->{Model::$USER_ACTIVATE_REMINDER_1WEEK} && !$user->{Model::$USER_ACTIVATE_REMINDER_2WEEK}) {
+            if (strtotime($user->{Model::$USER_ACTIVATE_SENT}) < strtotime('-1 week') && !$user->{Model::$USER_ACTIVATE_REMINDER_1WEEK} && !$user->{Model::$USER_ACTIVATE_REMINDER_2WEEK}) {
 
                 $user->{Model::$USER_ACTIVATE_REMINDER_1WEEK}               = true;
                 $user->save();

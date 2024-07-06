@@ -18,7 +18,7 @@ class Kernel extends ConsoleKernel {
 
         $schedule
             ->command('activate:reminder')
-            ->everyMinute()
+            ->everyHour()
             ->emailOutputOnFailure('mano.gilissen@gmail.com');
     }
 
