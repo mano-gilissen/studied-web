@@ -312,10 +312,6 @@ class AgreementController extends Controller {
 
             case self::$COLUMN_STUDENT:
 
-                if (!$agreement->getStudent) {
-                    dd($agreement);
-                }
-
                 return "<div style='font-weight: 400'>" . PersonTrait::getFullName($agreement->getStudent->getPerson) . "</div>";
 
             case self::$COLUMN_EMPLOYEE:

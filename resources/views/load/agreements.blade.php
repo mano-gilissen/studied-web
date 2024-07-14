@@ -69,7 +69,7 @@
 
             @else
 
-                <div class="block-note">{{ __('Deze student-docent heeft geen actieve vakafspraken op deze datum.') }}}</div>
+                <div class="block-note">{{ __('Deze student-docent heeft geen actieve vakafspraken op deze datum.') }}</div>
 
             @endif
 

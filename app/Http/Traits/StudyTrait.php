@@ -19,6 +19,7 @@ use App\Models\User;
 use App\Rules\DateBeforeEndAgreement;
 use Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 
 
@@ -260,7 +261,7 @@ trait StudyTrait {
 
         $rules['date']                                              = ['required'];
         $rules[Model::$STUDY_START]                                 = ['required'];
-        $rules[Model::$STUDY_END]                                   = ['required'];
+        $rules[Model::$STUDY_END]                                   = ['required', Rule::notIn(['00:00', $data[Model::$STUDY_START]])];
         $rules[Model::$LOCATION]                                    = ['required_if:link,""'];
         $rules[Model::$STUDY_LINK]                                  = ['required_if:location,""'];
 

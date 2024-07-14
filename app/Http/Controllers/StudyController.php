@@ -1195,6 +1195,14 @@ class StudyController extends Controller {
 
 
 
+    public function data_export_csv_v2() {
+
+
+
+    }
+
+
+
     public function overview_export_csv(Request $request) {
 
         $sort                                               = $request->input(Table::DATA_SORT, null);
