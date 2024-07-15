@@ -22,28 +22,6 @@ trait ReportTrait {
 
 
 
-
-
-        if (Auth::user()->email == 'administrator@studied.app') {
-            foreach ($study->getParticipants_User as $user) {
-
-                $prefix                                                         = 'user_' . $user->id . '_';
-
-                foreach ($data as $key => $value) {
-
-                    if (Func::contains($key, '_' . $prefix . Model::$SUBJECT) &&
-                        !Func::contains($key, Model::$AGREEMENT) &&
-                        !Func::contains($key, Model::$REPORT_SUBJECT_DURATION) &&
-                        !Func::contains($key, Model::$REPORT_SUBJECT_VERSLAG) &&
-                        strlen($data[$key]) > 0) {
-
-                            dd($data, $key . '_agreement');
-
-                    }
-                }
-            }
-        }
-
         self::validate($data);
 
 

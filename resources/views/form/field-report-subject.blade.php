@@ -15,6 +15,6 @@
 
 @if ($primary)
 
-    @include('form.field-hidden', ['id' => $id_user . 'subject_' . $id . '_agreement', 'value' => $agreement->id])
+    @include('form.field-hidden', ['id' => '_' . $id_user . 'subject_' . $id . '_agreement', 'value' => $agreement->id])
 
 @endif
