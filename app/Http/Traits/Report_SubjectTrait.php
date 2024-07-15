@@ -24,12 +24,9 @@ trait Report_SubjectTrait {
 
             $report_subject->{Model::$AGREEMENT}                    = $data[$key . '_agreement'];
 
-        } else {
-
-            $report_subject->{Model::$SUBJECT}                      = $data[$key];
-
         }
 
+        $report_subject->{Model::$SUBJECT}                          = $data[$key];
         $report_subject->{Model::$REPORT_SUBJECT_DURATION}          = $data[$key . '_duration'];
         $report_subject->{Model::$REPORT_SUBJECT_VERSLAG}           = $data[$key . '_content_verslag'];
 

@@ -65,7 +65,31 @@ class StudyController extends Controller {
         $PARAMETER_PARTICIPANT                                              = "deelnemer",
         $PARAMETER_HOST                                                     = "host",
 
-        $STUDY_PLAN_LOCATION_HOST                                           = -1;
+        $STUDY_PLAN_LOCATION_HOST                                           = -1,
+
+
+
+        $EXPORT_COLUMNS_INVOICING                                           = [
+            'Leerling', 'Failed trial', 'Total bruto',
+            'Huiswerkbegeleiding_I_S', 'Huiswerkbegeleiding_I_G', 'Huiswerkbegeleiding_S_S',
+            'Huiswerkbegeleiding_S_G', 'Huiswerkbegeleiding_G_S', 'Huiswerkbegeleiding_G_G',
+            'Bijles_I_S', 'Bijles_I_G', 'Bijles_S_S', 'Bijles_S_G', 'Bijles_G_S', 'Bijles_G_G',
+            'Training_I_S', 'Training_I_G', 'Training_S_S', 'Training_S_G', 'Training_G_S', 'Training_G_G',
+            'Coaching_I_S', 'Coaching_I_G', 'Coaching_S_S', 'Coaching_S_G', 'Coaching_G_S', 'Coaching_G_G',
+            'Taalles_I_S', 'Taalles_I_G', 'Taalles_S_S', 'Taalles_S_G', 'Taalles_G_S', 'Taalles_G_G',
+            'Taalcursus_I_S', 'Taalcursus_I_G', 'Taalcursus_S_S', 'Taalcursus_S_G', 'Taalcursus_G_S', 'Taalcursus_G_G'
+        ],
+
+        $EXPORT_COLUMNS_LABOR                                               = [
+            'Medewerker', 'Huiswerkbegeleiding_BO', 'Huiswerkbegeleiding_VO', 'Huiswerkbegeleiding_HO',
+            'Bijles_BO', 'Bijles_VO', 'Bijles_HO', 'Training_BO', 'Training_VO', 'Training_HO',
+            'Coaching_BO', 'Coaching_VO', 'Coaching_HO', 'Taalles',  'Taalcursus'
+        ],
+
+        $EXPORT_COLUMNS_LESSONS                                             = [
+            'Leerling', 'Medewerker', 'Onderwerp', 'Dienst', 'Deelnemers', 'Proefles', 'Begeleidingsvorm',
+            'Datum', 'Start', 'Einde', 'Duurtijd', 'Locatie', 'Status', 'Opmerkingen', 'Link naar les'
+        ];
 
 
 
@@ -656,15 +680,15 @@ class StudyController extends Controller {
                             break;
 
                         case -4:
-                            $query->whereIn(Model::$SERVICE, array(ServiceTrait::$ID_BIJLES_MBO_HBO_WO, ServiceTrait::$ID_TENTAMENTRAINING));
+                            $query->whereIn(Model::$SERVICE, array(ServiceTrait::$ID_BIJLES_MBO_HBO_WO, ServiceTrait::$ID_TENTAMENTRAINING, ServiceTrait::$ID_COACHING_MBO_HBO_WO));
                             break;
 
                         case -3:
-                            $query->whereIn(Model::$SERVICE, array(ServiceTrait::$ID_BIJLES_VO, ServiceTrait::$ID_EXAMENTRAINING, ServiceTrait::$ID_HUISWERKBEGELEIDING_VO));
+                            $query->whereIn(Model::$SERVICE, array(ServiceTrait::$ID_BIJLES_VO, ServiceTrait::$ID_EXAMENTRAINING, ServiceTrait::$ID_HUISWERKBEGELEIDING_VO, ServiceTrait::$ID_COACHING_VO));
                             break;
 
                         case -2:
-                            $query->whereIn(Model::$SERVICE, array(ServiceTrait::$ID_BIJLES_BO, ServiceTrait::$ID_CITO_TRAINING, ServiceTrait::$ID_HUISWERKBEGELEIDING_BO));
+                            $query->whereIn(Model::$SERVICE, array(ServiceTrait::$ID_BIJLES_BO, ServiceTrait::$ID_CITO_TRAINING, ServiceTrait::$ID_HUISWERKBEGELEIDING_BO, ServiceTrait::$ID_COACHING_BO));
                             break;
 
                         case -1:
@@ -1087,21 +1111,40 @@ class StudyController extends Controller {
         $search                                             = $request->input(Table::DATA_SEARCH, null);
 
         $query                                              = Table::query($this, $sort, $filter, $search);
-        $studies                                            = $query->get();
+
+        $studies                                            = $query->whereIn(Model::$STUDY_STATUS, [StudyTrait::$STATUS_CANCELLED, StudyTrait::$STATUS_ABSENT, StudyTrait::$STATUS_REPORTED])->get();
+
+        $rows_invoicing                                     = self::data_export_csv_invoicing($studies);
+        $rows_labor                                         = self::data_export_csv_labor($studies);
+        $rows_lessons                                       = self::data_export_csv_lessons($studies);
+
+        $rows                                               = [];
+        $rows_count                                         = max(count($rows_invoicing), count($rows_labor), count($rows_lessons));
+
+        for ($i = 0; $i < $rows_count; $i++) {
+
+            $row_invoicing                                  = $i < count($rows_invoicing) ? $rows_invoicing[$i] : array_fill(0, count(self::$EXPORT_COLUMNS_INVOICING), '');
+            $row_labor                                      = $i < count($rows_labor) ? $rows_labor[$i] : array_fill(0, count(self::$EXPORT_COLUMNS_LABOR), '');
+            $row_lessons                                    = $i < count($rows_lessons) ? $rows_lessons[$i] : array_fill(0, count(self::$EXPORT_COLUMNS_LESSONS), '');
+
+            $rows[]                                         = array_merge($row_invoicing, $row_labor, $row_lessons);
+        }
+
+        $columns                                            = array_merge(self::$EXPORT_COLUMNS_INVOICING, self::$EXPORT_COLUMNS_LABOR, self::$EXPORT_COLUMNS_LESSONS);
+
+        return Func::export_csv($columns, $rows);
+    }
+
+
+
+    public function data_export_csv_lessons($studies) {
 
         $rows                                               = [];
 
         foreach ($studies as $study) {
 
-            switch ($study->{Model::$STUDY_STATUS}) {
+            self::data_export_csv_lesson_row($study, $rows);
 
-                case StudyTrait::$STATUS_CANCELLED:
-                case StudyTrait::$STATUS_ABSENT:
-                case StudyTrait::$STATUS_REPORTED:
-
-                    self::data_export_csv_row($study, $rows);
-                    break;
-            }
         }
 
         usort($rows, function($a, $b) {
@@ -1117,30 +1160,12 @@ class StudyController extends Controller {
             return strtotime($a[6]) - strtotime($b[6]);
         });
 
-        $columnNames = [
-            __('Leerling'),
-            __('Medewerker'),
-            __('Onderwerp'),
-            __('Dienst'),
-            __('Deelnemers'),
-            __('Proefles'),
-            __('Begeleidingsvorm'),
-            __('Datum'),
-            __('Start'),
-            __('Einde'),
-            __('Duurtijd'),
-            __('Locatie'),
-            __('Status'),
-            __('Opmerkingen'),
-            __('Link naar les')
-        ];
-
-        return Func::export_csv($columnNames, $rows);
+        return $rows;
     }
 
 
 
-    public function data_export_csv_row($study, &$rows) {
+    public function data_export_csv_lesson_row($study, &$rows) {
 
         foreach ($study->getParticipants_User as $participant) {
 
@@ -1195,11 +1220,161 @@ class StudyController extends Controller {
 
 
 
-    public function data_export_csv_v2() {
+    public function data_export_csv_invoicing($studies) {
 
+        $rows                                                                   = [];
 
+        foreach ($studies as $study) {
 
+            $group                                                              = $study->getParticipants_User->count() > 1;
+
+            switch ($study->{Model::$STUDY_STATUS}) {
+
+                case StudyTrait::$STATUS_REPORTED:
+                case StudyTrait::$STATUS_ABSENT:
+
+                    foreach ($study->getAgreements as $agreement) {
+
+                        $user                                                   = $agreement->getStudent;
+                        $report                                                 = $study->getReport($user);
+
+                        if (!$report) {
+
+                            continue;
+
+                        }
+
+                        if (!array_key_exists($user->{Model::$BASE_ID}, $rows)) {
+
+                            $rows[$user->{Model::$BASE_ID}]                     = [
+
+                                PersonTrait::getFullName($user->getPerson),
+
+                                0,                                              // Failed trial
+                                0,                                              // Total bruto
+
+                                0, 0, 0, 0, 0, 0,                               // Huiswerkbegeleiding
+                                0, 0, 0, 0, 0, 0,                               // Bijles
+                                0, 0, 0, 0, 0, 0,                               // Training
+                                0, 0, 0, 0, 0, 0,                               // Coaching
+                                0, 0, 0, 0, 0, 0,                               // Taalles
+                                0, 0, 0, 0, 0, 0                                // Taalcursus
+                            ];
+                        }
+
+                        $duration                                               = ReportTrait::getDurationTotal($report) / 60;
+                        $plan                                                   = $agreement->{Model::$AGREEMENT_PLAN};
+                        $rate                                                   = Service::find($study->{Model::$SERVICE})->{'rate_plan' . $plan . '_' . ($group ? 'group' : 'solo')};
+
+                        if ($report->{Model::$STUDY_TRIAL} && !$report->{Model::$REPORT_TRIAL_SUCCESS}) {
+
+                            $rows[$user->{Model::$BASE_ID}][1]                  -= $duration * $rate;
+
+                        }
+
+                        $rows[$user->{Model::$BASE_ID}][2]                      += $duration * $rate;
+                        $offset                                                 = 3;
+
+                        switch ($study->{Model::$SERVICE}) {
+
+                            case ServiceTrait::$ID_HUISWERKBEGELEIDING_BO:
+                            case ServiceTrait::$ID_HUISWERKBEGELEIDING_VO:      $offset += 0; break;
+
+                            case ServiceTrait::$ID_BIJLES_BO:
+                            case ServiceTrait::$ID_BIJLES_VO:
+                            case ServiceTrait::$ID_BIJLES_MBO_HBO_WO:           $offset += 6; break;
+
+                            case ServiceTrait::$ID_EXAMENTRAINING:
+                            case ServiceTrait::$ID_TENTAMENTRAINING:
+                            case ServiceTrait::$ID_CITO_TRAINING:               $offset += 12; break;
+
+                            case ServiceTrait::$ID_COACHING:
+                            case ServiceTrait::$ID_COACHING_BO:
+                            case ServiceTrait::$ID_COACHING_VO:
+                            case ServiceTrait::$ID_COACHING_MBO_HBO_WO:         $offset += 18; break;
+
+                            case ServiceTrait::$ID_TAALLES_TO:                  $offset += 24; break;
+                            case ServiceTrait::$ID_TAALCURSUS_TO:               $offset += 30; break;
+                        }
+
+                        $rows[$user->{Model::$BASE_ID}][$offset + (($plan - 1) * 2) + ($group ? 1 : 0)] += $duration;
+                    }
+
+                    break;
+
+            }
+        }
+
+        usort($rows, function($a, $b) {
+
+            return strcmp($a[0], $b[0]);
+
+        });
+
+        return $rows;
     }
+
+
+
+    public function data_export_csv_labor($studies) {
+
+        $rows                                                                   = [];
+
+        foreach ($studies as $study) {
+
+            if (!array_key_exists($study->{Model::$STUDY_HOST_USER}, $rows)) {
+
+                $rows[$study->{Model::$STUDY_HOST_USER}] = [
+
+                    PersonTrait::getFullName($study->getHost_User->getPerson),
+
+                    0, 0, 0,                                                    // Huiswerkbegeleiding
+                    0, 0, 0,                                                    // Bijles
+                    0, 0, 0,                                                    // Training
+                    0, 0, 0,                                                    // Coaching
+                    0,                                                          // Taalles
+                    0                                                           // Taalcursus
+                ];
+            }
+
+            $duration                                                           = ReportTrait::getDurationTotal($study) / 60;
+            $offset                                                             = 1;
+
+            switch ($study->getAgreement->{Model::$SERVICE}) {
+
+                case ServiceTrait::$ID_HUISWERKBEGELEIDING_BO:                  $offset += 0; break;
+                case ServiceTrait::$ID_HUISWERKBEGELEIDING_VO:                  $offset += 1; break;
+
+                case ServiceTrait::$ID_BIJLES_BO:                               $offset += 3; break;
+                case ServiceTrait::$ID_BIJLES_VO:                               $offset += 4; break;
+                case ServiceTrait::$ID_BIJLES_MBO_HBO_WO:                       $offset += 5; break;
+
+                case ServiceTrait::$ID_CITO_TRAINING:                           $offset += 6; break;
+                case ServiceTrait::$ID_TENTAMENTRAINING:                        $offset += 7; break;
+                case ServiceTrait::$ID_EXAMENTRAINING:                          $offset += 8; break;
+
+                case ServiceTrait::$ID_COACHING:
+                case ServiceTrait::$ID_COACHING_BO:                             $offset += 9; break;
+                case ServiceTrait::$ID_COACHING_VO:                             $offset += 10; break;
+                case ServiceTrait::$ID_COACHING_MBO_HBO_WO:                     $offset += 11; break;
+
+                case ServiceTrait::$ID_TAALLES_TO:                              $offset += 12; break;
+                case ServiceTrait::$ID_TAALCURSUS_TO:                           $offset += 13; break;
+            }
+
+            $rows[$study->{Model::$STUDY_HOST_USER}][$offset] += $duration; break;
+        }
+
+        usort($rows, function($a, $b) {
+
+            return strcmp($a[0], $b[0]);
+
+        });
+
+        return $rows;
+    }
+
+
 
 
 
