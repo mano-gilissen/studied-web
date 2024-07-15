@@ -20,10 +20,6 @@ trait Report_SubjectTrait {
 
         $report_subject->{Model::$REPORT}                           = $report->{Model::$BASE_ID};
 
-        if (Auth::user()->email == 'administrator@studied.app') {
-            dd($data, $key . '_agreement');
-        }
-
         if (array_key_exists($key . '_agreement', $data)) {
 
             $report_subject->{Model::$AGREEMENT}                    = $data[$key . '_agreement'];
