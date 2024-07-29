@@ -1242,79 +1242,77 @@ class StudyController extends Controller {
 
             $group                                                              = $study->getParticipants_User->count() > 1;
 
-            switch ($study->{Model::$STUDY_STATUS}) {
+            if (!in_array($study->{Model::$STUDY_STATUS}, [StudyTrait::$STATUS_REPORTED, StudyTrait::$STATUS_ABSENT])) {
 
-                case StudyTrait::$STATUS_REPORTED:
-                case StudyTrait::$STATUS_ABSENT:
+                continue;
 
-                    foreach ($study->getAgreements as $agreement) {
+            }
 
-                        $user                                                   = $agreement->getStudent;
-                        $report                                                 = $study->getReport($user);
+            foreach ($study->getAgreements as $agreement) {
 
-                        if (!$report) {
+                $user                                                   = $agreement->getStudent;
+                $report                                                 = $study->getReport($user);
 
-                            continue;
+                if (!$report) {
 
-                        }
+                    continue;
 
-                        if (!array_key_exists($user->{Model::$BASE_ID}, $rows)) {
+                }
 
-                            $rows[$user->{Model::$BASE_ID}]                     = [
+                if (!array_key_exists($user->{Model::$BASE_ID}, $rows)) {
 
-                                PersonTrait::getFullName($user->getPerson),
+                    $rows[$user->{Model::$BASE_ID}]                     = [
 
-                                0,                                              // Failed trial
-                                0,                                              // Total bruto
+                        PersonTrait::getFullName($user->getPerson),
 
-                                0, 0, 0, 0, 0, 0,                               // Huiswerkbegeleiding
-                                0, 0, 0, 0, 0, 0,                               // Bijles
-                                0, 0, 0, 0, 0, 0,                               // Training
-                                0, 0, 0, 0, 0, 0,                               // Coaching
-                                0, 0, 0, 0, 0, 0,                               // Taalles
-                                0, 0, 0, 0, 0, 0                                // Taalcursus
-                            ];
-                        }
+                        0,                                              // Failed trial
+                        0,                                              // Total bruto
 
-                        $duration                                               = ReportTrait::getDurationTotal($report) / 60;
-                        $plan                                                   = $agreement->{Model::$AGREEMENT_PLAN};
-                        $rate                                                   = Service::find($study->{Model::$SERVICE})->{'rate_plan' . $plan . '_' . ($group ? 'group' : 'solo')};
+                        0, 0, 0, 0, 0, 0,                               // Huiswerkbegeleiding
+                        0, 0, 0, 0, 0, 0,                               // Bijles
+                        0, 0, 0, 0, 0, 0,                               // Training
+                        0, 0, 0, 0, 0, 0,                               // Coaching
+                        0, 0, 0, 0, 0, 0,                               // Taalles
+                        0, 0, 0, 0, 0, 0                                // Taalcursus
+                    ];
+                }
 
-                        if ($report->{Model::$STUDY_TRIAL} && !$report->{Model::$REPORT_TRIAL_SUCCESS}) {
+                $duration                                               = ReportTrait::getDurationTotal($report) / 60;
+                $plan                                                   = $agreement->{Model::$AGREEMENT_PLAN};
+                $rate                                                   = Service::find($study->{Model::$SERVICE})->{'rate_plan' . $plan . '_' . ($group ? 'group' : 'solo')};
 
-                            $rows[$user->{Model::$BASE_ID}][1]                  -= $duration * $rate;
+                if ($report->{Model::$STUDY_TRIAL} && !$report->{Model::$REPORT_TRIAL_SUCCESS}) {
 
-                        }
+                    $rows[$user->{Model::$BASE_ID}][1]                  -= $duration * $rate;
 
-                        $rows[$user->{Model::$BASE_ID}][2]                      += $duration * $rate;
-                        $offset                                                 = 3;
+                }
 
-                        switch ($study->{Model::$SERVICE}) {
+                $rows[$user->{Model::$BASE_ID}][2]                      += $duration * $rate;
+                $offset                                                 = 3;
 
-                            case ServiceTrait::$ID_HUISWERKBEGELEIDING_BO:
-                            case ServiceTrait::$ID_HUISWERKBEGELEIDING_VO:      $offset += 0; break;
+                switch ($study->{Model::$SERVICE}) {
 
-                            case ServiceTrait::$ID_BIJLES_BO:
-                            case ServiceTrait::$ID_BIJLES_VO:
-                            case ServiceTrait::$ID_BIJLES_MBO_HBO_WO:           $offset += 6; break;
+                    case ServiceTrait::$ID_HUISWERKBEGELEIDING_BO:
+                    case ServiceTrait::$ID_HUISWERKBEGELEIDING_VO:      $offset += 0; break;
 
-                            case ServiceTrait::$ID_EXAMENTRAINING:
-                            case ServiceTrait::$ID_TENTAMENTRAINING:
-                            case ServiceTrait::$ID_CITO_TRAINING:               $offset += 12; break;
+                    case ServiceTrait::$ID_BIJLES_BO:
+                    case ServiceTrait::$ID_BIJLES_VO:
+                    case ServiceTrait::$ID_BIJLES_MBO_HBO_WO:           $offset += 6; break;
 
-                            case ServiceTrait::$ID_COACHING:
-                            case ServiceTrait::$ID_COACHING_BO:
-                            case ServiceTrait::$ID_COACHING_VO:
-                            case ServiceTrait::$ID_COACHING_MBO_HBO_WO:         $offset += 18; break;
+                    case ServiceTrait::$ID_EXAMENTRAINING:
+                    case ServiceTrait::$ID_TENTAMENTRAINING:
+                    case ServiceTrait::$ID_CITO_TRAINING:               $offset += 12; break;
 
-                            case ServiceTrait::$ID_TAALLES_TO:                  $offset += 24; break;
-                            case ServiceTrait::$ID_TAALCURSUS_TO:               $offset += 30; break;
-                        }
+                    case ServiceTrait::$ID_COACHING:
+                    case ServiceTrait::$ID_COACHING_BO:
+                    case ServiceTrait::$ID_COACHING_VO:
+                    case ServiceTrait::$ID_COACHING_MBO_HBO_WO:         $offset += 18; break;
 
-                        $rows[$user->{Model::$BASE_ID}][$offset + (($plan - 1) * 2) + ($group ? 1 : 0)] += $duration;
-                    }
+                    case ServiceTrait::$ID_TAALLES_TO:                  $offset += 24; break;
+                    case ServiceTrait::$ID_TAALCURSUS_TO:               $offset += 30; break;
+                }
 
-                    break;
+                $rows[$user->{Model::$BASE_ID}][$offset + (($plan - 1) * 2) + ($group ? 1 : 0)] += $duration;
             }
         }
 
@@ -1334,6 +1332,12 @@ class StudyController extends Controller {
         $rows                                                                   = [];
 
         foreach ($studies as $study) {
+
+            if (!in_array($study->{Model::$STUDY_STATUS}, [StudyTrait::$STATUS_REPORTED, StudyTrait::$STATUS_ABSENT])) {
+
+                continue;
+
+            }
 
             if (!array_key_exists($study->{Model::$STUDY_HOST_USER}, $rows)) {
 
