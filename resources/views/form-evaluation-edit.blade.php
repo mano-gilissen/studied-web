@@ -48,7 +48,7 @@
 
     <div class="title">{{ __('Details') }}</div>
 
-    @include('form.field-input', ['id' => 'regarding', 'tag' => __('Onderwerp'), 'required' => true, 'data' => true, 'uses_id' => true, 'show_all' => true, 'reject_other' => true, 'value' => \App\Http\Traits\EvaluationTrait::getRegardingText($evaluation->{\App\Http\Support\Model::$EVALUATION_REGARDING})])
+    @include('form.field-input', ['id' => 'regarding', 'tag' => __('Onderwerp'), 'required' => true, 'data' => true, 'uses_id' => true, 'show_all' => true, 'reject_other' => true, 'set_id' => $evaluation->{\App\Http\Support\Model::$EVALUATION_REGARDING}])
 
     @include('form.field-textarea', ['id' => 'remarks', 'tag' => __('Opmerking'), 'value' => $evaluation->{\App\Http\Support\Model::$EVALUATION_REMARKS}])
 
