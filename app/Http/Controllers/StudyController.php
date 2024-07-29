@@ -1208,8 +1208,8 @@ class StudyController extends Controller {
 
                     if ($report) {
 
-                        $duration                           = ReportTrait::getDurationTotal($report);
-                        $trial                              = $report->{Model::$REPORT_TRIAL_SUCCESS} ? __('Succes') : __('Mislukt');
+                        $duration                           = ReportTrait::getDurationTotal($report) / 60.0;
+                        $trial                              = StudyTrait::isTrial($study) ? ($report->{Model::$REPORT_TRIAL_SUCCESS} ? __('Succes') : __('Mislukt')) : __('Nee');
 
                         foreach ($report->getReport_Subjects as $report_Subject) {
 
@@ -1223,12 +1223,12 @@ class StudyController extends Controller {
                 case StudyTrait::$STATUS_CANCELLED:
                 case StudyTrait::$STATUS_ABSENT:
 
-                    $duration                               = StudyTrait::getDuration($study);
+                    $duration                               = StudyTrait::getDuration($study) / 60.0;
                     $subjects                               = $study->{Model::$STUDY_SUBJECT_TEXT};
                     break;
             }
 
-            array_push($rows, [$first_name, $last_name, $subjects, $service, $participants, $trial, $plan, $date, $start, $end, $duration, $location, $status, $remark, $link]);
+            array_push($rows, [$first_name, $last_name, $subjects, $service, $plan, $participants, $trial, $date, $start, $end, $duration, $location, $status, $remark, $link]);
         }
     }
 
