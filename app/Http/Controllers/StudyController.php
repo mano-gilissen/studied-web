@@ -1315,7 +1315,6 @@ class StudyController extends Controller {
                     }
 
                     break;
-
             }
         }
 
@@ -1351,7 +1350,7 @@ class StudyController extends Controller {
                 ];
             }
 
-            $duration                                                           = StudyTrait::getDuration($study);
+            $duration                                                           = StudyTrait::getDuration($study) / 60.0;
             $offset                                                             = 1;
 
             switch ($study->{Model::$SERVICE}) {
@@ -1408,7 +1407,7 @@ class StudyController extends Controller {
 
             if ($study->{Model::$STUDY_STATUS} == StudyTrait::$STATUS_REPORTED) {
 
-                $duration                                   = StudyTrait::getDuration($study);
+                $duration                                   = StudyTrait::getDuration($study) / 60.0;
                 $employee                                   = $study->getHost_User;
 
                 if (!$employee) {
@@ -1433,10 +1432,10 @@ class StudyController extends Controller {
                     ];
                 }
 
-                $rows[$employee->{Model::$BASE_ID}][1]                                  += $duration / 60;
-                $rows[$employee->{Model::$BASE_ID}][$study->{Model::$SERVICE} + 1]      += $duration / 60;
-                $row_total[1]                                                           += $duration / 60;
-                $row_total[$study->{Model::$SERVICE} + 1]                               += $duration / 60;
+                $rows[$employee->{Model::$BASE_ID}][1]                                  += $duration;
+                $rows[$employee->{Model::$BASE_ID}][$study->{Model::$SERVICE} + 1]      += $duration;
+                $row_total[1]                                                           += $duration;
+                $row_total[$study->{Model::$SERVICE} + 1]                               += $duration;
             }
         }
 

@@ -342,12 +342,12 @@ trait StudyTrait {
                         }
                     }
 
-                    return $durationMax / 60.0;
+                    return $durationMax;
                 }
 
             default:
 
-                return (strtotime($study->{Model::$STUDY_END}) - strtotime($study->{Model::$STUDY_START})) / 3600.0;
+                return (strtotime($study->{Model::$STUDY_END}) - strtotime($study->{Model::$STUDY_START})) / 60.0;
         }
     }
 
