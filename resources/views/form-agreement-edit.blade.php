@@ -28,9 +28,9 @@
 
     @include('form.field-input', ['id' => 'hours', 'type' => 'number', 'tag' => __('Uren per week'), 'required' => true, 'value' => $agreement->{\App\Http\Support\Model::$AGREEMENT_HOURS}])
 
-    @include('form.field-input', ['id' => 'start', 'type' => 'date', 'tag' => __('Geldig vanaf'), 'required' => true, 'value' => \App\Http\Support\Format::datetime($study->{\App\Http\Support\Model::$AGREEMENT_START}, \App\Http\Support\Format::$DATETIME_FORM)])
+    @include('form.field-input', ['id' => 'start', 'type' => 'date', 'tag' => __('Geldig vanaf'), 'required' => true, 'value' => \App\Http\Support\Format::datetime($agreement->{\App\Http\Support\Model::$AGREEMENT_START}, \App\Http\Support\Format::$DATETIME_FORM)])
 
-    @include('form.field-input', ['id' => 'end', 'type' => 'date', 'tag' => __('Geldig tot'), 'required' => true, 'value' => \App\Http\Support\Format::datetime($study->{\App\Http\Support\Model::$AGREEMENT_END}, \App\Http\Support\Format::$DATETIME_FORM)])
+    @include('form.field-input', ['id' => 'end', 'type' => 'date', 'tag' => __('Geldig tot'), 'required' => true, 'value' => \App\Http\Support\Format::datetime($agreement->{\App\Http\Support\Model::$AGREEMENT_END}, \App\Http\Support\Format::$DATETIME_FORM)])
 
     @include('form.field-textarea', ['id' => 'remark', 'tag' => __('Opmerkingen'), 'value' => $agreement->{\App\Http\Support\Model::$AGREEMENT_REMARK}])
 
