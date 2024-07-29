@@ -12,6 +12,7 @@ use App\Http\Support\Model;
 use App\Models\Address;
 use App\Models\Employee;
 use App\Models\Evaluation;
+use App\Models\Evaluation_employee;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 
@@ -151,11 +152,9 @@ trait EvaluationTrait {
 
         $evaluation->save();
 
+        foreach (Evaluation_employee::where(Model::$EVALUATION, $evaluation->{Model::$BASE_ID})->get() as $evaluation_employee) {
 
-
-        foreach ($evaluation->getEvaluation_Employees as $employee) {
-
-            $employee->delete();
+            $evaluation_employee->delete();
 
         }
 
