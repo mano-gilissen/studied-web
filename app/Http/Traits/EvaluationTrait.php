@@ -152,11 +152,7 @@ trait EvaluationTrait {
 
         $evaluation->save();
 
-        foreach (Evaluation_employee::where(Model::$EVALUATION, $evaluation->{Model::$BASE_ID})->get() as $evaluation_employee) {
-
-            $evaluation_employee->delete();
-
-        }
+        \DB::delete('DELETE FROM evaluation_employee where evaluation = ' . $evaluation->{Model::$BASE_ID});
 
         $employee_ids                                               = [];
 
