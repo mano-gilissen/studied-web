@@ -52,6 +52,8 @@ Route::get('/vakafspraak/{identifier}',                     'AgreementController
 
 Route::get('/vakafspraak/{identifier}/afhandelen',          'AgreementController@finish')->name('agreement.finish')->middleware('auth', 'authorize');
 
+Route::get('/vakafspraak/{identifier}/bewerken',            'AgreementController@edit')->name('agreement.edit')->middleware('auth', 'authorize');
+
 Route::get('/vakafspraak/aanmaken/{leerling}',              'AgreementController@create')->name('agreement.create')->middleware('auth', 'authorize');
 
 Route::get('/vakafspraken',                                 'AgreementController@list')->name('agreement.list')->middleware('auth', 'authorize');
@@ -105,6 +107,8 @@ Route::get('/gegevens/wijzigen/{slug?}',                    'UserController@edit
 
 
 Route::get('/gesprek/{key}',                                'EvaluationController@view')->name('evaluation.view')->middleware('auth', 'authorize');
+
+Route::get('/gesprek/{key}/bewerken',                       'EvaluationController@edit')->name('evaluation.edit')->middleware('auth', 'authorize');
 
 Route::get('/gesprek/aanmaken/{leerling?}',                 'EvaluationController@plan')->name('evaluation.plan')->middleware('auth', 'authorize');
 

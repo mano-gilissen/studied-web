@@ -117,8 +117,6 @@ class EvaluationController extends Controller {
 
         $data                                                               = $request->all();
 
-        // self::plan_validate($data);
-
         $evaluation                                                         = EvaluationTrait::create($data);
 
         if (!$evaluation) {
@@ -132,18 +130,65 @@ class EvaluationController extends Controller {
 
 
 
-    public function plan_validate(array $data) {
+    public function edit($key) {
 
-        $rules                                                              = [];
+        $evaluation                                                         = Evaluation::where(Model::$BASE_KEY, $key)->firstOrFail();
 
-        $rules[Model::$EVALUATION_DATETIME]                                 = ['required'];
-        $rules[Model::$EVALUATION_REGARDING]                                = ['required'];
-        $rules[Model::$EVALUATION_HOST]                                     = ['required'];
-        $rules[Model::$STUDENT]                                             = ['required'];
+        $data                                                               = [];
 
-        $validator                                                          = Validator::make($data, $rules, BaseTrait::getValidationMessages());
+        $data[Model::$EVALUATION]                                           = $evaluation;
 
-        $validator->validate();
+        $data[Key::PAGE_TITLE]                                              = __('Gesprek bewerken');
+        $data[Key::SUBMIT_ACTION]                                           = __('Opslaan');
+        $data[Key::SUBMIT_ROUTE]                                            = 'evaluation.edit_submit';
+
+
+
+        $objects_host                                                       = User::whereIn(Model::$ROLE, array(RoleTrait::$ID_BOARD, RoleTrait::$ID_MANAGEMENT))->with('getPerson')->get();
+        $objects_employee                                                   = User::whereIn(Model::$ROLE, array(RoleTrait::$ID_BOARD, RoleTrait::$ID_MANAGEMENT, RoleTrait::$ID_EMPLOYEE))->with('getPerson')->get();
+        $objects_location                                                   = Location::all();
+
+
+
+        $ac_data_host                                                       = $objects_host->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
+        $ac_additional_host                                                 = $objects_host->pluck(Model::$USER_EMAIL, Model::$BASE_ID)->toArray();
+
+        $ac_data_employee                                                   = $objects_employee->pluck('getPerson.' . 'fullName', Model::$BASE_ID)->toArray();
+        $ac_additional_employee                                             = $objects_employee->pluck(Model::$USER_EMAIL, Model::$BASE_ID)->toArray();
+
+        $ac_data_location                                                   = $objects_location->pluck(Model::$SUBJECT_NAME, Model::$BASE_ID)->toArray();
+
+
+
+        $data[Key::AUTOCOMPLETE_DATA . Model::$EVALUATION_HOST]             = Format::encode($ac_data_host);
+        $data[Key::AUTOCOMPLETE_ADDITIONAL . Model::$EVALUATION_HOST]       = Format::encode($ac_additional_host);
+
+        $data[Key::AUTOCOMPLETE_DATA . Model::$EMPLOYEE]                    = Format::encode($ac_data_employee);
+        $data[Key::AUTOCOMPLETE_ADDITIONAL . Model::$EMPLOYEE]              = Format::encode($ac_additional_employee);
+
+        $data[Key::AUTOCOMPLETE_DATA . Model::$LOCATION]                    = Format::encode($ac_data_location);
+        $data[Key::AUTOCOMPLETE_DATA . Model::$EVALUATION_REGARDING]        = Format::encode(EvaluationTrait::getRegardingData());
+
+
+
+        return view(Views::FORM_EVALUATION_EDIT, $data);
+    }
+
+
+
+    public function edit_submit(Request $request) {
+
+        $data                                                               = $request->all();
+
+        $evaluation                                                         = EvaluationTrait::edit($data);
+
+        if (!$evaluation) {
+
+            abort(500);
+
+        }
+
+        return redirect()->route('evaluation.view', [Model::$BASE_KEY => $evaluation->{Model::$BASE_KEY}]);
     }
 
 

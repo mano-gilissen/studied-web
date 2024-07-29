@@ -58,6 +58,12 @@
 
                 <div id="buttons">
 
+                    @hasSection('actions')
+
+                        @yield('actions')
+
+                    @endif
+
                     <button class="button" id="button-submit" type="submit">
 
                         {{ $submit_action }}

@@ -44,6 +44,8 @@ const AGREEMENT_VIEW                            = 'agreement.view';
 
 const AGREEMENT_CREATE                          = 'agreement.create';
 
+const AGREEMENT_EDIT                            = 'agreement.edit';
+
 const AGREEMENT_FINISH                          = 'agreement.finish';
 
 const AGREEMENT_LIST                            = 'agreement.list';
@@ -93,6 +95,8 @@ const USER_EDIT                                 = 'user.edit';
 const EVALUATION_VIEW                           = 'evaluation.view';
 
 const EVALUATION_PLAN                           = 'evaluation.plan';
+
+const EVALUATION_EDIT                           = 'evaluation.edit';
 
 const EVALUATION_INTAKE                         = 'evaluation.intake';
 
@@ -218,6 +222,7 @@ const ALL_MANAGEMENT                            = [
     self::STUDY_DELETE,
     self::AGREEMENT_FINISH,
     self::AGREEMENT_CREATE,
+    self::AGREEMENT_EDIT,
     self::STUDENT_CREATE,
     self::STUDENT_EDIT,
     self::CUSTOMER_CREATE,
@@ -227,6 +232,7 @@ const ALL_MANAGEMENT                            = [
     self::EMPLOYEE_LIST,
     self::EMPLOYEE_EDIT,
     self::EVALUATION_PLAN,
+    self::EVALUATION_EDIT,
     self::EVALUATION_INTAKE,
     self::EVALUATION_EVALUATION,
     self::LOAD_EVALUATION_AGREEMENT,

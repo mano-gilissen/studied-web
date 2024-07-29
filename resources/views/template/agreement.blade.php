@@ -50,7 +50,7 @@
 
                         @endif
 
-                        <div class="button icon">
+                        <div class="button icon" onclick="window.location.href='{{ route('agreement.edit', [\App\Http\Support\Model::$AGREEMENT_IDENTIFIER => $agreement->{\App\Http\Support\Model::$AGREEMENT_IDENTIFIER}]) }}'">
 
                             <img class="icon" src="/images_app/edit.svg">
 

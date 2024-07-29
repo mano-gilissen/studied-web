@@ -199,6 +199,78 @@ class AgreementController extends Controller {
 
 
 
+    public function edit($identifier) {
+
+        $agreement                                                          = Agreement::where(Model::$AGREEMENT_IDENTIFIER, $identifier)->firstOrFail();
+
+        $data                                                               = [];
+
+        $data[Model::$AGREEMENT]                                            = $agreement;
+
+        $data[Key::PAGE_TITLE]                                              = __('Vakafspraak bewerken');
+        $data[Key::SUBMIT_ACTION]                                           = __('Opslaan');
+        $data[Key::SUBMIT_ROUTE]                                            = 'agreement.edit_submit';
+
+        self::edit_set_ac_data($data);
+
+        return view(Views::FORM_AGREEMENT_EDIT, $data);
+    }
+
+
+
+    public function edit_submit(Request $request) {
+
+        $data                                                               = $request->all();
+
+        self::edit_validate($data);
+
+        $agreement                                                          = AgreementTrait::edit($data);
+
+        if (!$agreement) {
+
+            abort(500);
+
+        }
+
+        return redirect()->route('agreement.view', [Model::$AGREEMENT_IDENTIFIER => $agreement->{Model::$AGREEMENT_IDENTIFIER}]);
+
+    }
+
+
+
+    public function edit_validate($data) {
+
+        $rules                                                              = [];
+
+        // TODO: ADD RULES
+
+        $validator                                                          = Validator::make($data, $rules, BaseTrait::getValidationMessages());
+
+        $validator->validate();
+    }
+
+
+
+    public static function edit_set_ac_data(&$data) {
+
+        $objects_service                                                    = Service::all();
+        $objects_subject                                                    = Subject::all();
+        $objects_level                                                      = Level::all();
+
+        $ac_data_service                                                    = $objects_service->pluck(Model::$SERVICE_NAME, Model::$BASE_ID)->toArray();
+        $ac_data_subject                                                    = $objects_subject->pluck(Model::$SUBJECT_NAME, Model::$BASE_ID)->toArray();
+        $ac_data_level                                                      = $objects_level->pluck('withYear', Model::$BASE_ID)->toArray();
+
+        $data[Key::AUTOCOMPLETE_DATA . Model::$AGREEMENT_PLAN]              = Format::encode(AgreementTrait::getPlanFilterData());
+        $data[Key::AUTOCOMPLETE_DATA . Model::$SERVICE]                     = Format::encode($ac_data_service);
+        $data[Key::AUTOCOMPLETE_DATA . Model::$SUBJECT]                     = Format::encode($ac_data_subject);
+        $data[Key::AUTOCOMPLETE_DATA . Model::$LEVEL]                       = Format::encode($ac_data_level);
+    }
+
+
+
+
+
     public function list(Request $request) {
 
         return Table::view($this, $request);

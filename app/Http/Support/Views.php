@@ -35,6 +35,8 @@ class Views {
     const FORM_AGREEMENT_CREATE                 = "form-agreement-create";
     const FORM_STUDY_EDIT                       = "form-study-edit";
     const FORM_PERSON_EDIT                      = "form-person-edit";
+    const FORM_AGREEMENT_EDIT                   = "form-agreement-edit";
+    const FORM_EVALUATION_EDIT                  = "form-evaluation-edit";
 
     const LOAD_LIST                             = "load.list";
     const LOAD_ITEMS                            = "load.items";

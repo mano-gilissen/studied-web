@@ -191,6 +191,25 @@ trait AgreementTrait {
 
 
 
+    public static function edit($data) {
+
+        $agreement                                              = Agreement::where(Model::$BASE_KEY, $data[Model::$BASE_KEY])->firstOrFail();
+
+        $agreement->{Model::$SUBJECT}                           = $data[Key::AUTOCOMPLETE_ID . Model::$SUBJECT];
+        $agreement->{Model::$LEVEL}                             = $data[Key::AUTOCOMPLETE_ID . Model::$LEVEL];
+
+        $agreement->{Model::$AGREEMENT_HOURS}                   = is_numeric($data[Model::$AGREEMENT_HOURS]) ? $data[Model::$AGREEMENT_HOURS] : 0;
+        $agreement->{Model::$AGREEMENT_START}                   = $data[Model::$AGREEMENT_START];
+        $agreement->{Model::$AGREEMENT_END}                     = $data[Model::$AGREEMENT_END];
+        $agreement->{Model::$AGREEMENT_REMARK}                  = $data[Model::$AGREEMENT_REMARK];
+
+        $agreement->save();
+
+        return $agreement;
+    }
+
+
+
     public static function approve($study, $user) {
 
         $agreement                                              = Study_user::where(Model::$STUDY, $study->id)->where(Model::$USER, $user->id)->firstOrFail()->getAgreement;

@@ -58,17 +58,15 @@ trait EvaluationTrait {
         $evaluation->{Model::$EVALUATION_LOCATION_TEXT}             = $link ? __("Digitaal") : ($location ? $location->{Model::$LOCATION_NAME} : $data[Model::$LOCATION]);
         $evaluation->{Model::$EVALUATION_LINK}                      = $link;
 
-
-
         $evaluation->save();
 
 
 
         $employee_ids                                               = [];
 
-        array_push($employee_ids, $data[Key::AUTOCOMPLETE_ID . Model::$EMPLOYEE . '_1']);
-        array_push($employee_ids, $data[Key::AUTOCOMPLETE_ID . Model::$EMPLOYEE . '_2']);
-        array_push($employee_ids, $data[Key::AUTOCOMPLETE_ID . Model::$EMPLOYEE . '_3']);
+        $employee_ids[]                                             = $data[Key::AUTOCOMPLETE_ID . Model::$EMPLOYEE . '_1'];
+        $employee_ids[]                                             = $data[Key::AUTOCOMPLETE_ID . Model::$EMPLOYEE . '_2'];
+        $employee_ids[]                                             = $data[Key::AUTOCOMPLETE_ID . Model::$EMPLOYEE . '_3'];
 
         foreach ($employee_ids as $employee_id) {
 
@@ -128,6 +126,54 @@ trait EvaluationTrait {
         $evaluation[Model::$EVALUATION_PERFORMED]                           = true;
 
         $evaluation->save();
+    }
+
+
+
+    public static function edit($data) {
+
+        self::validate($data);
+
+        $evaluation                                                 = Evaluation::where(Model::$BASE_KEY, $data[Model::$BASE_KEY])->first();
+
+        $evaluation->{Model::$EVALUATION_DATETIME}                  = $data['date'] . ' ' . $data['start'] . ':00';
+        $evaluation->{Model::$EVALUATION_REGARDING}                 = $data[Key::AUTOCOMPLETE_ID . Model::$EVALUATION_REGARDING];
+        $evaluation->{Model::$EVALUATION_HOST}                      = $data[Key::AUTOCOMPLETE_ID . Model::$EVALUATION_HOST];
+
+        $address                                                    = Address::find($data[Key::AUTOCOMPLETE_ID . Model::$LOCATION]);
+        $location                                                   = $address ? $address->getLocation : null;
+        $link                                                       = $data[Model::$EVALUATION_LINK];
+
+        $evaluation->{Model::$ADDRESS}                              = $address ? $address->{Model::$BASE_ID} : -1;
+        $evaluation->{Model::$EVALUATION_LOCATION_TEXT}             = $link ? __("Digitaal") : ($location ? $location->{Model::$LOCATION_NAME} : $data[Model::$LOCATION]);
+        $evaluation->{Model::$EVALUATION_LINK}                      = $link;
+
+        $evaluation->save();
+
+
+
+        foreach ($evaluation->getEvaluation_Employees as $employee) {
+
+            $employee->delete();
+
+        }
+
+        $employee_ids                                               = [];
+
+        $employee_ids[]                                             = $data[Key::AUTOCOMPLETE_ID . Model::$EMPLOYEE . '_1'];
+        $employee_ids[]                                             = $data[Key::AUTOCOMPLETE_ID . Model::$EMPLOYEE . '_2'];
+        $employee_ids[]                                             = $data[Key::AUTOCOMPLETE_ID . Model::$EMPLOYEE . '_3'];
+
+        foreach ($employee_ids as $employee_id) {
+
+            if ($employee_id > 0) {
+
+                Evaluation_EmployeeTrait::create($evaluation->{Model::$BASE_ID}, $employee_id);
+
+            }
+        }
+
+        return $evaluation;
     }
 
 

@@ -220,6 +220,20 @@ class StudyController extends Controller {
 
         $study                                                              = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
 
+        if (\App\Http\Traits\StudyTrait::isReported($study)) {
+
+            foreach ($study->getReports as $report) {
+
+                foreach ($report->getReport_Subjects as $report_subject) {
+
+                    $report_subject->delete();
+
+                }
+
+                $report->delete();
+            }
+        }
+
         if ($study->{Model::$STUDY_TRIAL}) {
 
             foreach ($study->getAgreements as $agreement) {
@@ -1340,7 +1354,7 @@ class StudyController extends Controller {
             $duration                                                           = ReportTrait::getDurationTotal($study) / 60;
             $offset                                                             = 1;
 
-            switch ($study->getAgreement->{Model::$SERVICE}) {
+            switch ($study->{Model::$SERVICE}) {
 
                 case ServiceTrait::$ID_HUISWERKBEGELEIDING_BO:                  $offset += 0; break;
                 case ServiceTrait::$ID_HUISWERKBEGELEIDING_VO:                  $offset += 1; break;

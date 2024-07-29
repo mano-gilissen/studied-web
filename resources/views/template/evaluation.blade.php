@@ -46,7 +46,7 @@
                     @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
                     @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
 
-                        <div class="button icon @if(!$evaluation->performed) grey @endif">
+                        <div class="button icon @if(!$evaluation->performed) grey @endif" onclick="window.location.href='{{ route('evaluation.edit', [\App\Http\Support\Model::$BASE_KEY => $agreement->{\App\Http\Support\Model::$BASE_KEY}]) }}'">
 
                             <img class="icon" src="/images_app/edit.svg">
 
