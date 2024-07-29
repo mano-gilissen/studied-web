@@ -50,7 +50,7 @@
 
     @include('form.field-input', ['id' => 'regarding', 'tag' => __('Onderwerp'), 'required' => true, 'data' => true, 'uses_id' => true, 'show_all' => true, 'reject_other' => true, 'value' => \App\Http\Traits\EvaluationTrait::getRegardingText($evaluation->{\App\Http\Support\Model::$EVALUATION_REGARDING})])
 
-    @include('form.field-textarea', ['id' => 'remark', 'tag' => __('Opmerking'), 'value' => $evaluation->{\App\Http\Support\Model::$EVALUATION_REMARKS}])
+    @include('form.field-textarea', ['id' => 'remarks', 'tag' => __('Opmerking'), 'value' => $evaluation->{\App\Http\Support\Model::$EVALUATION_REMARKS}])
 
 
 
