@@ -14,10 +14,6 @@ class Evaluation_employee extends ModelClass {
 
 
 
-    use SoftDeletes;
-
-
-
     protected
 
         $table                                  = 'evaluation_employee';

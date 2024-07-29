@@ -45,7 +45,7 @@ class Evaluation extends ModelClass {
 
     public function getEvaluation_Employees() {
 
-        return self::getOneToMany(Model::$EVALUATION_EMPLOYEE, Model::$EVALUATION, Model::$EMPLOYEE);
+        return self::getOneToMany(Model::$EVALUATION_EMPLOYEE, Model::$EVALUATION);
 
     }
 
