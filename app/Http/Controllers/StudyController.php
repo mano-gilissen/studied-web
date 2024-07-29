@@ -1379,6 +1379,8 @@ class StudyController extends Controller {
             $rows[$study->{Model::$STUDY_HOST_USER}][$offset] += $duration; break;
         }
 
+        dd($rows);
+
         usort($rows, function($a, $b) {
 
             return strcmp($a[0], $b[0]);
