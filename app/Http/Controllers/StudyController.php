@@ -1376,10 +1376,8 @@ class StudyController extends Controller {
                 case ServiceTrait::$ID_TAALCURSUS_TO:                           $offset += 13; break;
             }
 
-            $rows[$study->{Model::$STUDY_HOST_USER}][$offset] += $duration; break;
+            $rows[$study->{Model::$STUDY_HOST_USER}][$offset] += $duration;
         }
-
-        dd($rows);
 
         usort($rows, function($a, $b) {
 
