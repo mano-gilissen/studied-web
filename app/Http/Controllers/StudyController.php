@@ -1351,7 +1351,7 @@ class StudyController extends Controller {
                 ];
             }
 
-            $duration                                                           = ReportTrait::getDurationTotal($study) / 60;
+            $duration                                                           = StudyTrait::getDuration($study);
             $offset                                                             = 1;
 
             switch ($study->{Model::$SERVICE}) {

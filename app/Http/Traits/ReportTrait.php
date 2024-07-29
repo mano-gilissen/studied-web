@@ -262,7 +262,7 @@ trait ReportTrait {
 
         $duration_total                                                     = 0;
 
-        foreach($report_subjects as $report_subject) {
+        foreach ($report_subjects as $report_subject) {
 
             $duration_total                                                += $report_subject->{Model::$REPORT_SUBJECT_DURATION};
 
