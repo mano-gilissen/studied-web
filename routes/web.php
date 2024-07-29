@@ -214,6 +214,8 @@ Route::post('/submit/agreement/create',                     'AgreementController
 
 Route::post('/submit/evaluation/plan',                      'EvaluationController@plan_submit')->name('evaluation.plan_submit')->middleware('auth', 'authorize');
 
+Route::post('/submit/evaluation/edit',                      'EvaluationController@edit_submit')->name('evaluation.edit_submit')->middleware('auth', 'authorize');
+
 Route::post('/submit/evaluation/perform',                   'EvaluationController@perform_submit')->name('evaluation.perform_submit')->middleware('auth', 'authorize');
 
 Route::post('/submit/language',                             'UserController@language_submit')->name('user.language_submit')->middleware('auth', 'authorize');
@@ -231,8 +233,6 @@ Route::post('/submit/avatar',                               'PersonController@av
 Route::get('/encrypt/{value}',                              'LoginController@encrypt')->name('encrypt');
 
 Route::get('/template',                                     'DebugController@template')->name('template');
-
-//Route::get('/mail_test/{key}',                              'DebugController@mail_test')->name('mail_test');
 
 Route::get('/schedule_test/activate_reminder',              'DebugController@activate_reminder_test')->name('activate_reminder_test');
 

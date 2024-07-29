@@ -184,6 +184,8 @@ const AGREEMENT_CREATE_SUBMIT                   = 'agreement.create_submit';
 
 const EVALUATION_PLAN_SUBMIT                    = 'evaluation.plan_submit';
 
+const EVALUATION_EDIT_SUBMIT                    = 'evaluation.edit_submit';
+
 const EVALUATION_PERFORM_SUBMIT                 = 'evaluation.perform_submit';
 
 const USER_PASSWORD_SUBMIT                      = 'user.password_submit';
@@ -254,6 +256,7 @@ const ALL_MANAGEMENT                            = [
     self::EMPLOYEE_EDIT_SUBMIT,
     self::AGREEMENT_CREATE_SUBMIT,
     self::EVALUATION_PLAN_SUBMIT,
+    self::EVALUATION_EDIT_SUBMIT,
     self::EVALUATION_PERFORM_SUBMIT
 ];
 
