@@ -137,7 +137,7 @@ trait EvaluationTrait {
         $evaluation                                                 = Evaluation::where(Model::$BASE_KEY, $data[Model::$EVALUATION])->first();
 
         $evaluation->{Model::$EVALUATION_DATETIME}                  = $data['date'] . ' ' . $data['start'] . ':00';
-        $evaluation->{Model::$EVALUATION_REGARDING}                 = $data[Key::AUTOCOMPLETE_ID . Model::$EVALUATION_REGARDING];
+        $evaluation->{Model::$EVALUATION_REGARDING}                 = $data[Model::$EVALUATION_REGARDING];
         $evaluation->{Model::$EVALUATION_HOST}                      = $data[Key::AUTOCOMPLETE_ID . Model::$EVALUATION_HOST];
 
         $address                                                    = Address::find($data[Key::AUTOCOMPLETE_ID . Model::$LOCATION]);
