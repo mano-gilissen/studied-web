@@ -6,13 +6,13 @@
 
     <div class="title">{{ __('Vakafspraak') }}</div>
 
-    @include('form.field-input', ['id' => 'student', 'tag' => __('Leerling'), 'icon' => 'fix.svg','locked' => true, 'value' => \App\Http\Traits\PersonTrait::getFullName(($agreement->getStudent->getPerson))])
+    @include('form.field-input', ['id' => 'student', 'tag' => __('Leerling'), 'icon' => 'lock.svg','locked' => true, 'value' => \App\Http\Traits\PersonTrait::getFullName(($agreement->getStudent->getPerson))])
 
-    @include('form.field-input', ['id' => 'employee', 'tag' => __('Student-docent'), 'icon' => 'fix.svg', 'locked' => true, 'value' => \App\Http\Traits\PersonTrait::getFullName(($agreement->getEmployee->getPerson))])
+    @include('form.field-input', ['id' => 'employee', 'tag' => __('Student-docent'), 'icon' => 'lock.svg', 'locked' => true, 'value' => \App\Http\Traits\PersonTrait::getFullName(($agreement->getEmployee->getPerson))])
 
-    @include('form.field-input', ['id' => 'service', 'tag' => __('Dienst'), 'locked' => true, 'value' => $agreement->getService->{\App\Http\Support\Model::$SERVICE_NAME}])
+    @include('form.field-input', ['id' => 'service', 'tag' => __('Dienst'), 'icon' => 'lock.svg', 'locked' => true, 'value' => $agreement->getService->{\App\Http\Support\Model::$SERVICE_NAME}])
 
-    @include('form.field-input', ['id' => 'plan', 'tag' => __('Begeleidingsvorm'), 'locked' => true, 'value' => \App\Http\Traits\AgreementTrait::getPlanText($agreement->{\App\Http\Support\Model::$AGREEMENT_PLAN})])
+    @include('form.field-input', ['id' => 'plan', 'tag' => __('Begeleidingsvorm'), 'icon' => 'lock.svg', 'locked' => true, 'value' => \App\Http\Traits\AgreementTrait::getPlanText($agreement->{\App\Http\Support\Model::$AGREEMENT_PLAN})])
 
     <div class="field">
 
