@@ -40,7 +40,7 @@
 
     @endif
 
-    @include('form.field-input', ['id' => 'student', 'tag' => __('Leerling'), 'icon' => 'fix.svg', 'locked' => true, 'value' => \App\Http\Traits\PersonTrait::getFullName($evaluation->getStudent)])
+    @include('form.field-input', ['id' => 'student', 'tag' => __('Leerling'), 'icon' => 'fix.svg', 'locked' => true, 'value' => \App\Http\Traits\PersonTrait::getFullName($evaluation->getStudent->getPerson)])
 
     <div class="seperator"></div>
 
