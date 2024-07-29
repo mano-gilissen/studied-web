@@ -212,6 +212,8 @@ Route::post('/submit/employee/edit',                        'EmployeeController@
 
 Route::post('/submit/agreement/create',                     'AgreementController@create_submit')->name('agreement.create_submit')->middleware('auth', 'authorize');
 
+Route::post('/submit/agreement/edit',                       'AgreementController@edit_submit')->name('agreement.edit_submit')->middleware('auth', 'authorize');
+
 Route::post('/submit/evaluation/plan',                      'EvaluationController@plan_submit')->name('evaluation.plan_submit')->middleware('auth', 'authorize');
 
 Route::post('/submit/evaluation/edit',                      'EvaluationController@edit_submit')->name('evaluation.edit_submit')->middleware('auth', 'authorize');
