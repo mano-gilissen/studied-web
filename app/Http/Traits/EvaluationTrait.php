@@ -152,7 +152,7 @@ trait EvaluationTrait {
 
         $evaluation->save();
 
-        foreach ($evaluation->getEvaluation_Employees as $evaluation_employee) {
+        foreach (Evaluation_employee::where(Model::$EVALUATION, $evaluation->{Model::$BASE_ID})->get() as $evaluation_employee) {
 
             $evaluation_employee->{Model::$BASE_DELETED_AT}          = date('Y-m-d H:i:s');
 
