@@ -86,10 +86,10 @@
 
 @section('actions')
 
-    <button class="button red" onclick="if(confirm(translated('Weet je zeker dat je dit rapport en de bijhorende les wilt verwijderen? Dit kan niet ongedaan worden gemaakt.'))) { window.location.href='{{ route('study.delete', [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}'; }">
+    <div class="button red" onclick="if(confirm(translated('Weet je zeker dat je dit rapport en de bijhorende les wilt verwijderen? Dit kan niet ongedaan worden gemaakt.'))) { window.location.href='{{ route('study.delete', [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}'; }">
 
-        {{ __('Verwijderen') }}
+        {{ __('Les verwijderen') }}
 
-    </button>
+    </div>
 
 @endsection
