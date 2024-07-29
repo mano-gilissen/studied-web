@@ -38,7 +38,7 @@
 
 
 
-    @include('form.field-hidden', ['id' => 'agreement', 'value' => $agreement->{\App\Http\Support\Model::$BASE_KEY}])
+    @include('form.field-hidden', ['id' => 'agreement', 'value' => $agreement->{\App\Http\Support\Model::$AGREEMENT_IDENTIFIER}])
 
 
 
