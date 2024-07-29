@@ -34,7 +34,7 @@
 
         @for($i = count($evaluation->getEmployees) + 1; $i <= 3; $i++)
 
-            @include('form.field-input', ['id' => 'employee_' . $i, 'tag' => __('Student-docent #' . $i), 'icon' => 'search.svg', 'placeholder' => __('Zoek een student-docent'), 'required' => true, 'data' => true, 'ac_data' => 'employee', 'additional' => true, 'show_all' => true, 'reject_other' => true])
+            @include('form.field-input', ['id' => 'employee_' . $i, 'tag' => __('Student-docent #' . $i), 'icon' => 'search.svg', 'placeholder' => __('Zoek een student-docent'), 'required' => true, 'data' => true, 'ac_data' => 'employee', 'additional' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true])
 
         @endfor
 
