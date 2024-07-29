@@ -134,7 +134,7 @@ trait EvaluationTrait {
 
         self::validate($data);
 
-        $evaluation                                                 = Evaluation::where(Model::$BASE_KEY, $data[Model::$BASE_KEY])->first();
+        $evaluation                                                 = Evaluation::where(Model::$BASE_KEY, $data[Model::$EVALUATION])->first();
 
         $evaluation->{Model::$EVALUATION_DATETIME}                  = $data['date'] . ' ' . $data['start'] . ':00';
         $evaluation->{Model::$EVALUATION_REGARDING}                 = $data[Key::AUTOCOMPLETE_ID . Model::$EVALUATION_REGARDING];
