@@ -193,7 +193,7 @@ trait AgreementTrait {
 
     public static function edit($data) {
 
-        $agreement                                              = Agreement::where(Model::$BASE_KEY, $data[Model::$BASE_KEY])->firstOrFail();
+        $agreement                                              = Agreement::where(Model::$BASE_KEY, $data[Model::$AGREEMENT])->firstOrFail();
 
         $agreement->{Model::$SUBJECT}                           = $data[Key::AUTOCOMPLETE_ID . Model::$SUBJECT];
         $agreement->{Model::$LEVEL}                             = $data[Key::AUTOCOMPLETE_ID . Model::$LEVEL];
