@@ -327,7 +327,15 @@ trait StudyTrait {
 
                 if ($participant) {
 
-                    return ReportTrait::getDurationTotal($study->getReport($participant));
+                    $report                                         = $study->getReport($participant);
+
+                    if ($report) {
+
+                        return ReportTrait::getDurationTotal($report);
+
+                    }
+
+                    return self::getDuration($study);
 
                 } else {
 

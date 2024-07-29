@@ -1197,7 +1197,7 @@ class StudyController extends Controller {
             $remark                                         = $study->{Model::$STUDY_REMARK};
             $link                                           = 'https://studied.app/les/' . $study->{Model::$BASE_KEY};
             $trial                                          = StudyTrait::isTrial($study) ? __('Ja') : __('Nee');
-            $duration                                       = 0;
+            $duration                                       = StudyTrait::getDuration($study, $participant) / 60.0;
             $subjects                                       = '';
 
             switch ($study->{Model::$STUDY_STATUS}) {
@@ -1208,7 +1208,6 @@ class StudyController extends Controller {
 
                     if ($report) {
 
-                        $duration                           = ReportTrait::getDurationTotal($report) / 60.0;
                         $trial                              = StudyTrait::isTrial($study) ? ($report->{Model::$REPORT_TRIAL_SUCCESS} ? __('Succes') : __('Mislukt')) : __('Nee');
 
                         foreach ($report->getReport_Subjects as $report_Subject) {
@@ -1223,7 +1222,6 @@ class StudyController extends Controller {
                 case StudyTrait::$STATUS_CANCELLED:
                 case StudyTrait::$STATUS_ABSENT:
 
-                    $duration                               = StudyTrait::getDuration($study) / 60.0;
                     $subjects                               = $study->{Model::$STUDY_SUBJECT_TEXT};
                     break;
             }
@@ -1251,13 +1249,6 @@ class StudyController extends Controller {
             foreach ($study->getAgreements as $agreement) {
 
                 $user                                                   = $agreement->getStudent;
-                $report                                                 = $study->getReport($user);
-
-                if (!$report) {
-
-                    continue;
-
-                }
 
                 if (!array_key_exists($user->{Model::$BASE_ID}, $rows)) {
 
@@ -1277,13 +1268,32 @@ class StudyController extends Controller {
                     ];
                 }
 
-                $duration                                               = ReportTrait::getDurationTotal($report) / 60;
                 $plan                                                   = $agreement->{Model::$AGREEMENT_PLAN};
                 $rate                                                   = Service::find($study->{Model::$SERVICE})->{'rate_plan' . $plan . '_' . ($group ? 'group' : 'solo')};
 
-                if ($report->{Model::$STUDY_TRIAL} && !$report->{Model::$REPORT_TRIAL_SUCCESS}) {
+                if ($study->{Model::$STUDY_STATUS} == StudyTrait::$STATUS_REPORTED) {
 
-                    $rows[$user->{Model::$BASE_ID}][1]                  -= $duration * $rate;
+                    $report                                             = $study->getReport($user);
+
+                    if (!$report) {
+
+                        continue;
+
+                        // ERROR CATCH FOR RESOLVED 0-DURATION ISSUE,
+                        // CAN CAUSE INCONSISTENCIES IN EXPORT DATA
+                    }
+
+                    $duration                                           = ReportTrait::getDurationTotal($report) / 60.0;
+
+                    if ($report->{Model::$STUDY_TRIAL} && !$report->{Model::$REPORT_TRIAL_SUCCESS}) {
+
+                        $rows[$user->{Model::$BASE_ID}][1]              -= $duration * $rate;
+
+                    }
+
+                } else {
+
+                    $duration                                           = StudyTrait::getDuration($study) / 60.0;
 
                 }
 
