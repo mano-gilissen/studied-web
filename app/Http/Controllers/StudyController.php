@@ -1212,6 +1212,12 @@ class StudyController extends Controller {
 
                         foreach ($report->getReport_Subjects as $report_Subject) {
 
+                            if (!$report_Subject->getSubject) {
+
+                                dd($study->id, $report->id);
+
+                            }
+
                             $subjects                      .= (strlen($subjects) > 0 ? ', ' : '') . $report_Subject->getSubject->{Model::$SUBJECT_CODE};
 
                         }
