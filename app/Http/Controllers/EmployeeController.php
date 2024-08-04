@@ -4,6 +4,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\Locale;
 use App\Http\Support\Format;
 use App\Http\Support\Route;
 use App\Http\Support\Table;
@@ -66,6 +67,7 @@ class EmployeeController extends Controller {
             Key::SUBMIT_ROUTE                                               => 'employee.create_submit',
             Key::BACK_ROUTE                                                 => 'employee.list',
 
+            Key::AUTOCOMPLETE_DATA . Model::$USER_LANGUAGE                  => Format::encode(Locale::getData_autocomplete()),
             Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX                  => Format::encode(PersonTrait::getPrefixData()),
             Key::AUTOCOMPLETE_DATA . Model::$PERSON_REFER                   => Format::encode(PersonTrait::getReferData()),
             Key::AUTOCOMPLETE_DATA . Model::$EMPLOYEE_PROFILE_MIDDELBARE    => Format::encode(StudentTrait::getProfileData())
@@ -110,6 +112,8 @@ class EmployeeController extends Controller {
         $data[Key::SUBMIT_ACTION]                                           = __('Opslaan');
         $data[Key::SUBMIT_ROUTE]                                            = 'employee.edit_submit';
 
+
+        $data[Key::AUTOCOMPLETE_DATA . Model::$USER_LANGUAGE]               = Format::encode(Locale::getData_autocomplete());
         $data[Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX]               = Format::encode(PersonTrait::getPrefixData());
         $data[Key::AUTOCOMPLETE_DATA . Model::$EMPLOYEE_PROFILE_MIDDELBARE] = Format::encode(StudentTrait::getProfileData());
 

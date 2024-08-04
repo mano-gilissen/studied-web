@@ -57,6 +57,7 @@ trait UserTrait {
 
         $user->{Model::$USER_EMAIL}                         = $data[Model::$USER_EMAIL];
         $user->{Model::$USER_STATUS}                        = $status ? $status : self::$STATUS_INTAKE;
+        $user->{Model::$USER_LANGUAGE}                      = $data[Key::AUTOCOMPLETE_ID . Model::$USER_LANGUAGE];
         $user->{Model::$ROLE}                               = $role;
 
         if (array_key_exists(Key::AUTOCOMPLETE_ID . Model::$USER_CATEGORY, $data)) {
@@ -83,6 +84,7 @@ trait UserTrait {
 
         $user->{Model::$USER_EMAIL}                         = $data[Model::$USER_EMAIL];
         $user->{Model::$USER_STATUS}                        = $data[Key::AUTOCOMPLETE_ID . Model::$USER_STATUS];
+        $user->{Model::$USER_LANGUAGE}                      = $data[Key::AUTOCOMPLETE_ID . Model::$USER_LANGUAGE];
 
         $user->save();
 

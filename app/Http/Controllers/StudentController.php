@@ -4,6 +4,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\Locale;
 use App\Http\Support\Format;
 use App\Http\Support\Route;
 use App\Http\Support\Table;
@@ -68,6 +69,8 @@ class StudentController extends Controller {
         $data[Key::SUBMIT_ACTION]                                           = __('Aanmaken');
         $data[Key::SUBMIT_ROUTE]                                            = 'student.create_submit';
 
+        $data[Key::AUTOCOMPLETE_DATA . Model::$USER_LANGUAGE]               = Format::encode(Locale::getData_autocomplete());
+
         $data[Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX]               = Format::encode(PersonTrait::getPrefixData());
         $data[Key::AUTOCOMPLETE_DATA . Model::$PERSON_REFER]                = Format::encode(PersonTrait::getReferData());
 
@@ -125,6 +128,7 @@ class StudentController extends Controller {
         $data[Key::SUBMIT_ACTION]                                           = __('Opslaan');
         $data[Key::SUBMIT_ROUTE]                                            = 'student.edit_submit';
 
+        $data[Key::AUTOCOMPLETE_DATA . Model::$USER_LANGUAGE]               = Format::encode(Locale::getData_autocomplete());
         $data[Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX]               = Format::encode(PersonTrait::getPrefixData());
 
         $data[Key::AUTOCOMPLETE_DATA . Model::$STUDENT_SCHOOL]              = Format::encode(StudentTrait::getSchoolData());

@@ -24,6 +24,7 @@ use App\Http\Mail\User_Activate_Relations;
 use App\Http\Mail\User_Activate_Reminder;
 use App\Http\Mail\User_Activate_Student;
 use App\Http\Mail\User_Activate_Student_NoStudy;
+use App\Http\Middleware\Locale;
 use Illuminate\Support\Facades\Mail as Mail_;
 
 
@@ -37,11 +38,12 @@ class Mail {
     public static function userActivate($user, $mail) {
 
         $recipient                                          = $user->{Model::$USER_EMAIL};
+
         $user->{Model::$USER_ACTIVATE_SECRET}               = $user->{Model::$USER_ACTIVATE_SECRET} ?? Func::generate_secret();
         $user->{Model::$USER_ACTIVATE_SENT}                 = date('Y-m-d H:i:s');
         $user->save();
 
-        self::mailTo($mail, $recipient);
+        self::mailTo($mail, $recipient, $user->{Model::$USER_LANGUAGE});
     }
 
     public static function userActivate_forEmployee($user) {
@@ -97,7 +99,7 @@ class Mail {
         $mail                                               = new Agreement_Approved_Customer($user, $study, $student, $agreement);
         $recipient                                          = $user->{Model::$USER_EMAIL};
 
-        self::mailTo($mail, $recipient);
+        self::mailTo($mail, $recipient, $user->{Model::$USER_LANGUAGE});
     }
 
 
@@ -110,7 +112,7 @@ class Mail {
         $mail                                               = new Agreement_Finished_Employee($employee, $student, $agreement);
         $recipient                                          = $employee->{Model::$USER_EMAIL};
 
-        self::mailTo($mail, $recipient);
+        self::mailTo($mail, $recipient, $employee->{Model::$USER_LANGUAGE});
     }
 
 
@@ -123,7 +125,7 @@ class Mail {
         $mail                                               = new Agreement_Created_Employee($employee, $student, $agreement);
         $recipient                                          = $employee->{Model::$USER_EMAIL};
 
-        self::mailTo($mail, $recipient);
+        self::mailTo($mail, $recipient, $employee->{Model::$USER_LANGUAGE});
     }
 
 
@@ -136,7 +138,7 @@ class Mail {
         $mail                                               = new Agreement_Extended_Employee($employee, $student, $agreement);
         $recipient                                          = $employee->{Model::$USER_EMAIL};
 
-        self::mailTo($mail, $recipient);
+        self::mailTo($mail, $recipient, $employee->{Model::$USER_LANGUAGE});
     }
 
 
@@ -148,7 +150,7 @@ class Mail {
         $mail                                               = new Study_Planned_Student($study, $participant);
         $recipient                                          = $participant->{Model::$USER_EMAIL};
 
-        self::mailTo($mail, $recipient);
+        self::mailTo($mail, $recipient, $participant->{Model::$USER_LANGUAGE});
     }
 
 
@@ -158,7 +160,7 @@ class Mail {
         $mail                                               = new Study_Planned_Employee($study);
         $recipient                                          = $study->getHost->{Model::$USER_EMAIL};
 
-        self::mailTo($mail, $recipient);
+        self::mailTo($mail, $recipient, $study->getHost->{Model::$USER_LANGUAGE});
     }
 
 
@@ -170,7 +172,7 @@ class Mail {
         $mail                                               = new Study_Edited_Student($study, $participant);
         $recipient                                          = $participant->{Model::$USER_EMAIL};
 
-        self::mailTo($mail, $recipient);
+        self::mailTo($mail, $recipient, $participant->{Model::$USER_LANGUAGE});
     }
 
 
@@ -180,7 +182,7 @@ class Mail {
         $mail                                               = new Study_Edited_Employee($study);
         $recipient                                          = $study->getHost->{Model::$USER_EMAIL};
 
-        self::mailTo($mail, $recipient);
+        self::mailTo($mail, $recipient, $study->getHost->{Model::$USER_LANGUAGE});
     }
 
 
@@ -192,7 +194,7 @@ class Mail {
         $mail                                               = new Evaluation_Created_Host($employee, $evalution);
         $recipient                                          = $employee->{Model::$USER_EMAIL};
 
-        self::mailTo($mail, $recipient);
+        self::mailTo($mail, $recipient, $employee->{Model::$USER_LANGUAGE});
     }
 
 
@@ -202,7 +204,7 @@ class Mail {
         $mail                                               = new Evaluation_Created_Employee($employee, $evalution);
         $recipient                                          = $employee->{Model::$USER_EMAIL};
 
-        self::mailTo($mail, $recipient);
+        self::mailTo($mail, $recipient, $employee->{Model::$USER_LANGUAGE});
     }
 
 
@@ -212,7 +214,7 @@ class Mail {
         $mail                                               = new Evaluation_Created_Student($student, $evalution);
         $recipient                                          = $student->{Model::$USER_EMAIL};
 
-        self::mailTo($mail, $recipient);
+        self::mailTo($mail, $recipient, $student->{Model::$USER_LANGUAGE});
     }
 
 
@@ -222,7 +224,7 @@ class Mail {
         $mail                                               = new Evaluation_Created_Customer($customer, $evalution);
         $recipient                                          = $customer->{Model::$USER_EMAIL};
 
-        self::mailTo($mail, $recipient);
+        self::mailTo($mail, $recipient, $customer->{Model::$USER_LANGUAGE});
     }
 
 
@@ -234,18 +236,20 @@ class Mail {
         $mail                                               = new Student_Linked_Customer($student, $customer);
         $recipient                                          = $customer->{Model::$USER_EMAIL};
 
-        self::mailTo($mail, $recipient);
+        self::mailTo($mail, $recipient, $customer->{Model::$USER_LANGUAGE});
     }
 
 
 
 
 
-    public static function mailTo($mail, $recipient) {
+    public static function mailTo($mail, $recipient, $locale = Locale::LOCALE_NL) {
 
         try {
 
-            Mail_::to($recipient)->send($mail);
+            Mail_::to($recipient)
+                ->locale($locale)
+                ->send($mail);
 
         } catch(Exception $e) {
 

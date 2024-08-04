@@ -85,4 +85,14 @@ class Locale {
 
 
 
+    public static function getData_autocomplete() {
+
+        return [
+            self::LOCALE_NL                                 => __('Nederlands'),
+            self::LOCALE_EN                                 => __('Engels')
+        ];
+    }
+
+
+
 }

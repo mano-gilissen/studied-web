@@ -26,6 +26,8 @@
 
     @endif
 
+    @include('form.field-input', ['id' => 'language', 'tag' => __('Taal'), 'icon' => 'dropdown.svg', 'required' => true, 'data' => true, 'show_all' => true, 'reject_others' => true, 'show_always' => true, 'ac_data' => 'language', 'uses_id' => true, 'set_id' => $person->getUser->{\App\Http\Support\Model::$USER_LANGUAGE}])
+
     @include('form.field-input', ['id' => 'refer', 'tag' => __('Referentie'), 'placeholder' => __('Hoe komt deze persoon bij Studied terecht?'), 'icon' => 'dropdown.svg', 'required' => true, 'data' => true, 'show_all' => true, 'show_always' => true, 'value' => $person->{\App\Http\Support\Model::$PERSON_REFER}])
 
     <div class="seperator"></div>
