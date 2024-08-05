@@ -8,7 +8,7 @@
                 {{ __('Beste :first_name', [
                     'first_name' => $employee->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME}
                 ]) }},
-            </p>
+            </p><br>
 
             @if(\App\Http\Traits\EvaluationTrait::hasLink($evaluation))
                 <p style="margin: 0; font-size: 13px; line-height: 22.8px;">
@@ -27,7 +27,7 @@
                     ]) }}
                 </p>
             @endif
-            <br><br>
+            <br>
             {{ __('Je kunt de gegevens van het gesprek bekijken in onze webapp. Mocht je vragen hebben, aarzel dan niet contact op te nemen.') }}
         </td>
     </tr>

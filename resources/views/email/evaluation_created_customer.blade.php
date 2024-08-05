@@ -8,7 +8,7 @@
                 {{ __('Beste :full_name', [
                     'full_name' => (strlen($customer->getPerson->{\App\Http\Support\Model::$PERSON_PREFIX}) > 0 ? $customer->getPerson->{\App\Http\Support\Model::$PERSON_PREFIX} . ' ' : '') . (strlen($customer->getPerson->{\App\Http\Support\Model::$PERSON_MIDDLE_NAME}) > 0 ? $customer->getPerson->{\App\Http\Support\Model::$PERSON_MIDDLE_NAME} . ' ' : '') . $customer->getPerson->{\App\Http\Support\Model::$PERSON_LAST_NAME}
                 ]) }},
-            </p>
+            </p><br>
 
             @if(\App\Http\Traits\EvaluationTrait::hasLink($evaluation))
                 <p style="margin: 0; font-size: 13px; line-height: 22.8px;">
@@ -27,7 +27,7 @@
                     ]) }}
                 </p>
             @endif
-            <br><br>
+            <br>
             {{ __('U kunt de gegevens van het gesprek bekijken in onze webapp. Mocht u vragen hebben, aarzel dan niet contact op te nemen.') }}
         </td>
     </tr>

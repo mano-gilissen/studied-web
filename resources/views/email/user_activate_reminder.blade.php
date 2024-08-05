@@ -8,10 +8,10 @@
                 {{ __('Beste :first_name', [
                     'first_name' => $user->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME}
                 ]) }},
-            </p>
+            </p><br>
             <p style="margin: 0; font-size: 13px; line-height: 22.8px;">
                 {{ __('Bij deze een herinnering om je account te activeren in onze webapp.') }}
-            </p>
+            </p><br>
             <p style="margin: 0; font-size: 13px; line-height: 22.8px;">
                 {{ __('Klik op de onderstaande button om je account te activeren. Mocht je vragen hebben, aarzel dan niet contact op te nemen.') }}
             </p>

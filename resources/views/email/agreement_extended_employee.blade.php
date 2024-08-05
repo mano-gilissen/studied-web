@@ -8,13 +8,13 @@
                 {{ __('Beste :first_name', [
                     'first_name' => $employee->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME}
                 ]) }},
-                <br><br>
+                <br>
                 {{ __('Jou vakafspraak :subject_name met :student_first_name is verlengd tot :end_date. Dat betekent dat je tot die datum lessen kan inplannen met deze vakafspraak.', [
                     'subject_name' => $agreement->getSubject->{\App\Http\Support\Model::$SUBJECT_NAME},
                     'student_first_name' => $student->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME},
                     'end_date' => strtolower(\App\Http\Support\Format::datetime($agreement->{\App\Http\Support\Model::$AGREEMENT_END}, \App\Http\Support\Format::$DATETIME_SINGLE))
                 ]) }}
-                <br><br>
+                <br>
                 {{ __('Je kunt je vakafspraken bekijken in onze webapp. Mocht je vragen hebben, aarzel dan niet contact op te nemen.') }}
             </p>
         </td>

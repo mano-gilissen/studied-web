@@ -8,13 +8,12 @@
                 {{ __('Beste :full_name', [
                     'full_name' => (strlen($customer->getPerson->{\App\Http\Support\Model::$PERSON_PREFIX}) > 0 ? $customer->getPerson->{\App\Http\Support\Model::$PERSON_PREFIX} . ' ' : '') . (strlen($customer->getPerson->{\App\Http\Support\Model::$PERSON_MIDDLE_NAME}) > 0 ? $customer->getPerson->{\App\Http\Support\Model::$PERSON_MIDDLE_NAME} . ' ' : '') . $customer->getPerson->{\App\Http\Support\Model::$PERSON_LAST_NAME}
                 ]) }},
-            </p>
+            </p><br>
             <p style="margin: 0; font-size: 13px; line-height: 22.8px;">
                 {{ __(':student_name is als leerling toegevoegd aan uw account. Dat betekent dat u toegang heeft tot de lessen, lesrapporten en overige gegevens van zijn/haar begeleiding.', [
                     'student_name' => \App\Http\Traits\PersonTrait::getFullName($student->getPerson)
                 ]) }}
-            </p>
-            <br><br>
+            </p><br>
             {{ __('U kunt alle gegevens bekijken in onze webapp. Mocht u vragen hebben, aarzel dan niet contact op te nemen.') }}
         </td>
     </tr>

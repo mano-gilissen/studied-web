@@ -8,12 +8,12 @@
                 {{ __('Beste :first_name', [
                     'first_name' => $employee->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME}
                 ]) }},
-                <br><br>
+                <br>
                 {{ __('Er is een vakafspraak :subject_name voor jou met :student_first_name ingepland. Als de proefles succesvol is, kun je lessen inplannen met deze vakafspraak.', [
                     'subject_name' => $agreement->getSubject->{\App\Http\Support\Model::$SUBJECT_NAME},
                     'student_first_name' => $student->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME}
                 ]) }}
-                <br><br>
+                <br>
                 {{ __('Je kunt je vakafspraken bekijken in onze webapp. Mocht je vragen hebben, aarzel dan niet contact op te nemen.') }}
             </p>
         </td>
