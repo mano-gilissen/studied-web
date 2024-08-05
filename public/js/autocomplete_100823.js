@@ -112,7 +112,7 @@ function autocomplete(input, data, additional, reject_other, show_all, show_alwa
 
 
 
-    if (set_id > 0) {
+    if (set_id !== -1) {
 
         set_value(set_id);
 
