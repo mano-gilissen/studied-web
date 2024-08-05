@@ -24,7 +24,6 @@ function autocomplete(input, data, additional, reject_other, show_all, show_alwa
 
         input_id.on("change", function(e) {
 
-            console.log('log4 ' + input_id.val());
             set_value(input_id.val())
 
         });
@@ -113,9 +112,8 @@ function autocomplete(input, data, additional, reject_other, show_all, show_alwa
 
 
 
-    if (set_id > 0) {
+    if (set_id !== -1) {
 
-        console.log('log5 ' + set_id);
         set_value(set_id);
 
     }
@@ -182,7 +180,6 @@ function autocomplete(input, data, additional, reject_other, show_all, show_alwa
 
                 key                             = this.getElementsByTagName("input")[0].value;
 
-                console.log('log6 ' + key);
                 set_value(key);
 
                 close_list();
@@ -195,7 +192,6 @@ function autocomplete(input, data, additional, reject_other, show_all, show_alwa
 
 
     function set_value(key) {
-        console.log('log3 ' + key);
 
         input                           .val(data[key]);
 
@@ -207,7 +203,6 @@ function autocomplete(input, data, additional, reject_other, show_all, show_alwa
 
             input_id                    .val(key);
 
-            console.log('log2');
             call_trigger(key, input.data('identifier'));
         }
     }
@@ -302,7 +297,6 @@ function autocomplete(input, data, additional, reject_other, show_all, show_alwa
                 break;
 
             case TRIGGER_FILTER:
-                console.log('log1')
                 filter(key, identifier);
                 break;
         }
