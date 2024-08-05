@@ -176,10 +176,6 @@ trait EvaluationTrait {
 
     public static function validate(array $data) {
 
-        $messages                                                           = [
-            'max'                                                           => __('Gebruik maximaal :max karakters.')
-        ];
-
         $rules                                                              = [];
 
         $rules['date']                                                      = ['required', 'date'];
@@ -192,7 +188,7 @@ trait EvaluationTrait {
         $rules[Key::AUTOCOMPLETE_ID . Model::$EMPLOYEE . '_2']              = ['integer', 'min:1'];
         $rules[Key::AUTOCOMPLETE_ID . Model::$EMPLOYEE . '_3']              = ['integer', 'min:1'];
 
-        $validator                                                          = Validator::make($data, $rules, $messages);
+        $validator                                                          = Validator::make($data, $rules, BaseTrait::getValidationMessages());
 
         $validator->validate();
     }

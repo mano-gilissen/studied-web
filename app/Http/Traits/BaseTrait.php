@@ -121,6 +121,8 @@ trait BaseTrait {
         $messages['required']                                               = __('Dit veld is verplicht.');
         $messages['required_if']                                            = __('Dit veld is verplicht als de :other leeg is.');
 
+        $messages['max']                                                    = __('Dit veld mag maximaal :max karakters bevatten.');
+
         $messages['numeric']                                                = __('Vul een getal in.');
         $messages['unique']                                                 = __('Dit email adres is al in gebruik.');
         $messages['zipcode.max']                                            = __('Vul een geldige postcode in.');
