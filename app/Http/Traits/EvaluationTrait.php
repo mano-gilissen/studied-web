@@ -181,7 +181,6 @@ trait EvaluationTrait {
         $rules['date']                                                      = ['required', 'date'];
         $rules['location']                                                  = ['required_without:link', 'nullable'];
 
-        $rules[Model::$STUDENT]                                             = ['required'];
         $rules[Model::$EVALUATION_HOST]                                     = ['required'];
         $rules[Model::$EVALUATION_REGARDING]                                = ['required'];
 
