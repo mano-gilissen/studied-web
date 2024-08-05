@@ -113,7 +113,7 @@ function autocomplete(input, data, additional, reject_other, show_all, show_alwa
 
 
 
-    if (set_id !== -1) {
+    if (set_id > 0) {
 
         console.log('log5 ' + set_id);
         set_value(set_id);
