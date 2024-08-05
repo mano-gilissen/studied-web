@@ -33,7 +33,7 @@
     </tr>
     <tr>
         <td>
-            <a href="{{ route('evaluation.view', [$evaluation->{\App\Http\Support\Model::$BASE_KEY}]) }}" style="color: white; font-size: 14px; line-height: 14px; background-color: #FFDD34; display: block; text-align: center; padding: 25px; text-decoration: none; border-radius: 10px; font-weight: bold;">
+            <a href="{{ route('evaluation.view', [$evaluation->{\App\Http\Support\Model::$BASE_KEY}]) }}" style="color: black; font-size: 14px; line-height: 14px; background-color: #FFDD34; display: block; text-align: center; padding: 25px; text-decoration: none; border-radius: 10px; font-weight: bold;">
                 {{ __('Gesprek bekijken') }}
             </a>
         </td>

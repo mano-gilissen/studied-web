@@ -37,7 +37,7 @@
     </tr>
     <tr>
         <td>
-            <a href="{{ route('study.view', [$study->{\App\Http\Support\Model::$BASE_KEY}]) }}" style="color: white; font-size: 14px; line-height: 14px; background-color: #FFDD34; display: block; text-align: center; padding: 25px; text-decoration: none; border-radius: 10px; font-weight: bold;">
+            <a href="{{ route('study.view', [$study->{\App\Http\Support\Model::$BASE_KEY}]) }}" style="color: black; font-size: 14px; line-height: 14px; background-color: #FFDD34; display: block; text-align: center; padding: 25px; text-decoration: none; border-radius: 10px; font-weight: bold;">
                 {{ __('Les bekijken') }}
             </a>
         </td>

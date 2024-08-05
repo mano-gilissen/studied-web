@@ -19,7 +19,7 @@
     </tr>
     <tr>
         <td>
-            <a href="{{ route('person.view', [$student->getPerson->{\App\Http\Support\Model::$PERSON_SLUG}]) }}" style="color: white; font-size: 14px; line-height: 14px; background-color: #FFDD34; display: block; text-align: center; padding: 25px; text-decoration: none; border-radius: 10px; font-weight: bold;">
+            <a href="{{ route('person.view', [$student->getPerson->{\App\Http\Support\Model::$PERSON_SLUG}]) }}" style="color: black; font-size: 14px; line-height: 14px; background-color: #FFDD34; display: block; text-align: center; padding: 25px; text-decoration: none; border-radius: 10px; font-weight: bold;">
                 {{ __('Leerling bekijken') }}
             </a>
         </td>
