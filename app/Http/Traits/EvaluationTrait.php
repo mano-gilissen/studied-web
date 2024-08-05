@@ -181,12 +181,9 @@ trait EvaluationTrait {
         $rules['date']                                                      = ['required', 'date'];
         $rules['location']                                                  = ['required_without:link', 'nullable'];
 
-        $rules[Key::AUTOCOMPLETE_ID . Model::$STUDENT]                      = ['required', 'integer', 'min:1'];
-        $rules[Key::AUTOCOMPLETE_ID . Model::$EVALUATION_HOST]              = ['required', 'integer', 'min:1'];
-        $rules[Key::AUTOCOMPLETE_ID . Model::$EVALUATION_REGARDING]         = ['required', 'integer', 'min:1'];
-        $rules[Key::AUTOCOMPLETE_ID . Model::$EMPLOYEE . '_1']              = ['integer', 'min:1'];
-        $rules[Key::AUTOCOMPLETE_ID . Model::$EMPLOYEE . '_2']              = ['integer', 'min:1'];
-        $rules[Key::AUTOCOMPLETE_ID . Model::$EMPLOYEE . '_3']              = ['integer', 'min:1'];
+        $rules[Model::$STUDENT]                                             = ['required'];
+        $rules[Model::$EVALUATION_HOST]                                     = ['required'];
+        $rules[Model::$EVALUATION_REGARDING]                                = ['required'];
 
         $validator                                                          = Validator::make($data, $rules, BaseTrait::getValidationMessages());
 
