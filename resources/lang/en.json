@@ -93,6 +93,7 @@
     "Dit is het gesprek van " : "This is the interview of",
     "Dit is het rapport voor " : "This is the report for",
     "Dit veld is verplicht als de :other leeg is." : "This field is mandatory if the :other is empty.",
+    "Dit veld is verplicht als :values niet ingevuld is." : "This field is mandatory if :values is empty.",
     "Dit veld is verplicht." : "This field is mandatory.",
     "Door middel van welke diensten kunnen we deze vakken ondersteunen om het doel te bereiken?" : "Through which services can we guide these subjects to achieve the goal?",
     "Door te zoeken op internet, bijvoorbeeld met Google" : "By searching on internet, for example Google.",

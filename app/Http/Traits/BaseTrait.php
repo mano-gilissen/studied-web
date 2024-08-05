@@ -120,6 +120,7 @@ trait BaseTrait {
         $messages                                                           = [];
         $messages['required']                                               = __('Dit veld is verplicht.');
         $messages['required_if']                                            = __('Dit veld is verplicht als de :other leeg is.');
+        $messages['required_without']                                       = __('Dit veld is verplicht als de :values niet ingevuld zijn.');
 
         $messages['max']                                                    = __('Dit veld mag maximaal :max karakters bevatten.');
 
