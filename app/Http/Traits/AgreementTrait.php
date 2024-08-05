@@ -122,7 +122,7 @@ trait AgreementTrait {
 
 
 
-    public static function createFromEvaluation($data) {
+    public static function create_fromEvaluation($data) {
 
         foreach ($data as $key => $value) {
 

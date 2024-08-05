@@ -143,7 +143,15 @@ class AgreementController extends Controller {
 
         $rules                                                              = [];
 
-        // TODO: ADD RULES
+        $rules[Model::$EMPLOYEE]                                            = ['required'];
+        $rules[Model::$SERVICE]                                             = ['required'];
+        $rules[Model::$SUBJECT]                                             = ['required'];
+        $rules[Model::$LEVEL]                                               = ['required'];
+
+        $rules[Model::$AGREEMENT_PLAN]                                      = ['required'];
+        $rules[Model::$AGREEMENT_HOURS]                                     = ['required'];
+        $rules[Model::$AGREEMENT_START]                                     = ['required'];
+        $rules[Model::$AGREEMENT_END]                                       = ['required'];
 
         $validator                                                          = Validator::make($data, $rules, BaseTrait::getValidationMessages());
 
@@ -242,7 +250,11 @@ class AgreementController extends Controller {
 
         $rules                                                              = [];
 
-        // TODO: ADD RULES
+        $rules[Model::$SUBJECT]                                             = ['required'];
+        $rules[Model::$LEVEL]                                               = ['required'];
+        $rules[Model::$AGREEMENT_HOURS]                                     = ['required'];
+        $rules[Model::$AGREEMENT_START]                                     = ['required'];
+        $rules[Model::$AGREEMENT_END]                                       = ['required'];
 
         $validator                                                          = Validator::make($data, $rules, BaseTrait::getValidationMessages());
 

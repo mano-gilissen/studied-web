@@ -219,9 +219,9 @@ class EvaluationController extends Controller {
 
         $evaluation                                                         = Evaluation::findOrFail($data[Key::AUTOCOMPLETE_ID . Model::$EVALUATION]);
 
-        EvaluationTrait::updateFromEvaluation($data, $evaluation);
+        EvaluationTrait::update_fromEvaluation($data, $evaluation);
 
-        AgreementTrait::createFromEvaluation($data);
+        AgreementTrait::create_fromEvaluation($data);
 
         return redirect()->route('evaluation.view', [Model::$BASE_KEY => $evaluation->{Model::$BASE_KEY}]);
     }

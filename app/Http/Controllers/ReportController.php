@@ -114,8 +114,6 @@ class ReportController extends Controller {
 
         ReportTrait::update($data, $study);
 
-        $study->refresh();
-
         return view(Views::FEEDBACK, [
 
             Key::PAGE_TITLE                                                 => __('Rapport gewijzigd'),

@@ -156,7 +156,7 @@ function csv(type, method) {
 
     $.ajax({
 
-        url:                                "/" + type + "/export/" + method,
+        url:                                "/" + type + "/export",
         type:                               "POST",
         cache:                              false,
 

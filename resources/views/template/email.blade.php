@@ -54,24 +54,24 @@
             <td style="background-color: #F2F5F3; padding: 35px; border-radius: 0px 0px 10px 10px; border: 1px solid white;" class="mobPadding">
                 <table width="100%">
                     <tr>
-                        <td align="center"><p style="font-weight: bold; margin: 0 ; font-size: 13px; line-height: 21px;">MakkieNL</p></td>
+                        <td align="center"><p style="font-weight: bold; margin: 0 ; font-size: 13px; line-height: 21px;">Studied.</p></td>
                     </tr>
                     <tr>
                         <td align="center" style="padding-bottom: 14px;">
-                            <a href="https://www.makkie.app" style="color: inherit;">
-                                <p style="margin: 0 ; font-size: 13px; line-height: 21px;">www.makkie.app</p>
+                            <a href="https://www.studied.nl" style="color: inherit;">
+                                <p style="margin: 0 ; font-size: 13px; line-height: 21px;">www.studied.nl</p>
                             </a>
                         </td>
                     </tr>
                     <tr>
                         <td align="center" style="padding-bottom: 14px;">
-                            <p style="margin: 0 ; font-size: 13px; line-height: 21px;">KVK 87749130 - 4461HP Goes</p>
+                            <p style="margin: 0 ; font-size: 13px; line-height: 21px;">Stationstraat 19 B02, 6221BN Maastricht</p>
                         </td>
                     </tr>
                     <tr>
                         <td align="center">
-                            <a href="mailto:info@makkie.app" style="color: inherit;">
-                                <p style="margin: 0 ; font-size: 13px; line-height: 21px;">info@makkie.app</p>
+                            <a href="mailto:info@studied.nl" style="color: inherit;">
+                                <p style="margin: 0 ; font-size: 13px; line-height: 21px;">info@studied.nl</p>
                             </a>
                         </td>
                     </tr>

@@ -20,7 +20,7 @@ const STUDY_LIST                                = 'study.list';
 
 const STUDY_CALENDAR                            = 'study.calendar';
 
-const STUDY_LIST_EXPORT                         = 'study.data.export';
+const STUDY_LIST_EXPORT                         = 'study.export';
 
 const STUDY_OVERVIEW_EXPORT                     = 'study.overview.export';
 

@@ -111,9 +111,9 @@ trait EvaluationTrait {
 
 
 
-    public static function updateFromEvaluation($data, $evaluation) {
+    public static function update_fromEvaluation($data, $evaluation) {
 
-        self::validate($data);
+        self::validate_fromEvaluation($data);
 
         for ($i = 1; $i <= 56; $i++) {
 
@@ -175,6 +175,33 @@ trait EvaluationTrait {
 
 
     public static function validate(array $data) {
+
+        $messages                                                           = [
+            'max'                                                           => __('Gebruik maximaal :max karakters.')
+        ];
+
+        $rules                                                              = [];
+
+        $rules['date']                                                      = ['required', 'date'];
+        $rules['location']                                                  = ['required_without:link', 'nullable'];
+
+        $rules[Key::AUTOCOMPLETE_ID . Model::$STUDENT]                      = ['required', 'integer', 'min:1'];
+        $rules[Key::AUTOCOMPLETE_ID . Model::$EVALUATION_HOST]              = ['required', 'integer', 'min:1'];
+        $rules[Key::AUTOCOMPLETE_ID . Model::$EVALUATION_REGARDING]         = ['required', 'integer', 'min:1'];
+        $rules[Key::AUTOCOMPLETE_ID . Model::$EMPLOYEE . '_1']              = ['integer', 'min:1'];
+        $rules[Key::AUTOCOMPLETE_ID . Model::$EMPLOYEE . '_2']              = ['integer', 'min:1'];
+        $rules[Key::AUTOCOMPLETE_ID . Model::$EMPLOYEE . '_3']              = ['integer', 'min:1'];
+
+        $validator                                                          = Validator::make($data, $rules, $messages);
+
+        $validator->validate();
+    }
+
+
+
+
+
+    public static function validate_fromEvaluation(array $data) {
 
         $messages                                                           = [
             'max'                                                           => __('Gebruik maximaal :max karakters.')

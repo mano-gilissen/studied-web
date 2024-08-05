@@ -42,14 +42,6 @@
 
             </div>
 
-            <div class="button grey icon" onclick="csv('lessen', 'overview')">
-
-                <img class="icon" src="/images_app/fix.svg">
-
-                <div class="text">{{ __('Urenoverzicht') }}</div>
-
-            </div>
-
             @break
 
     @endswitch
