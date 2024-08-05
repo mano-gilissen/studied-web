@@ -143,15 +143,22 @@ class AgreementController extends Controller {
 
         $rules                                                              = [];
 
-        $rules[Model::$EMPLOYEE]                                            = ['required'];
-        $rules[Model::$SERVICE]                                             = ['required'];
-        $rules[Model::$SUBJECT]                                             = ['required'];
-        $rules[Model::$LEVEL]                                               = ['required'];
+        foreach ($data as $key => $value) {
 
-        $rules[Model::$AGREEMENT_PLAN]                                      = ['required'];
-        $rules[Model::$AGREEMENT_HOURS]                                     = ['required'];
-        $rules[Model::$AGREEMENT_START]                                     = ['required'];
-        $rules[Model::$AGREEMENT_END]                                       = ['required'];
+            if (Func::contains($key, [
+                Model::$EMPLOYEE,
+                Model::$SERVICE,
+                Model::$SUBJECT,
+                Model::$LEVEL,
+                Model::$AGREEMENT_PLAN,
+                Model::$AGREEMENT_HOURS,
+                Model::$AGREEMENT_START,
+                Model::$AGREEMENT_END])) {
+
+                $rules[$key]                                                = ['required'];
+
+            }
+        }
 
         $validator                                                          = Validator::make($data, $rules, BaseTrait::getValidationMessages());
 
