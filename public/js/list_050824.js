@@ -19,6 +19,7 @@ $(function() {
 
 
 
+    console.log('LOAD1');
     load();
 
 
@@ -208,6 +209,7 @@ function sort(column) {
 
     }
 
+    console.log('LOAD2');
     load();
 }
 
@@ -261,6 +263,7 @@ function filter(value, column) {
 
         filters_close();
 
+        console.log('LOAD3');
         load();
     }
 }
@@ -278,6 +281,7 @@ function filter_column_date(id) {
 
         filters_close();
 
+        console.log('LOAD4');
         load();
     }
 }
@@ -294,7 +298,8 @@ function filter_search() {
 
     }
 
-    filter_search_timeout                   = setTimeout(function () { load(); }, 500);
+    filter_search_timeout                   = setTimeout(function () {
+        console.log('LOAD5');load(); }, 500);
 }
 
 
@@ -329,6 +334,7 @@ function filter_remove(column) {
 
     delete this.data_filter[column];
 
+    console.log('LOAD6');
     load();
 }
 
