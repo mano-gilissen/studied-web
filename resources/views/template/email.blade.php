@@ -44,7 +44,7 @@
             <td style="background-color: white; padding: 35px;" class="mobPadding">
                 <table width="100%">
 
-                    @yield('content')
+                    @yield('body')
 
                 </table>
             </td>
