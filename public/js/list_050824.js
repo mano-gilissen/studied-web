@@ -152,7 +152,7 @@ function append() {
 
 
 
-function csv(type, method) {
+function csv(type) {
 
     $.ajax({
 

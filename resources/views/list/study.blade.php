@@ -34,7 +34,7 @@
 
         @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
 
-            <div class="button grey icon" onclick="csv('lessen', 'data')">
+            <div class="button grey icon" onclick="csv('lessen')">
 
                 <img class="icon" src="/images_app/fix.svg">
 
