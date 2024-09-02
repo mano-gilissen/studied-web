@@ -70,7 +70,7 @@ class StudyController extends Controller {
 
 
         $EXPORT_COLUMNS_INVOICING                                           = [
-            'Leerling', 'Failed trial', 'Total bruto',
+            'Leerling', 'Failed trial', 'Total bruto', 'Unpaid agreement',
             'Huiswerkbegeleiding_I_S', 'Huiswerkbegeleiding_I_G', 'Huiswerkbegeleiding_S_S',
             'Huiswerkbegeleiding_S_G', 'Huiswerkbegeleiding_G_S', 'Huiswerkbegeleiding_G_G',
             'Bijles_I_S', 'Bijles_I_G', 'Bijles_S_S', 'Bijles_S_G', 'Bijles_G_S', 'Bijles_G_G',
