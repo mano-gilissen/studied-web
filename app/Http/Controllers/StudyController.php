@@ -1353,7 +1353,7 @@ class StudyController extends Controller {
             $plan                                                   = $agreement->{Model::$AGREEMENT_PLAN};
             $rate                                                   = Service::find($study->{Model::$SERVICE})->{'rate_plan' . $plan . '_' . ($group ? 'group' : 'solo')};
 
-            $remainder                                              = AgreementTrait::getHoursMade($agreement) - AgreementTrait::getHoursTotal($agreement);
+            $remainder                                              = AgreementTrait::getHoursTotal($agreement) - AgreementTrait::getHoursMade($agreement);
             $remainder                                              = (round($remainder * 4) / 4);
 
             $rows[$user->{Model::$BASE_ID}][3] += $remainder * $rate;
