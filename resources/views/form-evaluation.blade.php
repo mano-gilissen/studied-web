@@ -25,43 +25,43 @@
 
         @include('form-evaluation-questions', [
             'title'                                         => 'PVA - De doelstelling',
-            'question_numbers'                              => [1,2,3,4,5],
+            'question_numbers'                              => [0,1,2,3,4],
             'questions'                                     => \App\Http\Traits\EvaluationTrait::$QUESTIONS_INTAKE
         ])
 
         @include('form-evaluation-questions', [
             'title'                                         => 'PVA - Stand van zaken',
-            'question_numbers'                              => [6,7,8,9,10,11,12],
+            'question_numbers'                              => [5,6,7,8,9,10,11],
             'questions'                                     => \App\Http\Traits\EvaluationTrait::$QUESTIONS_INTAKE
         ])
 
         @include('form-evaluation-questions', [
             'title'                                         => 'PVA - De mogelijkheden',
-            'question_numbers'                              => [13,14,15,16,17,18,19],
+            'question_numbers'                              => [12,13,14,15,16,17,18],
             'questions'                                     => \App\Http\Traits\EvaluationTrait::$QUESTIONS_INTAKE
         ])
 
         @include('form-evaluation-questions', [
             'title'                                         => 'PVA - De acties',
-            'question_numbers'                              => [20,21,22,23],
+            'question_numbers'                              => [19,20,21,22],
             'questions'                                     => \App\Http\Traits\EvaluationTrait::$QUESTIONS_INTAKE
         ])
 
         @include('form-evaluation-questions', [
             'title'                                         => 'Afspraken',
-            'question_numbers'                              => [24,25,26,27,28,29,30,31,32,33],
+            'question_numbers'                              => [23,24,25,26,27,28,29,30,31,32],
             'questions'                                     => \App\Http\Traits\EvaluationTrait::$QUESTIONS_INTAKE
         ])
 
         @include('form-evaluation-questions', [
             'title'                                         => 'Proefles',
-            'question_numbers'                              => [34,35,36],
+            'question_numbers'                              => [33,34,35],
             'questions'                                     => \App\Http\Traits\EvaluationTrait::$QUESTIONS_INTAKE
         ])
 
         @include('form-evaluation-questions', [
             'title'                                         => 'Overig',
-            'question_numbers'                              => [37],
+            'question_numbers'                              => [36],
             'questions'                                     => \App\Http\Traits\EvaluationTrait::$QUESTIONS_INTAKE
         ])
 
@@ -76,49 +76,49 @@
 
         @include('form-evaluation-questions', [
             'title'                                         => 'PVA - De doelstelling',
-            'question_numbers'                              => [1,2,3,4,5],
+            'question_numbers'                              => [0,1,2,3,4],
             'questions'                                     => \App\Http\Traits\EvaluationTrait::$QUESTIONS_EVALUATION
         ])
 
         @include('form-evaluation-questions', [
             'title'                                         => 'PVA - Stand van zaken',
-            'question_numbers'                              => [6,7,8,9,10,11,12],
+            'question_numbers'                              => [5,6,7,8,9,10,11],
             'questions'                                     => \App\Http\Traits\EvaluationTrait::$QUESTIONS_EVALUATION
         ])
 
         @include('form-evaluation-questions', [
             'title'                                         => 'PVA - De mogelijkheden',
-            'question_numbers'                              => [13,14,15,16,17,18,19],
+            'question_numbers'                              => [12,13,14,15,16,17,18],
             'questions'                                     => \App\Http\Traits\EvaluationTrait::$QUESTIONS_EVALUATION
         ])
 
         @include('form-evaluation-questions', [
             'title'                                         => 'PVA - De acties',
-            'question_numbers'                              => [20,21,22,23],
+            'question_numbers'                              => [19,20,21,22],
             'questions'                                     => \App\Http\Traits\EvaluationTrait::$QUESTIONS_EVALUATION
         ])
 
         @include('form-evaluation-questions', [
             'title'                                         => 'Afspraken',
-            'question_numbers'                              => [24,25,26,27,28,29,30,31,32,33],
+            'question_numbers'                              => [23,24,25,26,27,28,29,30,31,32],
             'questions'                                     => \App\Http\Traits\EvaluationTrait::$QUESTIONS_EVALUATION
         ])
 
         @include('form-evaluation-questions', [
             'title'                                         => 'Proefles',
-            'question_numbers'                              => [34,35,36],
+            'question_numbers'                              => [33,34,35],
             'questions'                                     => \App\Http\Traits\EvaluationTrait::$QUESTIONS_EVALUATION
         ])
 
         @include('form-evaluation-questions', [
             'title'                                         => 'Evaluatie',
-            'question_numbers'                              => [37,38,39,40,41,42,43,44,45,46],
+            'question_numbers'                              => [36,37,38,39,40,41,42,43,44,45],
             'questions'                                     => \App\Http\Traits\EvaluationTrait::$QUESTIONS_EVALUATION
         ])
 
         @include('form-evaluation-questions', [
             'title'                                         => 'Overig',
-            'question_numbers'                              => [47],
+            'question_numbers'                              => [46],
             'questions'                                     => \App\Http\Traits\EvaluationTrait::$QUESTIONS_EVALUATION
         ])
 
