@@ -32,7 +32,97 @@ trait EvaluationTrait {
         $ID_EXIT                                = 4,
 
         $STATUS_PLANNED                         = 1,
-        $STATUS_FINISHED                        = 2;
+        $STATUS_FINISHED                        = 2,
+
+        $QUESTIONS_INTAKE                       = [
+            'Wat wil je bereiken?',
+            'Hoe weet je dat het doel is bereikt?',
+            'Is het doel acceptabel?',
+            'Is het doel realistisch?',
+            'Wanneer wil je het doel bereiken?',
+            'Hoe ziet de situatie er nu uit?',
+            'Waarom is de situatie problematisch?',
+            'Wat zijn je zwakke punten?',
+            'Wat is reeds ondernomen om de problemen te verhelpen? Waarom werkte dat wel of niet?',
+            'Wat gaat er momenteel (wel) goed?',
+            'Wat zijn je sterke punten?',
+            'Hoe ziet de situatie eruit als de problemen niet worden opgelost?',
+            'Waar zie je mogelijkheden voor groei of verbetering?',
+            'Waar zie je eventuele obstakels of uitdagingen?',
+            'Wat heeft jouw voorkeur met betrekking tot leermethodes (visueel, adaptief, praktische oefeningen)?',
+            'Bij welke vakken kunnen we je ondersteunen? En hoe staat het met je andere vakken?',
+            'Wat heeft jouw voorkeur voor ondersteuning bij de vakken: structurele bijlessen of losse lessen?',
+            'Studeer / werk je liever in een groep of individueel?',
+            'Wil je de lessen in persoon of digitaal volgen? Het mag ook allebei, als we de voorkeur maar weten.',
+            'Welke acties ga je buiten Studied ondernemen om het doel te bereiken?',
+            'Wat zijn mogelijke obstakels voor het behalen van het gewenste resultaat?',
+            'Hoe kan jij (en uiteraard wij) rekening houden met deze obstakels of uitdagingen?',
+            'Zijn er aanpassingen of aanvullingen die je zou willen voorstellen voor ons plan van aanpak?',
+            'Welke afspraken worden er gemaakt over de vakken?',
+            'Welke afspraken worden er gemaakt over het minimum aantal uren?',
+            'Welke afspraken worden er gemaakt over de begeleiding: structurele bijlessen of losse lessen?',
+            'Studeer / werk je liever in een groep of individueel? Het mag ook allebei (als we de voorkeur maar weten).',
+            'Wil je de lessen in persoon of digitaal volgen? Het mag ook allebei (als we de voorkeur maar weten).',
+            'Indien de voorkeur uitgaat naar lessen in persoon, wáár (locatie) laten we de lessen plaatsvinden?',
+            'Hoe communiceert de leerling / student met de student-docent (WhatsApp of e-mail)?',
+            'Hoe houden de ouder(s) / verzorger(s) en teamleiders contact (WhatsApp of e-mail)?',
+            'Wanneer vind het evaluatiegesprek plaats? In dit gesprek wordt de uitvoering van de afspraken geëvalueerd.',
+            'Zijn er nog andere afspraken gemaakt?',
+            'Wat is er afgesproken over de proefles(sen)?',
+            'Welke afspraken worden er gemaakt over het aanleveren van studiematerialen / de stof aan de student-docent (het liefst 48 uur van tevoren)?',
+            'Student-docent en de leerling / student wisselen telefoonnummers uit.',
+            'Overige vragen of opmerkingen?',
+        ],
+
+        $QUESTIONS_EVALUATION = [
+            'Wat wil je bereiken?',
+            'Hoe weet je dat het doel is bereikt?',
+            'Is het doel acceptabel?',
+            'Is het doel realistisch?',
+            'Wanneer wil je het doel bereiken?',
+            'Hoe ziet de situatie er nu uit?',
+            'Waarom is de situatie problematisch?',
+            'Wat zijn je zwakke punten?',
+            'Wat is reeds ondernomen om de problemen te verhelpen? Waarom werkte dat wel of niet?',
+            'Wat gaat er momenteel (wel) goed?',
+            'Wat zijn je sterke punten?',
+            'Hoe ziet de situatie eruit als de problemen niet worden opgelost?',
+            'Waar zie je mogelijkheden voor groei of verbetering?',
+            'Waar zie je eventuele obstakels of uitdagingen?',
+            'Wat heeft jouw voorkeur met betrekking tot leermethodes (visueel, adaptief, praktische oefeningen)?',
+            'Bij welke vakken kunnen we je ondersteunen? En hoe staat het met je andere vakken?',
+            'Wat heeft jouw voorkeur voor ondersteuning bij de vakken: structurele bijlessen of losse lessen?',
+            'Studeer / werk je liever in een groep of individueel?',
+            'Wil je de lessen in persoon of digitaal volgen? Het mag ook allebei, als we de voorkeur maar weten.',
+            'Welke acties ga je buiten Studied ondernemen om het doel te bereiken?',
+            'Wat zijn mogelijke obstakels voor het behalen van het gewenste resultaat?',
+            'Hoe kan jij (en uiteraard wij) rekening houden met deze obstakels of uitdagingen?',
+            'Zijn er aanpassingen of aanvullingen die je zou willen voorstellen voor ons plan van aanpak?',
+            'Welke afspraken worden er gemaakt over de vakken?',
+            'Welke afspraken worden er gemaakt over het minimum aantal uren?',
+            'Welke afspraken worden er gemaakt over de begeleiding: structurele bijlessen of losse lessen?',
+            'Studeer / werk je liever in een groep of individueel? Het mag ook allebei (als we de voorkeur maar weten).',
+            'Wil je de lessen in persoon of digitaal volgen? Het mag ook allebei (als we de voorkeur maar weten).',
+            'Indien de voorkeur uitgaat naar lessen in persoon, wáár (locatie) laten we de lessen plaatsvinden?',
+            'Hoe communiceert de leerling / student met de student-docent (WhatsApp of e-mail)?',
+            'Hoe houden de ouder(s) / verzorger(s) en teamleiders contact (WhatsApp of e-mail)?',
+            'Wanneer vindt het evaluatiegesprek plaats? In dit gesprek wordt de uitvoering van de afspraken geëvalueerd.',
+            'Zijn er nog andere afspraken gemaakt?',
+            'Wat is er afgesproken over de proefles(sen)?',
+            'Welke afspraken worden er gemaakt over het aanleveren van studiematerialen / de stof aan de student-docent (het liefst 48 uur van tevoren)?',
+            'Student-docent en de leerling / student wisselen telefoonnummers uit.',
+            'Hoe tevreden ben je met de ondersteuning en de voortgang tot nu toe?',
+            'Heb je het doel (of doelen), dat we samen hebben opgesteld, bereikt? Zo ja, hoe weet je dat? Zo nee, wat denk je dat de obstakels of uitdagingen waren?',
+            'Hoe goed sluit de huidige aanpak aan bij jouw manier van leren?',
+            'Welke ondersteuning en hulpmiddelen waren voor jou het meest waardevol?',
+            'Zijn er dingen die je minder of niet effectief vond?',
+            'Hoe ervaart de student-docent de begeleiding voor het bereiken van het doel?',
+            'Wat zou je willen veranderen?',
+            'Hoe tevreden zijn de ouder(s) / verzorger(s) met de ondersteuning en de voortgang tot nu toe?',
+            'Hoe ervaart de klant ervaren de ouder(s) / verzorger(s) de begeleiding voor het bereiken van het doel?',
+            'Willen we de begeleiding verlengen, eventueel wijzigen of willen we de begeleiding stopzetten? Indien verlengen of eventueel wijzigen, wanneer vindt het evaluatiegesprek plaats? In dit gesprek wordt de uitvoering van de afspraken geëvalueerd.',
+            'Overige vragen of opmerkingen?',
+        ];
 
 
 
@@ -115,15 +205,27 @@ trait EvaluationTrait {
 
         self::validate_fromEvaluation($data);
 
-        for ($i = 1; $i <= 56; $i++) {
+        $answers                                                          = [];
 
-            if (array_key_exists(Model::$EVALUATION_QUESTION . $i, $data)) {
+        foreach ($data as $key => $value) {
 
-                $evaluation[Model::$EVALUATION_QUESTION . $i]               = $data[Model::$EVALUATION_QUESTION . $i];
+            if (!Func::contains($key, [Model::$EVALUATION_ANSWERS])) {
+
+                continue;
 
             }
+
+            if (strlen($value) == 0) {
+
+                continue;
+
+            }
+
+            $question                                                       = str_replace(Model::$EVALUATION_ANSWERS . '_', '', $key);
+            $answers[$question]                                             = $value;
         }
 
+        $evaluation[Model::$EVALUATION_ANSWERS]                             = json_encode($answers);
         $evaluation[Model::$EVALUATION_PERFORMED]                           = true;
 
         $evaluation->save();
@@ -203,7 +305,7 @@ trait EvaluationTrait {
 
         foreach ($data as $key => $value) {
 
-            if (Func::contains($key, [Model::$EVALUATION_QUESTION])) {
+            if (Func::contains($key, [Model::$EVALUATION_ANSWERS])) {
 
                 $rules[$key]                                                = ['max:999'];
 

@@ -33,8 +33,8 @@ trait AgreementTrait {
         $STATUS_FINISHED                        = 5,
         $STATUS_PLANNED                         = 6,
 
-        $PLAN_INCIDENTEEL                       = 1,
-        $PLAN_STRUCTUREEL                       = 2,
+        $PLAN_LOSSE_LESSEN                      = 1,
+        $PLAN_STRUCTURELE_BEGELEIDING           = 2,
         $PLAN_GEINTEGREERD                      = 3,
 
         $TRIAL_NO                               = 1,
@@ -60,6 +60,8 @@ trait AgreementTrait {
         $agreement->{Model::$LEVEL}                             = $data[Key::AUTOCOMPLETE_ID . Model::$LEVEL . $suffix];
 
         $agreement->{Model::$AGREEMENT_PLAN}                    = $data[Key::AUTOCOMPLETE_ID . Model::$AGREEMENT_PLAN . $suffix];
+        $agreement->{Model::$AGREEMENT_PREFERENCE_GROUP}        = $data[Key::AUTOCOMPLETE_ID . Model::$AGREEMENT_PREFERENCE_GROUP . $suffix];
+        $agreement->{Model::$AGREEMENT_PREFERENCE_LOCATION}     = $data[Key::AUTOCOMPLETE_ID . Model::$AGREEMENT_PREFERENCE_LOCATION . $suffix];
 
         $agreement->{Model::$AGREEMENT_HOURS}                   = is_numeric($data[Model::$AGREEMENT_HOURS . $suffix]) ? $data[Model::$AGREEMENT_HOURS . $suffix] : 0;
         $agreement->{Model::$AGREEMENT_START}                   = $data[Model::$AGREEMENT_START . $suffix];
@@ -197,6 +199,9 @@ trait AgreementTrait {
 
         $agreement->{Model::$SUBJECT}                           = $data[Key::AUTOCOMPLETE_ID . Model::$SUBJECT];
         $agreement->{Model::$LEVEL}                             = $data[Key::AUTOCOMPLETE_ID . Model::$LEVEL];
+
+        $agreement->{Model::$AGREEMENT_PREFERENCE_GROUP}        = $data[Key::AUTOCOMPLETE_ID . Model::$AGREEMENT_PREFERENCE_GROUP];
+        $agreement->{Model::$AGREEMENT_PREFERENCE_LOCATION}     = $data[Key::AUTOCOMPLETE_ID . Model::$AGREEMENT_PREFERENCE_LOCATION];
 
         $agreement->{Model::$AGREEMENT_HOURS}                   = is_numeric($data[Model::$AGREEMENT_HOURS]) ? $data[Model::$AGREEMENT_HOURS] : 0;
         $agreement->{Model::$AGREEMENT_START}                   = $data[Model::$AGREEMENT_START];
@@ -363,10 +368,10 @@ trait AgreementTrait {
     public static function getPlanText($plan) {
 
         switch ($plan) {
-            case self::$PLAN_INCIDENTEEL:           return __('Incidenteel');
-            case self::$PLAN_STRUCTUREEL:           return __('Structureel');
-            case self::$PLAN_GEINTEGREERD:          return __('Geïntegreerd');
-            default:                                return __('Onbekend');
+            case self::$PLAN_LOSSE_LESSEN:              return __('Losse lessen');
+            case self::$PLAN_STRUCTURELE_BEGELEIDING:   return __('Structurele begeleiding');
+            case self::$PLAN_GEINTEGREERD:              return __('Geïntegreerd');
+            default:                                    return __('Onbekend');
         }
     }
 
@@ -433,13 +438,33 @@ trait AgreementTrait {
     public static function getPlanFilterData() {
 
         return [
-            AgreementTrait::$PLAN_INCIDENTEEL                       => AgreementTrait::getPlanText(self::$PLAN_INCIDENTEEL),
-            AgreementTrait::$PLAN_STRUCTUREEL                       => AgreementTrait::getPlanText(self::$PLAN_STRUCTUREEL),
+            AgreementTrait::$PLAN_LOSSE_LESSEN                      => AgreementTrait::getPlanText(self::$PLAN_LOSSE_LESSEN),
+            AgreementTrait::$PLAN_STRUCTURELE_BEGELEIDING           => AgreementTrait::getPlanText(self::$PLAN_STRUCTURELE_BEGELEIDING),
             AgreementTrait::$PLAN_GEINTEGREERD                      => AgreementTrait::getPlanText(self::$PLAN_GEINTEGREERD)
         ];
     }
 
 
+
+    public static function getPreferenceGroupData() {
+
+        return [
+            1                                                       => __('Beide'),
+            2                                                       => __('Individueel'),
+            3                                                       => __('Group')
+        ];
+    }
+
+
+
+    public static function getPreferenceLocationData() {
+
+        return [
+            1                                                       => __('Beide'),
+            2                                                       => __('Digitaal'),
+            3                                                       => __('Fysiek')
+        ];
+    }
 
 
 

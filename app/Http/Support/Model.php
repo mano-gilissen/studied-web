@@ -62,6 +62,8 @@ class Model {
         $AGREEMENT_HOURS                                = 'hours',
         $AGREEMENT_PLAN                                 = 'plan',
         $AGREEMENT_REMARK                               = 'remark',
+        $AGREEMENT_PREFERENCE_LOCATION                  = 'preference_location',
+        $AGREEMENT_PREFERENCE_GROUP                     = 'preference_group',
         $AGREEMENT_EXTENSION                            = 'extension';
 
 
@@ -146,7 +148,7 @@ class Model {
         $EVALUATION_LINK                                = 'link',
         $EVALUATION_REGARDING                           = 'regarding',
         $EVALUATION_REMARKS                             = 'remarks',
-        $EVALUATION_QUESTION                            = 'q_',
+        $EVALUATION_ANSWERS                             = 'answers',
         $EVALUATION_PERFORMED                           = 'performed';
 
 

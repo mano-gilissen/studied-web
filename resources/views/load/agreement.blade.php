@@ -40,6 +40,10 @@
 
 @include('form.field-input', ['id' => 'end_' . $id, 'type' => 'date', 'tag' => __('Geldig tot'), 'required' => true, 'value' => old('end_' . $id)])
 
+@include('form.field-input', ['id' => 'preference_group_' . $id, 'tag' => __('Voorkeur groepsles of individueel'), 'required' => true, 'data' => true, 'reject_other' => true, 'show_all' => true, 'ac_data' => 'preference_group', 'uses_id' => true, 'value' => old('preference_group_' . $id) ?? 1])
+
+@include('form.field-input', ['id' => 'preference_location_' . $id, 'tag' => __('Voorkeur locatie fysiek of digitaal'), 'required' => true, 'data' => true, 'reject_other' => true, 'show_all' => true, 'ac_data' => 'preference_location', 'uses_id' => true, 'value' => old('preference_location_' . $id) ?? 1])
+
 @include('form.field-textarea', ['id' => 'remark_' . $id, 'tag' => __('Opmerkingen'), 'value' => old('remark_' . $id)])
 
 @include('form.field-input', ['id' => 'replace_' . $id, 'tag' => __('Vervangt (optioneel)'), 'icon' => 'search.svg', 'show_all' => true, 'data' => true, 'additional' => true, 'reject_other' => true, 'ac_data' => 'replace', 'uses_id' => true, 'placeholder' => __('Welke vakafspraak wordt vervangen?'), 'trigger' => 'agreement_extend', 'identifier' => $id, 'value' => old('replace_' . $id)])

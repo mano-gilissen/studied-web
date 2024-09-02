@@ -28,6 +28,22 @@
 
         </div>
 
+        <div class="attribute">
+
+            <div class="name">{{ __('Voorkeur individueel of groepsles') }}</div>
+
+            <div class="value">{{ \App\Http\Traits\AgreementTrait::getPreferenceGroupData()[$agreement->{\App\Http\Support\Model::$AGREEMENT_PREFERENCE_GROUP}] }}</div>
+
+        </div>
+
+        <div class="attribute">
+
+            <div class="name">{{ __('Voorkeur locatie fysiek of digitaal') }}</div>
+
+            <div class="value">{{ \App\Http\Traits\AgreementTrait::getPreferenceLocationData()[$agreement->{\App\Http\Support\Model::$AGREEMENT_PREFERENCE_LOCATION}] }}</div>
+
+        </div>
+
         @if(\App\Http\Traits\AgreementTrait::getTrial($agreement))
 
             <div class="attribute">

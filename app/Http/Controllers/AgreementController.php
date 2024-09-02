@@ -108,6 +108,8 @@ class AgreementController extends Controller {
 
         $data[Model::$AGREEMENT_HOURS]                                      = $agreement->{Model::$AGREEMENT_HOURS};
         $data[Model::$AGREEMENT_PLAN]                                       = $agreement->{Model::$AGREEMENT_PLAN};
+        $data[Model::$AGREEMENT_PREFERENCE_GROUP]                           = $agreement->{Model::$AGREEMENT_PREFERENCE_GROUP};
+        $data[Model::$AGREEMENT_PREFERENCE_LOCATION]                        = $agreement->{Model::$AGREEMENT_PREFERENCE_LOCATION};
 
         $data[Model::$EMPLOYEE]                                             = $agreement->{Model::$EMPLOYEE};
         $data[Model::$SERVICE]                                              = $agreement->{Model::$SERVICE};
@@ -202,6 +204,8 @@ class AgreementController extends Controller {
         $data[Key::AUTOCOMPLETE_ADDITIONAL . Model::$STUDENT]               = Format::encode($ac_additional_student);
 
         $data[Key::AUTOCOMPLETE_DATA . Model::$AGREEMENT_PLAN]              = Format::encode(AgreementTrait::getPlanFilterData());
+        $data[Key::AUTOCOMPLETE_DATA . Model::$AGREEMENT_PREFERENCE_GROUP]  = Format::encode(AgreementTrait::getPreferenceGroupData());
+        $data[Key::AUTOCOMPLETE_DATA . Model::$AGREEMENT_PREFERENCE_LOCATION]= Format::encode(AgreementTrait::getPreferenceLocationData());
         $data[Key::AUTOCOMPLETE_DATA . Model::$SERVICE]                     = Format::encode($ac_data_service);
         $data[Key::AUTOCOMPLETE_DATA . Model::$SUBJECT]                     = Format::encode($ac_data_subject);
         $data[Key::AUTOCOMPLETE_DATA . Model::$LEVEL]                       = Format::encode($ac_data_level);
@@ -281,6 +285,9 @@ class AgreementController extends Controller {
         $ac_data_level                                                      = $objects_level->pluck('withYear', Model::$BASE_ID)->toArray();
 
         $data[Key::AUTOCOMPLETE_DATA . Model::$AGREEMENT_PLAN]              = Format::encode(AgreementTrait::getPlanFilterData());
+        $data[Key::AUTOCOMPLETE_DATA . Model::$AGREEMENT_PREFERENCE_GROUP]  = Format::encode(AgreementTrait::getPreferenceGroupData());
+        $data[Key::AUTOCOMPLETE_DATA . Model::$AGREEMENT_PREFERENCE_LOCATION]= Format::encode(AgreementTrait::getPreferenceLocationData());
+
         $data[Key::AUTOCOMPLETE_DATA . Model::$SERVICE]                     = Format::encode($ac_data_service);
         $data[Key::AUTOCOMPLETE_DATA . Model::$SUBJECT]                     = Format::encode($ac_data_subject);
         $data[Key::AUTOCOMPLETE_DATA . Model::$LEVEL]                       = Format::encode($ac_data_level);

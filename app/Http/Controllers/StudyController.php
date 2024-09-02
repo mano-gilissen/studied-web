@@ -1128,7 +1128,7 @@ class StudyController extends Controller {
 
         $studies                                            = $query->whereIn(Model::$STUDY_STATUS, [StudyTrait::$STATUS_CANCELLED, StudyTrait::$STATUS_ABSENT, StudyTrait::$STATUS_REPORTED])->get();
 
-        $rows_invoicing                                     = self::data_export_csv_invoicing($studies);
+        $rows_invoicing                                     = self::data_export_csv_invoicing($studies, $filter);
         $rows_labor                                         = self::data_export_csv_labor($studies);
         $rows_lessons                                       = self::data_export_csv_lessons($studies);
 
@@ -1238,13 +1238,13 @@ class StudyController extends Controller {
 
 
 
-    public function data_export_csv_invoicing($studies) {
+    public function data_export_csv_invoicing($studies, $filter) {
 
-        $rows                                                                   = [];
+        $rows                                               = [];
 
         foreach ($studies as $study) {
 
-            $group                                                              = $study->getParticipants_User->count() > 1;
+            $group                                                      = $study->getParticipants_User->count() > 1;
 
             if (!in_array($study->{Model::$STUDY_STATUS}, [StudyTrait::$STATUS_REPORTED, StudyTrait::$STATUS_ABSENT])) {
 
@@ -1258,20 +1258,8 @@ class StudyController extends Controller {
 
                 if (!array_key_exists($user->{Model::$BASE_ID}, $rows)) {
 
-                    $rows[$user->{Model::$BASE_ID}]                     = [
+                    self::data_export_csv_invoicing_row($rows, $user->{Model::$BASE_ID});
 
-                        PersonTrait::getFullName($user->getPerson),
-
-                        0,                                              // Failed trial
-                        0,                                              // Total bruto
-
-                        0, 0, 0, 0, 0, 0,                               // Huiswerkbegeleiding
-                        0, 0, 0, 0, 0, 0,                               // Bijles
-                        0, 0, 0, 0, 0, 0,                               // Training
-                        0, 0, 0, 0, 0, 0,                               // Coaching
-                        0, 0, 0, 0, 0, 0,                               // Taalles
-                        0, 0, 0, 0, 0, 0                                // Taalcursus
-                    ];
                 }
 
                 $plan                                                   = $agreement->{Model::$AGREEMENT_PLAN};
@@ -1304,7 +1292,7 @@ class StudyController extends Controller {
                 }
 
                 $rows[$user->{Model::$BASE_ID}][2]                      += $duration * $rate;
-                $offset                                                 = 3;
+                $offset                                                 = 4;
 
                 switch ($study->{Model::$SERVICE}) {
 
@@ -1332,6 +1320,41 @@ class StudyController extends Controller {
             }
         }
 
+        $range_date_start                                               = date('Y-m-d H:i:s', 0);
+        $range_date_end                                                 = date('Y-m-d H:i:s');
+
+        if (array_key_exists(self::$COLUMN_DATE, $filter)) {
+
+            $range_date_start                                           = substr($filter[self::$COLUMN_DATE], 0, 10);
+            $range_date_end                                             = substr($filter[self::$COLUMN_DATE], 11, 10);
+
+        }
+
+        $agreements                                                     = Agreement::where(Model::$AGREEMENT_END, '<=', $range_date_end)
+                                                                          ->where(Model::$AGREEMENT_END, '>=', $range_date_start)
+                                                                          ->get();
+
+        foreach ($agreements as $agreement) {
+
+            if (AgreementTrait::getHoursTotal($agreement) <= AgreementTrait::getHoursMade($agreement)) {
+
+                continue;
+
+            }
+
+            $user = $agreement->getStudent;
+
+            if (!array_key_exists($user->{Model::$BASE_ID}, $rows)) {
+
+                self::data_export_csv_invoicing_row($rows, $user->{Model::$BASE_ID});
+
+            }
+
+            $remainder = AgreementTrait::getHoursTotal($agreement) - AgreementTrait::getHoursMade($agreement);
+            $remainder = (round($remainder * 4) / 4);
+            $rows[$user->{Model::$BASE_ID}][3] += $remainder * $rate;
+        }
+
         usort($rows, function($a, $b) {
 
             return strcmp($a[0], $b[0]);
@@ -1339,6 +1362,27 @@ class StudyController extends Controller {
         });
 
         return $rows;
+    }
+
+
+
+    public function data_export_csv_invoicing_row(&$rows, $user_id) {
+
+        $rows[$user_id]                                     = [
+
+            PersonTrait::getFullName($user_id),
+
+            0,                                              // Failed trial
+            0,                                              // Total bruto
+            0,                                              // Afrekening vakafspraken
+
+            0, 0, 0, 0, 0, 0,                               // Huiswerkbegeleiding
+            0, 0, 0, 0, 0, 0,                               // Bijles
+            0, 0, 0, 0, 0, 0,                               // Training
+            0, 0, 0, 0, 0, 0,                               // Coaching
+            0, 0, 0, 0, 0, 0,                               // Taalles
+            0, 0, 0, 0, 0, 0                                // Taalcursus
+        ];
     }
 
 
