@@ -1401,6 +1401,8 @@ class StudyController extends Controller {
 
             if (!array_key_exists($study->{Model::$STUDY_HOST_USER}, $rows)) {
 
+                dd($study, $study->getHost_User, $study->getHost_User->getPerson);
+
                 $rows[$study->{Model::$STUDY_HOST_USER}] = [
 
                     PersonTrait::getFullName($study->getHost_User->getPerson),
