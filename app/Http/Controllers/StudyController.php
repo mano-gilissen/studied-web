@@ -1334,6 +1334,7 @@ class StudyController extends Controller {
                                                                           ->where(Model::$AGREEMENT_END, '>=', $range_date_start)
                                                                           ->get();
 
+        dd($agreements);
         foreach ($agreements as $agreement) {
 
             if (AgreementTrait::getHoursTotal($agreement) <= AgreementTrait::getHoursMade($agreement)) {
