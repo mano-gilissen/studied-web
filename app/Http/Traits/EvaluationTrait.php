@@ -225,7 +225,7 @@ trait EvaluationTrait {
             $answers[$question]                                             = $value;
         }
 
-        $evaluation[Model::$EVALUATION_ANSWERS]                             = json_encode($answers);
+        $evaluation[Model::$EVALUATION_ANSWERS]                             = json_encode($answers, true);
         $evaluation[Model::$EVALUATION_PERFORMED]                           = true;
 
         $evaluation->save();
