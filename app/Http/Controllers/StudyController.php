@@ -1370,7 +1370,7 @@ class StudyController extends Controller {
 
         $rows[$user_id]                                     = [
 
-            PersonTrait::getFullName($user_id),
+            PersonTrait::getFullName(User::find($user_id)->getPerson),
 
             0,                                              // Failed trial
             0,                                              // Total bruto
@@ -1400,8 +1400,6 @@ class StudyController extends Controller {
             }
 
             if (!array_key_exists($study->{Model::$STUDY_HOST_USER}, $rows)) {
-
-                dd($study, $study->getHost_User, $study->getHost_User->getPerson);
 
                 $rows[$study->{Model::$STUDY_HOST_USER}] = [
 
