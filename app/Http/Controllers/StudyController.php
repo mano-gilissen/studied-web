@@ -1334,7 +1334,6 @@ class StudyController extends Controller {
                                                                           ->where(Model::$AGREEMENT_END, '>=', $range_date_start)
                                                                           ->get();
 
-        dd($agreements);
         foreach ($agreements as $agreement) {
 
             if (AgreementTrait::getHoursTotal($agreement) <= AgreementTrait::getHoursMade($agreement)) {
@@ -1351,8 +1350,12 @@ class StudyController extends Controller {
 
             }
 
-            $remainder = AgreementTrait::getHoursTotal($agreement) - AgreementTrait::getHoursMade($agreement);
-            $remainder = (round($remainder * 4) / 4);
+            $plan                                                   = $agreement->{Model::$AGREEMENT_PLAN};
+            $rate                                                   = Service::find($study->{Model::$SERVICE})->{'rate_plan' . $plan . '_' . ($group ? 'group' : 'solo')};
+
+            $remainder                                              = AgreementTrait::getHoursMade($agreement) - AgreementTrait::getHoursTotal($agreement);
+            $remainder                                              = (round($remainder * 4) / 4);
+
             $rows[$user->{Model::$BASE_ID}][3] += $remainder * $rate;
         }
 
