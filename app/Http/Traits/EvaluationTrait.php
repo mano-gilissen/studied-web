@@ -205,7 +205,7 @@ trait EvaluationTrait {
 
         self::validate_fromEvaluation($data);
 
-        $answers                                                          = array();
+        $answers                                                          = [];
 
         foreach ($data as $key => $value) {
 
@@ -222,7 +222,7 @@ trait EvaluationTrait {
             }
 
             $question                                                       = str_replace(Model::$EVALUATION_ANSWERS . '_', '', $key);
-            $answers[$question]                                             = $value;
+            $answers['question_' . $question]                               = $value;
         }
 
         $evaluation[Model::$EVALUATION_ANSWERS]                             = json_encode($answers, true);
