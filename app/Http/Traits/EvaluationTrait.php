@@ -205,7 +205,7 @@ trait EvaluationTrait {
 
         self::validate_fromEvaluation($data);
 
-        $answers                                                          = [];
+        $answers                                                          = array();
 
         foreach ($data as $key => $value) {
 
