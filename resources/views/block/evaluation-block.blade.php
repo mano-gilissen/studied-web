@@ -2,7 +2,7 @@
 
 @foreach($question_numbers as $question_number)
 
-    @if(array_key_exists($question_number, $answers) && strlen($answers[$question_number]) > 0)
+    @if(array_key_exists('question_'. $question_number, $answers) && strlen($answers['question_'. $question_number]) > 0)
 
         @php $display_block = true; @endphp
 
@@ -18,7 +18,7 @@
 
         @foreach ($question_numbers as $question_number)
 
-            @if(!array_key_exists($question_number, $answers))
+            @if(!array_key_exists('question_'. $question_number, $answers))
 
                 @continue
 
@@ -26,7 +26,7 @@
 
             @include('block.evaluation-question', [
                 'question' => $questions[$question_number],
-                'answer' => $answers[$question_number]
+                'answer' => $answers['question_'. $question_number]
             ])
 
         @endforeach
