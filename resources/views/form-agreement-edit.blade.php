@@ -32,9 +32,9 @@
 
     @include('form.field-input', ['id' => 'end', 'type' => 'date', 'tag' => __('Geldig tot'), 'required' => true, 'value' => \App\Http\Support\Format::datetime($agreement->{\App\Http\Support\Model::$AGREEMENT_END}, \App\Http\Support\Format::$DATETIME_FORM)])
 
-    @include('form.field-input', ['id' => 'preference_group', 'tag' => __('Voorkeur groepsles of individueel'), 'required' => true, 'data' => true, 'reject_other' => true, 'show_all' => true, 'ac_data' => 'preference_group', 'uses_id' => true, 'value' => $agreement->{\App\Http\Support\Model::$AGREEMENT_PREFERENCE_GROUP}])
+    @include('form.field-input', ['id' => 'preference_group', 'tag' => __('Voorkeur groepsles of individueel'), 'required' => true, 'data' => true, 'reject_other' => true, 'show_all' => true, 'ac_data' => 'preference_group', 'uses_id' => true, 'set_id' => $agreement->{\App\Http\Support\Model::$AGREEMENT_PREFERENCE_GROUP}])
 
-    @include('form.field-input', ['id' => 'preference_location', 'tag' => __('Voorkeur locatie fysiek of digitaal'), 'required' => true, 'data' => true, 'reject_other' => true, 'show_all' => true, 'ac_data' => 'preference_location', 'uses_id' => true, 'value' => $agreement->{\App\Http\Support\Model::$AGREEMENT_PREFERENCE_LOCATION}])
+    @include('form.field-input', ['id' => 'preference_location', 'tag' => __('Voorkeur locatie fysiek of digitaal'), 'required' => true, 'data' => true, 'reject_other' => true, 'show_all' => true, 'ac_data' => 'preference_location', 'uses_id' => true, 'set_id' => $agreement->{\App\Http\Support\Model::$AGREEMENT_PREFERENCE_LOCATION}])
 
     @include('form.field-textarea', ['id' => 'remark', 'tag' => __('Opmerkingen'), 'value' => $agreement->{\App\Http\Support\Model::$AGREEMENT_REMARK}])
 
