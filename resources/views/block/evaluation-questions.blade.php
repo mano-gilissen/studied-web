@@ -1,6 +1,6 @@
 <div id="pva" class="block-attributes">
 
-    @php $answers = json_decode($evaluation->{\App\Http\Support\Model::$EVALUATION_ANSWERS}, true); @endphp
+    @php $answers = json_decode($evaluation->{\App\Http\Support\Model::$EVALUATION_ANSWERS} ?? '{}', true); @endphp
 
     @switch($evaluation->{\App\Http\Support\Model::$EVALUATION_REGARDING})
 

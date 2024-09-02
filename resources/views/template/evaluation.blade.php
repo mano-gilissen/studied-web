@@ -24,8 +24,6 @@
 
     @include('block.menu')
 
-    @php $answers = json_decode($evaluation->{\App\Http\Support\Model::$EVALUATION_ANSWERS}) @endphp
-
     <div id="wrap">
 
         <div id="column">
