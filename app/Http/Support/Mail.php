@@ -189,9 +189,9 @@ class Mail {
 
 
 
-    public static function evaluationCreated_forHost($employee, $evalution) {
+    public static function evaluationCreated_forHost($employee, $evaluation) {
 
-        $mail                                               = new Evaluation_Created_Host($employee, $evalution);
+        $mail                                               = new Evaluation_Created_Host($employee, $evaluation);
         $recipient                                          = $employee->{Model::$USER_EMAIL};
 
         self::mailTo($mail, $recipient, $employee->{Model::$USER_LANGUAGE});
@@ -199,9 +199,9 @@ class Mail {
 
 
 
-    public static function evaluationCreated_forEmployee($employee, $evalution) {
+    public static function evaluationCreated_forEmployee($employee, $evaluation) {
 
-        $mail                                               = new Evaluation_Created_Employee($employee, $evalution);
+        $mail                                               = new Evaluation_Created_Employee($employee, $evaluation);
         $recipient                                          = $employee->{Model::$USER_EMAIL};
 
         self::mailTo($mail, $recipient, $employee->{Model::$USER_LANGUAGE});
@@ -209,9 +209,9 @@ class Mail {
 
 
 
-    public static function evaluationCreated_forStudent($student, $evalution) {
+    public static function evaluationCreated_forStudent($student, $evaluation) {
 
-        $mail                                               = new Evaluation_Created_Student($student, $evalution);
+        $mail                                               = new Evaluation_Created_Student($student, $evaluation);
         $recipient                                          = $student->{Model::$USER_EMAIL};
 
         self::mailTo($mail, $recipient, $student->{Model::$USER_LANGUAGE});
@@ -219,9 +219,9 @@ class Mail {
 
 
 
-    public static function evaluationCreated_forCustomer($customer, $evalution) {
+    public static function evaluationCreated_forCustomer($customer, $evaluation) {
 
-        $mail                                               = new Evaluation_Created_Customer($customer, $evalution);
+        $mail                                               = new Evaluation_Created_Customer($customer, $evaluation);
         $recipient                                          = $customer->{Model::$USER_EMAIL};
 
         self::mailTo($mail, $recipient, $customer->{Model::$USER_LANGUAGE});

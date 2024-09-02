@@ -2,7 +2,7 @@
 
     @php $answers = json_decode($evaluation->{\App\Http\Support\Model::$EVALUATION_ANSWERS}, true); @endphp
 
-    @switch($evalution->{\App\Http\Support\Model::$EVALUATION_REGARDING})
+    @switch($evaluation->{\App\Http\Support\Model::$EVALUATION_REGARDING})
 
         @case(\App\Http\Traits\EvaluationTrait::$ID_INTAKE)
 
