@@ -2,7 +2,7 @@
 
 @foreach($question_numbers as $question_number)
 
-    @if(strlen($answers[$question_number]) > 0)
+    @if(array_key_exists($question_number, $answers) && strlen($answers[$question_number]) > 0)
 
         @php $display_block = true; @endphp
 
@@ -17,6 +17,12 @@
     <div class="content-fold">
 
         @foreach ($question_numbers as $question_number)
+
+            @if(!array_key_exists($question_number, $answers))
+
+                @continue
+
+            @endif
 
             @include('block.evaluation-question', [
                 'question' => $questions[$question_number],
