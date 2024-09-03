@@ -70,7 +70,7 @@ class StudyController extends Controller {
 
 
         $EXPORT_COLUMNS_INVOICING                                           = [
-            'Leerling', 'Failed trial', 'Total bruto', 'Unpaid agreement',
+            'Leerling', 'Failed trial', 'Unpaid agreement', 'Total bruto',
             'Huiswerkbegeleiding_I_S', 'Huiswerkbegeleiding_I_G', 'Huiswerkbegeleiding_S_S',
             'Huiswerkbegeleiding_S_G', 'Huiswerkbegeleiding_G_S', 'Huiswerkbegeleiding_G_G',
             'Bijles_I_S', 'Bijles_I_G', 'Bijles_S_S', 'Bijles_S_G', 'Bijles_G_S', 'Bijles_G_G',
@@ -1291,7 +1291,7 @@ class StudyController extends Controller {
 
                 }
 
-                $rows[$user->{Model::$BASE_ID}][2]                      += $duration * $rate;
+                $rows[$user->{Model::$BASE_ID}][3]                      += $duration * $rate;
                 $offset                                                 = 4;
 
                 switch ($study->{Model::$SERVICE}) {
@@ -1356,7 +1356,7 @@ class StudyController extends Controller {
             $remainder                                              = AgreementTrait::getHoursTotal($agreement) - AgreementTrait::getHoursMade($agreement);
             $remainder                                              = (round($remainder * 4) / 4);
 
-            $rows[$user->{Model::$BASE_ID}][3] += $remainder * $rate;
+            $rows[$user->{Model::$BASE_ID}][2] += $remainder * $rate;
         }
 
         usort($rows, function($a, $b) {
@@ -1377,8 +1377,8 @@ class StudyController extends Controller {
             PersonTrait::getFullName(User::find($user_id)->getPerson),
 
             0,                                              // Failed trial
-            0,                                              // Total bruto
             0,                                              // Afrekening vakafspraken
+            0,                                              // Total bruto
 
             0, 0, 0, 0, 0, 0,                               // Huiswerkbegeleiding
             0, 0, 0, 0, 0, 0,                               // Bijles
