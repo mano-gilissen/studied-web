@@ -12,11 +12,11 @@
 
             @if(\App\Http\Traits\EvaluationTrait::hasLink($evaluation))
                 <p style="margin: 0; font-size: 13px; line-height: 22.8px;">
-                    {{ __('Er is een gesprek met je ingepland. Het gesprek is digitaal op :date om :time. Dit is de link naar het gesprek: :link', [
+                    {!! __('Er is een gesprek met je ingepland. Het gesprek is digitaal op :date om :time. Dit is de link naar het gesprek: :link', [
                         'date' => strtolower(\App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$DATETIME_SINGLE)),
                         'time' => \App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$TIME_SINGLE),
                         'link' => '<a href="' . $evaluation->{\App\Http\Support\Model::$EVALUATION_LINK} . '">' . $evaluation->{\App\Http\Support\Model::$EVALUATION_LINK} . '</a>'
-                    ]) }}
+                    ]) !!}
                 </p>
             @else
                 <p style="margin: 0; font-size: 13px; line-height: 22.8px;">
