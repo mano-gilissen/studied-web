@@ -19,6 +19,7 @@ use App\Models\Location;
 use App\Models\Person;
 use App\Models\Subject;
 use App\Models\User;
+use App\Rules\Contains;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -232,7 +233,21 @@ class EvaluationController extends Controller {
 
         $rules                                                              = [];
 
-        // TODO: ADD RULES
+        foreach ($data as $field) {
+
+            if (strpos($field, Model::$AGREEMENT_START . '_') ||
+                strpos($field, Model::$AGREEMENT_END . '_') ||
+                strpos($field, Model::$AGREEMENT_PLAN . '_') ||
+                strpos($field, Model::$SERVICE . '_') ||
+                strpos($field, Model::$SUBJECT . '_') ||
+                strpos($field, Model::$LEVEL . '_') ||
+                strpos($field, Model::$AGREEMENT_HOURS . '_')
+            ) {
+
+                $rules[$field]                                              = ['required'];
+
+            }
+        }
 
         $validator                                                          = Validator::make($data, $rules, BaseTrait::getValidationMessages());
 
