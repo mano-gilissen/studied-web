@@ -233,7 +233,7 @@ class EvaluationController extends Controller {
 
         $rules                                                              = [];
 
-        foreach ($data as $field) {
+        foreach ($data as $field => $value) {
 
             if (strpos($field, Model::$AGREEMENT_START . '_') ||
                 strpos($field, Model::$AGREEMENT_END . '_') ||
