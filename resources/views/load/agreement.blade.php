@@ -40,9 +40,9 @@
 
 @include('form.field-input', ['id' => 'end_' . $id, 'type' => 'date', 'tag' => __('Geldig tot'), 'required' => true, 'value' => old('end_' . $id)])
 
-@include('form.field-input', ['id' => 'preference_group_' . $id, 'tag' => __('Voorkeur groepsles of individueel'), 'required' => true, 'data' => true, 'reject_other' => true, 'show_all' => true, 'ac_data' => 'preference_group', 'uses_id' => true, 'set_id' => old('preference_group_' . $id) ?? 1])
+@include('form.field-input', ['id' => 'preference_group_' . $id, 'tag' => __('Voorkeur groepsles of individueel'), 'required' => true, 'data' => true, 'reject_other' => true, 'show_all' => true, 'ac_data' => 'preference_group', 'uses_id' => true])
 
-@include('form.field-input', ['id' => 'preference_location_' . $id, 'tag' => __('Voorkeur locatie fysiek of digitaal'), 'required' => true, 'data' => true, 'reject_other' => true, 'show_all' => true, 'ac_data' => 'preference_location', 'uses_id' => true, 'set_id' => old('preference_location_' . $id) ?? 1])
+@include('form.field-input', ['id' => 'preference_location_' . $id, 'tag' => __('Voorkeur locatie fysiek of digitaal'), 'required' => true, 'data' => true, 'reject_other' => true, 'show_all' => true, 'ac_data' => 'preference_location', 'uses_id' => true])
 
 @include('form.field-textarea', ['id' => 'remark_' . $id, 'tag' => __('Opmerkingen'), 'value' => old('remark_' . $id)])
 
