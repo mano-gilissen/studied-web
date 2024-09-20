@@ -487,148 +487,154 @@
 
                             @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
-                            @switch($person->getUser->role)
+                                @switch($person->getUser->role)
 
-                                @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
-                                @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
-                                @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
-                                @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
-
-                                @include('block.profile-contact-personal')
-
-                                @break
-
-                                @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
-
-                                @foreach($person->getUser->getEmployees as $employee)
-
-                                    @if($employee->id == Auth::user()->id)
+                                    @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
+                                    @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
+                                    @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
+                                    @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
                                         @include('block.profile-contact-personal')
 
                                         @break
 
-                                    @endif
+                                    @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
 
-                                @endforeach
+                                        @foreach($person->getUser->getEmployees as $employee)
 
-                                @break
+                                            @if($employee->id == Auth::user()->id)
 
-                                @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
+                                                @include('block.profile-contact-personal')
 
-                                @foreach(Auth::user()->getStudents as $student)
+                                                @break
 
-                                    @if($student->customer == $person->getUser->getCustomer->id)
+                                            @endif
 
-                                        @include('block.profile-contact-personal')
+                                        @endforeach
 
                                         @break
 
-                                    @endif
+                                    @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
 
-                                @endforeach
+                                        @foreach(Auth::user()->getStudents as $student)
+
+                                            @if($student->customer == $person->getUser->getCustomer->id)
+
+                                                @include('block.profile-contact-personal')
+
+                                                @break
+
+                                            @endif
+
+                                        @endforeach
+
+                                        @break
+
+                                @endswitch
 
                                 @break
-
-                            @endswitch
-
-                            @break
 
                             @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
 
-                            @switch($person->getUser->role)
+                                @switch($person->getUser->role)
 
-                                @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
-                                @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
-                                @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
-                                @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
+                                    @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
+                                    @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
+                                    @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
+                                    @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
-                                @foreach($person->getUser->getStudents as $student)
+                                        @foreach($person->getUser->getStudents as $student)
 
-                                    @if($student->id == Auth::user()->id)
+                                            @if($student->id == Auth::user()->id)
 
-                                        @include('block.profile-contact-personal')
+                                                @include('block.profile-contact-personal')
+
+                                                @break
+
+                                            @endif
+
+                                        @endforeach
 
                                         @break
 
-                                    @endif
+                                    @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
 
-                                @endforeach
+                                        @if($person->getUser->id == Auth::user()->id)
 
-                                @break
+                                            @include('block.profile-contact-personal')
 
-                                @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
+                                        @endif
 
-                                @if($person->getUser->id == Auth::user()->id)
+                                        @break
 
-                                    @include('block.profile-contact-personal')
+                                    @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
 
-                                @endif
+                                        @if(Auth::user()->getStudent->customer == $person->getUser->getCustomer->id)
 
-                                @break
+                                            @include('block.profile-contact-personal')
 
-                                @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
+                                        @endif
 
-                                @if(Auth::user()->getStudent->customer == $person->getUser->getCustomer->id)
+                                        @break
 
-                                    @include('block.profile-contact-personal')
-
-                                @endif
-
-                                @break
-
-                            @endswitch
+                                @endswitch
 
                             @break
 
                             @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
 
-                            @switch($person->getUser->role)
+                                @switch($person->getUser->role)
 
-                                @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
-                                @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
-                                @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
-                                @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
+                                    @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
+                                    @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
+                                    @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
+                                    @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
-                                @foreach($person->getUser->getStudents as $student)
+                                        @foreach($person->getUser->getStudents as $student)
 
-                                    @if($student->getStudent->customer == Auth::user()->getCustomer->id)
+                                            @if($student->getStudent->customer == Auth::user()->getCustomer->id)
 
-                                        @include('block.profile-contact-personal')
+                                                @include('block.profile-contact-personal')
+
+                                                @break
+
+                                            @endif
+
+                                        @endforeach
 
                                         @break
 
-                                    @endif
+                                    @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
 
-                                @endforeach
+                                        @if($person->getUser->getStudent->customer == Auth::user()->getCustomer->id)
 
-                                @break
+                                            @include('block.profile-contact-personal')
 
-                                @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
+                                        @endif
 
-                                @if($person->getUser->getStudent->customer == Auth::user()->getCustomer->id)
+                                        @break
 
-                                    @include('block.profile-contact-personal')
+                                    @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
 
-                                @endif
+                                        @if($person->getUser->id == Auth::user()->id)
 
-                                @break
+                                            @include('block.profile-contact-personal')
 
-                                @case(\App\Http\Traits\RoleTrait::$ID_CUSTOMER)
+                                        @endif
 
-                                @if($person->getUser->id == Auth::user()->id)
+                                        @break
 
-                                    @include('block.profile-contact-personal')
-
-                                @endif
+                                @endswitch
 
                                 @break
-
-                            @endswitch
-
-                            @break
 
                         @endswitch <!-- PROFILE-CONTACT-PERSONAL -->
+
+                        @if(\App\Http\Traits\BaseTrait::hasManagementRights())
+
+                            @include('block.profile-organisatie')
+
+                        @endif <!-- ORGANISATIE -->
 
                         @switch($person->getUser->role)
 
