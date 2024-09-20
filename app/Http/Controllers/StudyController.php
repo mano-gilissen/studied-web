@@ -14,6 +14,7 @@ use App\Http\Traits\PersonTrait;
 use App\Http\Traits\ReportTrait;
 use App\Http\Traits\RoleTrait;
 use App\Http\Traits\ServiceTrait;
+use App\Http\Traits\StudentTrait;
 use App\Http\Traits\StudyTrait;
 use App\Http\Traits\SubjectTrait;
 use App\Models\Agreement;
@@ -70,7 +71,7 @@ class StudyController extends Controller {
 
 
         $EXPORT_COLUMNS_INVOICING                                           = [
-            'Leerling', 'Failed trial', 'Unpaid agreement', 'Total bruto',
+            'Leerling', 'Branch', 'Failed trial', 'Unpaid agreement', 'Total bruto',
             'Huiswerkbegeleiding_I_S', 'Huiswerkbegeleiding_I_G', 'Huiswerkbegeleiding_S_S',
             'Huiswerkbegeleiding_S_G', 'Huiswerkbegeleiding_G_S', 'Huiswerkbegeleiding_G_G',
             'Bijles_I_S', 'Bijles_I_G', 'Bijles_S_S', 'Bijles_S_G', 'Bijles_G_S', 'Bijles_G_G',
@@ -1285,7 +1286,7 @@ class StudyController extends Controller {
 
                     if ($report->{Model::$STUDY_TRIAL} && !$report->{Model::$REPORT_TRIAL_SUCCESS}) {
 
-                        $rows[$user->{Model::$BASE_ID}][1]              -= $duration * $rate;
+                        $rows[$user->{Model::$BASE_ID}][2]              -= $duration * $rate;
 
                     }
 
@@ -1295,8 +1296,8 @@ class StudyController extends Controller {
 
                 }
 
-                $rows[$user->{Model::$BASE_ID}][3]                      += $duration * $rate;
-                $offset                                                 = 4;
+                $rows[$user->{Model::$BASE_ID}][4]                      += $duration * $rate;
+                $offset                                                 = 5;
 
                 switch ($study->{Model::$SERVICE}) {
 
@@ -1360,7 +1361,7 @@ class StudyController extends Controller {
             $remainder                                              = AgreementTrait::getHoursTotal($agreement) - AgreementTrait::getHoursMade($agreement);
             $remainder                                              = (round($remainder * 4) / 4);
 
-            $rows[$user->{Model::$BASE_ID}][2] += $remainder * $rate;
+            $rows[$user->{Model::$BASE_ID}][3] += $remainder * $rate;
         }
 
         usort($rows, function($a, $b) {
@@ -1376,9 +1377,12 @@ class StudyController extends Controller {
 
     public function data_export_csv_invoicing_row(&$rows, $user_id) {
 
+        $user                                               = User::find($user_id);
+        $branch                                             = StudentTrait::getBranchData()[$user->getStudent->{Model::$STUDENT_BRANCH}];
+
         $rows[$user_id]                                     = [
 
-            PersonTrait::getFullName(User::find($user_id)->getPerson),
+            PersonTrait::getFullName($user->getPerson), $branch,
 
             0,                                              // Failed trial
             0,                                              // Afrekening vakafspraken
