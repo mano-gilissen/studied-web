@@ -8,11 +8,7 @@
 
             <div class="name">{{ __('Bedrijfstak') }}</div>
 
-            <div class="value">
-
-                <div class="tag">{{ \App\Http\Traits\StudentTrait::getBranchData()[$person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_BRANCH}] }}</div>
-
-            </div>
+            <div class="value">{{ \App\Http\Traits\StudentTrait::getBranchData()[$person->getUser->getStudent->{\App\Http\Support\Model::$STUDENT_BRANCH}] }}</div>
 
         </div>
 
