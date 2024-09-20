@@ -630,11 +630,19 @@
 
                         @endswitch <!-- PROFILE-CONTACT-PERSONAL -->
 
-                        @if(\App\Http\Traits\BaseTrait::hasManagementRights())
+                        @switch($person->getUser->role)
 
-                            @include('block.profile-organisatie')
+                            @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
 
-                        @endif <!-- ORGANISATIE -->
+                                @if(\App\Http\Traits\BaseTrait::hasManagementRights())
+
+                                    @include('block.profile-organisatie')
+
+                                @endif
+
+                                @break
+
+                        @endswitch <!-- ORGANISATIE -->
 
                         @switch($person->getUser->role)
 
