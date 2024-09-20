@@ -89,6 +89,10 @@ class StudyController extends Controller {
         $EXPORT_COLUMNS_LESSONS                                             = [
             'Leerling', 'Medewerker', 'Onderwerp', 'Dienst', 'Deelnemers', 'Proefles', 'Begeleidingsvorm',
             'Datum', 'Start', 'Einde', 'Duurtijd', 'Locatie', 'Status', 'Opmerkingen', 'Link naar les'
+        ],
+
+        $EXPORT_HEADOFFICE_EMPLOYEE                                         = [
+            'Pieter', 'Karin', 'Jeroen', 'Jolanda', 'Suzanne', 'Sylvia', 'Saskia'
         ];
 
 
@@ -1451,6 +1455,15 @@ class StudyController extends Controller {
             return strcmp($a[0], $b[0]);
 
         });
+
+        foreach (self::$EXPORT_HEADOFFICE_EMPLOYEE as $employee) {
+
+            if (!array_key_exists($employee, $rows)) {
+
+                $rows[$employee] = [$employee, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+            }
+        }
 
         return $rows;
     }

@@ -302,6 +302,7 @@ class Model {
         $STUDENT_NIVEAU                                 = 'niveau',
         $STUDENT_LEERJAAR                               = 'leerjaar',
         $STUDENT_PROFILE                                = 'profile',
+        $STUDENT_BRANCH                                 = 'branch',
         $STUDENT_NAME_MENTOR                            = 'name_mentor',
         $STUDENT_NAME_VAKDOCENT_1                       = 'name_vakdocent_1',
         $STUDENT_NAME_VAKDOCENT_2                       = 'name_vakdocent_2',

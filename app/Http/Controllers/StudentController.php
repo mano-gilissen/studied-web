@@ -77,6 +77,7 @@ class StudentController extends Controller {
         $data[Key::AUTOCOMPLETE_DATA . Model::$STUDENT_SCHOOL]              = Format::encode(StudentTrait::getSchoolData());
         $data[Key::AUTOCOMPLETE_DATA . Model::$STUDENT_NIVEAU]              = Format::encode(StudentTrait::getNiveauData());
         $data[Key::AUTOCOMPLETE_DATA . Model::$STUDENT_LEERJAAR]            = Format::encode(StudentTrait::getLeerjaarData());
+        $data[Key::AUTOCOMPLETE_DATA . Model::$STUDENT_BRANCH]              = Format::encode(StudentTrait::getBranchData());
         $data[Key::AUTOCOMPLETE_DATA . Model::$STUDENT_PROFILE]             = Format::encode(StudentTrait::getProfileData());
 
 

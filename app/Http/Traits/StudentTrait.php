@@ -37,6 +37,7 @@ trait StudentTrait {
 
         $student->{Model::$STUDENT_SCHOOL}                                  = $data[Model::$STUDENT_SCHOOL];
         $student->{Model::$STUDENT_PROFILE}                                 = $data[Model::$STUDENT_PROFILE];
+        $student->{Model::$STUDENT_BRANCH}                                  = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_BRANCH];
         $student->{Model::$STUDENT_NIVEAU}                                  = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_NIVEAU];
         $student->{Model::$STUDENT_LEERJAAR}                                = $data[Key::AUTOCOMPLETE_ID . Model::$STUDENT_LEERJAAR];
 
@@ -135,6 +136,7 @@ trait StudentTrait {
         $rules[Model::$STUDENT_SCHOOL]                                      = ['required'];
         $rules[Model::$STUDENT_NIVEAU]                                      = ['required'];
         $rules[Model::$STUDENT_LEERJAAR]                                    = ['required'];
+        $rules[Model::$STUDENT_BRANCH]                                      = ['required'];
 
         $validator                                                          = Validator::make($data, $rules, BaseTrait::getValidationMessages());
 
@@ -274,6 +276,16 @@ trait StudentTrait {
             6                                               => 6,
             7                                               => 7,
             8                                               => 8
+        ];
+    }
+
+
+
+    public static function getBranchData() {
+
+        return [
+            1                                               => __('Particulier'),
+            2                                               => __('Maatschappelijk')
         ];
     }
 
