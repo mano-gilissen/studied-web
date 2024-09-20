@@ -1140,6 +1140,8 @@ class StudyController extends Controller {
         $rows                                               = [];
         $rows_count                                         = max(count($rows_invoicing), count($rows_labor), count($rows_lessons));
 
+        dd($rows_labor);
+
         for ($i = 0; $i < $rows_count; $i++) {
 
             $row_invoicing                                  = $i < count($rows_invoicing) ? $rows_invoicing[$i] : array_fill(0, count(self::$EXPORT_COLUMNS_INVOICING), '');
