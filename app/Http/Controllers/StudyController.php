@@ -1142,9 +1142,9 @@ class StudyController extends Controller {
 
         for ($i = 0; $i < $rows_count; $i++) {
 
-            $row_invoicing                                  = $i < count($rows_invoicing) ? array_keys($rows_invoicing)[$i] : array_fill(0, count(self::$EXPORT_COLUMNS_INVOICING), '');
-            $row_labor                                      = $i < count($rows_labor) ? array_keys($rows_labor)[$i] : array_fill(0, count(self::$EXPORT_COLUMNS_LABOR), '');
-            $row_lessons                                    = $i < count($rows_lessons) ? array_keys($rows_lessons)[$i] : array_fill(0, count(self::$EXPORT_COLUMNS_LESSONS), '');
+            $row_invoicing                                  = $i < count($rows_invoicing) ? $rows_invoicing[array_keys($rows_invoicing)[$i]] : array_fill(0, count(self::$EXPORT_COLUMNS_INVOICING), '');
+            $row_labor                                      = $i < count($rows_labor) ? $rows_labor[array_keys($rows_labor)[$i]] : array_fill(0, count(self::$EXPORT_COLUMNS_LABOR), '');
+            $row_lessons                                    = $i < count($rows_lessons) ? $row_lessons[array_keys($rows_lessons)[$i]] : array_fill(0, count(self::$EXPORT_COLUMNS_LESSONS), '');
 
             $rows[]                                         = array_merge($row_invoicing, $row_labor, $row_lessons);
         }
