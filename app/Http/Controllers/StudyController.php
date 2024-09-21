@@ -93,8 +93,8 @@ class StudyController extends Controller {
         ],
 
         $EXPORT_HEADOFFICE_EMPLOYEE                                         = [
-            'Masha Hasalee','Jasper van Asten','Puck Slegers','Stijn Donkers','Eldar Ulanov','Sanne de Brouwer',
-            'Chloé Klippert','(Kyra Volkers -> nog in salarisonderhandeling)','Sarah Ewals'
+            'Chloé Klippert','Eldar Ulanov','Jasper van Asten','Kyra Volkers','Masha Hasalee','Puck Slegers',
+            'Sanne de Brouwer','Sarah Ewals','Stijn Donkers'
         ];
 
 
