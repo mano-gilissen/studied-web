@@ -284,7 +284,7 @@ trait StudentTrait {
     public static function getBranchData() {
 
         return [
-            1                                               => __('Particulier'),
+            1                                               => __('Commercieel'),
             2                                               => __('Maatschappelijk')
         ];
     }
