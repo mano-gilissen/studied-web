@@ -275,6 +275,10 @@ class StudyController extends Controller {
 
         foreach ($students as $student) {
 
+            if (!$student->getPerson) {
+                dd($student);
+            }
+
             $address                                                        = $student->getPerson->getAddress;
 
             if ($address) {
