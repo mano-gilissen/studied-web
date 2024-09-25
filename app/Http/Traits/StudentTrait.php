@@ -73,7 +73,7 @@ trait StudentTrait {
 
 
 
-        return $student;x
+        return $student;
     }
 
 
