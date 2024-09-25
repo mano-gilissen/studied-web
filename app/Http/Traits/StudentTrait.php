@@ -73,14 +73,14 @@ trait StudentTrait {
 
 
 
-        return $student;
+        return $student;x
     }
 
 
 
     public static function update(array $data, $student) {
 
-        self::validate($data);
+        self::validate($data, false);
 
         $customerBefore                                                     = self::hasCustomer($student) ? $student->{Model::$CUSTOMER} : null;
 
@@ -129,14 +129,19 @@ trait StudentTrait {
 
 
 
-    public static function validate(array $data) {
+    public static function validate(array $data, $create = true) {
 
         $rules                                                              = [];
 
         $rules[Model::$STUDENT_SCHOOL]                                      = ['required'];
         $rules[Model::$STUDENT_NIVEAU]                                      = ['required'];
         $rules[Model::$STUDENT_LEERJAAR]                                    = ['required'];
-        $rules[Model::$STUDENT_BRANCH]                                      = ['required'];
+
+        if ($create) {
+
+            $rules[Model::$STUDENT_BRANCH]                                  = ['required'];
+
+        }
 
         $validator                                                          = Validator::make($data, $rules, BaseTrait::getValidationMessages());
 
