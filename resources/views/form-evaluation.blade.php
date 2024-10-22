@@ -21,7 +21,7 @@
 
 
 
-    @if($evaluation->{\App\Http\Support\Model::$EVALUATION_REGARDING} = \App\Http\Traits\EvaluationTrait::$ID_INTAKE)
+    @if($evaluation->{\App\Http\Support\Model::$EVALUATION_REGARDING} == \App\Http\Traits\EvaluationTrait::$ID_INTAKE)
 
         @include('form-evaluation-questions', [
             'title'                                         => 'PVA - De doelstelling',
