@@ -233,13 +233,13 @@ class EvaluationController extends Controller {
 
         $rules                                                              = [];
 
+        dd($data);
         foreach ($data as $field => $value) {
 
             if (strpos($field, Model::$AGREEMENT_START . '_') ||
                 strpos($field, Model::$AGREEMENT_END . '_')
             ) {
 
-                dd($data, $field, $value);
                 $rules[$field]                                              = ['required'];
 
             }
