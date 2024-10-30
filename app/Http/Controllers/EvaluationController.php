@@ -233,32 +233,11 @@ class EvaluationController extends Controller {
 
         $rules                                                              = [];
 
-        dd($data);
-        foreach ($data as $field => $value) {
+        foreach ([Model::$AGREEMENT_START, Model::$AGREEMENT_END, Model::$AGREEMENT_PLAN,
+                  Model::$SERVICE, Model::$SUBJECT, Model::$LEVEL, Model::$AGREEMENT_HOURS] as $field) {
 
-            if (strpos($field, Model::$AGREEMENT_START . '_') ||
-                strpos($field, Model::$AGREEMENT_END . '_')
-            ) {
+            $rules[$field]                                                  = ['sometimes|required'];
 
-                $rules[$field]                                              = ['required'];
-
-            }
-        }
-
-        foreach ($data as $field => $value) {
-
-            if (strpos($field, Model::$AGREEMENT_START . '_') ||
-                strpos($field, Model::$AGREEMENT_END . '_') ||
-                strpos($field, Model::$AGREEMENT_PLAN . '_') ||
-                strpos($field, Model::$SERVICE . '_') ||
-                strpos($field, Model::$SUBJECT . '_') ||
-                strpos($field, Model::$LEVEL . '_') ||
-                strpos($field, Model::$AGREEMENT_HOURS . '_')
-            ) {
-
-                $rules[$field]                                              = ['required'];
-
-            }
         }
 
         $validator                                                          = Validator::make($data, $rules, BaseTrait::getValidationMessages());
