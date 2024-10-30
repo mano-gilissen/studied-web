@@ -255,6 +255,7 @@ class EvaluationController extends Controller {
             }
         }
 
+        dd($rules);
         $validator                                                          = Validator::make($data, $rules, BaseTrait::getValidationMessages());
 
         $validator->validate();
