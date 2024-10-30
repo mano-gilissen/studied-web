@@ -232,13 +232,15 @@ class EvaluationController extends Controller {
     public function perform_validate(array $data) {
 
         $rules                                                              = [];
-dd($data);
+
         foreach ([Model::$AGREEMENT_START, Model::$AGREEMENT_END, Model::$AGREEMENT_PLAN,
                   Model::$SERVICE, Model::$SUBJECT, Model::$LEVEL, Model::$AGREEMENT_HOURS] as $field) {
 
             $rules[$field]                                                  = ['sometimes|required'];
 
         }
+
+        dd($rules, $data);
 
         $validator                                                          = Validator::make($data, $rules, BaseTrait::getValidationMessages());
 
