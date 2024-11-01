@@ -1354,6 +1354,12 @@ class StudyController extends Controller {
 
             $user = $agreement->getStudent;
 
+            if (!$user) {
+
+                dd($agreement->id);
+
+            }
+
             if (!array_key_exists($user->{Model::$BASE_ID}, $rows)) {
 
                 self::data_export_csv_invoicing_row($rows, $user->{Model::$BASE_ID});
