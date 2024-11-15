@@ -225,7 +225,7 @@ trait AgreementTrait {
 
             Mail::userActivate_forStudent($user, $study);
 
-            StudentTrait::notifyRelations_ofActivation($user);
+            //StudentTrait::notifyRelations_ofActivation($user);
         }
 
         $student                                                = $user->getStudent;
