@@ -1489,8 +1489,9 @@ class StudyController extends Controller {
 
     public static function scheduled_report_weekly() {
 
+        //self::scheduled_report_weekly__agreement_deficits();
 
-
+        self::scheduled_report_weekly__unreported_studies();
     }
 
 
