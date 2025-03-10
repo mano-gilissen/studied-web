@@ -42,7 +42,7 @@ Route::get('/les/{key}/rapporteren',                        'ReportController@cr
 
 Route::get('/rapport/{key}/bewerken',                       'ReportController@edit')->name(\App\Http\Support\Route::REPORT_EDIT)->middleware('auth', 'authorize');
 
-Route::post('/rapport/export/{time}',                       'ReportController@data_export_csv')->name('report.export')->middleware('auth', 'authorize');
+Route::get('/rapport/export/{time}',                        'ReportController@data_export_csv')->name('report.export')->middleware('auth', 'authorize');
 
 
 
