@@ -287,15 +287,6 @@ trait AgreementTrait {
         $progress_duration                                      = $duration_past / $duration_total;
         $progress_hours_desired                                 = $progress_duration * $hours_total;
 
-        dd($agreement,
-           'hours_total:', $hours_total,
-           'hours_made:', $hours_made,
-           'duration_total:', $duration_total,
-           'duration_past:', $duration_past,
-           'progress_duration:', $progress_duration,
-           'progress_hours_desired:', $progress_hours_desired,
-           floor($progress_hours_desired - $hours_made));
-
         return floor($progress_hours_desired - $hours_made);
     }
 
