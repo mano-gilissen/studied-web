@@ -457,7 +457,7 @@ class AgreementController extends Controller {
                 $progress = round(AgreementTrait::getHoursMade($agreement) / AgreementTrait::getHoursTotal($agreement) * 100);
                 $deficit = AgreementTrait::calculateDeficit($agreement) * -1.0;
 
-                return $progress . "% <span style='font-weight:bold;color:" . ($deficit < 0 ? 'red' : 'green') . "'>(" . ($deficit > 0 ? '+' : '') . AgreementTrait::calculateDeficit($agreement) . ")</span>";
+                return $progress . "% <span style='font-weight:bold;color:" . ($deficit < 0 ? 'red' : 'green') . "'>(" . ($deficit > 0 ? '+' : '') . $deficit . ")</span>";
 
             case self::$COLUMN_STATUS:
 
