@@ -25,7 +25,9 @@ class Report_Weekly_Management extends Mailable {
 
     public
         $list_deficit,
-        $list_unreported;
+        $list_unreported,
+
+        $subject;
 
 
 
