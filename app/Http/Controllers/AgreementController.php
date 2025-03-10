@@ -352,32 +352,32 @@ class AgreementController extends Controller {
             case RoleTrait::$ID_BOARD:
             case RoleTrait::$ID_MANAGEMENT:
                 array_push($columns,
-                    Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 2, false, $sort, false, $filter, true),
-                    Table::column(self::$COLUMN_EMPLOYEE, self::list_column_label(self::$COLUMN_EMPLOYEE), 2, false, $sort, false, $filter),
-                    Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 1, false, $sort, false, $filter),
-                    Table::column(self::$COLUMN_PLAN, self::list_column_label(self::$COLUMN_PLAN), 2, false, $sort, true, $filter),
-                    Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 1, false, $sort, false, $filter),
-                    Table::column(self::$COLUMN_START, self::list_column_label(self::$COLUMN_START), 1, false, $sort, true, $filter),
-                    Table::column(self::$COLUMN_END, self::list_column_label(self::$COLUMN_END), 1, true, $sort, true, $filter),
-                    Table::column(self::$COLUMN_HOURS_AGREED, self::list_column_label(self::$COLUMN_HOURS_AGREED), 1, false, $sort, false, $filter),
-                    Table::column(self::$COLUMN_HOURS_MADE, self::list_column_label(self::$COLUMN_HOURS_MADE), 1, false, $sort, false, $filter),
-                    Table::column(self::$COLUMN_PROGRESS, self::list_column_label(self::$COLUMN_PROGRESS), 1, false, $sort, false, $filter, true),
-                    Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 1, false, $sort, true, $filter, true)
+                    Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 4, false, $sort, false, $filter, true),
+                    Table::column(self::$COLUMN_EMPLOYEE, self::list_column_label(self::$COLUMN_EMPLOYEE), 3, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 2, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_PLAN, self::list_column_label(self::$COLUMN_PLAN), 3, false, $sort, true, $filter),
+                    Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 2, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_START, self::list_column_label(self::$COLUMN_START), 3, false, $sort, true, $filter),
+                    Table::column(self::$COLUMN_END, self::list_column_label(self::$COLUMN_END), 3, true, $sort, true, $filter),
+                    Table::column(self::$COLUMN_HOURS_AGREED, self::list_column_label(self::$COLUMN_HOURS_AGREED), 2, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_HOURS_MADE, self::list_column_label(self::$COLUMN_HOURS_MADE), 2, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_PROGRESS, self::list_column_label(self::$COLUMN_PROGRESS), 2, false, $sort, false, $filter, true),
+                    Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 2, false, $sort, true, $filter, true)
                 );
                 break;
 
             case RoleTrait::$ID_EMPLOYEE:
                 array_push($columns,
-                    Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 2, false, $sort, false, $filter, true),
-                    Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 1, false, $sort, false, $filter),
-                    Table::column(self::$COLUMN_PLAN, self::list_column_label(self::$COLUMN_PLAN), 2, false, $sort, true, $filter),
-                    Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 1, false, $sort, false, $filter),
-                    Table::column(self::$COLUMN_START, self::list_column_label(self::$COLUMN_START), 1, false, $sort, true, $filter),
-                    Table::column(self::$COLUMN_END, self::list_column_label(self::$COLUMN_END), 1, true, $sort, true, $filter),
-                    Table::column(self::$COLUMN_HOURS_AGREED, self::list_column_label(self::$COLUMN_HOURS_AGREED), 1, false, $sort, false, $filter),
-                    Table::column(self::$COLUMN_HOURS_MADE, self::list_column_label(self::$COLUMN_HOURS_MADE), 1, false, $sort, false, $filter),
-                    Table::column(self::$COLUMN_PROGRESS, self::list_column_label(self::$COLUMN_PROGRESS), 1, false, $sort, false, $filter, true),
-                    Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 1, false, $sort, true, $filter, true)
+                    Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 4, false, $sort, false, $filter, true),
+                    Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 2, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_PLAN, self::list_column_label(self::$COLUMN_PLAN), 3, false, $sort, true, $filter),
+                    Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 2, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_START, self::list_column_label(self::$COLUMN_START), 3, false, $sort, true, $filter),
+                    Table::column(self::$COLUMN_END, self::list_column_label(self::$COLUMN_END), 3, true, $sort, true, $filter),
+                    Table::column(self::$COLUMN_HOURS_AGREED, self::list_column_label(self::$COLUMN_HOURS_AGREED), 2, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_HOURS_MADE, self::list_column_label(self::$COLUMN_HOURS_MADE), 2, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_PROGRESS, self::list_column_label(self::$COLUMN_PROGRESS), 2, false, $sort, false, $filter, true),
+                    Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 2, false, $sort, true, $filter, true)
                 );
                 break;
 
