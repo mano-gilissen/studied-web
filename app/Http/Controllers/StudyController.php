@@ -1572,7 +1572,7 @@ class StudyController extends Controller {
             $rows[] = [
                 Format::datetime($report->{Model::$BASE_CREATED_AT}, Format::$DATETIME_EXPORT . ' %H:%M'),
                 'https://studied.app/les/' . $report->getStudy->{Model::$BASE_KEY},
-                PersonTrait::getFullName($report->getUser->getPerson),
+                PersonTrait::getFullName($report->getStudy->getHost_User->getPerson),
                 ReportTrait::getVerslagText($report),
                 $report->{Model::$REPORT_CONTENT_VOORTGANG},
                 $report->{Model::$REPORT_CONTENT_VOLGENDE_LES},
