@@ -56,7 +56,8 @@ class AgreementController extends Controller {
         $COLUMN_END                                                         = 407,
         $COLUMN_HOURS_AGREED                                                = 408,
         $COLUMN_HOURS_MADE                                                  = 409,
-        $COLUMN_STATUS                                                      = 410;
+        $COLUMN_PROGRESS                                                    = 410,
+        $COLUMN_STATUS                                                      = 411;
 
 
 
@@ -351,29 +352,31 @@ class AgreementController extends Controller {
             case RoleTrait::$ID_BOARD:
             case RoleTrait::$ID_MANAGEMENT:
                 array_push($columns,
-                    Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 1, false, $sort, false, $filter, true),
-                    Table::column(self::$COLUMN_EMPLOYEE, self::list_column_label(self::$COLUMN_EMPLOYEE), 1, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 2, false, $sort, false, $filter, true),
+                    Table::column(self::$COLUMN_EMPLOYEE, self::list_column_label(self::$COLUMN_EMPLOYEE), 2, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 1, false, $sort, false, $filter),
-                    Table::column(self::$COLUMN_PLAN, self::list_column_label(self::$COLUMN_PLAN), 1, false, $sort, true, $filter),
+                    Table::column(self::$COLUMN_PLAN, self::list_column_label(self::$COLUMN_PLAN), 3, false, $sort, true, $filter),
                     Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 1, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_START, self::list_column_label(self::$COLUMN_START), 1, false, $sort, true, $filter),
                     Table::column(self::$COLUMN_END, self::list_column_label(self::$COLUMN_END), 1, true, $sort, true, $filter),
                     Table::column(self::$COLUMN_HOURS_AGREED, self::list_column_label(self::$COLUMN_HOURS_AGREED), 1, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_HOURS_MADE, self::list_column_label(self::$COLUMN_HOURS_MADE), 1, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_PROGRESS, self::list_column_label(self::$COLUMN_PROGRESS), 1, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 1, false, $sort, true, $filter, true)
                 );
                 break;
 
             case RoleTrait::$ID_EMPLOYEE:
                 array_push($columns,
-                    Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 1, false, $sort, false, $filter, true),
+                    Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 2, false, $sort, false, $filter, true),
                     Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 1, false, $sort, false, $filter),
-                    Table::column(self::$COLUMN_PLAN, self::list_column_label(self::$COLUMN_PLAN), 1, false, $sort, true, $filter),
+                    Table::column(self::$COLUMN_PLAN, self::list_column_label(self::$COLUMN_PLAN), 3, false, $sort, true, $filter),
                     Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 1, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_START, self::list_column_label(self::$COLUMN_START), 1, false, $sort, true, $filter),
                     Table::column(self::$COLUMN_END, self::list_column_label(self::$COLUMN_END), 1, true, $sort, true, $filter),
                     Table::column(self::$COLUMN_HOURS_AGREED, self::list_column_label(self::$COLUMN_HOURS_AGREED), 1, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_HOURS_MADE, self::list_column_label(self::$COLUMN_HOURS_MADE), 1, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_PROGRESS, self::list_column_label(self::$COLUMN_PROGRESS), 1, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 1, false, $sort, true, $filter, true)
                 );
                 break;
@@ -400,6 +403,7 @@ class AgreementController extends Controller {
             case self::$COLUMN_END:                 return __('Einde');
             case self::$COLUMN_HOURS_AGREED:        return __('Uren afspraak');
             case self::$COLUMN_HOURS_MADE:          return __('Uren gemaakt');
+            case self::$COLUMN_PROGRESS:            return __('Voortgang');
             case self::$COLUMN_STATUS:              return __('Status');
         }
 
@@ -447,6 +451,13 @@ class AgreementController extends Controller {
             case self::$COLUMN_HOURS_MADE:
 
                 return AgreementTrait::getHoursMade($agreement);
+
+            case self::$COLUMN_PROGRESS:
+
+                $progress = round(AgreementTrait::getHoursMade($agreement) / AgreementTrait::getHoursTotal($agreement) * 100);
+                $deficit = AgreementTrait::calculateDeficit($agreement);
+
+                return $progress . "% <span style='color:'" . $deficit < 0 ? 'red' : 'green' . "'>(" . ($deficit > 0 ? '+' : '') . AgreementTrait::calculateDeficit($agreement) . ")</span>";
 
             case self::$COLUMN_STATUS:
 
@@ -701,9 +712,9 @@ class AgreementController extends Controller {
 
         self::list_counters_load_total($query, $counters);
 
-        self::list_counters_load_hours_agreed($query, $counters);
+        //self::list_counters_load_hours_agreed($query, $counters);
 
-        self::list_counters_load_hours_made($query, $counters);
+        //self::list_counters_load_hours_made($query, $counters);
 
         return view(Views::LOAD_COUNTERS, [
 
@@ -714,7 +725,7 @@ class AgreementController extends Controller {
 
 
 
-    public function list_counters_load_total($query, &$counters) {
+    public static function list_counters_load_total($query, &$counters) {
 
         $counters[] = (object)[
             Table::COUNTER_ID                               => 'counter-total',
@@ -728,7 +739,7 @@ class AgreementController extends Controller {
 
 
 
-    public function list_counters_load_hours_agreed($query, &$counters) {
+    public static function list_counters_load_hours_agreed($query, &$counters) {
 
         $total = 0;
 
@@ -746,7 +757,7 @@ class AgreementController extends Controller {
 
 
 
-    public function list_counters_load_hours_made($query, &$counters) {
+    public static function list_counters_load_hours_made($query, &$counters) {
 
         $total = 0;
 
