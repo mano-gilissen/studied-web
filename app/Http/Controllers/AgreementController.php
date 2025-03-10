@@ -403,7 +403,7 @@ class AgreementController extends Controller {
             case self::$COLUMN_END:                 return __('Einde');
             case self::$COLUMN_HOURS_AGREED:        return __('Uren afspraak');
             case self::$COLUMN_HOURS_MADE:          return __('Uren gemaakt');
-            case self::$COLUMN_PROGRESS:            return __('Voortgang');
+            case self::$COLUMN_PROGRESS:            return __('Achterstand');
             case self::$COLUMN_STATUS:              return __('Status');
         }
 
