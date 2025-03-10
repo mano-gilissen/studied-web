@@ -1487,4 +1487,35 @@ class StudyController extends Controller {
 
 
 
+    public static function scheduled_report_weekly() {
+
+        $agreement_deficits = [];
+        $agreements = Agreement::where(Model::$AGREEMENT_END, '>=', date(Format::$DATABASE_DATE))
+                               ->where(Model::$AGREEMENT_START, '<=', date(Format::$DATABASE_DATE))
+                               ->get();
+
+        foreach ($agreements as $agreement) {
+
+            $deficit = AgreementTrait::calculateDeficit($agreement);
+
+            if ($deficit > 0) {
+
+                if (!array_key_exists($agreement->{Model::$STUDENT}, $agreement_deficits)) {
+
+                    $name = $agreement->getStudent->getPerson->first_name;
+
+                    $agreement_deficits[$agreement->{Model::$STUDENT}] = [$name, 0];
+                }
+
+                $agreement_deficits[$agreement->{Model::$STUDENT}][1] += $deficit;
+            }
+        }
+
+        dd($agreements, $agreement_deficits);
+    }
+
+
+
+
+
 }

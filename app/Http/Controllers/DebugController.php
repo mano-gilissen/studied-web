@@ -105,6 +105,14 @@ class DebugController extends Controller {
 
 
 
+    public function report_weekly_test() {
+
+        StudyController::scheduled_report_weekly();
+
+    }
+
+
+
 
 
 }

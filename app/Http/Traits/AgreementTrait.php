@@ -276,6 +276,22 @@ trait AgreementTrait {
 
 
 
+    public static function calculateDeficit($agreement) {
+
+        $hours_total                                            = self::getHoursTotal($agreement);
+        $hours_made                                             = self::getHoursMade($agreement);
+
+        $duration_total                                         = strtotime($agreement->{Model::$AGREEMENT_END}) - strtotime($agreement->{Model::$AGREEMENT_START});
+        $duration_past                                          = time() - strtotime($agreement->{Model::$AGREEMENT_START});
+
+        $progress_duration                                      = $duration_past / $duration_total;
+        $progress_hours_desired                                 = $progress_duration * $hours_total;
+
+        return floor($progress_hours_desired - $hours_made);
+    }
+
+
+
     public static function generateIdentifier() {
 
         // TODO: REPLACE IDENTIFIER WITH FIXED VALUE TO TEST;
