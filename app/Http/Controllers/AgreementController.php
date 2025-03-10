@@ -355,7 +355,7 @@ class AgreementController extends Controller {
                     Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 2, false, $sort, false, $filter, true),
                     Table::column(self::$COLUMN_EMPLOYEE, self::list_column_label(self::$COLUMN_EMPLOYEE), 2, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 1, false, $sort, false, $filter),
-                    Table::column(self::$COLUMN_PLAN, self::list_column_label(self::$COLUMN_PLAN), 3, false, $sort, true, $filter),
+                    Table::column(self::$COLUMN_PLAN, self::list_column_label(self::$COLUMN_PLAN), 2, false, $sort, true, $filter),
                     Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 1, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_START, self::list_column_label(self::$COLUMN_START), 1, false, $sort, true, $filter),
                     Table::column(self::$COLUMN_END, self::list_column_label(self::$COLUMN_END), 1, true, $sort, true, $filter),
@@ -370,7 +370,7 @@ class AgreementController extends Controller {
                 array_push($columns,
                     Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 2, false, $sort, false, $filter, true),
                     Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 1, false, $sort, false, $filter),
-                    Table::column(self::$COLUMN_PLAN, self::list_column_label(self::$COLUMN_PLAN), 3, false, $sort, true, $filter),
+                    Table::column(self::$COLUMN_PLAN, self::list_column_label(self::$COLUMN_PLAN), 2, false, $sort, true, $filter),
                     Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 1, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_START, self::list_column_label(self::$COLUMN_START), 1, false, $sort, true, $filter),
                     Table::column(self::$COLUMN_END, self::list_column_label(self::$COLUMN_END), 1, true, $sort, true, $filter),
@@ -457,7 +457,7 @@ class AgreementController extends Controller {
                 $progress = round(AgreementTrait::getHoursMade($agreement) / AgreementTrait::getHoursTotal($agreement) * 100);
                 $deficit = AgreementTrait::calculateDeficit($agreement);
 
-                return $progress . "% <span style='color:'" . $deficit < 0 ? 'red' : 'green' . "'>(" . ($deficit > 0 ? '+' : '') . AgreementTrait::calculateDeficit($agreement) . ")</span>";
+                return $progress . "% <span style='color:" . ($deficit < 0 ? 'red' : 'green') . "'>(" . ($deficit > 0 ? '+' : '') . AgreementTrait::calculateDeficit($agreement) . ")</span>";
 
             case self::$COLUMN_STATUS:
 
