@@ -8,7 +8,11 @@
 
                 {{ $column->label }}
 
-                <div class="sort"></div>
+                @if($column->sort != \App\Http\Support\Table::SORT_DISABLED)
+
+                    <div class="sort"></div>
+
+                @endif
 
             </div>
 
