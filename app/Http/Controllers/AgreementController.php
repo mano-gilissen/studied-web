@@ -716,6 +716,8 @@ class AgreementController extends Controller {
 
         self::list_counters_load_hours_made($query, $counters);
 
+        self::list_counters_load_progress($query, $counters);
+
         return view(Views::LOAD_COUNTERS, [
 
             Table::VIEW_COUNTERS                            => $counters
@@ -769,6 +771,24 @@ class AgreementController extends Controller {
 
         $counters[] = (object)[
             Table::COUNTER_LABEL => __('Uren gemaakt'),
+            Table::COUNTER_VALUE => $total
+        ];
+    }
+
+
+
+    public static function list_counters_load_progress($query, &$counters) {
+
+        $total = 0;
+
+        foreach ($query->get() as $agreement) {
+
+            $total += AgreementTrait::calculateDeficit($agreement);
+
+        }
+
+        $counters[] = (object)[
+            Table::COUNTER_LABEL => __('Uren achterstand'),
             Table::COUNTER_VALUE => $total
         ];
     }
