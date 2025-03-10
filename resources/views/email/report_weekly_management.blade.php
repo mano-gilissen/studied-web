@@ -9,7 +9,7 @@
             {{ __('Dit is de wekelijkse controle email voor de Studied backoffice.') }},
             <br><br><br>
             <div style="font-weight: bold">{{ __('Achterstand gemaakte uren') }}</div>
-            {{ __('Onderstaande lijst betreft alle leerlingen met een achterstand van gemaakte uren tov van de lopende vakafspraken:') }}
+            {{ __('Onderstaande lijst betreft alle leerlingen met een achterstand van gemaakte uren ten opzichte van de lopende vakafspraken:') }}
             <br><br>
             @foreach($list_deficit as $deficit)
 
