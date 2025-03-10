@@ -80,6 +80,10 @@
     padding:                            0 64px;
 }
 
+#headers .header {
+    font-size:                          13px;
+}
+
 #headers .header:hover,
 #headers .header.asc,
 #headers .header.desc {
@@ -181,7 +185,7 @@
 
 
 #items {
-    padding:                            0 44px 0 64px;
+    padding:                            0 48px 0 64px;
 }
 
 #items.select_filter {

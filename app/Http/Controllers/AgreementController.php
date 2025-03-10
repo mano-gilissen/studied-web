@@ -352,9 +352,9 @@ class AgreementController extends Controller {
             case RoleTrait::$ID_BOARD:
             case RoleTrait::$ID_MANAGEMENT:
                 array_push($columns,
-                    Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 4, false, $sort, false, $filter, true),
+                    Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 3, false, $sort, false, $filter, true),
                     Table::column(self::$COLUMN_EMPLOYEE, self::list_column_label(self::$COLUMN_EMPLOYEE), 3, false, $sort, false, $filter),
-                    Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 2, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 1.5, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_PLAN, self::list_column_label(self::$COLUMN_PLAN), 3, false, $sort, true, $filter),
                     Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 2, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_START, self::list_column_label(self::$COLUMN_START), 2, false, $sort, true, $filter),
@@ -368,8 +368,8 @@ class AgreementController extends Controller {
 
             case RoleTrait::$ID_EMPLOYEE:
                 array_push($columns,
-                    Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 4, false, $sort, false, $filter, true),
-                    Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 2, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 3, false, $sort, false, $filter, true),
+                    Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 1.5, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_PLAN, self::list_column_label(self::$COLUMN_PLAN), 3, false, $sort, true, $filter),
                     Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 2, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_START, self::list_column_label(self::$COLUMN_START), 2, false, $sort, true, $filter),
