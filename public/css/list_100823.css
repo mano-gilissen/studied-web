@@ -181,7 +181,7 @@
 
 
 #items {
-    padding:                            0 64px;
+    padding:                            0 42px 0 64px;
 }
 
 #items.select_filter {
