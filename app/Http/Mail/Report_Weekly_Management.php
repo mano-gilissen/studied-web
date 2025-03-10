@@ -36,7 +36,7 @@ class Report_Weekly_Management extends Mailable {
         $this->list_deficit                 = $list_deficit;
         $this->list_unreported              = $list_unreported;
 
-        $this->subject                      = __('Wekelijkse controle rapporten en uren - ') . date(Format::$DATETIME_EXPORT);
+        $this->subject                      = __('Wekelijkse controle rapporten en uren - ') . date(Format::$DATETIME_EXPORT, 'd-m-Y');
     }
 
 
