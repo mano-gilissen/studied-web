@@ -361,7 +361,7 @@ class AgreementController extends Controller {
                     Table::column(self::$COLUMN_END, self::list_column_label(self::$COLUMN_END), 1, true, $sort, true, $filter),
                     Table::column(self::$COLUMN_HOURS_AGREED, self::list_column_label(self::$COLUMN_HOURS_AGREED), 1, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_HOURS_MADE, self::list_column_label(self::$COLUMN_HOURS_MADE), 1, false, $sort, false, $filter),
-                    Table::column(self::$COLUMN_PROGRESS, self::list_column_label(self::$COLUMN_PROGRESS), 1, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_PROGRESS, self::list_column_label(self::$COLUMN_PROGRESS), 1, false, $sort, false, $filter, true),
                     Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 1, false, $sort, true, $filter, true)
                 );
                 break;
@@ -376,7 +376,7 @@ class AgreementController extends Controller {
                     Table::column(self::$COLUMN_END, self::list_column_label(self::$COLUMN_END), 1, true, $sort, true, $filter),
                     Table::column(self::$COLUMN_HOURS_AGREED, self::list_column_label(self::$COLUMN_HOURS_AGREED), 1, false, $sort, false, $filter),
                     Table::column(self::$COLUMN_HOURS_MADE, self::list_column_label(self::$COLUMN_HOURS_MADE), 1, false, $sort, false, $filter),
-                    Table::column(self::$COLUMN_PROGRESS, self::list_column_label(self::$COLUMN_PROGRESS), 1, false, $sort, false, $filter),
+                    Table::column(self::$COLUMN_PROGRESS, self::list_column_label(self::$COLUMN_PROGRESS), 1, false, $sort, false, $filter, true),
                     Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 1, false, $sort, true, $filter, true)
                 );
                 break;
