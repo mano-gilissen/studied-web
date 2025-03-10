@@ -1563,8 +1563,8 @@ class StudyController extends Controller {
 
         $rows = [];
         $columns = ['Datum', 'Link naar les', 'Medewerker', 'Verslag', 'Voortgang', 'Volgende les', 'Uitdagingen'];
-        $reports = Report::where(Model::$REPORT_END, '<', date(Format::$DATABASE_DATE))
-            ->where(Model::$REPORT_END, '>=', date(Format::$DATABASE_DATE, strtotime('-7 days')))
+        $reports = Report::where(Model::$REPORT_END, '<', date(Format::$DATABASE_DATE, strtotime('-14 days')))
+            ->where(Model::$REPORT_END, '>=', date(Format::$DATABASE_DATE, strtotime('-21 days')))
             ->get();
 
         foreach ($reports as $report) {
@@ -1580,7 +1580,7 @@ class StudyController extends Controller {
             ];
         }
 
-        $filename = 'reports_' . date(Format::$DATABASE_DATE) . '-' . date(Format::$DATABASE_DATE, strtotime('-7 days'));
+        $filename = 'reports_' . date(Format::$DATABASE_DATE) . '-' . date(Format::$DATABASE_DATE, strtotime('-7 days')) . '.csv';
 
         return Func::export_csv($columns, $rows, $filename);
     }
