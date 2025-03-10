@@ -714,7 +714,7 @@ class AgreementController extends Controller {
 
         self::list_counters_load_hours_agreed($query, $counters);
 
-        //self::list_counters_load_hours_made($query, $counters);
+        self::list_counters_load_hours_made($query, $counters);
 
         return view(Views::LOAD_COUNTERS, [
 
