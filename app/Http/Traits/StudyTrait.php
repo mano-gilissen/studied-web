@@ -677,4 +677,78 @@ trait StudyTrait {
 
 
 
+    public static function scheduled_report_weekly() {
+
+        Mail::reportWeekly(
+            self::scheduled_report_weekly__agreement_deficits(),
+            self::scheduled_report_weekly__unreported_studies()
+        );
+
+        return true;
+    }
+
+
+
+    public static function scheduled_report_weekly__agreement_deficits() {
+
+        $agreement_deficits = [];
+        $agreements = Agreement::where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATE))
+            ->where(Model::$AGREEMENT_START, '<', date(Format::$DATABASE_DATE))
+            ->get();
+
+        foreach ($agreements as $agreement) {
+
+            $deficit = AgreementTrait::calculateDeficit($agreement);
+
+            if ($deficit > 0) {
+
+                if (!array_key_exists($agreement->{Model::$STUDENT}, $agreement_deficits)) {
+
+                    $name = PersonTrait::getFullName($agreement->getStudent->getPerson);
+
+                    $agreement_deficits[$agreement->{Model::$STUDENT}] = [$name, 0];
+                }
+
+                $agreement_deficits[$agreement->{Model::$STUDENT}][1] += $deficit;
+            }
+        }
+
+        return $agreement_deficits;
+    }
+
+
+
+    public static function scheduled_report_weekly__unreported_studies() {
+
+        $unreported_studies = [];
+        $studies = Study::where(Model::$STUDY_END, '<', date(Format::$DATABASE_DATE))
+            ->where(Model::$STUDY_STATUS, StudyTrait::$STATUS_PLANNED)
+            ->get();
+
+        foreach ($studies as $study) {
+
+            // Exception list
+            if (in_array($study->{Model::$STUDY_HOST_USER}, [381])) {
+
+                continue;
+
+            }
+
+            if (!array_key_exists($study->{Model::$STUDY_HOST_USER}, $unreported_studies)) {
+
+                $name = PersonTrait::getFullName($study->getHost_User->getPerson);
+
+                $unreported_studies[$study->{Model::$STUDY_HOST_USER}] = [$name, 0];
+            }
+
+            $unreported_studies[$study->{Model::$STUDY_HOST_USER}][1]++;
+        }
+
+        return $unreported_studies;
+    }
+
+
+
+
+
 }

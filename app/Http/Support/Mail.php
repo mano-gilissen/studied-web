@@ -12,6 +12,7 @@ use App\Http\Mail\Evaluation_Created_Customer;
 use App\Http\Mail\Evaluation_Created_Employee;
 use App\Http\Mail\Evaluation_Created_Host;
 use App\Http\Mail\Evaluation_Created_Student;
+use App\Http\Mail\Report_Weekly_Management;
 use App\Http\Mail\Student_Linked_Customer;
 use App\Http\Mail\Study_Edited_Employee;
 use App\Http\Mail\Study_Edited_Student;
@@ -237,6 +238,18 @@ class Mail {
         $recipient                                          = $customer->{Model::$USER_EMAIL};
 
         self::mailTo($mail, $recipient, $customer->{Model::$USER_LANGUAGE});
+    }
+
+
+
+
+
+    public static function reportWeekly($list_deficit, $list_unreported) {
+
+        $mail                                               = new Report_Weekly_Management($list_deficit, $list_unreported);
+        $recipient                                          = 'mano.gilissen@gmail.com';
+
+        self::mailTo($mail, $recipient);
     }
 
 

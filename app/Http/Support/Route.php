@@ -38,6 +38,8 @@ const REPORT_CREATE                             = 'report.create';
 
 const REPORT_EDIT                               = 'report.edit';
 
+const REPORT_EXPORT                             = 'report.export';
+
 
 
 const AGREEMENT_VIEW                            = 'agreement.view';
@@ -224,6 +226,7 @@ const ALL_MANAGEMENT                            = [
     self::STUDY_LIST_EXPORT,
     self::STUDY_OVERVIEW_EXPORT,
     self::STUDY_DELETE,
+    self::REPORT_EXPORT,
     self::AGREEMENT_FINISH,
     self::AGREEMENT_CREATE,
     self::AGREEMENT_EDIT,

@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Mail\Study_Planned_Student;
 use App\Http\Support\Func;
+use App\Http\Traits\StudyTrait;
 use App\Models\Study;
 use App\Models\Subject;
 use App\Models\Person;
@@ -107,7 +108,7 @@ class DebugController extends Controller {
 
     public function report_weekly_test() {
 
-        return StudyController::scheduled_report_weekly();
+        StudyTrait::scheduled_report_weekly();
 
     }
 

@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Http\Controllers\StudyController;
 use App\Http\Controllers\UserController;
+use App\Http\Traits\StudyTrait;
 use Illuminate\Console\Command;
 
 
@@ -27,7 +28,7 @@ class ReportWeekly extends Command {
 
     public function handle() {
 
-        $result = StudyController::scheduled_report_weekly();
+        $result = StudyTrait::scheduled_report_weekly();
 
         if ($result) {
 

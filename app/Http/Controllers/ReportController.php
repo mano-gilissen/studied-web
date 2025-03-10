@@ -161,6 +161,34 @@ class ReportController extends Controller {
 
 
 
+    public function data_export_csv($time) {
+
+        $rows = [];
+        $columns = ['Datum', 'Link naar les', 'Medewerker', 'Verslag', 'Voortgang', 'Volgende les', 'Uitdagingen'];
+        $reports = Report::where(Model::$BASE_CREATED_AT, '<', date(Format::$DATABASE_DATE, $time))
+            ->where(Model::$BASE_CREATED_AT, '>=', date(Format::$DATABASE_DATE, $time - (7 * 86400)))
+            ->get();
+
+        foreach ($reports as $report) {
+
+            $rows[] = [
+                Format::datetime($report->{Model::$BASE_CREATED_AT}, Format::$DATETIME_EXPORT . ' %H:%M'),
+                'https://studied.app/les/' . $report->getStudy->{Model::$BASE_KEY},
+                PersonTrait::getFullName($report->getStudy->getHost_User->getPerson),
+                ReportTrait::getVerslagText($report),
+                $report->{Model::$REPORT_CONTENT_VOORTGANG},
+                $report->{Model::$REPORT_CONTENT_VOLGENDE_LES},
+                $report->{Model::$REPORT_CONTENT_UITDAGINGEN}
+            ];
+        }
+
+        $filename = 'reports_' . date(Format::$DATABASE_DATE) . '-' . date(Format::$DATABASE_DATE, strtotime('-7 days')) . '.csv';
+
+        return Func::export_csv($columns, $rows, $filename);
+    }
+
+
+
 
 
 }

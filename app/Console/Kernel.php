@@ -21,10 +21,10 @@ class Kernel extends ConsoleKernel {
             ->everyHour()
             ->emailOutputOnFailure('mano.gilissen@gmail.com');
 
-        /*$schedule
+        $schedule
             ->command('report:weekly')
-            ->weeklyOn(1, '8:00')
-            ->emailOutputOnFailure('mano.gilissen@gmail.com');*/
+            ->weeklyOn(1, '0:01')
+            ->emailOutputOnFailure('mano.gilissen@gmail.com');
     }
 
 

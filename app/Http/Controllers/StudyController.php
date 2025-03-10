@@ -705,7 +705,7 @@ class StudyController extends Controller {
                             break;
 
                         case -4:
-                            $query->whereIn(Model::$SERVICE, array(ServiceTrait::$ID_BIJLES_MBO_HBO_WO, ServiceTrait::$ID_TENTAMENTRAINING, ServiceTrait::$ID_COACHING_MBO_HBO_WO));
+                            $query->whereIn(Model::$SERVICE, array(ServiceTrait::$ID_BIJLES_MBO_HBO_WO, ServiceTrait::$ID_TENTAMENTRAINING, ServiceTrait::$ID_HUISWERKBEGELEIDING_MBO_HBO_WO, ServiceTrait::$ID_COACHING_MBO_HBO_WO));
                             break;
 
                         case -3:
@@ -713,7 +713,7 @@ class StudyController extends Controller {
                             break;
 
                         case -2:
-                            $query->whereIn(Model::$SERVICE, array(ServiceTrait::$ID_BIJLES_BO, ServiceTrait::$ID_CITO_TRAINING, ServiceTrait::$ID_HUISWERKBEGELEIDING_BO, ServiceTrait::$ID_COACHING_BO));
+                            $query->whereIn(Model::$SERVICE, array(ServiceTrait::$ID_BIJLES_BO, ServiceTrait::$ID_TRAINING_BO, ServiceTrait::$ID_HUISWERKBEGELEIDING_BO, ServiceTrait::$ID_COACHING_BO));
                             break;
 
                         case -1:
@@ -1307,6 +1307,7 @@ class StudyController extends Controller {
 
                 switch ($study->{Model::$SERVICE}) {
 
+                    case ServiceTrait::$ID_HUISWERKBEGELEIDING_MBO_HBO_WO:
                     case ServiceTrait::$ID_HUISWERKBEGELEIDING_BO:
                     case ServiceTrait::$ID_HUISWERKBEGELEIDING_VO:      $offset += 0; break;
 
@@ -1316,7 +1317,7 @@ class StudyController extends Controller {
 
                     case ServiceTrait::$ID_EXAMENTRAINING:
                     case ServiceTrait::$ID_TENTAMENTRAINING:
-                    case ServiceTrait::$ID_CITO_TRAINING:               $offset += 12; break;
+                    case ServiceTrait::$ID_TRAINING_BO:                 $offset += 12; break;
 
                     case ServiceTrait::$ID_COACHING:
                     case ServiceTrait::$ID_COACHING_BO:
@@ -1445,12 +1446,13 @@ class StudyController extends Controller {
 
                 case ServiceTrait::$ID_HUISWERKBEGELEIDING_BO:                  $offset += 0; break;
                 case ServiceTrait::$ID_HUISWERKBEGELEIDING_VO:                  $offset += 1; break;
+                case ServiceTrait::$ID_HUISWERKBEGELEIDING_MBO_HBO_WO:          $offset += 2; break;
 
                 case ServiceTrait::$ID_BIJLES_BO:                               $offset += 3; break;
                 case ServiceTrait::$ID_BIJLES_VO:                               $offset += 4; break;
                 case ServiceTrait::$ID_BIJLES_MBO_HBO_WO:                       $offset += 5; break;
 
-                case ServiceTrait::$ID_CITO_TRAINING:                           $offset += 6; break;
+                case ServiceTrait::$ID_TRAINING_BO:                             $offset += 6; break;
                 case ServiceTrait::$ID_TENTAMENTRAINING:                        $offset += 7; break;
                 case ServiceTrait::$ID_EXAMENTRAINING:                          $offset += 8; break;
 
@@ -1482,107 +1484,6 @@ class StudyController extends Controller {
         }
 
         return $rows;
-    }
-
-
-
-
-
-    public static function scheduled_report_weekly() {
-
-        //self::scheduled_report_weekly__agreement_deficits();
-
-        //self::scheduled_report_weekly__unreported_studies();
-
-        return self::scheduled_report_weekly__reports_csv();
-    }
-
-
-
-    public static function scheduled_report_weekly__agreement_deficits() {
-
-        $agreement_deficits = [];
-        $agreements = Agreement::where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATE))
-            ->where(Model::$AGREEMENT_START, '<', date(Format::$DATABASE_DATE))
-            ->get();
-
-        foreach ($agreements as $agreement) {
-
-            $deficit = AgreementTrait::calculateDeficit($agreement);
-
-            if ($deficit > 0) {
-
-                if (!array_key_exists($agreement->{Model::$STUDENT}, $agreement_deficits)) {
-
-                    $name = PersonTrait::getFullName($agreement->getStudent->getPerson);
-
-                    $agreement_deficits[$agreement->{Model::$STUDENT}] = [$name, 0];
-                }
-
-                $agreement_deficits[$agreement->{Model::$STUDENT}][1] += $deficit;
-            }
-        }
-
-        return $agreement_deficits;
-    }
-
-
-
-    public static function scheduled_report_weekly__unreported_studies() {
-
-        $unreported_studies = [];
-        $studies = Study::where(Model::$STUDY_END, '<', date(Format::$DATABASE_DATE))
-                        ->where(Model::$STUDY_STATUS, StudyTrait::$STATUS_PLANNED)
-                        ->get();
-
-        foreach ($studies as $study) {
-
-            // Exception list
-            if (in_array($study->{Model::$STUDY_HOST_USER}, [381])) {
-
-                continue;
-
-            }
-
-            if (!array_key_exists($study->{Model::$STUDY_HOST_USER}, $unreported_studies)) {
-
-                $name = PersonTrait::getFullName($study->getHost_User->getPerson);
-
-                $unreported_studies[$study->{Model::$STUDY_HOST_USER}] = [$name, 0];
-            }
-
-            $unreported_studies[$study->{Model::$STUDY_HOST_USER}][1]++;
-        }
-
-        return $unreported_studies;
-    }
-
-
-
-    public static function scheduled_report_weekly__reports_csv() {
-
-        $rows = [];
-        $columns = ['Datum', 'Link naar les', 'Medewerker', 'Verslag', 'Voortgang', 'Volgende les', 'Uitdagingen'];
-        $reports = Report::where(Model::$REPORT_END, '<', date(Format::$DATABASE_DATE, strtotime('-14 days')))
-            ->where(Model::$REPORT_END, '>=', date(Format::$DATABASE_DATE, strtotime('-21 days')))
-            ->get();
-
-        foreach ($reports as $report) {
-
-            $rows[] = [
-                Format::datetime($report->{Model::$BASE_CREATED_AT}, Format::$DATETIME_EXPORT . ' %H:%M'),
-                'https://studied.app/les/' . $report->getStudy->{Model::$BASE_KEY},
-                PersonTrait::getFullName($report->getStudy->getHost_User->getPerson),
-                ReportTrait::getVerslagText($report),
-                $report->{Model::$REPORT_CONTENT_VOORTGANG},
-                $report->{Model::$REPORT_CONTENT_VOLGENDE_LES},
-                $report->{Model::$REPORT_CONTENT_UITDAGINGEN}
-            ];
-        }
-
-        $filename = 'reports_' . date(Format::$DATABASE_DATE) . '-' . date(Format::$DATABASE_DATE, strtotime('-7 days')) . '.csv';
-
-        return Func::export_csv($columns, $rows, $filename);
     }
 
 
