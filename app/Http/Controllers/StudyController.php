@@ -29,6 +29,7 @@ use App\Http\Support\Key;
 use App\Http\Support\Views;
 use App\Http\Support\Model;
 use Carbon\Carbon;
+use Cassandra\Function_;
 use http\Client\Response;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
@@ -1491,7 +1492,9 @@ class StudyController extends Controller {
 
         //self::scheduled_report_weekly__agreement_deficits();
 
-        self::scheduled_report_weekly__unreported_studies();
+        //self::scheduled_report_weekly__unreported_studies();
+
+        return self::scheduled_report_weekly__reports_csv();
     }
 
 
@@ -1534,6 +1537,13 @@ class StudyController extends Controller {
 
         foreach ($studies as $study) {
 
+            // Exception list
+            if (in_array($study->{Model::$STUDY_HOST_USER}, [381])) {
+
+                continue;
+
+            }
+
             if (!array_key_exists($study->{Model::$STUDY_HOST_USER}, $unreported_studies)) {
 
                 $name = PersonTrait::getFullName($study->getHost_User->getPerson);
@@ -1544,9 +1554,35 @@ class StudyController extends Controller {
             $unreported_studies[$study->{Model::$STUDY_HOST_USER}][1]++;
         }
 
-        dd($unreported_studies);
-
         return $unreported_studies;
+    }
+
+
+
+    public static function scheduled_report_weekly__reports_csv() {
+
+        $rows = [];
+        $columns = ['Datum', 'Link naar les', 'Medewerker', 'Verslag', 'Voortgang', 'Volgende les', 'Uitdagingen'];
+        $reports = Report::where(Model::$REPORT_END, '<', date(Format::$DATABASE_DATE))
+            ->where(Model::$REPORT_END, '>=', date(Format::$DATABASE_DATE, strtotime('-7 days')))
+            ->get();
+
+        foreach ($reports as $report) {
+
+            $rows[] = [
+                Format::datetime($report->{Model::$BASE_CREATED_AT}, Format::$DATETIME_EXPORT . ' %H:%M'),
+                'https://studied.app/les/' . $report->getStudy->{Model::$BASE_KEY},
+                PersonTrait::getFullName($report->getUser->getPerson),
+                ReportTrait::getVerslagText($report),
+                $report->{Model::$REPORT_CONTENT_VOORTGANG},
+                $report->{Model::$REPORT_CONTENT_VOLGENDE_LES},
+                $report->{Model::$REPORT_CONTENT_UITDAGINGEN}
+            ];
+        }
+
+        $filename = 'reports_' . date(Format::$DATABASE_DATE) . '-' . date(Format::$DATABASE_DATE, strtotime('-7 days'));
+
+        return Func::export_csv($columns, $rows, $filename);
     }
 
 
