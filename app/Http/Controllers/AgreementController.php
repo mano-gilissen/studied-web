@@ -761,15 +761,15 @@ class AgreementController extends Controller {
 
         $total = 0;
 
-        foreach (Report::all() as $report) {
+        foreach ($query->get() as $agreement) {
 
-            $total += ReportTrait::getDurationTotal($report);
+            $total += AgreementTrait::getHoursMade($agreement);
 
         }
 
         $counters[] = (object)[
             Table::COUNTER_LABEL => __('Uren gemaakt'),
-            Table::COUNTER_VALUE => (float) $total / 60.0
+            Table::COUNTER_VALUE => $total
         ];
     }
 
