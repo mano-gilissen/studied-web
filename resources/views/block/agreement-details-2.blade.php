@@ -76,6 +76,14 @@
 
         </div>
 
+        <div class="attribute">
+
+            <div class="name">{{ __('Uren achterstand') }}</div>
+
+            <div class="value">{{ \App\Http\Traits\AgreementTrait::calculateDeficit($agreement) }}</div>
+
+        </div>
+
     </div>
 
     <div class="content-fold">
