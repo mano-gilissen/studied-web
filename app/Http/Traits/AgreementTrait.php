@@ -287,7 +287,7 @@ trait AgreementTrait {
         $progress_duration                                      = $duration_past / $duration_total;
         $progress_hours_desired                                 = $progress_duration * $hours_total;
 
-        return floor($progress_hours_desired - $hours_made);
+        return round($progress_hours_desired - $hours_made, 2);
     }
 
 
