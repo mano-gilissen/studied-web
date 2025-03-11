@@ -6,7 +6,7 @@
         <td style="padding: 0 0 35px 0;">
             {{ __('Hi team,') }}
             <br><br>
-            {{ __('Dit is de wekelijkse controle email voor de Studied backoffice van ') . date('d-m-Y', strtotime('-7 days')) . ' tot ' . date('d-m-Y') . ' (weeknummer ' . date('W', '-7 days') . ').' }}
+            {{ __('Dit is de wekelijkse controle email voor de Studied backoffice van ') . date('d-m-Y', strtotime('-7 days')) . ' tot ' . date('d-m-Y') . ' (weeknummer ' . date('W', strtotime('-7 days')) . ').' }}
             <br><br><br>
             <div style="font-weight: bold">{{ __('Achterstand gemaakte uren') }}</div>
             {{ __('Onderstaande lijst betreft alle leerlingen met een achterstand van gemaakte uren ten opzichte van de lopende vakafspraken. Dit wordt berekend op basis van hoe lang de vakafspraak nog duurt en hoeveel uren er in totaal gemaakt moeten worden. Een achterstand betekent dat het totaal aantal uren op dit tempo niet gehaald gaat worden.') }}
