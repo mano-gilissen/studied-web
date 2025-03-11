@@ -28,6 +28,18 @@
 
         </div>
 
+        @if($person->getUser->role == \App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
+
+            <div class="attribute">
+
+                <div class="name">{{ __('Achterstand urenplanning') }}</div>
+
+                <div class="value">{{ \App\Http\Traits\EmployeeTrait::calculate_deficit($person->getUser->getEmployee) }}</div>
+
+            </div>
+
+        @endif
+
     </div>
 
 </div>

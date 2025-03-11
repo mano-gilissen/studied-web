@@ -23,7 +23,7 @@
             <br><br>
             @foreach($list_unreported as $unreported)
 
-                {{ ' - ' . $unreported[0] . ': ' . $unreported[1] . ' lessen' }}
+                {{ ' - ' . $unreported[0] . ': ' . $unreported[1] . ($unreported[1] > 1 ? ' lessen' : ' les') }}
                 <br>
 
             @endforeach

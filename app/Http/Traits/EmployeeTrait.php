@@ -8,6 +8,7 @@ use App\Http\Support\Files;
 use App\Http\Support\Format;
 use App\Http\Support\Mail;
 use App\Http\Support\Model;
+use App\Models\Agreement;
 use App\Models\Employee;
 use Illuminate\Support\Facades\Validator;
 
@@ -120,6 +121,30 @@ trait EmployeeTrait {
         $employee->{Model::$EMPLOYEE_START_EMPLOYMENT}                  = date(Format::$DATABASE_DATETIME);
 
         $employee->save();
+    }
+
+
+
+    public static function calculate_deficit($employee) {
+
+        $total = 0;
+        $agreements = Agreement::where(Model::$EMPLOYEE, $employee->user)
+            ->where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATE))
+            ->where(Model::$AGREEMENT_START, '<', date(Format::$DATABASE_DATE))
+            ->get();
+
+        foreach ($agreements as $agreement) {
+
+            $deficit = AgreementTrait::calculateDeficit($agreement);
+
+            if ($deficit > 0) {
+
+                $total += $deficit;
+
+            }
+        }
+
+        return $total;
     }
 
 

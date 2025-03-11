@@ -649,32 +649,33 @@
                             @case(\App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR)
                             @case(\App\Http\Traits\RoleTrait::$ID_BOARD)
 
-                            @if(\App\Http\Traits\BaseTrait::hasBoardRights())
+                                @if(\App\Http\Traits\BaseTrait::hasBoardRights())
 
-                                @include('block.profile-dienstbetrekking')
+                                    @include('block.profile-dienstbetrekking')
 
-                            @endif
+                                @endif
 
-                            @break
+                                @break
 
                             @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
 
-                            @if(\App\Http\Traits\BaseTrait::hasManagementRights())
+                                @if(\App\Http\Traits\BaseTrait::hasManagementRights())
 
-                                @include('block.profile-dienstbetrekking')
+                                    @include('block.profile-dienstbetrekking')
 
-                            @endif
+                                @endif
 
-                            @break
+                                @break
+
                             @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
-                            @if(\App\Http\Traits\BaseTrait::hasManagementRights() || $person->getUser->id == Auth::user()->id)
+                                @if(\App\Http\Traits\BaseTrait::hasManagementRights() || $person->getUser->id == Auth::user()->id)
 
-                                @include('block.profile-dienstbetrekking')
+                                    @include('block.profile-dienstbetrekking')
 
-                            @endif
+                                @endif
 
-                            @break
+                                @break
 
                         @endswitch <!-- DIENSTBETREKKING -->
 
