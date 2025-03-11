@@ -604,6 +604,14 @@ class StudyController extends Controller {
 
 
 
+    public function list_prepare(&$objects) {
+
+        //
+
+    }
+
+
+
     public function list_link($study) {
 
         return route('study.view', [Model::$BASE_KEY => $study->{Model::$BASE_KEY}]);

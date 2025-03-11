@@ -414,10 +414,6 @@ class AgreementController extends Controller {
 
     public function list_value($agreement, $column) {
 
-        // Avoid duplicate database queries
-        $hours_total                                = AgreementTrait::getHoursTotal($agreement);
-        $hours_made                                 = AgreementTrait::getHoursMade($agreement);
-
         switch ($column->{Table::COLUMN_ID}) {
 
             case self::$COLUMN_STUDENT:
@@ -450,15 +446,15 @@ class AgreementController extends Controller {
 
             case self::$COLUMN_HOURS_AGREED:
 
-                return $hours_total;
+                return $agreement->hours_total;
 
             case self::$COLUMN_HOURS_MADE:
 
-                return $hours_made;
+                return $agreement->hours_made;
 
             case self::$COLUMN_PROGRESS:
 
-                $deficit = AgreementTrait::calculateDeficit($agreement, $hours_total, $hours_made);
+                $deficit = AgreementTrait::calculateDeficit($agreement, $agreement->hours_total, $agreement->hours_made);
 
                 return "<span style='" . ($deficit > 0 ? 'font-weight:bold;' : '') . "color:" . ($deficit > 0 ? 'red' : 'green') . "'>" . $deficit . " uur" . ($deficit < 0 ? ' (geen)' : '') . "</span>";
 
@@ -471,6 +467,19 @@ class AgreementController extends Controller {
             default:
 
                 return __('Onbekend');
+        }
+    }
+
+
+
+    public function list_prepare(&$objects) {
+
+        // Avoid duplicate database queries
+
+        foreach ($objects as $agreement) {
+
+            $agreement->hours_total = AgreementTrait::getHoursTotal($agreement);
+            $agreement->hours_made = AgreementTrait::getHoursMade($agreement);
         }
     }
 

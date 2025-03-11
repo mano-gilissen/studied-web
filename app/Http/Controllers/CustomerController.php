@@ -291,6 +291,14 @@ class CustomerController extends Controller {
 
 
 
+    public function list_prepare(&$objects) {
+
+        //
+
+    }
+
+
+
     public function list_link($employee) {
 
         return route('person.view', [Model::$PERSON_SLUG => $employee->getUser->getPerson->{Model::$PERSON_SLUG}]);

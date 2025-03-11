@@ -73,6 +73,7 @@ class Table {
         $spacing                                            = self::spacing($columns);
         $query                                              = self::query($controller, $sort, $filter, $search);
         $objects                                            = self::objects($controller, clone $query, $offset);
+        $objects                                            = self::prepare($controller, $objects);
         $items                                              = [];
 
         foreach ($columns as $column) {
@@ -160,6 +161,16 @@ class Table {
     public static function objects($controller, $query, $offset = 0, $limit = 20) {
 
         return $query->select($controller->list_type() . '.*')->offset($offset)->limit($limit)->get();
+
+    }
+
+
+
+
+
+    public static function prepare($controller, &$objects) {
+
+        return $controller->list_prepare($objects);
 
     }
 
