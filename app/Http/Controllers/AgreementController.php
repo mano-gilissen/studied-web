@@ -414,6 +414,10 @@ class AgreementController extends Controller {
 
     public function list_value($agreement, $column) {
 
+        // Avoid duplicate database queries
+        $hours_total                                = AgreementTrait::getHoursTotal($agreement);
+        $hours_made                                 = AgreementTrait::getHoursMade($agreement);
+
         switch ($column->{Table::COLUMN_ID}) {
 
             case self::$COLUMN_STUDENT:
@@ -446,16 +450,15 @@ class AgreementController extends Controller {
 
             case self::$COLUMN_HOURS_AGREED:
 
-                return AgreementTrait::getHoursTotal($agreement);
+                return $hours_total;
 
             case self::$COLUMN_HOURS_MADE:
 
-                return AgreementTrait::getHoursMade($agreement);
+                return $hours_made;
 
             case self::$COLUMN_PROGRESS:
 
-                $progress = round(AgreementTrait::getHoursMade($agreement) / AgreementTrait::getHoursTotal($agreement) * 100);
-                $deficit = AgreementTrait::calculateDeficit($agreement);
+                $deficit = AgreementTrait::calculateDeficit($agreement, $hours_total, $hours_made);
 
                 return "<span style='" . ($deficit > 0 ? 'font-weight:bold;' : '') . "color:" . ($deficit > 0 ? 'red' : 'green') . "'>" . $deficit . " uur" . ($deficit < 0 ? ' (geen)' : '') . "</span>";
 
@@ -710,13 +713,28 @@ class AgreementController extends Controller {
         $query                                              = Table::query($this, $sort, $filter, $search);
         $counters                                           = [];
 
+        $hours_total = 0;
+        $hours_made = 0;
+        $hours_deficit = 0;
+
+        foreach ($query->get() as $agreement) {
+
+            $hours_agreement_made = AgreementTrait::getHoursMade($agreement);
+            $hours_agreement_total = AgreementTrait::getHoursTotal($agreement);
+            $hours_agreement_deficit = AgreementTrait::calculateDeficit($agreement, $hours_agreement_total, $hours_agreement_made);
+
+            $hours_total += $hours_agreement_total;
+            $hours_made += $hours_agreement_made;
+            $hours_deficit += $hours_agreement_deficit;
+        }
+
         self::list_counters_load_total($query, $counters);
 
-        self::list_counters_load_hours_agreed($query, $counters);
+        self::list_counters_load_hours_agreed($query, $counters, $hours_total);
 
-        self::list_counters_load_hours_made($query, $counters);
+        self::list_counters_load_hours_made($query, $counters, $hours_made);
 
-        self::list_counters_load_progress($query, $counters);
+        self::list_counters_load_progress($query, $counters, $hours_deficit);
 
         return view(Views::LOAD_COUNTERS, [
 
@@ -741,55 +759,31 @@ class AgreementController extends Controller {
 
 
 
-    public static function list_counters_load_hours_agreed($query, &$counters) {
-
-        $total = 0;
-
-        foreach ($query->get() as $agreement) {
-
-            $total += AgreementTrait::getHoursTotal($agreement);
-
-        }
+    public static function list_counters_load_hours_agreed($query, &$counters, $value) {
 
         $counters[] = (object)[
             Table::COUNTER_LABEL => __('Uren afgesproken'),
-            Table::COUNTER_VALUE => $total
+            Table::COUNTER_VALUE => $value
         ];
     }
 
 
 
-    public static function list_counters_load_hours_made($query, &$counters) {
-
-        $total = 0;
-
-        foreach ($query->get() as $agreement) {
-
-            $total += AgreementTrait::getHoursMade($agreement);
-
-        }
+    public static function list_counters_load_hours_made($query, &$counters, $value) {
 
         $counters[] = (object)[
             Table::COUNTER_LABEL => __('Uren gemaakt'),
-            Table::COUNTER_VALUE => $total
+            Table::COUNTER_VALUE => $value
         ];
     }
 
 
 
-    public static function list_counters_load_progress($query, &$counters) {
-
-        $total = 0;
-
-        foreach ($query->get() as $agreement) {
-
-            $total += AgreementTrait::calculateDeficit($agreement);
-
-        }
+    public static function list_counters_load_progress($query, &$counters, $value) {
 
         $counters[] = (object)[
             Table::COUNTER_LABEL => __('Uren achterstand'),
-            Table::COUNTER_VALUE => $total
+            Table::COUNTER_VALUE => $value
         ];
     }
 

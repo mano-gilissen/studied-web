@@ -276,10 +276,10 @@ trait AgreementTrait {
 
 
 
-    public static function calculateDeficit($agreement) {
+    public static function calculateDeficit($agreement, $hours_total = null, $hours_made = null) {
 
-        $hours_total                                            = self::getHoursTotal($agreement);
-        $hours_made                                             = self::getHoursMade($agreement);
+        $hours_total                                            = $hours_total ?? self::getHoursTotal($agreement);
+        $hours_made                                             = $hours_made ?? self::getHoursMade($agreement);
 
         $duration_total                                         = strtotime($agreement->{Model::$AGREEMENT_END}) - strtotime($agreement->{Model::$AGREEMENT_START});
         $duration_past                                          = time() - strtotime($agreement->{Model::$AGREEMENT_START});
