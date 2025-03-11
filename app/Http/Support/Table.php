@@ -168,7 +168,7 @@ class Table {
 
 
 
-    public static function prepare($controller, &$objects) {
+    public static function prepare($controller, $objects) {
 
         return $controller->list_prepare($objects);
 

@@ -472,7 +472,7 @@ class AgreementController extends Controller {
 
 
 
-    public function list_prepare(&$objects) {
+    public function list_prepare($objects) {
 
         // Avoid duplicate database queries
 
@@ -481,6 +481,8 @@ class AgreementController extends Controller {
             $agreement->hours_total = AgreementTrait::getHoursTotal($agreement);
             $agreement->hours_made = AgreementTrait::getHoursMade($agreement);
         }
+
+        return $objects;
     }
 
 

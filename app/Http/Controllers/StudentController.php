@@ -374,9 +374,9 @@ class StudentController extends Controller {
 
 
 
-    public function list_prepare(&$objects) {
+    public function list_prepare($objects) {
 
-        //
+        return $objects;
 
     }
 
