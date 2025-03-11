@@ -456,7 +456,7 @@ class AgreementController extends Controller {
 
                 $deficit = AgreementTrait::calculateDeficit($agreement, $agreement->hours_total, $agreement->hours_made);
 
-                return "<span style='" . ($deficit > 0 ? 'font-weight:bold;' : '') . "color:" . ($deficit > 0 ? 'red' : 'green') . "'>" . ($deficit < 0 ? "Geen<br>achterstand" :  $deficit . " uur") . "</span>";
+                return "<span style='" . ($deficit > 0 ? 'font-weight:bold;' : '') . "color:" . ($deficit > 0 ? 'red' : 'green') . "'>" . ($deficit < 0 ? __("Geen<br>achterstand") :  $deficit . " " . __("uur")) . "</span>";
 
             case self::$COLUMN_STATUS:
 
