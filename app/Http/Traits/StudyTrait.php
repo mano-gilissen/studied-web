@@ -713,6 +713,10 @@ trait StudyTrait {
             }
         }
 
+        uasort($agreement_deficits, function($a, $b) {
+            return $a[1] > $b[1];
+        });
+
         return $agreement_deficits;
     }
 
