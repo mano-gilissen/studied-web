@@ -25,11 +25,10 @@ class Kernel extends ConsoleKernel {
         $schedule
             ->call(function() {
 
-                if (!StudyTrait::scheduled_report_weekly()) {
+                if (StudyTrait::scheduled_report_weekly()) {
 
                     \Log::info('Weekly report has been sent to management.');
 
-                    $this->info('Weekly report has been sent to management.');
                 }
             })
             ->weeklyOn(1, '0:01')
