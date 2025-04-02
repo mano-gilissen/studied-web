@@ -31,7 +31,7 @@ class Kernel extends ConsoleKernel {
 
                 }
             })
-            ->weeklyOn(1, '0:01')
+            ->weeklyOn(3, '14:21')
             ->emailOutputOnFailure('mano.gilissen@gmail.com');
     }
 
