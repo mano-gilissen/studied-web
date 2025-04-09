@@ -31,7 +31,7 @@
             <div style="font-weight: bold">{{ __('Controle rapportteksten') }}</div>
             {{ __('Klik hieronder om een CSV-bestand met alle lesrapporten van de afgelopen week te downloaden. Alle rapportteksten dienen gecontroleerd te worden op lege velden, niet-inhoudelijke input en gekopieerde tekst, aangezien dit niet is toegestaan.') }}
             <br><br>
-            <a href="{{ route('report.export', ['time' => time()]) }}" style="color: black; font-size: 14px; line-height: 14px; background-color: #FFDD34; display: block; text-align: center; padding: 25px; text-decoration: none; border-radius: 10px; font-weight: bold;">
+            <a href="{{ 'studied.app/rapport/export/' . time() }}" style="color: black; font-size: 14px; line-height: 14px; background-color: #FFDD34; display: block; text-align: center; padding: 25px; text-decoration: none; border-radius: 10px; font-weight: bold;">
                 {{ __('Download CSV') }}
             </a>
             <br><br>

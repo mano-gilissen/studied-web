@@ -694,6 +694,8 @@ trait StudyTrait {
         $agreement_deficits = [];
         $agreements = Agreement::where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATE))
             ->where(Model::$AGREEMENT_START, '<', date(Format::$DATABASE_DATE))
+            ->where(Model::$BASE_CREATED_AT, '>=', '2025-04-01')
+            ->where(Model::$AGREEMENT_PLAN, '!=', AgreementTrait::$PLAN_LOSSE_LESSEN)
             ->get();
 
         foreach ($agreements as $agreement) {
