@@ -694,7 +694,7 @@ trait StudyTrait {
         $agreement_deficits = [];
         $agreements = Agreement::where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATE))
             ->where(Model::$AGREEMENT_START, '<', date(Format::$DATABASE_DATE))
-            ->where(Model::$BASE_CREATED_AT, '>=', '2025-04-01')
+            ->where(Model::$AGREEMENT_START, '>=', '2025-04-01')
             ->where(Model::$AGREEMENT_PLAN, '!=', AgreementTrait::$PLAN_LOSSE_LESSEN)
             ->get();
 
@@ -741,6 +741,12 @@ trait StudyTrait {
             }
 
             if (!array_key_exists($study->{Model::$STUDY_HOST_USER}, $unreported_studies)) {
+
+                if ($study->getHost_User->{Model::$USER_STATUS} == UserTrait::$STATUS_ENDED) {
+
+                    continue;
+
+                }
 
                 $name = PersonTrait::getFullName($study->getHost_User->getPerson);
 
