@@ -1362,6 +1362,12 @@ class StudyController extends Controller {
 
             }
 
+            if ($agreement->{Model::$AGREEMENT_PLAN} == AgreementTrait::$PLAN_LOSSE_LESSEN) {
+
+                continue;
+
+            }
+
             $user = $agreement->getStudent;
 
             if (!$user) {
