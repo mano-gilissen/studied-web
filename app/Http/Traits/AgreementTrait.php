@@ -284,7 +284,7 @@ trait AgreementTrait {
         $duration_total                                         = strtotime($agreement->{Model::$AGREEMENT_END}) - strtotime($agreement->{Model::$AGREEMENT_START});
         $duration_past                                          = time() - strtotime($agreement->{Model::$AGREEMENT_START});
 
-        $progress_duration                                      = max($duration_past / max($duration_total, 1), 1);
+        $progress_duration                                      = min($duration_past / max($duration_total, 1), 1);
         $progress_hours_desired                                 = $progress_duration * $hours_total;
 
         return round($progress_hours_desired - $hours_made, 2);
