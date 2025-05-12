@@ -1,0 +1,429 @@
+create table address
+(
+    id         int auto_increment
+        primary key,
+    street     varchar(999) null,
+    number     varchar(999) null,
+    addition   varchar(999) null,
+    zipcode    varchar(999) null,
+    city       varchar(999) null,
+    country    varchar(999) null,
+    created_at timestamp    null,
+    updated_at timestamp    null,
+    deleted_at timestamp    null
+)
+    engine = InnoDB;
+
+create table agreement
+(
+    id                  int auto_increment
+        primary key,
+    identifier          varchar(8)      null,
+    status              int             null,
+    employee            int             null,
+    student             int             null,
+    service             int             null,
+    plan                int   default 1 null,
+    hours               float default 0 null,
+    subject             int             null,
+    level               int             null,
+    start               timestamp       null,
+    end                 timestamp       null,
+    extension           varchar(8)      null,
+    preference_location int   default 1 null,
+    preference_group    int   default 1 null,
+    remark              varchar(999)    null,
+    evaluation          int             null,
+    created_at          timestamp       null,
+    updated_at          timestamp       null,
+    deleted_at          timestamp       null
+)
+    engine = InnoDB;
+
+create table area
+(
+    id         int auto_increment
+        primary key,
+    name       varchar(999) null,
+    city       varchar(999) null,
+    created_at timestamp    null,
+    updated_at timestamp    null,
+    deleted_at timestamp    null
+)
+    engine = InnoDB;
+
+create table article
+(
+    id          int auto_increment
+        primary key,
+    slug        varchar(99)   null,
+    title       varchar(999)  null,
+    subtitle    varchar(999)  null,
+    quote       varchar(999)  null,
+    intro       varchar(999)  null,
+    paragraph_1 varchar(999)  null,
+    body        varchar(4999) null,
+    person      int           null,
+    background  varchar(99)   null,
+    created_at  timestamp     null,
+    updated_at  timestamp     null,
+    deleted_at  timestamp     null
+)
+    engine = InnoDB;
+
+create table customer
+(
+    id         int auto_increment
+        primary key,
+    user       int       null,
+    created_at timestamp null,
+    updated_at timestamp null,
+    deleted_at timestamp null
+)
+    engine = InnoDB;
+
+create table employee
+(
+    id                   int auto_increment
+        primary key,
+    user                 int           null,
+    area                 int default 1 null,
+    profile_text         varchar(999)  null,
+    school_current       varchar(999)  null,
+    education_current    varchar(999)  null,
+    profile_current      varchar(999)  null,
+    school_middelbare    varchar(999)  null,
+    education_middelbare varchar(999)  null,
+    profile_middelbare   varchar(999)  null,
+    motivation           varchar(999)  null,
+    iban                 varchar(30)   null,
+    capacity             int           null,
+    start_employment     timestamp     null,
+    cv                   varchar(99)   null,
+    diploma              varchar(99)   null,
+    contract             varchar(99)   null,
+    identificatie        varchar(99)   null,
+    loonheffing          varchar(99)   null,
+    indiensttreding      varchar(99)   null,
+    created_at           timestamp     null,
+    updated_at           timestamp     null,
+    deleted_at           timestamp     null
+)
+    engine = InnoDB;
+
+create table evaluation
+(
+    id            int auto_increment
+        primary key,
+    `key`         varchar(6)           null,
+    host          int                  null,
+    student       int                  null,
+    address       int                  null,
+    datetime      timestamp            null,
+    regarding     int                  null,
+    location_text text                 null,
+    link          text                 null,
+    remarks       text                 null,
+    answers       json                 null,
+    performed     tinyint(1) default 0 null,
+    created_at    timestamp            null,
+    updated_at    timestamp            null,
+    deleted_at    timestamp            null
+)
+    engine = InnoDB;
+
+create table evaluation_employee
+(
+    evaluation int       null,
+    employee   int       null,
+    created_at timestamp null,
+    updated_at timestamp null,
+    deleted_at timestamp null,
+    constraint evaluation_employee_pk
+        unique (evaluation, employee)
+)
+    engine = InnoDB;
+
+create table failed_jobs
+(
+    id         bigint unsigned auto_increment
+        primary key,
+    connection text                                not null,
+    queue      text                                not null,
+    payload    longtext                            not null,
+    exception  longtext                            not null,
+    failed_at  timestamp default CURRENT_TIMESTAMP not null
+)
+    engine = InnoDB
+    collate = utf8mb4_unicode_ci;
+
+create table level
+(
+    id         int auto_increment
+        primary key,
+    code       varchar(20) null,
+    name       varchar(99) null,
+    year       int         null,
+    created_at timestamp   null,
+    updated_at timestamp   null,
+    deleted_at timestamp   null
+)
+    engine = InnoDB;
+
+create table location
+(
+    id         int auto_increment
+        primary key,
+    name       varchar(999) not null,
+    longitude  float        null,
+    latitude   float        null,
+    type       int          not null,
+    address    int          null,
+    area       int          null,
+    created_at timestamp    null,
+    updated_at timestamp    null,
+    deleted_at timestamp    null
+)
+    engine = InnoDB;
+
+create table log
+(
+    id         int auto_increment
+        primary key,
+    user       int          null,
+    action     varchar(999) null,
+    data       varchar(999) null,
+    created_at timestamp    null,
+    updated_at timestamp    null,
+    deleted_at timestamp    null
+)
+    engine = InnoDB;
+
+create table migrations
+(
+    id        int unsigned auto_increment
+        primary key,
+    migration varchar(255) not null,
+    batch     int          not null
+)
+    engine = InnoDB
+    collate = utf8mb4_unicode_ci;
+
+create table password_resets
+(
+    email      varchar(255) not null,
+    token      varchar(255) not null,
+    created_at timestamp    null
+)
+    engine = InnoDB
+    collate = utf8mb4_unicode_ci;
+
+create index password_resets_email_index
+    on password_resets (email);
+
+create table person
+(
+    id               int auto_increment
+        primary key,
+    slug             varchar(999) null,
+    first_name       varchar(99)  null,
+    middle_name      varchar(99)  null,
+    last_name        varchar(99)  null,
+    prefix           varchar(99)  null,
+    company          varchar(199) null,
+    birth_date       datetime     null,
+    refer            varchar(999) null,
+    phone            varchar(999) null,
+    avatar           varchar(999) null,
+    address          int          null,
+    social_instagram varchar(999) null,
+    social_linkedin  varchar(999) null,
+    created_at       timestamp    null,
+    updated_at       timestamp    null,
+    deleted_at       timestamp    null
+)
+    engine = InnoDB;
+
+create table report
+(
+    id                   int auto_increment
+        primary key,
+    user                 int                  null,
+    study                int                  null,
+    start                timestamp            null,
+    end                  timestamp            null,
+    content_voortgang    varchar(4999)        null,
+    content_volgende_les varchar(4999)        null,
+    content_uitdagingen  varchar(4999)        null,
+    trial_succes         tinyint(1) default 0 null,
+    created_at           timestamp            null,
+    updated_at           timestamp            null,
+    deleted_at           timestamp            null
+)
+    engine = InnoDB;
+
+create table report_subject
+(
+    id              int auto_increment
+        primary key,
+    agreement       int           null,
+    subject         int           null,
+    report          int           null,
+    duration        float         null,
+    content_verslag varchar(4999) null,
+    created_at      timestamp     null,
+    updated_at      timestamp     null,
+    deleted_at      timestamp     null
+)
+    engine = InnoDB;
+
+create table role
+(
+    id           int auto_increment
+        primary key,
+    label        varchar(999) null,
+    label_public varchar(999) null,
+    created_at   timestamp    null,
+    updated_at   timestamp    null,
+    deleted_at   timestamp    null
+)
+    engine = InnoDB;
+
+create table service
+(
+    id               int auto_increment
+        primary key,
+    name             varchar(999) not null,
+    short            varchar(999) null,
+    code             varchar(999) null,
+    rate_plan1_solo  float        null,
+    rate_plan1_group float        null,
+    rate_plan2_solo  float        null,
+    rate_plan2_group float        null,
+    rate_plan3_solo  float        null,
+    rate_plan3_group float        null,
+    created_at       timestamp    null,
+    updated_at       timestamp    null,
+    deleted_at       timestamp    null
+)
+    engine = InnoDB;
+
+create table student
+(
+    id                int auto_increment
+        primary key,
+    user              int           null,
+    customer          int           null,
+    school            varchar(999)  null,
+    niveau            varchar(999)  null,
+    leerjaar          int           null,
+    profile           varchar(999)  null,
+    email_mentor      varchar(199)  null,
+    email_vakdocent_1 varchar(199)  null,
+    email_vakdocent_2 varchar(199)  null,
+    email_vakdocent_3 varchar(199)  null,
+    name_mentor       varchar(199)  null,
+    name_vakdocent_1  varchar(199)  null,
+    name_vakdocent_2  varchar(199)  null,
+    name_vakdocent_3  varchar(199)  null,
+    created_at        timestamp     null,
+    updated_at        timestamp     null,
+    deleted_at        timestamp     null,
+    branch            int default 1 not null
+)
+    engine = InnoDB;
+
+create table study
+(
+    id                  int auto_increment
+        primary key,
+    `key`               varchar(6)           null,
+    status              int                  null,
+    service             int                  null,
+    host_user           int                  null,
+    host_relation       int                  null,
+    subject_text        varchar(999)         null,
+    subject_description varchar(999)         null,
+    location_text       varchar(999)         null,
+    address             int                  null,
+    link                varchar(999)         null,
+    start               timestamp            null,
+    end                 timestamp            null,
+    trial               tinyint(1) default 0 null,
+    course              int                  null,
+    remark              varchar(999)         null,
+    deleted_at          timestamp            null,
+    updated_at          timestamp            null,
+    created_at          timestamp            null
+)
+    engine = InnoDB;
+
+create table study_participant
+(
+    id                int auto_increment
+        primary key,
+    study             int          null,
+    payment_reference varchar(999) null,
+    payment_received  tinyint(1)   null,
+    created_at        timestamp    null,
+    updated_at        timestamp    null,
+    deleted_at        timestamp    null
+)
+    engine = InnoDB;
+
+create table study_user
+(
+    study      int       null,
+    user       int       null,
+    agreement  int       null,
+    created_at timestamp null,
+    updated_at timestamp null,
+    deleted_at timestamp null,
+    constraint study_user_pk
+        unique (study, user)
+)
+    engine = InnoDB;
+
+create table subject
+(
+    id         int auto_increment
+        primary key,
+    code       varchar(99)  null,
+    name       varchar(999) null,
+    banner     varchar(99)  null,
+    created_at timestamp    null,
+    updated_at timestamp    null,
+    deleted_at timestamp    null,
+    constraint subject_code_uindex
+        unique (code)
+)
+    engine = InnoDB;
+
+create table user
+(
+    id                      bigint unsigned auto_increment
+        primary key,
+    email                   varchar(255)                not null,
+    role                    int                         null,
+    status                  int                         null,
+    points                  int                         null,
+    remember_token          varchar(100)                null,
+    activate_sent           timestamp                   null,
+    activate_secret         varchar(100)                null,
+    activate_reminder_1week tinyint(1)  default 0       null,
+    activate_reminder_2week tinyint(1)  default 0       null,
+    email_verified_at       timestamp                   null,
+    password                varchar(255)                null,
+    person                  int                         null,
+    language                varchar(10) default 'nl_NL' null,
+    category                int                         null,
+    activated               timestamp                   null,
+    created_at              timestamp                   null,
+    updated_at              timestamp                   null,
+    deleted_at              timestamp                   null,
+    constraint users_email_unique
+        unique (email)
+)
+    engine = InnoDB
+    collate = utf8mb4_unicode_ci;
+
