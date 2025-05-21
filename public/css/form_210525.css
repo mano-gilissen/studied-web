@@ -134,6 +134,7 @@ html, body {
     line-height:                        24px;
     text-align:                         center;
     align-items:                        center;
+    justify-content:                    center;
     color:                              #666666;
     background:                         #F8F8F8;
 }
