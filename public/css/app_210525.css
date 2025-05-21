@@ -1103,7 +1103,7 @@ select::-ms-expand {
     }
 
     .agreement .bottom {
-        padding: 16px 0 0 0;
+        margin: 16px 0 0 0;
     }
 
     .agreement .bottom img,
