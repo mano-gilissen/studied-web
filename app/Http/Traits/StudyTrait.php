@@ -692,7 +692,8 @@ trait StudyTrait {
     public static function scheduled_report_weekly__agreement_deficits() {
 
         $agreement_deficits = [];
-        $agreements = Agreement::where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATE))
+        $agreements = Agreement::whereNot(Model::$AGREEMENT_STATUS, AgreementTrait::$STATUS_FINISHED)
+            ->where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATE))
             ->where(Model::$AGREEMENT_START, '<', date(Format::$DATABASE_DATE))
             ->where(Model::$AGREEMENT_START, '>=', '2025-04-01')
             ->where(Model::$AGREEMENT_PLAN, '!=', AgreementTrait::$PLAN_LOSSE_LESSEN)
