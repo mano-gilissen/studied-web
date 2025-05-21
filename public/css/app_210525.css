@@ -1140,6 +1140,8 @@ select::-ms-expand {
 
     #menu {
         padding:                            104px 16px 0;
+        width: 100%;
+        overflow-y: scroll;
     }
 
     #menu .item {
@@ -1157,15 +1159,17 @@ select::-ms-expand {
     }
 
     #menu-actions {
+        position:                           fixed;
         display:                            flex;
-        margin:                             auto auto 40px 16px;
+        bottom:                             40px;
+        left:                               16px;
     }
 
     #button-menu,
     #button-back {
         width: 24px;
         height: 24px;
-        margin: 0 12px 0 16px;
+        margin: 0 14px 0 16px;
         border-radius: 20px;
         padding: 0;
     }
