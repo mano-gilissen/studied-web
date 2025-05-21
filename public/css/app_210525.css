@@ -51,9 +51,9 @@ html {
     display:                            flex;
     align-items:                        center;
     width:                              fit-content;
-    height:                             28px;
+    height:                             32px;
     padding:                            0 14px 2px;
-    border-radius:                      14px;
+    border-radius:                      16px;
     font-size:                          12px;
     font-family:                        'Circular', serif;
     font-weight:                        200;

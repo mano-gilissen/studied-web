@@ -367,7 +367,7 @@ html, body {
         width: 100vw;
         overflow-x: hidden;
         display: block;
-        padding: 0 12px 24px;
+        padding: 0 12px 16px;
     }
 
     #left {
@@ -393,7 +393,7 @@ html, body {
 
     #form {
         width: 100%;
-        padding: 32px 24px;
+        padding: 40px 32px;
         overflow-x: hidden;
         margin: 64px 0 0;
     }
@@ -412,7 +412,7 @@ html, body {
         width: 192px;
     }
 
-    #form .box-select.width-third {
+    #form .block-form .width-third {
         width: 64px;
     }
 }
