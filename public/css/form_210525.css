@@ -176,6 +176,7 @@ html, body {
     border-radius:                      16px;
     background:                         #E6E6E6;
 }
+
 .agreements .buttons {
     position:                           absolute;
     display:                            flex;
@@ -425,5 +426,19 @@ html, body {
 
     #form .block-note {
         width: 100%;
+    }
+
+
+
+    .agreements .wrap {
+        width:                          100%;
+        margin-left:                    0;
+        padding-left:                   0;
+    }
+
+    .agreements .buttons {
+        height:                         48px;
+        position:                       unset;
+        padding:                        0 0 16px 0;
     }
 }
