@@ -4,7 +4,7 @@
 
 @section('css')
 
-    <link href="{{ asset('css/study_100823.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/study_210525.css') }}" rel="stylesheet">
 
 @endsection
 
@@ -12,7 +12,7 @@
 
 @section('scripts')
 
-    <script src="{{ asset('js/study_100823.js') }}"></script>
+    <script src="{{ asset('js/study_210525.js') }}"></script>
 
 @endsection
 

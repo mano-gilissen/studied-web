@@ -356,3 +356,63 @@ html, body {
     from { background: white; }
     to   { background: #E6E6E6; }
 }
+
+
+
+
+
+@media (max-width: 600px) {
+
+    #app {
+        width: 100vw;
+        overflow-x: hidden;
+        display: block;
+        padding: 0 12px 24px;
+    }
+
+    #left {
+        position: fixed;
+    }
+
+    #left .wrap {
+        height: 64px;
+    }
+
+    #left .title.page {
+        font-size: 22px;
+        letter-spacing: -.5px;
+        padding-bottom: 1px;
+    }
+
+    #left .back {
+        width: 24px;
+        height: 24px;
+        margin: 0 12px 0 2px;
+        padding: 0;
+    }
+
+    #form {
+        width: 100%;
+        padding: 32px 24px;
+        overflow-x: hidden;
+        margin: 64px 0 0;
+    }
+
+    #form .field {
+        margin: 32px 0 0;
+    }
+
+    #form .field .name {
+        width: fit-content;
+        margin-right: auto;
+    }
+
+    #form .box-input,
+    #form .box-select {
+        width: 192px;
+    }
+
+    #form .box-select.width-third {
+        width: 64px;
+    }
+}

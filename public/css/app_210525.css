@@ -247,10 +247,6 @@ button:focus {
     display:                            unset;
 }
 
-#mobile {
-    display:                            none;
-}
-
 #wrap {
     position:                           fixed;
     width:                              100vw;

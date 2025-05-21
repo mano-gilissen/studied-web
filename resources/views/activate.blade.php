@@ -6,9 +6,9 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.css" integrity="sha256-jKV9n9bkk/CTP8zbtEtnKaKf+ehRovOYeKoyfthwbC8=" crossorigin="anonymous" />
 
-    <link href="{{ asset('css/form_100823.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/form_210525.css') }}" rel="stylesheet">
 
-    <link href="{{ asset('css/activate_100823.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/activate_210525.css') }}" rel="stylesheet">
 
 @endsection
 
@@ -18,7 +18,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.js" integrity="sha256-CgvH7sz3tHhkiVKh05kSUgG97YtzYNnWt6OXcmYzqHY=" crossorigin="anonymous"></script>
 
-    <script src="{{ asset('js/crop_100823.js') }}"></script>
+    <script src="{{ asset('js/crop_210525.js') }}"></script>
 
     <script>
 
