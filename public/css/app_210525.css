@@ -1126,8 +1126,20 @@ select::-ms-expand {
 
 
 
+    #header {
+        padding-right: 16px;
+    }
+
+
+
     #menu {
         padding:                            104px 16px 0;
+    }
+
+    #menu .title.page {
+        font-size: 28px;
+        letter-spacing: -.5px;
+        padding-bottom: 2px;
     }
 
     #menu .item {
@@ -1143,45 +1155,25 @@ select::-ms-expand {
         font-size:                          18px;
         font-weight:                        100;
     }
-/*
+
     #menu-actions {
         display:                            flex;
-        margin:                             auto auto 48px 0;
-    }
-
-    #button-logout,
-    #button-settings {
-        width:                              24px;
-        height:                             24px;
-        cursor:                             pointer;
-    }
-
-    #button-logout {
-        margin-right:                       24px;
+        margin:                             auto auto 40px 16px;
     }
 
     #button-menu,
     #button-back {
-        width:                              40px;
-        height:                             40px;
-        margin:                             0 12px;
-        border-radius:                      20px;
-        padding:                            8px;
-        background:                         transparent;
-        cursor:                             pointer;
+        width: 24px;
+        height: 24px;
+        margin: 0 12px 0 16px;
+        border-radius: 20px;
+        padding-bottom: 2px;
     }
 
-    #button-menu:hover,
-    #button-back:hover {
-        background:                         #F0F0F0;
+    .language-select {
+        bottom: 32px;
+        right: 16px;
     }
-
-    #button-none {
-        width:                              48px;
-        height:                             40px;
-    }
-
- */
 }
 
 
