@@ -1086,6 +1086,52 @@ select::-ms-expand {
 
 
 
+@media (max-width: 840px) {
+
+    #agreements {
+        width:                          100%;
+    }
+
+    .agreements .wrap {
+        width:                          100%;
+        margin-left:                    0;
+        padding-left:                   0;
+    }
+
+    .agreement {
+        display:                        none;
+        width:                          100%;
+        margin-right:                   0;
+    }
+
+    .agreement.active {
+        display:                        block;
+    }
+
+    .agreement .bottom {
+        padding: 16px 0 0 0;
+    }
+
+    .agreement .bottom img,
+    .agreement .bottom .no-avatar {
+        width: 48px;
+        height: 48px;
+        margin: 0 20px 0 0;
+        border-radius: 20px;
+        font-size: 20px;
+    }
+
+    .agreements .buttons {
+        height:                         48px;
+        position:                       unset;
+        padding:                        0 0 16px 0;
+    }
+}
+
+
+
+
+
 @font-face {
     font-family:                        'Circular';
     src:                                url('/fonts/circular-book.otf') format("opentype");

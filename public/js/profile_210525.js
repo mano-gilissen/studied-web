@@ -102,18 +102,24 @@ function profile_agreements_render(movement = false) {
 
         if (agreements_index_active === 0) {
 
-            button_next                             .addClass(ATTR_VISIBLE);
+            button_next                         .addClass(ATTR_VISIBLE);
 
         } else if (agreements_index_active === agreements.length - 1) {
 
-            button_previous                         .addClass(ATTR_VISIBLE);
+            button_previous                     .addClass(ATTR_VISIBLE);
 
         } else {
 
-            button_previous                         .addClass(ATTR_VISIBLE);
-            button_next                             .addClass(ATTR_VISIBLE);
+            button_previous                     .addClass(ATTR_VISIBLE);
+            button_next                         .addClass(ATTR_VISIBLE);
 
         }
+    }
+
+    if (window.innerWidth <= 840) {
+
+        return;
+
     }
 
     var translate_position                      = 0;
