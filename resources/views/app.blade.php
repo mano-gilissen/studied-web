@@ -16,8 +16,8 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{ asset('js/translate.js') }}"></script>
-    <script src="{{ asset('js/autocomplete_050824.js') }}"></script>
-    <script src="{{ asset('js/events_050824.js') }}"></script>
+    <script src="{{ asset('js/autocomplete_210525.js') }}"></script>
+    <script src="{{ asset('js/events_210525.js') }}"></script>
 
 
     <script>

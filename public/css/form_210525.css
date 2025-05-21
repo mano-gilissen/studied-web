@@ -361,7 +361,7 @@ html, body {
 
 
 
-@media (max-width: 600px) {
+@media (max-width: 840px) {
 
     #app {
         width: 100vw;
