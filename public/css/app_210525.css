@@ -1130,16 +1130,16 @@ select::-ms-expand {
         padding-right: 16px;
     }
 
+    #header .title.page {
+        font-size: 28px;
+        letter-spacing: -.5px;
+        padding-bottom: 2px;
+    }
+
 
 
     #menu {
         padding:                            104px 16px 0;
-    }
-
-    #menu .title.page {
-        font-size: 28px;
-        letter-spacing: -.5px;
-        padding-bottom: 2px;
     }
 
     #menu .item {
@@ -1167,7 +1167,7 @@ select::-ms-expand {
         height: 24px;
         margin: 0 12px 0 16px;
         border-radius: 20px;
-        padding-bottom: 2px;
+        padding: 0;
     }
 
     .language-select {
