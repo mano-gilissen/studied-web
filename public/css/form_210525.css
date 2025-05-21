@@ -370,6 +370,8 @@ html, body {
         padding: 0 12px 16px;
     }
 
+
+
     #left {
         position: fixed;
     }
@@ -390,6 +392,8 @@ html, body {
         margin: 0 12px 0 2px;
         padding: 0;
     }
+
+
 
     #form {
         width: 100%;
@@ -414,5 +418,85 @@ html, body {
 
     #form .block-form .width-third {
         width: 64px;
+    }
+
+    #form .block-note {
+        width:                              100%;
+        display:                            flex;
+        align-items:                        center;
+        text-align:                         center;
+        padding:                            0 32px;
+        line-height:                        24px;
+    }
+
+
+
+    .agreements {
+        margin-top:                         32px;
+    }
+
+    .agreements .wrap {
+        width:                              100%;
+        overflow-x:                         hidden;
+        margin-left:                        0;
+        padding-left:                       0;
+    }
+
+    .agreement {
+        display:                            none;
+        width:                              100%;
+        margin-right:                       0;
+    }
+
+    .agreement.active {
+        display:                            block;
+    }
+
+    .agreement.disabled:hover {
+        background:                         #F8F8F8;
+    }
+
+    .agreement .selector {
+        width:                              32px;
+        height:                             32px;
+        margin-left:                        auto;
+        padding:                            6px;
+        border-radius:                      16px;
+        background:                         #E6E6E6;
+    }
+    .agreements .buttons {
+        display:                            flex;
+        width:                              100%;
+        padding:                            0 0 16px 0;
+        z-index:                            10;
+        pointer-events:                     none;
+    }
+
+    .agreements .buttons .button {
+        width:                              32px;
+        height:                             32px;
+        border-radius:                      16px;
+        margin-left:                        24px;
+        padding:                            8px;
+        background:                         #E6E6E6;
+        display:                            none;
+        pointer-events:                     all;
+    }
+
+    .agreements .buttons .button:hover {
+        background:                         #EBEBEB;
+    }
+
+    .agreements .buttons .button.solo {
+        background:                         #FFDD34;
+    }
+
+    .agreements .buttons .button.solo:hover {
+        background:                         #FFE45B;
+    }
+
+    .agreements .buttons #button-next.solo,
+    .agreements .buttons #button-previous {
+        margin-left:                        auto;
     }
 }

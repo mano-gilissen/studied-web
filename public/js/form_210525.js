@@ -185,6 +185,12 @@ function study_agreements_render(movement = false) {
         }
     }
 
+    if (window.innerWidth <= 840) {
+
+        return;
+
+    }
+
     var translate_position                          = 0;
 
     for (var i = 0; i < agreements_enabled_index_active; i++) {
