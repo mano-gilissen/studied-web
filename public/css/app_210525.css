@@ -1175,6 +1175,11 @@ select::-ms-expand {
         padding: 0;
     }
 
+    #button-menu:hover,
+    #button-back:hover {
+        background:                         transparent;
+    }
+
     .language-select {
         bottom: 32px;
         right: 16px;
