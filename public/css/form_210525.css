@@ -431,6 +431,10 @@ html, body {
 
 
 
+    .agreements {
+        margin-top: 0;
+    }
+
     .agreements .wrap {
         width:                          100%;
         margin-left:                    0;
