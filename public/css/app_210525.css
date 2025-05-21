@@ -1111,7 +1111,7 @@ select::-ms-expand {
         width: 48px;
         height: 48px;
         margin: 0 20px 0 0;
-        border-radius: 20px;
+        border-radius: 24px;
         font-size: 20px;
     }
 }
