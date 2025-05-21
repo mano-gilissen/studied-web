@@ -1162,7 +1162,8 @@ select::-ms-expand {
         position:                           fixed;
         display:                            flex;
         bottom:                             40px;
-        left:                               16px;
+        left:                               32px;
+        margin:                             0;
     }
 
     #button-menu,
