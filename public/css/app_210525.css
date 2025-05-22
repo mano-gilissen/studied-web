@@ -1088,6 +1088,18 @@ select::-ms-expand {
 
 @media (max-width: 840px) {
 
+
+
+    .content-columns {
+        grid-template-columns: 1fr;
+        grid-auto-flow: row;
+        grid-template-areas: "left" "right";
+        margin: 0 auto;
+        width: 100%;
+    }
+
+
+
     #agreements {
         width:                          100%;
     }
@@ -1131,9 +1143,13 @@ select::-ms-expand {
     }
 
     #header .title.page {
-        font-size: 28px;
+        font-size: 24px;
         letter-spacing: -.5px;
         padding-bottom: 2px;
+    }
+
+    #header .person .role {
+        font-size: 13px;
     }
 
 
