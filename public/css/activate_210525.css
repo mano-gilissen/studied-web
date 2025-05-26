@@ -55,3 +55,12 @@ input[type="file"] {
 #button-submit {
     margin:                             48px 0 0 auto;
 }
+
+
+
+@media (max-width: 840px) {
+
+    #form {
+        padding: 112px 24px 0;
+    }
+}

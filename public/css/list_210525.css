@@ -33,7 +33,6 @@
 
 #actions {
     display:                            flex;
-    margin-right:                       auto;
 }
 
 #actions .button {
@@ -55,6 +54,7 @@
 
 #counters {
     display:                            flex;
+    margin-left:                        auto;
 }
 
 #counters.select_filter {
@@ -213,4 +213,55 @@
 
 #button-filter-add:hover {
     background:                         #666666;
+}
+
+
+
+
+
+@media (max-width: 840px) {
+
+    #content {
+        padding: 96px 24px 48px;
+    }
+
+    #top {
+        display: grid;
+        grid-auto-flow: row;
+        grid-template-areas: "counters" "search" "actions";
+    }
+
+    #actions {
+        grid-area: actions;
+        width: 100%;
+        height: unset;
+        margin: 0 auto 32px;
+        flex-wrap: wrap;
+        row-gap: 12px;
+        justify-content: start;
+    }
+
+    #search-wrap {
+        grid-area: search;
+        margin: 0 0 32px;
+    }
+
+    #counters {
+        grid-area: counters;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin: 0 0 16px;
+    }
+
+    #counters .counter {
+        display: flex;
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    #counters .counter .value {
+        font-size: 14px;
+        margin-left: 8px;
+    }
+
 }

@@ -57,12 +57,6 @@
 
                     @yield('actions')
 
-                    @if(\App\Http\Traits\BaseTrait::hasManagementRights(Auth::user()))
-
-                        @include('form.box-input', ['id' => 'input-filter-search', 'placeholder' => __('Zoeken..'), 'icon' => 'search.svg', 'style_outer' => 'margin: -10px 0 0 32px'])
-
-                    @endif
-
                     <div id="loader-list" style="margin: 2px 0 2px 16px; display: none">
 
                         <div class="loader"></div>
@@ -70,6 +64,12 @@
                     </div>
 
                 </div>
+
+                @if(\App\Http\Traits\BaseTrait::hasManagementRights(Auth::user()))
+
+                    @include('form.box-input', ['id' => 'input-filter-search', 'placeholder' => __('Zoeken..'), 'icon' => 'search.svg', 'id_outer' => 'search-wrap'])
+
+                @endif
 
                 <div id="counters">
 
