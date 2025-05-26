@@ -8,9 +8,9 @@
 
                 @php
 
-                    $collection = collect($item);
+                    $collection = collect($columns);
 
-                    $desiredOrder = [
+                    $order = [
                         \App\Http\Controllers\StudyController::$COLUMN_DATE,
                         \App\Http\Controllers\StudyController::$COLUMN_HOST,
                         \App\Http\Controllers\StudyController::$COLUMN_TIME,
@@ -21,8 +21,8 @@
                         \App\Http\Controllers\StudyController::$COLUMN_STATUS,
                     ];
 
-                    $item = $collection->sortBy(function ($attribute) use ($desiredOrder) {
-                        return array_search($attribute['id'], $desiredOrder);
+                    $item = $collection->sortBy(function ($column) use ($order) {
+                        return array_search($column->id, $order);
                     })->values();
 
                 @endphp
