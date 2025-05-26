@@ -98,7 +98,7 @@
     display:                            none;
     align-items: center;
     justify-content: end;
-    margin-bottom: 24px;
+    margin: -44px 0 12px;
 }
 
 .agreements .button {
@@ -246,6 +246,10 @@
         width: 100%;
     }
 
+    .agreements {
+        padding-top: 0;
+    }
+
     .agreements .wrap-outer {
         display: block;
     }
@@ -260,5 +264,9 @@
 
     .agreements .button-agreements-mobile {
         display: flex;
+    }
+
+    .evaluations {
+        padding-top: 0;
     }
 }
