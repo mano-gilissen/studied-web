@@ -44,7 +44,7 @@
 
                     @foreach($evaluations as $evaluation)
 
-                        <div class="item @if($loop->odd) odd @endif" style="grid-template-columns: 1fr 1fr 1fr 1fr 48px" onclick="window.location.href='{{ route('evaluation.view', ['key' => $evaluation->{\App\Http\Support\Model::$BASE_KEY}]) }}'">
+                        <div class="item @if($loop->odd) odd @endif" onclick="window.location.href='{{ route('evaluation.view', ['key' => $evaluation->{\App\Http\Support\Model::$BASE_KEY}]) }}'">
 
                             <div class="attribute">
 
