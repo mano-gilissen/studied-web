@@ -16,9 +16,17 @@
 
     @endif
 
-    <div style="display: flex; align-items: center">
+    <div class="wrap-outer">
 
-        <img class="button" id="button-previous" src="/images_app/back.svg"/>
+        <div class="button-agreements-mobile">
+
+            <img class="button" id="button-previous" src="/images_app/back.svg"/>
+
+            <img class="button" id="button-next" src="/images_app/back.svg"/>
+
+        </div>
+
+        <img class="button button-agreements-desktop" id="button-previous" src="/images_app/back.svg"/>
 
         <div class="wrap">
 
@@ -74,7 +82,7 @@
 
         </div>
 
-        <img class="button" id="button-next" src="/images_app/forward.svg"/>
+        <img class="button button-agreements-desktop" id="button-next" src="/images_app/forward.svg"/>
 
     </div>
 

@@ -80,9 +80,25 @@
     padding:                            16px 0 16px 4px;
 }
 
+.agreements .wrap-outer {
+    display: flex;
+    align-items: center;
+}
+
 .agreements .wrap {
     width:                              712px;
     overflow-x:                         hidden;
+}
+
+.agreements .button-agreements-desktop {
+    display:                            block
+}
+
+.agreements .button-agreements-mobile {
+    display:                            none;
+    align-items: center;
+    justify-content: end;
+    margin-bottom: 24px;
 }
 
 .agreements #button-previous,
@@ -223,5 +239,25 @@
 
     #actions .button {
         margin: 0;
+    }
+
+    .agreements .wrap-outer {
+        display: block;
+    }
+
+    .agreements .wrap {
+        width: 100%;
+    }
+
+    .agreements .button-agreements-desktop {
+        display: none;
+    }
+
+    .agreements .button-agreements-mobile {
+        display: flex;
+    }
+
+    .agreements .button-agreements-mobile .button {
+        background: #FFDD34;
     }
 }
