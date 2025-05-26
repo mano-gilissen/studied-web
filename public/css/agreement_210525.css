@@ -47,3 +47,44 @@
 .content-fold {
     margin-bottom:                      48px;
 }
+
+
+
+@media (max-width: 840px) {
+
+    #column {
+        width: 100%;
+        margin: 0;
+        padding: 100px 24px 128px;
+        overflow-x: hidden;
+    }
+
+    #top img {
+        width: 144px;
+        height: 144px;
+        border-radius: 72px;
+    }
+
+    #top .title {
+        font-size:                      36px;
+        margin-bottom: 2px;
+    }
+
+    #top .subtitle {
+        font-size:                      16px;
+    }
+
+    #actions {
+        width: 100%;
+        height: unset;
+        margin: 32px auto 64px;
+        flex-wrap: wrap;
+        row-gap: 12px;
+        column-gap: 8px;
+        justify-content: center;
+    }
+
+    #actions .button {
+        margin: 0;
+    }
+}

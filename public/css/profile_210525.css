@@ -229,6 +229,11 @@
         height: 144px;
     }
 
+    #avatar .name {
+        font-size: 36px;
+        margin-bottom: 2px;
+    }
+
     #comment {
         margin: unset;
         display: unset;
