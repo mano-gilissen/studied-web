@@ -125,6 +125,10 @@
 
 @media (max-width: 840px) {
 
+    .no-title {
+        display: none;
+    }
+
     #column {
         width: 100%;
         margin: 0;

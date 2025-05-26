@@ -11,11 +11,32 @@
 
 
 
+@section('css')
+
+    <style>
+
+        @media (max-width: 840px) {
+
+            #form .field {
+                display: block
+            }
+
+            #form .field .name {
+                height: unset;
+            }
+        }
+
+    </style>
+
+@endsection
+
+
+
 @section('fields')
 
 
 
-    <div class="block-note">{{ __('Dit is het gesprek van ') }}<span style="font-weight: 400">{{ \App\Http\Traits\PersonTrait::getFullName($evaluation->getStudent->getPerson) }}</span></div>
+    <div class="block-note">{{ __('Dit is het gesprek van') }}&nbsp;<span style="font-weight: 400">{{ \App\Http\Traits\PersonTrait::getFullName($evaluation->getStudent->getPerson) }}</span></div>
 
     <div class="seperator"></div>
 
