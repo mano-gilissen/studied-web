@@ -269,7 +269,7 @@
         padding: 0;
     }
 
-    .item {
+    #items .item {
         display: grid;
         grid-template-columns: 1fr 1fr;
         height: unset;
@@ -278,16 +278,16 @@
         margin-bottom: 16px;
     }
 
-    .item .attribute {
+    #items .item .attribute {
         padding: 0 0 24px;
     }
 
-    .item .attribute .label {
+    #items .item .attribute .label {
         opacity: .5;
         padding-bottom: 8px;
     }
 
-    .item .attribute.big .label {
+    #items .item .attribute.big .label {
         font-size: 16px;
         font-weight: 600;
     }
