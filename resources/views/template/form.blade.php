@@ -6,9 +6,9 @@
 
     <link href="{{ asset('css/form_210525.css') }}" rel="stylesheet">
 
-    @hasSection('css')
+    @hasSection('css-form')
 
-        @yield('css')
+        @yield('css-form')
 
     @endif
 

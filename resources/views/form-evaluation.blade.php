@@ -11,7 +11,7 @@
 
 
 
-@section('css')
+@section('css-form')
 
     <style>
 
