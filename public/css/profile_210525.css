@@ -127,6 +127,10 @@
     margin-right:                       -60px;
 }
 
+.agreements .button-agreements-mobile #button-next {
+    margin-bottom: 16px;
+}
+
 
 
 
@@ -268,5 +272,34 @@
 
     .evaluations {
         padding-top: 0;
+    }
+
+    .evaluations .headers {
+        grid-template-columns: 3fr 4fr 4fr;
+    }
+
+    .evaluations .header {
+        padding-left: 12px;
+    }
+
+    .evaluations .header:last-child {
+        display: none;
+    }
+
+    .evaluations .item {
+        grid-template-columns: 3fr 4fr 4fr;
+    }
+
+    .evaluations .item .attribute {
+        padding-left: 12px;
+        font-size: 13px;
+    }
+
+    .evaluations .item .attribute:last-child {
+        display: none;
+    }
+
+    .evaluations .item .end {
+        display: none;
     }
 }
