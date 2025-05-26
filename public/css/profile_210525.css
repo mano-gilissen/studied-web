@@ -274,7 +274,7 @@
         padding-top: 0;
     }
 
-    .evaluations .headers {
+    .evaluations #headers {
         grid-template-columns: 3fr 4fr 4fr;
     }
 
