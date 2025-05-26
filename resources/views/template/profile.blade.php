@@ -469,7 +469,7 @@
 
                 </div>
 
-                <div style="height: 64px"></div>
+                <div class="wide-spacing-bottom"></div>
 
                 <div class="content-columns">
 

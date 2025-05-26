@@ -182,6 +182,12 @@
 
 
 
+.wide-spacing-bottom {
+    height: 64px;
+}
+
+
+
 
 
 .block-note {
@@ -303,5 +309,9 @@
 
     .evaluations #items .item .end {
         display: none;
+    }
+
+    .wide-spacing-bottom {
+        height: 16px;
     }
 }
