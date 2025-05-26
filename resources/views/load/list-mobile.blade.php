@@ -34,7 +34,7 @@
 
     @else
 
-        @include('load.items')
+        @include('load.items-mobile')
 
     @endempty
 
