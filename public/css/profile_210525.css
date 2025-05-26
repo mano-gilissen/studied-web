@@ -98,6 +98,7 @@
     display:                            none;
     align-items: center;
     justify-content: end;
+    height: 32px;
     margin: -44px 0 12px;
 }
 
@@ -128,7 +129,7 @@
 }
 
 .agreements .button-agreements-mobile #button-next {
-    margin-bottom: 16px;
+    margin-left: 16px;
 }
 
 
@@ -210,7 +211,7 @@
     #column {
         width:                          100%;
         margin: 0;
-        padding:                         100px 24px 128px;
+        padding: 100px 24px 48px;
         overflow-x: hidden;
     }
 
