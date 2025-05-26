@@ -225,7 +225,7 @@
         padding: 96px 24px 48px;
     }
 
-    #top {
+    .top {
         display: grid;
         grid-auto-flow: row;
         grid-template-areas: "counters" "search" "actions";
