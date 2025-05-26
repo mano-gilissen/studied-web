@@ -22,7 +22,7 @@
                     ];
 
                     $item = $collection->sortBy(function ($attribute) use ($desiredOrder) {
-                        return array_search($attribute->id, $desiredOrder);
+                        return array_search($attribute['id'], $desiredOrder);
                     })->values();
 
                 @endphp
