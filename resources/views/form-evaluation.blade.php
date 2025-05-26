@@ -24,6 +24,11 @@
             #form .field .name {
                 height: unset;
             }
+
+            #form .box-input,
+            #form .box-select {
+                width: 100%
+            }
         }
 
     </style>
