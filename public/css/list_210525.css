@@ -292,6 +292,7 @@
         padding-bottom: 8px;
     }
 
+    #items .item .attribute.big .value, {
     #items .item .attribute.big .value div {
         font-size: 16px;
         font-weight: 600 !important;
