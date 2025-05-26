@@ -265,12 +265,31 @@
         margin-left: 8px;
     }
 
+    #items {
+        padding: 0;
+    }
+
     .item {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        padding: 16px;
-        background: lightgrey;
+        height: unset;
+        padding: 24px 24px 0;
+        background: #F3F3F3;
         margin-bottom: 16px;
+    }
+
+    .item .attribute {
+        padding: 0 0 24px;
+    }
+
+    .item .attribute .label {
+        opacity: .5;
+        padding-bottom: 8px;
+    }
+
+    .item .attribute.big .label {
+        font-size: 16px;
+        font-weight: 600;
     }
 
 }

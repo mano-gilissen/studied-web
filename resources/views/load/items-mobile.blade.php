@@ -4,13 +4,27 @@
 
         @foreach($columns as $column)
 
-            <div class="attribute">
+            @if($column->spacing > 1)
 
-                <div class="label">{{ $column->label }}</div>
+                <div class="attribute big">
 
-                <div class="value">@if($column->html){!! __($item->{$column->id}) !!}@else{{ __($item->{$column->id}) }}@endif</div>
+                    <div class="value">@if($column->html){!! __($item->{$column->id}) !!}@else{{ __($item->{$column->id}) }}@endif</div>
 
-            </div>
+                </div>
+
+                <div></div>
+
+            @else
+
+                <div class="attribute">
+
+                    <div class="label">{{ $column->label }}</div>
+
+                    <div class="value">@if($column->html){!! __($item->{$column->id}) !!}@else{{ __($item->{$column->id}) }}@endif</div>
+
+                </div>
+
+            @endif
 
         @endforeach
 
