@@ -287,7 +287,7 @@
         padding-left: 12px;
     }
 
-    .evaluations .header:last-child {
+    .evaluations #headers .header:last-child {
         display: none;
     }
 
@@ -295,12 +295,12 @@
         grid-template-columns: 3fr 4fr 4fr;
     }
 
-    .evaluations .item .attribute {
+    .evaluations #items .item .attribute {
         padding-left: 12px;
         font-size: 13px;
     }
 
-    .evaluations .item .attribute:last-child {
+    .evaluations #items .item .attribute.regarding {
         display: none;
     }
 

@@ -64,7 +64,7 @@
 
                             </div>
 
-                            <div class="attribute">
+                            <div class="attribute regarding">
 
                                 <div>{{ \App\Http\Traits\EvaluationTrait::getRegardingText($evaluation->{\App\Http\Support\Model::$EVALUATION_REGARDING}) }}</div>
 
