@@ -120,3 +120,40 @@
     color:                              #666666;
     background:                         #F8F8F8;
 }
+
+
+
+@media (max-width: 840px) {
+
+    #column {
+        width: 100%;
+        margin: 0;
+        padding: 100px 24px 48px;
+        overflow-x: hidden;
+    }
+
+    #top img {
+        width: 144px;
+        height: 144px;
+        border-radius: 72px;
+    }
+
+    #top .title {
+        font-size:                      36px;
+        margin-bottom: 2px;
+    }
+
+    #actions {
+        width: 100%;
+        height: unset;
+        margin: 32px auto 64px;
+        flex-wrap: wrap;
+        row-gap: 12px;
+        column-gap: 8px;
+        justify-content: center;
+    }
+
+    #actions .button {
+        margin: 0;
+    }
+}
