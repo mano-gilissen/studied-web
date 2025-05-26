@@ -461,7 +461,7 @@ class StudyController extends Controller {
                     );
                 } else if ($layout == 'mobile') {
                     array_push($columns,
-                        Table::column(self::$COLUMN_DATE, self::list_column_label(self::$COLUMN_DATE), 1, true, $sort, true, $filter, true),
+                        Table::column(self::$COLUMN_DATE, self::list_column_label(self::$COLUMN_DATE), 2, true, $sort, true, $filter, true),
                         Table::column(self::$COLUMN_TIME, self::list_column_label(self::$COLUMN_TIME), 1, true, $sort, false, $filter),
                         Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 1, false, $sort, true, $filter),
                         Table::column(self::$COLUMN_HOST, self::list_column_label(self::$COLUMN_HOST), 1, true, $sort, true, $filter),
@@ -484,11 +484,10 @@ class StudyController extends Controller {
                     );
                 } else if ($layout == 'mobile') {
                     array_push($columns,
-                        Table::column(self::$COLUMN_DATE, self::list_column_label(self::$COLUMN_DATE), 1, true, $sort, true, $filter, true),
+                        Table::column(self::$COLUMN_DATE, self::list_column_label(self::$COLUMN_DATE), 2, true, $sort, true, $filter, true),
                         Table::column(self::$COLUMN_TIME, self::list_column_label(self::$COLUMN_TIME), 1, true, $sort, false, $filter),
                         Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 1, false, $sort, true, $filter),
                         Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 1, false, $sort, true, $filter),
-                        Table::column(self::$COLUMN_LOCATION, self::list_column_label(self::$COLUMN_LOCATION), 1, false, $sort, false, $filter),
                         Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 1, true, $sort, true, $filter, true)
                     );
                 }
@@ -507,11 +506,10 @@ class StudyController extends Controller {
                     );
                 } else if ($layout == 'mobile') {
                     array_push($columns,
-                        Table::column(self::$COLUMN_DATE, self::list_column_label(self::$COLUMN_DATE), 1, true, $sort, true, $filter, true),
+                        Table::column(self::$COLUMN_DATE, self::list_column_label(self::$COLUMN_DATE), 2, true, $sort, true, $filter, true),
                         Table::column(self::$COLUMN_TIME, self::list_column_label(self::$COLUMN_TIME), 1, true, $sort, false, $filter),
                         Table::column(self::$COLUMN_HOST, self::list_column_label(self::$COLUMN_HOST), 1, true, $sort, true, $filter),
                         Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 1, false, $sort, true, $filter),
-                        Table::column(self::$COLUMN_LOCATION, self::list_column_label(self::$COLUMN_LOCATION), 1, false, $sort, false, $filter),
                         Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 1, true, $sort, true, $filter, true)
                     );
                 }
