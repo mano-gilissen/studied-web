@@ -99,6 +99,7 @@ class Table {
             array_push($items, (object) $item);
         }
 
+        $view_data[self::DATA_TYPE]                         = $controller->list_type();
         $view_data[self::VIEW_COLUMNS]                      = $columns;
         $view_data[self::VIEW_SPACING]                      = $spacing;
         $view_data[self::VIEW_ITEMS]                        = $items;
