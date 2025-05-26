@@ -283,7 +283,7 @@
         grid-template-columns: 3fr 4fr 4fr;
     }
 
-    .evaluations .header {
+    .evaluations #headers .header {
         padding-left: 12px;
     }
 
@@ -291,7 +291,7 @@
         display: none;
     }
 
-    .evaluations .item {
+    .evaluations #items .item {
         grid-template-columns: 3fr 4fr 4fr;
     }
 
