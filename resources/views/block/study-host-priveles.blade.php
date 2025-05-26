@@ -1,4 +1,4 @@
-<div class="block-users">
+<div class="block-users" data-type="host">
 
     <div class="title">{{ __('Student-docent') }}</div>
 

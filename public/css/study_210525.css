@@ -134,10 +134,14 @@
     }
 
     .block-users {
-        margin-bottom: 32px;
+        margin-bottom: 48px;
     }
 
     div[data-status="4"] .content-columns {   /* Status reported */
         grid-template-areas: "right" "left";
+    }
+
+    div[data-status="1"] .block-users[data-type="host"] {   /* Status planned */
+        margin-bottom: 24px;
     }
 }
