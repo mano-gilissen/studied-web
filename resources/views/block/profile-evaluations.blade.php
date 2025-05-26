@@ -22,7 +22,7 @@
 
         <div id="list">
 
-            <div id="headers" style="grid-template-columns: 1fr 1fr 1fr 1fr 48px">
+            <div id="headers">
 
                 <div class="header no_sort no_filter">{{ __('Datum') }}</div>
 

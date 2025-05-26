@@ -155,6 +155,11 @@
     padding-top:                        80px;
 }
 
+.evaluations #headers,
+.evaluations .item {
+    grid-template-columns: 1fr 1fr 1fr 1fr 48px;
+}
+
 
 
 
