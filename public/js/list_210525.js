@@ -96,12 +96,14 @@ $(function() {
 function load() {
 
     $(OBJECT_LOADER)                        .css('display', 'block');
+    let mobile                              = window.innerWidth <= 840;
 
     $(OBJECT_LIST).load('/load/' + data_type + '/list', {
 
         data_sort:                          data_sort,
         data_filter:                        data_filter,
-        data_search:                        data_search
+        data_search:                        data_search,
+        mobile:                             mobile
 
     }, function() {
 
@@ -115,7 +117,8 @@ function load() {
 
         data_sort:                          data_sort,
         data_filter:                        data_filter,
-        data_search:                        data_search
+        data_search:                        data_search,
+        mobile:                             mobile
 
     }, function() {
 
@@ -125,7 +128,8 @@ function load() {
 
     $(OBJECT_FILTERS).load('/load/' + data_type + '/filter', {
 
-        data_filter:                        data_filter
+        data_filter:                        data_filter,
+        mobile:                             mobile
 
     });
 }

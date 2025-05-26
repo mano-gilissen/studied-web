@@ -265,4 +265,12 @@
         margin-left: 8px;
     }
 
+    #item {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 16px;
+        background: lightgrey;
+        margin-bottom: 16px;
+    }
+
 }
