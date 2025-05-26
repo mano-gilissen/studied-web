@@ -1104,6 +1104,13 @@ select::-ms-expand {
 
 
 
+    .block-users .title,
+    .block-attributes .title {
+        padding:                            16px 0 16px 4px;
+    }
+
+
+
     #agreements {
         width:                          100%;
     }
