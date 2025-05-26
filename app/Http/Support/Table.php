@@ -41,6 +41,7 @@ class Table {
     const DATA_FILTER                                       = "data_filter";
     const DATA_SEARCH                                       = "data_search";
     const DATA_OFFSET                                       = "data_offset";
+    const DATA_MOBILE                                       = "data_mobile";
 
     const SORT_MODE_ASC                                     = "asc";
     const SORT_MODE_DESC                                    = "desc";
@@ -66,10 +67,11 @@ class Table {
         $filter                                             = $request->input(Table::DATA_FILTER, null);
         $search                                             = $request->input(Table::DATA_SEARCH, null);
         $offset                                             = $request->input(Table::DATA_OFFSET, 0);
+        $mobile                                             = $request->input(Table::DATA_MOBILE, false);
 
         $view_data                                          = [];
 
-        $columns                                            = $controller->list_columns($sort, $filter);
+        $columns                                            = $controller->list_columns($sort, $filter, $mobile);
         $spacing                                            = self::spacing($columns);
         $query                                              = self::query($controller, $sort, $filter, $search);
         $objects                                            = self::objects($controller, clone $query, $offset);
@@ -99,12 +101,11 @@ class Table {
             array_push($items, (object) $item);
         }
 
-        $view_data[self::DATA_TYPE]                         = $controller->list_type();
         $view_data[self::VIEW_COLUMNS]                      = $columns;
         $view_data[self::VIEW_SPACING]                      = $spacing;
         $view_data[self::VIEW_ITEMS]                        = $items;
 
-        return view(($offset > 0 ? Views::LOAD_ITEMS : Views::LOAD_LIST) . ($request->input('mobile') ? '-mobile' : ''), $view_data);
+        return view(($offset > 0 ? Views::LOAD_ITEMS : Views::LOAD_LIST) . ($mobile ? '-mobile' : ''), $view_data);
     }
 
 

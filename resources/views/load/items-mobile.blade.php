@@ -2,39 +2,6 @@
 
     <div class="item" onclick="window.location.href='{{ $item->link ?? '' }}'">
 
-        @switch ($data_type)
-
-            @case(\App\Http\Support\Model::$STUDY)
-
-                @php
-
-                    $collection = collect($columns);
-
-                    $order = [
-                        \App\Http\Controllers\StudyController::$COLUMN_DATE,
-                        \App\Http\Controllers\StudyController::$COLUMN_HOST,
-                        \App\Http\Controllers\StudyController::$COLUMN_TIME,
-                        \App\Http\Controllers\StudyController::$COLUMN_STUDENT,
-                        \App\Http\Controllers\StudyController::$COLUMN_SUBJECT,
-                        \App\Http\Controllers\StudyController::$COLUMN_SERVICE,
-                        \App\Http\Controllers\StudyController::$COLUMN_LOCATION,
-                        \App\Http\Controllers\StudyController::$COLUMN_STATUS,
-                    ];
-
-                    $item = $collection->sortBy(function ($column) use ($order) {
-                        return array_search($column->id, $order);
-                    })->values();
-
-                @endphp
-
-                @break
-
-            @default
-
-                @break
-
-        @endswitch
-
         @foreach($columns as $column)
 
             <div class="attribute">

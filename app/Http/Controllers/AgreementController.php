@@ -342,7 +342,7 @@ class AgreementController extends Controller {
 
 
 
-    public function list_columns($sort, $filter) {
+    public function list_columns($sort, $filter, $mobile = false) {
 
         $columns                                            = [];
 
