@@ -1098,6 +1098,10 @@ select::-ms-expand {
         width: 100%;
     }
 
+    .no-title {
+        display: none;
+    }
+
 
 
     #agreements {
