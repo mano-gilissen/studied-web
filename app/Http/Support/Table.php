@@ -103,7 +103,7 @@ class Table {
         $view_data[self::VIEW_SPACING]                      = $spacing;
         $view_data[self::VIEW_ITEMS]                        = $items;
 
-        return view(($offset > 0 ? Views::LOAD_ITEMS : Views::LOAD_LIST) . ($request->mobile ? '-mobile' : ''), $view_data);
+        return view(($offset > 0 ? Views::LOAD_ITEMS : Views::LOAD_LIST) . ($request->input('mobile') ? '-mobile' : ''), $view_data);
     }
 
 
