@@ -287,7 +287,8 @@
         padding-left: 12px;
     }
 
-    .evaluations #headers .header:last-child {
+    .evaluations #headers .header.location,
+    .evaluations #items .attribute.location {
         display: none;
     }
 
@@ -298,10 +299,6 @@
     .evaluations #items .item .attribute {
         padding-left: 12px;
         font-size: 13px;
-    }
-
-    .evaluations #items .item .attribute.regarding {
-        display: none;
     }
 
     .evaluations #items .item .end {

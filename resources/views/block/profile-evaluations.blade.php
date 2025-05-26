@@ -28,7 +28,7 @@
 
                 <div class="header no_sort no_filter">{{ __('Ingepland door') }}</div>
 
-                <div class="header no_sort no_filter">{{ __('Locatie') }}</div>
+                <div class="header no_sort no_filter location">{{ __('Locatie') }}</div>
 
                 <div class="header no_sort no_filter">{{ __('Betreft') }}</div>
 
@@ -58,13 +58,13 @@
 
                             </div>
 
-                            <div class="attribute">
+                            <div class="attribute location">
 
                                 <div>{{ $evaluation->{\App\Http\Support\Model::$EVALUATION_LOCATION_TEXT} }}</div>
 
                             </div>
 
-                            <div class="attribute regarding">
+                            <div class="attribute">
 
                                 <div>{{ \App\Http\Traits\EvaluationTrait::getRegardingText($evaluation->{\App\Http\Support\Model::$EVALUATION_REGARDING}) }}</div>
 
