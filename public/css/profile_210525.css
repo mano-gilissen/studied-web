@@ -317,6 +317,16 @@
         display: none;
     }
 
+    .agreements .title,
+    .evaluations .title {
+        padding:                            0 0 16px 4px;
+    }
+
+    .agreements .title-add .title,
+    .evaluations .title-add .title {
+        padding:                            0 0 16px 32px;
+    }
+
     .wide-spacing-bottom {
         height: 16px;
     }
