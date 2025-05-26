@@ -41,7 +41,7 @@ class Table {
     const DATA_FILTER                                       = "data_filter";
     const DATA_SEARCH                                       = "data_search";
     const DATA_OFFSET                                       = "data_offset";
-    const DATA_MOBILE                                       = "data_mobile";
+    const DATA_MOBILE                                       = "mobile";
 
     const SORT_MODE_ASC                                     = "asc";
     const SORT_MODE_DESC                                    = "desc";
