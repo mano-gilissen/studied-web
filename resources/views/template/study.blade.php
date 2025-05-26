@@ -24,7 +24,7 @@
 
     @include('block.menu')
 
-    <div id="wrap">
+    <div id="wrap" data-status="{{ $study->{\App\Http\Support\Model::$STUDY_STATUS} }}">
 
         <div id="column">
 

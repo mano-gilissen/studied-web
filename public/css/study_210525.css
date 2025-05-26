@@ -119,3 +119,25 @@
     color:                              #FF0000;
     background:                         #FF000026;
 }
+
+
+
+
+
+@media (max-width: 840px) {
+
+    #column {
+        width:                          100%;
+        margin: 0;
+        padding: 100px 24px 48px;
+        overflow-x: hidden;
+    }
+
+    .block-users {
+        margin-bottom: 48px;
+    }
+
+    div[data-status="4"] .content-columns {   /* Status reported */
+        grid-template-areas: "right" "left";
+    }
+}
