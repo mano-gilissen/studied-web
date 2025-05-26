@@ -222,14 +222,14 @@
 @media (max-width: 840px) {
 
     #content {
-        padding: 96px 24px 48px;
+        padding: 96px 0 0;
     }
 
     .top {
         display: grid;
         grid-auto-flow: row;
         grid-template-areas: "counters" "search" "actions";
-        padding: 0 0 48px;
+        padding: 0 24px 0;
     }
 
     #actions {
@@ -270,7 +270,8 @@
     }
 
     #items {
-        padding: 0;
+        margin: 8px 0 0;
+        padding: 40px 24px 0;
     }
 
     #items .item {
