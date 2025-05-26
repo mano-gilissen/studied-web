@@ -291,7 +291,7 @@
         padding-bottom: 8px;
     }
 
-    #items .item .attribute.big .label {
+    #items .item .attribute.big .value {
         font-size: 16px;
         font-weight: 600;
     }
