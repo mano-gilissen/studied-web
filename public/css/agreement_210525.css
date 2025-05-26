@@ -59,7 +59,8 @@
         overflow-x: hidden;
     }
 
-    #top img {
+    #top img,
+    #avatar .no-avatar {
         width: 144px;
         height: 144px;
         border-radius: 72px;
@@ -68,6 +69,7 @@
     #top .title {
         font-size:                      36px;
         margin-bottom: 2px;
+        text-align:                         center;
     }
 
     #actions {

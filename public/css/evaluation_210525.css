@@ -22,6 +22,7 @@
     font-size:                          40px;
     font-family:                        'Circular', serif;
     font-weight:                        300;
+    text-align:                         center;
 }
 
 #top .subtitle {
@@ -136,7 +137,8 @@
         overflow-x: hidden;
     }
 
-    #top img {
+    #top img,
+    #avatar .no-avatar {
         width: 144px;
         height: 144px;
         border-radius: 72px;
