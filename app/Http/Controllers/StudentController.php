@@ -257,7 +257,7 @@ class StudentController extends Controller {
                         Table::column(self::$COLUMN_NAME, self::list_column_label(self::$COLUMN_NAME), 2, true, $sort, false, $filter),
                         Table::column(self::$COLUMN_EMAIL, self::list_column_label(self::$COLUMN_EMAIL), 1, false, $sort, false, $filter),
                         Table::column(self::$COLUMN_NIVEAU, self::list_column_label(self::$COLUMN_NIVEAU), 1, true, $sort, true, $filter),
-                        Table::column(self::$COLUMN_LEERJAAR, self::list_column_label(self::$COLUMN_LEERJAAR), 1, true, $sort, true, $filter),
+                        Table::column(self::$COLUMN_PHONE, self::list_column_label(self::$COLUMN_PHONE), 1, false, $sort, false, $filter),
                         Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 1, true, $sort, true, $filter, true)
                     );
                 }
@@ -279,7 +279,7 @@ class StudentController extends Controller {
                         Table::column(self::$COLUMN_NAME, self::list_column_label(self::$COLUMN_NAME), 2, true, $sort, false, $filter),
                         Table::column(self::$COLUMN_EMAIL, self::list_column_label(self::$COLUMN_EMAIL), 1, false, $sort, false, $filter),
                         Table::column(self::$COLUMN_NIVEAU, self::list_column_label(self::$COLUMN_NIVEAU), 1, true, $sort, true, $filter),
-                        Table::column(self::$COLUMN_LEERJAAR, self::list_column_label(self::$COLUMN_LEERJAAR), 1, true, $sort, true, $filter),
+                        Table::column(self::$COLUMN_PHONE, self::list_column_label(self::$COLUMN_PHONE), 1, false, $sort, false, $filter),
                         Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 1, true, $sort, true, $filter, true)
                     );
                 }
@@ -301,7 +301,7 @@ class StudentController extends Controller {
                         Table::column(self::$COLUMN_NAME, self::list_column_label(self::$COLUMN_NAME), 2, true, $sort, false, $filter),
                         Table::column(self::$COLUMN_EMAIL, self::list_column_label(self::$COLUMN_EMAIL), 1, false, $sort, false, $filter),
                         Table::column(self::$COLUMN_NIVEAU, self::list_column_label(self::$COLUMN_NIVEAU), 1, true, $sort, true, $filter),
-                        Table::column(self::$COLUMN_LEERJAAR, self::list_column_label(self::$COLUMN_LEERJAAR), 1, true, $sort, true, $filter),
+                        Table::column(self::$COLUMN_PHONE, self::list_column_label(self::$COLUMN_PHONE), 1, false, $sort, false, $filter),
                         Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 1, true, $sort, true, $filter, true)
                     );
                 }

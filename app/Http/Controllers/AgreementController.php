@@ -367,13 +367,13 @@ class AgreementController extends Controller {
                     );
                 } else if ($layout == 'mobile') {
                     array_push($columns,
-                        Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 3, false, $sort, false, $filter, true),
-                        Table::column(self::$COLUMN_EMPLOYEE, self::list_column_label(self::$COLUMN_EMPLOYEE), 3, false, $sort, false, $filter),
-                        Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 2, false, $sort, false, $filter),
-                        Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 1.5, false, $sort, false, $filter),
-                        Table::column(self::$COLUMN_START, self::list_column_label(self::$COLUMN_START), 2, false, $sort, true, $filter),
-                        Table::column(self::$COLUMN_END, self::list_column_label(self::$COLUMN_END), 2, true, $sort, true, $filter),
-                        Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 2, false, $sort, true, $filter, true)
+                        Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 2, false, $sort, false, $filter, true),
+                        Table::column(self::$COLUMN_EMPLOYEE, self::list_column_label(self::$COLUMN_EMPLOYEE), 1, false, $sort, false, $filter),
+                        Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 1, false, $sort, false, $filter),
+                        Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 1, false, $sort, false, $filter),
+                        Table::column(self::$COLUMN_START, self::list_column_label(self::$COLUMN_START), 1, false, $sort, true, $filter),
+                        Table::column(self::$COLUMN_END, self::list_column_label(self::$COLUMN_END), 1, true, $sort, true, $filter),
+                        Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 1, false, $sort, true, $filter, true)
                     );
                 }
                 break;
@@ -394,13 +394,13 @@ class AgreementController extends Controller {
                     );
                 } else if ($layout == 'mobile') {
                     array_push($columns,
-                        Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 3, false, $sort, false, $filter, true),
-                        Table::column(self::$COLUMN_EMPLOYEE, self::list_column_label(self::$COLUMN_EMPLOYEE), 3, false, $sort, false, $filter),
-                        Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 2, false, $sort, false, $filter),
-                        Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 1.5, false, $sort, false, $filter),
-                        Table::column(self::$COLUMN_START, self::list_column_label(self::$COLUMN_START), 2, false, $sort, true, $filter),
-                        Table::column(self::$COLUMN_END, self::list_column_label(self::$COLUMN_END), 2, true, $sort, true, $filter),
-                        Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 2, false, $sort, true, $filter, true)
+                        Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 2, false, $sort, false, $filter, true),
+                        Table::column(self::$COLUMN_EMPLOYEE, self::list_column_label(self::$COLUMN_EMPLOYEE), 1, false, $sort, false, $filter),
+                        Table::column(self::$COLUMN_SUBJECT, self::list_column_label(self::$COLUMN_SUBJECT), 1, false, $sort, false, $filter),
+                        Table::column(self::$COLUMN_SERVICE, self::list_column_label(self::$COLUMN_SERVICE), 1, false, $sort, false, $filter),
+                        Table::column(self::$COLUMN_START, self::list_column_label(self::$COLUMN_START), 1, false, $sort, true, $filter),
+                        Table::column(self::$COLUMN_END, self::list_column_label(self::$COLUMN_END), 1, true, $sort, true, $filter),
+                        Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 1, false, $sort, true, $filter, true)
                     );
                 }
                 break;
