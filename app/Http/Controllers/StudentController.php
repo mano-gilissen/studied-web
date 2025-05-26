@@ -232,7 +232,7 @@ class StudentController extends Controller {
 
 
 
-    public function list_columns($sort, $filter, $mobile = false) {
+    public function list_columns($sort, $filter, $layout) {
 
         $columns                                            = [];
 
@@ -241,7 +241,7 @@ class StudentController extends Controller {
             case RoleTrait::$ID_ADMINISTRATOR:
             case RoleTrait::$ID_BOARD:
             case RoleTrait::$ID_MANAGEMENT:
-                if (!$mobile) {
+                if ($layout == 'desktop') {
                     array_push($columns,
                         Table::column(self::$COLUMN_NAME, self::list_column_label(self::$COLUMN_NAME), 3, true, $sort, false, $filter),
                         Table::column(self::$COLUMN_EMAIL, self::list_column_label(self::$COLUMN_EMAIL), 3, false, $sort, false, $filter),
@@ -252,13 +252,13 @@ class StudentController extends Controller {
                         Table::column(self::$COLUMN_CUSTOMER, self::list_column_label(self::$COLUMN_CUSTOMER), 3, true, $sort, true, $filter),
                         Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 2, true, $sort, true, $filter, true)
                     );
-                } else {
+                } else if ($layout == 'mobile') {
 
                 }
                 break;
 
             case RoleTrait::$ID_EMPLOYEE:
-                if (!$mobile) {
+                if ($layout == 'desktop') {
                     array_push($columns,
                         Table::column(self::$COLUMN_NAME, self::list_column_label(self::$COLUMN_NAME), 3, true, $sort, false, $filter),
                         Table::column(self::$COLUMN_EMAIL, self::list_column_label(self::$COLUMN_EMAIL), 3, false, $sort, false, $filter),
@@ -268,13 +268,13 @@ class StudentController extends Controller {
                         Table::column(self::$COLUMN_AGREEMENTS, self::list_column_label(self::$COLUMN_AGREEMENTS), 3.5, false, $sort, true, $filter),
                         Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 2, true, $sort, true, $filter, true)
                     );
-                } else {
+                } else if ($layout == 'mobile') {
 
                 }
                 break;
 
             case RoleTrait::$ID_CUSTOMER:
-                if (!$mobile) {
+                if ($layout == 'desktop') {
                     array_push($columns,
                         Table::column(self::$COLUMN_NAME, self::list_column_label(self::$COLUMN_NAME), 3, true, $sort, false, $filter),
                         Table::column(self::$COLUMN_EMAIL, self::list_column_label(self::$COLUMN_EMAIL), 3, false, $sort, false, $filter),
@@ -284,7 +284,7 @@ class StudentController extends Controller {
                         Table::column(self::$COLUMN_AGREEMENTS, self::list_column_label(self::$COLUMN_AGREEMENTS), 3.5, false, $sort, false, $filter),
                         Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 2, false, $sort, false, $filter, true)
                     );
-                } else {
+                } else if ($layout == 'mobile') {
 
                 }
                 break;

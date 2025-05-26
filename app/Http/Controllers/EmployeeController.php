@@ -195,7 +195,7 @@ class EmployeeController extends Controller {
 
 
 
-    public function list_columns($sort, $filter, $mobile = false) {
+    public function list_columns($sort, $filter, $layout) {
 
         $columns                                            = [];
 

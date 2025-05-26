@@ -438,7 +438,7 @@ class StudyController extends Controller {
 
 
 
-    public function list_columns($sort, $filter, $mobile = false) {
+    public function list_columns($sort, $filter, $layout) {
 
         $columns                                                    = [];
 
@@ -448,7 +448,7 @@ class StudyController extends Controller {
             case RoleTrait::$ID_BOARD:
             case RoleTrait::$ID_MANAGEMENT:
             case RoleTrait::$ID_CUSTOMER:
-                if (!$mobile) {
+                if ($layout == 'desktop') {
                     array_push($columns,
                         Table::column(self::$COLUMN_DATE, self::list_column_label(self::$COLUMN_DATE), 3, true, $sort, true, $filter, true),
                         Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 4, false, $sort, true, $filter),
@@ -459,7 +459,7 @@ class StudyController extends Controller {
                         Table::column(self::$COLUMN_TIME, self::list_column_label(self::$COLUMN_TIME), 3, true, $sort, false, $filter),
                         Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 3, true, $sort, true, $filter, true)
                     );
-                } else {
+                } else if ($layout == 'mobile') {
                     array_push($columns,
                         Table::column(self::$COLUMN_DATE, self::list_column_label(self::$COLUMN_DATE), 1, true, $sort, true, $filter, true),
                         Table::column(self::$COLUMN_TIME, self::list_column_label(self::$COLUMN_TIME), 1, true, $sort, false, $filter),
@@ -472,7 +472,7 @@ class StudyController extends Controller {
                 break;
 
             case RoleTrait::$ID_EMPLOYEE:
-                if (!$mobile) {
+                if ($layout == 'desktop') {
                     array_push($columns,
                         Table::column(self::$COLUMN_DATE, self::list_column_label(self::$COLUMN_DATE), 2, true, $sort, true, $filter, true),
                         Table::column(self::$COLUMN_STUDENT, self::list_column_label(self::$COLUMN_STUDENT), 3, false, $sort, true, $filter),
@@ -482,7 +482,7 @@ class StudyController extends Controller {
                         Table::column(self::$COLUMN_TIME, self::list_column_label(self::$COLUMN_TIME), 3, true, $sort, false, $filter),
                         Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 3, true, $sort, true, $filter, true)
                     );
-                } else {
+                } else if ($layout == 'mobile') {
                     array_push($columns,
                         Table::column(self::$COLUMN_DATE, self::list_column_label(self::$COLUMN_DATE), 1, true, $sort, true, $filter, true),
                         Table::column(self::$COLUMN_TIME, self::list_column_label(self::$COLUMN_TIME), 1, true, $sort, false, $filter),
@@ -495,7 +495,7 @@ class StudyController extends Controller {
                 break;
 
             case RoleTrait::$ID_STUDENT:
-                if (!$mobile) {
+                if ($layout == 'desktop') {
                     array_push($columns,
                         Table::column(self::$COLUMN_DATE, self::list_column_label(self::$COLUMN_DATE), 2, true, $sort, true, $filter, true),
                         Table::column(self::$COLUMN_HOST, self::list_column_label(self::$COLUMN_HOST), 3, true, $sort, true, $filter),
@@ -505,7 +505,7 @@ class StudyController extends Controller {
                         Table::column(self::$COLUMN_TIME, self::list_column_label(self::$COLUMN_TIME), 3, true, $sort, false, $filter),
                         Table::column(self::$COLUMN_STATUS, self::list_column_label(self::$COLUMN_STATUS), 3, true, $sort, true, $filter, true)
                     );
-                } else {
+                } else if ($layout == 'mobile') {
                     array_push($columns,
                         Table::column(self::$COLUMN_DATE, self::list_column_label(self::$COLUMN_DATE), 1, true, $sort, true, $filter, true),
                         Table::column(self::$COLUMN_TIME, self::list_column_label(self::$COLUMN_TIME), 1, true, $sort, false, $filter),

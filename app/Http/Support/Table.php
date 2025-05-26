@@ -41,7 +41,7 @@ class Table {
     const DATA_FILTER                                       = "data_filter";
     const DATA_SEARCH                                       = "data_search";
     const DATA_OFFSET                                       = "data_offset";
-    const DATA_MOBILE                                       = "mobile";
+    const DATA_LAYOUT                                       = "layout";
 
     const SORT_MODE_ASC                                     = "asc";
     const SORT_MODE_DESC                                    = "desc";
@@ -67,7 +67,7 @@ class Table {
         $filter                                             = $request->input(Table::DATA_FILTER, null);
         $search                                             = $request->input(Table::DATA_SEARCH, null);
         $offset                                             = $request->input(Table::DATA_OFFSET, 0);
-        $mobile                                             = $request->input(Table::DATA_MOBILE, false);
+        $mobile                                             = $request->input(Table::DATA_LAYOUT, 'desktop');
 
         $view_data                                          = [];
 
@@ -105,7 +105,7 @@ class Table {
         $view_data[self::VIEW_SPACING]                      = $spacing;
         $view_data[self::VIEW_ITEMS]                        = $items;
 
-        return view(($offset > 0 ? Views::LOAD_ITEMS : Views::LOAD_LIST) . ($mobile ? '-mobile' : ''), $view_data);
+        return view(($offset > 0 ? Views::LOAD_ITEMS : Views::LOAD_LIST) . ($mobile == 'mobile' ? '-mobile' : ''), $view_data);
     }
 
 
