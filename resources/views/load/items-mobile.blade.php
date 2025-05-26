@@ -8,6 +8,8 @@
 
                 @php
 
+                    $collection = collect($item);
+
                     $desiredOrder = [
                         \App\Http\Controllers\StudyController::$COLUMN_DATE,
                         \App\Http\Controllers\StudyController::$COLUMN_HOST,
@@ -19,7 +21,7 @@
                         \App\Http\Controllers\StudyController::$COLUMN_STATUS,
                     ];
 
-                    $sorted = $item->sortBy(function ($attribute) use ($desiredOrder) {
+                    $item = $collection->sortBy(function ($attribute) use ($desiredOrder) {
                         return array_search($attribute->id, $desiredOrder);
                     })->values();
 
