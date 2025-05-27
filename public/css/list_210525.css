@@ -324,9 +324,8 @@
 
     #filters-pick .filter-option {
         padding: 24px;
-        font-size: 16px;
-        border-top: 1px solid #ccc;
-        border-right: 1px solid #CCC;
+        font-size: 14px;
+        border-top: 1px solid ;
     }
 
 
