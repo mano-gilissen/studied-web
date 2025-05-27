@@ -280,13 +280,14 @@
 
     #filters-mobile .filter {
         display: none;
-        background: #F3F3F3;
+        background: white;
         padding: 32px 32px 48px;
         width: 100%;
     }
 
-    #filters-mobile .filter {
-        display: none;
+    #filters-mobile .filter .box-input {
+        height: 0;
+        border: 0;
     }
 
     #filters-mobile .filter-label {
@@ -300,7 +301,7 @@
     }
 
     #filters-pick {
-        background: #F3F3F3;
+        background: white;
         padding: 32px 0 0;
         width: 100%;
     }

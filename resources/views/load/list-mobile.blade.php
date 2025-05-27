@@ -20,7 +20,7 @@
 
         <div class="filter" id="filter_{{ $column->id }}">
 
-            <div class="filter-label">{{ __($column->label) }}</div>
+            <div class="filter-label">{{ __('Zoek een ') . strtolower(__($column->label)) }}</div>
 
             @if($column->filter != \App\Http\Support\Table::FILTER_DISABLED)
 
