@@ -56,14 +56,6 @@ $(function() {
 
 
 
-    $(OBJECT_FILTERS_MOBILE).on('click', function() {
-
-        //filters_mobile_close();
-
-    });
-
-
-
     $(OBJECT_BUTTON_FILTER_ADD).on('click', function() {
 
         if (window.innerWidth <= 840) {  // Mobile view
@@ -357,6 +349,7 @@ function filters_mobile_open(filter) {
 
     $(OBJECT_FILTERS_MOBILE + ' ' + OBJECT_FILTERS_PICK).hide();
     $(OBJECT_FILTERS_MOBILE + ' ' + CLASS_FILTER + '#filter_' + filter).show();
+    $(OBJECT_FILTERS_MOBILE + ' ' + CLASS_FILTER + '#filter_' + filter + ' input').focus();
 
 }
 
