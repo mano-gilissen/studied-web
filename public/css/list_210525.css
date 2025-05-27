@@ -265,8 +265,38 @@
         margin-left: 8px;
     }
 
-    .filter {
+    #filters-mobile {
+        display: grid;
+        position: absolute;
+        place-items: center;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        padding: 32px;
+        background: #00000088;
+        z-index: 100;
+    }
+
+    #filters-mobile .filter {
         display: none;
+        background: #F3F3F3;
+        padding: 32px 32px 48px;
+        width: 100%;
+    }
+
+    #filters-mobile .filter {
+        display: none;
+    }
+
+    #filters-mobile .filter-label {
+        font-size: 16px;
+        margin: 0 0 32px;
+        font-weight: 500;
+    }
+
+    #filters-mobile .filter-wrap-date:has(+ .filter-wrap-date) {
+        margin-bottom: 16px;
     }
 
     #items {

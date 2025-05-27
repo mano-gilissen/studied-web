@@ -1,8 +1,22 @@
-<div class="filter-wrap">
+<div id="filters-mobile" onclick="filters_mobile_close()">
+
+    <div id="filters-pick">
+
+        <div class="filter-label">{{ __('Filteren op:') }}</div>
+
+        @foreach($columns as $column)
+
+            <div class="filter-option" onclick="filters_mobile_open({{ $column->id }})">{{ __($column->label) }}</div>
+
+        @endforeach
+
+    </div>
 
     @foreach($columns as $column)
 
         <div class="filter" id="filter_{{ $column->id }}">
+
+            <div class="filter-label">{{ __($column->label) }}</div>
 
             @if($column->filter != \App\Http\Support\Table::FILTER_DISABLED)
 

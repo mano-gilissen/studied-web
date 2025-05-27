@@ -19,10 +19,13 @@ const OBJECT_BUTTON_LOAD_MORE                   = '#button-load-more';
 const OBJECT_LIST                               = '#list';
 const OBJECT_ITEMS                              = '#items';
 const OBJECT_HEADERS                            = '#headers';
-const OBJECT_FILTERS                            = '#filters';
 const OBJECT_COUNTERS                           = '#counters';
 const OBJECT_ACTIONS                            = '#actions';
 const OBJECT_AGREEMENTS                         = '#agreements';
+
+const OBJECT_FILTERS                            = '#filters';
+const OBJECT_FILTERS_MOBILE                     = '#filters-mobile';
+const OBJECT_FILTERS_PICK                       = '#filters-pick';
 
 const OBJECT_PAGE_TITLE                         = '.page.title:not(.dot)';
 
