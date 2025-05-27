@@ -1,26 +1,30 @@
 @foreach($columns as $column)
 
-    <div class="filter" id="filter_{{ $column->id }}">
+    <div class="filter-wrap">
 
-        @if($column->filter != \App\Http\Support\Table::FILTER_DISABLED)
+        <div class="filter" id="filter_{{ $column->id }}">
 
-            @switch($column->id)
+            @if($column->filter != \App\Http\Support\Table::FILTER_DISABLED)
 
-                @case(\App\Http\Controllers\StudyController::$COLUMN_DATE)
-                @case(\App\Http\Controllers\AgreementController::$COLUMN_START)
-                @case(\App\Http\Controllers\AgreementController::$COLUMN_END)
+                @switch($column->id)
 
-                    @include('block.filter-date')
+                    @case(\App\Http\Controllers\StudyController::$COLUMN_DATE)
+                    @case(\App\Http\Controllers\AgreementController::$COLUMN_START)
+                    @case(\App\Http\Controllers\AgreementController::$COLUMN_END)
 
-                    @break
+                        @include('block.filter-date')
 
-                @default
+                        @break
 
-                    @include('form.box-input', ['id' => 'filter_input_' . $column->id, 'identifier' => $column->id, 'data' => true, 'show_all' => true, 'show_always' => true, 'reject_other' => true, 'uses_id' => true, 'form' => false, 'trigger' => 'filter'])
+                    @default
 
-            @endswitch
+                        @include('form.box-input', ['id' => 'filter_input_' . $column->id, 'identifier' => $column->id, 'data' => true, 'show_all' => true, 'show_always' => true, 'reject_other' => true, 'uses_id' => true, 'form' => false, 'trigger' => 'filter'])
 
-        @endif
+                @endswitch
+
+            @endif
+
+        </div>
 
     </div>
 
