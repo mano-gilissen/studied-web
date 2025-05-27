@@ -41,15 +41,17 @@
 
                 <div id="actions">
 
+                    <div id="button-filter-add" class="button icon">
+
+                        <img class="icon" src="/images_app/add-white.svg">
+
+                        <div class="text">{{ __('Filter') }}</div>
+
+                    </div>
+
                     <div id="filters">
 
-                        <div id="button-filter-add" class="button icon">
 
-                            <img class="icon" src="/images_app/add-white.svg">
-
-                            <div class="text">{{ __('Filter') }}</div>
-
-                        </div>
 
                     </div>
 
