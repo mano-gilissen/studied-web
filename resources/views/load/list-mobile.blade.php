@@ -1,6 +1,6 @@
-@foreach($columns as $column)
+<div class="filter-wrap">
 
-    <div class="filter-wrap">
+    @foreach($columns as $column)
 
         <div class="filter" id="filter_{{ $column->id }}">
 
@@ -26,9 +26,9 @@
 
         </div>
 
-    </div>
+    @endforeach
 
-@endforeach
+</div>
 
 <div id="items">
 
