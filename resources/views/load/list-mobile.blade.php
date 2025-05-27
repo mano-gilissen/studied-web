@@ -1,4 +1,4 @@
-<div id="filters-mobile" onclick="filters_mobile_close()">
+<div id="filters-mobile">
 
     <div id="filters-pick">
 
