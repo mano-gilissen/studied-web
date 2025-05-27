@@ -232,6 +232,8 @@
         padding: 0 24px 0;
     }
 
+
+
     #actions {
         grid-area: actions;
         width: 100%;
@@ -242,10 +244,21 @@
         justify-content: start;
     }
 
+    #actions #filters {
+        flex-wrap: wrap;
+        row-gap: 12px;
+    }
+
+    #actions #filters .button.filter {
+        white-space: nowrap;
+    }
+
     #search-wrap {
         grid-area: search;
         margin: 0 0 32px;
     }
+
+
 
     #counters {
         grid-area: counters;
@@ -264,6 +277,8 @@
         font-size: 14px;
         margin-left: 8px;
     }
+
+
 
     #filters-mobile {
         display: none;
