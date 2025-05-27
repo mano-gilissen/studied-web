@@ -309,6 +309,7 @@
         color: black;
         background: white;
         height: 64px;
+        overflow: hidden;
     }
 
     #filters-pick {
@@ -325,7 +326,7 @@
     #filters-pick .filter-option {
         padding: 24px;
         font-size: 14px;
-        border-top: 1px solid ;
+        border-top: 1px solid #EEEEEE;
     }
 
 
