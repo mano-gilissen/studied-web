@@ -6,7 +6,11 @@
 
         @foreach($columns as $column)
 
-            <div class="filter-option" onclick="filters_mobile_open({{ $column->id }})">{{ __($column->label) }}</div>
+            @if($column->filter != \App\Http\Support\Table::FILTER_DISABLED)
+
+                <div class="filter-option" onclick="filters_mobile_open({{ $column->id }})">{{ __($column->label) }}</div>
+
+            @endif
 
         @endforeach
 
