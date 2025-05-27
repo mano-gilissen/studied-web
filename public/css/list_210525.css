@@ -325,17 +325,18 @@
         background: white;
         height: 64px;
         overflow: hidden;
+        border-bottom: 1px solid #EEEEEE;
     }
 
     #filters-pick {
         background: white;
-        padding: 32px 0 0;
         width: 100%;
     }
 
     #filters-pick .filter-label {
-        padding-left: 24px;
+        padding: 24px;
         font-size: 18px;
+        margin: 0;
     }
 
     #filters-pick .filter-option {

@@ -2,7 +2,7 @@
 
     <div id="filters-pick">
 
-        <div class="filter-label">{{ __('Filteren op:') }}</div>
+        <div class="filter-label">{{ __('Filteren op') }}</div>
 
         @foreach($columns as $column)
 

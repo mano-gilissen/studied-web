@@ -51,8 +51,6 @@
 
                     <div id="filters">
 
-
-
                     </div>
 
                     @yield('actions')
