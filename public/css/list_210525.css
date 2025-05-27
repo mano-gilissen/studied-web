@@ -302,7 +302,7 @@
     #filters-mobile .autocomplete-list {
         position: unset;
         width: 100%;
-        max-height: 300px;
+        max-height: 400px;
     }
 
     #filters-mobile .autocomplete-item {
