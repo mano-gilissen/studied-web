@@ -58,7 +58,7 @@ $(function() {
 
     $(OBJECT_FILTERS_MOBILE).on('click', function() {
 
-        filters_mobile_close();
+        //filters_mobile_close();
 
     });
 
@@ -278,6 +278,7 @@ function filter(value, column) {
         this.data_filter[column]            = value;
 
         filters_close();
+        filters_mobile_close();
 
         load();
     }
