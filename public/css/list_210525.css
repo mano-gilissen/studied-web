@@ -266,7 +266,7 @@
     }
 
     #filters-mobile {
-        display: grid;
+        display: none;
         position: absolute;
         place-items: center;
         top: 0;
@@ -298,6 +298,26 @@
     #filters-mobile .filter-wrap-date:has(+ .filter-wrap-date) {
         margin-bottom: 16px;
     }
+
+    #filters-pick {
+        background: #F3F3F3;
+        padding: 32px 0 0;
+        width: 100%;
+    }
+
+    #filters-pick .filter-label {
+        padding-left: 24px;
+        font-size: 18px;
+    }
+
+    #filters-pick .filter-option {
+        padding: 24px;
+        font-size: 16px;
+        border-top: 1px solid #ccc;
+        border-right: 1px solid #CCC;
+    }
+
+
 
     #items {
         margin: 8px 0 0;

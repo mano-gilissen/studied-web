@@ -346,7 +346,7 @@ function filters_close() {
 function filters_mobile_pick() {
 
     $(OBJECT_FILTERS_MOBILE + ' ' + OBJECT_FILTERS_PICK).show();
-    $(OBJECT_FILTERS_MOBILE).show();
+    $(OBJECT_FILTERS_MOBILE).css('display', 'grid');
 
 }
 
