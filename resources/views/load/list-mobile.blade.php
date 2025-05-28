@@ -1,6 +1,6 @@
 <div id="filters-mobile">
 
-    <div id="filters-pick">
+    <div id="filters-mobile-pick">
 
         <div class="label">{{ __('Filteren op') }}</div>
 
