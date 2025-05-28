@@ -251,7 +251,7 @@
     }
 
     #actions #button-sort {
-        display: block;
+        display: flex;
     }
 
     #actions #filters {
@@ -275,7 +275,7 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         margin: 0 0 8px;
-        height: 342px;
+        height: 56px;
     }
 
     #counters .counter {
