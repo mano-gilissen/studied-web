@@ -12,6 +12,7 @@ const OBJECT_BUTTON_LOGOUT                      = '#button-logout';
 const OBJECT_BUTTON_SETTINGS                    = '#button-settings';
 const OBJECT_BUTTON_PREVIOUS                    = '#button-previous';
 const OBJECT_BUTTON_NEXT                        = '#button-next';
+const OBJECT_BUTTON_SORT                        = '#button-sort';
 const OBJECT_BUTTON_FILTER_ADD                  = '#button-filter-add';
 const OBJECT_BUTTON_SUBJECT_ADD                 = '#button-subject-add';
 const OBJECT_BUTTON_LOAD_MORE                   = '#button-load-more';
@@ -25,7 +26,11 @@ const OBJECT_AGREEMENTS                         = '#agreements';
 
 const OBJECT_FILTERS                            = '#filters';
 const OBJECT_FILTERS_MOBILE                     = '#filters-mobile';
-const OBJECT_FILTERS_PICK                       = '#filters-pick';
+const OBJECT_FILTERS_MOBILE_PICK                = '#filters-mobile-pick';
+
+const OBJECT_SORT_MOBILE                        = '#sort-mobile';
+const OBJECT_SORT_MOBILE_PICK                   = '#sort-mobile-pick';
+const OBJECT_SORT_MOBILE_DIRECTION              = '#sort-mobile-direction';
 
 const OBJECT_PAGE_TITLE                         = '.page.title:not(.dot)';
 

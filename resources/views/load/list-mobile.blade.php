@@ -2,7 +2,7 @@
 
     <div id="filters-pick">
 
-        <div class="filter-label">{{ __('Filteren op') }}</div>
+        <div class="label">{{ __('Filteren op') }}</div>
 
         @foreach($columns as $column)
 
@@ -43,6 +43,36 @@
         </div>
 
     @endforeach
+
+</div>
+
+<div id="sort-mobile">
+
+    <div id="sort-pick">
+
+        <div class="label">{{ __('Sorteren op') }}</div>
+
+        @foreach($columns as $column)
+
+            @if($column->filter != \App\Http\Support\Table::FILTER_DISABLED)
+
+                <div class="sort-option" onclick="sort_mobile_direction({{ $column->id }})">{{ __($column->label) }}</div>
+
+            @endif
+
+        @endforeach
+
+    </div>
+
+    <div id="sort-direction">
+
+        <div class="label">{{ __('Sorteren op') }}</div>
+
+        <div class="sort-option" onclick="sort_mobile('asc')">{{ __('Oplopend') }}</div>
+
+        <div class="sort-option" onclick="sort_mobile('desc')">{{ __('Aflopend') }}</div>
+
+    </div>
 
 </div>
 

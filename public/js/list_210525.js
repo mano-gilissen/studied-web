@@ -6,7 +6,7 @@
 var filters_select_active                       = false;
 var filter_search_timeout;
 
-const COLUMN_DATE                               = 101;
+var sort_mobile_column;
 
 const OBJECT_INPUT_FILTER_SEARCH                = '#input-filter-search';
 const OBJECT_LOADER                             = '#loader-list';
@@ -71,6 +71,17 @@ $(function() {
         } else {
 
             filters_close();
+
+        }
+    });
+
+
+
+    $(OBJECT_BUTTON_SORT).on('click', function() {
+
+        if (window.innerWidth <= 840) {  // Only for mobile view
+
+            sort_mobile_pick();
 
         }
     });
@@ -223,6 +234,38 @@ function sort(column) {
 
 
 
+function sort_mobile_pick() {
+
+    $(OBJECT_SORT_MOBILE + ' ' + OBJECT_SORT_MOBILE_PICK).show();
+    $(OBJECT_SORT_MOBILE).css('display', 'grid');
+
+}
+
+
+
+function sort_mobile_direction(column) {
+
+    sort_mobile_column = column;
+
+    $(OBJECT_SORT_MOBILE + ' ' + OBJECT_SORT_MOBILE_PICK).hide();
+    $(OBJECT_SORT_MOBILE + ' ' + OBJECT_SORT_MOBILE_DIRECTION).show();
+}
+
+
+
+function sort_mobile(direction) {
+
+    $(OBJECT_SORT_MOBILE).hide();
+    $(OBJECT_SORT_MOBILE + ' ' + OBJECT_SORT_MOBILE_PICK).hide();
+    $(OBJECT_SORT_MOBILE + ' ' + OBJECT_SORT_MOBILE_DIRECTION).hide();
+
+    this.data_sort                          = {[sort_mobile_column] : direction};
+
+    load();
+}
+
+
+
 function set_visibility_load_more() {
 
     if (more_available()) {
@@ -338,7 +381,7 @@ function filters_close() {
 
 function filters_mobile_pick() {
 
-    $(OBJECT_FILTERS_MOBILE + ' ' + OBJECT_FILTERS_PICK).show();
+    $(OBJECT_FILTERS_MOBILE + ' ' + OBJECT_FILTERS_MOBILE_PICK).show();
     $(OBJECT_FILTERS_MOBILE).css('display', 'grid');
 
 }
@@ -347,7 +390,7 @@ function filters_mobile_pick() {
 
 function filters_mobile_open(filter) {
 
-    $(OBJECT_FILTERS_MOBILE + ' ' + OBJECT_FILTERS_PICK).hide();
+    $(OBJECT_FILTERS_MOBILE + ' ' + OBJECT_FILTERS_MOBILE_PICK).hide();
     $(OBJECT_FILTERS_MOBILE + ' ' + CLASS_FILTER + '#filter_' + filter).show();
     $(OBJECT_FILTERS_MOBILE + ' ' + CLASS_FILTER + '#filter_' + filter + ' input').focus();
 
@@ -359,7 +402,7 @@ function filters_mobile_close() {
 
     $(OBJECT_FILTERS_MOBILE).hide();
     $(OBJECT_FILTERS_MOBILE + ' ' + CLASS_FILTER).hide();
-    $(OBJECT_FILTERS_MOBILE + ' ' + OBJECT_FILTERS_PICK).hide();
+    $(OBJECT_FILTERS_MOBILE + ' ' + OBJECT_FILTERS_MOBILE_PICK).hide();
 
 }
 

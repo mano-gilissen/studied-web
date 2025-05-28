@@ -49,6 +49,14 @@
 
                     </div>
 
+                    <div id="button-sort" class="button icon">
+
+                        <img class="icon" src="/images_app/sort.svg">
+
+                        <div class="text">{{ __('Sorteren') }}</div>
+
+                    </div>
+
                     <div id="filters">
 
                     </div>
