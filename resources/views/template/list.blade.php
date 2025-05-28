@@ -51,7 +51,7 @@
 
                     <div id="button-sort" class="button icon">
 
-                        <img class="icon" src="/images_app/sort.svg">
+                        <img class="icon" src="/images_app/sort-black.svg">
 
                         <div class="text">{{ __('Sorteren') }}</div>
 
