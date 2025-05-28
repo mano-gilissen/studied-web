@@ -8,7 +8,7 @@
 
             @if($column->filter != \App\Http\Support\Table::FILTER_DISABLED)
 
-                <div class="filter-option" onclick="filters_mobile_open({{ $column->id }})">{{ __($column->label) }}</div>
+                <div class="option" onclick="filters_mobile_open({{ $column->id }})">{{ __($column->label) }}</div>
 
             @endif
 
@@ -56,7 +56,7 @@
 
             @if($column->filter != \App\Http\Support\Table::FILTER_DISABLED)
 
-                <div class="sort-option" onclick="sort_mobile_direction({{ $column->id }})">{{ __($column->label) }}</div>
+                <div class="option" onclick="sort_mobile_direction({{ $column->id }})">{{ __($column->label) }}</div>
 
             @endif
 
@@ -68,9 +68,9 @@
 
         <div class="label">{{ __('Sorteren op') }}</div>
 
-        <div class="sort-option" onclick="sort_mobile('asc')">{{ __('Oplopend') }}</div>
+        <div class="option" onclick="sort_mobile('asc')">{{ __('Oplopend') }}</div>
 
-        <div class="sort-option" onclick="sort_mobile('desc')">{{ __('Aflopend') }}</div>
+        <div class="option" onclick="sort_mobile('desc')">{{ __('Aflopend') }}</div>
 
     </div>
 
