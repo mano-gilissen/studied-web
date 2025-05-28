@@ -48,7 +48,7 @@
 
 <div id="sort-mobile">
 
-    <div id="sort-pick">
+    <div id="sort-mobile-pick">
 
         <div class="label">{{ __('Sorteren op') }}</div>
 
@@ -64,7 +64,7 @@
 
     </div>
 
-    <div id="sort-direction">
+    <div id="sort-mobile-direction">
 
         <div class="label">{{ __('Sorteren op') }}</div>
 
