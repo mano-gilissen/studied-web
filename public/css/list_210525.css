@@ -253,6 +253,7 @@
     #actions #button-sort {
         display: flex;
         background: #4D4D4D;
+        color: white;
     }
 
     #actions #button-sort .icon {
