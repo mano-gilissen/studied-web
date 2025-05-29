@@ -112,20 +112,20 @@
     pointer-events:                     all;
 }
 
-.agreements .button-agreements-desktop .button {
+.agreements .button-agreements-desktop.button {
     background:                         transparent;
 }
 
-.agreements .button-agreements-desktop .button:hover {
+.agreements .button-agreements-desktop.button:hover {
     background:                         #E6E6E6;
 }
 
-.agreements .button-agreements-desktop .button-previous {
+.agreements .button-agreements-desktop.button-previous {
     margin-left:                        -60px;
     margin-right:                       28px;
 }
 
-.agreements .button-agreements-desktop .button-next {
+.agreements .button-agreements-desktop.button-next {
     margin-right:                       -60px;
 }
 
