@@ -9,7 +9,7 @@
         #reason_cancel-field,
         #explanation_cancel-field {
 
-            display: {{ $study->{\App\Http\Support\Model::$STUDY_STATUS} == 5 ? 'block' : 'none' }};
+            display: {{ $study->{\App\Http\Support\Model::$STUDY_STATUS} == 5 ? 'flex' : 'none' }};
 
         }
 
