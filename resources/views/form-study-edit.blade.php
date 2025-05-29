@@ -27,7 +27,7 @@
 
             console.log('asdfasd');
 
-            if ($(this).val() === 5) {
+            if ($('#_status').val() === 5) {
 
                 $('#reason_cancel-field, #explanation_cancel-field').show();
 
