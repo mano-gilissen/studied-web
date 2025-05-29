@@ -342,7 +342,9 @@ class Model {
         $STUDY_START                                    = 'start',
         $STUDY_END                                      = 'end',
         $STUDY_TRIAL                                    = 'trial',
-        $STUDY_REMARK                                   = 'remark';
+        $STUDY_REMARK                                   = 'remark',
+        $STUDY_REASON_CANCEL                            = 'reason_cancel',
+        $STUDY_EXPLANATION_CANCEL                       = 'explanation_cancel';
 
 
 

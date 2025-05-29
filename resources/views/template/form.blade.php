@@ -6,11 +6,7 @@
 
     <link href="{{ asset('css/form_210525.css') }}" rel="stylesheet">
 
-    @hasSection('css-form')
-
-        @yield('css-form')
-
-    @endif
+    @hasSection('css-form') @yield('css-form') @endif
 
 @endsection
 
@@ -19,6 +15,8 @@
 @section('scripts')
 
     <script src="{{ asset('js/form_210525.js') }}"></script>
+
+    @hasSection('scripts-form') @yield('scripts-form') @endif
 
 @endsection
 

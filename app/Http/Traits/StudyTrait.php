@@ -213,6 +213,18 @@ trait StudyTrait {
         $study->{Model::$STUDY_REMARK}                              = $data[Model::$STUDY_REMARK];
         $study->{Model::$STUDY_STATUS}                              = $data[Key::AUTOCOMPLETE_ID . Model::$STUDY_STATUS];
 
+        if ($study->{Model::$STUDY_STATUS} == self::$STATUS_CANCELLED) {
+
+            $study->{Model::$STUDY_REASON_CANCEL}                   = $data[Key::AUTOCOMPLETE_ID . Model::$STUDY_REASON_CANCEL];
+            $study->{Model::$STUDY_EXPLANATION_CANCEL}              = $data[Model::$STUDY_EXPLANATION_CANCEL];
+
+        } else {
+
+            $study->{Model::$STUDY_REASON_CANCEL}                   = 1;
+            $study->{Model::$STUDY_EXPLANATION_CANCEL}              = null;
+
+        }
+
 
 
         self::create_set_location($study, $data);
@@ -262,8 +274,15 @@ trait StudyTrait {
         $rules['date']                                              = ['required'];
         $rules[Model::$STUDY_START]                                 = ['required'];
         $rules[Model::$STUDY_END]                                   = ['required', Rule::notIn(['00:00', $data[Model::$STUDY_START]])];
-        $rules[Model::$LOCATION]                                    = ['required_if:link,""'];
         $rules[Model::$STUDY_LINK]                                  = ['required_if:location,""'];
+        $rules[Model::$LOCATION]                                    = ['required_if:link,""'];
+
+        if (array_key_exists(Model::$STUDY_STATUS, $data) && $data[Key::AUTOCOMPLETE_ID . Model::$STUDY_STATUS] != self::$STATUS_CANCELLED) {
+
+            $rules[Model::$STUDY_REASON_CANCEL]                     = ['required'];
+            $rules[Model::$STUDY_EXPLANATION_CANCEL]                = ['required, min:10, max:999'];
+
+        }
 
         foreach ($data as $key => $value) {
 
@@ -531,13 +550,35 @@ trait StudyTrait {
     public static function getStatusFilterData() {
 
         return [
-            StudyTrait::$STATUS_CREATED                             => StudyTrait::getStatusText(StudyTrait::$STATUS_CREATED),
-            StudyTrait::$STATUS_PLANNED                             => StudyTrait::getStatusText(StudyTrait::$STATUS_PLANNED),
-            StudyTrait::$STATUS_ACTIVE                              => StudyTrait::getStatusText(StudyTrait::$STATUS_ACTIVE),
-            StudyTrait::$STATUS_FINISHED                            => StudyTrait::getStatusText(StudyTrait::$STATUS_FINISHED),
-            StudyTrait::$STATUS_REPORTED                            => StudyTrait::getStatusText(StudyTrait::$STATUS_REPORTED),
-            StudyTrait::$STATUS_CANCELLED                           => StudyTrait::getStatusText(StudyTrait::$STATUS_CANCELLED),
-            StudyTrait::$STATUS_ABSENT                              => StudyTrait::getStatusText(StudyTrait::$STATUS_ABSENT)
+            self::$STATUS_CREATED                                   => self::getStatusText(self::$STATUS_CREATED),
+            self::$STATUS_PLANNED                                   => self::getStatusText(self::$STATUS_PLANNED),
+            self::$STATUS_ACTIVE                                    => self::getStatusText(self::$STATUS_ACTIVE),
+            self::$STATUS_FINISHED                                  => self::getStatusText(self::$STATUS_FINISHED),
+            self::$STATUS_REPORTED                                  => self::getStatusText(self::$STATUS_REPORTED),
+            self::$STATUS_CANCELLED                                 => self::getStatusText(self::$STATUS_CANCELLED),
+            self::$STATUS_ABSENT                                    => self::getStatusText(self::$STATUS_ABSENT)
+        ];
+    }
+
+
+
+    public static function getReasonCancelText($reason) {
+
+        switch ($reason) {
+
+            case 1:                                                 __('Schuld van de leerling of klant');
+            case 2:                                                 __('Schuld van de student-docent');
+            default: return                                         __('Onbekend');
+        }
+    }
+
+
+
+    public static function getReasonCancelData() {
+
+        return [
+            1                                                       => self::getReasonCancelText(1),
+            2                                                       => self::getReasonCancelText(2)
         ];
     }
 

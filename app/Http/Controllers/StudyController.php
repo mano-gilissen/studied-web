@@ -182,6 +182,8 @@ class StudyController extends Controller {
 
         self::form_set_ac_data_location($data, $study);
 
+        self::form_set_ac_data_reason_cancel($data);
+
 
 
         return view(Views::FORM_STUDY_EDIT, $data);
@@ -335,6 +337,14 @@ class StudyController extends Controller {
         }
 
         $data[Key::AUTOCOMPLETE_DATA . Model::$STUDY_STATUS]                = Format::encode($ac_data);
+    }
+
+
+
+    public function form_set_ac_data_reason_cancel(&$data) {
+
+        $data[Key::AUTOCOMPLETE_DATA . Model::$STUDY_REASON_CANCEL]         = Format::encode(StudyTrait::getReasonCancelData());
+
     }
 
 
