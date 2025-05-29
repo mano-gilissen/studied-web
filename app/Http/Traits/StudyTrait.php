@@ -280,7 +280,7 @@ trait StudyTrait {
         if (array_key_exists(Model::$STUDY_STATUS, $data) && ($data[Key::AUTOCOMPLETE_ID . Model::$STUDY_STATUS] == self::$STATUS_CANCELLED)) {
 
             $rules[Model::$STUDY_REASON_CANCEL]                     = ['required'];
-            $rules[Model::$STUDY_EXPLANATION_CANCEL]                = ['required, min:10, max:999'];
+            $rules[Model::$STUDY_EXPLANATION_CANCEL]                = ['required, max:999'];
 
         }
 
