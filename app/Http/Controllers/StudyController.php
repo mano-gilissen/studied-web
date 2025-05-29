@@ -1307,10 +1307,23 @@ class StudyController extends Controller {
 
             $group                                                      = $study->getParticipants_User->count() > 1;
 
-            if (!in_array($study->{Model::$STUDY_STATUS}, [StudyTrait::$STATUS_REPORTED, StudyTrait::$STATUS_ABSENT])) {
+            if (!in_array($study->{Model::$STUDY_STATUS}, [
+                StudyTrait::$STATUS_REPORTED,
+                StudyTrait::$STATUS_ABSENT,
+                StudyTrait::$STATUS_CANCELLED
+            ])) {
 
                 continue;
 
+            }
+
+            if ($study->{Model::$STUDY_STATUS} == StudyTrait::$STATUS_CANCELLED) {
+
+                if ($study->{Model::$STUDY_REASON_CANCEL} == StudyTrait::$REASON_CANCEL_STUDIED) {
+
+                    continue;
+
+                }
             }
 
             foreach ($study->getAgreements as $agreement) {
@@ -1474,10 +1487,23 @@ class StudyController extends Controller {
 
         foreach ($studies as $study) {
 
-            if (!in_array($study->{Model::$STUDY_STATUS}, [StudyTrait::$STATUS_REPORTED, StudyTrait::$STATUS_ABSENT])) {
+            if (!in_array($study->{Model::$STUDY_STATUS}, [
+                StudyTrait::$STATUS_REPORTED,
+                StudyTrait::$STATUS_ABSENT,
+                StudyTrait::$STATUS_CANCELLED
+            ])) {
 
                 continue;
 
+            }
+
+            if ($study->{Model::$STUDY_STATUS} == StudyTrait::$STATUS_CANCELLED) {
+
+                if ($study->{Model::$STUDY_REASON_CANCEL} == StudyTrait::$REASON_CANCEL_STUDIED) {
+
+                    continue;
+
+                }
             }
 
             if (!array_key_exists($study->{Model::$STUDY_HOST_USER}, $rows)) {

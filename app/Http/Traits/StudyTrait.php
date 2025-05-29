@@ -37,7 +37,10 @@ trait StudyTrait {
         $STATUS_FINISHED                                            = 3,
         $STATUS_REPORTED                                            = 4,
         $STATUS_CANCELLED                                           = 5,
-        $STATUS_ABSENT                                              = 6;
+        $STATUS_ABSENT                                              = 6,
+
+        $REASON_CANCEL_CUSTOMER                                     = 1,
+        $REASON_CANCEL_STUDIED                                      = 2;
 
 
 
@@ -280,7 +283,7 @@ trait StudyTrait {
         if (array_key_exists(Model::$STUDY_STATUS, $data) && ($data[Key::AUTOCOMPLETE_ID . Model::$STUDY_STATUS] == self::$STATUS_CANCELLED)) {
 
             $rules[Model::$STUDY_REASON_CANCEL]                     = ['required'];
-            $rules[Model::$STUDY_EXPLANATION_CANCEL]                = ['required','min:10','max:999'];
+            $rules[Model::$STUDY_EXPLANATION_CANCEL]                = ['required', 'min:10', 'max:999'];
 
         }
 
@@ -566,8 +569,8 @@ trait StudyTrait {
 
         switch ($reason) {
 
-            case 1:                                                 return __('Schuld van de leerling of klant');
-            case 2:                                                 return __('Schuld van de student-docent');
+            case self::$REASON_CANCEL_CUSTOMER:                     return __('Schuld van de leerling of klant');
+            case self::$REASON_CANCEL_STUDIED:                      return __('Schuld van de student-docent');
             default:                                                return __('Onbekend');
         }
     }
@@ -577,8 +580,8 @@ trait StudyTrait {
     public static function getReasonCancelData() {
 
         return [
-            1                                                       => self::getReasonCancelText(1),
-            2                                                       => self::getReasonCancelText(2)
+            self::$REASON_CANCEL_CUSTOMER                           => self::getReasonCancelText(self::$REASON_CANCEL_CUSTOMER),
+            self::$REASON_CANCEL_STUDIED                            => self::getReasonCancelText(self::$REASON_CANCEL_STUDIED)
         ];
     }
 
