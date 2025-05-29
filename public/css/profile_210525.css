@@ -92,7 +92,7 @@
 }
 
 .agreements .button-agreements-desktop {
-    display:                            block
+    display:                            block;
 }
 
 .agreements .button-agreements-mobile {
@@ -282,7 +282,8 @@
         width: 100%;
     }
 
-    .agreements .button-agreements-desktop {
+    .agreements .button-agreements-desktop,
+    .agreements .button-agreements-desktop.visible {
         display: none;
     }
 
