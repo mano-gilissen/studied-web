@@ -61,6 +61,8 @@
 
                         <img class="icon" src="/images_app/statistics.svg">
 
+                        <div class="text">{{ __('Statistieken') }}</div>
+
                     </div>
 
                     <div id="filters">
