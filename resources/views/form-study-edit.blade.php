@@ -27,7 +27,7 @@
 
             if ($('#_status').val() === '5') {
 
-                $('#reason_cancel-field, #explanation_cancel-field').show();
+                $('#reason_cancel-field, #explanation_cancel-field').css('display', 'flex');
 
             } else {
 
