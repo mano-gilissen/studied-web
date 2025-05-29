@@ -1398,7 +1398,7 @@ class StudyController extends Controller {
         $range_date_start                                               = date('Y-m-d H:i:s', 0);
         $range_date_end                                                 = date('Y-m-d H:i:s');
 
-        if (array_key_exists(self::$COLUMN_DATE, $filter)) {
+        if ($filter && array_key_exists(self::$COLUMN_DATE, $filter)) {
 
             $range_date_start                                           = substr($filter[self::$COLUMN_DATE], 0, 10);
             $range_date_end                                             = substr($filter[self::$COLUMN_DATE], 11, 10);
