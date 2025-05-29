@@ -299,7 +299,7 @@ function autocomplete(input, data, additional, reject_other, show_all, show_alwa
 
             case TRIGGER_FILTER:
                 filter(key, identifier);
-                break;git pull && sleep 1 && ph
+                break;
 
             case TRIGGER_STUDY_CANCEL:
                 study_cancel_reason();
