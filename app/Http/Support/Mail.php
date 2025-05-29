@@ -8,6 +8,7 @@ use App\Http\Mail\Agreement_Approved_Customer;
 use App\Http\Mail\Agreement_Created_Employee;
 use App\Http\Mail\Agreement_Extended_Employee;
 use App\Http\Mail\Agreement_Finished_Employee;
+use App\Http\Mail\Agreement_Reminder_Management;
 use App\Http\Mail\Evaluation_Created_Customer;
 use App\Http\Mail\Evaluation_Created_Employee;
 use App\Http\Mail\Evaluation_Created_Host;
@@ -101,6 +102,16 @@ class Mail {
         $recipient                                          = $user->{Model::$USER_EMAIL};
 
         self::mailTo($mail, $recipient, $user->{Model::$USER_LANGUAGE});
+    }
+
+
+
+    public static function agreementReminder_forManagement($agreement) {
+
+        $mail                                               = new Agreement_Reminder_Management($agreement);
+        $recipients                                         = ['mano.gilissen@gmail.com'];//, 'b.jennissen@studied.nl', 'sales@studied.nl'];
+
+        self::mailTo($mail, $recipients);
     }
 
 

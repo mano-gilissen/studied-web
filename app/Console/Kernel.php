@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Http\Controllers\UserController;
+use App\Http\Traits\AgreementTrait;
 use App\Http\Traits\StudyTrait;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -23,15 +24,13 @@ class Kernel extends ConsoleKernel {
             ->emailOutputOnFailure('mano.gilissen@gmail.com');
 
         $schedule
-            ->call(function() {
-
-                if (StudyTrait::scheduled_report_weekly()) {
-
-                    \Log::info('Weekly report has been sent to management.');
-
-                }
-            })
+            ->call(function() { StudyTrait::scheduled_report_weekly(); })
             ->weeklyOn(1, '0:01')
+            ->emailOutputOnFailure('mano.gilissen@gmail.com');
+
+        $schedule
+            ->call(function() { AgreementTrait::plan_reminders_losse_lessen(); })
+            ->dailyAt(1, '12:00')
             ->emailOutputOnFailure('mano.gilissen@gmail.com');
     }
 

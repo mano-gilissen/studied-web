@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Mail\Study_Planned_Student;
 use App\Http\Support\Func;
+use App\Http\Traits\AgreementTrait;
 use App\Http\Traits\StudyTrait;
 use App\Models\Study;
 use App\Models\Subject;
@@ -109,6 +110,14 @@ class DebugController extends Controller {
     public function report_weekly_test() {
 
         StudyTrait::scheduled_report_weekly();
+
+    }
+
+
+
+    public function agreement_reminder_plan_test() {
+
+        AgreementTrait::plan_reminders_losse_lessen();
 
     }
 

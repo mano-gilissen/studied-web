@@ -64,7 +64,8 @@ class Model {
         $AGREEMENT_REMARK                               = 'remark',
         $AGREEMENT_PREFERENCE_LOCATION                  = 'preference_location',
         $AGREEMENT_PREFERENCE_GROUP                     = 'preference_group',
-        $AGREEMENT_EXTENSION                            = 'extension';
+        $AGREEMENT_EXTENSION                            = 'extension',
+        $AGREEMENT_PLAN_REMINDER_SENT                   = 'plan_reminder_sent';
 
 
 

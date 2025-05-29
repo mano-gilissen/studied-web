@@ -484,4 +484,28 @@ trait AgreementTrait {
 
 
 
+    public static function plan_reminders_losse_lessen() {
+
+        $agreements                                            = Agreement::where(Model::$AGREEMENT_PLAN, self::$PLAN_LOSSE_LESSEN)
+                                                                          ->where(Model::$AGREEMENT_PLAN_REMINDER_SENT, false)
+                                                                          ->where(Model::$AGREEMENT_START, '<=', date(Format::$DATABASE_DATETIME, strtotime('-1 week')))
+                                                                          ->get();
+
+        foreach ($agreements as $agreement) {
+
+            if ($agreement->getStudies->count() > 0) {
+
+                continue;
+
+            }
+
+            Mail::agreementReminder_forManagement($agreement);
+
+            $agreement->{Model::$AGREEMENT_PLAN_REMINDER_SENT} = true;
+            $agreement->save();
+        }
+    }
+
+
+
 }

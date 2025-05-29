@@ -240,6 +240,8 @@ Route::get('/schedule_test/activate_reminder',              'DebugController@act
 
 Route::get('/schedule_test/report_weekly',                  'DebugController@report_weekly_test')->name('report_weekly_test');
 
+Route::get('/schedule_test/agreement_reminder_plan',        'DebugController@agreement_reminder_plan_test')->name('agreement_reminder_plan_test');
+
 
 
 

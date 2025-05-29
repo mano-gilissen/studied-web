@@ -48,6 +48,7 @@ class CreateSchemaFromDdl extends Migration
                 $table->integer('preference_group')->default(1)->nullable();
                 $table->string('remark', 999)->nullable();
                 $table->integer('evaluation')->nullable();
+                $table->boolean('plan_reminder_sent')->default(false);
                 $table->timestamps();
                 $table->softDeletes();
             });
