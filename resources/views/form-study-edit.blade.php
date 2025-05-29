@@ -25,6 +25,8 @@
 
         function form_study_status_change() {
 
+            console.log('asdfasd');
+
             if ($(this).val() === 5) {
 
                 $('#reason_cancel-field, #explanation_cancel-field').show();
