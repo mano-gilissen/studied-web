@@ -4,6 +4,7 @@
 const TRIGGER_AGREEMENTS                            = "agreements";
 const TRIGGER_AGREEMENT_EXTEND                      = "agreement_extend";
 const TRIGGER_FILTER                                = "filter";
+const TRIGGER_STUDY_CANCEL                          = "study_cancel";
 
 
 
@@ -299,6 +300,9 @@ function autocomplete(input, data, additional, reject_other, show_all, show_alwa
             case TRIGGER_FILTER:
                 filter(key, identifier);
                 break;
+
+            case TRIGGER_STUDY_CANCEL:
+                study_cancel_reason();
         }
     }
 

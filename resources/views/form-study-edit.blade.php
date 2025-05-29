@@ -23,7 +23,7 @@
 
     <script>
 
-        function form_study_status_change() {
+        function study_cancel_reason() {
 
             console.log('asdfasd');
 
@@ -78,7 +78,7 @@
         'reject_other' => true,
         'uses_id' => true,
 
-        'trigger' => 'form_study_status_change',
+        'trigger' => 'study_cancel',
         'locked' => \App\Http\Traits\StudyTrait::isReported($study),
         'set_id' => $study->{\App\Http\Support\Model::$STUDY_STATUS}
     ])
