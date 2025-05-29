@@ -44,7 +44,8 @@
     opacity:                            .2;
 }
 
-#actions #button-sort {
+#actions #button-sort,
+#actions #button-counters {
     display: none;
 }
 
@@ -234,8 +235,8 @@
     .top {
         display: grid;
         grid-auto-flow: row;
-        grid-template-areas: "counters" "search" "actions";
-        padding: 0 24px 0;
+        grid-template-areas: "actions" "search";
+        padding: 0 24px 24px;
     }
 
 
@@ -261,6 +262,12 @@
         margin-right: 8px;
     }
 
+    #actions #button-counters {
+        display: block;
+        background: #4D4D4D;
+        color: white;
+    }
+
     #actions #filters {
         flex-wrap: wrap;
         row-gap: 12px;
@@ -272,17 +279,17 @@
 
     #search-wrap {
         grid-area: search;
-        margin: 0 0 32px;
+        margin: 24px 0 0;
+    }
+
+    #loader-list {
+        margin: 4px 0 0 4px;
     }
 
 
 
     #counters {
-        grid-area: counters;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        margin: 0 0 8px;
-        height: 56px;
+        display: none;
     }
 
     #counters .counter {
@@ -296,10 +303,18 @@
         margin-left: 8px;
     }
 
+    #counters img {
+        width: 32px;
+        height: 32px;
+        padding: 8px;
+        margin-left: auto;
+    }
+
 
 
     #filters-mobile,
-    #sort-mobile {
+    #sort-mobile,
+    #counters {
         display: none;
         position: absolute;
         place-items: center;
@@ -351,7 +366,8 @@
 
     #filters-mobile-pick,
     #sort-mobile-pick,
-    #sort-mobile-direction {
+    #sort-mobile-direction,
+    #counters-mobile {
         background: white;
         width: 100%;
     }
@@ -382,8 +398,8 @@
 
 
     #items {
-        margin: 8px 0 0;
-        padding: 40px 24px 0;
+        margin: 0;
+        padding: 8px 24px 0;
     }
 
     #items .item {

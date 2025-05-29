@@ -502,6 +502,8 @@ class CustomerController extends Controller {
         $sort                                                               = $request->input(Table::DATA_SORT, null);
         $filter                                                             = $request->input(Table::DATA_FILTER, null);
         $search                                                             = $request->input(Table::DATA_SEARCH, null);
+        $mobile                                                             = $request->input(Table::DATA_LAYOUT, 'desktop');
+        $suffix                                             = $mobile == 'mobile' ? '-mobile' : '';
 
         $query                                                              = Table::query($this, $sort, $filter, $search);
         $counters                                                           = [];
@@ -515,7 +517,7 @@ class CustomerController extends Controller {
                 ->count()
         ]);
 
-        return view(Views::LOAD_COUNTERS, [
+        return view(Views::LOAD_COUNTERS . $suffix, [
 
             Table::VIEW_COUNTERS                                            => $counters
 

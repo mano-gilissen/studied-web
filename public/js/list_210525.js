@@ -424,3 +424,21 @@ function filter_input(column) {
     $('#filter_' + column)                  .show();
     $('#filter_input_' + column)            .focus();
 }
+
+
+
+
+
+function counters_mobile_open() {
+
+    $(OBJECT_COUNTERS).show();
+
+}
+
+
+
+function counters_mobile_close() {
+
+    $(OBJECT_COUNTERS).hide();
+
+}

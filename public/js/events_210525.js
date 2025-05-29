@@ -20,8 +20,8 @@ const OBJECT_BUTTON_LOAD_MORE                   = '#button-load-more';
 const OBJECT_LIST                               = '#list';
 const OBJECT_ITEMS                              = '#items';
 const OBJECT_HEADERS                            = '#headers';
-const OBJECT_COUNTERS                           = '#counters';
 const OBJECT_ACTIONS                            = '#actions';
+const OBJECT_COUNTERS                           = '#counters';
 const OBJECT_AGREEMENTS                         = '#agreements';
 
 const OBJECT_FILTERS                            = '#filters';
