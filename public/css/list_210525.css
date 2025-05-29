@@ -264,8 +264,15 @@
 
     #actions #button-counters {
         display: block;
-        background: #4D4D4D;
-        color: white;
+        background: #E6E6E6;
+        width: 40px;
+        padding: 6px 10px;
+    }
+
+    #actions #button-counters .icon {
+        height: 20px;
+        width: 20px;
+        margin: 0;
     }
 
     #actions #filters {
