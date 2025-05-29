@@ -264,9 +264,8 @@
 
     #actions #button-counters {
         display: block;
-        background: #E6E6E6;
-        width: 40px;
-        padding: 6px 10px;
+        background: transparent;
+        padding: 6px;
     }
 
     #actions #button-counters .icon {

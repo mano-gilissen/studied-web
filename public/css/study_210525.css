@@ -129,7 +129,7 @@
     #column {
         width:                          100%;
         margin: 0;
-        padding: 80px 24px 48px;
+        padding: 80px 16px 48px;
         overflow-x: hidden;
     }
 
@@ -138,7 +138,7 @@
     }
 
     #content {
-        padding: 0 8px
+        padding: 0 8px;
     }
 
     .block-users {
