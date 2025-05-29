@@ -1,8 +1,8 @@
 <div class="buttons">
 
-    <img class="button" id="button-previous" src="/images_app/back.svg"/>
+    <img class="button button-previous" src="/images_app/back.svg"/>
 
-    <img class="button" id="button-next" src="/images_app/forward.svg"/>
+    <img class="button button-next" src="/images_app/forward.svg"/>
 
 </div>
 
