@@ -47,7 +47,10 @@ class Agreement_Reminder_Management extends Mailable {
     public function build() {
 
         return $this
-            ->view('email.agreement_reminder_management', ['agreement' => $this->agreement])
+            ->view('email.agreement_reminder_management', [
+                'agreement' => $this->agreement,
+                'employee'  => $this->employee,
+                'student'   => $this->student])
             ->subject($this->subject);
     }
 
