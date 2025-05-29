@@ -299,21 +299,36 @@
         display: none;
     }
 
+    #counters-mobile {
+        display: grid;
+        padding: 32px 32px 16px;
+    }
+
     #counters .counter {
-        display: flex;
-        margin-left: 0;
-        margin-bottom: 10px;
+        display: grid;
+        grid-auto-flow: column;
+        margin: 0 0 24px 0;
+        grid-template-columns: 2fr 1fr;
+        font-size: 16px;
+        width: 100%;
     }
 
     #counters .counter .value {
-        font-size: 14px;
         margin-left: 8px;
     }
 
-    #counters img {
-        width: 32px;
-        height: 32px;
-        padding: 8px;
+    #counters-mobile-top {
+        margin-bottom: 40px;
+    }
+
+    #counters-mobile-top .title {
+        font-size: 18px;
+    }
+
+    #counters-mobile-top img {
+        width: 24px;
+        height: 24px;
+        padding: 0;
         margin-left: auto;
     }
 

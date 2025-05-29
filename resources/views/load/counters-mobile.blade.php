@@ -1,6 +1,12 @@
 <div id="counters-mobile">
 
-    <img src="/images_app/close-black.svg" onclick="counters_mobile_close()">
+    <div id="counters-mobile-top">
+
+        <div class="title">{{ __('Statistieken') }}</div>
+
+        <img src="/images_app/close-black.svg" onclick="counters_mobile_close()">
+
+    </div>
 
     @foreach($counters as $counter)
 

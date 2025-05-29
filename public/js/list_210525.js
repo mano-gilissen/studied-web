@@ -431,7 +431,7 @@ function filter_input(column) {
 
 function counters_mobile_open() {
 
-    $(OBJECT_COUNTERS).show();
+    $(OBJECT_COUNTERS).css('display', 'grid');
 
 }
 
