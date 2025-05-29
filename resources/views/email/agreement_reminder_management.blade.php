@@ -7,7 +7,7 @@
             {{ __('Hi team,') }}
             <br><br>
             {!! 'Vakafspraak ' . $agreement->identifier . ' (losse lessen) van '
-            . PersonTrait::getFullName($employee->getPerson) . ' heeft na 7 dagen nog geen lessen ingepland. '
+            . \App\Http\Traits\PersonTrait::getFullName($employee->getPerson) . ' heeft na 7 dagen nog geen lessen ingepland. '
             . 'Klik <a href="' .  route('agreement.view', ['identifier' => $agreement->identifier]) . '">hier</a> om naar deze vakafspraak te gaan.' !!}
             <br><br><br>
             {{ __('Groeten,') }}
