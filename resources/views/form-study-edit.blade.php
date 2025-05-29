@@ -25,9 +25,7 @@
 
         function study_cancel_reason() {
 
-            console.log('asdfasd');
-
-            if ($('#_status').val() === 5) {
+            if ($('#_status').val() === '5') {
 
                 $('#reason_cancel-field, #explanation_cancel-field').show();
 
