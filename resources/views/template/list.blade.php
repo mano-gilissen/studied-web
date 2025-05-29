@@ -59,7 +59,7 @@
 
                     <div id="button-counters" class="button icon" onclick="counters_mobile_open()">
 
-                        <img class="icon" src="/images_app/statistics-2.svg">
+                        <img class="icon" src="/images_app/statistics.svg">
 
                     </div>
 
