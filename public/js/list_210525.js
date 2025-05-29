@@ -113,6 +113,8 @@ $(function() {
 function load() {
 
     $(OBJECT_LOADER)                        .css('display', 'block');
+    $(OBJECT_BUTTON_COUNTERS)               .css('opacity', '0.5').css('pointer-events', 'none');
+
     let layout                              = (window.innerWidth <= 840) ? 'mobile' : 'desktop';
 
     $(OBJECT_LIST).load('/load/' + data_type + '/list', {
@@ -139,6 +141,7 @@ function load() {
 
     }, function() {
 
+        $(OBJECT_BUTTON_COUNTERS)           .css('opacity', '1').css('pointer-events', 'auto');
         set_visibility_load_more();
 
     });
