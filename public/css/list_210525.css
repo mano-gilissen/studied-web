@@ -263,6 +263,11 @@
         margin: 0 8px 0 2px;
     }
 
+    #actions #button-counters {
+        background: #E6E6E6;
+        color: black;
+    }
+
     #actions #filters {
         flex-wrap: wrap;
         row-gap: 12px;
