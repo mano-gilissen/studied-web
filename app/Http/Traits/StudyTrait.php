@@ -566,9 +566,9 @@ trait StudyTrait {
 
         switch ($reason) {
 
-            case 1:                                                 __('Schuld van de leerling of klant');
-            case 2:                                                 __('Schuld van de student-docent');
-            default: return                                         __('Onbekend');
+            case 1:                                                 return __('Schuld van de leerling of klant');
+            case 2:                                                 return __('Schuld van de student-docent');
+            default:                                                return __('Onbekend');
         }
     }
 
