@@ -120,16 +120,16 @@
     background:                         #E6E6E6;
 }
 
-.agreements .button-agreements-desktop #button-previous {
+.agreements .button-agreements-desktop .button-previous {
     margin-left:                        -60px;
     margin-right:                       28px;
 }
 
-.agreements .button-agreements-desktop #button-next {
+.agreements .button-agreements-desktop .button-next {
     margin-right:                       -60px;
 }
 
-.agreements .button-agreements-mobile #button-next {
+.agreements .button-agreements-mobile .button-next {
     margin-left: 16px;
 }
 

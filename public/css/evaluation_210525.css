@@ -84,8 +84,8 @@
     overflow-x:                         hidden;
 }
 
-.agreements #button-previous,
-.agreements #button-next {
+.agreements .button-previous,
+.agreements .button-next {
     width:                              32px;
     height:                             32px;
     border-radius:                      16px;
@@ -95,17 +95,17 @@
     pointer-events:                     all;
 }
 
-.agreements #button-previous:hover,
-.agreements #button-next:hover {
+.agreements .button-previous:hover,
+.agreements .button-next:hover {
     background:                         #E6E6E6;
 }
 
-.agreements #button-previous {
+.agreements .button-previous {
     margin-left:                        -60px;
     margin-right:                       28px;
 }
 
-.agreements #button-next {
+.agreements .button-next {
     margin-right:                       -60px;
 }
 

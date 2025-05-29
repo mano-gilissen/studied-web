@@ -1287,8 +1287,11 @@ class StudyController extends Controller {
                     break;
 
                 case StudyTrait::$STATUS_CANCELLED:
-                case StudyTrait::$STATUS_ABSENT:
+                    $subjects                               = $study->{Model::$STUDY_SUBJECT_TEXT};
+                    $status                                .= ' door ' . ($study->{Model::$STUDY_REASON_CANCEL} == StudyTrait::$REASON_CANCEL_STUDIED ? __('Studied') : __('klant'));
+                    break;
 
+                case StudyTrait::$STATUS_ABSENT:
                     $subjects                               = $study->{Model::$STUDY_SUBJECT_TEXT};
                     break;
             }

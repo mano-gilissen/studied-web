@@ -37,13 +37,13 @@ $(function() {
 
 
 
-    $(OBJECT_BUTTON_PREVIOUS).on('click', function () {
+    $(CLASS_BUTTON_PREVIOUS).on('click', function () {
 
         profile_agreements_set_active(-1);
 
     });
 
-    $(OBJECT_BUTTON_NEXT).on('click', function () {
+    $(CLASS_BUTTON_NEXT).on('click', function () {
 
         profile_agreements_set_active(1);
 
@@ -89,10 +89,10 @@ function profile_agreements_set_active(index) {
 
 function profile_agreements_render(movement = false) {
 
-    buttons                                     = $(OBJECT_BUTTON_PREVIOUS + ', ' + OBJECT_BUTTON_NEXT);
+    buttons                                     = $(CLASS_BUTTON_PREVIOUS + ', ' + CLASS_BUTTON_NEXT);
 
-    button_previous                             = $(OBJECT_BUTTON_PREVIOUS);
-    button_next                                 = $(OBJECT_BUTTON_NEXT);
+    button_previous                             = $(CLASS_BUTTON_PREVIOUS);
+    button_next                                 = $(CLASS_BUTTON_NEXT);
 
     buttons                                     .removeClass(ATTR_VISIBLE);
 

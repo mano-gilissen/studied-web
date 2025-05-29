@@ -23,13 +23,13 @@ $(function(){
 
 
 
-    $(OBJECT_FORM).on('click', OBJECT_BUTTON_PREVIOUS, function() {
+    $(OBJECT_FORM).on('click', CLASS_BUTTON_PREVIOUS, function() {
 
         study_agreements_set_active(-1);
 
     });
 
-    $(OBJECT_FORM).on('click', OBJECT_BUTTON_NEXT, function() {
+    $(OBJECT_FORM).on('click', CLASS_BUTTON_NEXT, function() {
 
         study_agreements_set_active(1);
 
@@ -147,8 +147,8 @@ function study_agreements_render(movement = false) {
 
     buttons                                         = $(CLASS_BUTTON);
 
-    button_previous                                 = $(OBJECT_BUTTON_PREVIOUS);
-    button_next                                     = $(OBJECT_BUTTON_NEXT);
+    button_previous                                 = $(CLASS_BUTTON_PREVIOUS);
+    button_next                                     = $(CLASS_BUTTON_NEXT);
 
     buttons                                         .removeClass(ATTR_VISIBLE);
     buttons                                         .removeClass(ATTR_SOLO);

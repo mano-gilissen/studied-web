@@ -210,8 +210,8 @@ html, body {
     background:                         #FFE45B;
 }
 
-.agreements .buttons #button-next.solo,
-.agreements .buttons #button-previous {
+.agreements .buttons .button-next.solo,
+.agreements .buttons .button-previous {
     margin-left:                        auto;
 }
 
