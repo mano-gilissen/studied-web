@@ -6,8 +6,8 @@
 
     <style>
 
-        #reason_cancel,
-        #explanation_cancel {
+        #reason_cancel-field,
+        #explanation_cancel-field {
 
             display: {{ $study->{\App\Http\Support\Model::$STUDY_STATUS} == 5 ? 'block' : 'none' }};
 
@@ -27,11 +27,11 @@
 
             if ($(this).val() === 5) {
 
-                $('#reason_cancel, #explanation_cancel').show();
+                $('#reason_cancel-field, #explanation_cancel-field').show();
 
             } else {
 
-                $('#reason_cancel, #explanation_cancel').hide();
+                $('#reason_cancel-field, #explanation_cancel-field').hide();
 
             }
         });
