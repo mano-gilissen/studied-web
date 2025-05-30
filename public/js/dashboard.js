@@ -41,6 +41,8 @@ var graph_studies_canvas                                    = null;
 var graph_revenue_chart                                     = null;
 var graph_studies_chart                                     = null;
 
+var LABELS_MONTHS                                           = ['Jan', 'Feb', 'Mrt', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'];
+
 
 
 
@@ -256,7 +258,7 @@ function graph_move(view_token, data_token, index) {
 
 function graph_callback_ticks_x(value, index, ticks, type) {
 
-    return Object.keys(graph_data[type])[index];
+    return LABELS_MONTHS[index];
 
 }
 
@@ -274,7 +276,7 @@ function graph_callback_tooltip_title(canvas, type) {
 
     const index = canvas[0].parsed.x;
 
-    return Object.keys(graph_data[type])[index];
+    return LABELS_MONTHS[index];
 }
 
 
