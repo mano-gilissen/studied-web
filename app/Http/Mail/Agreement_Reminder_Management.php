@@ -39,7 +39,7 @@ class Agreement_Reminder_Management extends Mailable {
         $this->employee                     = User::find($agreement->employee);
         $this->student                      = User::find($agreement->student);
         $this->subject                      = 'Vakafspraak ' . $this->agreement->identifier . ' van '
-                                            . PersonTrait::getFullName($this->employee->getPerson) . ' heeft na 7 dagen nog geen lessen ingepland.';
+                                            . PersonTrait::getFullName($this->employee->getPerson) . ' heeft na 7 dagen nog geen lessen ingepland';
     }
 
 
