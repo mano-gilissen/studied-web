@@ -29,8 +29,8 @@ var graph_data_all = {
             '2025': [34, 56, 78, 90, 123, 145, 55, 32, 62, 23, 42, 12],
         },
         'verzuimd': {
-            '2024': [76, 107, 90, 124, 179, 223, 245, 178, 194, 78, 74, 74],
-            '2025': [77, 112, 146, 201, 213, 178, 194, 78, 74, 74, 65, 76],
+            '2024': [6, 12, 18, 24, 30, 36, 42, 48, 54, 60, 66, 72],
+            '2025': [12, 18, 24, 30, 36, 42, 48, 54, 60, 66, 72, 78],
         },
     }
 };
@@ -181,7 +181,7 @@ function graph_options(type) {
             y: {
                 beginAtZero: true,
                 ticks: {
-                    align: 'start',
+                    align: 'center',
                     maxTicksLimit: 6,
                     padding: 8,
                     includeBounds: true,
@@ -197,6 +197,7 @@ function graph_options(type) {
                 }
             },
             x: {
+                barPercentage: 0,
                 ticks: {
                     color: '#000000',
                     align: 'center',
