@@ -4,11 +4,14 @@
 }
 
 .graph {
-    height: 400px;
     width: 100%;
     background: #f3f3f3;
     padding: 32px;
     margin-bottom: 32px;
+}
+
+.graph canvas {
+    height: 300px;
 }
 
 .graph-options {
