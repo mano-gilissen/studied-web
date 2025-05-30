@@ -6,7 +6,7 @@
 
         <div class="graph-options">
 
-            @foreach($data as $year)
+            @foreach(/*$data*/[2024, 2025] as $year)
 
                 <div class="option {{ $loop->last ? 'selected' : '' }}" onclick="module_graphs_statistics__set_year('revenue', {{ $year }})">{{ $year }}</div>
 
@@ -28,7 +28,7 @@
 
         <div class="graph-options">
 
-            @foreach($data as $year)
+            @foreach(/*$data*/[2024, 2025] as $year)
 
                 <div class="option {{ $loop->last ? 'selected' : '' }}" onclick="module_graphs_statistics__set_year('revenue', {{ $year }})">{{ $year }}</div>
 
