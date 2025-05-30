@@ -245,11 +245,36 @@ function graph_options(type) {
 
 
 
-function graph_move(view_token, data_token, index) {
+function module_graphs_statistics__set_year(type, year) {
 
-    chart.tooltip                                           .setActiveElements([{datasetIndex: 0, index: index,}]);
-    chart                                                   .setActiveElements([{datasetIndex: 0, index: index,}]);
-    chart                                                   .update();
+    switch (type) {
+
+        case 'revenue':
+
+            graph_revenue_year = year;
+
+            if (graph_revenue_chart !== null) {
+                graph_revenue_chart.data.datasets[0].data = graph_data_all['revenue']['losse_lessen'][year];
+                graph_revenue_chart.data.datasets[1].data = graph_data_all['revenue']['structureel'][year];
+                graph_revenue_chart.data.datasets[2].data = graph_data_all['revenue']['totaal'][year];
+                graph_revenue_chart.update();
+            }
+            break;
+
+        case 'studies':
+
+            graph_studies_year = year;
+
+            if (graph_studies_chart !== null) {
+                graph_studies_chart.data.datasets[0].data = graph_data_all['studies']['gerapporteerd'][year];
+                graph_studies_chart.data.datasets[1].data = graph_data_all['studies']['ingepland'][year];
+                graph_studies_chart.data.datasets[2].data = graph_data_all['studies']['geannuleerd'][year];
+                graph_studies_chart.data.datasets[3].data = graph_data_all['studies']['verzuimd'][year];
+                graph_studies_chart.update();
+            }
+            break;
+    }
+
 }
 
 

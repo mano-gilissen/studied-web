@@ -4,12 +4,31 @@
 }
 
 .module {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
     background: #f3f3f3;
     padding: 32px;
 }
 
+.graph {
+    width: 100%;
+}
 
+.graph-options {
+    display: flex;
+    align-items: center;
+    margin: 16px 0 24px;
+}
 
+.graph-options .option {
+    height: 24px;
+    background: #E0e0e0;
+    border-radius: 12px;
+    padding: 2px 12px;
+    margin-right: 8px;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.graph-options .option.selected,
+.graph-options .option:hover {
+    opacity: 1;
+}

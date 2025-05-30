@@ -1,12 +1,12 @@
 <div id="module-graphs_statistics" class="module">
 
-    <div class="left">
+    <div class="graph" style="margin-bottom: 32px">
 
         <div class="title">{{ __('Omzet per maand') }}</div>
 
         <div class="graph-options">
 
-            @foreach(/*$data*/[2024, 2025] as $year)
+            @foreach(/*$years*/[2023, 2024, 2025] as $year)
 
                 <div class="option {{ $loop->last ? 'selected' : '' }}" onclick="module_graphs_statistics__set_year('revenue', {{ $year }})">{{ $year }}</div>
 
@@ -22,13 +22,13 @@
 
     </div>
 
-    <div class="right">
+    <div class="graph">
 
         <div class="title">{{ __('Aantal lessen') }}</div>
 
         <div class="graph-options">
 
-            @foreach(/*$data*/[2024, 2025] as $year)
+            @foreach(/*$years*/[2023, 2024, 2025] as $year)
 
                 <div class="option {{ $loop->last ? 'selected' : '' }}" onclick="module_graphs_statistics__set_year('revenue', {{ $year }})">{{ $year }}</div>
 
