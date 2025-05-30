@@ -331,6 +331,8 @@ trait UserTrait {
 
     public static function hasDashboardTodoModules() {
 
+        return false;
+
         switch (Auth::user()->role) {
 
             case RoleTrait::$ID_ADMINISTRATOR:
