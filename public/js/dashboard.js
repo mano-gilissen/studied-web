@@ -41,8 +41,8 @@ var graph_studies_canvas                                    = null;
 var graph_revenue_chart                                     = null;
 var graph_studies_chart                                     = null;
 
-var graph_revenue_year;
-var graph_studies_year;
+var graph_revenue_year                                      = '2025';
+var graph_studies_year                                      = '2025';
 
 var LABELS_MONTHS                                           = ['Jan', 'Feb', 'Mrt', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'];
 
