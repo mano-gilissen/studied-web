@@ -89,8 +89,7 @@ function graph_create(type, canvas) {
     return new Chart(canvas, {
         type: 'bar',
         data: graph_data(type),
-        options: graph_options(type),
-        plugins: [ graph_plugin_crosshair ]
+        options: graph_options(type)
     });
 }
 
@@ -261,8 +260,15 @@ function graph_move(view_token, data_token, index) {
 
 function graph_callback_ticks_y(value, index, ticks, type) {
 
-    return format_currency(value);
 
+    switch (type) {
+
+        case 'revenue':
+            return format_currency(value);
+
+        case 'studies':
+            return value;
+    }
 }
 
 
