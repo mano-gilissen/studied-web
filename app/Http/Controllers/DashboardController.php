@@ -57,11 +57,11 @@ class DashboardController extends Controller {
             case RoleTrait::$ID_BOARD:
             case RoleTrait::$ID_MANAGEMENT:
                 $modules = [
-                    self::MODULE_TODO_PLAN_LOSSE_LESSEN,
-                    self::MODULE_TODO_DEFICIT_VAKAFSPRAKEN,
+                    //self::MODULE_TODO_PLAN_LOSSE_LESSEN,
+                    //self::MODULE_TODO_DEFICIT_VAKAFSPRAKEN,
                     self::MODULE_GRAPHS_STATISTICS,
-                    self::MODULE_ANNOUNCEMENTS,
-                    self::MODULE_ANNOUNCEMENTS_SEND
+                    //self::MODULE_ANNOUNCEMENTS,
+                    //self::MODULE_ANNOUNCEMENTS_SEND
                 ];
                 break;
 
