@@ -89,7 +89,8 @@ function graph_create(type, canvas) {
     return new Chart(canvas, {
         type: 'bar',
         data: graph_data(type),
-        options: graph_options(type)
+        options: graph_options(type),
+        responsive: true,
     });
 }
 
