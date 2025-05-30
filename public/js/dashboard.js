@@ -110,6 +110,7 @@ function graph_data(type) {
 function graph_data_revenue() {
 
     return {
+        labels: LABELS_MONTHS,
         datasets: [
             {
                 data: graph_data_all['revenue']['losse_lessen'],
@@ -195,10 +196,8 @@ function graph_options(type) {
                 ticks: {
                     color: '#000000',
                     align: 'center',
-                    maxTicksLimit: 12,
                     padding: 8,
                     includeBounds: false,
-                    callback: function(value, index, ticks) { return graph_callback_ticks_x(value, index, ticks, type); }
                 },
                 grid: {
                     display: false
@@ -256,17 +255,9 @@ function graph_move(view_token, data_token, index) {
 
 /**-- Graph callback functions --**/
 
-function graph_callback_ticks_x(value, index, ticks, type) {
-
-    return LABELS_MONTHS[index];
-
-}
-
-
-
 function graph_callback_ticks_y(value, index, ticks, type) {
 
-    return '€ ' + format_currency(value);
+    return format_currency(value);
 
 }
 
@@ -288,7 +279,7 @@ function graph_callback_tooltip_label(canvas, type) {
     switch (type) {
 
         case 'revenue':
-            return '€ ' + format_currency(value) + ' omzet';
+            return format_currency(value) + ' omzet';
 
         case 'studies':
             return value + ' lessen';
