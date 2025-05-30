@@ -14,6 +14,7 @@
 
     <script src="{{ asset('js/graph.js') }}" defer></script>
     <script src="{{ asset('js/dashboard.js') }}"></script>
+    <script src="{{ asset('js/currency.js') }}" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 @endsection
