@@ -197,7 +197,7 @@ function graph_options(type) {
                 }
             },
             x: {
-                barPercentage: 0,
+                barPercentage: 1,
                 ticks: {
                     color: '#000000',
                     align: 'center',
