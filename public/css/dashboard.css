@@ -3,13 +3,12 @@
     margin: 100px auto 128px;
 }
 
-.module {
+.graph {
+    height: 400px;
+    width: 100%;
     background: #f3f3f3;
     padding: 32px;
-}
-
-.graph {
-    width: 100%;
+    margin-bottom: 32px;
 }
 
 .graph-options {
@@ -26,6 +25,7 @@
     margin-right: 8px;
     font-weight: 300;
     cursor: pointer;
+    opacity: .5;
 }
 
 .graph-options .option.selected,

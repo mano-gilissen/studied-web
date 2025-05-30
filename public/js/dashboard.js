@@ -274,7 +274,6 @@ function module_graphs_statistics__set_year(type, year) {
             }
             break;
     }
-
 }
 
 
