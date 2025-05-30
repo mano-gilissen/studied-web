@@ -36,7 +36,7 @@
 
         <div class="wrap">
 
-            @include('block.header-navigation')
+            @include('section.header-navigation')
 
         </div>
 
@@ -106,11 +106,11 @@
 
                 <div class="title">{{ __('Wachtwoord wijzigen') }}</div>
 
-                @include('form.field-hidden', ['id' => 'user', 'value' => $user->{\App\Http\Support\Model::$BASE_ID}])
+                @include('component.field-hidden', ['id' => 'user', 'value' => $user->{\App\Http\Support\Model::$BASE_ID}])
 
-                @include('form.field-input', ['id' => 'password', 'type' => 'password', 'tag' => __('Wachtwoord'), 'placeholder' => __('Kies een wachtwoord'), 'required' => true, 'max' => 30])
+                @include('component.field-input', ['id' => 'password', 'type' => 'password', 'tag' => __('Wachtwoord'), 'placeholder' => __('Kies een wachtwoord'), 'required' => true, 'max' => 30])
 
-                @include('form.field-input', ['id' => 'password_confirmation', 'type' => 'password', 'tag' => __('Wachtwoord bevestigen'), 'placeholder' => __('Typ je wachtwoord opnieuw'), 'required' => true, 'max' => 30])
+                @include('component.field-input', ['id' => 'password_confirmation', 'type' => 'password', 'tag' => __('Wachtwoord bevestigen'), 'placeholder' => __('Typ je wachtwoord opnieuw'), 'required' => true, 'max' => 30])
 
                 <button class="button" id="button-submit" type="submit">
 

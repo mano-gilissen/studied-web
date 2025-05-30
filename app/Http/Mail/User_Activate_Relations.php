@@ -45,7 +45,7 @@ class User_Activate_Relations extends Mailable {
 
     public function build() {
 
-        return $this->view('email.user_activate_relations')->subject($this->subject);
+        return $this->view('mail.user_activate_relations')->subject($this->subject);
 
     }
 

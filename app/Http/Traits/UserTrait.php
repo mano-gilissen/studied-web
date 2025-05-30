@@ -329,6 +329,25 @@ trait UserTrait {
 
 
 
+    public static function hasDashboardTodoModules() {
+
+        switch (Auth::user()->role) {
+
+            case RoleTrait::$ID_ADMINISTRATOR:
+            case RoleTrait::$ID_BOARD:
+            case RoleTrait::$ID_MANAGEMENT:
+            case RoleTrait::$ID_EMPLOYEE:
+                return true;
+
+            case RoleTrait::$ID_STUDENT:
+            case RoleTrait::$ID_CUSTOMER:
+            default:
+                return false;
+        }
+    }
+
+
+
 
 
 }

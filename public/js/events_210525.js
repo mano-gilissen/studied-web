@@ -271,3 +271,11 @@ function set_language(language) {
         }
     });
 }
+
+
+
+function format_currency(value) {
+
+    return currency(value, { symbol: "€", separator: ".", decimal: "," }).format();
+
+}

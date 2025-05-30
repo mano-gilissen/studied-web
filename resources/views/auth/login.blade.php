@@ -30,7 +30,7 @@
 
 
 
-            @include('form.box-input', ['id'                    => 'email',
+            @include('component.box-input', ['id'                    => 'email',
                                         'type'                  => 'email',
                                         'placeholder'           => __('Email adres'),
                                         'value'                 => old('email'),
@@ -38,7 +38,7 @@
 
 
 
-            @include('form.box-input', ['id_box'                => 'box-input-password',
+            @include('component.box-input', ['id_box'                => 'box-input-password',
                                         'id'                    => 'password',
                                         'type'                  => 'password',
                                         'placeholder'           => __('Wachtwoord'),

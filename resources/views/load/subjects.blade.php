@@ -4,7 +4,7 @@
 
         @if ($time_available <= 180)
 
-            @include('form.field-report-subject', ['id' => 1, 'time_available' => $time_available, 'primary' => true])
+            @include('component.field-report-subject', ['id' => 1, 'time_available' => $time_available, 'primary' => true])
 
             <div class="seperator small"></div>
 
@@ -16,7 +16,7 @@
 
             <div id="secondary-{{ $user->id }}" style="display: {{ $report && $report->getReport_Subjects->count() > 1 ? 'block' : 'none' }}">
 
-                @include('form.field-report-subject', ['id' => 2, 'time_available' => $time_available, 'primary' => false])
+                @include('component.field-report-subject', ['id' => 2, 'time_available' => $time_available, 'primary' => false])
 
             </div>
 

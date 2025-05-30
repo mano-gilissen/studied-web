@@ -46,7 +46,7 @@ class Evaluation_Created_Student extends Mailable {
 
     public function build() {
 
-        return $this->view('email.evaluation_created_student')->subject($this->subject);
+        return $this->view('mail.evaluation_created_student')->subject($this->subject);
 
     }
 

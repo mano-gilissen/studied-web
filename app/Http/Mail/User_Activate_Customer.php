@@ -45,7 +45,7 @@ class User_Activate_Customer extends Mailable {
 
     public function build() {
 
-        return $this->view('email.user_activate_customer')->subject($this->subject);
+        return $this->view('mail.user_activate_customer')->subject($this->subject);
 
     }
 

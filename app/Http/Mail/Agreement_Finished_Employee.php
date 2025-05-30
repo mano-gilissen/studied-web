@@ -46,7 +46,7 @@ class Agreement_Finished_Employee extends Mailable {
 
     public function build() {
 
-        return $this->view('email.agreement_finished_employee')->subject($this->subject);
+        return $this->view('mail.agreement_finished_employee')->subject($this->subject);
 
     }
 

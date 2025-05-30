@@ -28,13 +28,13 @@
                     @case(\App\Http\Controllers\AgreementController::$COLUMN_START)
                     @case(\App\Http\Controllers\AgreementController::$COLUMN_END)
 
-                        @include('block.filter-date')
+                        @include('component.filter-date')
 
                         @break
 
                     @default
 
-                        @include('form.box-input', ['id' => 'filter_input_' . $column->id, 'identifier' => $column->id, 'data' => true, 'show_all' => true, 'show_always' => true, 'reject_other' => true, 'uses_id' => true, 'form' => false, 'trigger' => 'filter'])
+                        @include('component.box-input', ['id' => 'filter_input_' . $column->id, 'identifier' => $column->id, 'data' => true, 'show_all' => true, 'show_always' => true, 'reject_other' => true, 'uses_id' => true, 'form' => false, 'trigger' => 'filter'])
 
                 @endswitch
 

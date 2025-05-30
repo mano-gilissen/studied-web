@@ -40,7 +40,7 @@ class User_Activate_Student_NoStudy extends Mailable {
 
     public function build() {
 
-        return $this->view('email.user_activate_student_nostudy')->subject($this->subject);
+        return $this->view('mail.user_activate_student_nostudy')->subject($this->subject);
 
     }
 

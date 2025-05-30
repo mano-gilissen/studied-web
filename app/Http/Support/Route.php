@@ -106,6 +106,10 @@ const EVALUATION_EVALUATION                     = 'evaluation.evaluation';
 
 
 
+const DASHBOARD_VIEW                            = 'dashboard.view';
+
+
+
 const LOGIN_VIEW                                = 'login.view';
 
 const PASSWORD_FORGOT                           = 'password.forgot';
@@ -321,6 +325,7 @@ const ALL_AUTH                                  = [
     self::EVALUATION_VIEW,
     self::LOGIN_VIEW,
     self::PASSWORD_FORGOT,
+    self::DASHBOARD_VIEW,
     self::LOAD_STUDY_LIST,
     self::LOAD_STUDY_COUNTERS,
     self::LOAD_STUDY_FILTER,

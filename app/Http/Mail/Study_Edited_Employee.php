@@ -43,7 +43,7 @@ class Study_Edited_Employee extends Mailable {
     public function build() {
 
         return $this
-            ->view('email.study_edited_employee')
+            ->view('mail.study_edited_employee')
             ->subject($this->subject);
     }
 

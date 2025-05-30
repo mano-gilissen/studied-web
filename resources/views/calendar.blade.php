@@ -12,9 +12,9 @@
 
 @section('content')
 
-    @include('block.header')
+    @include('section.header')
 
-    @include('block.menu')
+    @include('section.menu')
 
     <div id="wrap">
 

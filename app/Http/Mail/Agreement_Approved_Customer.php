@@ -49,7 +49,7 @@ class Agreement_Approved_Customer extends Mailable {
 
     public function build() {
 
-        return $this->view('email.agreement_approved_customer')->subject($this->subject);
+        return $this->view('mail.agreement_approved_customer')->subject($this->subject);
 
     }
 

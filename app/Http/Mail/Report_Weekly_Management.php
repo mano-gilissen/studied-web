@@ -44,7 +44,7 @@ class Report_Weekly_Management extends Mailable {
     public function build() {
 
         return $this
-            ->view('email.report_weekly_management')
+            ->view('mail.report_weekly_management')
             ->subject($this->subject);
     }
 

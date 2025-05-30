@@ -37,7 +37,7 @@ class User_Activate_Customer_NoStudy extends Mailable {
 
     public function build() {
 
-        return $this->view('email.user_activate_customer_nostudy')->subject($this->subject);
+        return $this->view('mail.user_activate_customer_nostudy')->subject($this->subject);
 
     }
 

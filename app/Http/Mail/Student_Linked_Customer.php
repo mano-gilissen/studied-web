@@ -44,7 +44,7 @@ class Student_Linked_Customer extends Mailable {
 
     public function build() {
 
-        return $this->view('email.student_linked_customer')->subject($this->subject);
+        return $this->view('mail.student_linked_customer')->subject($this->subject);
 
     }
 

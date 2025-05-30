@@ -1,0 +1,47 @@
+<div id="module-graphs_statistics" class="module">
+
+    <div class="left">
+
+        <div class="title">{{ __('Omzet per maand') }}</div>
+
+        <div class="graph-options">
+
+            @foreach($data as $year)
+
+                <div class="option {{ $loop->last ? 'selected' : '' }}" onclick="module_graphs_statistics__set_year('revenue', {{ $year }})">{{ $year }}</div>
+
+            @endforeach
+
+        </div>
+
+        <div class="canvas-wrap">
+
+            <canvas id="graph_revenue" style="width: 100%"></canvas>
+
+        </div>
+
+    </div>
+
+    <div class="right">
+
+        <div class="title">{{ __('Aantal lessen') }}</div>
+
+        <div class="graph-options">
+
+            @foreach($data as $year)
+
+                <div class="option {{ $loop->last ? 'selected' : '' }}" onclick="module_graphs_statistics__set_year('revenue', {{ $year }})">{{ $year }}</div>
+
+            @endforeach
+
+        </div>
+
+        <div class="canvas-wrap">
+
+            <canvas id="graph_studies" style="width: 100%"></canvas>
+
+        </div>
+
+    </div>
+
+</div>

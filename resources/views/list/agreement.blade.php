@@ -1,4 +1,4 @@
-@extends('template.list')
+@extends('list.template')
 
 
 
