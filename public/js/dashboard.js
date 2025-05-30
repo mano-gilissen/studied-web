@@ -176,7 +176,7 @@ function graph_options(type) {
                 bottom: 0,
             }
         },
-        categoryPercentage: 1.0,
+        categoryPercentage: 0.8,
         barPercentage: 1.0,
         maintainAspectRatio: false,
         scales: {
