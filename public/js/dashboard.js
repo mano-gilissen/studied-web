@@ -41,6 +41,9 @@ var graph_studies_canvas                                    = null;
 var graph_revenue_chart                                     = null;
 var graph_studies_chart                                     = null;
 
+var graph_revenue_year;
+var graph_studies_year;
+
 var LABELS_MONTHS                                           = ['Jan', 'Feb', 'Mrt', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'];
 
 
@@ -113,17 +116,17 @@ function graph_data_revenue() {
         labels: LABELS_MONTHS,
         datasets: [
             {
-                data: graph_data_all['revenue']['losse_lessen'],
+                data: graph_data_all['revenue'][graph_revenue_year]['losse_lessen'],
                 borderColor: '#FFDD34',
                 backgroundColor: function(context) { return graph_gradient(context, '#FFDD34') },
             },
             {
-                data: graph_data_all['revenue']['structureel'],
+                data: graph_data_all['revenue'][graph_revenue_year]['structureel'],
                 borderColor: '#DD34FF',
                 backgroundColor: function(context) { return graph_gradient(context, '#DD34FF') },
             },
             {
-                data: graph_data_all['revenue']['totaal'],
+                data: graph_data_all['revenue'][graph_revenue_year]['totaal'],
                 borderColor: '#4CD976',
                 backgroundColor: function(context) { return graph_gradient(context, '#4CD976') },
             },
@@ -138,22 +141,22 @@ function graph_data_studies() {
     return {
         datasets: [
             {
-                data: graph_data_all['studies']['gerapporteerd'],
+                data: graph_data_all['studies'][graph_studies_year]['gerapporteerd'],
                 borderColor: '#4CD976',
                 backgroundColor: function(context) { return graph_gradient(context, '#4CD976') },
             },
             {
-                data: graph_data_all['studies']['ingepland'],
+                data: graph_data_all['studies'][graph_studies_year]['ingepland'],
                 borderColor: '#FFDD34',
                 backgroundColor: function(context) { return graph_gradient(context, '#FFDD34') },
             },
             {
-                data: graph_data_all['studies']['geannuleerd'],
+                data: graph_data_all['studies'][graph_studies_year]['geannuleerd'],
                 borderColor: '#DD34FF',
                 backgroundColor: function(context) { return graph_gradient(context, '#DD34FF') },
             },
             {
-                data: graph_data_all['studies']['verzuimd'],
+                data: graph_data_all['studies'][graph_studies_year]['verzuimd'],
                 borderColor: '#FF5F5F',
                 backgroundColor: function(context) { return graph_gradient(context, '#FF5F5F') },
             },
