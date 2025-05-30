@@ -24,6 +24,8 @@
 
 
 
+    @php $page_title = __('Dashboard'); @endphp
+
     @include('section.header')
 
     @include('section.menu')
