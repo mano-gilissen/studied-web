@@ -52,7 +52,7 @@ var LABELS_MONTHS                                           = ['Jan', 'Feb', 'Mr
 
 function graph_draw() {
 
-    graph_revenue_canvas                                    = document.getElementById('graph_statistics');
+    graph_revenue_canvas                                    = document.getElementById('graph_revenue');
     graph_studies_canvas                                    = document.getElementById('graph_studies');
 
     if (graph_revenue_chart !== null)                       {
@@ -139,6 +139,7 @@ function graph_data_revenue() {
 function graph_data_studies() {
 
     return {
+        labels: LABELS_MONTHS,
         datasets: [
             {
                 data: graph_data_all['studies']['gerapporteerd'][graph_studies_year],
