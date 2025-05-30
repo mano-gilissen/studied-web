@@ -176,6 +176,8 @@ function graph_options(type) {
                 bottom: 0,
             }
         },
+        categoryPercentage: 1.0,
+        barPercentage: 1.0,
         maintainAspectRatio: false,
         scales: {
             y: {
@@ -197,8 +199,6 @@ function graph_options(type) {
                 }
             },
             x: {
-                categoryPercentage: 1.0,
-                barPercentage: 1.0,
                 ticks: {
                     color: '#000000',
                     align: 'center',
