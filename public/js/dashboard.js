@@ -310,7 +310,7 @@ function module_graphs_statistics__set_year(type, year) {
             break;
     }
 
-    $('#graph_' + type + ' .option .year').removeClass('selected');
+    $('#graph_' + type + ' .option.year').removeClass('selected');
     $('#graph_' + type + '-option-year-' + year).addClass('selected');
 
     module_graphs_statistics__update();
