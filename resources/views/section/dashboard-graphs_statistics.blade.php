@@ -12,6 +12,10 @@
 
             @endforeach
 
+            <div class="option" onclick="module_graphs_statistics__set_data('revenue', 'total')">{{ __('Totaal') }}</div>
+
+            <div class="option" onclick="module_graphs_statistics__set_data('revenue', 'split')">{{ __('Per dienst') }}</div>
+
         </div>
 
         <div class="canvas-wrap">
@@ -33,6 +37,10 @@
                 <div class="option {{ $loop->last ? 'selected' : '' }}" onclick="module_graphs_statistics__set_year('revenue', {{ $year }})">{{ $year }}</div>
 
             @endforeach
+
+            <div class="option" onclick="module_graphs_statistics__set_data('revenue', 'total')">{{ __('Totaal') }}</div>
+
+            <div class="option" onclick="module_graphs_statistics__set_data('revenue', 'split')">{{ __('Per status') }}</div>
 
         </div>
 
