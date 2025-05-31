@@ -186,35 +186,35 @@ function graph_data_studies() {
                 data: graph_data_all['studies']['gerapporteerd'][graph_studies_year],
                 borderColor: '#4CD976',
                 backgroundColor: function(context) { return graph_gradient(context, '#4CD976') },
-                hidden: !graph_revenue_split,
+                hidden: !graph_studies_split,
             },
             {
                 label: 'Ingepland',
                 data: graph_data_all['studies']['ingepland'][graph_studies_year],
                 borderColor: '#FFDD34',
                 backgroundColor: function(context) { return graph_gradient(context, '#FFDD34') },
-                hidden: !graph_revenue_split,
+                hidden: !graph_studies_split,
             },
             {
                 label: 'Geannuleerd',
                 data: graph_data_all['studies']['geannuleerd'][graph_studies_year],
                 borderColor: '#DD34FF',
                 backgroundColor: function(context) { return graph_gradient(context, '#DD34FF') },
-                hidden: !graph_revenue_split,
+                hidden: !graph_studies_split,
             },
             {
                 label: 'Verzuimd',
                 data: graph_data_all['studies']['verzuimd'][graph_studies_year],
                 borderColor: '#FF5F5F',
                 backgroundColor: function(context) { return graph_gradient(context, '#FF5F5F') },
-                hidden: !graph_revenue_split,
+                hidden: !graph_studies_split,
             },
             {
                 label: 'Totaal',
                 data: graph_data_all['studies']['totaal'][graph_studies_year],
                 borderColor: '#FFDD34',
                 backgroundColor: function(context) { return graph_gradient(context, '#FFDD34') },
-                hidden: graph_revenue_split,
+                hidden: graph_studies_split,
             }
         ]
     };
