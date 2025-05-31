@@ -12,7 +12,7 @@
 
             @endforeach
 
-            <div class="option" onclick="module_graphs_statistics__set_data('revenue', 'total')">{{ __('Totaal') }}</div>
+            <div class="option" onclick="module_graphs_statistics__set_data('revenue', 'total')" style="margin-left: auto">{{ __('Totaal') }}</div>
 
             <div class="option selected" onclick="module_graphs_statistics__set_data('revenue', 'split')">{{ __('Per dienst') }}</div>
 
@@ -38,7 +38,7 @@
 
             @endforeach
 
-            <div class="option" onclick="module_graphs_statistics__set_data('revenue', 'total')">{{ __('Totaal') }}</div>
+            <div class="option" onclick="module_graphs_statistics__set_data('revenue', 'total')" style="margin-left: auto">{{ __('Totaal') }}</div>
 
             <div class="option selected" onclick="module_graphs_statistics__set_data('revenue', 'split')">{{ __('Per status') }}</div>
 

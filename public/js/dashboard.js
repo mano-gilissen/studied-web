@@ -39,6 +39,8 @@ var graph_data_all = {
     }
 };
 
+
+
 var graph_revenue_canvas                                    = null;
 var graph_studies_canvas                                    = null;
 
@@ -54,6 +56,14 @@ var graph_studies_split                                     = true;
 var LABELS_MONTHS                                           = ['Jan', 'Feb', 'Mrt', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'];
 
 
+
+
+
+$(function() {
+
+    graph_draw();
+
+});
 
 
 
