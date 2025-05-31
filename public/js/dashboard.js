@@ -101,6 +101,12 @@ function graph_draw() {
         graph_studies_chart                                 = graph_create('studies', graph_studies_canvas);
 
     }
+
+    graph_revenue_chart.data.datasets[3].dataset.categoryPercentage = 0.6;
+    graph_studies_chart.data.datasets[4].dataset.categoryPercentage = 0.6;
+
+    graph_revenue_chart.update();
+    graph_studies_chart.update();
 }
 
 
