@@ -1,6 +1,6 @@
 <div id="module-graphs_statistics" class="module">
 
-    <div class="graph" style="margin-bottom: 32px">
+    <div id="graph_revenue" class="graph" style="margin-bottom: 32px">
 
         <div class="title">{{ __('Omzet per maand') }}</div>
 
@@ -8,25 +8,25 @@
 
             @foreach(/*$years*/[2023, 2024, 2025] as $year)
 
-                <div class="option {{ $loop->last ? 'selected' : '' }}" onclick="module_graphs_statistics__set_year('revenue', {{ $year }})">{{ $year }}</div>
+                <div class="option {{ $loop->last ? 'selected' : '' }} year" id="graph_revenue-option-year-{{ $year }}" onclick="module_graphs_statistics__set_year('revenue', {{ $year }})">{{ $year }}</div>
 
             @endforeach
 
-            <div class="option" onclick="module_graphs_statistics__set_data('revenue', false)" style="margin-left: auto">{{ __('Totaal') }}</div>
+            <div class="option" id="graph_revenue-option-total" onclick="module_graphs_statistics__set_data('revenue', false)" style="margin-left: auto">{{ __('Totaal') }}</div>
 
-            <div class="option selected" onclick="module_graphs_statistics__set_data('revenue', true)">{{ __('Per dienst') }}</div>
+            <div class="option selected" id="graph_revenue-option-split" onclick="module_graphs_statistics__set_data('revenue', true)">{{ __('Per dienst') }}</div>
 
         </div>
 
         <div class="canvas-wrap">
 
-            <canvas id="graph_revenue" style="width: 100%"></canvas>
+            <canvas id="canvas_revenue" style="width: 100%"></canvas>
 
         </div>
 
     </div>
 
-    <div class="graph">
+    <div id="graph_studies" class="graph">
 
         <div class="title">{{ __('Aantal lessen') }}</div>
 
@@ -34,19 +34,19 @@
 
             @foreach(/*$years*/[2023, 2024, 2025] as $year)
 
-                <div class="option {{ $loop->last ? 'selected' : '' }}" onclick="module_graphs_statistics__set_year('revenue', {{ $year }})">{{ $year }}</div>
+                <div class="option {{ $loop->last ? 'selected' : '' }} year" id="graph_studies-option-year-{{ $year }}" onclick="module_graphs_statistics__set_year('revenue', {{ $year }})">{{ $year }}</div>
 
             @endforeach
 
-            <div class="option" onclick="module_graphs_statistics__set_data('studies', false)" style="margin-left: auto">{{ __('Totaal') }}</div>
+            <div class="option" id="graph_studies-option-total" onclick="module_graphs_statistics__set_data('studies', false)" style="margin-left: auto">{{ __('Totaal') }}</div>
 
-            <div class="option selected" onclick="module_graphs_statistics__set_data('studies', true)">{{ __('Per status') }}</div>
+            <div class="option selected" id="graph_studies-option-split" onclick="module_graphs_statistics__set_data('studies', true)">{{ __('Per status') }}</div>
 
         </div>
 
         <div class="canvas-wrap">
 
-            <canvas id="graph_studies" style="width: 100%"></canvas>
+            <canvas id="canvas_studies" style="width: 100%"></canvas>
 
         </div>
 

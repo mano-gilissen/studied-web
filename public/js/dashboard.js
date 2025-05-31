@@ -73,8 +73,8 @@ $(function() {
 
 function graph_draw() {
 
-    graph_revenue_canvas                                    = document.getElementById('graph_revenue');
-    graph_studies_canvas                                    = document.getElementById('graph_studies');
+    graph_revenue_canvas                                    = document.getElementById('canvas_revenue');
+    graph_studies_canvas                                    = document.getElementById('canvas_studies');
 
     if (graph_revenue_chart !== null)                       {
 
@@ -279,11 +279,11 @@ function graph_options(type) {
                 bodySpacing: 4,
                 footerMarginTop: 0,
                 titleFont: {
-                    weight: 200,
+                    weight: 300,
                     size: 12
                 },
                 bodyFont: {
-                    weight: 300,
+                    weight: 200,
                     size: 12
                 },
                 callbacks: {
@@ -310,6 +310,9 @@ function module_graphs_statistics__set_year(type, year) {
             break;
     }
 
+    $('#graph_' + type + ' .option .year').removeClass('selected');
+    $('#graph_' + type + '-option-year-' + year).addClass('selected');
+
     module_graphs_statistics__update();
 }
 
@@ -327,6 +330,9 @@ function module_graphs_statistics__set_data(type, split) {
             graph_studies_split = split;
             break;
     }
+
+    $('#graph_' + type + '-option-' + (!split ? 'split' : 'total')).removeClass('selected');
+    $('#graph_' + type + '-option-' + (split ? 'split' : 'total')).addClass('selected');
 
     module_graphs_statistics__update();
 }
