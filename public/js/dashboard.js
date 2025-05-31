@@ -286,13 +286,13 @@ function graph_options(type) {
                 footerMarginTop: 0,
                 titleFont: {
                     family: 'Source Sans Pro, serif',
-                    weight: 500,
-                    size: 12
+                    weight: 600,
+                    size: 13
                 },
                 bodyFont: {
                     family: 'Source Sans Pro, serif',
-                    weight: 300,
-                    size: 12
+                    weight: 400,
+                    size: 13
                 },
                 callbacks: {
                     label: (canvas) => { return graph_callback_tooltip_label(canvas, type); },
