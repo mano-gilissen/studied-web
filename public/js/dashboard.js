@@ -9,9 +9,13 @@ var graph_data_all = {
             '2024': [53, 65, 78, 90, 123, 145, 55, 32, 62, 23, 42, 12],
             '2025': [65, 78, 90, 123, 145, 55, 32, 62, 23, 42, 12, 34],
         },
+        'geintegreerd': {
+            '2024': [12, 34, 56, 78, 90, 123, 145, 55, 32, 62, 23, 42],
+            '2025': [34, 56, 78, 90, 123, 145, 55, 32, 62, 23, 42, 12],
+        },
         'totaal': {
-            '2024': [76, 107, 90, 124, 179, 223, 245, 178, 194, 78, 74, 74],
-            '2025': [77, 112, 146, 201, 213, 178, 194, 78, 74, 74, 65, 76],
+            '2024': [94, 153, 144, 180, 279, 382, 432, 426, 461, 200, 171, 176],
+            '2025': [123, 178, 204, 252, 339, 410, 465, 426, 461, 200, 171, 176],
         },
     },
 
@@ -133,18 +137,28 @@ function graph_data_revenue() {
         labels: LABELS_MONTHS,
         datasets: [
             {
+                label: 'Losse lessen',
                 data: graph_data_all['revenue']['losse_lessen'][graph_revenue_year],
                 borderColor: '#FFDD34',
                 backgroundColor: function(context) { return graph_gradient(context, '#FFDD34') },
                 hidden: !graph_revenue_split,
             },
             {
+                label: 'Structurele begeleiding',
                 data: graph_data_all['revenue']['structureel'][graph_revenue_year],
                 borderColor: '#DD34FF',
                 backgroundColor: function(context) { return graph_gradient(context, '#DD34FF') },
                 hidden: !graph_revenue_split,
             },
             {
+                label: 'Geïntegreerd',
+                data: graph_data_all['revenue']['geintegreerd'][graph_revenue_year],
+                borderColor: '#34FFDD',
+                backgroundColor: function(context) { return graph_gradient(context, '#34FFDD') },
+                hidden: !graph_revenue_split,
+            },
+            {
+                label: 'Totaal',
                 data: graph_data_all['revenue']['totaal'][graph_revenue_year],
                 borderColor: '#FFDD34',
                 backgroundColor: function(context) { return graph_gradient(context, '#FFDD34') },
@@ -162,30 +176,35 @@ function graph_data_studies() {
         labels: LABELS_MONTHS,
         datasets: [
             {
+                label: 'Gerapporteerd',
                 data: graph_data_all['studies']['gerapporteerd'][graph_studies_year],
                 borderColor: '#4CD976',
                 backgroundColor: function(context) { return graph_gradient(context, '#4CD976') },
                 hidden: !graph_revenue_split,
             },
             {
+                label: 'Ingepland',
                 data: graph_data_all['studies']['ingepland'][graph_studies_year],
                 borderColor: '#FFDD34',
                 backgroundColor: function(context) { return graph_gradient(context, '#FFDD34') },
                 hidden: !graph_revenue_split,
             },
             {
+                label: 'Geannuleerd',
                 data: graph_data_all['studies']['geannuleerd'][graph_studies_year],
                 borderColor: '#DD34FF',
                 backgroundColor: function(context) { return graph_gradient(context, '#DD34FF') },
                 hidden: !graph_revenue_split,
             },
             {
+                label: 'Verzuimd',
                 data: graph_data_all['studies']['verzuimd'][graph_studies_year],
                 borderColor: '#FF5F5F',
                 backgroundColor: function(context) { return graph_gradient(context, '#FF5F5F') },
                 hidden: !graph_revenue_split,
             },
             {
+                label: 'Totaal',
                 data: graph_data_all['studies']['totaal'][graph_studies_year],
                 borderColor: '#FFDD34',
                 backgroundColor: function(context) { return graph_gradient(context, '#FFDD34') },
@@ -320,11 +339,13 @@ function module_graphs_statistics__update() {
 
         graph_revenue_chart.data.datasets[0].data = graph_data_all['revenue']['losse_lessen'][graph_revenue_year];
         graph_revenue_chart.data.datasets[1].data = graph_data_all['revenue']['structureel'][graph_revenue_year];
-        graph_revenue_chart.data.datasets[2].data = graph_data_all['revenue']['totaal'][graph_revenue_year];
+        graph_revenue_chart.data.datasets[2].data = graph_data_all['revenue']['geintegreerd'][graph_revenue_year];
+        graph_revenue_chart.data.datasets[3].data = graph_data_all['revenue']['totaal'][graph_revenue_year];
 
         graph_revenue_chart.data.datasets[0].hidden = !graph_revenue_split;
         graph_revenue_chart.data.datasets[1].hidden = !graph_revenue_split;
-        graph_revenue_chart.data.datasets[2].hidden = graph_revenue_split;
+        graph_revenue_chart.data.datasets[2].hidden = !graph_revenue_split;
+        graph_revenue_chart.data.datasets[3].hidden = graph_revenue_split;
 
         graph_revenue_chart.update();
     }
@@ -379,16 +400,15 @@ function graph_callback_tooltip_title(canvas, type) {
 
 function graph_callback_tooltip_label(canvas, type) {
 
-    console.log(canvas.chart.data.datasets[canvas.datasetIndex]);
-
+    const dataset = canvas.chart.data.datasets[canvas.datasetIndex];
     const value = canvas.parsed.y;
 
     switch (type) {
 
         case 'revenue':
-            return format_currency(value) + ' omzet';
+            return [dataset.label + ':', format_currency(value) + ' omzet'];
 
         case 'studies':
-            return value + ' lessen';
+            return [dataset.label + ':', value + ' lessen'];
     }
 }
