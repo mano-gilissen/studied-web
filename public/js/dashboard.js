@@ -55,7 +55,7 @@ var graph_revenue_year                                      = '2025';
 var graph_studies_year                                      = '2025';
 
 var graph_revenue_split                                     = true;
-var graph_studies_split                                     = true;
+var graph_studies_split                                     = false;
 
 var LABELS_MONTHS                                           = ['Jan', 'Feb', 'Mrt', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'];
 
