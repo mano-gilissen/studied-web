@@ -285,11 +285,13 @@ function graph_options(type) {
                 bodySpacing: 4,
                 footerMarginTop: 0,
                 titleFont: {
-                    weight: 300,
+                    family: 'Source Sans Pro, serif',
+                    weight: 500,
                     size: 12
                 },
                 bodyFont: {
-                    weight: 200,
+                    family: 'Source Sans Pro, serif',
+                    weight: 300,
                     size: 12
                 },
                 callbacks: {
@@ -418,9 +420,9 @@ function graph_callback_tooltip_label(canvas, type) {
     switch (type) {
 
         case 'revenue':
-            return [dataset.label + ':', format_currency(value) + ' omzet'];
+            return [dataset.label, format_currency(value) + ' omzet'];
 
         case 'studies':
-            return [dataset.label + ':', value + ' lessen'];
+            return [dataset.label, value + ' lessen'];
     }
 }

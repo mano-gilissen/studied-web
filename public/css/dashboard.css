@@ -17,7 +17,7 @@
 .graph-options {
     display: flex;
     align-items: center;
-    margin: 16px 0 24px;
+    margin: 24px 0;
 }
 
 .graph-options .option {
