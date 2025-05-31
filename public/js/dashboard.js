@@ -316,6 +316,19 @@ function module_graphs_statistics__set_data(type, split) {
 
 function module_graphs_statistics__update() {
 
+    if (graph_revenue_chart !== null) {
+
+        graph_revenue_chart.data.datasets[0].data = graph_data_all['revenue']['losse_lessen'][graph_revenue_year];
+        graph_revenue_chart.data.datasets[1].data = graph_data_all['revenue']['structureel'][graph_revenue_year];
+        graph_revenue_chart.data.datasets[2].data = graph_data_all['revenue']['totaal'][graph_revenue_year];
+
+        graph_revenue_chart.data.datasets[0].hidden = !graph_revenue_split;
+        graph_revenue_chart.data.datasets[1].hidden = !graph_revenue_split;
+        graph_revenue_chart.data.datasets[2].hidden = graph_revenue_split;
+
+        graph_revenue_chart.update();
+    }
+
     if (graph_studies_chart !== null) {
 
         graph_studies_chart.data.datasets[0].data = graph_data_all['studies']['gerapporteerd'][graph_studies_year];
@@ -331,19 +344,6 @@ function module_graphs_statistics__update() {
         graph_studies_chart.data.datasets[4].hidden = graph_studies_split;
 
         graph_studies_chart.update();
-    }
-
-    if (graph_revenue_chart !== null) {
-
-        graph_revenue_chart.data.datasets[0].data = graph_data_all['revenue']['losse_lessen'][graph_revenue_year];
-        graph_revenue_chart.data.datasets[1].data = graph_data_all['revenue']['structureel'][graph_revenue_year];
-        graph_revenue_chart.data.datasets[2].data = graph_data_all['revenue']['totaal'][graph_revenue_year];
-
-        graph_revenue_chart.data.datasets[0].hidden = !graph_studies_split;
-        graph_revenue_chart.data.datasets[1].hidden = !graph_studies_split;
-        graph_revenue_chart.data.datasets[2].hidden = graph_studies_split;
-
-        graph_revenue_chart.update();
     }
 }
 

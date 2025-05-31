@@ -38,9 +38,9 @@
 
             @endforeach
 
-            <div class="option" onclick="module_graphs_statistics__set_data('revenue', false)" style="margin-left: auto">{{ __('Totaal') }}</div>
+            <div class="option" onclick="module_graphs_statistics__set_data('studies', false)" style="margin-left: auto">{{ __('Totaal') }}</div>
 
-            <div class="option selected" onclick="module_graphs_statistics__set_data('revenue', true)">{{ __('Per status') }}</div>
+            <div class="option selected" onclick="module_graphs_statistics__set_data('studies', true)">{{ __('Per status') }}</div>
 
         </div>
 
