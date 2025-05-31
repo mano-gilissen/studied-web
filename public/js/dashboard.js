@@ -379,6 +379,8 @@ function graph_callback_tooltip_title(canvas, type) {
 
 function graph_callback_tooltip_label(canvas, type) {
 
+    console.log(canvas.chart.data.datasets[canvas.datasetIndex]);
+
     const value = canvas.parsed.y;
 
     switch (type) {
