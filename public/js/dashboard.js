@@ -166,7 +166,7 @@ function graph_data(type) {
 function graph_data_revenue() {
 
     return {
-        labels: LABELS_MONTHS,
+        labels: [1,2,3,4,5,6,7,8,9,10,11,12],
         datasets: [
 
             {
