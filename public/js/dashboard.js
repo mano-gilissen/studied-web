@@ -267,7 +267,7 @@ function graph_options_revenue() {
                     maxTicksLimit: 6,
                     padding: 8,
                     includeBounds: true,
-                    callback: function(value, index, ticks) { return graph_callback_ticks_y(value, index, ticks, type); }
+                    callback: function(value, index, ticks) { return graph_callback_ticks_y(value, index, ticks, 'revenue'); }
                 },
                 grid: {
                     color: '#E6E6E6',
@@ -350,7 +350,7 @@ function graph_options_studies() {
                     maxTicksLimit: 6,
                     padding: 8,
                     includeBounds: true,
-                    callback: function(value, index, ticks) { return graph_callback_ticks_y(value, index, ticks, type); }
+                    callback: function(value, index, ticks) { return graph_callback_ticks_y(value, index, ticks, 'studies'); }
                 },
                 grid: {
                     color: '#E6E6E6',
