@@ -435,7 +435,7 @@ function graph_studies_total_color(context) {
     const future = (new Date(context.dataIndex) >= new Date().getMonth() + 1) &&
                    (new Date().getFullYear() === graph_studies_year);
 
-    return future ? '#AAAAAA' : '#FFDD34';
+    return future ? '#CCCCCC' : '#FFDD34';
 }
 
 
