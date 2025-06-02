@@ -387,7 +387,7 @@ function graph_options_revenue() {
                 },
                 callbacks: {
                     title: (canvas) => { return graph_callback_tooltip_title(canvas, 'revenue'); },
-                    label: (canvas) => {
+                   /* label: (canvas) => {
 
                         const label = canvas.dataset.label || '';
                         const value = canvas.raw;
@@ -395,7 +395,7 @@ function graph_options_revenue() {
                         const formattedValue = format_currency(value);
 
                         return `${label}: ${formattedValue}`;
-                    }
+                    }*/
                 }
             }
         }
