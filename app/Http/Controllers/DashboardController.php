@@ -11,7 +11,9 @@ use App\Http\Traits\AgreementTrait;
 use App\Http\Traits\BaseTrait;
 use App\Http\Traits\CustomerTrait;
 use App\Http\Traits\PersonTrait;
+use App\Http\Traits\ReportTrait;
 use App\Http\Traits\RoleTrait;
+use App\Http\Traits\StudyTrait;
 use App\Http\Traits\UserTrait;
 use App\Models\Agreement;
 use App\Http\Support\Views;
@@ -19,6 +21,8 @@ use App\Http\Support\Key;
 use App\Http\Support\Model;
 use App\Models\Person;
 use App\Models\Role;
+use App\Models\Service;
+use App\Models\Study;
 use Cassandra\Custom;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Validator;
@@ -51,6 +55,21 @@ class DashboardController extends Controller {
 
     public function view() {
 
+        $data                                                   = [];
+        $modules                                                = [];
+        $role                                                   = Auth::user()->role;
+
+        if (in_array($role, [
+            RoleTrait::$ID_ADMINISTRATOR,
+            RoleTrait::$ID_BOARD,
+            RoleTrait::$ID_MANAGEMENT
+        ])) {
+            $modules[]                                          = self::MODULE_GRAPHS_STATISTICS;
+            $data['data__graph_statistics']                     = self::getModuleData_graphStatistics();
+        }
+
+
+
         switch (Auth::user()->role) {
 
             case RoleTrait::$ID_ADMINISTRATOR:
@@ -59,7 +78,6 @@ class DashboardController extends Controller {
                 $modules = [
                     //self::MODULE_TODO_PLAN_LOSSE_LESSEN,
                     //self::MODULE_TODO_DEFICIT_VAKAFSPRAKEN,
-                    self::MODULE_GRAPHS_STATISTICS,
                     //self::MODULE_ANNOUNCEMENTS,
                     //self::MODULE_ANNOUNCEMENTS_SEND
                 ];
@@ -81,7 +99,130 @@ class DashboardController extends Controller {
                 break;
         }
 
-        return view(Views::DASHBOARD, ['modules' => $modules]);
+        $data['modules'] = $modules;
+
+        return view(Views::DASHBOARD, $data);
+    }
+
+
+
+    public static function getModuleData_graphStatistics() {
+
+        $data_module = [
+
+            'revenue' => [
+                AgreementTrait::$PLAN_LOSSE_LESSEN,
+                AgreementTrait::$PLAN_STRUCTURELE_BEGELEIDING,
+                AgreementTrait::$PLAN_GEINTEGREERD,
+                'total'
+            ],
+
+            'studies' => [
+                StudyTrait::$STATUS_PLANNED,
+                StudyTrait::$STATUS_REPORTED,
+                StudyTrait::$STATUS_CANCELLED,
+                StudyTrait::$STATUS_ABSENT,
+                'total'
+            ]
+        ];
+
+        /** Create an array populated with each year and month since September 2023 **/
+
+        $dates = [];
+
+        for ($year = 2023; $year <= date('Y'); $year++) {
+            $start = ($year == 2023) ? 9 : 1;
+            $end = ($year == date('Y')) ? date('n') : 12;
+            for ($month = $start; $month <= $end; $month++) {
+                $dates[$year][] = $month;
+            }
+        }
+
+        foreach ($dates as $year => $months) {
+            foreach ($months as $month) {
+                $data_module['revenue'][AgreementTrait::$PLAN_LOSSE_LESSEN][$year][$month] = 0;
+                $data_module['revenue'][AgreementTrait::$PLAN_STRUCTURELE_BEGELEIDING][$year][$month] = 0;
+                $data_module['revenue'][AgreementTrait::$PLAN_GEINTEGREERD][$year][$month] = 0;
+            }
+        }
+
+        $studies = Study::where(Model::$BASE_CREATED_AT, '>=', '01-09-2023 00:00:00')
+                        ->where(Model::$BASE_DELETED_AT, null)
+                        ->get();
+
+        foreach ($studies as $study) {
+
+            if (!in_array($study->{Model::$STUDY_STATUS}, [
+                StudyTrait::$STATUS_REPORTED,
+                StudyTrait::$STATUS_ABSENT,
+                StudyTrait::$STATUS_CANCELLED
+            ])) {
+
+                continue;
+
+            }
+
+            $revenue = 0;
+            $plan = null;
+            $group = $study->getParticipants_User->count() > 1;
+
+            if ($study->{Model::$STUDY_STATUS} == StudyTrait::$STATUS_CANCELLED) {
+
+                if ($study->{Model::$STUDY_REASON_CANCEL} == StudyTrait::$REASON_CANCEL_STUDIED) {
+
+                    continue;
+
+                }
+            }
+
+            foreach ($study->getAgreements as $agreement) {
+
+                $user = $agreement->getStudent;
+                $plan = $agreement->{Model::$AGREEMENT_PLAN};
+                $rate_name = 'rate_plan' . $plan . '_' . ($group ? 'group' : 'solo');
+                $rate = Service::find($study->{Model::$SERVICE})->{$rate_name};
+                $report = $study->getReport($user);
+
+                if ($report) {
+
+                    if ($report->{Model::$STUDY_TRIAL} && !$report->{Model::$REPORT_TRIAL_SUCCESS}) {
+
+                        continue;
+
+                    }
+
+                    $duration = ReportTrait::getDurationTotal($report) / 60.0;
+
+                } else {
+
+                    $duration = StudyTrait::getDuration($study) / 60.0;
+
+                }
+
+                $revenue += $duration * $rate;
+            }
+
+            $date = strtotime($study->{Model::$BASE_CREATED_AT});
+            $year = date('Y', $date);
+            $month = date('n', $date);
+
+            $data_module['revenue'][$plan][$year][$month] += $revenue;
+            $data_module['revenue']['total'][$year][$month] += $revenue;
+        }
+
+        foreach ($studies as $study) {
+
+            $date = strtotime($study->{Model::$BASE_CREATED_AT});
+            $year = date('Y', $date);
+            $month = date('n', $date);
+
+            $data_module['studies'][$study->{Model::$STUDY_STATUS}][$year][$month] += 1;
+            $data_module['studies']['total'][$year][$month] += 1;
+        }
+
+        dd($data_module);
+
+        return $data_module;
     }
 
 

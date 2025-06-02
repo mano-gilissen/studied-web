@@ -13,7 +13,7 @@ var graph_data_all = {
             '2024': [12, 34, 56, 78, 90, 123, 145, 55, 32, 62, 23, 42],
             '2025': [34, 56, 78, 90, 123, 145, 55, 32, 62, 23, 42, 12],
         },
-        'totaal': {
+        'total': {
             '2024': [94, 153, 144, 180, 279, 382, 432, 426, 461, 200, 171, 176],
             '2025': [123, 178, 204, 252, 339, 410, 465, 426, 461, 200, 171, 176],
         },
@@ -24,10 +24,6 @@ var graph_data_all = {
             '2024': [23, 42, 12, 34, 56, 78, 90, 123, 145, 55, 32, 62],
             '2025': [12, 34, 56, 78, 90, 123, 145, 55, 32, 62, 23, 42],
         },
-        'ingepland': {
-            '2024': [53, 65, 78, 90, 123, 145, 55, 32, 62, 23, 42, 12],
-            '2025': [65, 78, 90, 123, 145, 55, 32, 62, 23, 42, 12, 34],
-        },
         'geannuleerd': {
             '2024': [12, 34, 56, 78, 90, 123, 145, 55, 32, 62, 23, 42],
             '2025': [34, 56, 78, 90, 123, 145, 55, 32, 62, 23, 42, 12],
@@ -36,7 +32,7 @@ var graph_data_all = {
             '2024': [6, 12, 18, 24, 30, 36, 42, 48, 54, 60, 66, 72],
             '2025': [12, 18, 24, 30, 36, 42, 48, 54, 60, 66, 72, 78],
         },
-        'totaal': {
+        'total': {
             '2024': [94, 153, 144, 180, 279, 382, 432, 426, 461, 200, 171, 176],
             '2025': [123, 178, 204, 252, 339, 410, 465, 426, 461, 200, 171, 176],
         },
@@ -58,6 +54,7 @@ var graph_revenue_split                                     = true;
 var graph_studies_split                                     = false;
 
 var LABELS_MONTHS                                           = ['Jan', 'Feb', 'Mrt', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'];
+var LABELS_MONTHS_FULL                                      = ['Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni', 'Juli', 'Augustus', 'September', 'Oktober', 'November', 'December'];
 
 
 
@@ -113,12 +110,27 @@ function graph_draw() {
 
 function graph_create(type, canvas) {
 
-    return new Chart(canvas, {
-        type: 'bar',
-        data: graph_data(type),
-        options: graph_options(type),
-        responsive: true,
-    });
+    switch (type) {
+
+        case 'revenue':
+
+            return new Chart(canvas, {
+                type: 'line',
+                data: graph_data(type),
+                options: graph_options(type),
+                plugins: [ graph_plugin_crosshair ],
+                responsive: true,
+            });
+
+        case 'studies':
+
+            return new Chart(canvas, {
+                type: 'bar',
+                data: graph_data(type),
+                options: graph_options(type),
+                responsive: true,
+            });
+    }
 }
 
 
@@ -165,7 +177,7 @@ function graph_data_revenue() {
             },
             {
                 label: 'Totaal',
-                data: graph_data_all['revenue']['totaal'][graph_revenue_year],
+                data: graph_data_all['revenue']['total'][graph_revenue_year],
                 borderColor: '#FFDD34',
                 backgroundColor: function(context) { return graph_gradient(context, '#FFDD34') },
                 hidden: graph_revenue_split,
@@ -182,15 +194,15 @@ function graph_data_studies() {
         labels: LABELS_MONTHS,
         datasets: [
             {
-                label: 'Gerapporteerd',
-                data: graph_data_all['studies']['gerapporteerd'][graph_studies_year],
-                borderColor: '#4CD976',
-                backgroundColor: function(context) { return graph_gradient(context, '#4CD976') },
+                label: 'Ingepland',
+                data: graph_data_all['studies']['ingepland'][graph_studies_year],
+                borderColor: '#AAAAAA',
+                backgroundColor: function(context) { return graph_gradient(context, '#AAAAAA') },
                 hidden: !graph_studies_split,
             },
             {
-                label: 'Ingepland',
-                data: graph_data_all['studies']['ingepland'][graph_studies_year],
+                label: 'Gerapporteerd',
+                data: graph_data_all['studies']['gerapporteerd'][graph_studies_year],
                 borderColor: '#FFDD34',
                 backgroundColor: function(context) { return graph_gradient(context, '#FFDD34') },
                 hidden: !graph_studies_split,
@@ -205,15 +217,15 @@ function graph_data_studies() {
             {
                 label: 'Verzuimd',
                 data: graph_data_all['studies']['verzuimd'][graph_studies_year],
-                borderColor: '#FF5F5F',
-                backgroundColor: function(context) { return graph_gradient(context, '#FF5F5F') },
+                borderColor: '#34FFDD',
+                backgroundColor: function(context) { return graph_gradient(context, '#34FFDD') },
                 hidden: !graph_studies_split,
             },
             {
                 label: 'Totaal',
-                data: graph_data_all['studies']['totaal'][graph_studies_year],
-                borderColor: '#FFDD34',
-                backgroundColor: function(context) { return graph_gradient(context, '#FFDD34') },
+                data: graph_data_all['studies']['total'][graph_studies_year],
+                borderColor: function(context) { return graph_studies_total_color(context) },
+                backgroundColor: function(context) { return graph_gradient(context, graph_studies_total_color(context)) },
                 hidden: graph_studies_split,
             }
         ]
@@ -223,6 +235,109 @@ function graph_data_studies() {
 
 
 function graph_options(type) {
+
+
+    switch (type) {
+
+        case 'revenue':
+            return graph_options_revenue();
+
+        case 'studies':
+            return graph_options_studies();
+    }
+}
+
+
+
+function graph_options_revenue() {
+
+    return {
+        layout: {
+            padding: {
+                top: 0,
+                bottom: 0,
+            }
+        },
+        categoryPercentage: 0.8,
+        barPercentage: 1.0,
+        maintainAspectRatio: false,
+        interaction: {
+            mode: 'nearest',
+            axis: 'x',
+            intersect: false
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    align: 'center',
+                    maxTicksLimit: 6,
+                    padding: 8,
+                    includeBounds: true,
+                    callback: function(value, index, ticks) { return graph_callback_ticks_y(value, index, ticks, type); }
+                },
+                grid: {
+                    color: '#E6E6E6',
+                    tickLength: 0,
+                },
+                border: {
+                    width: 0,
+                    color: '#CCCCCC'
+                }
+            },
+            x: {
+                ticks: {
+                    color: '#000000',
+                    align: 'center',
+                    padding: 8,
+                    includeBounds: false,
+                },
+                grid: {
+                    display: false
+                },
+                border: {
+                    width: 1,
+                    color: '#CCCCCC'
+                }
+            }
+        },
+        animation: false,
+        plugins: {
+            legend: {
+                display: false
+            },
+            tooltip: {
+                caretSize: 0,
+                position: 'nearest',
+                displayColors: false,
+                cornerRadius: 10,
+                titleColor: '#FFFFFF',
+                backgroundColor: '#000000',
+                titleMarginBottom: 6,
+                bodySpacing: 4,
+                footerMarginTop: 0,
+                titleFont: {
+                    family: 'Source Sans Pro, serif',
+                    weight: 600,
+                    size: 13
+                },
+                bodyFont: {
+                    family: 'Source Sans Pro, serif',
+                    weight: 400,
+                    size: 13
+                },
+                callbacks: {
+                  /*label: (canvas) => { return graph_callback_tooltip_label(canvas, type); },*/
+                    title: (canvas) => { return graph_callback_tooltip_title(canvas, type); }
+                }
+            }
+        }
+    }
+}
+
+
+
+function graph_options_studies() {
 
     return {
         layout: {
@@ -301,6 +416,16 @@ function graph_options(type) {
             }
         }
     }
+}
+
+
+
+function graph_studies_total_color(context) {
+
+    const future = (new Date(context.dataIndex) >= new Date().getMonth() + 1) &&
+                   (new Date().getFullYear() === graph_studies_year);
+
+    return future ? '#AAAAAA' : '#FFDD34';
 }
 
 
@@ -407,7 +532,7 @@ function graph_callback_tooltip_title(canvas, type) {
 
     const index = canvas[0].parsed.x;
 
-    return LABELS_MONTHS[index];
+    return LABELS_MONTHS_FULL[index];
 }
 
 
