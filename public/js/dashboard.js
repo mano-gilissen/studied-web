@@ -166,7 +166,6 @@ function graph_data(type) {
 function graph_data_revenue() {
 
     return {
-        labels: [1,2,3,4,5,6,7,8,9,10,11,12],
         datasets: [
 
             {
@@ -257,7 +256,6 @@ function graph_data_revenue() {
 function graph_data_studies() {
 
     return {
-        labels: [1,2,3,4,5,6,7,8,9,10,11,12],
         datasets: [
             {
                 label: 'Gerapporteerd',
