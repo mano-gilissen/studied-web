@@ -110,6 +110,13 @@ function graph_draw() {
 
 function graph_create(type, canvas) {
 
+    return new Chart(canvas, {
+        type: 'bar',
+        data: graph_data(type),
+        options: graph_options(type),
+        responsive: true,
+    });
+/*
     switch (type) {
 
         case 'revenue':
@@ -130,7 +137,7 @@ function graph_create(type, canvas) {
                 options: graph_options(type),
                 responsive: true,
             });
-    }
+    }*/
 }
 
 
