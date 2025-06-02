@@ -139,16 +139,27 @@ class DashboardController extends Controller {
         }
 
         foreach ($dates as $year => $months) {
+
             foreach ($months as $month) {
-                $data_module['revenue'][AgreementTrait::$PLAN_LOSSE_LESSEN][$year][$month] = 0;
-                $data_module['revenue'][AgreementTrait::$PLAN_STRUCTURELE_BEGELEIDING][$year][$month] = 0;
-                $data_module['revenue'][AgreementTrait::$PLAN_GEINTEGREERD][$year][$month] = 0;
+
+                foreach ($data_module['revenue'] as $plan) {
+
+                    $plan[$year][$month] = 0;
+
+                }
+
+                foreach ($data_module['studies'] as $status) {
+
+                    $status[$year][$month] = 0;
+
+                }
             }
         }
 
         $studies = Study::where(Model::$STUDY_START, '>=', '2023-09-01 00:00:00')
                         ->where(Model::$BASE_DELETED_AT, null)
                         ->get();
+
         dd($studies, $data_module);
 
         foreach ($studies as $study) {
