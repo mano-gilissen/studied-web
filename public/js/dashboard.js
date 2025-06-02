@@ -506,7 +506,7 @@ function module_graphs_statistics__set_year(type, year) {
     $('#graph_' + type + ' .option.year').removeClass('selected');
     $('#graph_' + type + '-option-year-' + year).addClass('selected');
 
-    module_graphs_statistics__update();
+    module_graphs_statistics__update(type);
 }
 
 
@@ -527,14 +527,14 @@ function module_graphs_statistics__set_data(type, split) {
     $('#graph_' + type + '-option-' + (!split ? 'split' : 'total')).removeClass('selected');
     $('#graph_' + type + '-option-' + (split ? 'split' : 'total')).addClass('selected');
 
-    module_graphs_statistics__update();
+    module_graphs_statistics__update(type);
 }
 
 
 
-function module_graphs_statistics__update() {
+function module_graphs_statistics__update(type) {
 
-    if (graph_revenue_chart !== null) {
+    if (type === 'revenue' && graph_revenue_chart !== null) {
 
         graph_revenue_chart.data.datasets[0].data = graph_data_all['revenue']['bijles'][graph_revenue_year];
         graph_revenue_chart.data.datasets[1].data = graph_data_all['revenue']['training'][graph_revenue_year];
@@ -555,7 +555,7 @@ function module_graphs_statistics__update() {
         graph_revenue_chart.update();
     }
 
-    if (graph_studies_chart !== null) {
+    if (type === 'studies' && graph_studies_chart !== null) {
 
         graph_studies_chart.data.datasets[0].data = graph_data_all['studies'][4][graph_studies_year];
         graph_studies_chart.data.datasets[1].data = graph_data_all['studies'][5][graph_studies_year];
