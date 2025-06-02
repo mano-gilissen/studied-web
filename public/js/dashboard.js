@@ -487,7 +487,7 @@ function module_graphs_statistics__update() {
         graph_studies_chart.data.datasets[0].data = graph_data_all['studies']['gerapporteerd'][graph_studies_year];
         graph_studies_chart.data.datasets[1].data = graph_data_all['studies']['geannuleerd'][graph_studies_year];
         graph_studies_chart.data.datasets[2].data = graph_data_all['studies']['verzuimd'][graph_studies_year];
-        graph_studies_chart.data.datasets[3].data = graph_data_all['studies']['totaal'][graph_studies_year];
+        graph_studies_chart.data.datasets[3].data = graph_data_all['studies']['total'][graph_studies_year];
 
         graph_studies_chart.data.datasets[0].hidden = !graph_studies_split;
         graph_studies_chart.data.datasets[1].hidden = !graph_studies_split;
