@@ -106,6 +106,8 @@ Route::get('/evaluatie/{key}',                                  'EvaluationContr
 
 Route::get('/dashboard',                                        'DashboardController@view')->name('dashboard.view')->middleware('auth', 'authorize');
 
+Route::get('/announcement/create',                              'DashboardController@announcement_create')->name('announcement.create')->middleware('auth', 'authorize');
+
 Route::get('/inloggen',                                         'Auth\LoginController@view')->name('login.view');
 
 Route::get('/wachtwoordvergeten',                               'Auth\ForgotPasswordController@forgot')->name('password.forgot');
@@ -189,6 +191,8 @@ Route::post('/submit/evaluation/plan',                          'EvaluationContr
 Route::post('/submit/evaluation/edit',                          'EvaluationController@edit_submit')->name('evaluation.edit_submit')->middleware('auth', 'authorize');
 
 Route::post('/submit/evaluation/perform',                       'EvaluationController@perform_submit')->name('evaluation.perform_submit')->middleware('auth', 'authorize');
+
+Route::post('/submit/announcement/create',                      'DashboardController@announcement_submit')->name('announcement.create_submit')->middleware('auth', 'authorize');
 
 Route::post('/submit/language',                                 'UserController@language_submit')->name('user.language_submit')->middleware('auth', 'authorize');
 

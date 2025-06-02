@@ -54,6 +54,19 @@ class CreateSchemaFromDdl extends Migration
             });
         }
 
+        // announcement table
+        if (!Schema::hasTable('announcement')) {
+            Schema::create('announcement', function (Blueprint $table) {
+                $table->increments('id');
+                $table->integer('role');
+                $table->string('author', 999)->nullable();
+                $table->string('title', 999);
+                $table->text('body');
+                $table->timestamps();
+                $table->softDeletes();
+            });
+        }
+
         // area table
         if (!Schema::hasTable('area')) {
             Schema::create('area', function (Blueprint $table) {

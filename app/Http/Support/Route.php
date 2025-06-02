@@ -108,6 +108,8 @@ const EVALUATION_EVALUATION                     = 'evaluation.evaluation';
 
 const DASHBOARD_VIEW                            = 'dashboard.view';
 
+const ANNOUNCEMENT_CREATE                       = 'announcement.create';
+
 
 
 const LOGIN_VIEW                                = 'login.view';
@@ -196,6 +198,8 @@ const EVALUATION_EDIT_SUBMIT                    = 'evaluation.edit_submit';
 
 const EVALUATION_PERFORM_SUBMIT                 = 'evaluation.perform_submit';
 
+const ANNOUNCEMENT_CREATE_SUBMIT                = 'announcement.create_submit';
+
 const USER_PASSWORD_SUBMIT                      = 'user.password_submit';
 
 const USER_LANGUAGE_SUBMIT                      = 'user.language_submit';
@@ -246,6 +250,7 @@ const ALL_MANAGEMENT                            = [
     self::EVALUATION_EDIT,
     self::EVALUATION_INTAKE,
     self::EVALUATION_EVALUATION,
+    self::ANNOUNCEMENT_CREATE,
     self::LOAD_EVALUATION_AGREEMENT,
     self::LOAD_EMPLOYEE_LIST,
     self::LOAD_EMPLOYEE_COUNTERS,

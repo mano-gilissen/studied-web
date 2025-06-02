@@ -1312,21 +1312,11 @@ class StudyController extends Controller {
 
             if (!in_array($study->{Model::$STUDY_STATUS}, [
                 StudyTrait::$STATUS_REPORTED,
-                StudyTrait::$STATUS_ABSENT,
-                StudyTrait::$STATUS_CANCELLED
+                StudyTrait::$STATUS_ABSENT
             ])) {
 
                 continue;
 
-            }
-
-            if ($study->{Model::$STUDY_STATUS} == StudyTrait::$STATUS_CANCELLED) {
-
-                if ($study->{Model::$STUDY_REASON_CANCEL} == StudyTrait::$REASON_CANCEL_STUDIED) {
-
-                    continue;
-
-                }
             }
 
             foreach ($study->getAgreements as $agreement) {
