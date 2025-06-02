@@ -114,7 +114,7 @@ class DashboardController extends Controller {
                 AgreementTrait::$PLAN_LOSSE_LESSEN => [],
                 AgreementTrait::$PLAN_STRUCTURELE_BEGELEIDING => [],
                 AgreementTrait::$PLAN_GEINTEGREERD => [],
-                'total'
+                'total' => []
             ],
 
             'studies' => [
@@ -122,7 +122,7 @@ class DashboardController extends Controller {
                 StudyTrait::$STATUS_REPORTED => [],
                 StudyTrait::$STATUS_CANCELLED => [],
                 StudyTrait::$STATUS_ABSENT => [],
-                'total'
+                'total' => []
             ]
         ];
 
