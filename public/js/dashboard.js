@@ -390,7 +390,7 @@ function graph_options_revenue() {
                     label: (canvas) => {
 
                         const label = canvas.dataset.label || '';
-                        const value = context.parsed.y;
+                        const value = canvas.parsed.y;
 
                         const formattedValue = format_currency(value);
 
