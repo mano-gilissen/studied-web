@@ -7,7 +7,7 @@ function graph_setup() {
 
 
 
-function graph_gradient(context, color, transparency = '88') {
+function graph_gradient(context, color, transparency_from = '88', transparency_to = 'FF') {
 
     const chart                                             = context.chart;
     const {ctx, chartArea}                                  = chart;
@@ -19,8 +19,8 @@ function graph_gradient(context, color, transparency = '88') {
     }
 
     let gradient                                            = ctx.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
-    gradient                                                .addColorStop(0, color + transparency);
-    gradient                                                .addColorStop(1, color + 'FF');
+    gradient                                                .addColorStop(0, color + transparency_from);
+    gradient                                                .addColorStop(1, color + transparency_to);
 
     return gradient;
 }
