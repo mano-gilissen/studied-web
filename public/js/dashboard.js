@@ -110,13 +110,6 @@ function graph_draw() {
 
 function graph_create(type, canvas) {
 
-    return new Chart(canvas, {
-        type: 'bar',
-        data: graph_data(type),
-        options: graph_options('studies'),
-        responsive: true,
-    });
-/*
     switch (type) {
 
         case 'revenue':
@@ -137,7 +130,7 @@ function graph_create(type, canvas) {
                 options: graph_options(type),
                 responsive: true,
             });
-    }*/
+    }
 }
 
 
@@ -224,8 +217,8 @@ function graph_data_studies() {
             {
                 label: 'Totaal',
                 data: graph_data_all['studies']['total'][graph_studies_year],
-                borderColor: '#ffffff',//function(context) { return graph_studies_total_color(context) },
-                backgroundColor: function(context) { return graph_gradient(context, '#ffffff')},//graph_studies_total_color(context)) },
+                borderColor: function(context) { return graph_studies_total_color(context) },
+                backgroundColor: function(context) { return graph_gradient(context, graph_studies_total_color(context)) },
                 hidden: graph_studies_split,
             }
         ]

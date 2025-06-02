@@ -68,8 +68,7 @@ class DashboardController extends Controller {
             $data['data__graph_statistics']                     = self::getModuleData_graphStatistics();
         }
 
-
-
+/*
         switch (Auth::user()->role) {
 
             case RoleTrait::$ID_ADMINISTRATOR:
@@ -97,9 +96,7 @@ class DashboardController extends Controller {
                     self::MODULE_ANNOUNCEMENTS
                 ];
                 break;
-        }
-
-        dd($modules);
+        }*/
 
         $data['modules'] = $modules;
 
