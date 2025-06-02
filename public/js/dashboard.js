@@ -261,21 +261,21 @@ function graph_data_studies() {
         datasets: [
             {
                 label: 'Gerapporteerd',
-                data: graph_data_all['studies']['gerapporteerd'][graph_studies_year],
+                data: graph_data_all['studies'][4][graph_studies_year],
                 borderColor: '#FFDD34',
                 backgroundColor: function(context) { return graph_gradient(context, '#FFDD34') },
                 hidden: !graph_studies_split,
             },
             {
                 label: 'Geannuleerd',
-                data: graph_data_all['studies']['geannuleerd'][graph_studies_year],
+                data: graph_data_all['studies'][5][graph_studies_year],
                 borderColor: '#DD34FF',
                 backgroundColor: function(context) { return graph_gradient(context, '#DD34FF') },
                 hidden: !graph_studies_split,
             },
             {
                 label: 'Verzuimd',
-                data: graph_data_all['studies']['verzuimd'][graph_studies_year],
+                data: graph_data_all['studies'][6][graph_studies_year],
                 borderColor: '#34FFDD',
                 backgroundColor: function(context) { return graph_gradient(context, '#34FFDD') },
                 hidden: !graph_studies_split,
@@ -348,8 +348,10 @@ function graph_options_revenue() {
                 ticks: {
                     color: '#000000',
                     align: 'center',
+                    maxTicksLimit: 12,
                     padding: 8,
                     includeBounds: false,
+                    callback: function(value, index, ticks) { return graph_callback_ticks_x(value, index, ticks); }
                 },
                 grid: {
                     display: false
@@ -432,6 +434,7 @@ function graph_options_studies() {
                     align: 'center',
                     padding: 8,
                     includeBounds: false,
+                    callback: function(value, index, ticks) { return graph_callback_ticks_x(value, index, ticks); }
                 },
                 grid: {
                     display: false
@@ -575,8 +578,13 @@ function module_graphs_statistics__update() {
 
 /**-- Graph callback functions --**/
 
-function graph_callback_ticks_y(value, index, ticks, type) {
+function graph_callback_ticks_x(value, index, ticks) {
 
+    return LABELS_MONTHS[index];
+
+}
+
+function graph_callback_ticks_y(value, index, ticks, type) {
 
     switch (type) {
 
