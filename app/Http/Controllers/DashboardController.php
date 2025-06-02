@@ -213,7 +213,7 @@ class DashboardController extends Controller {
                 $revenue += $duration * $rate;
             }
 
-            $date = strtotime($study->{Model::$BASE_CREATED_AT});
+            $date = strtotime($study->{Model::$STUDY_START});
             $year = date('Y', $date);
             $month = date('n', $date);
 
@@ -223,7 +223,7 @@ class DashboardController extends Controller {
 
         foreach ($studies as $study) {
 
-            $date = strtotime($study->{Model::$BASE_CREATED_AT});
+            $date = strtotime($study->{Model::$STUDY_START});
             $year = date('Y', $date);
             $month = date('n', $date);
 
