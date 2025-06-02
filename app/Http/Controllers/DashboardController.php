@@ -142,15 +142,15 @@ class DashboardController extends Controller {
 
             foreach ($months as $month) {
 
-                foreach ($data_module['revenue'] as &$plan) {
+                foreach (array_keys($data_module['revenue']) as $key) {
 
-                    $plan[$year][$month] = 0;
+                    $data_module['revenue'][$key][$year][$month] = 0;
 
                 }
 
-                foreach ($data_module['studies'] as &$status) {
+                foreach (array_keys($data_module['studies']) as $key) {
 
-                    $status[$year][$month] = 0;
+                    $data_module['studies'][$key][$year][$month] = 0;
 
                 }
             }
@@ -159,9 +159,6 @@ class DashboardController extends Controller {
         $studies = Study::where(Model::$STUDY_START, '>=', '2023-09-01 00:00:00')
                         ->where(Model::$BASE_DELETED_AT, null)
                         ->get();
-
-
-        dd($data_module, $studies);
 
         foreach ($studies as $study) {
 
