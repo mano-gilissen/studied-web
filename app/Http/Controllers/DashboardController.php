@@ -108,11 +108,13 @@ class DashboardController extends Controller {
     public static function getModuleData_graphStatistics() {
 
         $data_module = [
-
             'revenue' => [
-                AgreementTrait::$PLAN_LOSSE_LESSEN => [],
-                AgreementTrait::$PLAN_STRUCTURELE_BEGELEIDING => [],
-                AgreementTrait::$PLAN_GEINTEGREERD => [],
+                'bijles' => [],
+                'training' => [],
+                'huiswerkbegeleiding' => [],
+                'taalles' => [],
+                'taalcursus' => [],
+                'coaching' => [],
                 'total' => []
             ],
 
@@ -174,6 +176,7 @@ class DashboardController extends Controller {
             $revenue = 0;
             $plan = null;
             $group = $study->getParticipants_User->count() > 1;
+            $service = ucfirst($study->getService->{Model::$SERVICE_SHORT});
 
             if ($study->{Model::$STUDY_STATUS} == StudyTrait::$STATUS_CANCELLED) {
 
@@ -215,7 +218,7 @@ class DashboardController extends Controller {
             $year = date('Y', $date);
             $month = date('n', $date);
 
-            $data_module['revenue'][$plan][$year][$month] += $revenue;
+            $data_module['revenue'][$service][$year][$month] += $revenue;
             $data_module['revenue']['total'][$year][$month] += $revenue;
         }
 

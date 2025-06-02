@@ -1,22 +1,34 @@
 var graph_data_all = {
 
     'revenue': {
-        'losse_lessen': {
+        'bijles': {
             '2024': [23, 42, 12, 34, 56, 78, 90, 123, 145, 55, 32, 62],
             '2025': [12, 34, 56, 78, 90, 123, 145, 55, 32, 62, 23, 42],
         },
-        'structureel': {
-            '2024': [53, 65, 78, 90, 123, 145, 55, 32, 62, 23, 42, 12],
-            '2025': [65, 78, 90, 123, 145, 55, 32, 62, 23, 42, 12, 34],
-        },
-        'geintegreerd': {
+        'training': {
             '2024': [12, 34, 56, 78, 90, 123, 145, 55, 32, 62, 23, 42],
             '2025': [34, 56, 78, 90, 123, 145, 55, 32, 62, 23, 42, 12],
+        },
+        'huiswerkbegeleiding': {
+            '2024': [6, 12, 18, 24, 30, 36, 42, 48, 54, 60, 66, 72],
+            '2025': [12, 18, 24, 30, 36, 42, 48, 54, 60, 66, 72, 78],
+        },
+        'taalles': {
+            '2024': [94, 153, 144, 180, 279, 382, 432, 426, 461, 200, 171, 176],
+            '2025': [123, 178, 204, 252, 339, 410, 465, 426, 461, 200, 171, 176],
+        },
+        'taalcursus': {
+            '2024': [94, 153, 144, 180, 279, 382, 432, 426, 461, 200, 171, 176],
+            '2025': [123, 178, 204, 252, 339, 410, 465, 426, 461, 200, 171, 176],
+        },
+        'coaching': {
+            '2024': [94, 153, 144, 180, 279, 382, 432, 426, 461, 200, 171, 176],
+            '2025': [123, 178, 204, 252, 339, 410, 465, 426, 461, 200, 171, 176],
         },
         'total': {
             '2024': [94, 153, 144, 180, 279, 382, 432, 426, 461, 200, 171, 176],
             '2025': [123, 178, 204, 252, 339, 410, 465, 426, 461, 200, 171, 176],
-        },
+        }
     },
 
     'studies': {
@@ -154,9 +166,10 @@ function graph_data_revenue() {
     return {
         labels: LABELS_MONTHS,
         datasets: [
+
             {
-                label: 'Losse lessen',
-                data: graph_data_all['revenue']['losse_lessen'][graph_revenue_year],
+                label: 'Bijles',
+                data: graph_data_all['revenue']['bijles'][graph_revenue_year],
                 borderColor: '#FFDD34',
                 hidden: !graph_revenue_split,
                 tension: 0.4,
@@ -166,8 +179,8 @@ function graph_data_revenue() {
                 pointBackgroundColor: '#FFDD34',
             },
             {
-                label: 'Structurele begeleiding',
-                data: graph_data_all['revenue']['structureel'][graph_revenue_year],
+                label: 'Coaching',
+                data: graph_data_all['revenue']['training'][graph_revenue_year],
                 borderColor: '#DD34FF',
                 hidden: !graph_revenue_split,
                 tension: 0.4,
@@ -177,8 +190,8 @@ function graph_data_revenue() {
                 pointBackgroundColor: '#DD34FF',
             },
             {
-                label: 'Geïntegreerd',
-                data: graph_data_all['revenue']['geintegreerd'][graph_revenue_year],
+                label: 'Huiswerkbegeleiding',
+                data: graph_data_all['revenue']['huiswerkbegeleiding'][graph_revenue_year],
                 borderColor: '#34FFDD',
                 hidden: !graph_revenue_split,
                 tension: 0.4,
@@ -186,6 +199,39 @@ function graph_data_revenue() {
                 pointRadius: 0,
                 pointHoverRadius: 4,
                 pointBackgroundColor: '#34FFDD',
+            },
+            {
+                label: 'Taalcursus',
+                data: graph_data_all['revenue']['taalles'][graph_revenue_year],
+                borderColor: '#4CD976',
+                hidden: !graph_revenue_split,
+                tension: 0.4,
+                pointStyle: 'circle',
+                pointRadius: 0,
+                pointHoverRadius: 4,
+                pointBackgroundColor: '#4CD976',
+            },
+            {
+                label: 'Taalcursus',
+                data: graph_data_all['revenue']['taalcursus'][graph_revenue_year],
+                borderColor: '#FF5F5F',
+                hidden: !graph_revenue_split,
+                tension: 0.4,
+                pointStyle: 'circle',
+                pointRadius: 0,
+                pointHoverRadius: 4,
+                pointBackgroundColor: '#FF5F5F',
+            },
+            {
+                label: 'Training',
+                data: graph_data_all['revenue']['coaching'][graph_revenue_year],
+                borderColor: '#FFBF5F',
+                hidden: !graph_revenue_split,
+                tension: 0.4,
+                pointStyle: 'circle',
+                pointRadius: 0,
+                pointHoverRadius: 4,
+                pointBackgroundColor: '#FFBF5F',
             },
             {
                 label: 'Totaal',
@@ -486,15 +532,21 @@ function module_graphs_statistics__update() {
 
     if (graph_revenue_chart !== null) {
 
-        graph_revenue_chart.data.datasets[0].data = graph_data_all['revenue']['losse_lessen'][graph_revenue_year];
-        graph_revenue_chart.data.datasets[1].data = graph_data_all['revenue']['structureel'][graph_revenue_year];
-        graph_revenue_chart.data.datasets[2].data = graph_data_all['revenue']['geintegreerd'][graph_revenue_year];
-        graph_revenue_chart.data.datasets[3].data = graph_data_all['revenue']['total'][graph_revenue_year];
+        graph_revenue_chart.data.datasets[0].data = graph_data_all['revenue']['bijles'][graph_revenue_year];
+        graph_revenue_chart.data.datasets[1].data = graph_data_all['revenue']['training'][graph_revenue_year];
+        graph_revenue_chart.data.datasets[2].data = graph_data_all['revenue']['huiswerkbegeleiding'][graph_revenue_year];
+        graph_revenue_chart.data.datasets[3].data = graph_data_all['revenue']['taalles'][graph_revenue_year];
+        graph_revenue_chart.data.datasets[4].data = graph_data_all['revenue']['taalcursus'][graph_revenue_year];
+        graph_revenue_chart.data.datasets[5].data = graph_data_all['revenue']['coaching'][graph_revenue_year];
+        graph_revenue_chart.data.datasets[6].data = graph_data_all['revenue']['total'][graph_revenue_year];
 
         graph_revenue_chart.data.datasets[0].hidden = !graph_revenue_split;
         graph_revenue_chart.data.datasets[1].hidden = !graph_revenue_split;
         graph_revenue_chart.data.datasets[2].hidden = !graph_revenue_split;
-        graph_revenue_chart.data.datasets[3].hidden = graph_revenue_split;
+        graph_revenue_chart.data.datasets[3].hidden = !graph_revenue_split;
+        graph_revenue_chart.data.datasets[4].hidden = !graph_revenue_split;
+        graph_revenue_chart.data.datasets[5].hidden = !graph_revenue_split;
+        graph_revenue_chart.data.datasets[6].hidden = graph_revenue_split;
 
         graph_revenue_chart.update();
     }
