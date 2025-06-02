@@ -320,7 +320,6 @@ function graph_options_revenue() {
                     size: 13
                 },
                 callbacks: {
-                  /*label: (canvas) => { return graph_callback_tooltip_label(canvas, type); },*/
                     title: (canvas) => { return graph_callback_tooltip_title(canvas, 'revenue'); }
                 }
             }
@@ -479,6 +478,7 @@ function module_graphs_statistics__update() {
         graph_revenue_chart.data.datasets[2].hidden = !graph_revenue_split;
         graph_revenue_chart.data.datasets[3].hidden = graph_revenue_split;
 
+        graph_revenue_chart.type = graph_revenue_split ? 'line' : 'bar';
         graph_revenue_chart.update();
     }
 
