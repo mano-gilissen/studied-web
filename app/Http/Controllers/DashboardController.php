@@ -161,7 +161,7 @@ class DashboardController extends Controller {
                         ->get();
 
         foreach ($studies as $study) {
-
+/*
             if (!in_array($study->{Model::$STUDY_STATUS}, [
                 StudyTrait::$STATUS_REPORTED,
                 StudyTrait::$STATUS_ABSENT,
@@ -171,7 +171,7 @@ class DashboardController extends Controller {
                 continue;
 
             }
-
+*/
             $revenue = 0;
             $plan = null;
             $group = $study->getParticipants_User->count() > 1;

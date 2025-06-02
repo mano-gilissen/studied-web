@@ -411,6 +411,7 @@ function graph_options_studies() {
             y: {
                 beginAtZero: true,
                 ticks: {
+                    stepSize: 1,
                     align: 'center',
                     maxTicksLimit: 6,
                     padding: 8,
