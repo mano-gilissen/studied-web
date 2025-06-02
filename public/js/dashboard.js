@@ -1,4 +1,4 @@
-var graph_data_all = {
+/*var graph_data_all = {
 
     'revenue': {
         'bijles': {
@@ -49,9 +49,11 @@ var graph_data_all = {
             '2025': [123, 178, 204, 252, 339, 410, 465, 426, 461, 200, 171, 176],
         },
     }
-};
+};*/
 
 
+
+var graph_data_all;
 
 var graph_revenue_canvas                                    = null;
 var graph_studies_canvas                                    = null;
@@ -63,7 +65,7 @@ var graph_revenue_year                                      = '2025';
 var graph_studies_year                                      = '2025';
 
 var graph_revenue_split                                     = true;
-var graph_studies_split                                     = false;
+var graph_studies_split                                     = true;
 
 var LABELS_MONTHS                                           = ['Jan', 'Feb', 'Mrt', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'];
 var LABELS_MONTHS_FULL                                      = ['Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni', 'Juli', 'Augustus', 'September', 'Oktober', 'November', 'December'];
@@ -74,7 +76,7 @@ var LABELS_MONTHS_FULL                                      = ['Januari', 'Febru
 
 $(function() {
 
-    graph_draw();
+    //
 
 });
 
