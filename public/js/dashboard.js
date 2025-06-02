@@ -160,6 +160,11 @@ function graph_data_revenue() {
                 borderColor: '#FFDD34',
                 backgroundColor: function(context) { return graph_gradient(context, '#FFDD34') },
                 hidden: !graph_revenue_split,
+                tension: 0.4,
+                pointStyle: 'circle',
+                pointRadius: 0,
+                pointHoverRadius: 5,
+                pointBackgroundColor: '#FFDD34',
             },
             {
                 label: 'Structurele begeleiding',
@@ -167,6 +172,11 @@ function graph_data_revenue() {
                 borderColor: '#DD34FF',
                 backgroundColor: function(context) { return graph_gradient(context, '#DD34FF') },
                 hidden: !graph_revenue_split,
+                tension: 0.4,
+                pointStyle: 'circle',
+                pointRadius: 0,
+                pointHoverRadius: 5,
+                pointBackgroundColor: '#FFDD34',
             },
             {
                 label: 'Geïntegreerd',
@@ -174,6 +184,11 @@ function graph_data_revenue() {
                 borderColor: '#34FFDD',
                 backgroundColor: function(context) { return graph_gradient(context, '#34FFDD') },
                 hidden: !graph_revenue_split,
+                tension: 0.4,
+                pointStyle: 'circle',
+                pointRadius: 0,
+                pointHoverRadius: 5,
+                pointBackgroundColor: '#FFDD34',
             },
             {
                 label: 'Totaal',
@@ -181,6 +196,12 @@ function graph_data_revenue() {
                 borderColor: '#FFDD34',
                 backgroundColor: function(context) { return graph_gradient(context, '#FFDD34') },
                 hidden: graph_revenue_split,
+                fill: true,
+                tension: 0.4,
+                pointStyle: 'circle',
+                pointRadius: 0,
+                pointHoverRadius: 5,
+                pointBackgroundColor: '#FFDD34',
             }
         ]
     };
@@ -445,12 +466,9 @@ function module_graphs_statistics__set_year(type, year) {
 
 function module_graphs_statistics__set_data(type, split) {
 
-    let recreate = false;
-
     switch (type) {
 
         case 'revenue':
-            recreate = split !== graph_revenue_split;
             graph_revenue_split = split;
             break;
 
@@ -462,19 +480,14 @@ function module_graphs_statistics__set_data(type, split) {
     $('#graph_' + type + '-option-' + (!split ? 'split' : 'total')).removeClass('selected');
     $('#graph_' + type + '-option-' + (split ? 'split' : 'total')).addClass('selected');
 
-    module_graphs_statistics__update(recreate);
+    module_graphs_statistics__update();
 }
 
 
 
-function module_graphs_statistics__update(recreate = false) {
+function module_graphs_statistics__update() {
 
     if (graph_revenue_chart !== null) {
-
-        if (recreate) {
-            graph_revenue_chart.destroy();
-            graph_revenue_chart = graph_create('revenue', graph_revenue_canvas);
-        }
 
         graph_revenue_chart.data.datasets[0].data = graph_data_all['revenue']['losse_lessen'][graph_revenue_year];
         graph_revenue_chart.data.datasets[1].data = graph_data_all['revenue']['structureel'][graph_revenue_year];
