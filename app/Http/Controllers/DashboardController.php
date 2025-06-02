@@ -111,17 +111,17 @@ class DashboardController extends Controller {
         $data_module = [
 
             'revenue' => [
-                AgreementTrait::$PLAN_LOSSE_LESSEN,
-                AgreementTrait::$PLAN_STRUCTURELE_BEGELEIDING,
-                AgreementTrait::$PLAN_GEINTEGREERD,
+                AgreementTrait::$PLAN_LOSSE_LESSEN => [],
+                AgreementTrait::$PLAN_STRUCTURELE_BEGELEIDING => [],
+                AgreementTrait::$PLAN_GEINTEGREERD => [],
                 'total'
             ],
 
             'studies' => [
-                StudyTrait::$STATUS_PLANNED,
-                StudyTrait::$STATUS_REPORTED,
-                StudyTrait::$STATUS_CANCELLED,
-                StudyTrait::$STATUS_ABSENT,
+                StudyTrait::$STATUS_PLANNED => [],
+                StudyTrait::$STATUS_REPORTED => [],
+                StudyTrait::$STATUS_CANCELLED => [],
+                StudyTrait::$STATUS_ABSENT => [],
                 'total'
             ]
         ];
