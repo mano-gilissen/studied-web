@@ -472,7 +472,7 @@ function module_graphs_statistics__update() {
         graph_revenue_chart.data.datasets[0].data = graph_data_all['revenue']['losse_lessen'][graph_revenue_year];
         graph_revenue_chart.data.datasets[1].data = graph_data_all['revenue']['structureel'][graph_revenue_year];
         graph_revenue_chart.data.datasets[2].data = graph_data_all['revenue']['geintegreerd'][graph_revenue_year];
-        graph_revenue_chart.data.datasets[3].data = graph_data_all['revenue']['totaal'][graph_revenue_year];
+        graph_revenue_chart.data.datasets[3].data = graph_data_all['revenue']['total'][graph_revenue_year];
 
         graph_revenue_chart.data.datasets[0].hidden = !graph_revenue_split;
         graph_revenue_chart.data.datasets[1].hidden = !graph_revenue_split;
