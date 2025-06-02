@@ -132,7 +132,7 @@ function graph_create(type, canvas) {
                 type: 'line',
                 data: graph_data(type),
                 options: graph_options(type),
-                plugins: [ graph_plugin_crosshair ],
+                plugins: [ /*graph_plugin_crosshair*/ ],
                 responsive: true,
             });
 
