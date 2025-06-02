@@ -43,6 +43,8 @@
 
             @endif
 
+            @php dd($modules, in_array(\App\Http\Controllers\DashboardController::MODULE_GRAPHS_STATISTICS, $modules)); @endphp
+
             @if(in_array(\App\Http\Controllers\DashboardController::MODULE_GRAPHS_STATISTICS, $modules))
 
                 @include('section.dashboard-graphs_statistics')
