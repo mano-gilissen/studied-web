@@ -142,13 +142,13 @@ class DashboardController extends Controller {
 
             foreach ($months as $month) {
 
-                foreach ($data_module['revenue'] as $plan) {
+                foreach ($data_module['revenue'] as &$plan) {
 
                     $plan[$year][$month] = 0;
 
                 }
 
-                foreach ($data_module['studies'] as $status) {
+                foreach ($data_module['studies'] as &$status) {
 
                     $status[$year][$month] = 0;
 
