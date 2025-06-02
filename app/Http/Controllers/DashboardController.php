@@ -149,6 +149,7 @@ class DashboardController extends Controller {
         $studies = Study::where(Model::$STUDY_START, '>=', '2023-09-01 00:00:00')
                         ->where(Model::$BASE_DELETED_AT, null)
                         ->get();
+        dd($studies, $data_module);
 
         foreach ($studies as $study) {
 
