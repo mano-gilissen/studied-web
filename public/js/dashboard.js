@@ -61,8 +61,8 @@ var graph_studies_canvas                                    = null;
 var graph_revenue_chart                                     = null;
 var graph_studies_chart                                     = null;
 
-var graph_revenue_year                                      = '2025';
-var graph_studies_year                                      = '2025';
+var graph_revenue_year                                      = 2025;
+var graph_studies_year                                      = 2025;
 
 var graph_revenue_split                                     = true;
 var graph_studies_split                                     = true;
