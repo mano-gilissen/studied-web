@@ -188,7 +188,7 @@ function graph_data_revenue() {
                 borderColor: '#FFDD34',
                 backgroundColor: function(context) { return graph_gradient(context, '#FFDD34') },
                 hidden: graph_revenue_split,
-            },
+            }
         ]
     };
 }
@@ -224,8 +224,8 @@ function graph_data_studies() {
             {
                 label: 'Totaal',
                 data: graph_data_all['studies']['total'][graph_studies_year],
-                borderColor: function(context) { return graph_studies_total_color(context) },
-                backgroundColor: function(context) { return graph_gradient(context, graph_studies_total_color(context)) },
+                borderColor: '#ffffff',//function(context) { return graph_studies_total_color(context) },
+                backgroundColor: function(context) { return graph_gradient(context, '#ffffff')},//graph_studies_total_color(context)) },
                 hidden: graph_studies_split,
             }
         ]
