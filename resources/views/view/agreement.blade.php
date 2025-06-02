@@ -80,7 +80,7 @@
 
                             <div class="list-users">
 
-                                @include('section.person', ['person' => $agreement->getEmployee->getPerson])
+                                @include('component.person', ['person' => $agreement->getEmployee->getPerson])
 
                             </div>
 
@@ -98,7 +98,7 @@
 
                             <div class="list-users">
 
-                                @include('section.person', ['person' => $agreement->getStudent->getPerson])
+                                @include('component.person', ['person' => $agreement->getStudent->getPerson])
 
                             </div>
 

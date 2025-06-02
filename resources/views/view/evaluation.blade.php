@@ -139,11 +139,11 @@
 
                             <div class="list-users">
 
-                                @include('section.person', ['person' => $evaluation->getHost->getPerson, 'subtitle' => __('Managing-student')])
+                                @include('component.person', ['person' => $evaluation->getHost->getPerson, 'subtitle' => __('Managing-student')])
 
                                 @foreach($evaluation->getEmployees as $employee)
 
-                                    @include('section.person', ['person' => $employee->getPerson, 'subtitle' => __('Student-docent')])
+                                    @include('component.person', ['person' => $employee->getPerson, 'subtitle' => __('Student-docent')])
 
                                 @endforeach
 
@@ -161,7 +161,7 @@
 
                             <div class="list-users">
 
-                                @include('section.person', ['person' => $evaluation->getStudent->getPerson, 'subtitle' => __('Leerling')])
+                                @include('component.person', ['person' => $evaluation->getStudent->getPerson, 'subtitle' => __('Leerling')])
 
                                 @if($evaluation->getStudent->getStudent->getCustomer)
 

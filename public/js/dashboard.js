@@ -386,7 +386,16 @@ function graph_options_revenue() {
                     size: 13
                 },
                 callbacks: {
-                    title: (canvas) => { return graph_callback_tooltip_title(canvas, 'revenue'); }
+                    title: (canvas) => { return graph_callback_tooltip_title(canvas, 'revenue'); },
+                    label: (canvas) => {
+
+                        const label = canvas.dataset.label || '';
+                        const value = canvas.raw;
+
+                        const formattedValue = format_currency(value);
+
+                        return `${label}: ${formattedValue}`;
+                    }
                 }
             }
         }
