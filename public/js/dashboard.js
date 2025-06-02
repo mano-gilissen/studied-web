@@ -445,9 +445,12 @@ function module_graphs_statistics__set_year(type, year) {
 
 function module_graphs_statistics__set_data(type, split) {
 
+    let recreate = false;
+
     switch (type) {
 
         case 'revenue':
+            recreate = split !== graph_revenue_split;
             graph_revenue_split = split;
             break;
 
@@ -459,14 +462,19 @@ function module_graphs_statistics__set_data(type, split) {
     $('#graph_' + type + '-option-' + (!split ? 'split' : 'total')).removeClass('selected');
     $('#graph_' + type + '-option-' + (split ? 'split' : 'total')).addClass('selected');
 
-    module_graphs_statistics__update();
+    module_graphs_statistics__update(recreate);
 }
 
 
 
-function module_graphs_statistics__update() {
+function module_graphs_statistics__update(recreate = false) {
 
     if (graph_revenue_chart !== null) {
+
+        if (recreate) {
+            graph_revenue_chart.destroy();
+            graph_revenue_chart = graph_create('revenue', graph_revenue_canvas);
+        }
 
         graph_revenue_chart.data.datasets[0].data = graph_data_all['revenue']['losse_lessen'][graph_revenue_year];
         graph_revenue_chart.data.datasets[1].data = graph_data_all['revenue']['structureel'][graph_revenue_year];
@@ -478,7 +486,6 @@ function module_graphs_statistics__update() {
         graph_revenue_chart.data.datasets[2].hidden = !graph_revenue_split;
         graph_revenue_chart.data.datasets[3].hidden = graph_revenue_split;
 
-        graph_revenue_chart.type = graph_revenue_split ? 'line' : 'bar';
         graph_revenue_chart.update();
     }
 
