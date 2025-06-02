@@ -194,13 +194,6 @@ function graph_data_studies() {
         labels: LABELS_MONTHS,
         datasets: [
             {
-                label: 'Ingepland',
-                data: graph_data_all['studies']['ingepland'][graph_studies_year],
-                borderColor: '#AAAAAA',
-                backgroundColor: function(context) { return graph_gradient(context, '#AAAAAA') },
-                hidden: !graph_studies_split,
-            },
-            {
                 label: 'Gerapporteerd',
                 data: graph_data_all['studies']['gerapporteerd'][graph_studies_year],
                 borderColor: '#FFDD34',
