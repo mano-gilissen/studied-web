@@ -321,7 +321,7 @@ function graph_options_revenue() {
                 },
                 callbacks: {
                   /*label: (canvas) => { return graph_callback_tooltip_label(canvas, type); },*/
-                    title: (canvas) => { return graph_callback_tooltip_title(canvas, type); }
+                    title: (canvas) => { return graph_callback_tooltip_title(canvas, 'revenue'); }
                 }
             }
         }
@@ -403,8 +403,8 @@ function graph_options_studies() {
                     size: 13
                 },
                 callbacks: {
-                    label: (canvas) => { return graph_callback_tooltip_label(canvas, type); },
-                    title: (canvas) => { return graph_callback_tooltip_title(canvas, type); }
+                    label: (canvas) => { return graph_callback_tooltip_label(canvas, 'studies'); },
+                    title: (canvas) => { return graph_callback_tooltip_title(canvas, 'studies'); }
                 }
             }
         }
