@@ -146,11 +146,9 @@ class DashboardController extends Controller {
             }
         }
 
-        $studies = Study::where(Model::$BASE_CREATED_AT, '>=', '01-09-2023 00:00:00')
+        $studies = Study::where(Model::$STUDY_START, '>=', '2023-09-01 00:00:00')
                         ->where(Model::$BASE_DELETED_AT, null)
                         ->get();
-
-        dd($studies);
 
         foreach ($studies as $study) {
 
