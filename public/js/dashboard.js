@@ -124,27 +124,12 @@ function graph_draw() {
 
 function graph_create(type, canvas) {
 
-    switch (type) {
-
-        case 'revenue':
-
-            return new Chart(canvas, {
-                type: 'line',
-                data: graph_data(type),
-                options: graph_options(type),
-                plugins: [ /*graph_plugin_crosshair*/ ],
-                responsive: true,
-            });
-
-        case 'studies':
-
-            return new Chart(canvas, {
-                type: 'bar',
-                data: graph_data(type),
-                options: graph_options(type),
-                responsive: true,
-            });
-    }
+    return new Chart(canvas, {
+        type: type === 'revenue' ? 'line' : 'bar',
+        data: graph_data(type),
+        options: graph_options(type),
+        responsive: true,
+    });
 }
 
 
