@@ -176,7 +176,7 @@ class DashboardController extends Controller {
             $revenue = 0;
             $plan = null;
             $group = $study->getParticipants_User->count() > 1;
-            $service = ucfirst($study->getService->{Model::$SERVICE_SHORT});
+            $service = strtolower($study->getService->{Model::$SERVICE_SHORT});
 
             if ($study->{Model::$STUDY_STATUS} == StudyTrait::$STATUS_CANCELLED) {
 
