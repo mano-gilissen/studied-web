@@ -160,6 +160,9 @@ class DashboardController extends Controller {
                         ->where(Model::$BASE_DELETED_AT, null)
                         ->get();
 
+
+        dd($data_module, $studies);
+
         foreach ($studies as $study) {
 
             if (!in_array($study->{Model::$STUDY_STATUS}, [
