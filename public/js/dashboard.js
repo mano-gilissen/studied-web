@@ -14,16 +14,16 @@ var graph_data_all = {
             '2025': [12, 18, 24, 30, 36, 42, 48, 54, 60, 66, 72, 78],
         },
         'taalles': {
-            '2024': [94, 153, 144, 180, 279, 382, 432, 426, 461, 200, 171, 176],
-            '2025': [123, 178, 204, 252, 339, 410, 465, 426, 461, 200, 171, 176],
+            '2024': [94, 53, 44, 80, 79, 82, 32, 26, 61, 12, 71, 16],
+            '2025': [23, 78, 34, 52, 39, 10, 65, 26, 61, 44, 71, 16],
         },
         'taalcursus': {
-            '2024': [94, 153, 144, 180, 279, 382, 432, 426, 461, 200, 171, 176],
-            '2025': [123, 178, 204, 252, 339, 410, 465, 426, 461, 200, 171, 176],
+            '2024': [94, 53, 44, 80, 79, 82, 32, 26, 61, 20, 17, 16],
+            '2025': [123, 18, 24, 52, 39, 10, 65, 26, 61, 20, 17, 16],
         },
         'coaching': {
-            '2024': [94, 153, 144, 180, 279, 382, 432, 426, 461, 200, 171, 176],
-            '2025': [123, 178, 204, 252, 339, 410, 465, 426, 461, 200, 171, 176],
+            '2024': [45, 67, 89, 123, 145, 167, 189, 210, 234, 256, 278, 300],
+            '2025': [56, 78, 90, 112, 134, 156, 178, 200, 222, 244, 266, 288],
         },
         'total': {
             '2024': [94, 153, 144, 180, 279, 382, 432, 426, 461, 200, 171, 176],
@@ -180,7 +180,7 @@ function graph_data_revenue() {
             },
             {
                 label: 'Coaching',
-                data: graph_data_all['revenue']['training'][graph_revenue_year],
+                data: graph_data_all['revenue']['coaching'][graph_revenue_year],
                 borderColor: '#DD34FF',
                 hidden: !graph_revenue_split,
                 tension: 0.4,
@@ -202,7 +202,7 @@ function graph_data_revenue() {
             },
             {
                 label: 'Taalcursus',
-                data: graph_data_all['revenue']['taalles'][graph_revenue_year],
+                data: graph_data_all['revenue']['taalcursus'][graph_revenue_year],
                 borderColor: '#4CD976',
                 hidden: !graph_revenue_split,
                 tension: 0.4,
@@ -212,8 +212,8 @@ function graph_data_revenue() {
                 pointBackgroundColor: '#4CD976',
             },
             {
-                label: 'Taalcursus',
-                data: graph_data_all['revenue']['taalcursus'][graph_revenue_year],
+                label: 'Taalles',
+                data: graph_data_all['revenue']['taalles'][graph_revenue_year],
                 borderColor: '#FF5F5F',
                 hidden: !graph_revenue_split,
                 tension: 0.4,
@@ -224,7 +224,7 @@ function graph_data_revenue() {
             },
             {
                 label: 'Training',
-                data: graph_data_all['revenue']['coaching'][graph_revenue_year],
+                data: graph_data_all['revenue']['training'][graph_revenue_year],
                 borderColor: '#FFBF5F',
                 hidden: !graph_revenue_split,
                 tension: 0.4,
