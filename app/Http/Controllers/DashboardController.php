@@ -230,8 +230,6 @@ class DashboardController extends Controller {
             $data_module['studies']['total'][$year][$month] += 1;
         }
 
-        dd($data_module);
-
         return $data_module;
     }
 
