@@ -580,7 +580,7 @@ function module_graphs_statistics__update() {
 
 function graph_callback_ticks_x(value, index, ticks) {
 
-    return LABELS_MONTHS[index];
+    return LABELS_MONTHS[value];
 
 }
 
