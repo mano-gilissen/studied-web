@@ -99,6 +99,8 @@ class DashboardController extends Controller {
                 break;
         }
 
+        dd($modules);
+
         $data['modules'] = $modules;
 
         return view(Views::DASHBOARD, $data);
