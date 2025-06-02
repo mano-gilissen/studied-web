@@ -133,8 +133,7 @@ class DashboardController extends Controller {
 
         for ($year = 2023; $year <= date('Y'); $year++) {
             $start = ($year == 2023) ? 9 : 1;
-            $end = ($year == date('Y')) ? date('n') : 12;
-            for ($month = $start; $month <= $end; $month++) {
+            for ($month = $start; $month <= 12; $month++) {
                 $dates[$year][] = $month;
             }
         }
