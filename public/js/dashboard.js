@@ -100,7 +100,7 @@ function graph_draw() {
     }
 
     graph_revenue_chart.data.datasets[3].categoryPercentage = 0.7;
-    graph_studies_chart.data.datasets[4].categoryPercentage = 0.7;
+    graph_studies_chart.data.datasets[3].categoryPercentage = 0.7;
 
     graph_revenue_chart.update();
     graph_studies_chart.update();
