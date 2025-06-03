@@ -15,7 +15,7 @@
 
     </div>
 
-    @if ($announcements->count() == 0)
+    @if ($data__announcements->count() == 0)
 
         <div class="empty">{{ __('Er zijn nog geen aankondigingen') }}</div>
 
@@ -23,7 +23,7 @@
 
         <div class="list">
 
-            @foreach($announcements as $announcement)
+            @foreach($data__announcements as $announcement)
 
                 <div class="item">
 
@@ -33,7 +33,7 @@
 
                     <div class="author">
                         {{
-                            ($announcement->author ? ('<span style="font-weight:500">' . $announcements->author . '</span> - ') : '') .
+                            ($announcement->author ? ('<span style="font-weight:500">' . $announcement->author . '</span> - ') : '') .
                             Format::datetime($announcement->created_at, \App\Http\Support\Format::$DATETIME_ANNOUNCEMENT)
                         }}
                     </div>
