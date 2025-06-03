@@ -25,7 +25,7 @@
 
             @foreach($data__announcements as $announcement)
 
-                <div class="item">
+                <div class="announcement">
 
                     <div class="title">{{ $announcement->title }}</div>
 
