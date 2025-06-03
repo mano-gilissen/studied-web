@@ -270,7 +270,7 @@ class DashboardController extends Controller {
             RoleTrait::$ID_CUSTOMER                                         => __('Klanten')
         ];
 
-        $data[Key::AUTOCOMPLETE_DATA . Model::$USER_STATUS]                 = Format::encode($ac_data);
+        $data[Key::AUTOCOMPLETE_DATA . Model::$ROLE]                        = Format::encode($ac_data);
     }
 
 
