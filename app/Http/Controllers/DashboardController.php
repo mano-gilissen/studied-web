@@ -218,7 +218,7 @@ class DashboardController extends Controller {
 
         $data                                                               = [];
 
-        $data[Key::SUBMIT_ROUTE]                                            = Route::AGREEMENT_CREATE_SUBMIT;
+        $data[Key::SUBMIT_ROUTE]                                            = Route::ANNOUNCEMENT_CREATE_SUBMIT;
         $data[Key::SUBMIT_ACTION]                                           = __('Versturen');
         $data[Key::PAGE_TITLE]                                              = __('Aankondiging versturen');
         $data[Key::BACK_ROUTE]                                              = 'dashboard.view';
