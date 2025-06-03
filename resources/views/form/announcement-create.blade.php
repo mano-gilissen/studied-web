@@ -20,7 +20,7 @@
 
     <div class="title">{{ __('Zichtbaarheid') }}</div>
 
-    @include('component.field-input', ['id' => 'role', 'tag' => __('Voor wie is deze aankondiging? *'), 'icon' => 'dropdown.svg', 'required' => true, 'data' => true, 'show_all' => true, 'reject_others' => true, 'show_always' => true, 'value' => old('role')])
+    @include('component.field-input', ['id' => 'role', 'tag' => __('Voor wie is deze aankondiging? *'), 'icon' => 'dropdown.svg', 'required' => true, 'data' => true, 'uses_id' => true, 'show_all' => true, 'reject_others' => true, 'show_always' => true, 'set_id' => \App\Http\Traits\RoleTrait::$ID_MANAGEMENT])
 
     <div class="seperator"></div>
 
