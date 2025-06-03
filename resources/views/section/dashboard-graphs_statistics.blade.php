@@ -54,4 +54,4 @@
 
 </div>
 
-<script> $(function() { graph_data_all = JSON.parse('{!! json_encode($data__graph_statistics) !!}'); graph_draw(); }); </script>
+<script> $(function() { graph_data_all_R = JSON.parse('{!! json_encode($data__graph_statistics) !!}'); graph_draw(); }); </script>
