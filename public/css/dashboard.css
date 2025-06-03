@@ -5,12 +5,18 @@
     grid-auto-flow: column;
     grid-gap: 32px;
     overflow: hidden;
+    height: 100%;
 }
 
 #column #left,
 #column #right {
     overflow-x: hidden;
     overflow-y: scroll;
+}
+
+#column #left::-webkit-scrollbar,
+#column #right::-webkit-scrollbar {
+    display: none;
 }
 
 
@@ -85,4 +91,6 @@
 #module-announcements .announcement .text {
     padding-bottom: 24px;
     line-height: 21px;
+    overflow: hidden;
+    overflow-wrap: break-word;
 }
