@@ -34,13 +34,12 @@
                     <div class="author">
                         {!!
                             ($announcement->author ? ('<span style="font-weight:500">' . $announcement->author . '</span>&nbsp;&nbsp;-&nbsp;&nbsp;') : '') .
-                            \App\Http\Support\Format::datetime($announcement->created_at, \App\Http\Support\Format::$DATETIME_ANNOUNCEMENT) .
                             (in_array(Auth::user()->role, [
                                 \App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR,
                                 \App\Http\Traits\RoleTrait::$ID_BOARD,
                                 \App\Http\Traits\RoleTrait::$ID_MANAGEMENT
-                            ]) ? ('&nbsp;&nbsp;&nbsp;<span style="font-style:italic;opacity:.5">voor ' . \App\Http\Traits\RoleTrait::getName($announcement->role) . '</span>') : '')
-                        !!}
+                            ]) ? ('&nbsp;&nbsp;<span style="font-style:italic;opacity:.5">voor ' . \App\Http\Traits\RoleTrait::getName($announcement->role) . '</span>') : '') .
+                            \App\Http\Support\Format::datetime($announcement->created_at, \App\Http\Support\Format::$DATETIME_ANNOUNCEMENT)!!}
                     </div>
 
                 </div>
