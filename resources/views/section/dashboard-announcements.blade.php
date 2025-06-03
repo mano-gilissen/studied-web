@@ -34,7 +34,7 @@
                     <div class="author">
                         {{
                             ($announcement->author ? ('<span style="font-weight:500">' . $announcement->author . '</span> - ') : '') .
-                            Format::datetime($announcement->created_at, \App\Http\Support\Format::$DATETIME_ANNOUNCEMENT)
+                            \App\Http\Support\Format::datetime($announcement->created_at, \App\Http\Support\Format::$DATETIME_ANNOUNCEMENT)
                         }}
                     </div>
 
