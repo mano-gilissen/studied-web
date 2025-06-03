@@ -39,7 +39,7 @@
                                 \App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR,
                                 \App\Http\Traits\RoleTrait::$ID_BOARD,
                                 \App\Http\Traits\RoleTrait::$ID_MANAGEMENT
-                            ]) ? ('&nbsp;&nbsp;-&nbsp;&nbsp;<span font-style="italic">voor ' . \App\Http\Traits\RoleTrait::getName($announcement->role) . '</span>') : '')
+                            ]) ? ('&nbsp;&nbsp;-&nbsp;&nbsp;<span style="font-style:italic;opacity:.5">voor ' . \App\Http\Traits\RoleTrait::getName($announcement->role) . '</span>') : '')
                         !!}
                     </div>
 
