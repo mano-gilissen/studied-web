@@ -33,7 +33,7 @@
 
                     <div class="author">
                         {!!
-                            ($announcement->author ? ('<span style="font-weight:500">' . $announcement->author . '</span> - ') : '') .
+                            ($announcement->author ? ('<span style="font-weight:500">' . $announcement->author . '</span>&nbsp;&nbsp;-&nbsp;&nbsp;') : '') .
                             \App\Http\Support\Format::datetime($announcement->created_at, \App\Http\Support\Format::$DATETIME_ANNOUNCEMENT)
                         !!}
                     </div>

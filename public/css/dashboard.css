@@ -69,9 +69,10 @@
 }
 
 #module-announcements .announcement .title {
-    padding-bottom: 16px;
+    padding-bottom: 24px;
 }
 
 #module-announcements .announcement .text {
-    padding-bottom: 16px;
+    padding-bottom: 24px;
+    line-height: 21px;
 }

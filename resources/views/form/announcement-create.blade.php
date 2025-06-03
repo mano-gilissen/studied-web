@@ -10,7 +10,7 @@
 
     @include('component.field-input', ['id' => 'title', 'tag' => __('Titel *'), 'required' => true, 'value' => old('title')])
 
-    @include('component.field-input', ['id' => 'body', 'tag' => __('Inhoud *'), 'required' => true, 'value' => old('body')])
+    @include('component.field-textarea', ['id' => 'body', 'tag' => __('Inhoud *'), 'required' => true, 'value' => old('body')])
 
     @include('component.field-input', ['id' => 'author', 'tag' => __('Auteur'), 'value' => old('body')])
 
