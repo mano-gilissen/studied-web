@@ -15,7 +15,7 @@
 
     </div>
 
-    @if ($loop->last && $announcements->count() == 0)
+    @if ($announcements->count() == 0)
 
         <div class="empty">{{ __('Er zijn nog geen aankondigingen') }}</div>
 
