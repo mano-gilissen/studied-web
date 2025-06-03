@@ -37,23 +37,31 @@
 
         <div id="column">
 
-            @if(\App\Http\Traits\UserTrait::hasDashboardTodoModules())
+            <div id="left">
 
-                @include('section.dashboard-todo')
+                @if(\App\Http\Traits\UserTrait::hasDashboardTodoModules())
 
-            @endif
+                    @include('section.dashboard-todo')
 
-            @if(in_array(\App\Http\Controllers\DashboardController::MODULE_GRAPHS_STATISTICS, $modules))
+                @endif
 
-                @include('section.dashboard-graphs_statistics')
+                @if(in_array(\App\Http\Controllers\DashboardController::MODULE_GRAPHS_STATISTICS, $modules))
 
-            @endif
+                    @include('section.dashboard-graphs_statistics')
 
-            @if(in_array(\App\Http\Controllers\DashboardController::MODULE_ANNOUNCEMENTS, $modules))
+                @endif
 
-                @include('section.dashboard-announcements')
+            </div>
 
-            @endif
+            <div id="right">
+
+                @if(in_array(\App\Http\Controllers\DashboardController::MODULE_ANNOUNCEMENTS, $modules))
+
+                    @include('section.dashboard-announcements')
+
+                @endif
+
+            </div>
 
         </div>
 
