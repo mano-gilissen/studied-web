@@ -76,7 +76,7 @@ var LABELS_MONTHS_FULL                                      = ['Januari', 'Febru
 
 $(function() {
 
-    //
+    graph_draw();
 
 });
 
