@@ -3,6 +3,8 @@
     margin: 100px auto 128px;
 }
 
+
+
 .graph {
     width: 100%;
     background: #f3f3f3;
@@ -34,4 +36,40 @@
 .graph-options .option.selected,
 .graph-options .option:hover {
     opacity: 1;
+}
+
+
+
+#module-announcements {
+    width: 100%;
+    background: #f3f3f3;
+    padding: 32px;
+    margin-bottom: 32px;
+}
+
+#module-announcements-top {
+    display: flex;
+    align-items: center;
+}
+
+#module-announcements-top .button {
+    margin-left: auto;
+}
+
+#module-announcements .list {
+    margin-top: 32px;
+}
+
+#module-announcements .announcement {
+    background: #e6e6e6;
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+#module-announcements .announcement .title {
+    margin-bottom: 8px;
+}
+
+#module-announcements .announcement .text {
+    margin-bottom: 16px;
 }
