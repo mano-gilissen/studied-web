@@ -7,7 +7,7 @@
 
 .graph {
     width: 100%;
-    background: #f3f3f3;
+    background: #F8F8F8;
     padding: 32px;
     margin-bottom: 32px;
 }
@@ -24,7 +24,7 @@
 
 .graph-options .option {
     height: 24px;
-    background: #E0e0e0;
+    background: #E0E0E0;
     border-radius: 12px;
     padding: 2px 12px;
     margin-right: 8px;
@@ -42,7 +42,7 @@
 
 #module-announcements {
     width: 100%;
-    background: #f3f3f3;
+    background: #F8F8F8;
     padding: 32px;
     margin-bottom: 32px;
 }
@@ -61,15 +61,17 @@
 }
 
 #module-announcements .announcement {
-    background: #e6e6e6;
-    padding: 16px;
+    padding: 24px;
     margin-bottom: 24px;
+    border-radius: 16px;
+    background: white;
+    border: 1px solid black;
 }
 
 #module-announcements .announcement .title {
-    margin-bottom: 8px;
+    padding-bottom: 16px;
 }
 
 #module-announcements .announcement .text {
-    margin-bottom: 16px;
+    padding-bottom: 16px;
 }
