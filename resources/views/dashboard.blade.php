@@ -51,21 +51,7 @@
 
             @if(in_array(\App\Http\Controllers\DashboardController::MODULE_ANNOUNCEMENTS, $modules))
 
-                @if(in_array(\App\Http\Controllers\DashboardController::MODULE_ANNOUNCEMENTS_SEND, $modules))
-
-                    <div class="columns">
-
-                        @include('section.dashboard-announcements_send')
-
-                        @include('section.dashboard-announcements')
-
-                    </div>
-
-                @else
-
-                    @include('section.dashboard-announcements')
-
-                @endif
+                @include('section.dashboard-announcements')
 
             @endif
 
