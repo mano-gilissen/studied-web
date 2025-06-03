@@ -201,13 +201,16 @@ class DashboardController extends Controller {
 
     public static function getModuleData_announcements() {
 
-        $role = Auth::user()->role;
-        $role = in_array($role, [RoleTrait::$ID_ADMINISTRATOR, RoleTrait::$ID_BOARD]) ? RoleTrait::$ID_MANAGEMENT : $role;
+        $role                                                               = Auth::user()->role;
+        $query                                                              = Announcement::where(Model::$BASE_DELETED_AT, null);
 
-        return Announcement::where(Model::$BASE_DELETED_AT, null)
-            ->whereIn(Model::$ROLE, [$role, 0])
-            ->orderBy(Model::$BASE_CREATED_AT, 'desc')
-            ->get();
+        if (!in_array($role, [RoleTrait::$ID_ADMINISTRATOR, RoleTrait::$ID_BOARD, RoleTrait::$ID_MANAGEMENT])) {
+
+            $query->whereIn(Model::$ROLE, [$role, 0]);
+
+        }
+
+        return $query->orderBy(Model::$BASE_CREATED_AT, 'desc')->get();
     }
 
 
