@@ -912,7 +912,7 @@ select::-ms-expand {
     z-index:                            99;
     width:                              312px;
     max-height:                         456px;
-    overflow:                           scroll;
+    overflow-y:                         scroll;
 }
 
 .autocomplete-item {
