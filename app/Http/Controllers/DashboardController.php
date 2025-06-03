@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Support\Format;
 use App\Http\Support\Key;
+use App\Http\Support\Mail;
 use App\Http\Support\Route;
 use App\Http\Traits\BaseTrait;
 use App\Http\Traits\ReportTrait;
@@ -15,6 +16,7 @@ use App\Http\Traits\UserTrait;
 use App\Models\Announcement;
 use App\Models\Service;
 use App\Models\Study;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -259,6 +261,37 @@ class DashboardController extends Controller {
             Key::PAGE_ACTION                                                => __('Naar het dashboard'),
             Key::ICON                                                       => 'check-circle-green.svg'
         ]);
+    }
+
+
+
+    public static function announcement_send_emails() {
+
+        $announcements = Announcement::where('sent', false)->get();
+
+        foreach ($announcements as $announcement) {
+
+            $query = User::where(Model::$BASE_DELETED_AT, null);
+
+            if ($announcement->role == 0) {
+
+                $users = $query->get();
+
+            } else {
+
+                $users = $query->where(Model::$ROLE, $announcement->role)->get();
+
+            }
+
+            foreach ($users as $user) {
+
+                Mail::announcementCreated($user);
+
+            }
+
+            $announcement->sent = true;
+            $announcement->save();
+        }
     }
 
 

@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use App\Http\Traits\AgreementTrait;
 use App\Http\Traits\StudyTrait;
@@ -31,6 +32,11 @@ class Kernel extends ConsoleKernel {
         $schedule
             ->call(function() { AgreementTrait::plan_reminders_losse_lessen(); })
             ->dailyAt(1, '12:00')
+            ->emailOutputOnFailure('mano.gilissen@gmail.com');
+
+        $schedule
+            ->call(function() { DashboardController::announcement_send_emails(); })
+            ->everyFiveMinutes()
             ->emailOutputOnFailure('mano.gilissen@gmail.com');
     }
 

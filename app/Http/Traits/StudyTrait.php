@@ -329,6 +329,22 @@ trait StudyTrait {
 
 
 
+    public static function getParticipants_Email($study) {
+
+        $emails                                                     = [];
+        $users                                                      = $study->getParticipants_User();
+
+        foreach ($users as $user) {
+
+            $emails[] = $user->{Model::$USER_EMAIL};
+
+        }
+
+        return $emails;
+    }
+
+
+
     public static function countParticipants($study) {
 
         $total                                                      = 0;
@@ -387,6 +403,36 @@ trait StudyTrait {
 
         return $study->getAgreements[0]->getSubject;
 
+    }
+
+
+
+    public static function getDescription($study, $for_host = false) {
+
+        $agreement = $study->getAgreements[0];
+
+        $description = __($agreement->getService->{Model::$SERVICE_SHORT}) . " " . __($agreement->getSubject->{Model::$SUBJECT_NAME}) . " met ";
+
+        if ($for_host) {
+
+            $students = '';
+
+            foreach ($study->getAgreements as $participant) {
+
+                $students = (strlen($students) > 0 ? $students . ' en ' : $students);
+                $students .= $participant->getStudent->getPerson->{Model::$PERSON_FIRST_NAME};
+
+            }
+
+            $description .= $students;
+
+        } else {
+
+            $description .= $study->getHost_User->getPerson->{Model::$PERSON_FIRST_NAME};
+
+        }
+
+        return $description;
     }
 
 

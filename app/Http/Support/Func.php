@@ -127,5 +127,50 @@ class Func {
 
 
 
+    public static function generate_calendar_invite(
+        $uid,
+        $summary,
+        $description,
+        $location,
+        $start,
+        $end,
+        $organizerName,
+        $organizerEmail,
+        $attendees = []
+    ) {
+        $format = 'Ymd\THis\Z';
+        $dtStart = $start->setTimezone(new DateTimeZone('UTC'))->format($format);
+        $dtEnd = $end->setTimezone(new DateTimeZone('UTC'))->format($format);
+        $dtStamp = (new DateTime('now', new DateTimeZone('UTC')))->format($format);
+
+        $attendeeLines = '';
+        foreach ($attendees as $attendee) {
+            $attendeeLines .= 'ATTENDEE;CN=' . $attendee['name'] . ';RSVP=TRUE:mailto:' . $attendee['email'] . "\r\n";
+        }
+
+        $ics = "BEGIN:VCALENDAR\r\n";
+        $ics .= "VERSION:2.0\r\n";
+        $ics .= "PRODID:-//YourApp//EN\r\n";
+        $ics .= "CALSCALE:GREGORIAN\r\n";
+        $ics .= "METHOD:REQUEST\r\n";
+        $ics .= "BEGIN:VEVENT\r\n";
+        $ics .= "UID:$uid\r\n";
+        $ics .= "DTSTART:$dtStart\r\n";
+        $ics .= "DTEND:$dtEnd\r\n";
+        $ics .= "DTSTAMP:$dtStamp\r\n";
+        $ics .= "SUMMARY:$summary\r\n";
+        $ics .= "DESCRIPTION:$description\r\n";
+        $ics .= "LOCATION:$location\r\n";
+        $ics .= "ORGANIZER;CN=$organizerName:mailto:$organizerEmail\r\n";
+        $ics .= $attendeeLines;
+        $ics .= "END:VEVENT\r\n";
+        $ics .= "END:VCALENDAR\r\n";
+
+        return $ics;
+    }
+
+
+
+
 
 }

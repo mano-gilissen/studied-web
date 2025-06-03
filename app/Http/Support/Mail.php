@@ -9,6 +9,7 @@ use App\Http\Mail\Agreement_Created_Employee;
 use App\Http\Mail\Agreement_Extended_Employee;
 use App\Http\Mail\Agreement_Finished_Employee;
 use App\Http\Mail\Agreement_Reminder_Management;
+use App\Http\Mail\Announcement_Created;
 use App\Http\Mail\Evaluation_Created_Customer;
 use App\Http\Mail\Evaluation_Created_Employee;
 use App\Http\Mail\Evaluation_Created_Host;
@@ -237,6 +238,18 @@ class Mail {
         $recipient                                          = $customer->{Model::$USER_EMAIL};
 
         self::mailTo($mail, $recipient, $customer->{Model::$USER_LANGUAGE});
+    }
+
+
+
+
+
+    public static function announcementCreated($user) {
+
+        $mail                                               = new Announcement_Created($user);
+        $recipient                                          = $user->{Model::$USER_EMAIL};
+
+        self::mailTo($mail, $recipient, $user->{Model::$USER_LANGUAGE});
     }
 
 
