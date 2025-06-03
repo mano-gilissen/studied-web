@@ -1,6 +1,6 @@
 <div id="module-graphs_statistics" class="module">
 
-    <div id="graph_revenue" class="graph" style="margin-bottom: 32px">
+    <div id="graph_revenue" class="graph">
 
         <div class="title">{{ __('Omzet per maand') }}</div>
 
