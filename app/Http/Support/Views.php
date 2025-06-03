@@ -28,6 +28,7 @@ class Views {
     const FORM_CUSTOMER_CREATE                  = "form.customer-create";
     const FORM_EMPLOYEE_CREATE                  = "form.employee-create";
     const FORM_AGREEMENT_CREATE                 = "form.agreement-create";
+    const FORM_ANNOUNCEMENT_CREATE              = "form.announcement-create";
     const FORM_STUDY_EDIT                       = "form.study-edit";
     const FORM_PERSON_EDIT                      = "form.person-edit";
     const FORM_AGREEMENT_EDIT                   = "form.agreement-edit";

@@ -28,4 +28,28 @@ trait RoleTrait {
 
 
 
+    public static function getName($roleId) {
+
+        switch ($roleId) {
+            case self::$ID_ADMINISTRATOR:
+                return __('Administrator');
+            case self::$ID_BOARD:
+                return __('Board');
+            case self::$ID_MANAGEMENT:
+                return __('Management');
+            case self::$ID_EMPLOYEE:
+                return __('Medewerker');
+            case self::$ID_STUDENT:
+                return __('Leerling');
+            case self::$ID_CUSTOMER:
+                return __('Klant');
+            default:
+                return __('Publiek');
+        }
+    }
+
+
+
+
+
 }

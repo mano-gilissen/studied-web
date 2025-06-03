@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Support\Format;
 use App\Http\Support\Key;
 use App\Http\Support\Route;
 use App\Http\Traits\BaseTrait;
@@ -10,6 +11,7 @@ use App\Http\Traits\RoleTrait;
 use App\Http\Traits\StudyTrait;
 use App\Http\Support\Views;
 use App\Http\Support\Model;
+use App\Http\Traits\UserTrait;
 use App\Models\Announcement;
 use App\Models\Service;
 use App\Models\Study;
@@ -199,10 +201,11 @@ class DashboardController extends Controller {
 
     public static function getModuleData_announcements() {
 
-        $role                                                   = Auth::user()->role;
+        $role = Auth::user()->role;
+        $role = in_array($role, [RoleTrait::$ID_ADMINISTRATOR, RoleTrait::$ID_BOARD]) ? RoleTrait::$ID_MANAGEMENT : $role;
 
         return Announcement::where(Model::$BASE_DELETED_AT, null)
-            ->whereIn(Model::$ROLE, [$role, null])
+            ->whereIn(Model::$ROLE, [$role, 0])
             ->orderBy(Model::$BASE_CREATED_AT, 'desc')
             ->get();
     }
@@ -233,7 +236,6 @@ class DashboardController extends Controller {
             'title'                                                         => 'required|string|max:999',
             'body'                                                          => 'required|string',
             'author'                                                        => 'string|max:999',
-            'role'                                                          => 'integer|exists:roles,id'
         ]);
 
         $validator->validate();
@@ -242,19 +244,33 @@ class DashboardController extends Controller {
 
         $announcement->title                                                = $request->input('title');
         $announcement->body                                                 = $request->input('body');
-        $announcement->author                                               = $request->input('author');
-        $announcement->role                                                 = $request->input('role');
+        $announcement->author                                               = $request->input('author', null);
+        $announcement->role                                                 = $request->input('_role');
+
         $announcement->save();
 
-
         return view(Views::FEEDBACK, [
-
             Key::PAGE_TITLE                                                 => __('Aankondiging verstuurd'),
             Key::PAGE_MESSAGE                                               => 'Alle ontvangers worden per email<br>op de hoogte gebracht.',
             Key::PAGE_NEXT                                                  => route(Route::DASHBOARD_VIEW),
             Key::PAGE_ACTION                                                => __('Naar het dashboard'),
             Key::ICON                                                       => 'check-circle-green.svg'
         ]);
+    }
+
+
+
+    public static function form_set_ac_data_role(&$data) {
+
+        $ac_data                                                            = [
+            0                                                               => __('Iedereen'),
+            RoleTrait::$ID_MANAGEMENT                                       => __('Management'),
+            RoleTrait::$ID_EMPLOYEE                                         => __('Medewerkers'),
+            RoleTrait::$ID_STUDENT                                          => __('Studenten'),
+            RoleTrait::$ID_CUSTOMER                                         => __('Klanten')
+        ];
+
+        $data[Key::AUTOCOMPLETE_DATA . Model::$USER_STATUS]                 = Format::encode($ac_data);
     }
 
 
