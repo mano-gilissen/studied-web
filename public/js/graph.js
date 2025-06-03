@@ -2,7 +2,7 @@ function graph_setup() {
 
     Chart.defaults.font.family                              = 'Circular, serif';
     Chart.defaults.font.weight                              = 200;
-    Chart.defaults.font.size                                = 10;
+    Chart.defaults.font.size                                = 11;
 }
 
 
