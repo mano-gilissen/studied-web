@@ -141,7 +141,7 @@ html, body {
 
 .block-note.error {
     height:                             88px;
-    padding-top:                        36px;
+    padding-top:                        2px;
     color:                              #FF0000;
     background:                         #FF000026;
 }

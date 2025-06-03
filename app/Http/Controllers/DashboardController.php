@@ -235,7 +235,7 @@ class DashboardController extends Controller {
         $validator = Validator::make($request->all(), [
             'title'                                                         => 'required|string|max:999',
             'body'                                                          => 'required|string',
-            'author'                                                        => 'string|max:999',
+            'author'                                                        => 'nullable|string|max:999',
         ]);
 
         $validator->validate();
