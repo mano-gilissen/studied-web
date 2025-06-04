@@ -463,7 +463,7 @@ trait EvaluationTrait {
             EvaluationTrait::getDescription($evaluation),
             $evaluation->{Model::$EVALUATION_LOCATION_TEXT},
             $evaluation->{Model::$EVALUATION_DATETIME},
-            (new DateTime($evaluation->{Model::$EVALUATION_DATETIME}))->modify('+1 hour')->format('Y-m-d H:i:s'),
+            $evaluation->{Model::$EVALUATION_DATETIME}->copy()->addHour(),
             PersonTrait::getFullName($evaluation->getHost->getPerson),
             $evaluation->getHost->{Model::$USER_EMAIL},
             self::getParticipants_Email($evaluation)
