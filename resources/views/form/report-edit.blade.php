@@ -44,7 +44,7 @@
 
             <div class="seperator"></div>
 
-            <div class="block-note">{{ __('Dit is het rapport voor ') }}<span style="font-weight: 400">{{ \App\Http\Traits\PersonTrait::getFullName($user->getPerson) }}</span></div>
+            <div class="block-note">{{ __('Dit is het rapport voor ') }}&nbsp;<span style="font-weight: 400">{{ \App\Http\Traits\PersonTrait::getFullName($user->getPerson) }}</span></div>
 
             <div class="seperator"></div>
 

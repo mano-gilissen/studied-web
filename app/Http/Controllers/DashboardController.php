@@ -236,7 +236,7 @@ class DashboardController extends Controller {
             $link                                           = route(Route::STUDY_VIEW, $report->getStudy->{Model::$BASE_KEY});
             $title                                          = __('Je rapport voor :participants is afgekeurd', ['participants' => $participants]);
 
-            $description = __('Je rapport voor de les met :participants op :date is afgekeurd.' .
+            $description = __('Je rapport voor de les met :participants op :date is afgekeurd. ' .
                 'Je kan het rapport bekijken en aanpassen door op dit bericht te klikken.', [
                 'participants' => $participants,
                 'date' => Format::datetime($report->getStudy->{Model::$STUDY_START}, Format::$DATETIME_EMAIL)
@@ -271,7 +271,7 @@ class DashboardController extends Controller {
 
                 $description                                = __('Je loopt achter met het inplannen
                     van lessen voor de vakafspraak :subject met :student.
-                    Plan <b:deficit uur</b> aan lessen extra in om deze achterstand in te halen.', [
+                    Plan <b>:deficit uur</b> aan lessen extra in om deze achterstand in te halen.', [
                     'student' => $student,
                     'subject' => $agreement->getSubject->{Model::$SUBJECT_NAME},
                     'deficit' => str_replace('.', ',', $deficit)
