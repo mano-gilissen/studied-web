@@ -461,7 +461,7 @@ trait EvaluationTrait {
             'evaluation-' . $evaluation->{Model::$BASE_KEY} . '@studied.app',
             EvaluationTrait::getDescription($evaluation),
             EvaluationTrait::getDescription($evaluation),
-            $evaluation->{Model::$EVALUATION_LOCATION_TEXT},
+            EvaluationTrait::hasLink($evaluation) ? $evaluation->{Model::$EVALUATION_LINK} : $evaluation->{Model::$EVALUATION_LOCATION_TEXT},
             $evaluation->{Model::$EVALUATION_DATETIME},
             $evaluation->{Model::$EVALUATION_DATETIME}->copy()->addHour(),
             PersonTrait::getFullName($evaluation->getHost->getPerson),
