@@ -74,6 +74,10 @@
     margin-left: auto;
 }
 
+#module-announcements .empty {
+    padding: 24px 0 8px;
+}
+
 #module-announcements .list {
     margin-top: 32px;
 }
@@ -96,3 +100,48 @@
     overflow: hidden;
     overflow-wrap: break-word;
 }
+
+
+
+
+
+#module-todo {
+    width: 100%;
+    background: #F8F8F8;
+    padding: 32px;
+    margin-bottom: 32px;
+}
+
+#module-todo .list {
+    margin-top: 16px;
+}
+
+#module-todo .todo {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+}
+
+#module-todo .todo .title {
+    font-size: 14px;
+    padding-bottom: 4px;
+}
+
+#module-todo .todo .description {
+    font-size: 13px;
+    line-height: 18px;
+}
+
+#module-todo .todo .priority {
+    width: 32px;
+    height: 24px;
+    padding-right: 8px;
+}
+
+#module-todo .todo .action {
+    width: 32px;
+    height: 24px;
+    padding-left: 8px;
+}
+
+

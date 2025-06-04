@@ -269,11 +269,9 @@ class DashboardController extends Controller {
                 $link                                       = route(Route::AGREEMENT_VIEW, $agreement->{Model::$AGREEMENT_IDENTIFIER});
                 $title                                      = __('Je hebt een achterstand aan lessen met ') . $student;
 
-                $description                                = __('Je loopt achter met het inplannen \
-                    van lessen voor de vakafspraak :subject met :student, \
-                    op dit tempo zal de totale urenafspraak niet gehaald worden. \
-                    Plan :deficit uur aan lessen extra in om deze achterstand in te halen. \
-                    Klik op dit bericht om de vakafspraak te bekijken.', [
+                $description                                = __('Je loopt achter met het inplannen
+                    van lessen voor de vakafspraak :subject met :student.
+                    Plan :deficit uur aan lessen extra in om deze achterstand in te halen.', [
                     'student' => $student,
                     'subject' => $agreement->getSubject->{Model::$SUBJECT_NAME},
                     'deficit' => str_replace('.', ',', $deficit)

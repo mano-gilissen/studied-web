@@ -17,7 +17,7 @@
 
     @if ($data__announcements->count() == 0)
 
-        <div class="empty">{{ __('Er zijn nog geen aankondigingen') }}</div>
+        <div class="empty">{{ __('Er zijn op dit moment geen aankondigingen.') }}</div>
 
     @else
 

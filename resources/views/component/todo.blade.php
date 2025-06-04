@@ -1,6 +1,6 @@
-<div class="todo {{ $loop->odd ? 'odd' : '' }}" onclick="{!! $todo['link'] !!}">
+<div class="todo {{ $loop->odd ? 'odd' : '' }}" onclick="window.location.href='{!! $todo['link'] !!}'">
 
-    <img class="priority" src="/images_app/dashboard-priority-{{ $todo['priority'] }}.svg">
+    <img class="priority" src="/images_app/dashboard-todo-priority-{{ $todo['priority'] }}.svg">
 
     <div>
 
