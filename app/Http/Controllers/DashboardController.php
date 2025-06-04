@@ -298,7 +298,7 @@ class DashboardController extends Controller {
 
             $student                                        = $agreement->getStudent->getPerson->{Model::$PERSON_FIRST_NAME};
             $link                                           = route(Route::AGREEMENT_VIEW, $agreement->{Model::$AGREEMENT_IDENTIFIER});
-            $title                                          = __('Je hebt nog geen vervolgles ingepland voor de vakafspraak :subject met :student.', [
+            $title                                          = __('Je hebt nog geen vervolgles :subject ingepland met :student.', [
                 'student' => $student,
                 'subject' => $agreement->getSubject->{Model::$SUBJECT_NAME},
             ]);
