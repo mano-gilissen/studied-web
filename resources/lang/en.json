@@ -693,5 +693,7 @@
     "Hallo :first_name" : "Hello :first_name",
     "Er staat een nieuwe aankondiging voor je klaar in het dashboard. Bekijk deze eenvoudig in de app via de onderstaande knop." : "There is a new announcement waiting for you in your dashboard.<br><br>You can open it in the app by clicking the button below.",
     "Groeten," : "With regards,",
-    "Bericht bekijken" : "View message"
+    "Bericht bekijken" : "View message",
+    " met " : " with ",
+    " van Studied" : " from Studied"
 }

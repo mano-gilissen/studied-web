@@ -41,14 +41,14 @@ class Study_Planned_Employee extends Mailable {
         $this->subject                              = __('Er is een :service voor je ingepland met :participants', ['service' => strtolower($study->getService->{Model::$SERVICE_SHORT}), 'participants' => StudyTrait::getParticipantsText($study)]);
 
         $this->invite                               = Func::generate_calendar_invite(
-            $this->employee->{Model::$USER_EMAIL},
+            'study-' . $study->{Model::$BASE_KEY} . '@studied.app',
             StudyTrait::getDescription($study),
             StudyTrait::getDescription($study),
             $study->{Model::$STUDY_LOCATION_TEXT},
             $study->{Model::$STUDY_START},
             $study->{Model::$STUDY_END},
             PersonTrait::getFullName($this->employee->getPerson),
-            $this->employee->{Model::$USER_EMAIL},
+            $study->getHost->{Model::$USER_EMAIL},
             StudyTrait::getParticipants_Email($study)
         );
     }

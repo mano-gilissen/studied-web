@@ -4,8 +4,10 @@
 
 namespace App\Http\Mail;
 
+use App\Http\Support\Func;
 use App\Http\Support\Model;
 use App\Http\Traits\EvaluationTrait;
+use App\Http\Traits\PersonTrait;
 use App\Http\Traits\StudyTrait;
 use App\Models\Agreement;
 use App\Models\Evaluation;
@@ -40,6 +42,18 @@ class Evaluation_Created_Host extends Mailable {
         $this->evaluation                   = $evaluation;
 
         $this->subject                      = __('Er is een :regarding met jou als deelnemer ingepland.', ['regarding' => strtolower(EvaluationTrait::getRegardingText($evaluation->{Model::$EVALUATION_REGARDING}))]);
+
+        $this->invite                       = Func::generate_calendar_invite(
+            'evaluation-' . $evaluation->{Model::$BASE_KEY} . '@studied.app',
+            EvaluationTrait::getDescription($evaluation),
+            EvaluationTrait::getDescription($evaluation),
+            $evaluation->{Model::$EVALUATION_LOCATION_TEXT},
+            $evaluation->{Model::$EVALUATION_DATETIME},
+            (new DateTime($evaluation->{Model::$EVALUATION_DATETIME}))->modify('+1 hour')->format('Y-m-d H:i:s'),
+            PersonTrait::getFullName($evaluation->getHost->getPerson),
+            $evaluation->getHost->{Model::$USER_EMAIL},
+            ['name' => PersonTrait::getFullName($employee), 'email' => $employee->{Model::$USER_EMAIL}]
+        );
     }
 
 

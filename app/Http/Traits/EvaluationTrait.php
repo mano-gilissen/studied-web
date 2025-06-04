@@ -410,6 +410,14 @@ trait EvaluationTrait {
 
 
 
+    public static function getDescription($evaluation) {
+
+        return self::getRegardingText($evaluation->{Model::$EVALUATION_REGARDING}) . __(' met ') . PersonTrait::getFullName($evaluation->getHost->getPerson) . __(' van Studied');
+
+    }
+
+
+
 
 
 }
