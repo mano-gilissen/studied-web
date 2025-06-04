@@ -35,7 +35,7 @@ class Announcement_Created extends Mailable {
     public function __construct(User $user) {
 
         $this->user                         = $user;
-        $this->subject                      = __('');
+        $this->subject                      = __('Nieuw bericht voor jou in het Studied dashboard');
 
     }
 
