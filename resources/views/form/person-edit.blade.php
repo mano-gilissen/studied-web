@@ -79,13 +79,13 @@
             @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
             @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
-                @include('form.part-employee-edit', ['employee' => $person->getUser->getEmployee])
+                @include('component.part-employee-edit', ['employee' => $person->getUser->getEmployee])
 
                 @break
 
             @case(\App\Http\Traits\RoleTrait::$ID_STUDENT)
 
-                @include('form.part-student-edit', ['student' => $person->getUser->getStudent])
+                @include('component.part-student-edit', ['student' => $person->getUser->getStudent])
 
                 @break
 
