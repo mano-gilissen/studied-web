@@ -234,13 +234,12 @@ class DashboardController extends Controller {
 
             $participants                                   = StudyTrait::getParticipantsText($report->getStudy);
             $link                                           = route(Route::STUDY_VIEW, $report->getStudy->{Model::$BASE_KEY});
-            $title                                          = __('Je rapport voor :participants is afgekeurd', ['participants' => $participants]);
-
-            $description = __('Je rapport voor de les met :participants op :date is afgekeurd. ' .
-                'Je kan het rapport bekijken en aanpassen door op dit bericht te klikken.', [
+            $title                                          = __('Je rapport voor :participants op :date is afgekeurd.', [
                 'participants' => $participants,
                 'date' => Format::datetime($report->getStudy->{Model::$STUDY_START}, Format::$DATETIME_EMAIL)
             ]);
+
+            $description = __('Klik op dit bericht om het rapport te bekijken en aan te passen.');
 
             $todos[]                                        = [
                 'title'                                     => $title,
@@ -267,13 +266,12 @@ class DashboardController extends Controller {
 
                 $student                                    = $agreement->getStudent->getPerson->{Model::$PERSON_FIRST_NAME};
                 $link                                       = route(Route::AGREEMENT_VIEW, $agreement->{Model::$AGREEMENT_IDENTIFIER});
-                $title                                      = __('Je hebt een achterstand aan lessen met ') . $student;
-
-                $description                                = __('Je loopt achter met het inplannen
-                    van lessen voor de vakafspraak :subject met :student.
-                    Plan <span>:deficit uur</span> aan lessen extra in om deze achterstand in te halen.', [
+                $title                                      = __('Je hebt een achterstand aan lessen :subject met :student', [
                     'student' => $student,
                     'subject' => $agreement->getSubject->{Model::$SUBJECT_NAME},
+                ]);
+
+                $description                                = __('Plan :deficit uur aan lessen extra in om deze achterstand in te halen.', [
                     'deficit' => str_replace('.', ',', $deficit)
                 ]);
 
@@ -299,14 +297,12 @@ class DashboardController extends Controller {
 
             $student                                        = $agreement->getStudent->getPerson->{Model::$PERSON_FIRST_NAME};
             $link                                           = route(Route::AGREEMENT_VIEW, $agreement->{Model::$AGREEMENT_IDENTIFIER});
-            $title                                          = __('Plan een vervolgles in met ') . $student;
-
-            $description                                    = __('Je hebt nog geen vervolgles \
-                ingepland voor de vakafspraak :subject met :student. Klik op dit bericht om de \
-                vakafspraak te bekijken en een nieuwe les in te plannen.', [
+            $title                                          = __('Je hebt nog geen vervolgles ingepland voor de vakafspraak :subject met :student.', [
                 'student' => $student,
                 'subject' => $agreement->getSubject->{Model::$SUBJECT_NAME},
             ]);
+
+            $description                                    = __('Klik op dit bericht om de vakafspraak te bekijken en een nieuwe les in te plannen.');
 
             $todos[]                                        = [
                 'title'                                     => $title,
