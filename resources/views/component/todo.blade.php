@@ -6,7 +6,7 @@
 
         <div class="title">{{ $todo['title'] }}</div>
 
-        <div class="description">{{ $todo['description'] }}</div>
+        <div class="description">{!! $todo['description'] !!}</div>
 
     </div>
 
