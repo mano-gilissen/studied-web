@@ -34,7 +34,7 @@ class Study_Planned_Student extends Mailable {
 
         $this->study                                = $study;
         $this->participant                          = $participant;
-        $this->subject                              = __('Er is een :service voor je ingepland door :name', ['service' => strtolower($study->getService->{Model::$SERVICE_NAME}), 'name' => PersonTrait::getFullName($study->getHost->getPerson)]);
+        $this->subject                              = __('Er is een :service voor je ingepland door :name', ['service' => strtolower($study->getService->{Model::$SERVICE_SHORT}), 'name' => PersonTrait::getFullName($study->getHost->getPerson)]);
     }
 
 
