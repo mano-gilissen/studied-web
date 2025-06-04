@@ -40,7 +40,7 @@ class Study_Planned_Student extends Mailable {
         $this->subject                              = __('Er is een :service voor je ingepland door :name', ['service' => strtolower($study->getService->{Model::$SERVICE_SHORT}), 'name' => PersonTrait::getFullName($study->getHost->getPerson)]);
 
         $this->invite                               = Func::generate_calendar_invite(
-            '5FC53010-1267-4F8E-BC28-1D7AE55A7C39',
+            'study-' . $study->{Model::$BASE_KEY} . '@studied.app',
             StudyTrait::getDescription($study),
             StudyTrait::getDescription($study),
             $study->{Model::$STUDY_LOCATION_TEXT},
