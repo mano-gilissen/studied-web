@@ -6,14 +6,18 @@ use App\Http\Support\Format;
 use App\Http\Support\Key;
 use App\Http\Support\Mail;
 use App\Http\Support\Route;
+use App\Http\Traits\AgreementTrait;
 use App\Http\Traits\BaseTrait;
 use App\Http\Traits\ReportTrait;
 use App\Http\Traits\RoleTrait;
 use App\Http\Traits\StudyTrait;
 use App\Http\Support\Views;
 use App\Http\Support\Model;
+use App\Http\Traits\SubjectTrait;
 use App\Http\Traits\UserTrait;
+use App\Models\Agreement;
 use App\Models\Announcement;
+use App\Models\Report;
 use App\Models\Service;
 use App\Models\Study;
 use App\Models\User;
@@ -34,10 +38,9 @@ class DashboardController extends Controller {
 
     public const
 
-        MODULE_TODO_PLAN_LOSSE_LESSEN                           = 'todo_plan_losse_lessons',
-        MODULE_TODO_DEFICIT_VAKAFSPRAKEN                        = 'todo_deficit_vakafspraken',
         MODULE_GRAPHS_STATISTICS                                = 'graphs_statistics',
-        MODULE_ANNOUNCEMENTS                                    = 'announcements';
+        MODULE_ANNOUNCEMENTS                                    = 'announcements',
+        MODULE_TODO                                             = 'todo';
 
 
 
@@ -57,19 +60,16 @@ class DashboardController extends Controller {
             $modules[]                                          = self::MODULE_GRAPHS_STATISTICS;
             $data['data__graph_statistics']                     = self::getModuleData_graphStatistics();
         }
-/*
+
         if (in_array($role, [
-            RoleTrait::$ID_ADMINISTRATOR,
             RoleTrait::$ID_BOARD,
             RoleTrait::$ID_MANAGEMENT,
             RoleTrait::$ID_EMPLOYEE
         ])) {
-            $modules[]                                          = self::MODULE_TODO_PLAN_LOSSE_LESSEN;
-            $modules[]                                          = self::MODULE_TODO_DEFICIT_VAKAFSPRAKEN;
-            $data['data__todo_plan_losse_lessons']              = self::getModuleData_todoPlanLessen();
-            $data['data__todo_deficit_vakafspraken']            = self::getModuleData_todoDeficitVakafspraken();
+            $modules[]                                          = self::MODULE_TODO;
+            $data['data__todo']                                 = self::getModuleData_todo();
         }
-*/
+
         $modules[]                                              = self::MODULE_ANNOUNCEMENTS;
         $data['data__announcements']                            = self::getModuleData_announcements();
         $data['modules']                                        = $modules;
@@ -213,6 +213,112 @@ class DashboardController extends Controller {
         }
 
         return $query->orderBy(Model::$BASE_CREATED_AT, 'desc')->get();
+    }
+
+
+
+
+
+    public static function getModuleData_todo() {
+
+        $todos                                              = [];
+
+        $reports                                            = Report::where(Model::$REPORT_FLAGGED, true)
+                                                            ->where(Model::$BASE_DELETED_AT, null)
+                                                            ->whereHas('getStudy', function (Builder $query) {
+                                                            $query->where(Model::$STUDY_HOST_USER, Auth::id())
+                                                            ->where(Model::$BASE_DELETED_AT, null);
+                                                            })->get();
+
+        foreach ($reports as $report) {
+
+            $participants                                   = StudyTrait::getParticipantsText($report->getStudy);
+            $link                                           = route(Route::STUDY_VIEW, $report->getStudy->{Model::$BASE_KEY});
+            $title                                          = __('Je rapport voor :participants is afgekeurd', ['participants' => $participants]);
+
+            $description = __('Je rapport voor de les met :participants op :date is afgekeurd.' .
+                'Je kan het rapport bekijken en aanpassen door op dit bericht te klikken.', [
+                'participants' => $participants,
+                'date' => Format::datetime($report->getStudy->{Model::$STUDY_START}, Format::$DATETIME_EMAIL)
+            ]);
+
+            $todos[]                                        = [
+                'title'                                     => $title,
+                'description'                               => $description,
+                'link'                                      => $link,
+                'priority'                                  => 'high',
+            ];
+        }
+
+
+
+        $agreements                                         = Agreement::where(Model::$EMPLOYEE, Auth::id())
+            ->where(Model::$AGREEMENT_STATUS, '!=', AgreementTrait::$STATUS_FINISHED)
+            ->where(Model::$AGREEMENT_START, '<', date(Format::$DATABASE_DATE))
+            ->where(Model::$AGREEMENT_START, '>=', '2025-04-01')
+            ->where(Model::$AGREEMENT_PLAN, '!=', AgreementTrait::$PLAN_LOSSE_LESSEN)
+            ->get();
+
+        foreach ($agreements as $agreement) {
+
+            $deficit                                        = AgreementTrait::calculateDeficit($agreement);
+
+            if ($deficit >= 1) {
+
+                $student                                    = $agreement->getStudent->getPerson->{Model::$PERSON_FIRST_NAME};
+                $link                                       = route(Route::AGREEMENT_VIEW, $agreement->{Model::$BASE_KEY});
+                $title                                      = __('Je hebt een achterstand aan lessen met ') . $student;
+
+                $description                                = __('Je loopt achter met het inplannen \
+                    van lessen voor de vakafspraak :subject met :student, \
+                    op dit tempo zal de totale urenafspraak niet gehaald worden. \
+                    Plan :deficit uur aan lessen extra in om deze achterstand in te halen. \
+                    Klik op dit bericht om de vakafspraak te bekijken.', [
+                    'student' => $student,
+                    'subject' => $agreement->getSubject->{Model::$SUBJECT_NAME},
+                    'deficit' => str_replace('.', ',', $deficit)
+                ]);
+
+                $todos[]                                    = [
+                    'title'                                 => $title,
+                    'description'                           => $description,
+                    'link'                                  => $link,
+                    'priority'                              => 'medium',
+                ];
+            }
+        }
+
+
+
+        $agreements                                         = Agreement::where(Model::$EMPLOYEE, Auth::id())
+            ->where(Model::$AGREEMENT_STATUS, '!=', AgreementTrait::$STATUS_FINISHED)
+            ->where(Model::$AGREEMENT_START, '<=', date(Format::$DATABASE_DATE))
+            ->where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATE))
+            ->where(Model::$AGREEMENT_PLAN, '=', AgreementTrait::$PLAN_LOSSE_LESSEN)
+            ->get();
+
+        foreach ($agreements as $agreement) {
+
+            $student                                        = $agreement->getStudent->getPerson->{Model::$PERSON_FIRST_NAME};
+            $link                                           = route(Route::AGREEMENT_VIEW, $agreement->{Model::$BASE_KEY});
+            $title                                          = __('Plan een vervolgles in met ') . $student;
+
+            $description                                    = __('Je hebt nog geen vervolgles \
+                ingepland voor de vakafspraak :subject met :student. Klik op dit bericht om de \
+                vakafspraak te bekijken en een nieuwe les in te plannen.', [
+                'student' => $student,
+                'subject' => $agreement->getSubject->{Model::$SUBJECT_NAME},
+            ]);
+
+            $todos[]                                        = [
+                'title'                                     => $title,
+                'description'                               => $description,
+                'link'                                      => $link,
+                'priority'                                  => 'medium',
+            ];
+        }
+
+        return $todos;
     }
 
 

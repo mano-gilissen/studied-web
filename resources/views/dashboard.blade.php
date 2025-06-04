@@ -39,13 +39,13 @@
 
             <div id="left">
 
-                @if(\App\Http\Traits\UserTrait::hasDashboardTodoModules())
+                @if(in_array(\App\Http\Controllers\DashboardController::MODULE_TODO, $modules))
 
                     @include('section.dashboard-todo')
 
                 @endif
 
-                @if(in_array(\App\Http\Controllers\DashboardController::MODULE_GRAPHS_STATISTICS, $modules))
+                @if(in_array(\App\Http\Controllers\DaschboardController::MODULE_GRAPHS_STATISTICS, $modules))
 
                     @include('section.dashboard-graphs_statistics')
 
