@@ -342,6 +342,11 @@ trait StudyTrait {
             ];
         }
 
+        $emails[] = [
+            'name' => PersonTrait::getFullName($study->getHost->getPerson),
+            'email' => $study->getHost->{Model::$USER_EMAIL}
+        ];
+
         return $emails;
     }
 
