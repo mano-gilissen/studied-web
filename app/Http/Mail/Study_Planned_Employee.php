@@ -41,7 +41,7 @@ class Study_Planned_Employee extends Mailable {
         $this->subject                              = __('Er is een :service voor je ingepland met :participants', ['service' => strtolower($study->getService->{Model::$SERVICE_SHORT}), 'participants' => StudyTrait::getParticipantsText($study)]);
 
         $this->invite                               = Func::generate_calendar_invite(
-            'event_' . $study->{Model::$BASE_KEY} . '@studied.events',
+            'study' . $study->{Model::$BASE_KEY} . '@studied.events',
             StudyTrait::getDescription($study),
             StudyTrait::getDescription($study),
             $study->{Model::$STUDY_LOCATION_TEXT},
