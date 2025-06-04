@@ -246,7 +246,7 @@ class DashboardController extends Controller {
                 'description'                               => $description,
                 'link'                                      => $link,
                 'priority'                                  => 'high',
-                'icon'                                      => 'dashboard-todo-icon-flag.svg',
+                'icon'                                      => 'dashboard-todo-icon-flag',
             ];
         }
 
