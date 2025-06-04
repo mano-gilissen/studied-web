@@ -773,6 +773,23 @@ trait StudyTrait {
 
 
 
+    public static function generateCalendarInvite($study) {
+
+        return Func::generate_calendar_invite(
+            'study-' . $study->{Model::$BASE_KEY} . '@studied.nl',
+            StudyTrait::getDescription($study),
+            StudyTrait::getDescription($study),
+            $study->{Model::$STUDY_LOCATION_TEXT},
+            $study->{Model::$STUDY_START},
+            $study->{Model::$STUDY_END},
+            PersonTrait::getFullName($study->getHost->getPerson),
+            'info@studied.nl',
+            StudyTrait::getParticipants_Email($study)
+        );
+    }
+
+
+
 
     public static function scheduled_report_weekly() {
 

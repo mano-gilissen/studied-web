@@ -418,6 +418,61 @@ trait EvaluationTrait {
 
 
 
+    public static function getParticipants_Email($evaluation) {
+
+        $host                                                       = $evaluation->getHost;
+        $student                                                    = $evaluation->getStudent;
+        $customer                                                   = $student->getCustomer ? $student->getCustomer->getUser : null;
+
+        $emails = [
+            [
+                'name' => PersonTrait::getFullName($host->getPerson),
+                'email' => $host->{Model::$USER_EMAIL}
+            ],
+            [
+                'name' => PersonTrait::getFullName($student->getPerson),
+                'email' => $student->{Model::$USER_EMAIL}
+            ]
+        ];
+
+        if ($customer) {
+
+            $emails[] = [
+                'name' => PersonTrait::getFullName($customer->getPerson),
+                'email' => $customer->{Model::$USER_EMAIL}
+            ];
+        }
+
+        foreach ($evaluation->getEmployees as $user) {
+
+            $emails[] = [
+                'name' => PersonTrait::getFullName($user->getPerson),
+                'email' => $user->{Model::$USER_EMAIL}
+            ];
+        }
+
+        return $emails;
+    }
+
+
+
+    public static function generateCalendarInvite($evaluation) {
+
+        return Func::generate_calendar_invite(
+            'evaluation-' . $evaluation->{Model::$BASE_KEY} . '@studied.app',
+            EvaluationTrait::getDescription($evaluation),
+            EvaluationTrait::getDescription($evaluation),
+            $evaluation->{Model::$EVALUATION_LOCATION_TEXT},
+            $evaluation->{Model::$EVALUATION_DATETIME},
+            (new DateTime($evaluation->{Model::$EVALUATION_DATETIME}))->modify('+1 hour')->format('Y-m-d H:i:s'),
+            PersonTrait::getFullName($evaluation->getHost->getPerson),
+            $evaluation->getHost->{Model::$USER_EMAIL},
+            self::getParticipants_Email($evaluation)
+        );
+    }
+
+
+
 
 
 }

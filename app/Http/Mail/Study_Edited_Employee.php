@@ -27,6 +27,7 @@ class Study_Edited_Employee extends Mailable {
 
         $study,
         $employee,
+        $invite,
         $subject;
 
 
@@ -36,6 +37,7 @@ class Study_Edited_Employee extends Mailable {
         $this->study                                = $study;
         $this->employee                             = $study->getHost;
         $this->subject                              = __('De gegevens van je les :subject met :participants zijn gewijzigd.', ['subject' => strtolower(StudyTrait::getSubject($study)->{Model::$SUBJECT_NAME}), 'participants' => StudyTrait::getParticipantsText($study)]);
+        $this->invite                               = StudyTrait::generateCalendarInvite($study);
     }
 
 
@@ -44,7 +46,13 @@ class Study_Edited_Employee extends Mailable {
 
         return $this
             ->view('mail.study_edited_employee')
-            ->subject($this->subject);
+            ->subject($this->subject)
+            ->attachData($this->invite, 'invite.ics', [
+                'mime' => 'text/calendar; charset=utf-8; method=REQUEST',
+            ])
+            ->withSwiftMessage(function ($message) {
+                $message->addPart($this->invite, 'text/calendar; charset=utf-8; method=REQUEST');
+            });
     }
 
 

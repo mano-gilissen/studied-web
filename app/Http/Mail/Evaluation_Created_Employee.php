@@ -33,6 +33,7 @@ class Evaluation_Created_Employee extends Mailable {
 
         $employee,
         $evaluation,
+        $invite,
         $subject;
 
 
@@ -41,28 +42,23 @@ class Evaluation_Created_Employee extends Mailable {
 
         $this->employee                     = $employee;
         $this->evaluation                   = $evaluation;
-
         $this->subject                      = __('Er is een :regarding met jou als deelnemer ingepland.', ['regarding' => strtolower(EvaluationTrait::getRegardingText($evaluation->{Model::$EVALUATION_REGARDING}))]);
-
-        $this->invite                       = Func::generate_calendar_invite(
-            'evaluation-' . $evaluation->{Model::$BASE_KEY} . '@studied.app',
-            EvaluationTrait::getDescription($evaluation),
-            EvaluationTrait::getDescription($evaluation),
-            $evaluation->{Model::$EVALUATION_LOCATION_TEXT},
-            $evaluation->{Model::$EVALUATION_DATETIME},
-            (new DateTime($evaluation->{Model::$EVALUATION_DATETIME}))->modify('+1 hour')->format('Y-m-d H:i:s'),
-            PersonTrait::getFullName($evaluation->getHost->getPerson),
-            $evaluation->getHost->{Model::$USER_EMAIL},
-            ['name' => PersonTrait::getFullName($employee), 'email' => $employee->{Model::$USER_EMAIL}]
-        );
+        $this->invite                       = EvaluationTrait::generateCalendarInvite($evaluation);
     }
 
 
 
     public function build() {
 
-        return $this->view('mail.evaluation_created_employee')->subject($this->subject);
-
+        return $this
+            ->view('mail.evaluation_created_employee')
+            ->subject($this->subject)
+            ->attachData($this->invite, 'invite.ics', [
+                'mime' => 'text/calendar; charset=utf-8; method=REQUEST',
+            ])
+            ->withSwiftMessage(function ($message) {
+                $message->addPart($this->invite, 'text/calendar; charset=utf-8; method=REQUEST');
+            });
     }
 
 

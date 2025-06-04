@@ -4,6 +4,7 @@
 
 namespace App\Http\Mail;
 
+use App\Http\Support\Func;
 use App\Http\Support\Model;
 use App\Http\Traits\PersonTrait;
 use App\Http\Traits\StudyTrait;
@@ -27,6 +28,7 @@ class Study_Edited_Student extends Mailable {
 
         $study,
         $participant,
+        $invite,
         $subject;
 
 
@@ -36,6 +38,7 @@ class Study_Edited_Student extends Mailable {
         $this->study                                = $study;
         $this->participant                          = $participant;
         $this->subject                              = __('De gegevens van je les :subject met :name zijn gewijzigd.', ['subject' => strtolower(StudyTrait::getSubject($study)->{Model::$SUBJECT_NAME}), 'name' => PersonTrait::getFullName($participant->getPerson)]);
+        $this->invite                               = StudyTrait::generateCalendarInvite($study);
     }
 
 
@@ -44,7 +47,13 @@ class Study_Edited_Student extends Mailable {
 
         return $this
             ->view('mail.study_edited_student')
-            ->subject($this->subject);
+            ->subject($this->subject)
+            ->attachData($this->invite, 'invite.ics', [
+                'mime' => 'text/calendar; charset=utf-8; method=REQUEST',
+            ])
+            ->withSwiftMessage(function ($message) {
+                $message->addPart($this->invite, 'text/calendar; charset=utf-8; method=REQUEST');
+            });
     }
 
 

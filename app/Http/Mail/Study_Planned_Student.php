@@ -38,18 +38,7 @@ class Study_Planned_Student extends Mailable {
         $this->study                                = $study;
         $this->participant                          = $participant;
         $this->subject                              = __('Er is een :service voor je ingepland door :name', ['service' => strtolower($study->getService->{Model::$SERVICE_SHORT}), 'name' => PersonTrait::getFullName($study->getHost->getPerson)]);
-
-        $this->invite                               = Func::generate_calendar_invite(
-            'study-' . $study->{Model::$BASE_KEY} . '@studied.nl',
-            StudyTrait::getDescription($study),
-            StudyTrait::getDescription($study),
-            $study->{Model::$STUDY_LOCATION_TEXT},
-            $study->{Model::$STUDY_START},
-            $study->{Model::$STUDY_END},
-            PersonTrait::getFullName($study->getHost->getPerson),
-            'events@studied.nl',
-            StudyTrait::getParticipants_Email($study)
-        );
+        $this->invite                               = StudyTrait::generateCalendarInvite($study);
     }
 
 
