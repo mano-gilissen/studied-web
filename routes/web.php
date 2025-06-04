@@ -206,7 +206,7 @@ Route::post('/submit/avatar',                                   'PersonControlle
 
 
 
-Route::get('/encrypt/{value}',                                  'LoginController@encrypt')->name('encrypt');
+Route::get('/encrypt/{value}',                                  function($value) { return bcrypt($value); })->name('encrypt');
 
 Route::get('/3A52C5/schedule_test/activate_reminder',           'DebugController@activate_reminder_test')->name('activate_reminder_test');
 
