@@ -120,8 +120,24 @@
     display: flex;
     align-items: center;
     margin-top: 16px;
-    padding: 8px;
+    padding: 12px 10px;
     background: white;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+#module-todo .todo.medium {
+    background: #fff8d6;
+    border: 1px solid #ffdd34;
+}
+
+#module-todo .todo.high {
+    background: #ffdfdf;
+    border: 1px solid #ff5f5f;
+}
+
+#module-todo .todo:hover {
+    opacity: .7;
 }
 
 #module-todo .todo .title {

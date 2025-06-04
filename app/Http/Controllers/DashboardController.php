@@ -271,7 +271,7 @@ class DashboardController extends Controller {
 
                 $description                                = __('Je loopt achter met het inplannen
                     van lessen voor de vakafspraak :subject met :student.
-                    Plan :deficit uur aan lessen extra in om deze achterstand in te halen.', [
+                    Plan <b:deficit uur</b> aan lessen extra in om deze achterstand in te halen.', [
                     'student' => $student,
                     'subject' => $agreement->getSubject->{Model::$SUBJECT_NAME},
                     'deficit' => str_replace('.', ',', $deficit)
