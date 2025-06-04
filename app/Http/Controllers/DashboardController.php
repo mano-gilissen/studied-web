@@ -266,7 +266,7 @@ class DashboardController extends Controller {
             if ($deficit >= 1) {
 
                 $student                                    = $agreement->getStudent->getPerson->{Model::$PERSON_FIRST_NAME};
-                $link                                       = route(Route::AGREEMENT_VIEW, $agreement->{Model::$BASE_KEY});
+                $link                                       = route(Route::AGREEMENT_VIEW, $agreement->{Model::$AGREEMENT_IDENTIFIER});
                 $title                                      = __('Je hebt een achterstand aan lessen met ') . $student;
 
                 $description                                = __('Je loopt achter met het inplannen \
@@ -300,7 +300,7 @@ class DashboardController extends Controller {
         foreach ($agreements as $agreement) {
 
             $student                                        = $agreement->getStudent->getPerson->{Model::$PERSON_FIRST_NAME};
-            $link                                           = route(Route::AGREEMENT_VIEW, $agreement->{Model::$BASE_KEY});
+            $link                                           = route(Route::AGREEMENT_VIEW, $agreement->{Model::$AGREEMENT_IDENTIFIER});
             $title                                          = __('Plan een vervolgles in met ') . $student;
 
             $description                                    = __('Je hebt nog geen vervolgles \
