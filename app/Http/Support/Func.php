@@ -161,7 +161,7 @@ class Func {
         $ics .= "SUMMARY:$summary\r\n";
         $ics .= "DESCRIPTION:$description\r\n";
         $ics .= "LOCATION:$location\r\n";
-        $ics .= "ORGANIZER;CN=$organizerName:mailto:$organizerEmail\r\n";
+        $ics .= "ORGANIZER;CN=$organizerName:mailto:info@studied.app\r\n";
         $ics .= $attendeeLines;
         $ics .= "END:VEVENT\r\n";
         $ics .= "END:VCALENDAR\r\n";
