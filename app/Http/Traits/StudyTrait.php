@@ -336,8 +336,10 @@ trait StudyTrait {
 
         foreach ($users as $user) {
 
-            $emails[] = $user->{Model::$USER_EMAIL};
-
+            $emails[] = [
+                'name' => PersonTrait::getFullName($user->getPerson),
+                'email' => $user->{Model::$USER_EMAIL}
+            ];
         }
 
         return $emails;
