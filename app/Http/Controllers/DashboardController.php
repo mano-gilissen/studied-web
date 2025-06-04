@@ -302,7 +302,7 @@ class DashboardController extends Controller {
             0                                                               => __('Iedereen'),
             RoleTrait::$ID_MANAGEMENT                                       => __('Management'),
             RoleTrait::$ID_EMPLOYEE                                         => __('Medewerkers'),
-            RoleTrait::$ID_STUDENT                                          => __('Studenten'),
+            RoleTrait::$ID_STUDENT                                          => __('Leerlingen'),
             RoleTrait::$ID_CUSTOMER                                         => __('Klanten')
         ];
 
