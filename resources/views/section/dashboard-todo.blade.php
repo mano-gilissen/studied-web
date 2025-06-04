@@ -4,7 +4,7 @@
 
     <div class="list">
 
-        @foreach($todos as $todo)
+        @foreach($data__todo as $todo)
 
             @include('component.todo', ['todo' => $todo])
 
