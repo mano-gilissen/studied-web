@@ -10,6 +10,6 @@
 
     </div>
 
-    <img class="action" src="/images_app/dashboard-action-{{ $todo['action'] }}.svg">
+    <img class="action" src="/images_app/dashboard-todo-action.svg">
 
 </div>
