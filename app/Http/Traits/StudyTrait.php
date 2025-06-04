@@ -332,7 +332,7 @@ trait StudyTrait {
     public static function getParticipants_Email($study) {
 
         $emails                                                     = [];
-        $users                                                      = $study->getParticipants_User();
+        $users                                                      = $study->getParticipants_User;
 
         foreach ($users as $user) {
 
