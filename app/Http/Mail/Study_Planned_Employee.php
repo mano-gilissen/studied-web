@@ -48,7 +48,7 @@ class Study_Planned_Employee extends Mailable {
             $study->{Model::$STUDY_START},
             $study->{Model::$STUDY_END},
             PersonTrait::getFullName($this->employee->getPerson),
-            $study->getHost->{Model::$USER_EMAIL},
+            'info@studied.nl',
             StudyTrait::getParticipants_Email($study)
         );
     }
