@@ -116,6 +116,10 @@
     background:                         transparent;
 }
 
+.agreements .button-agreements-desktop.button.visible {
+    display:                            block;
+}
+
 .agreements .button-agreements-desktop.button:hover {
     background:                         #E6E6E6;
 }
