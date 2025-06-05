@@ -6,7 +6,7 @@
 
         @if(\App\Http\Traits\BaseTrait::hasManagementRights())
 
-            <img id="flag" src="/images_app/flag-report{{ $study->report_flagged ? '-active' : '' }}.svg" onclick="report_flag({{ $study->id }})"/>
+            <img id="flag" src="/images_app/flag-report{{ $study->report_flagged ? '-active' : '' }}.svg" onclick="report_flag({{ $study->{\App\Http\Support\Model::$BASE_KEY} }})"/>
 
             <div id="flag-loading" class="loader"></div>
 
