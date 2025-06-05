@@ -30,6 +30,8 @@ const STUDY_EDIT                                = 'study.edit';
 
 const STUDY_DELETE                              = 'study.delete';
 
+const STUDY_FLAG                                = 'study.flag';
+
 const STUDY_PLAN                                = 'study.plan';
 
 
@@ -234,6 +236,7 @@ const ALL_MANAGEMENT                            = [
     self::STUDY_LIST_EXPORT,
     self::STUDY_OVERVIEW_EXPORT,
     self::STUDY_DELETE,
+    self::STUDY_FLAG,
     self::REPORT_EXPORT,
     self::AGREEMENT_FINISH,
     self::AGREEMENT_CREATE,

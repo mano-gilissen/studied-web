@@ -24,6 +24,8 @@ Route::get('/les/{key}/bewerken',                               'StudyController
 
 Route::get('/les/{key}/verwijderen',                            'StudyController@delete')->name('study.delete')->middleware('auth', 'authorize');
 
+Route::get('/les/{key}/flag',                                   'StudyController@flag')->name('study.flag')->middleware('auth', 'authorize');
+
 Route::get('/plannen',                                          'StudyController@plan')->name('study.plan')->middleware('auth', 'authorize');
 
 

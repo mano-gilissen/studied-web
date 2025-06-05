@@ -1,8 +1,21 @@
-<div class="block-attributes">
+<div class="block-attributes block-report">
 
-    <div class="title">{{ __('Rapportage') }}</div>
+    <div class="top">
+
+        <div class="title">{{ __('Rapportage') }}</div>
+
+        @if(\App\Http\Traits\BaseTrait::hasManagementRights())
+
+            <img id="flag" src="/images_app/flag-report{{ $study->report_flagged ? '-active' : '' }}.svg" onclick="report_flag()">
+
+            <div id="flag-loading" class="loader"></div>
+
+        @endif
+
+    </div>
 
     @if(\App\Http\Traits\StudyTrait::hasGroupReporting($study))
+
 
         <div class="report-tabs">
 

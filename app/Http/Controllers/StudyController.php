@@ -261,6 +261,18 @@ class StudyController extends Controller {
 
 
 
+    public function flag($key) {
+
+        $study = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
+
+        $study->report_flagged = !$study->report_flagged;
+        $study->save();
+
+        return $study->report_flagged;
+    }
+
+
+
 
 
     public function form_set_ac_data_location(&$data, $study = null) {

@@ -52,20 +52,12 @@ class DashboardController extends Controller {
         $modules                                                = [];
         $role                                                   = Auth::user()->role;
 
-        if (in_array($role, [
-            RoleTrait::$ID_ADMINISTRATOR,
-            RoleTrait::$ID_BOARD,
-            RoleTrait::$ID_MANAGEMENT
-        ])) {
+        if (self::hasManagementRights()) {
             $modules[]                                          = self::MODULE_GRAPHS_STATISTICS;
             $data['data__graph_statistics']                     = self::getModuleData_graphStatistics();
         }
 
-        if (in_array($role, [
-            RoleTrait::$ID_BOARD,
-            RoleTrait::$ID_MANAGEMENT,
-            RoleTrait::$ID_EMPLOYEE
-        ])) {
+        if (self::hasEmployeeRights()) {
             $modules[]                                          = self::MODULE_TODO;
             $data['data__todo']                                 = self::getModuleData_todo();
         }
@@ -206,7 +198,7 @@ class DashboardController extends Controller {
         $role                                                               = Auth::user()->role;
         $query                                                              = Announcement::where(Model::$BASE_DELETED_AT, null);
 
-        if (!in_array($role, [RoleTrait::$ID_ADMINISTRATOR, RoleTrait::$ID_BOARD, RoleTrait::$ID_MANAGEMENT])) {
+        if (!self::hasManagementRights()) {
 
             $query->whereIn(Model::$ROLE, [$role, 0]);
 
@@ -223,20 +215,18 @@ class DashboardController extends Controller {
 
         $todos                                              = [];
 
-        $reports                                            = Report::where(Model::$REPORT_FLAGGED, true)
+        $studies                                            = Study::where(Model::$STUDY_REPORT_FLAGGED, true)
+                                                            ->where(Model::$STUDY_HOST_USER, Auth::id())
                                                             ->where(Model::$BASE_DELETED_AT, null)
-                                                            ->whereHas('getStudy', function (Builder $query) {
-                                                            $query->where(Model::$STUDY_HOST_USER, Auth::id())
-                                                            ->where(Model::$BASE_DELETED_AT, null);
-                                                            })->get();
+                                                            ->get();
 
-        foreach ($reports as $report) {
+        foreach ($studies as $study) {
 
-            $participants                                   = StudyTrait::getParticipantsText($report->getStudy);
-            $link                                           = route(Route::STUDY_VIEW, $report->getStudy->{Model::$BASE_KEY});
+            $participants                                   = StudyTrait::getParticipantsText($study);
+            $link                                           = route(Route::STUDY_VIEW, $study->{Model::$BASE_KEY});
             $title                                          = __('Je rapport voor :participants op :date is afgekeurd.', [
                 'participants' => $participants,
-                'date' => Format::datetime($report->getStudy->{Model::$STUDY_START}, Format::$DATETIME_EMAIL)
+                'date' => Format::datetime($study->{Model::$STUDY_START}, Format::$DATETIME_EMAIL)
             ]);
 
             $description = __('Klik op dit bericht om het rapport te bekijken en aan te passen.');

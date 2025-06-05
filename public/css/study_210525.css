@@ -49,6 +49,35 @@
 
 
 
+.block-report .top {
+    display: flex;
+    align-items: center;
+    padding: 0 0 15px 4px;
+}
+
+.block-report .title {
+    padding: 0;
+}
+
+.block-report #flag,
+.block-report #flag-loading {
+    width: 32px;
+    height: 24px;
+    padding-left: 8px;
+}
+
+.block-report #flag {
+    cursor: pointer;
+}
+
+.block-report #flag:hover {
+    opacity: .5;
+}
+
+.block-report #flag-loading {
+    display: none;
+}
+
 .report .person-report img,
 .report .person-report .no-avatar {
     width:                              64px;

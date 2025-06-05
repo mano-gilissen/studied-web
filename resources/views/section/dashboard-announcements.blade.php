@@ -4,10 +4,7 @@
 
         <div class="title">{{ __('Aankondingen') }}</div>
 
-        @if (in_array(Auth::user()->role, [
-            \App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR,
-            \App\Http\Traits\RoleTrait::$ID_BOARD,
-            \App\Http\Traits\RoleTrait::$ID_MANAGEMENT]))
+        @if (\App\Http\Traits\BaseTrait::hasManagementRights())
 
             <div class="button" id="module-announcements-create" onclick="window.location.href='{{ route('announcement.create') }}'">{{ __('Aanmaken') }}</div>
 
@@ -34,11 +31,7 @@
                     <div class="author">
                         {!!
                             ($announcement->author ? ('<span style="font-weight:500">' . $announcement->author . '</span>&nbsp;&nbsp;') : '') .
-                            (in_array(Auth::user()->role, [
-                                \App\Http\Traits\RoleTrait::$ID_ADMINISTRATOR,
-                                \App\Http\Traits\RoleTrait::$ID_BOARD,
-                                \App\Http\Traits\RoleTrait::$ID_MANAGEMENT
-                            ]) ? ('<span style="font-style:italic;opacity:.5">voor ' . \App\Http\Traits\RoleTrait::getName($announcement->role) . '</span>&nbsp;&nbsp;-&nbsp;&nbsp;') : ($announcement->author ? '-&nbsp;&nbsp;' : '')) .
+                            (\App\Http\Traits\BaseTrait::hasManagementRights() ? ('<span style="font-style:italic;opacity:.5">voor ' . \App\Http\Traits\RoleTrait::getName($announcement->role) . '</span>&nbsp;&nbsp;-&nbsp;&nbsp;') : ($announcement->author ? '-&nbsp;&nbsp;' : '')) .
                             \App\Http\Support\Format::datetime($announcement->created_at, \App\Http\Support\Format::$DATETIME_ANNOUNCEMENT)!!}
                     </div>
 

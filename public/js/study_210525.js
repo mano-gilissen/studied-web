@@ -86,3 +86,23 @@ function report_tab_leave() {
     tabs                                                .removeClass(ATTR_ACTIVE);
     tab_active                                          .addClass(ATTR_ACTIVE);
 }
+
+
+
+function report_flag() {
+
+    var button_flag                                     = $('#flag');
+    var loading_flag                                    = $('#flag-loading');
+
+    button_flag                                         .hide();
+    loading_flag                                        .show();
+
+    $.get('/les/' + study_id + '/flag', function(data) {
+
+        button_flag.src('src', '/images_app/flag-report' + (data ? '-active' : '') + '.svg');
+        button_flag.show();
+        loading_flag.hide();
+
+        alert(translated('Het rapport is ' + (data ? 'nu niet meer ' : '') + 'gemarkeerd als incompleet.'));
+    });
+}
