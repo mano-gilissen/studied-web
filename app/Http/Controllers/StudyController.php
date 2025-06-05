@@ -89,7 +89,7 @@ class StudyController extends Controller {
         ],
 
         $EXPORT_COLUMNS_LESSONS                                             = [
-            'Leerling', 'Medewerker', 'Onderwerp', 'Dienst', 'Deelnemers', 'Proefles', 'Begeleidingsvorm',
+            'Leerling', 'Medewerker', 'Onderwerp', 'Dienst', 'Begeleidingsvorm', 'Deelnemers', 'Proefles',
             'Datum', 'Start', 'Einde', 'Duurtijd', 'Locatie', 'Status', 'Opmerkingen', 'Link naar les'
         ],
 
@@ -1358,7 +1358,7 @@ class StudyController extends Controller {
 
                     $duration                                           = ReportTrait::getDurationTotal($report) / 60.0;
 
-                    if ($report->{Model::$STUDY_TRIAL}) {
+                    if ($study->{Model::$STUDY_TRIAL}) {
 
                         if (!$report->{Model::$REPORT_TRIAL_SUCCESS}) {
 
