@@ -200,7 +200,7 @@ trait StudentTrait {
 
         $report_with_credit = Report::whereHas('getReport_Subjects', function (Builder $q) use ($subjects) {
                               $q->whereIn(Model::$SUBJECT, $subjects);})
-                              ->where(Model::$BASE_ID != $report->id)
+                              ->where(Model::$BASE_ID, '!=', $report->id)
                               ->where(Model::$REPORT_TRIAL_SUCCESS, false)
                               ->where(Model::$REPORT_TRIAL_CREDIT, true)
                               ->first();
