@@ -1366,15 +1366,11 @@ class StudyController extends Controller {
 
                             $rows[$user->{Model::$BASE_ID}][2]          -= $duration * $rate;
 
-                        } else {
+                        } else if ($study->{Model::$STUDY_USES_TRIAL_CREDIT}) {
 
                             /** Failed trial causes next trial of same subject to be free if successful */
 
-                            if (StudentTrait::hasTrialCredit($report)) {
-
-                                $rows[$user->{Model::$BASE_ID}][2]      -= $duration * $rate;
-
-                            }
+                            $rows[$user->{Model::$BASE_ID}][2]          -= $duration * $rate;
                         }
                     }
 

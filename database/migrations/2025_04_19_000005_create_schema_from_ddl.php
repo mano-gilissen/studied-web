@@ -333,6 +333,7 @@ class CreateSchemaFromDdl extends Migration
                 $table->integer('reason_cancel')->nullable();
                 $table->boolean('report_flagged')->default(false);
                 $table->string('explanation_cancel', 999)->nullable();
+                $table->boolean('uses_trial_credit')->default(false);
                 $table->timestamps();
                 $table->softDeletes();
             });

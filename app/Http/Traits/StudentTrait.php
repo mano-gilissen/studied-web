@@ -195,7 +195,7 @@ trait StudentTrait {
 
 
 
-    public static function hasTrialCredit($report) {
+    public static function useTrialCredit($report) {
 
         $subjects = $report->getReport_Subjects->pluck(Model::$SUBJECT)->toArray();
 

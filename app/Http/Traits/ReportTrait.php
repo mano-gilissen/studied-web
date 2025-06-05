@@ -162,6 +162,13 @@ trait ReportTrait {
 
         if ($trail_success) {
 
+            if (StudentTrait::useTrialCredit($report)) {
+
+                $study->{Model::$STUDY_USES_TRIAL_CREDIT}                   = true;
+                $study->save();
+
+            }
+
             AgreementTrait::approve($study, $user);
 
         } else {

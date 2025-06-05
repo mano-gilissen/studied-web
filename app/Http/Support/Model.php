@@ -347,7 +347,8 @@ class Model {
         $STUDY_REMARK                                   = 'remark',
         $STUDY_REPORT_FLAGGED                           = 'report_flagged',
         $STUDY_REASON_CANCEL                            = 'reason_cancel',
-        $STUDY_EXPLANATION_CANCEL                       = 'explanation_cancel';
+        $STUDY_EXPLANATION_CANCEL                       = 'explanation_cancel',
+        $STUDY_USES_TRIAL_CREDIT                        = 'uses_trial_credit';
 
 
 
