@@ -99,7 +99,7 @@ function report_flag(key) {
 
     $.get('/les/' + key + '/flag', function(data) {
 
-        button_flag.src('src', '/images_app/flag-report' + (data ? '-active' : '') + '.svg');
+        button_flag.attr('src', '/images_app/flag-report' + (data ? '-active' : '') + '.svg');
         button_flag.show();
         loading_flag.hide();
 
