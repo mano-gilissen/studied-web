@@ -1358,10 +1358,24 @@ class StudyController extends Controller {
 
                     $duration                                           = ReportTrait::getDurationTotal($report) / 60.0;
 
-                    if ($report->{Model::$STUDY_TRIAL} && !$report->{Model::$REPORT_TRIAL_SUCCESS}) {
+                    if ($report->{Model::$STUDY_TRIAL}) {
 
-                        $rows[$user->{Model::$BASE_ID}][2]              -= $duration * $rate;
+                        if (!$report->{Model::$REPORT_TRIAL_SUCCESS}) {
 
+                            /** Failed trial is always free */
+
+                            $rows[$user->{Model::$BASE_ID}][2]          -= $duration * $rate;
+
+                        } else {
+
+                            /** Failed trial causes next trial of same subject to be free if successful */
+
+                            if (StudentTrait::hasTrialCredit($report)) {
+
+                                $rows[$user->{Model::$BASE_ID}][2]      -= $duration * $rate;
+
+                            }
+                        }
                     }
 
                 } else {

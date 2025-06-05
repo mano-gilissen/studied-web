@@ -154,9 +154,10 @@ trait ReportTrait {
 
     public static function trial($result, $study, $user, $report) {
 
-        $trail_success                                                      = $result == 2; // TODO: REPLACE 2 WITH SWITCH.YES CONST
+        $trail_success                                                      = $result == 2; // 2 = Trial success
 
         $report->{Model::$REPORT_TRIAL_SUCCESS}                             = $trail_success;
+        $report->{Model::$REPORT_TRIAL_CREDIT}                              = !$trail_success;
         $report->save();
 
         if ($trail_success) {

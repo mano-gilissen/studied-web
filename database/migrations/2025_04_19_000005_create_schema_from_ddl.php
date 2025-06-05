@@ -237,7 +237,8 @@ class CreateSchemaFromDdl extends Migration
                 $table->string('content_voortgang', 4999)->nullable();
                 $table->string('content_volgende_les', 4999)->nullable();
                 $table->string('content_uitdagingen', 4999)->nullable();
-                $table->boolean('trial_succes')->default(false)->nullable();
+                $table->boolean('trial_succes')->default(false);
+                $table->boolean('trial_credit')->default(false);
                 $table->timestamps();
                 $table->softDeletes();
             });

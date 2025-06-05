@@ -8,6 +8,7 @@ use App\Http\Support\Key;
 use App\Http\Support\Mail;
 use App\Http\Support\Model;
 use App\Models\Customer;
+use App\Models\Report;
 use App\Models\Student;
 use Illuminate\Support\Facades\Validator;
 
@@ -190,6 +191,30 @@ trait StudentTrait {
 
         return $student->getCustomer != null;
 
+    }
+
+
+
+    public static function hasTrialCredit($report) {
+
+        $subjects = $report->getReport_Subjects->pluck(Model::$SUBJECT)->toArray();
+
+        $report_with_credit = Report::whereHas('getReport_Subjects', function (Builder $q) use ($subjects) {
+                              $q->whereIn(Model::$SUBJECT, $subjects);})
+                              ->where(Model::$BASE_ID != $report->id)
+                              ->where(Model::$REPORT_TRIAL_SUCCESS, false)
+                              ->where(Model::$REPORT_TRIAL_CREDIT, true)
+                              ->first();
+
+        if ($report_with_credit) {
+
+            $report_with_credit->{Model::$REPORT_TRIAL_CREDIT} = false;
+            $report_with_credit->save();
+
+            return true;
+        }
+
+        return false;
     }
 
 
