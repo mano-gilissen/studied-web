@@ -291,6 +291,10 @@
         display: flex;
     }
 
+    .agreements .button-agreements-mobile .button.visible {
+        display: block;
+    }
+
     .evaluations {
         margin: 16px 0 48px;
         padding-top: 0;

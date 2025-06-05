@@ -98,7 +98,7 @@ function profile_agreements_render(movement = false) {
 
     agreements                                  = $(CLASS_AGREEMENT);
 
-    if(agreements.length > 1) {
+    if (agreements.length > 1) {
 
         if (agreements_index_active === 0) {
 
