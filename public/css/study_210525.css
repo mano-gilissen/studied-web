@@ -61,9 +61,8 @@
 
 .block-report #flag,
 .block-report #flag-loading {
-    width: 32px;
+    width: 24px;
     height: 24px;
-    padding-left: 8px;
     margin-left: auto;
 }
 

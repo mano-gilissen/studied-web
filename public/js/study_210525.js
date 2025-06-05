@@ -89,7 +89,7 @@ function report_tab_leave() {
 
 
 
-function report_flag() {
+function report_flag(id) {
 
     var button_flag                                     = $('#flag');
     var loading_flag                                    = $('#flag-loading');
@@ -97,7 +97,7 @@ function report_flag() {
     button_flag                                         .hide();
     loading_flag                                        .show();
 
-    $.get('/les/' + study_id + '/flag', function(data) {
+    $.get('/les/' + id + '/flag', function(data) {
 
         button_flag.src('src', '/images_app/flag-report' + (data ? '-active' : '') + '.svg');
         button_flag.show();
