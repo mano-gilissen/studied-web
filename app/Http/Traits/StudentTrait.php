@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace App\Http\Traits;
 
 use App\Http\Support\Key;
@@ -11,6 +9,7 @@ use App\Models\Customer;
 use App\Models\Report;
 use App\Models\Student;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Database\Eloquent\Builder;
 
 
 
