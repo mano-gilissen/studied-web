@@ -165,7 +165,7 @@ function study_agreements_render(movement = false) {
         }
     }
 
-    if(agreements_enabled.length > 1) {
+    if (agreements_enabled.length > 1) {
 
         if (agreements_enabled_index_active === 0) {
 
