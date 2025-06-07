@@ -179,6 +179,7 @@
     }
 
     #column #left {
+        padding-top: 0;
     }
 
     #column #right {
