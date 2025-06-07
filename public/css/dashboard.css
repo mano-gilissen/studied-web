@@ -178,11 +178,9 @@
     }
 
     #column #left {
-        grid-area: left;
     }
 
     #column #right {
-        grid-area: right;
         padding-top: 0;
     }
 
