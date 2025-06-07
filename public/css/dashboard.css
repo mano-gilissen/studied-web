@@ -173,6 +173,7 @@
     #column {
         grid-auto-flow: row;
         grid-template-columns: 1fr;
+        grid-gap: 0;
         padding: 0 16px;
         height: unset;
     }
