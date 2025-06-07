@@ -167,3 +167,35 @@
 }
 
 
+
+@media (max-width: 840px) {
+
+    #column {
+        grid-auto-flow: row;
+        grid-template-columns: 1fr;
+        padding: 0 16px;
+        height: unset;
+    }
+
+    #column #left {
+        grid-area: left;
+    }
+
+    #column #right {
+        grid-area: right;
+        padding-top: 0;
+    }
+
+    .graph-options {
+        flex-wrap: wrap;
+        row-gap: 12px;
+    }
+
+    .graph-options .option {
+        margin-left: 0 !important;
+    }
+
+    .canvas-wrap {
+        margin: 0 -24px;
+    }
+}
