@@ -195,6 +195,19 @@
     }
 
     .canvas-wrap {
-        margin: 0 -24px;
+        margin: 32px -8px 8px;
+    }
+
+
+
+    .graph,
+    #module-announcements,
+    #module-todo {
+        padding: 24px;
+    }
+
+    #module-announcements .list,
+    #module-todo .list {
+        margin-top: 24px;
     }
 }
