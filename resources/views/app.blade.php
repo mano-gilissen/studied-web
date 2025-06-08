@@ -20,7 +20,14 @@
     <script src="{{ asset('js/events_210525.js') }}"></script>
 
 
+
     <script>
+
+        if (typeof navigator.serviceWorker !== 'undefined') {
+
+            navigator.serviceWorker.register('sw.js');
+
+        }
 
         let lang = '{{ \App\Http\Middleware\Locale::getActive() }}';
 
