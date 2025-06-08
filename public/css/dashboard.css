@@ -204,7 +204,7 @@
     .graph,
     #module-announcements,
     #module-todo {
-        padding: 24px;
+        padding: 24px 16px;
     }
 
     #module-announcements .list,
