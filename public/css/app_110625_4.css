@@ -263,10 +263,7 @@ button:focus {
     height: 4px;
     width: 40%;
     background-color: #FFDD34;
-    animation: line-animation 1s linear infinite;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
+    animation: spin 1s linear infinite;
 }
 
 @keyframes line-animation {
