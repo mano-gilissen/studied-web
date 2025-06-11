@@ -356,6 +356,11 @@
         overflow-x: hidden;
     }
 
+    #filters-mobile .filter :has(.filter-wrap-date) {
+        background: white;
+        padding: 24px 16px 16px;
+    }
+
     #filters-mobile .filter :not(.filter-wrap-date) .box-input {
         height: 0;
         border: 0;
