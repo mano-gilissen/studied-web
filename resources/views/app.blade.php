@@ -25,7 +25,7 @@
 
         if (typeof navigator.serviceWorker !== 'undefined') {
 
-            navigator.serviceWorker.register('sw.js');
+            navigator.serviceWorker.register('/sw.js', { scope: '/' });
 
         }
 
