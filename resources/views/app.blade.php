@@ -61,6 +61,8 @@
 
 <body>
 
+    <div id="loader-global"></div>
+
     <div id="tooltip"></div>
 
     <div id="app">

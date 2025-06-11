@@ -246,6 +246,7 @@ $(function(){
 
         if (window.innerWidth <= 840) {
 
+            $(OBJECT_LOADER_GLOBAL)                         .css('display', 'block');
             $(OBJECT_APP)                                   .css('opacity', '.5');
             $(OBJECT_APP)                                   .css('pointer-events', 'none');
 
@@ -254,6 +255,7 @@ $(function(){
 
     window.addEventListener('pageshow', () => {
 
+        $(OBJECT_LOADER_GLOBAL)                             .css('display', 'none');
         $(OBJECT_APP)                                       .css('opacity', '1');
         $(OBJECT_APP)                                       .css('pointer-events', 'all');
 
