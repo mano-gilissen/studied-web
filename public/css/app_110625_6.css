@@ -247,38 +247,20 @@ button:focus {
 
 
 #loader-global {
-    display: block;
+    display: none;
     width: 100svw;
-    height: 40px;
+    height: 100svw;
     position: absolute;
     inset: 0;
-    /*overflow: hidden;*/
     z-index: 9999;
 }
 
-#loader-global:before {
-    content: "";
-    position: absolute;
-    /*left: -50%;*/
-    left:0;
-    height: 40px;
-    width: 40%;
-    background-color: #FFDD34;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes line-animation {
-    0% {
-        left: -40%;
-    }
-    50% {
-        left: 20%;
-        width: 80%;
-    }
-    100% {
-        left: 100%;
-        width: 100%;
-    }
+#loader-global .loader {
+    margin: auto;
+    width: 32px;
+    height: 32px;
+    border:                             6px solid #FFDD3444;
+    border-top:                         6px solid #FFDD34;
 }
 
 

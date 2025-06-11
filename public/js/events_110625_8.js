@@ -340,7 +340,7 @@ function load_global_show() {
 
 function load_global_hide() {
 
-    //$(OBJECT_LOADER_GLOBAL)                 .css('display', 'none');
+    $(OBJECT_LOADER_GLOBAL)                 .css('display', 'none');
     $(OBJECT_APP)                           .css('opacity', '1');
     $(OBJECT_APP)                           .css('pointer-events', 'all');
 }
