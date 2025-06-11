@@ -114,6 +114,7 @@ function load() {
 
     $(OBJECT_LOADER)                        .css('display', 'block');
     $(OBJECT_BUTTON_COUNTERS)               .css('opacity', '0.5').css('pointer-events', 'none');
+    $(OBJECT_FILTERS_MOBILE)                .remove();
 
     let layout                              = (window.innerWidth <= 840) ? 'mobile' : 'desktop';
 
@@ -127,6 +128,8 @@ function load() {
     }, function() {
 
         set_visibility_load_more();
+
+        set_position_filters_mobile();
 
         $(OBJECT_LOADER)                    .css('display', 'none');
 
@@ -278,6 +281,17 @@ function set_visibility_load_more() {
     } else {
 
         $(OBJECT_BUTTON_LOAD_MORE)          .hide();
+
+    }
+}
+
+
+
+function set_position_filters_mobile() {
+
+    if (window.innerWidth <= 840) {
+
+        $(OBJECT_FILTERS_MOBILE).appendTo('#app');
 
     }
 }

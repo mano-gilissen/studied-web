@@ -21,7 +21,7 @@
 
     </script>
 
-    <script src="{{ asset('js/list_210525.js') }}"></script>
+    <script src="{{ asset('js/list_110625.js') }}"></script>
 
 @endsection
 
