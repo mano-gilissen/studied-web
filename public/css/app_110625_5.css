@@ -249,10 +249,10 @@ button:focus {
 #loader-global {
     display: block;
     width: 100svw;
-    height: 4px;
+    height: 40px;
     position: absolute;
     inset: 0;
-    overflow: hidden;
+    /*overflow: hidden;*/
     z-index: 9999;
 }
 
