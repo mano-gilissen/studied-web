@@ -247,6 +247,7 @@ $(function(){
         if (window.innerWidth <= 840) {
 
             $(OBJECT_APP)                                   .css('opacity', '.5');
+            $(OBJECT_APP)                                   .css('pointer-events', 'none');
 
         }
     });
