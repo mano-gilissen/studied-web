@@ -345,7 +345,7 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        padding: 32px;
+        padding: 24px;
         background: #00000088;
         z-index: 100;
     }
@@ -358,7 +358,7 @@
 
     #filters-mobile .filter:has(.filter-wrap-date) {
         background: white;
-        padding: 24px 16px 16px;
+        padding: 24px 8px 16px;
     }
 
     #filters-mobile .filter :not(.filter-wrap-date) .box-input {
