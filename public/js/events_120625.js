@@ -250,10 +250,15 @@ $(function(){
             if (link && !link.target && !link.hasAttribute('download')) {
                 const href = link.getAttribute('href');
                 if (href.startsWith('http') || href.startsWith('/')) {
-
                     load_global_show();
-
                 }
+            }
+        });
+
+        Object.defineProperty(window.location, 'href', {
+            set(url) {
+                load_global_show();
+                window.location.assign(url);
             }
         });
 
