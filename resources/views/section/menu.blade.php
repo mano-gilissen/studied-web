@@ -26,6 +26,12 @@
 
                 @include('component.menu-item', ['label' => __('Locatieagenda'), 'route' => route('study.calendar')])
 
+                @include('component.menu-item', ['label' => __('Locatieagenda'), 'route' => route('study.calendar')])
+
+                @include('component.menu-item', ['label' => __('Locatieagenda'), 'route' => route('study.calendar')])
+
+                @include('component.menu-item', ['label' => __('Locatieagenda'), 'route' => route('study.calendar')])
+
                 @break
 
             @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)

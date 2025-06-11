@@ -1227,6 +1227,12 @@ select::-ms-expand {
     #tooltip {
         display: none;
     }
+
+
+
+    #header .title.page {
+        pointer-events: none;
+    }
 }
 
 
