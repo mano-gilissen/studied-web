@@ -390,21 +390,20 @@
         height: 64px;
         overflow: hidden;
         font-size: 16px;
-        border-bottom: 1px solid #EEEEEE;
         display: flex;
         align-items: center;
         padding: 0 16px;
     }
 
     #filters-mobile .filter-submit-date {
-        display: block;
+        display: flex;
     }
 
     #filters-mobile .filter-submit-date .button {
         margin-left: auto;
     }
 
-    #counters-mobile .filter-wrap-date .note {
+    #filters-mobile .filter-wrap-date .note {
         width: 48px;
     }
 
