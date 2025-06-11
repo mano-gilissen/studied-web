@@ -20,8 +20,10 @@ const OBJECT_LIST                               = '#list';
 const OBJECT_ITEMS                              = '#items';
 const OBJECT_HEADERS                            = '#headers';
 const OBJECT_ACTIONS                            = '#actions';
-const OBJECT_COUNTERS                           = '#counters';
 const OBJECT_AGREEMENTS                         = '#agreements';
+
+const OBJECT_COUNTERS                           = '#counters';
+const OBJECT_COUNTERS_MOBILE                    = '#counters-mobile';
 
 const OBJECT_FILTERS                            = '#filters';
 const OBJECT_FILTERS_MOBILE                     = '#filters-mobile';
