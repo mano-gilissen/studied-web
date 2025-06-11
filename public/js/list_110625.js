@@ -146,7 +146,10 @@ function load() {
     }, function() {
 
         $(OBJECT_BUTTON_COUNTERS)           .css('opacity', '1').css('pointer-events', 'auto');
+
         set_visibility_load_more();
+
+        set_overlays_mobile();
 
     });
 
@@ -290,18 +293,26 @@ function set_visibility_load_more() {
 
 function remove_overlays_mobile() {
 
-    $(OBJECT_FILTERS_MOBILE).remove();
-    $(OBJECT_SORT_MOBILE).remove();
-    $(OBJECT_COUNTERS_MOBILE).remove();
+    if (window.innerWidth <= 840) {
+
+        $(OBJECT_FILTERS_MOBILE).remove();
+        $(OBJECT_SORT_MOBILE).remove();
+        $(OBJECT_COUNTERS_MOBILE).remove();
+
+    }
 }
 
 
 
 function set_overlays_mobile() {
 
-    $(OBJECT_FILTERS_MOBILE).appendTo('#app');
-    $(OBJECT_SORT_MOBILE).appendTo('#app');
-    $(OBJECT_COUNTERS_MOBILE).appendTo('#app');
+    if (window.innerWidth <= 840) {
+
+        $(OBJECT_FILTERS_MOBILE).appendTo('#app');
+        $(OBJECT_SORT_MOBILE).appendTo('#app');
+        $(OBJECT_COUNTERS).appendTo('#app');
+
+    }
 }
 
 
