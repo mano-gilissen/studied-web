@@ -246,7 +246,7 @@ $(function(){
 
         if (window.innerWidth <= 840) {
 
-            $(OBJECT_LOADER_GLOBAL)                         .css('display', 'block');
+            $(OBJECT_APP)                                   .css('opacity', '.5');
 
         }
     });
