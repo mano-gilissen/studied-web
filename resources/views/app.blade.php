@@ -61,9 +61,7 @@
 
 <body>
 
-    <div id="loader-global">
-        <div class="loader"></div>
-    </div>
+    <div id="loader-global"></div>
 
     <div id="tooltip"></div>
 
