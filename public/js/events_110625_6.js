@@ -242,13 +242,13 @@ $(function(){
 
     /* Show loading indicator on page unload */
 
-    /* (Not working in Safari and iOS)
+    /* (Not working in Safari and iOS, see navigate()) */
 
     window.addEventListener('beforeunload', () => {
 
         load_global_show();
 
-    }); */
+    });
 
     window.addEventListener('pageshow', () => {
 
@@ -307,7 +307,11 @@ function format_currency(value) {
 
 function navigate(url) {
 
-    load_global_show();
+    if (is_ios() || is_safari()) {
+
+        load_global_show();
+
+    }
 
     window.location.href = url;
 }
@@ -319,7 +323,7 @@ function load_global_show() {
     if (window.innerWidth <= 840) {
 
         $(OBJECT_LOADER_GLOBAL)             .css('display', 'block');
-        $(OBJECT_APP)                       .css('opacity', '.7');
+        $(OBJECT_APP)                       .css('opacity', '.5');
         $(OBJECT_APP)                       .css('pointer-events', 'none');
     }
 }
