@@ -242,22 +242,33 @@ $(function(){
 
     /* Show loading indicator on page unload */
 
-    window.addEventListener('beforeunload', () => {
+    if (is_standalone_mode) {
 
-        if (window.innerWidth <= 840) {
+        document.addEventListener('click', function (e) {
 
-            $(OBJECT_LOADER_GLOBAL)                         .css('display', 'block');
-            $(OBJECT_APP)                                   .css('opacity', '.7');
-            $(OBJECT_APP)                                   .css('pointer-events', 'none');
+            const link = e.target.closest('a[href]');
+            if (link && !link.target && !link.hasAttribute('download')) {
+                const href = link.getAttribute('href');
+                if (href.startsWith('http') || href.startsWith('/')) {
 
-        }
-    });
+                    load_global_show();
+
+                }
+            }
+        });
+
+    } else {
+
+        window.addEventListener('beforeunload', () => {
+
+            load_global_show();
+
+        });
+    }
 
     window.addEventListener('pageshow', () => {
 
-        $(OBJECT_LOADER_GLOBAL)                             .css('display', 'none');
-        $(OBJECT_APP)                                       .css('opacity', '1');
-        $(OBJECT_APP)                                       .css('pointer-events', 'all');
+        load_global_hide();
 
     });
 
@@ -305,5 +316,34 @@ function set_language(language) {
 function format_currency(value) {
 
     return currency(value, { symbol: "€", separator: ".", decimal: "," }).format();
+
+}
+
+
+
+function load_global_show() {
+
+    if (window.innerWidth <= 840) {
+
+        $(OBJECT_LOADER_GLOBAL)             .css('display', 'block');
+        $(OBJECT_APP)                       .css('opacity', '.7');
+        $(OBJECT_APP)                       .css('pointer-events', 'none');
+    }
+}
+
+
+
+function load_global_hide() {
+
+    $(OBJECT_LOADER_GLOBAL)                 .css('display', 'none');
+    $(OBJECT_APP)                           .css('opacity', '1');
+    $(OBJECT_APP)                           .css('pointer-events', 'all');
+}
+
+
+
+function is_standalone_mode() {
+
+    return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
 
 }
