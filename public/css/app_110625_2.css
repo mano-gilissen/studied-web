@@ -263,8 +263,6 @@ button:focus {
     height: 4px;
     width: 40%;
     background-color: #FFDD34;
-    -webkit-animation: line-animation 1s linear infinite;
-    -moz-animation: line-animation 1s linear infinite;
     animation: line-animation 1s linear infinite;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
