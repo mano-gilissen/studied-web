@@ -1,8 +1,8 @@
 {
-    "name":"Studied.",
-    "short_name":"Studied.",
+    "name":"Studied",
+    "short_name":"Studied",
     "start_url":".",
-    "display":"standalone",
+    "display":"fullscreen",
     "background_color":"#000000",
     "description":"Studied. Zet een punt achter je onvoldoendes",
     "theme_color":"#FFFFFF",
@@ -17,7 +17,7 @@
        "preferred_width":400
     },
     "display_override":[
-       "standalone",
+       "fullscreen",
        "window-controls-overlay"
     ],
     "categories":[
