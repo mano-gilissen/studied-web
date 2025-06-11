@@ -46,7 +46,7 @@ html, body {
         grid-template-rows: 1fr;
         grid-template-areas: "wrap";
         background: white;
-        padding: 0 32px 64px;
+        padding: 0 40px 80px;
     }
 
     .wrap {
@@ -58,7 +58,7 @@ html, body {
     }
 
     #logo {
-        height: 56px;
+        height: 64px;
         margin: 0 auto;
         place-self: center;
     }
