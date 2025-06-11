@@ -330,7 +330,7 @@ function load_global_show() {
 
     if (window.innerWidth <= 840) {
 
-        $(OBJECT_LOADER_GLOBAL)             .css('display', 'block');
+        $(OBJECT_LOADER_GLOBAL)             .css('display', 'grid');
         $(OBJECT_APP)                       .css('opacity', '.5');
         $(OBJECT_APP)                       .css('pointer-events', 'none');
     }

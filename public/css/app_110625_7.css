@@ -247,20 +247,20 @@ button:focus {
 
 
 #loader-global {
-    display: none;
     width: 100svw;
-    height: 100svw;
+    height: 100svh;
     position: absolute;
     inset: 0;
     z-index: 9999;
+    place-items: center;
 }
 
 #loader-global .loader {
     margin: auto;
-    width: 32px;
-    height: 32px;
-    border:                             6px solid #FFDD3444;
-    border-top:                         6px solid #FFDD34;
+    width: 64px;
+    height: 64px;
+    border: 4px solid hwb(50 70% 0% / 1);
+    border-top: 4px solid #FFDD34;
 }
 
 
