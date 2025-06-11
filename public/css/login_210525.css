@@ -42,6 +42,7 @@ html, body {
 @media (max-width: 840px) {
 
     #app {
+        height:                             100%;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
         grid-template-areas: "wrap";
