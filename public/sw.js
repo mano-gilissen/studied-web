@@ -6,6 +6,14 @@ const CACHE                                                 = "studied-applicati
 
 const offlineFallbackPage                                   = "offline.html";
 
+const PRECACHE_ASSETS = [
+    'offline.html',
+    '/fonts/',
+    '/images/',
+    '/images_app/',
+    '/images_banner/',
+]
+
 
 
 self.addEventListener("message", (event) => {
@@ -17,7 +25,7 @@ self.addEventListener("message", (event) => {
 self.addEventListener('install', async (event) => {
   event.waitUntil(
     caches.open(CACHE)
-      .then((cache) => cache.add(offlineFallbackPage))
+      .then((cache) => cache.addAll(PRECACHE_ASSETS))
   );
 });
 
