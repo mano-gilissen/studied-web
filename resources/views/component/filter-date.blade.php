@@ -21,3 +21,9 @@
     </div>
 
 </div>
+
+<div class="filter-submit-date" onclick="load()">
+
+    <div class="button primary">{{ __('Filter') }}</div>
+
+</div>

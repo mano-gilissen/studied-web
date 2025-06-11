@@ -131,6 +131,11 @@ html {
     background:                         #F0F0F0;
 }
 
+.button.disabled {
+    opacity:                            .5;
+    pointer-events:                     none;
+}
+
 .button-free {
     font-size:                          12px;
     color:                              #808080;

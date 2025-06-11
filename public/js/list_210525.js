@@ -333,9 +333,18 @@ function filter_column_date(id) {
 
         this.data_filter[id]                = after + ':' + before;
 
-        filters_close();
+        if (window.innerWidth > 840) {
 
-        load();
+            filters_close();
+
+            load();
+        }
+    }
+
+    if (window.innerWidth <= 840) {
+
+        $('.filter-submit-date .button').toggleClass('disabled', after === '' || before === '');
+
     }
 }
 
