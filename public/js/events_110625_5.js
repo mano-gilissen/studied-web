@@ -242,34 +242,23 @@ $(function(){
 
     /* Show loading indicator on page unload */
 
-    //if (is_standalone_mode) {
+    if (is_standalone_mode) {
 
-        document.addEventListener('click', function (e) {
+        //
 
-            const link = e.target.closest('a[href]');
-            if (link && !link.target && !link.hasAttribute('download')) {
-                const href = link.getAttribute('href');
-                if (href.startsWith('http') || href.startsWith('/')) {
-                    load_global_show();
-                }
-            }
-        });
+    }
 
-        Object.defineProperty(window.location, 'href', {
-            set(url) {
-                load_global_show();
-                window.location.assign(url);
-            }
-        });
+    window.addEventListener('beforeunload', () => {
 
-    /*} else {
+        load_global_show();
 
-        window.addEventListener('beforeunload', () => {
+    });
 
-            load_global_show();
+    window.addEventListener('pagehide', () => {
 
-        });
-    }*/
+        load_global_show();
+
+    });
 
     window.addEventListener('pageshow', () => {
 
