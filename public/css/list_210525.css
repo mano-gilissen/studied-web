@@ -352,7 +352,7 @@
         overflow-x: hidden;
     }
 
-    #filters-mobile .filter .box-input {
+    #filters-mobile .filter :not(.filter-wrap-date) .box-input {
         height: 0;
         border: 0;
     }
@@ -362,10 +362,6 @@
         font-size: 16px;
         margin: 0 0 32px;
         font-weight: 500;
-    }
-
-    #filters-mobile .filter-wrap-date:has(+ .filter-wrap-date) {
-        margin-bottom: 16px;
     }
 
     #filters-mobile .autocomplete-list {
@@ -381,6 +377,22 @@
         overflow: hidden;
         font-size: 16px;
         border-bottom: 1px solid #EEEEEE;
+    }
+
+    #filters-mobile .filter-wrap-date {
+        color: black;
+        background: white;
+        height: 64px;
+        overflow: hidden;
+        font-size: 16px;
+        border-bottom: 1px solid #EEEEEE;
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+    }
+
+    #counters-mobile .filter-wrap-date .note {
+        width: 48px;
     }
 
     #filters-mobile-pick,
