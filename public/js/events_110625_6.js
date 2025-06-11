@@ -242,23 +242,13 @@ $(function(){
 
     /* Show loading indicator on page unload */
 
-    if (is_standalone_mode) {
-
-        //
-
-    }
+    /* (Not working in Safari and iOS)
 
     window.addEventListener('beforeunload', () => {
 
         load_global_show();
 
-    });
-
-    window.addEventListener('pagehide', () => {
-
-        load_global_show();
-
-    });
+    }); */
 
     window.addEventListener('pageshow', () => {
 
@@ -315,6 +305,15 @@ function format_currency(value) {
 
 
 
+function navigate(url) {
+
+    load_global_show();
+
+    window.location.href = url;
+}
+
+
+
 function load_global_show() {
 
     if (window.innerWidth <= 840) {
@@ -339,5 +338,21 @@ function load_global_hide() {
 function is_standalone_mode() {
 
     return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+
+}
+
+
+
+function is_ios() {
+
+    return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+}
+
+
+
+function is_safari() {
+
+    return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
 }

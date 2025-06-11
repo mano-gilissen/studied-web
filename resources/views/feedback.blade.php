@@ -30,7 +30,7 @@
 
             @endif
 
-            <div class="button" onclick="window.location.href='{{ $page_next }}'">{{ $page_action }}</div>
+            <div class="button" onclick="navigate('{{ $page_next }}')">{{ $page_action }}</div>
 
         </div>
 

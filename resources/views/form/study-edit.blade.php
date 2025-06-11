@@ -99,7 +99,7 @@
 
             <div class="name">{{ __('Verwijderen') }}</div>
 
-            <div class="button red" style="margin-top: 4px;" onclick="window.location.href='{{ route('study.delete', [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}'">
+            <div class="button red" style="margin-top: 4px;" onclick="navigate('{{ route('study.delete', [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}')">
 
                 <div class="text">{{ __('Les verwijderen') }}</div>
 

@@ -1,6 +1,6 @@
 @foreach($items as $item)
 
-    <div class="item" onclick="window.location.href='{{ $item->link ?? '' }}'">
+    <div class="item" onclick="navigate('{{ $item->link ?? '' }}')">
 
         @foreach($columns as $column)
 

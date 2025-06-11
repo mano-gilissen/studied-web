@@ -1,4 +1,4 @@
-<div id="{{ $person->first_name }}" class="person {{ $size ?? 'regular' }}" onclick="window.location.href='{{ route('person.view', ['slug' => $person->slug]) }}'">
+<div id="{{ $person->first_name }}" class="person {{ $size ?? 'regular' }}" onclick="navigate('{{ route('person.view', ['slug' => $person->slug]) }}')">
 
     @if($person->avatar)
 

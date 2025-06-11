@@ -14,7 +14,7 @@
 
         @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
-            <div class="button grey icon" onclick="window.location.href='{{ route('study.plan') }}'">
+            <div class="button grey icon" onclick="navigate('{{ route('study.plan') }}')">
 
                 <img class="icon" src="/images_app/add.svg">
 

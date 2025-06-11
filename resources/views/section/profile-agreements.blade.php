@@ -4,7 +4,7 @@
 
         <div class="title-add">
 
-            <img class="button-add" src="/images_app/add-unboxed.svg" onclick="window.location.href='{{ route('agreement.create', ['leerling' => $person->slug]) }}'">
+            <img class="button-add" src="/images_app/add-unboxed.svg" onclick="navigate('{{ route('agreement.create', ['leerling' => $person->slug]) }}')">
 
             <div class="title">{{ __('Vakafspraken') }}</div>
 
@@ -38,7 +38,7 @@
 
                     @foreach($agreements as $agreement)
 
-                        <div class="agreement" id="{{ $agreement->id }}" data-subject="{{ $agreement->subject }}" onclick="window.location.href='{{ route('agreement.view', ['identifier' => $agreement->{\App\Http\Support\Model::$AGREEMENT_IDENTIFIER}]) }}'">
+                        <div class="agreement" id="{{ $agreement->id }}" data-subject="{{ $agreement->subject }}" onclick="navigate('{{ route('agreement.view', ['identifier' => $agreement->{\App\Http\Support\Model::$AGREEMENT_IDENTIFIER}]) }}')">
 
                             <div class="top">
 

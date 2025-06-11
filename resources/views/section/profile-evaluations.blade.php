@@ -4,7 +4,7 @@
 
         <div class="title-add">
 
-            <img class="button-add" src="/images_app/add-unboxed.svg" onclick="window.location.href='{{ route('evaluation.plan', ['leerling' => $person->slug]) }}'">
+            <img class="button-add" src="/images_app/add-unboxed.svg" onclick="navigate('{{ route('evaluation.plan', ['leerling' => $person->slug]) }}')">
 
             <div class="title">{{ __('Gesprekken') }}</div>
 
@@ -44,7 +44,7 @@
 
                     @foreach($evaluations as $evaluation)
 
-                        <div class="item @if($loop->odd) odd @endif" onclick="window.location.href='{{ route('evaluation.view', ['key' => $evaluation->{\App\Http\Support\Model::$BASE_KEY}]) }}'">
+                        <div class="item @if($loop->odd) odd @endif" onclick="navigate('{{ route('evaluation.view', ['key' => $evaluation->{\App\Http\Support\Model::$BASE_KEY}]) }}')">
 
                             <div class="attribute">
 

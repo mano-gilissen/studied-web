@@ -112,7 +112,7 @@
         <div class="name">{{ __('Verwijderen') }}</div>
 
         <div class="button red" style="margin-top: 4px;"
-             onclick="window.location.href='{{ route('person.delete', [\App\Http\Support\Model::$PERSON_SLUG => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">
+             onclick="navigate('{{ route('person.delete', [\App\Http\Support\Model::$PERSON_SLUG => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}')">
 
             @if(\App\Http\Traits\PersonTrait::isUser($person))
 

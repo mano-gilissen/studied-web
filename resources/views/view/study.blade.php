@@ -48,7 +48,7 @@
 
                         @if(\App\Http\Traits\StudyTrait::canEdit($study))
 
-                            <div class="button icon grey" onclick="window.location.href='{{ route('study.edit', [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}'">
+                            <div class="button icon grey" onclick="navigate('{{ route('study.edit', [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}')">
 
                                 <img class="icon" src="/images_app/edit.svg">
 
@@ -68,7 +68,7 @@
 
                             @if(!\App\Http\Traits\StudyTrait::isReported($study))
 
-                                <div class="button icon" onclick="window.location.href='{{ route(\App\Http\Support\Route::REPORT_CREATE, [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}'">
+                                <div class="button icon" onclick="navigate('{{ route(\App\Http\Support\Route::REPORT_CREATE, [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}')">
 
                                     <img class="icon" src="/images_app/contact.svg">
 
@@ -88,7 +88,7 @@
 
                         @if(\App\Http\Traits\StudyTrait::canReport_Edit($study))
 
-                            <div class="button icon" onclick="window.location.href='{{ route(\App\Http\Support\Route::REPORT_EDIT, [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}'">
+                            <div class="button icon" onclick="navigate('{{ route(\App\Http\Support\Route::REPORT_EDIT, [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}')">
 
                                 <img class="icon" src="/images_app/edit.svg">
 
@@ -114,7 +114,7 @@
 
                         @if(\App\Http\Traits\StudyTrait::canEdit($study))
 
-                            <div class="button icon" onclick="window.location.href='{{ route('study.edit', [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}'">
+                            <div class="button icon" onclick="navigate('{{ route('study.edit', [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}')">
 
                                 <img class="icon" src="/images_app/edit.svg">
 

@@ -1,4 +1,4 @@
-<div class="todo {{ $todo['priority'] }}" onclick="window.location.href='{!! $todo['link'] !!}'">
+<div class="todo {{ $todo['priority'] }}" onclick="navigate('{!! $todo['link'] !!}')">
 
     <img class="priority" src="/images_app/dashboard-todo-{{ array_key_exists('icon', $todo) ? 'icon-' . $todo['icon'] : 'priority-' . $todo['priority'] }}.svg">
 

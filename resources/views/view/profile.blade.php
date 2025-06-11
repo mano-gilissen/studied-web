@@ -89,7 +89,7 @@
 
                                 @if($person->getUser->{\App\Http\Support\Model::$USER_STATUS} == \App\Http\Traits\UserTrait::$STATUS_INTAKE)
 
-                                    <div class="button green icon" onclick="window.location.href='{{ route('person.activate', [\App\Http\Support\Model::$PERSON_SLUG => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">
+                                    <div class="button green icon" onclick="navigate('{{ route('person.activate', [\App\Http\Support\Model::$PERSON_SLUG => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}')">
 
                                         <img class="icon" src="/images_app/contact-white.svg">
 
@@ -99,7 +99,7 @@
 
                                 @endif
 
-                                <div class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_HOST => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">
+                                <div class="button grey icon" onclick="navigate('{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_HOST => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}')">
 
                                     <img class="icon" src="/images_app/search.svg">
 
@@ -113,7 +113,7 @@
 
                                 @if($person->getUser->id == Auth::id())
 
-                                    <div class="button grey icon" onclick="window.location.href='{{ route('study.list') }}'">
+                                    <div class="button grey icon" onclick="navigate('{{ route('study.list') }}')">
 
                                         <img class="icon" src="/images_app/search.svg">
 
@@ -125,7 +125,7 @@
 
                                     @if(strlen($person->{\App\Http\Support\Model::$PERSON_SOCIAL_INSTAGRAM}) > 0)
 
-                                        <div class="button grey icon" onclick="window.location.href='{{ 'https://instagram.com/' . $person->{\App\Http\Support\Model::$PERSON_SOCIAL_INSTAGRAM} }}'">
+                                        <div class="button grey icon" onclick="navigate('{{ 'https://instagram.com/' . $person->{\App\Http\Support\Model::$PERSON_SOCIAL_INSTAGRAM} }}')">
 
                                             <img class="icon" src="/images_app/social-instagram.svg">
 
@@ -137,7 +137,7 @@
 
                                     @if(strlen($person->{\App\Http\Support\Model::$PERSON_SOCIAL_LINKEDIN}) > 0)
 
-                                        <div class="button grey icon" onclick="window.location.href='{{ 'https://www.linkedin.com/in/' . $person->{\App\Http\Support\Model::$PERSON_SOCIAL_LINKEDIN} }}'">
+                                        <div class="button grey icon" onclick="navigate('{{ 'https://www.linkedin.com/in/' . $person->{\App\Http\Support\Model::$PERSON_SOCIAL_LINKEDIN} }}')">
 
                                             <img class="icon" src="/images_app/social-linkedin.svg">
 
@@ -156,7 +156,7 @@
 
                                 @if(strlen($person->{\App\Http\Support\Model::$PERSON_SOCIAL_INSTAGRAM}) > 0)
 
-                                    <div class="button grey icon" onclick="window.location.href='{{ 'https://instagram.com/' . $person->{\App\Http\Support\Model::$PERSON_SOCIAL_INSTAGRAM} }}'">
+                                    <div class="button grey icon" onclick="navigate('{{ 'https://instagram.com/' . $person->{\App\Http\Support\Model::$PERSON_SOCIAL_INSTAGRAM} }}')">
 
                                         <img class="icon" src="/images_app/social-instagram.svg">
 
@@ -168,7 +168,7 @@
 
                                 @if(strlen($person->{\App\Http\Support\Model::$PERSON_SOCIAL_LINKEDIN}) > 0)
 
-                                    <div class="button grey icon" onclick="window.location.href='{{ $person->{\App\Http\Support\Model::$PERSON_SOCIAL_LINKEDIN} }}'">
+                                    <div class="button grey icon" onclick="navigate('{{ $person->{\App\Http\Support\Model::$PERSON_SOCIAL_LINKEDIN} }}')">
 
                                         <img class="icon" src="/images_app/social-linkedin.svg">
 
@@ -194,7 +194,7 @@
 
                                 @if(!(\App\Http\Traits\UserTrait::isActivated($person->getUser)))<!-- && \App\Http\Traits\UserTrait::sentActivation($person->getUser)) -->
 
-                                    <div class="button green icon" onclick="window.location.href='{{ route('person.activate', [\App\Http\Support\Model::$PERSON_SLUG => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">
+                                    <div class="button green icon" onclick="navigate('{{ route('person.activate', [\App\Http\Support\Model::$PERSON_SLUG => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}')">
 
                                         <img class="icon" src="/images_app/contact-white.svg">
 
@@ -204,7 +204,7 @@
 
                                 @endif
 
-                                <div class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_PARTICIPANT => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">
+                                <div class="button grey icon" onclick="navigate('{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_PARTICIPANT => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}')">
 
                                     <img class="icon" src="/images_app/search.svg">
 
@@ -216,7 +216,7 @@
 
                             @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
-                                <div class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_PARTICIPANT => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">
+                                <div class="button grey icon" onclick="navigate('{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_PARTICIPANT => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}')">
 
                                     <img class="icon" src="/images_app/search.svg">
 
@@ -230,7 +230,7 @@
 
                                 @if($person->getUser->id == Auth::id())
 
-                                    <div class="button grey icon" onclick="window.location.href='{{ route('study.list') }}'">
+                                    <div class="button grey icon" onclick="navigate('{{ route('study.list') }}')">
 
                                         <img class="icon" src="/images_app/search.svg">
 
@@ -246,7 +246,7 @@
 
                                 @if(Auth::user()->getCustomer->isStudent($person->getUser->getStudent))
 
-                                    <div class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_PARTICIPANT => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">
+                                    <div class="button grey icon" onclick="navigate('{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_PARTICIPANT => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}')">
 
                                         <img class="icon" src="/images_app/search.svg">
 
@@ -272,7 +272,7 @@
 
                                 @if(!(\App\Http\Traits\UserTrait::isActivated($person->getUser)))
 
-                                    <div class="button green icon" onclick="window.location.href='{{ route('person.activate', [\App\Http\Support\Model::$PERSON_SLUG => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">
+                                    <div class="button green icon" onclick="navigate('{{ route('person.activate', [\App\Http\Support\Model::$PERSON_SLUG => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}')">
 
                                         <img class="icon" src="/images_app/contact-white.svg">
 
@@ -282,7 +282,7 @@
 
                                 @endif
 
-                                <div id="button-studies" class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_CUSTOMER => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">
+                                <div id="button-studies" class="button grey icon" onclick="navigate('{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_CUSTOMER => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}')">
 
                                     <img class="icon" src="/images_app/search.svg">
 
@@ -294,7 +294,7 @@
 
                             @case(\App\Http\Traits\RoleTrait::$ID_EMPLOYEE)
 
-                                <div id="button-studies" class="button grey icon" onclick="window.location.href='{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_CUSTOMER => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}'">
+                                <div id="button-studies" class="button grey icon" onclick="navigate('{{ route('study.list', [\App\Http\Controllers\StudyController::$PARAMETER_CUSTOMER => $person->{\App\Http\Support\Model::$PERSON_SLUG}]) }}')">
 
                                     <img class="icon" src="/images_app/search.svg">
 
@@ -312,7 +312,7 @@
 
                                 @if($person->getUser->id == Auth::id())
 
-                                    <div id="button-studies" class="button grey icon" onclick="window.location.href='{{ route('study.list') }}'">
+                                    <div id="button-studies" class="button grey icon" onclick="navigate('{{ route('study.list') }}')">
 
                                         <img class="icon" src="/images_app/search.svg">
 
@@ -332,7 +332,7 @@
 
                     @if($person->getUser->id == Auth::id() || \App\Http\Traits\BaseTrait::hasBoardRights())
 
-                        <div class="button icon grey" onclick="window.location.href='{{ route('user.edit', $person->{\App\Http\Support\Model::$PERSON_SLUG}) }}'">
+                        <div class="button icon grey" onclick="navigate('{{ route('user.edit', $person->{\App\Http\Support\Model::$PERSON_SLUG}) }}')">
 
                             <img class="icon" src="/images_app/edit.svg">
 
@@ -344,7 +344,7 @@
 
                     @if(\App\Http\Traits\BaseTrait::hasBoardRights() || $person->getUser->role != \App\Http\Traits\RoleTrait::$ID_BOARD)
 
-                        <div class="button icon" onclick="window.location.href='{{ route('person.edit', $person->{\App\Http\Support\Model::$PERSON_SLUG}) }}'">
+                        <div class="button icon" onclick="navigate('{{ route('person.edit', $person->{\App\Http\Support\Model::$PERSON_SLUG}) }}')">
 
                             <img class="icon" src="/images_app/edit.svg">
 
@@ -360,7 +360,7 @@
 
                 @elseif($person->getUser->id == Auth::id())
 
-                    <div class="button icon" onclick="window.location.href='{{ route('user.edit') }}'">
+                    <div class="button icon" onclick="navigate('{{ route('user.edit') }}')">
 
                         <img class="icon" src="/images_app/edit.svg">
 

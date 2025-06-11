@@ -50,7 +50,7 @@
 
                 <div class="name">{{ 'Proefles' }}</div>
 
-                <div class="value"><div class="button" onclick="window.location.href='{{ route('study.view', ['key' => \App\Http\Traits\AgreementTrait::getTrial($agreement)->{\App\Http\Support\Model::$BASE_KEY}]) }}'">{{ __('Bekijken') }}</div></div>
+                <div class="value"><div class="button" onclick="navigate('{{ route('study.view', ['key' => \App\Http\Traits\AgreementTrait::getTrial($agreement)->{\App\Http\Support\Model::$BASE_KEY}]) }}')">{{ __('Bekijken') }}</div></div>
 
             </div>
 

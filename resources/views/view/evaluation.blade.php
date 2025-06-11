@@ -47,7 +47,7 @@
                     @case(\App\Http\Traits\RoleTrait::$ID_MANAGEMENT)
 
                         <div class="button icon @if(!$evaluation->performed) grey @endif"
-                             onclick="window.location.href='{{ route('evaluation.edit', [\App\Http\Support\Model::$BASE_KEY => $evaluation->{\App\Http\Support\Model::$BASE_KEY}]) }}'">
+                             onclick="navigate('{{ route('evaluation.edit', [\App\Http\Support\Model::$BASE_KEY => $evaluation->{\App\Http\Support\Model::$BASE_KEY}]) }}')">
 
                             <img class="icon" src="/images_app/edit.svg">
 
@@ -62,7 +62,7 @@
                                 @case(\App\Http\Traits\EvaluationTrait::$ID_INTAKE)
 
                                     <div class="button icon"
-                                         onclick="window.location.href='{{ route('evaluation.intake', ['key' => $evaluation->key]) }}'">
+                                         onclick="navigate('{{ route('evaluation.intake', ['key' => $evaluation->key]) }}')">
 
                                         <img class="icon" src="/images_app/contact.svg">
 
@@ -75,7 +75,7 @@
                                 @case(\App\Http\Traits\EvaluationTrait::$ID_EVALUATION)
 
                                     <div class="button icon"
-                                         onclick="window.location.href='{{ route('evaluation.evaluation', ['key' => $evaluation->key]) }}'">
+                                         onclick="navigate('{{ route('evaluation.evaluation', ['key' => $evaluation->key]) }}')">
 
                                         <img class="icon" src="/images_app/contact.svg">
 
@@ -88,7 +88,7 @@
                                 @case(\App\Http\Traits\EvaluationTrait::$ID_YEAR_END)
 
                                     <div class="button icon"
-                                         onclick="window.location.href='{{ route('evaluation.evaluation', ['key' => $evaluation->key]) }}'">
+                                         onclick="navigate('{{ route('evaluation.evaluation', ['key' => $evaluation->key]) }}')">
 
                                         <img class="icon" src="/images_app/contact.svg">
 
@@ -101,7 +101,7 @@
                                 @case(\App\Http\Traits\EvaluationTrait::$ID_EXIT)
 
                                     <div class="button icon"
-                                         onclick="window.location.href='{{ route('evaluation.evaluation', ['key' => $evaluation->key]) }}'">
+                                         onclick="navigate('{{ route('evaluation.evaluation', ['key' => $evaluation->key]) }}')">
 
                                         <img class="icon" src="/images_app/contact.svg">
 

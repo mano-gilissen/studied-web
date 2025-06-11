@@ -40,7 +40,7 @@
 
                         @if($agreement->{\App\Http\Support\Model::$AGREEMENT_STATUS} == \App\Http\Traits\AgreementTrait::$STATUS_ACTIVE)
 
-                            <div class="button icon grey" onclick="window.location.href='{{ route('agreement.finish', [\App\Http\Support\Model::$AGREEMENT_IDENTIFIER => $agreement->{\App\Http\Support\Model::$AGREEMENT_IDENTIFIER}]) }}'">
+                            <div class="button icon grey" onclick="navigate('{{ route('agreement.finish', [\App\Http\Support\Model::$AGREEMENT_IDENTIFIER => $agreement->{\App\Http\Support\Model::$AGREEMENT_IDENTIFIER}]) }}')">
 
                                 <img class="icon" src="/images_app/edit.svg">
 
@@ -50,7 +50,7 @@
 
                         @endif
 
-                        <div class="button icon" onclick="window.location.href='{{ route('agreement.edit', [\App\Http\Support\Model::$AGREEMENT_IDENTIFIER => $agreement->{\App\Http\Support\Model::$AGREEMENT_IDENTIFIER}]) }}'">
+                        <div class="button icon" onclick="navigate('{{ route('agreement.edit', [\App\Http\Support\Model::$AGREEMENT_IDENTIFIER => $agreement->{\App\Http\Support\Model::$AGREEMENT_IDENTIFIER}]) }}')">
 
                             <img class="icon" src="/images_app/edit.svg">
 

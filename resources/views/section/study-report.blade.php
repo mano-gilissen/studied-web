@@ -37,7 +37,7 @@
 
             <div style="display:flex">
 
-                <div id="{{ $study->getHost->getPerson->first_name }}" class="person-report" onclick="window.location.href='{{ route('person.view', ['slug' => $study->getHost->getPerson->slug]) }}'">
+                <div id="{{ $study->getHost->getPerson->first_name }}" class="person-report" onclick="navigate('{{ route('person.view', ['slug' => $study->getHost->getPerson->slug]) }}')">
 
                     @if($study->getHost->getPerson->avatar)
 

@@ -6,7 +6,7 @@
 
         @if (\App\Http\Traits\BaseTrait::hasManagementRights())
 
-            <div class="button" id="module-announcements-create" onclick="window.location.href='{{ route('announcement.create') }}'">{{ __('Aanmaken') }}</div>
+            <div class="button" id="module-announcements-create" onclick="navigate('{{ route('announcement.create') }}')">{{ __('Aanmaken') }}</div>
 
         @endif
 

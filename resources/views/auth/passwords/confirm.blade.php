@@ -32,7 +32,7 @@
 
 
 
-        <div class="button" onclick="window.location.href='{{ route('password.request') }}'">
+        <div class="button" onclick="navigate('{{ route('password.request') }}')">
 
             {{ __('Forgot Your Password?') }}
 
