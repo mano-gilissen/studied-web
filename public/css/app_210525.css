@@ -249,11 +249,10 @@ button:focus {
 #loader-global {
     display: none;
     width: 100svw;
-    height: 3px;
+    height: 4px;
     position: absolute;
     inset: 0;
     overflow: hidden;
-    background-color: #DDDDDD;
     z-index: 9999;
 }
 
@@ -261,7 +260,7 @@ button:focus {
     content: "";
     position: absolute;
     left: -50%;
-    height: 3px;
+    height: 4px;
     width: 40%;
     background-color: #FFDD34;
     -webkit-animation: line-animation 1s linear infinite;
