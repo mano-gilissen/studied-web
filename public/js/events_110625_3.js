@@ -242,7 +242,7 @@ $(function(){
 
     /* Show loading indicator on page unload */
 
-    if (is_standalone_mode) {
+    //if (is_standalone_mode) {
 
         document.addEventListener('click', function (e) {
 
@@ -262,14 +262,14 @@ $(function(){
             }
         });
 
-    } else {
+    /*} else {
 
         window.addEventListener('beforeunload', () => {
 
             load_global_show();
 
         });
-    }
+    }*/
 
     window.addEventListener('pageshow', () => {
 
