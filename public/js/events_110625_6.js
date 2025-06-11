@@ -311,9 +311,17 @@ function navigate(url) {
 
         load_global_show();
 
-    }
+        setTimeout(function() {
 
-    window.location.href = url;
+            window.location.href = url;
+
+        }, 50);
+
+    } else {
+
+        window.location.href = url;
+
+    }
 }
 
 
