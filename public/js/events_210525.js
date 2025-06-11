@@ -7,6 +7,8 @@ const OBJECT_MENU                               = '#menu';
 const OBJECT_TOOLTIP                            = '#tooltip';
 const OBJECT_FORM                               = '#form';
 
+const OBJECT_LOADER_GLOBAL                      = '#loader-global';
+
 const OBJECT_BUTTON_MENU                        = '#button-menu';
 const OBJECT_BUTTON_LOGOUT                      = '#button-logout';
 const OBJECT_BUTTON_SETTINGS                    = '#button-settings';
@@ -234,6 +236,20 @@ $(function(){
         }
     });
 
+
+
+
+
+    /* Show loading indicator on page unload */
+
+    window.addEventListener('beforeunload', () => {
+
+        if (window.innerWidth <= 840) {
+
+            $(OBJECT_LOADER_GLOBAL)                         .css('display', 'block');
+
+        }
+    });
 
 
 

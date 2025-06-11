@@ -272,6 +272,10 @@
         color: black;
     }
 
+    #actions #button-filter-add:hover {
+        background:                         #4D4D4D;
+    }
+
     #actions #filters {
         flex-wrap: wrap;
         row-gap: 12px;
@@ -346,7 +350,7 @@
         width: 100vw;
         height: 100vh;
         padding: 24px;
-        background: #00000088;
+        background: #00000044;
         z-index: 100;
     }
 
