@@ -14,6 +14,8 @@
 
 @section('scripts')
 
+    <meta name="theme-color" content="#E6E6E6">
+
     <script src="{{ asset('js/form_210525.js') }}"></script>
 
     @hasSection('scripts-form') @yield('scripts-form') @endif
