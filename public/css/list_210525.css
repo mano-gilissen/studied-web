@@ -356,7 +356,7 @@
         overflow-x: hidden;
     }
 
-    #filters-mobile .filter :has(.filter-wrap-date) {
+    #filters-mobile .filter:has(.filter-wrap-date) {
         background: white;
         padding: 24px 16px 16px;
     }
