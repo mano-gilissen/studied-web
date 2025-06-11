@@ -181,4 +181,10 @@
     div[data-status="1"] .block-users[data-type="host"] {   /* Status planned */
         margin-bottom: 24px;
     }
+
+    .report .subject .duration {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        place-items: center end;
+    }
 }

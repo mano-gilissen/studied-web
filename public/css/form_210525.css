@@ -382,7 +382,7 @@ html, body {
     }
 
     #left .wrap {
-        height: 64px;
+        height: 80px;
     }
 
     #left .title.page {
@@ -404,7 +404,7 @@ html, body {
         width: 100%;
         padding: 40px 32px;
         overflow-x: hidden;
-        margin: 64px 0 0;
+        margin: 80px 0 0;
     }
 
     #form .field {

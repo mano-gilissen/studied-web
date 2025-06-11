@@ -1189,6 +1189,12 @@ select::-ms-expand {
         font-weight:                        100;
     }
 
+    #menu .item:hover img {
+        visibility:                         hidden;
+        transform:                          unset;
+        transition:                         unset;
+    }
+
     #menu-actions {
         position:                           fixed;
         display:                            flex;
@@ -1214,6 +1220,12 @@ select::-ms-expand {
     .language-select {
         bottom: 32px;
         right: 16px;
+    }
+
+
+
+    #tooltip {
+        display: none;
     }
 }
 
