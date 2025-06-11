@@ -45,7 +45,7 @@
 
 
 
-    <link href="{{ asset('css/app_210525.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app_110625.css') }}" rel="stylesheet">
 
 
 
@@ -61,7 +61,9 @@
 
 <body>
 
-    <div id="loader-global"></div>
+    <div id="loader-global">
+        <div class="loader"></div>
+    </div>
 
     <div id="tooltip"></div>
 
