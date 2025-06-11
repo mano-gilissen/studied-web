@@ -247,6 +247,7 @@ button:focus {
 
 
 #loader-global {
+    display: none;
     width: 100svw;
     height: 100svh;
     position: absolute;
