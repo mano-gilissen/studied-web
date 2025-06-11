@@ -3,7 +3,7 @@
     "short_name":"Studied.",
     "start_url":".",
     "display":"standalone",
-    "background_color":"#FFFFFF",
+    "background_color":"#000000",
     "description":"Studied. Zet een punt achter je onvoldoendes",
     "theme_color":"#FFFFFF",
     "id":"studied-application",
