@@ -45,7 +45,7 @@
 
 
 
-    <link href="{{ asset('css/app_110625_5.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app_110625_6.css') }}" rel="stylesheet">
 
 
 
