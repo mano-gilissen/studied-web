@@ -252,6 +252,13 @@ $(function(){
         }
     });
 
+    window.addEventListener('pageshow', () => {
+
+        $(OBJECT_APP)                                       .css('opacity', '1');
+        $(OBJECT_APP)                                       .css('pointer-events', 'all');
+
+    });
+
 
 
 
