@@ -85,8 +85,6 @@ class UserController extends Controller {
 
     public function edit($slug = null) {
 
-        dd('hallooo');
-
         if ($slug && !BaseTrait::hasBoardRights()) {
 
             abort(403);
