@@ -91,6 +91,8 @@ class UserController extends Controller {
 
         }
 
+
+        dd('hallooo');
         return view(Views::PROFILE_EDIT, [
 
             Model::$USER                                    => $slug ? Person::where(Model::$PERSON_SLUG, $slug)->firstOrFail()->getUser : Auth::user(),
