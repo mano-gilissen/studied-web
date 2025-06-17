@@ -465,7 +465,7 @@ trait EvaluationTrait {
             $evaluation->{Model::$EVALUATION_DATETIME},
             $evaluation->{Model::$EVALUATION_DATETIME}->copy()->addHour(),
             PersonTrait::getFullName($evaluation->getHost->getPerson),
-            $evaluation->getHost->{Model::$USER_EMAIL},
+            'info@studied.app',
             self::getParticipants_Email($evaluation)
         );
     }
