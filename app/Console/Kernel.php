@@ -31,7 +31,7 @@ class Kernel extends ConsoleKernel {
 
         $schedule
             ->call(function() { AgreementTrait::plan_reminders_losse_lessen(); })
-            ->dailyAt(1, '12:00')
+            ->daily('12:00')
             ->emailOutputOnFailure('mano.gilissen@gmail.com');
 
         $schedule

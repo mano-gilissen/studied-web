@@ -356,7 +356,7 @@ function graph_options_revenue() {
                 displayColors: false,
                 cornerRadius: 10,
                 titleColor: '#FFFFFF',
-                backgroundColor: '#000000',
+                backgroundColor: '#00000088',
                 titleMarginBottom: 6,
                 bodySpacing: 4,
                 footerMarginTop: 0,
