@@ -779,7 +779,7 @@ trait StudyTrait {
             $study->{Model::$STUDY_START},
             $study->{Model::$STUDY_END},
             PersonTrait::getFullName($study->getHost->getPerson),
-            'info@studied.nl',
+            'info@studied.app',
             StudyTrait::getParticipants_Email($study)
         );
     }
