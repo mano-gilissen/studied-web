@@ -772,7 +772,7 @@ trait StudyTrait {
     public static function generateCalendarInvite($study) {
 
         return Func::generate_calendar_invite(
-            'study-' . $study->{Model::$BASE_KEY} . '@studied.nl',
+            'study-' . $study->{Model::$BASE_KEY} . '@studied.app',
             StudyTrait::getDescription($study),
             StudyTrait::getDescription($study),
             $study->{Model::$STUDY_LOCATION_TEXT},
