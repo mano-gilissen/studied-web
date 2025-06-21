@@ -162,6 +162,11 @@
         overflow-x: hidden;
     }
 
+    #banner {
+        background-size: cover;
+        background-position: center;
+    }
+
     #actions {
         height: 72px;
     }
