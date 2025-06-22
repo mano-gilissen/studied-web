@@ -447,4 +447,14 @@ html, body {
         position:                       unset;
         padding:                        0 0 16px 0;
     }
+
+
+
+    .report .subject .duration .dots {
+        margin-left: auto;
+    }
+
+    .report .subject .duration .time {
+        margin-left: 0;
+    }
 }
