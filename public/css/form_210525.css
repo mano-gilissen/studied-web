@@ -450,11 +450,11 @@ html, body {
 
 
 
-    .report .subject .duration .dots {
+    .duration .dots {
         margin-left: auto;
     }
 
-    .report .subject .duration .time {
+    .duration .time {
         margin-left: 0;
     }
 }
