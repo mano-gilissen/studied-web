@@ -12,12 +12,12 @@
 
             @if(\App\Http\Traits\StudyTrait::hasLink($study))
                 <p style="margin: 0; font-size: 13px; line-height: 22.8px;">
-                    {!! __(':host_first_name heeft een les :subject_name met jou ingepland op :date van :time. De les is digitaal en de link hiervoor is: :link. Kom op tijd en zorg ervoor dat je alles bij je hebt wat je normaal ook naar school zou meenemen.', [
+                    {!! __(':host_first_name heeft een les :subject_name met jou ingepland op :date van :time. De les is digitaal en de link hiervoor is: <a href=":link">:link</a>. Kom op tijd en zorg ervoor dat je alles bij je hebt wat je normaal ook naar school zou meenemen.', [
                         'host_first_name' => $study->getHost->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME},
                         'subject_name' => strtolower(\App\Http\Traits\StudyTrait::getSubject($study)->{\App\Http\Support\Model::$SUBJECT_NAME}),
                         'date' => strtolower(\App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE)),
                         'time' => \App\Http\Traits\StudyTrait::getTimeText($study, true),
-                        'link' => '<a href="' . $study->{\App\Http\Support\Model::$STUDY_LINK} . '">' . $study->{\App\Http\Support\Model::$STUDY_LINK} . '</a>'
+                        'link' => $study->{\App\Http\Support\Model::$STUDY_LINK}
                     ]) !!}
                 </p>
             @else
