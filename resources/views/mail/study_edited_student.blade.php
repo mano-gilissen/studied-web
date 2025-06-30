@@ -12,13 +12,13 @@
 
             @if(\App\Http\Traits\StudyTrait::hasLink($study))
                 <p style="margin: 0; font-size: 13px; line-height: 22.8px;">
-                    {{ __('De gegevens van je les :subject_name met :host_first_name zijn gewijzigd. Deze vindt nu plaats op :date van :time en de locatie is: :link. Kom op tijd en zorg ervoor dat je alles bij je hebt wat je normaal ook naar school zou meenemen.', [
+                    {!! __('De gegevens van je les :subject_name met :host_first_name zijn gewijzigd. Deze vindt nu plaats op :date van :time en de locatie is: <a href=":link">:link</a>. Kom op tijd en zorg ervoor dat je alles bij je hebt wat je normaal ook naar school zou meenemen.', [
                         'subject_name' => \App\Http\Traits\StudyTrait::getSubject($study)->{\App\Http\Support\Model::$SUBJECT_NAME},
                         'host_first_name' => $study->getHost->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME},
                         'date' => strtolower(\App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE)),
                         'time' => \App\Http\Traits\StudyTrait::getTimeText($study, true),
-                        'link' => '<a href="' . $study->{\App\Http\Support\Model::$STUDY_LINK} . '">' . $study->{\App\Http\Support\Model::$STUDY_LINK} . '</a>'
-                    ]) }}
+                        'link' => $study->{\App\Http\Support\Model::$STUDY_LINK}
+                    ]) !!}
                 </p>
             @else
                 <p style="margin: 0; font-size: 13px; line-height: 22.8px;">
