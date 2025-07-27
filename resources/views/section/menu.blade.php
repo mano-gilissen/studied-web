@@ -66,7 +66,11 @@
 
                 @else
 
-                    @include('component.menu-item', ['label' => __('Mijn leerling'), 'route' => route('person.view', Auth::user()->getCustomer->getStudents->first()->getUser->getPerson->slug)])
+                    @if(Auth::user()->getCustomer->getStudents->count() > 0)
+
+                        @include('component.menu-item', ['label' => __('Mijn leerling'), 'route' => route('person.view', Auth::user()->getCustomer->getStudents->first()->getUser->getPerson->slug)])
+
+                    @endif
 
                 @endif
 
