@@ -43,7 +43,7 @@
         autocomplete(
 
             /* Input field ID */
-            $('#{{ $id }}'),
+            $('#{{ str_replace('.', '\\\\.', $id) }}'),
 
             /* Autocomplete data */
             JSON.parse('{!! ${'ac_data_' . ($ac_data ?? false ? $ac_data : $id)} !!}'),

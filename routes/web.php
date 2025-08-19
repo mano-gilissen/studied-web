@@ -224,6 +224,9 @@ Route::get('/3A52C5/schedule_test/announcement_send_emails',    'DashboardContro
 
 Route::get('/', function () {
 
-    return Auth::check() ? redirect('/lessen') : redirect('/inloggen');
+    return Auth::check() ?
 
+        redirect('/dashboard') :
+
+        redirect('/inloggen');
 });
