@@ -286,6 +286,24 @@ class DashboardController extends Controller {
 
         foreach ($agreements as $agreement) {
 
+            $next_study_scheduled = false;
+
+            foreach ($agreement->getStudies as $study) {
+
+                if (strtotime($study->start) > time()) {
+
+                    $next_study_scheduled = true;
+
+                    break;
+                }
+            }
+
+            if ($next_study_scheduled) {
+
+                continue;
+
+            }
+
             $student                                        = $agreement->getStudent->getPerson->{Model::$PERSON_FIRST_NAME};
             $link                                           = route(Route::AGREEMENT_VIEW, $agreement->{Model::$AGREEMENT_IDENTIFIER});
             $title                                          = __('Je hebt nog geen vervolgles :subject ingepland met :student.', [
