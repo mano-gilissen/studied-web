@@ -32,6 +32,7 @@
         <input
             id                                          = "_{{ $id }}"
             name                                        = "_{{ $id }}"
+            inputmode                                   = "none"
             type                                        = "hidden">
 
     @endif
