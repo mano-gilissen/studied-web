@@ -437,7 +437,7 @@ function filters_mobile_open(filter) {
 
     $(OBJECT_FILTERS_MOBILE + ' ' + OBJECT_FILTERS_MOBILE_PICK).hide();
     $(OBJECT_FILTERS_MOBILE + ' ' + CLASS_FILTER + '#filter_' + filter).show();
-    $(OBJECT_FILTERS_MOBILE + ' ' + CLASS_FILTER + '#filter_' + filter + ' input').focus();
+    $(OBJECT_FILTERS_MOBILE + ' ' + CLASS_FILTER + '#filter_' + filter + ' input').click();
 
 }
 

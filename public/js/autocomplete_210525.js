@@ -52,6 +52,14 @@ function autocomplete(input, data, additional, reject_other, show_all, show_alwa
 
 
 
+        input.on("click", function(e) {
+
+            open_list(this);
+
+        });
+
+
+
         input.on("keydown", function(e) {
 
             var list                                    = document.getElementById(this.id + "-autocomplete-list");
