@@ -15,7 +15,9 @@
 
             @isset($required) required @endisset
 
-            @if($locked ?? false) disabled @endif>
+            @if($locked ?? false) disabled @endif
+
+            @if(!($keyboard ?? true)) inputmode = "none" @endif>
 
         @isset($icon) <img class="icon" src="/images_app/{{ $icon }}"> @endisset
 
