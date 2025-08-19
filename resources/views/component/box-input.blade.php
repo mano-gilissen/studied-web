@@ -17,7 +17,7 @@
 
             @if($locked ?? false) disabled @endif
 
-            @if(!($keyboard ?? true)) inputmode = "none" @endif>
+            @if(!($keyboard ?? true)) inputmode = "none" readonly @endif>
 
         @isset($icon) <img class="icon" src="/images_app/{{ $icon }}"> @endisset
 
@@ -33,7 +33,8 @@
             id                                          = "_{{ $id }}"
             name                                        = "_{{ $id }}"
             inputmode                                   = "none"
-            type                                        = "hidden">
+            type                                        = "hidden"
+            readonly>
 
     @endif
 
