@@ -60,8 +60,8 @@ class CreateSchemaFromDdl extends Migration
                 $table->increments('id');
                 $table->integer('role');
                 $table->string('author', 999)->nullable();
-                $table->string('title', 999);
-                $table->text('body');
+                $table->string('title', 999)->charset('utf8mb4')->collation('utf8mb4_unicode_ci');
+                $table->text('body')->charset('utf8mb4')->collation('utf8mb4_unicode_ci');
                 $table->timestamps();
                 $table->softDeletes();
             });

@@ -32,8 +32,8 @@ function translateEn(value) {
         case "Kopiëren": return "Copy";
         case "Er is iets fout gegaan bij het wijzigen van de taal. Check je internetverbinding en probeer het nog eens.": return "Something went wrong while changing the language. Check your internet connection and try again.";
         case "Weet je zeker dat je dit rapport en de bijhorende les wilt verwijderen? Dit kan niet ongedaan worden gemaakt.": return "Are you sure you want to delete this report and the associated lesson? This cannot be undone.";
-        case "Het rapport is gemarkeerd als incompleet.": return "The report has been marked as incomplete.";
-        case "Het rapport is nu niet meer gemarkeerd als incompleet.": return "The report is no longer marked as incomplete.";
+        case "Het rapport is gemarkeerd als afgekeurd.": return "The report has been marked as rejected.";
+        case "Het rapport is nu niet meer gemarkeerd als afgekeurd.": return "The report is no longer marked as rejected.";
 
         default:
             return value;

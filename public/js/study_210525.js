@@ -103,6 +103,6 @@ function report_flag(key) {
         button_flag.show();
         loading_flag.hide();
 
-        alert(translated('Het rapport is ' + (!data ? 'nu niet meer ' : '') + 'gemarkeerd als incompleet.'));
+        alert(translated('Het rapport is ' + (!data ? 'nu niet meer ' : '') + 'gemarkeerd als afgekeurd.'));
     });
 }
