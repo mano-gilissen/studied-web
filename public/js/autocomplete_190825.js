@@ -52,14 +52,6 @@ function autocomplete(input, data, additional, reject_other, show_all, show_alwa
 
 
 
-        input.on("click", function(e) {
-
-            open_list(this);
-
-        });
-
-
-
         input.on("keydown", function(e) {
 
             var list                                    = document.getElementById(this.id + "-autocomplete-list");
@@ -331,7 +323,13 @@ function autocomplete(input, data, additional, reject_other, show_all, show_alwa
 
     }
 
+    
 
+    input[0].open_list = function(received_input = false) {
+
+        open_list(input[0], received_input);
+
+    };
 
 
 
