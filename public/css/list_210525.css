@@ -249,7 +249,7 @@
         grid-area: actions;
         width: 100%;
         height: unset;
-        margin: 0 auto 0;
+        margin: 0 auto 12px;
         flex-wrap: wrap;
         row-gap: 12px;
         justify-content: start;
@@ -287,7 +287,7 @@
 
     #search-wrap {
         grid-area: search;
-        margin: 24px 0 0;
+        margin: 12px 0 0;
     }
 
     #loader-list {
