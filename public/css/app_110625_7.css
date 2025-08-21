@@ -684,13 +684,13 @@ button:focus {
     border-radius:                      28px;
 }
 
-.agreements .button-previous,
-.agreements .button-next {
+.agreements .buttons .button-previous,
+.agreements .buttons .button-next {
     user-select:                        none;
 }
 
-.agreements .button-previous.visible,
-.agreements .button-next.visible {
+.agreements .buttons .button-previous.visible,
+.agreements .buttons .button-next.visible {
     display:                            unset;
 }
 
