@@ -176,7 +176,12 @@
         margin-top: -44px;
     }
 
-    .agreements .button {
+    .agreements .content:has(.block-note) {
+        margin-top: 0;
+    }
+
+    .agreements .button,
+    .agreements .button:hover {
         background: #ffdd34;
     }
 
@@ -187,7 +192,7 @@
 
     .agreements .button-next {
         grid-area: next;
-        margin: 0;
+        margin: 0 0 0 16px;
     }
 
     .agreements .wrap {
