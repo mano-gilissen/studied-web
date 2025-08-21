@@ -52,7 +52,7 @@
 
                 <div class="block-note error">{{ $errors->first() }}</div>
 
-                <div class="seperator"></div>
+                <div class="seperator" style="height: 24px"></div>
 
             @endif
 
