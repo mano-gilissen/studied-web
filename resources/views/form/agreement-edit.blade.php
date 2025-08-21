@@ -2,6 +2,34 @@
 
 
 
+@section('css-form')
+
+    <style>
+
+        @media (max-width: 600px) {
+
+            #field-subject-level .width-third {
+                width: 100%;
+            }
+
+            #field-subject-level {
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+                grid-template-rows: auto auto;
+                grid-row-gap: 32px;
+            }
+
+            #field-subject-level .note {
+                justify-content: start;
+            }
+        }
+
+    </style>
+
+@endsection
+
+
+
 @section('fields')
 
     <div class="title">{{ __('Vakafspraak') }}</div>
@@ -14,7 +42,7 @@
 
     @include('component.field-input', ['id' => 'plan', 'tag' => __('Begeleidingsvorm'), 'icon' => 'lock.svg', 'locked' => true, 'value' => \App\Http\Traits\AgreementTrait::getPlanText($agreement->{\App\Http\Support\Model::$AGREEMENT_PLAN})])
 
-    <div class="field">
+    <div class="field" id="field-subject-level">
 
         <div class="name">{{ __('Vak') }}</div>
 
