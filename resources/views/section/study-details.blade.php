@@ -14,14 +14,6 @@
 
         <div class="attribute">
 
-            <div class="name">{{ __('Dienst') }}</div>
-
-            <div class="value">{{ $study->getService->{\App\Http\Support\Model::$SERVICE_NAME} }}</div>
-
-        </div>
-
-        <div class="attribute">
-
             <div class="name">{{ __('Datum') }}</div>
 
             <div class="value">{{ \App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE) }}</div>
@@ -33,6 +25,14 @@
             <div class="name">{{ __('Tijdstip') }}</div>
 
             <div class="value">{{ \App\Http\Traits\StudyTrait::getTimeText($study) }}</div>
+
+        </div>
+
+        <div class="attribute">
+
+            <div class="name">{{ __('Dienst') }}</div>
+
+            <div class="value">{{ $study->getService->{\App\Http\Support\Model::$SERVICE_NAME} }}</div>
 
         </div>
 
