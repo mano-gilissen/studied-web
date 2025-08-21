@@ -29,9 +29,33 @@
             #form .box-select {
                 width: 100%
             }
+
+
+
+            /* Align subject and level fields vertically on mobile */
+
+            #form .block-form #field-subject-level  {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto auto;
+                margin: 0;
+            }
+
+            #form .block-form #field-subject-level .name {
+                margin-top: 32px;
+            }
+
+            #form .block-form #field-subject-level .width-third {
+                width: 100%;
+            }
+
+            #form .block-form #field-subject-level .width-third.name {
+                justify-content: start;
+            }
         }
 
     </style>
+
 
 @endsection
 

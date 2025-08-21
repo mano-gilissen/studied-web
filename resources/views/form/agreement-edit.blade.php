@@ -21,7 +21,7 @@
                 width: 100%;
             }
 
-            #form .block-form #field-subject-level .width-third.note {
+            #form .block-form #field-subject-level .width-third.name {
                 justify-content: start;
             }
         }

@@ -22,7 +22,7 @@
 
 @include('component.field-input', ['id' => 'plan_' . $id, 'tag' => __('Begeleidingsvorm'), 'required' => true, 'data' => true, 'reject_other' => true, 'show_all' => true, 'ac_data' => 'plan', 'uses_id' => true, 'value' => old('plan_' . $id)])
 
-<div class="field">
+<div class="field" id="field-subject-level">
 
     <div class="name">{{ __('Vak') }}</div>
 
