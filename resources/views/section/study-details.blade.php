@@ -32,7 +32,7 @@
 
             <div class="name">{{ __('Dienst') }}</div>
 
-            <div class="value">{{ $study->getService->{\App\Http\Support\Model::$SERVICE_NAME} }}</div>
+            <div class="value">{{ $study->getService->{\App\Http\Support\Model::$SERVICE_NAME} . ' (' . \App\Http\Traits\AgreementTrait::getPlanText($study->getAgreements[0]->{\App\Http\Support\Model::$AGREEMENT_PLAN}) . ')' }}</div>
 
         </div>
 

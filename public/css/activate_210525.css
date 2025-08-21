@@ -13,6 +13,10 @@ html, body {
     opacity:                            unset;
 }
 
+#form .field {
+    position: relative;
+}
+
 
 
 #avatar-wrap {
