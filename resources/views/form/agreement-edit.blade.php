@@ -4,22 +4,24 @@
 
 @section('css-form')
 
+    <!-- Align subject and level fields vertically on mobile -->
+
     <style>
 
-        @media (max-width: 600px) {
+        @media (max-width: 840px) {
 
-            #field-subject-level .width-third {
+            #form .block-form #field-subject-level .width-third {
                 width: 100%;
             }
 
-            #field-subject-level {
+            #form .block-form #field-subject-level  {
                 display: grid;
                 grid-template-columns: 1fr 2fr;
                 grid-template-rows: auto auto;
                 grid-row-gap: 32px;
             }
 
-            #field-subject-level .note {
+            #form .block-form #field-subject-level  .note {
                 justify-content: start;
             }
         }
