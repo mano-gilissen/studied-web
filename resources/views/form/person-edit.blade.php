@@ -54,7 +54,7 @@
 
         @include('component.box-input', ['id' => 'number', 'required' => true, 'size' => 'width-third', 'value' => $person->getAddress->{\App\Http\Support\Model::$ADDRESS_NUMBER}])
 
-        <div class="note width-third">Toevoeging</div>
+        <div class="name width-third">Toevoeging</div>
 
         @include('component.box-input', ['id' => 'addition', 'size' => 'width-third', 'value' => $person->getAddress->{\App\Http\Support\Model::$ADDRESS_ADDITION}])
 

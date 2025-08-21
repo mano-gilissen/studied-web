@@ -46,7 +46,7 @@
 
         @include('component.box-input', ['id' => 'number', 'required' => true, 'size' => 'width-third', 'value' => old('number')])
 
-        <div class="note width-third">{{ __('Toevoeging') }}</div>
+        <div class="name width-third">{{ __('Toevoeging') }}</div>
 
         @include('component.box-input', ['id' => 'addition', 'size' => 'width-third', 'value' => old('addition')])
 

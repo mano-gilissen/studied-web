@@ -28,7 +28,7 @@
 
     @include('component.box-input', ['id' => 'subject_' . $id, 'required' => true, 'data' => true, 'reject_other' => true, 'show_all' => true, 'ac_data' => 'subject', 'uses_id' => true, 'size' => 'width-third', 'value' => old('subject_' . $id)])
 
-    <div class="note width-third">{{ __('Niveau') }}</div>
+    <div class="name width-third">{{ __('Niveau') }}</div>
 
     @include('component.box-input', ['id' => 'level_' . $id, 'required' => true, 'data' => true, 'reject_other' => true, 'show_all' => true, 'ac_data' => 'level', 'uses_id' => true, 'size' => 'width-third', 'value' => old('level_' . $id)])
 

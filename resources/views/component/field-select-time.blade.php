@@ -46,7 +46,7 @@
 
     @if ($end ?? true)
 
-        <div class="note width-third">{{ __('tot') }}</div>
+        <div class="name width-third">{{ __('tot') }}</div>
 
         <div class="box-select width-third">
 

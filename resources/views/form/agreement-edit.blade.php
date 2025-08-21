@@ -10,10 +10,6 @@
 
         @media (max-width: 840px) {
 
-            #form .block-form #field-subject-level .width-third {
-                width: 100%;
-            }
-
             #form .block-form #field-subject-level  {
                 display: grid;
                 grid-template-columns: 1fr 2fr;
@@ -21,7 +17,11 @@
                 grid-row-gap: 32px;
             }
 
-            #form .block-form #field-subject-level  .note {
+            #form .block-form #field-subject-level .width-third {
+                width: 100%;
+            }
+
+            #form .block-form #field-subject-level .width-third.note {
                 justify-content: start;
             }
         }
@@ -50,7 +50,7 @@
 
         @include('component.box-input', ['id' => 'subject', 'required' => true, 'data' => true, 'reject_other' => true, 'show_all' => true, 'ac_data' => 'subject', 'uses_id' => true, 'size' => 'width-third', 'set_id' => $agreement->{\App\Http\Support\Model::$SUBJECT}])
 
-        <div class="note width-third">{{ __('Niveau') }}</div>
+        <div class="name width-third">{{ __('Niveau') }}</div>
 
         @include('component.box-input', ['id' => 'level', 'required' => true, 'data' => true, 'reject_other' => true, 'show_all' => true, 'ac_data' => 'level', 'uses_id' => true, 'size' => 'width-third', 'set_id' => $agreement->{\App\Http\Support\Model::$LEVEL}])
 
