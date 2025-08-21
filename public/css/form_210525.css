@@ -193,7 +193,7 @@ html, body {
     pointer-events:                     none;
 }
 
-.agreements .buttons .button {
+.agreements .button {
     width:                              32px;
     height:                             32px;
     border-radius:                      16px;
@@ -204,20 +204,20 @@ html, body {
     pointer-events:                     all;
 }
 
-.agreements .buttons .button:hover {
+.agreements .button:hover {
     background:                         #EBEBEB;
 }
 
-.agreements .buttons .button.solo {
+.agreements .button.solo {
     background:                         #FFDD34;
 }
 
-.agreements .buttons .button.solo:hover {
+.agreements .button.solo:hover {
     background:                         #FFE45B;
 }
 
-.agreements .buttons .button-next.solo,
-.agreements .buttons .button-previous {
+.agreements .button-next.solo,
+.agreements .button-previous {
     margin-left:                        auto;
 }
 
