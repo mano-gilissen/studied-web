@@ -173,11 +173,16 @@
         grid-template-rows: auto auto;
         grid-template-columns: 1fr auto;
         grid-template-areas: "previous next" "wrap wrap";
+        margin-top: -44px;
+    }
+
+    .agreements .button {
+        background: #ffdd34;
     }
 
     .agreements .button-previous {
         grid-area: previous;
-        margin: 0 16px 0 auto;
+        margin: 0 0 0 auto;
     }
 
     .agreements .button-next {
