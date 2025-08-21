@@ -52,11 +52,9 @@
 
         <div class="label">{{ __('Sorteren op') }}</div>
 
-        @dd($columns)
-
         @foreach($columns as $column)
 
-            @if($column->filter != \App\Http\Support\Table::FILTER_DISABLED)
+            @if($column->sort != \App\Http\Support\Table::SORT_DISABLED)
 
                 <div class="option" onclick="sort_mobile_direction({{ $column->id }})">{{ __($column->label) }}</div>
 
