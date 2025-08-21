@@ -75,6 +75,11 @@
     margin-bottom:                      96px;
 }
 
+.agreements .content {
+    display: flex;
+    align-items: center;
+}
+
 .agreements .title {
     padding:                            16px 0 16px 4px;
 }
@@ -84,8 +89,8 @@
     overflow-x:                         hidden;
 }
 
-.agreements .buttons .button-previous,
-.agreements .buttons .button-next {
+.agreements .button-previous,
+.agreements .button-next {
     width:                              32px;
     height:                             32px;
     border-radius:                      16px;
@@ -95,17 +100,17 @@
     pointer-events:                     all;
 }
 
-.agreements .buttons .button-previous:hover,
-.agreements .buttons .button-next:hover {
+.agreements .button-previous:hover,
+.agreements .button-next:hover {
     background:                         #E6E6E6;
 }
 
-.agreements .buttons .button-previous {
+.agreements .button-previous {
     margin-left:                        -60px;
     margin-right:                       28px;
 }
 
-.agreements .buttons .button-next {
+.agreements .button-next {
     margin-right:                       -60px;
 }
 
@@ -161,5 +166,28 @@
 
     #actions .button {
         margin: 0;
+    }
+
+    .agreements .content {
+        display: grid;
+        grid-template-rows: auto auto;
+        grid-template-columns: 1fr auto;
+        grid-template-areas: "previous next" "wrap wrap";
+    }
+
+    .agreements .button-previous {
+        grid-area: previous;
+        margin: 0 16px 0 auto;
+    }
+
+    .agreements .button-next {
+        grid-area: next;
+        margin: 0;
+    }
+
+    .agreements .wrap {
+        grid-area: wrap;
+        width: unset;
+        margin-top: 16px;
     }
 }

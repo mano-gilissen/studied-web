@@ -2,7 +2,7 @@
 
     <div class="title">{{ __('Nieuwe vakafspraken') }}</div>
 
-    <div style="display: flex; align-items: center">
+    <div class="content">
 
         <img class="button button-previous" src="/images_app/back.svg"/>
 
