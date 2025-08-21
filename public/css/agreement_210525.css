@@ -89,4 +89,8 @@
     .column.left .block-users {
         margin-bottom: 24px;
     }
+
+    #block-agreement-details-1 {
+        margin: 0;
+    }
 }
