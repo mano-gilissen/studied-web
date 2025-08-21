@@ -47,17 +47,17 @@ class AgreementController extends Controller {
 
     public static
 
-        $COLUMN_STUDENT                                                     = 401,
-        $COLUMN_EMPLOYEE                                                    = 402,
-        $COLUMN_SERVICE                                                     = 403,
-        $COLUMN_PLAN                                                        = 404,
-        $COLUMN_SUBJECT                                                     = 405,
-        $COLUMN_START                                                       = 406,
-        $COLUMN_END                                                         = 407,
-        $COLUMN_HOURS_AGREED                                                = 408,
-        $COLUMN_HOURS_MADE                                                  = 409,
-        $COLUMN_PROGRESS                                                    = 410,
-        $COLUMN_STATUS                                                      = 411;
+        $COLUMN_STUDENT                                                     = 501,
+        $COLUMN_EMPLOYEE                                                    = 502,
+        $COLUMN_SERVICE                                                     = 503,
+        $COLUMN_PLAN                                                        = 504,
+        $COLUMN_SUBJECT                                                     = 505,
+        $COLUMN_START                                                       = 506,
+        $COLUMN_END                                                         = 507,
+        $COLUMN_HOURS_AGREED                                                = 508,
+        $COLUMN_HOURS_MADE                                                  = 509,
+        $COLUMN_PROGRESS                                                    = 510,
+        $COLUMN_STATUS                                                      = 511;
 
 
 

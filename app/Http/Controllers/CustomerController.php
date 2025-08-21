@@ -503,7 +503,7 @@ class CustomerController extends Controller {
         $filter                                                             = $request->input(Table::DATA_FILTER, null);
         $search                                                             = $request->input(Table::DATA_SEARCH, null);
         $mobile                                                             = $request->input(Table::DATA_LAYOUT, 'desktop');
-        $suffix                                             = $mobile == 'mobile' ? '-mobile' : '';
+        $suffix                                                             = $mobile == 'mobile' ? '-mobile' : '';
 
         $query                                                              = Table::query($this, $sort, $filter, $search);
         $counters                                                           = [];
