@@ -20,6 +20,7 @@ html, body {
 
 
 #avatar-wrap {
+    position:                           relative;
     height:                             192px;
     width:                              192px;
     padding-bottom:                     208px;

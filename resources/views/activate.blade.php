@@ -60,7 +60,7 @@
 
             <div id="avatar-section-upload">
 
-                <div id="avatar-wrap" style="position: relative">
+                <div id="avatar-wrap">
 
                     <div>
 
