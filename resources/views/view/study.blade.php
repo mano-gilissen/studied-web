@@ -20,7 +20,7 @@
 
 @section('content')
 
-    @include('section.header')
+    @include('section.header', ['back_route' => 'study.list'])
 
     @include('section.menu')
 
