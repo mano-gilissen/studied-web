@@ -52,6 +52,8 @@
 
         <div class="label">{{ __('Sorteren op') }}</div>
 
+        @dd($columns)
+
         @foreach($columns as $column)
 
             @if($column->filter != \App\Http\Support\Table::FILTER_DISABLED)
