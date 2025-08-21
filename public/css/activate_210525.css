@@ -5,6 +5,12 @@ html, body {
 
 
 
+.seperator {
+    height: 24px;
+}
+
+
+
 #form {
     width:                              unset;
     margin:                             0;
