@@ -85,4 +85,8 @@
     #actions .button {
         margin: 0;
     }
+
+    .column.left .block-users {
+        margin-bottom: 24px;
+    }
 }

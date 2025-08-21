@@ -1,4 +1,4 @@
-<div class="block-attributes">
+<div class="block-attributes" id="block-agreement-details-1">
 
     <div class="title">Gegevens</div>
 

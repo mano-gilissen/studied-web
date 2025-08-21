@@ -116,4 +116,17 @@
 
     </div>
 
+    <script>
+
+        $(function() {
+
+            if (window.innerWidth <= 840) {
+
+                $("#block-agreement-details-1").insertAfter(".column.right .block-users");
+
+            }
+        });
+
+    </script>
+
 @endsection
