@@ -26,7 +26,7 @@
 
             @if($page_message ?? false)
 
-                <p class="message">{!! $page_message !!}</p>
+                <!--<p class="message">{ !! $page_message !! }</p>-->
 
             @endif
 
