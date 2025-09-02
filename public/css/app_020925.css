@@ -1192,7 +1192,6 @@ select::-ms-expand {
 
     #header .person .name,
     #header .person .role {
-        font-size: 13px;
         text-align: end;
     }
 
