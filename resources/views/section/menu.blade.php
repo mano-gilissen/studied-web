@@ -24,7 +24,7 @@
 
                 @include('component.menu-item', ['label' => __('Mijn profiel'), 'route' => route('person.self')])
 
-                @include('component.menu-item', ['label' => __('Locatieagenda'), 'route' => route('study.calendar')])
+                <!--@ include('component.menu-item', ['label' => __('Locatieagenda'), 'route' => route('study.calendar')])-->
 
                 @break
 
@@ -40,7 +40,7 @@
 
                 @include('component.menu-item', ['label' => __('Mijn profiel'), 'route' => route('person.self')])
 
-                @include('component.menu-item', ['label' => __('Locatieagenda'), 'route' => route('study.calendar')])
+                <!--@ include('component.menu-item', ['label' => __('Locatieagenda'), 'route' => route('study.calendar')])-->
 
                 @break
 
