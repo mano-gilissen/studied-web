@@ -1190,8 +1190,10 @@ select::-ms-expand {
         padding-bottom: 2px;
     }
 
+    #header .person .name,
     #header .person .role {
         font-size: 13px;
+        text-align: end;
     }
 
 
@@ -1243,6 +1245,14 @@ select::-ms-expand {
     #button-menu:hover,
     #button-back:hover {
         background:                         transparent;
+    }
+
+    #button-logout {
+        background: #e0e0e0;
+        border-radius: 50%;
+        height: 48px;
+        width: 48px;
+        padding: 12px;
     }
 
     .language-select {
