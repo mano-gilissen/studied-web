@@ -60,7 +60,7 @@
 
             <div class="label">{{ __('Sorteren op') }}</div>
 
-            <img src="/images_app/close-black.svg" onclick="filters_mobile_close()">
+            <img src="/images_app/close-black.svg" onclick="sort_mobile_close()">
 
         </div>
 

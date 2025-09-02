@@ -276,6 +276,16 @@ function sort_mobile(direction) {
 
 
 
+function sort_mobile_close() {
+
+    $(OBJECT_SORT_MOBILE).hide();
+    $(OBJECT_SORT_MOBILE + ' ' + OBJECT_SORT_MOBILE_PICK).hide();
+    $(OBJECT_SORT_MOBILE + ' ' + OBJECT_SORT_MOBILE_DIRECTION).hide();
+
+}
+
+
+
 function set_visibility_load_more() {
 
     if (more_available()) {
