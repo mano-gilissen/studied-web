@@ -424,6 +424,21 @@
         width: 100%;
     }
 
+    #filters-mobile-pick-top,
+    #sort-mobile-pick-top {
+        display: flex;
+        align-items: center;
+        padding-right: 16px;
+    }
+
+    #filters-mobile-pick-top img,
+    #sort-mobile-pick-top img {
+        width: 24px;
+        height: 24px;
+        padding: 0;
+        margin-left: auto;
+    }
+
     #filters-mobile-pick .label,
     #sort-mobile-pick .label,
     #sort-mobile-direction .label {

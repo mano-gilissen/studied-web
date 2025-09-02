@@ -2,7 +2,13 @@
 
     <div id="filters-mobile-pick">
 
-        <div class="label">{{ __('Filteren op') }}</div>
+        <div id="filters-mobile-pick-top">
+
+            <div class="label">{{ __('Filteren op') }}</div>
+
+            <img src="/images_app/close-black.svg" onclick="filters_mobile_close()">
+
+        </div>
 
         @foreach($columns as $column)
 
@@ -50,7 +56,13 @@
 
     <div id="sort-mobile-pick">
 
-        <div class="label">{{ __('Sorteren op') }}</div>
+        <div id="sort-mobile-pick-top">
+
+            <div class="label">{{ __('Sorteren op') }}</div>
+
+            <img src="/images_app/close-black.svg" onclick="filters_mobile_close()">
+
+        </div>
 
         @foreach($columns as $column)
 
