@@ -1422,17 +1422,13 @@ class StudyController extends Controller {
 
         $agreements                                                     = Agreement::where(Model::$AGREEMENT_END, '<=', $range_date_end)
                                                                           ->where(Model::$AGREEMENT_END, '>=', $range_date_start)
+                                                                          ->where(Model::$AGREEMENT_PLAN, '!=', AgreementTrait::$PLAN_LOSSE_LESSEN)
+                                                                          ->where(Model::$AGREEMENT_STATUS, '!=', AgreementTrait::$STATUS_FINISHED)
                                                                           ->get();
 
         foreach ($agreements as $agreement) {
 
             if (AgreementTrait::getHoursTotal($agreement) <= AgreementTrait::getHoursMade($agreement)) {
-
-                continue;
-
-            }
-
-            if ($agreement->{Model::$AGREEMENT_PLAN} == AgreementTrait::$PLAN_LOSSE_LESSEN) {
 
                 continue;
 
