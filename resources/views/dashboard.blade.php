@@ -51,6 +51,18 @@
 
                 @endif
 
+                @if(in_array(\App\Http\Controllers\DashboardController::MODULE_LINKS, $modules))
+
+                    @include('section.dashboard-links')
+
+                @endif
+
+                @if(in_array(\App\Http\Controllers\DashboardController::MODULE_FAQ, $modules))
+
+                    @include('section.dashboard-faq')
+
+                @endif
+
             </div>
 
             <div id="right">

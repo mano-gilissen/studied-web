@@ -40,7 +40,9 @@ class DashboardController extends Controller {
 
         MODULE_GRAPHS_STATISTICS                                = 'graphs_statistics',
         MODULE_ANNOUNCEMENTS                                    = 'announcements',
-        MODULE_TODO                                             = 'todo';
+        MODULE_TODO                                             = 'todo',
+        MODULE_LINKS                                            = 'links',
+        MODULE_FAQ                                              = 'faq';
 
 
 
@@ -62,6 +64,8 @@ class DashboardController extends Controller {
             $data['data__todo']                                 = self::getModuleData_todo();
         }
 
+        $modules[]                                              = self::MODULE_LINKS;
+        $modules[]                                              = self::MODULE_FAQ;
         $modules[]                                              = self::MODULE_ANNOUNCEMENTS;
         $data['data__announcements']                            = self::getModuleData_announcements();
         $data['modules']                                        = $modules;

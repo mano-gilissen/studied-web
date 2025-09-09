@@ -168,6 +168,79 @@
 
 
 
+#module-links,
+#module-faq {
+    width: 100%;
+    background: #F8F8F8;
+    padding: 32px;
+    margin-bottom: 40px;
+}
+
+#module-links .link {
+    display: flex;
+    align-items: center;
+    padding: 8px 24px 8px 8px;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    background: white;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+#module-links .link:hover {
+    opacity: .7;
+}
+
+#module-links .url {
+    margin-top: 4px;
+    opacity: .5;
+}
+
+#module-links img{
+    margin-left: auto;
+    width: 24px;
+    height: 24px;
+}
+
+#module-faq .faq {
+    display: flex;
+    align-items: center;
+    padding: 8px 24px 8px 8px;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    background: white;
+    border: 1px solid black;
+}
+
+#module-faq .faq .question {
+    display: flex;
+    align-content: center;
+    padding-bottom: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+#module-faq .faq .question img {
+    margin-left: auto;
+    width: 16px;
+    height: 16px;
+}
+
+#module-faq .faq.open .question img {
+    transform: rotate(180deg);
+}
+
+#module-faq .faq .answer {
+    display: none;
+    line-height: 21px;
+}
+
+#module-faq .faq.open .answer {
+    display: block;
+}
+
+
+
 @media (max-width: 840px) {
 
     #column {
