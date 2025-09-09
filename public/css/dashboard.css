@@ -186,14 +186,16 @@
     align-items: center;
     padding: 10px;
     margin-bottom: 16px;
-    border-radius: 12px;
+    border-radius: 50%;
     background: white;
-    border: 1px solid #888;
+    color: blue;
+    text-decoration: underline;
+    border: 1px solid #bbb;
     cursor: pointer;
 }
 
 #module-links .link:hover {
-    opacity: .7;
+    opacity: .5;
 }
 
 #module-links .description {
@@ -202,8 +204,9 @@
 }
 
 #module-links .icon-link {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
+    margin: 0 4px;
     opacity: .5;
 }
 

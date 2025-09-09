@@ -4,7 +4,7 @@
 
     <div class="link" onclick="window.open('https://www.studied.nl/studiemateriaal', '_blank')">
 
-        <img src="/images_app/link.svg" class="icon-link">
+        <img src="/images_app/website.svg" class="icon-link">
 
         <div class="description">{{ __('Studiemateriaal') }}</div>
 
@@ -14,7 +14,7 @@
 
     <div class="link" onclick="window.open('https://www.studied.nl/maaltijdpakketten', '_blank')">
 
-        <img src="/images_app/link.svg" class="icon-link">
+        <img src="/images_app/website.svg" class="icon-link">
 
         <div class="description">{{ __('Maaltijdpakketten') }}</div>
 
@@ -24,7 +24,7 @@
 
     <div class="link" onclick="window.open('https://www.studied.nl/bas', '_blank')">
 
-        <img src="/images_app/link.svg" class="icon-link">
+        <img src="/images_app/website.svg" class="icon-link">
 
         <div class="description">{{ __('Chatten met Bas') }}</div>
 
