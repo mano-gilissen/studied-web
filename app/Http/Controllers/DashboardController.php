@@ -177,8 +177,8 @@ class DashboardController extends Controller {
             $data_module['revenue'][$service][$year][$month] += $revenue_total;
             $data_module['revenue']['total'][$year][$month] += $revenue_total;
 
-            $data_module['studies'][$study->{Model::$STUDY_STATUS}][$year][$month] += $duration_total;
-            $data_module['studies']['total'][$year][$month] += $duration_total;
+            $data_module['studies'][$study->{Model::$STUDY_STATUS}][$year][$month] += 1;//$duration_total;
+            $data_module['studies']['total'][$year][$month] += 1;//$duration_total;
         }
 
         return $data_module;
