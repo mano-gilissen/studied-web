@@ -405,7 +405,7 @@ function graph_options_studies() {
                 bottom: 0,
             }
         },
-        categoryPercentage: 0.8,
+        categoryPercentage: 0.7,
         barPercentage: 1.0,
         maintainAspectRatio: false,
         scales: {
