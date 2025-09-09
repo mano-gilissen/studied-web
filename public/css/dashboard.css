@@ -186,7 +186,7 @@
     align-items: center;
     padding: 10px;
     margin-bottom: 16px;
-    border-radius: 50%;
+    border-radius: 23px;
     background: white;
     color: blue;
     text-decoration: underline;
@@ -237,8 +237,8 @@
 
 #module-faq .faq .question img {
     margin-left: auto;
-    width: 16px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
 }
 
 #module-faq .faq.open .question img {
