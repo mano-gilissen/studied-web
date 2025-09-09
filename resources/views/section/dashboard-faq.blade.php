@@ -8,7 +8,7 @@
 
             <div class="description">{{ __('Mag ik gewoon mijn werk niet doen?') }}</div>
 
-            <img src="/images/chevron-down.svg">
+            <img src="/images_app/chevron-down.svg">
 
         </div>
 
@@ -22,7 +22,7 @@
 
             <div class="description">{{ __('Mag ik echt niet gewoon mijn werk niet doen?') }}</div>
 
-            <img src="/images/chevron-down.svg">
+            <img src="/images_app/chevron-down.svg">
 
         </div>
 
@@ -36,7 +36,7 @@
 
             <div class="description">{{ __('Mag ik alsjeblieft gewoon mijn werk niet doen?') }}</div>
 
-            <img src="/images/chevron-down.svg">
+            <img src="/images_app/chevron-down.svg">
 
         </div>
 

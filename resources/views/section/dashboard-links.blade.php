@@ -12,7 +12,7 @@
 
         </div>
 
-        <img src="/images/chevron-right.svg">
+        <img src="/images_app/chevron-right.svg">
 
     </div>
 
@@ -26,7 +26,7 @@
 
         </div>
 
-        <img src="/images/chevron-right.svg">
+        <img src="/images_app/chevron-right.svg">
 
     </div>
 
@@ -40,7 +40,7 @@
 
         </div>
 
-        <img src="/images/chevron-right.svg">
+        <img src="/images_app/chevron-right.svg">
 
     </div>
 
