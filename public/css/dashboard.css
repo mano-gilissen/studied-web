@@ -176,14 +176,19 @@
     margin-bottom: 40px;
 }
 
+#module-links .title,
+#module-faq .title {
+    margin-bottom: 32px;
+}
+
 #module-links .link {
     display: flex;
     align-items: center;
-    padding: 8px 24px 8px 8px;
-    margin-bottom: 24px;
-    border-radius: 8px;
+    padding: 10px 10px 10px 20px;
+    margin-bottom: 16px;
+    border-radius: 12px;
     background: white;
-    border: 1px solid black;
+    border: 1px solid #888;
     cursor: pointer;
 }
 
@@ -191,9 +196,9 @@
     opacity: .7;
 }
 
-#module-links .url {
-    margin-top: 4px;
-    opacity: .5;
+#module-links .description {
+    font-weight: 500;
+    margin-left: 16px;
 }
 
 #module-links img{
@@ -202,9 +207,13 @@
     height: 24px;
 }
 
+#module-faq .title {
+    margin-bottom: 32px;
+}
+
 #module-faq .faq {
-    padding: 8px 24px 8px 8px;
-    margin-bottom: 24px;
+    padding: 8px 16px 8px 24px;
+    margin-bottom: 16px;
     border-radius: 8px;
     background: white;
     border: 1px solid black;
