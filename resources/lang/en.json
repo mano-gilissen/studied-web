@@ -702,7 +702,7 @@
     "Taken to do" : "Tasks to do",
     "Omzet per maand" : "Revenue per month",
     "Per dienst" : "Per service",
-    "Aantal lessen" : "Number of lessons",
+    "Aantal uren" : "Number of hours",
     "Per status" : "Per status",
     "Vakafspraak :agreement (losse lessen) van :employee heeft na 7 dagen nog geen lessen ingepland. Klik <a href=\":link\">hier</a> om naar deze vakafspraak te gaan." : "Subject agreement :agreement (individual lessons) of :employee has not scheduled any lessons after 7 days. Click <a href=\":link\">here</a> to go to this subject agreement."
 }

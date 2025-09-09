@@ -68,8 +68,13 @@ class ReportController extends Controller {
     public function create_submit(Request $request) {
 
         $data                                                               = $request->all();
-
         $study                                                              = Study::find($data['_' . Model::$STUDY]);
+
+        if (!StudyTrait::canReport($study)) {
+
+            abort(403);
+
+        }
 
         if (ReportTrait::create($data, $study) && StudyTrait::isReported($study)) {
 

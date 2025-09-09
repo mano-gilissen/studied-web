@@ -620,6 +620,6 @@ function graph_callback_tooltip_label(canvas, type) {
             return [dataset.label, format_currency(value) + ' omzet'];
 
         case 'studies':
-            return [dataset.label, value + ' lessen'];
+            return [dataset.label, value + ' uren'];
     }
 }

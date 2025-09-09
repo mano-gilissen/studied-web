@@ -130,7 +130,8 @@ class DashboardController extends Controller {
 
         foreach ($studies as $study) {
 
-            $revenue = 0;
+            $revenue_total = 0;
+            $duration_total = 0;
             $plan = null;
             $group = $study->getParticipants_User->count() > 1;
             $service = strtolower($study->getService->{Model::$SERVICE_SHORT});
@@ -157,33 +158,27 @@ class DashboardController extends Controller {
 
                     }
 
-                    $duration = ReportTrait::getDurationTotal($report) / 60.0;
+                    $duration_agreement = ReportTrait::getDurationTotal($report) / 60.0;
 
                 } else {
 
-                    $duration = StudyTrait::getDuration($study) / 60.0;
+                    $duration_agreement = StudyTrait::getDuration($study) / 60.0;
 
                 }
 
-                $revenue += $duration * $rate;
+                $revenue_total += $duration_agreement * $rate;
+                $duration_total += $duration_agreement;
             }
 
             $date = strtotime($study->{Model::$STUDY_START});
             $year = date('Y', $date);
             $month = date('n', $date);
 
-            $data_module['revenue'][$service][$year][$month] += $revenue;
-            $data_module['revenue']['total'][$year][$month] += $revenue;
-        }
+            $data_module['revenue'][$service][$year][$month] += $revenue_total;
+            $data_module['revenue']['total'][$year][$month] += $revenue_total;
 
-        foreach ($studies as $study) {
-
-            $date = strtotime($study->{Model::$STUDY_START});
-            $year = date('Y', $date);
-            $month = date('n', $date);
-
-            $data_module['studies'][$study->{Model::$STUDY_STATUS}][$year][$month] += 1;
-            $data_module['studies']['total'][$year][$month] += 1;
+            $data_module['studies'][$study->{Model::$STUDY_STATUS}][$year][$month] += $duration_total;
+            $data_module['studies']['total'][$year][$month] += $duration_total;
         }
 
         return $data_module;

@@ -733,11 +733,40 @@ trait StudyTrait {
 
         if (!$user) {
 
-            $user                                                   = Auth::user();
+            $user = Auth::user();
 
         }
 
-        return ($user->role <= RoleTrait::$ID_MANAGEMENT || $user->id == $study->{Model::$STUDY_HOST_USER}) && self::hasReporting($study);
+        switch ($user->role) {
+
+            case RoleTrait::$ID_ADMINISTRATOR:
+            case RoleTrait::$ID_MANAGEMENT:
+            case RoleTrait::$ID_BOARD:
+
+                return self::hasReporting($study);
+
+            case RoleTrait::$ID_EMPLOYEE:
+
+                $deadline = strtotime($study->{Model::$STUDY_END}) + 90000;
+
+                if ($user->id != $study->{Model::$STUDY_HOST_USER}) {
+
+                    return false;
+
+                }
+
+                if (time() > $deadline) {
+
+                    return false;
+
+                }
+
+                return true;
+
+            default:
+
+                return false;
+        }
     }
 
 

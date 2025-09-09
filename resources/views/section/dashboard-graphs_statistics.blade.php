@@ -28,7 +28,7 @@
 
     <div id="graph_studies" class="graph">
 
-        <div class="title">{{ __('Aantal lessen') }}</div>
+        <div class="title">{{ __('Aantal uren') }}</div>
 
         <div class="graph-options">
 
