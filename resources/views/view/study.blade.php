@@ -68,7 +68,7 @@
 
                             @if(!\App\Http\Traits\StudyTrait::isReported($study))
 
-                                @if((Auth::user()->{\App\Http\Support\Model::$ROLE} == \App\Http\Traits\RoleTrait::$ID_EMPLOYEE) && (time() > strtotime($study->{Model::$STUDY_END}) + 90000))
+                                @if((Auth::user()->{\App\Http\Support\Model::$ROLE} == \App\Http\Traits\RoleTrait::$ID_EMPLOYEE) && (time() > strtotime($study->{\App\Http\Support\Model::$STUDY_END}) + 90000))
 
                                     <div class="button icon" style="opacity: .5; pointer-events: none" onclick="alert(translated('Je kan deze les niet meer rapporteren. Neem contact op met het management.'))">
 
