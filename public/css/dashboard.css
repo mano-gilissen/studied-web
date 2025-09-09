@@ -184,7 +184,7 @@
 #module-links .link {
     display: flex;
     align-items: center;
-    padding: 10px 10px 10px 20px;
+    padding: 10px;
     margin-bottom: 16px;
     border-radius: 12px;
     background: white;
@@ -198,11 +198,16 @@
 
 #module-links .description {
     font-weight: 500;
-    margin-left: 16px;
+    margin: 0 auto 0 16px;
 }
 
-#module-links img{
-    margin-left: auto;
+#module-links .icon-link {
+    width: 24px;
+    height: 24px;
+    opacity: .5;
+}
+
+#module-links .icon-visit {
     width: 24px;
     height: 24px;
 }
