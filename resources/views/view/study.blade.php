@@ -68,13 +68,27 @@
 
                             @if(!\App\Http\Traits\StudyTrait::isReported($study))
 
-                                <div class="button icon" onclick="navigate('{{ route(\App\Http\Support\Route::REPORT_CREATE, [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}')">
+                                @if((Auth::user()->{\App\Http\Support\Model::$ROLE} == \App\Http\Traits\RoleTrait::$ID_EMPLOYEE) && (time() > strtotime($study->{Model::$STUDY_END}) + 90000))
 
-                                    <img class="icon" src="/images_app/contact.svg">
+                                    <div class="button icon" style="opacity: .5; pointer-events: none" onclick="alert(translated('Je kan deze les niet meer rapporteren. Neem contact op met het management.'))">
 
-                                    <div class="text">{{ __('Rapporteren') }}</div>
+                                        <img class="icon" src="/images_app/contact.svg">
 
-                                </div>
+                                        <div class="text">{{ __('Rapporteren') }}</div>
+
+                                    </div>
+
+                                @else
+
+                                    <div class="button icon" onclick="navigate('{{ route(\App\Http\Support\Route::REPORT_CREATE, [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}')">
+
+                                        <img class="icon" src="/images_app/contact.svg">
+
+                                        <div class="text">{{ __('Rapporteren') }}</div>
+
+                                    </div>
+
+                                @endif
 
                             @endif
 
