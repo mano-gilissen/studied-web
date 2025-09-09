@@ -749,6 +749,8 @@ trait StudyTrait {
 
                 $deadline = strtotime($study->{Model::$STUDY_END}) + 90000;
 
+                dd($deadline, time(), strtotime($study->{Model::$STUDY_END}), $study->{Model::$STUDY_END});
+
                 if ($user->id != $study->{Model::$STUDY_HOST_USER}) {
 
                     return false;
