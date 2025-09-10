@@ -110,7 +110,7 @@ class Mail {
     public static function agreementReminder_forManagement($agreement) {
 
         $mail                                               = new Agreement_Reminder_Management($agreement);
-        $recipients                                         = ['mano.gilissen@gmail.com'];//, 'b.jennissen@studied.nl', 'sales@studied.nl'];
+        $recipients                                         = ['mano.gilissen@gmail.com', 'b.jennissen@studied.nl', 'sales@studied.nl'];
 
         self::mailTo($mail, $recipients);
     }
