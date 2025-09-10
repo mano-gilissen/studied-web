@@ -33,3 +33,9 @@
 @include('component.field-input', ['id' => 'email_vakdocent_3', 'type' => 'email', 'tag' => __('Email vakdocent 3'), 'value' => $student->{\App\Http\Support\Model::$STUDENT_EMAIL_VAKDOCENT_3}])
 
 <div class="seperator"></div>
+
+
+
+<div class="title">{{ __('Organisatie') }}</div>
+
+@include('component.field-input', ['id' => 'branch', 'tag' => __('Bedrijfstak'), 'icon' => 'dropdown.svg', 'required' => true, 'data' => true, 'show_all' => true, 'reject_others' => true, 'show_always' => true, 'ac_data' => 'branch', 'uses_id' => true, 'set_id' => $student->{\App\Http\Support\Model::$STUDENT_BRANCH}])
