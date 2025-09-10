@@ -21,8 +21,8 @@ class Kernel extends ConsoleKernel {
 
         $schedule
             ->command('activate:reminder')
-            ->hourly()
-            ->emailOutputOnFailure('mano.gilissen@gmail.com');
+            ->hourly();
+            //->emailOutputOnFailure('mano.gilissen@gmail.com');
 
         $schedule
             ->call(function() { StudyTrait::scheduled_report_weekly(); })
@@ -36,8 +36,8 @@ class Kernel extends ConsoleKernel {
 
         $schedule
             ->call(function() { DashboardController::announcement_send_emails(); })
-            ->everyFiveMinutes()
-            ->emailOutputOnFailure('mano.gilissen@gmail.com');
+            ->everyFiveMinutes();
+            //->emailOutputOnFailure('mano.gilissen@gmail.com');
     }
 
 
