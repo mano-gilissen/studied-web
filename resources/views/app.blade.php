@@ -42,6 +42,8 @@
     <link rel="manifest" href="/site.webmanifest">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/icons/android/android-launchericon-96-96.png">
+    <link rel="apple-touch-icon" href="/icons/ios/128.png">
 
 
 
