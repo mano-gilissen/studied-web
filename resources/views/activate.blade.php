@@ -99,7 +99,7 @@
 
 
 
-            <form method="POST" action="{{ route('user.activate_submit') }}" novalidate enctype="multipart/form-data">
+            <form id="form-activate" method="POST" action="{{ route('user.activate_submit') }}" novalidate enctype="multipart/form-data">
 
                 @csrf
 
@@ -120,6 +120,22 @@
         </div>
 
     </div>
+
+    <script>
+
+        $('#form-activate').on('submit', function() {
+
+            if ($('#avatar-img').hasClass('invisible')) {
+
+                alert('Upload een profielfoto om je account te activeren.');
+
+                e.preventDefault();
+            }
+
+            return true;
+        });
+
+    </script>
 
 @endsection
 
