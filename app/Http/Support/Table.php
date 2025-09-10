@@ -186,6 +186,7 @@ class Table {
 
         foreach ($parameters->all() as $parameter => $value) {
 
+            dd(24234234);
             $controller->list_filter_parameter($data_filter, $parameter, $value);
 
         }

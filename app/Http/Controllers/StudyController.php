@@ -423,8 +423,6 @@ class StudyController extends Controller {
 
     public function list(Request $request) {
 
-        dd(24234234);
-
         return Table::view($this, $request);
 
     }
