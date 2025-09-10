@@ -228,7 +228,15 @@ class PersonController extends Controller {
         $user                                                       = User::findOrFail($request->{Model::$USER});
         $person                                                     = $user->getPerson;
 
-        if ($user->{Model::$BASE_ID} != Auth::id() && !BaseTrait::hasBoardRights()) {
+        if (!Auth::check()) {
+
+            if ($user->activate_secret != $request->activate_secret) {
+
+                abort(403);
+
+            }
+
+        } else if ($user->{Model::$BASE_ID} != Auth::id() && !BaseTrait::hasBoardRights()) {
 
             abort(403);
 

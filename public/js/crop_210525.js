@@ -1,3 +1,5 @@
+var activate_secret = null;
+
 $(function(){
 
     var section_upload                                  = $('#avatar-section-upload');
@@ -64,6 +66,7 @@ $(function(){
                     data: {
                         user:                           user,
                         image:                          base64data,
+                        activate_secret:                activate_secret
                     },
                     success:
                         function(result) {

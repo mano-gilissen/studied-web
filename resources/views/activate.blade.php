@@ -23,6 +23,7 @@
     <script>
 
         var user = '{{ $user->{\App\Http\Support\Model::$BASE_ID} }}';
+        activate_secret = '{{ $user->activate_secret }}';
 
     </script>
 

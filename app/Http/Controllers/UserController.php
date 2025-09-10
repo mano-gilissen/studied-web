@@ -44,7 +44,6 @@ class UserController extends Controller {
         return view(Views::ACTIVATE, [
 
             Model::$USER                                    => $user,
-
             Key::PAGE_TITLE                                 => __('Profiel activeren'),
             Key::NAVIGATION                                 => false,
         ]);
