@@ -305,4 +305,9 @@
     #module-todo .list {
         margin-top: 24px;
     }
+
+    #module-links,
+    #module-faq {
+        padding: 24px 16px 16px;
+    }
 }
