@@ -123,13 +123,15 @@
 
     <script>
 
-        $('#form-activate').on('submit', function() {
+        $('#form-activate').on('submit', function(e) {
 
             if ($('#avatar-img').hasClass('invisible')) {
 
                 alert('Upload een profielfoto om je account te activeren.');
 
                 e.preventDefault();
+
+                return false;
             }
 
             return true;
