@@ -889,7 +889,11 @@ class StudyController extends Controller {
 
     public function list_filter_parameter(&$data_filter, $parameter, $value) {
 
-        $id_person                                                  = Person::where(Model::$PERSON_SLUG, $value)->firstOrFail()->getUser->{Model::$BASE_ID};
+        if ($parameter != self::$PARAMETER_STATUS) {
+
+            $id_person = Person::where(Model::$PERSON_SLUG, $value)->firstOrFail()->getUser->{Model::$BASE_ID};
+
+        }
 
         switch ($parameter) {
 

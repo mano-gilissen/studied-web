@@ -186,7 +186,6 @@ class Table {
 
         foreach ($parameters->all() as $parameter => $value) {
 
-            dd(99999989);
             $controller->list_filter_parameter($data_filter, $parameter, $value);
 
         }
