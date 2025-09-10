@@ -423,6 +423,8 @@ class StudyController extends Controller {
 
     public function list(Request $request) {
 
+        dd(24234234);
+
         return Table::view($this, $request);
 
     }
@@ -805,7 +807,6 @@ class StudyController extends Controller {
                             break;
 
                         case StudyTrait::$STATUS_FINISHED:
-                            dd(34234);
                             $query->where(Model::$STUDY_STATUS, StudyTrait::$STATUS_PLANNED);
                             $query->where(Model::$STUDY_END, '<', date(Format::$DATABASE_DATETIME, time()));
                             break;
