@@ -268,9 +268,9 @@ class Mail {
 
 
 
-    public static function reportWeekly($list_deficit, $list_unreported) {
+    public static function reportWeekly($list_deficit, $list_unreported, $list_flagged) {
 
-        $mail                                               = new Report_Weekly_Management($list_deficit, $list_unreported);
+        $mail                                               = new Report_Weekly_Management($list_deficit, $list_unreported, $list_flagged);
         $recipients                                         = ['mano.gilissen@gmail.com', 'b.jennissen@studied.nl', 'sales@studied.nl'];
 
         self::mailTo($mail, $recipients);

@@ -26,15 +26,17 @@ class Report_Weekly_Management extends Mailable {
     public
         $list_deficit,
         $list_unreported,
+        $list_flagged,
 
         $subject;
 
 
 
-    public function __construct($list_deficit, $list_unreported) {
+    public function __construct($list_deficit, $list_unreported, $list_flagged) {
 
         $this->list_deficit                 = $list_deficit;
         $this->list_unreported              = $list_unreported;
+        $this->list_flagged                 = $list_flagged;
 
         $this->subject                      = __('Wekelijkse controle rapporten en uren ') . date('d-m-Y');
     }

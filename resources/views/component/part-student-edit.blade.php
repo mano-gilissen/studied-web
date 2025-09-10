@@ -39,3 +39,5 @@
 <div class="title">{{ __('Organisatie') }}</div>
 
 @include('component.field-input', ['id' => 'branch', 'tag' => __('Bedrijfstak'), 'icon' => 'dropdown.svg', 'required' => true, 'data' => true, 'show_all' => true, 'reject_others' => true, 'show_always' => true, 'ac_data' => 'branch', 'uses_id' => true, 'set_id' => $student->{\App\Http\Support\Model::$STUDENT_BRANCH}])
+
+<div class="seperator"></div>

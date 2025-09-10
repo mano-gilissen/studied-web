@@ -28,6 +28,16 @@
 
             @endforeach
             <br><br><br>
+            <div style="font-weight: bold">{{ __('Overzicht afgekeurde rapporten') }}</div>
+            {{ __('De onderstaande lijst bevat alle medewerkers met een aantal afgekeurde lesrapporten.') }}
+            <br><br>
+            @foreach($list_flagged as $flagged)
+
+                {{ ' - ' . $flagged[0] . ': ' . $flagged[1] . ($flagged[1] > 1 ? ' lessen' : ' les') }}
+                <br>
+
+            @endforeach
+            <br><br><br>
             <div style="font-weight: bold">{{ __('Controle rapportteksten') }}</div>
             {{ __('Klik hieronder om een CSV-bestand met alle lesrapporten van de afgelopen week te downloaden. Alle rapportteksten dienen gecontroleerd te worden op lege velden, niet-inhoudelijke input en gekopieerde tekst, aangezien dit niet is toegestaan.') }}
             <br><br>

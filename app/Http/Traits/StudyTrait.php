@@ -812,7 +812,8 @@ trait StudyTrait {
 
         Mail::reportWeekly(
             self::scheduled_report_weekly__agreement_deficits(),
-            self::scheduled_report_weekly__unreported_studies()
+            self::scheduled_report_weekly__unreported_studies(),
+            self::scheduled_report_weekly__flagged_studies()
         );
 
         return true;
@@ -888,6 +889,37 @@ trait StudyTrait {
         }
 
         return $unreported_studies;
+    }
+
+
+
+    public static function scheduled_report_weekly__flagged_studies() {
+
+        $flagged_studies = [];
+        $studies = Study::where(Model::$STUDY_REPORT_FLAGGED, true)
+            ->where(Model::$BASE_DELETED_AT, null)
+            ->get();
+
+
+        foreach ($studies as $study) {
+
+            if (!array_key_exists($study->{Model::$STUDY_HOST_USER}, $flagged_studies)) {
+
+                if ($study->getHost_User->{Model::$USER_STATUS} == UserTrait::$STATUS_ENDED) {
+
+                    continue;
+
+                }
+
+                $name = PersonTrait::getFullName($study->getHost_User->getPerson);
+
+                $flagged_studies[$study->{Model::$STUDY_HOST_USER}] = [$name, 0];
+            }
+
+            $flagged_studies[$study->{Model::$STUDY_HOST_USER}][1]++;
+        }
+
+        return $flagged_studies;
     }
 
 
