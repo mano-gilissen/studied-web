@@ -241,6 +241,25 @@ class DashboardController extends Controller {
 
 
 
+        $studies                                            = Study::where(Model::$STUDY_HOST_USER, Auth::id())
+                                                            ->where(Model::$STUDY_STATUS, StudyTrait::$STATUS_PLANNED)
+                                                            ->where(Model::$STUDY_END, '<', date(Format::$DATABASE_DATETIME, time()))
+                                                            ->where(Model::$BASE_DELETED_AT, null)
+                                                            ->count();
+
+        if ($studies > 0) {
+
+            $todos[]                                        = [
+                'title'                                     => __('Je hebt nog lessen die niet zijn gerapporteerd.'),
+                'description'                               => __('Klik op dit bericht om alle afgelopen lessen te bekijken.'),
+                'link'                                      => route('study.list', [StudyController::$PARAMETER_STATUS => StudyTrait::$STATUS_FINISHED]),
+                'priority'                                  => 'high',
+                'icon'                                      => 'flag',
+            ];
+        }
+
+
+
         $agreements                                         = Agreement::where(Model::$EMPLOYEE, Auth::id())
             ->where(Model::$AGREEMENT_STATUS, '!=', AgreementTrait::$STATUS_FINISHED)
             ->where(Model::$AGREEMENT_START, '<', date(Format::$DATABASE_DATE))

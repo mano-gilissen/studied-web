@@ -66,6 +66,7 @@ class StudyController extends Controller {
         $PARAMETER_CUSTOMER                                                 = "klant",
         $PARAMETER_PARTICIPANT                                              = "deelnemer",
         $PARAMETER_HOST                                                     = "host",
+        $PARAMETER_STATUS                                                   = "status",
 
         $STUDY_PLAN_LOCATION_HOST                                           = -1,
 
@@ -902,6 +903,10 @@ class StudyController extends Controller {
 
             case self::$PARAMETER_HOST:
                 $data_filter->{self::$COLUMN_HOST}                  = $id_person;
+                break;
+
+            case self::$PARAMETER_STATUS:
+                $data_filter->{self::$COLUMN_STATUS}                = $value;
                 break;
         }
     }
