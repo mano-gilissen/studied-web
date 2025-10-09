@@ -483,10 +483,7 @@ function graph_options_studies() {
 
 function graph_studies_total_color(context) {
 
-    const future = (new Date(context.dataIndex) >= new Date().getMo
-
-
-    function module_graphs_statistics__set_year(type, year) {nth() + 1) &&
+    const future = (new Date(context.dataIndex) >= new Date().getMonth() + 1) &&
                    (new Date().getFullYear() === graph_studies_year);
 
     return future ? '#CCCCCC' : '#FFDD34';
