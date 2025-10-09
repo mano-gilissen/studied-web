@@ -718,7 +718,7 @@ trait StudyTrait {
 
     public static function isTimeLocked($study) {
 
-        if (time() < strtotime($study->{Model::$STUDY_REPORTING_GRACE}) + 86400) {
+        if ($study->{Model::$STUDY_REPORTING_GRACE} && (time() < strtotime($study->{Model::$STUDY_REPORTING_GRACE}) + 86400)) {
 
             return false;
 
