@@ -705,5 +705,13 @@
     "Aantal uren" : "Number of hours",
     "Per status" : "Per status",
     "Vakafspraak :agreement (losse lessen) van :employee heeft na 7 dagen nog geen lessen ingepland. Klik <a href=\":link\">hier</a> om naar deze vakafspraak te gaan." : "Subject agreement :agreement (individual lessons) of :employee has not scheduled any lessons after 7 days. Click <a href=\":link\">here</a> to go to this subject agreement.",
-    "Rapporteren verlengen" : "Extend reporting"
+    "Rapporteren verlengen" : "Extend reporting",
+    "Bibliotheek voor Onboarding- en Training" : "Library for Onboarding & Training",
+    "Life Support Omgeving" : "Life Support Environment",
+    "WhatsApp van Teamleider | Masha" :  "WhatsApp of Team Lead | Masha",
+    "WhatsApp van HR | Sarah H" : "WhatsApp of HR | Sarah H",
+    "WhatsApp van Finance | Sarah E" :  "WhatsApp of Finance | Sarah E",
+    "WhatsApp groepschat voor Student-docenten" : "WhatsApp Group Chat for Student-Tutors",
+    "Formulier voor Feedback" :  "Feedback Form",
+    "Maandelijkse Update Formulier" : "Monthly Update Form"
 }
