@@ -4,7 +4,7 @@
 
 namespace App\Http\Traits;
 
-use App\c32\Models\Customer;
+use App\Models\Customer;
 use App\Http\Support\Model;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
