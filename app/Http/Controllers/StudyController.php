@@ -83,6 +83,8 @@ class StudyController extends Controller {
             'Taalcursus_I_S', 'Taalcursus_I_G', 'Taalcursus_S_S', 'Taalcursus_S_G', 'Taalcursus_G_S', 'Taalcursus_G_G'
         ],
 
+
+
         $EXPORT_COLUMNS_LABOR                                               = [
             'Medewerker', 'Huiswerkbegeleiding_BO', 'Huiswerkbegeleiding_VO', 'Huiswerkbegeleiding_HO',
             'Bijles_BO', 'Bijles_VO', 'Bijles_HO', 'Training_BO', 'Training_VO', 'Training_HO',
@@ -95,7 +97,7 @@ class StudyController extends Controller {
         ],
 
         $EXPORT_HEADOFFICE_EMPLOYEE                                         = [
-            'Chloé Klippert','Eldar Ulanov','Masha Hasalee','Sanne de Brouwer','Sarah Ewals','Sarah Huizenga','Stijn Donkers'
+            'Chloé Klippert', 'Eldar Ulanov', 'Masha Hasalee', 'Sanne de Brouwer', 'Sarah Ewals', 'Sarah Huizenga', 'Stijn Donkers', 'Lorenzo Vallini'
         ];
 
 
