@@ -406,8 +406,15 @@ class DashboardController extends Controller {
 
             } else {
 
-                $users = $query->where(Model::$ROLE, $announcement->role)->get();
+                if ($announcement->role == RoleTrait::$ID_EMPLOYEE) {
 
+                    $users = $query->whereIn(Model::$ROLE, [RoleTrait::$ID_EMPLOYEE, RoleTrait::$ID_MANAGEMENT, RoleTrait::$ID_BOARD, RoleTrait::$ID_ADMINISTRATOR])->get();
+
+                } else {
+
+                    $users = $query->where(Model::$ROLE, $announcement->role)->get();
+
+                }
             }
 
             foreach ($users as $user) {
