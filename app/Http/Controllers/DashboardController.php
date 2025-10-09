@@ -64,7 +64,7 @@ class DashboardController extends Controller {
             $data['data__todo']                                 = self::getModuleData_todo();
         }
 
-        //$modules[]                                              = self::MODULE_LINKS;
+        $modules[]                                              = self::MODULE_LINKS;
         //$modules[]                                              = self::MODULE_FAQ;
         $modules[]                                              = self::MODULE_ANNOUNCEMENTS;
         $data['data__announcements']                            = self::getModuleData_announcements();
