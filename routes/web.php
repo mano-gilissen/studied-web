@@ -228,7 +228,9 @@ Route::get('/', function () {
 
     return Auth::check() ?
 
-        redirect('/dashboard') :
+        (App\Http\Traits\BaseTrait::hasEmployeeRights() ? redirect('/dashboard') : redirect('/lessen'))
+
+        :
 
         redirect('/inloggen');
 });
