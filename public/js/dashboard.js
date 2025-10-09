@@ -490,6 +490,9 @@ function graph_studies_total_color(context) {
 }
 
 
+
+function module_graphs_statistics__set_year(type, year) {
+
     switch (type) {
 
         case 'revenue':
