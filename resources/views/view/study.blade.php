@@ -80,15 +80,17 @@
 
                                             </div>
 
+                                        @else
+
+                                            <div class="button icon" style="opacity: .5;" onclick="alert(translated('Je kan deze les niet meer rapporteren. Neem contact op het management.'))">
+
+                                                <img class="icon" src="/images_app/contact.svg">
+
+                                                <div class="text">{{ __('Rapporteren') }}</div>
+
+                                            </div>
+
                                         @endif
-
-                                        <div class="button icon" style="opacity: .5;" onclick="alert(translated('Je kan deze les niet meer rapporteren. Neem contact op het management.'))">
-
-                                            <img class="icon" src="/images_app/contact.svg">
-
-                                            <div class="text">{{ __('Rapporteren') }}</div>
-
-                                        </div>
 
                                     @else
 
