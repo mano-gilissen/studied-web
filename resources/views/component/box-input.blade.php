@@ -13,6 +13,8 @@
 
             @if($max ?? false) maxlength = "{{ $max }}" @endif
 
+            @if($min ?? false) min = "{{ $min }}" @endif
+
             @isset($required) required @endisset
 
             @if($locked ?? false) disabled @endif

@@ -8,15 +8,13 @@
 
     <div class="title">{{ __('Tijd en locatie') }}</div>
 
-    @include('component.field-input', ['id' => 'date', 'type' => 'date', 'tag' => __('Datum'), 'placeholder' => __('Kies een datum'), 'required' => true, 'trigger' => 'agreements', 'value' => old('date')])
+    @include('component.field-input', ['id' => 'date', 'type' => 'date', 'tag' => __('Datum'), 'placeholder' => __('Kies een datum'), 'required' => true, 'trigger' => 'agreements', 'value' => old('date'), 'min' => now()->toDateString()])
 
     @include('component.field-select-time')
 
     @include('component.field-input', ['id' => 'location', 'tag' => __('Locatie'), 'icon' => 'search.svg', 'placeholder' => __('Zoek een locatie'), 'required' => true, 'data' => true, 'show_all' => true, 'uses_id' => true])
 
     @include('component.field-input', ['id' => 'link', 'tag' => __('Digitale les'), 'icon' => 'url.svg', 'placeholder' => __('Plak een URL'), 'value' => old('link')])
-
-    <script> $(function() { $('#date').datepicker({minDate: 0}); }); </script>
 
     <div class="seperator"></div>
 
