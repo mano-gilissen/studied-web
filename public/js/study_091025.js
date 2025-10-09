@@ -106,3 +106,21 @@ function report_flag(key) {
         alert(translated('Het rapport is ' + (!data ? 'nu niet meer ' : '') + 'gemarkeerd als afgekeurd.'));
     });
 }
+
+
+
+function report_extend(key) {
+
+    if (!confirm(translated('Door rapporteren te verlengen kan deze les weer 24 uur gerapporteerd worden door de student-docent. Weet je zeker dat je rapporteren wil verlengen?'))) {
+
+        return;
+
+    }
+
+    $.get('/les/' + key + '/report_extend', function(data) {
+
+        alert(translated('Rapporteren is nu verlengd. De student-docent kan deze les de komende 24 uur weer rapporteren.'));
+
+        location.reload();
+    });
+}

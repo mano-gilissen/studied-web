@@ -274,6 +274,18 @@ class StudyController extends Controller {
 
 
 
+    public function report_extend($key) {
+
+        $study = Study::where(Model::$BASE_KEY, $key)->firstOrFail();
+
+        $study->reporting_grace = date('Y-m-d H:i:s');
+        $study->save();
+
+        return true;
+    }
+
+
+
 
 
     public function form_set_ac_data_location(&$data, $study = null) {

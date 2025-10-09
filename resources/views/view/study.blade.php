@@ -12,7 +12,7 @@
 
 @section('scripts')
 
-    <script src="{{ asset('js/study_210525.js') }}"></script>
+    <script src="{{ asset('js/study_091025.js') }}"></script>
 
 @endsection
 
@@ -64,37 +64,49 @@
 
                         @if(\App\Http\Traits\StudyTrait::hasStarted($study))
 
-                        @if(\App\Http\Traits\StudyTrait::canReport($study))
+                            @if(\App\Http\Traits\StudyTrait::canReport($study))
 
-                            @if(!\App\Http\Traits\StudyTrait::isReported($study))
+                                @if(!\App\Http\Traits\StudyTrait::isReported($study))
 
-                                @if((Auth::user()->{\App\Http\Support\Model::$ROLE} == \App\Http\Traits\RoleTrait::$ID_EMPLOYEE) && (time() > strtotime($study->{\App\Http\Support\Model::$STUDY_END}) + 90000))
+                                    @if(\App\Http\Traits\StudyTrait::isTimeLocked($study))
 
-                                    <div class="button icon" style="opacity: .5;" onclick="alert(translated('Je kan deze les niet meer rapporteren. Neem contact op het management.'))">
+                                        @if(\App\Http\Traits\BaseTrait::hasManagementRights())
 
-                                        <img class="icon" src="/images_app/contact.svg">
+                                            <div class="button icon" onclick="report_extend('{{ $study->key }}')">
 
-                                        <div class="text">{{ __('Rapporteren') }}</div>
+                                                <img class="icon" src="/images_app/contact.svg">
 
-                                    </div>
+                                                <div class="text">{{ __('Rapporteren verlengen') }}</div>
 
-                                @else
+                                            </div>
 
-                                    <div class="button icon" onclick="navigate('{{ route(\App\Http\Support\Route::REPORT_CREATE, [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}')">
+                                        @endif
 
-                                        <img class="icon" src="/images_app/contact.svg">
+                                        <div class="button icon" style="opacity: .5;" onclick="alert(translated('Je kan deze les niet meer rapporteren. Neem contact op het management.'))">
 
-                                        <div class="text">{{ __('Rapporteren') }}</div>
+                                            <img class="icon" src="/images_app/contact.svg">
 
-                                    </div>
+                                            <div class="text">{{ __('Rapporteren') }}</div>
+
+                                        </div>
+
+                                    @else
+
+                                        <div class="button icon" onclick="navigate('{{ route(\App\Http\Support\Route::REPORT_CREATE, [\App\Http\Support\Model::$BASE_KEY => $study->key]) }}')">
+
+                                            <img class="icon" src="/images_app/contact.svg">
+
+                                            <div class="text">{{ __('Rapporteren') }}</div>
+
+                                        </div>
+
+                                    @endif
 
                                 @endif
 
                             @endif
 
-                        @endif
-
-                    @endif
+                       @endif
 
                         @break
 

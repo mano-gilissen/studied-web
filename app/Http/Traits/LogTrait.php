@@ -4,10 +4,9 @@
 
 namespace App\Http\Traits;
 
+use App\c32\Models\Log;
 use App\Http\Support\Model;
-use App\Models\Log;
 use Auth;
-
 
 
 trait LogTrait {

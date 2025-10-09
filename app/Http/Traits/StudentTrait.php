@@ -2,15 +2,14 @@
 
 namespace App\Http\Traits;
 
+use App\c32\Models\Customer;
 use App\Http\Support\Key;
 use App\Http\Support\Mail;
 use App\Http\Support\Model;
-use App\Models\Customer;
 use App\Models\Report;
 use App\Models\Student;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\Eloquent\Builder;
-
+use Illuminate\Support\Facades\Validator;
 
 
 trait StudentTrait {

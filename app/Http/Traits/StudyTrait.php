@@ -716,6 +716,30 @@ trait StudyTrait {
 
 
 
+    public static function isTimeLocked($study) {
+
+        if (time() < strtotime($study->{Model::$STUDY_REPORTING_GRACE}) + 86400) {
+
+            return false;
+
+        }
+
+        if (Auth::user()->{Model::$ROLE} == RoleTrait::$ID_EMPLOYEE) {
+
+            $time = 86400 * ($study->trail == 1 ? 7 : 1);
+
+            if (time() > strtotime($study->{Model::$STUDY_END}) + $time) {
+
+                return true;
+
+            }
+        }
+
+        return false;
+    }
+
+
+
     public static function canEdit($study, $user = null) {
 
         if (!$user) {

@@ -4,12 +4,10 @@
 
 namespace App\Http\Traits;
 
-use App\Http\Support\Key;
+use App\c32\Models\Customer;
 use App\Http\Support\Model;
-use App\Models\Customer;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
-
 
 
 trait CustomerTrait {

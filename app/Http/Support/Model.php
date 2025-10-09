@@ -346,6 +346,7 @@ class Model {
         $STUDY_TRIAL                                    = 'trial',
         $STUDY_REMARK                                   = 'remark',
         $STUDY_REPORT_FLAGGED                           = 'report_flagged',
+        $STUDY_REPORTING_GRACE                          = 'reporting_grace',
         $STUDY_REASON_CANCEL                            = 'reason_cancel',
         $STUDY_EXPLANATION_CANCEL                       = 'explanation_cancel',
         $STUDY_USES_TRIAL_CREDIT                        = 'uses_trial_credit';

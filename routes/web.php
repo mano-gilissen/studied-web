@@ -26,6 +26,8 @@ Route::get('/les/{key}/verwijderen',                            'StudyController
 
 Route::get('/les/{key}/flag',                                   'StudyController@flag')->name('study.flag')->middleware('auth', 'authorize');
 
+Route::get('/les/{key}/report_extend',                          'StudyController@report_extend')->name('study.report.extend')->middleware('auth', 'authorize');
+
 Route::get('/plannen',                                          'StudyController@plan')->name('study.plan')->middleware('auth', 'authorize');
 
 

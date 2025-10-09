@@ -34,6 +34,8 @@ const STUDY_FLAG                                = 'study.flag';
 
 const STUDY_PLAN                                = 'study.plan';
 
+const STUDY_REPORT_EXTEND                       = 'study.report.extend';
+
 
 
 const REPORT_CREATE                             = 'report.create';
@@ -237,6 +239,7 @@ const ALL_MANAGEMENT                            = [
     self::STUDY_OVERVIEW_EXPORT,
     self::STUDY_DELETE,
     self::STUDY_FLAG,
+    self::STUDY_REPORT_EXTEND,
     self::REPORT_EXPORT,
     self::AGREEMENT_FINISH,
     self::AGREEMENT_CREATE,
