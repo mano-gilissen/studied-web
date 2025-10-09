@@ -12,9 +12,9 @@
 
             @endforeach
 
-            <div class="option" id="graph_revenue-option-total" onclick="module_graphs_statistics__set_data('revenue', false)" style="margin-left: auto">{{ __('Totaal') }}</div>
+            <div class="option selected" id="graph_revenue-option-total" onclick="module_graphs_statistics__set_data('revenue', false)" style="margin-left: auto">{{ __('Totaal') }}</div>
 
-            <div class="option selected" id="graph_revenue-option-split" onclick="module_graphs_statistics__set_data('revenue', true)">{{ __('Per dienst') }}</div>
+            <div class="option" id="graph_revenue-option-split" onclick="module_graphs_statistics__set_data('revenue', true)">{{ __('Per dienst') }}</div>
 
         </div>
 
@@ -38,9 +38,9 @@
 
             @endforeach
 
-            <div class="option" id="graph_studies-option-total" onclick="module_graphs_statistics__set_data('studies', false)" style="margin-left: auto">{{ __('Totaal') }}</div>
+            <div class="option selected" id="graph_studies-option-total" onclick="module_graphs_statistics__set_data('studies', false)" style="margin-left: auto">{{ __('Totaal') }}</div>
 
-            <div class="option selected" id="graph_studies-option-split" onclick="module_graphs_statistics__set_data('studies', true)">{{ __('Per status') }}</div>
+            <div class="option" id="graph_studies-option-split" onclick="module_graphs_statistics__set_data('studies', true)">{{ __('Per status') }}</div>
 
         </div>
 

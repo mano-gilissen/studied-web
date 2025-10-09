@@ -64,8 +64,8 @@ var graph_studies_chart                                     = null;
 var graph_revenue_year                                      = 2025;
 var graph_studies_year                                      = 2025;
 
-var graph_revenue_split                                     = true;
-var graph_studies_split                                     = true;
+var graph_revenue_split                                     = false;
+var graph_studies_split                                     = false;
 
 var LABELS_MONTHS                                           = ['Jan', 'Feb', 'Mrt', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'];
 var LABELS_MONTHS_FULL                                      = ['Januari', 'Februari', 'Maart', 'April', 'Mei', 'Juni', 'Juli', 'Augustus', 'September', 'Oktober', 'November', 'December'];
