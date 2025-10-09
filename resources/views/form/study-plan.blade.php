@@ -16,6 +16,8 @@
 
     @include('component.field-input', ['id' => 'link', 'tag' => __('Digitale les'), 'icon' => 'url.svg', 'placeholder' => __('Plak een URL'), 'value' => old('link')])
 
+    <script> $(function() { $('#date').datepicker({minDate: 0}); }); </script>
+
     <div class="seperator"></div>
 
 
