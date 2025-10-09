@@ -15,7 +15,7 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="{{ asset('js/translate.js') }}"></script>
+    <script src="{{ asset('js/translate_091025.js') }}"></script>
     <script src="{{ asset('js/autocomplete_190825.js') }}"></script>
     <script src="{{ asset('js/events_110625_9.js') }}"></script>
 
