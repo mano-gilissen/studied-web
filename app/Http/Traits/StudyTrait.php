@@ -724,15 +724,12 @@ trait StudyTrait {
 
         }
 
-        if (Auth::user()->{Model::$ROLE} == RoleTrait::$ID_EMPLOYEE) {
+        $time = 86400 * ($study->trail == 1 ? 7 : 1);
 
-            $time = 86400 * ($study->trail == 1 ? 7 : 1);
+        if (time() > strtotime($study->{Model::$STUDY_END}) + $time) {
 
-            if (time() > strtotime($study->{Model::$STUDY_END}) + $time) {
+            return true;
 
-                return true;
-
-            }
         }
 
         return false;
