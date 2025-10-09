@@ -96,7 +96,7 @@
 
         </div>
 
-        <div class="answer">{!! __('Je ontvangt deze via Exact in je e-mail. Denk eraan je spamfolder te controleren! Als je een kopie nodig hebt of er geen toegang toe hebt, laat het Sarah van Finance.') !!}</div>
+        <div class="answer">{!! __('Je ontvangt deze via Exact in je e-mail. Denk eraan je spamfolder te controleren! Als je een kopie nodig hebt of er geen toegang toe hebt, laat het Sarah van Finance weten (<a href="https://wa.me/31616018566">https://wa.me/31616018566</a>).') !!}</div>
 
     </div>
 
