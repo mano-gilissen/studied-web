@@ -69,9 +69,9 @@
 
     <div class="title">{{ __('Gegevens') }}</div>
 @php
-    if(old('status') !== null)
+    if(old('status') !== null) {
         dd(old('status'), $study->{\App\Http\Support\Model::$STUDY_STATUS});
-    endif
+    }
     @endphp
     @include('component.field-input', [
 
