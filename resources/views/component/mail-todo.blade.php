@@ -1,5 +1,5 @@
 <div style="
-width: 100%;
+width: 94%;
 padding:8px 16px;
 border-radius:8px;
 color:black;
@@ -30,16 +30,16 @@ margin-bottom: 16px;
 
 @endif>
 
-    <img style="width: 40px;height: 24px;padding-right: 16px;" src="/images_app/dashboard-todo-{{ array_key_exists('icon', $todo) ? 'icon-' . $todo['icon'] : 'priority-' . $todo['priority'] }}.svg"/>
+    <img style="width: 24px;height: 24px;padding-right: 16px;" src="/images_app/dashboard-todo-{{ array_key_exists('icon', $todo) ? 'icon-' . $todo['icon'] : 'priority-' . $todo['priority'] }}.svg"/>
 
     <div>
 
-        <div style="font-size:14px;font-weight:600;">{{ $todo['title'] }}</div>
+        <div style="font-size:12px;font-weight:600;line-height: 21px">{{ $todo['title'] }}</div>
 
-        <div style="font-size:12px;color:#666;margin-top:4px;">{{ $todo['description'] }}</div>
+        <div style="font-size:12px;color:#666;line-height: 21px">{{ $todo['description'] }}</div>
 
     </div>
 
-    <img style="width: 40px;height: 24px;padding-right: 16px;" src="/images_app/chevron-right.svg">
+    <img style="width: 24px;height: 24px;margin-left: auto" src="/images_app/chevron-right.svg">
 
 </div>
