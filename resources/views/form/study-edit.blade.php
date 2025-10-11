@@ -85,7 +85,7 @@
 
         'trigger' => 'study_cancel',
         'locked' => \App\Http\Traits\StudyTrait::isReported($study),
-        'set_id' => $study->{\App\Http\Support\Model::$STUDY_STATUS}
+        'set_id' => old(\App\Http\Support\Model::$STUDY_STATUS) ?? $study->{\App\Http\Support\Model::$STUDY_STATUS}
     ])
 
     @include('component.field-input', ['id' => 'reason_cancel', 'tag' => __('Reden annuleren / verzuim'), 'icon' => 'dropdown.svg', 'placeholder' => __('Kies een reden'), 'data' => true, 'show_all' => true, 'show_always' => true, 'reject_other' => true, 'uses_id' => true, 'set_id' => $study->{\App\Http\Support\Model::$STUDY_REASON_CANCEL}])
