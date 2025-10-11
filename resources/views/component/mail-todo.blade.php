@@ -4,7 +4,6 @@ padding:8px 16px;
 border-radius:8px;
 color:black;
 display: flex;
-align-items: center;
 margin-bottom: 16px;
 
 @switch($todo['priority'])
@@ -30,7 +29,7 @@ margin-bottom: 16px;
 
 @endif>
 
-    <img style="width: 24px;height: 24px;padding-right: 16px;" src="{{ $message->embed(public_path() . '/images_app/dashboard-todo-' . (array_key_exists('icon', $todo) ? 'icon-' . $todo['icon'] : 'priority-' . $todo['priority']) . '.svg') }}"/>
+    <img style="width: 24px;height: 24px;padding-right: 16px;padding-top: 9px;" src="{{ $message->embed(public_path() . '/images_app/dashboard-todo-' . (array_key_exists('icon', $todo) ? 'icon-' . $todo['icon'] : 'priority-' . $todo['priority']) . '.png') }}"/>
 
     <div>
 
@@ -40,6 +39,6 @@ margin-bottom: 16px;
 
     </div>
 
-    <img style="width: 24px;height: 24px;margin-left: auto" src="/images_app/chevron-right.svg">
+    <img style="width: 24px;height: 24px;padding-top: 9px;margin-left: auto" src="/images_app/chevron-right.png">
 
 </div>
