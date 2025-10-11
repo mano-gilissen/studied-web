@@ -28,6 +28,12 @@
 
     <script>
 
+        $(function() {
+
+            study_cancel_reason();
+
+        })
+
         function study_cancel_reason() {
 
             $('#reason_cancel-field, #explanation_cancel-field').hide();
