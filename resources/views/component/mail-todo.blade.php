@@ -1,4 +1,4 @@
-<div style="
+<a style="
 width: 94%;
 padding:8px 16px;
 border-radius:8px;
@@ -26,7 +26,7 @@ cursor: {{ strlen($todo['link']) > 0 ? 'pointer' : 'default' }};
 
 @if(strlen($todo['link']) > 0)
 
-     onclick="window.open('{{ $todo['link'] }}')"
+     href="{{ $todo['link'] }}"
 
 @endif>
 
@@ -42,4 +42,4 @@ cursor: {{ strlen($todo['link']) > 0 ? 'pointer' : 'default' }};
 
     <img style="width: 24px;height: 24px;padding-top: 9px;margin-left: auto" src="{{ $message->embed(public_path() . '/images_app/chevron-right.png') }}"/>
 
-</div>
+</a>
