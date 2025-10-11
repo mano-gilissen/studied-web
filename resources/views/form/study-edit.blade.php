@@ -30,6 +30,8 @@
 
         function study_cancel_reason() {
 
+            $('#reason_cancel-field, #explanation_cancel-field').hide();
+
             if ($('#_status').val() === '5') {
 
                 $('#reason_cancel-field, #explanation_cancel-field').css('display', 'flex');
@@ -37,10 +39,6 @@
             } else if ($('#_status').val() === '6') {
 
                 $('#explanation_cancel-field').css('display', 'flex');
-
-            } else {
-
-                $('#reason_cancel-field, #explanation_cancel-field').hide();
 
             }
         }
