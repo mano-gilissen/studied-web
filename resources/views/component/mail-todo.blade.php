@@ -5,6 +5,7 @@ border-radius:8px;
 color:black;
 display: flex;
 margin-bottom: 16px;
+text-decoration: none;
 cursor: {{ strlen($todo['link']) > 0 ? 'pointer' : 'default' }};
 
 @switch($todo['priority'])
