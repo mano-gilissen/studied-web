@@ -5,8 +5,8 @@ border-radius:8px;
 color:black;
 display: flex;
 margin-bottom: 16px;
-cursor: {{ strlen($todo['link']) ? 'pointer' : 'default' }};
- @php dd($todo) @endphp
+cursor: {{ strlen($todo['link']) > 1 ? 'pointer' : 'default' }};
+
 @switch($todo['priority'])
 
     @case('high')
@@ -24,7 +24,7 @@ cursor: {{ strlen($todo['link']) ? 'pointer' : 'default' }};
 
 @endswitch"
 
-@if(strlen($todo['link']))
+@if(strlen($todo['link']) > 1)
 
      onclick="window.open('{{ $todo['link'] }}')"
 
