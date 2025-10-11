@@ -5,7 +5,7 @@ border-radius:8px;
 color:black;
 display: flex;
 margin-bottom: 16px;
-cursor: {{ strlen($todo['link']) > 1 ? 'pointer' : 'default' }};
+cursor: {{ strlen($todo['link']) > 0 ? 'pointer' : 'default' }};
 
 @switch($todo['priority'])
 
@@ -24,7 +24,7 @@ cursor: {{ strlen($todo['link']) > 1 ? 'pointer' : 'default' }};
 
 @endswitch"
 
-@if(strlen($todo['link']) > 1)
+@if(strlen($todo['link']) > 0)
 
      onclick="window.open('{{ $todo['link'] }}')"
 
