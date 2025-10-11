@@ -220,6 +220,8 @@ Route::get('/3A52C5/schedule_test/agreement_reminder_plan',     'DebugController
 
 Route::get('/3A52C5/schedule_test/announcement_send_emails',    'DashboardController@announcement_send_emails')->name('announcement_send_emails_test');
 
+Route::get('/3A52C5/schedule_test/todos_weekly_test',           'DebugController@scheduled_todos_weekly_test')->name('scheduled_todos_weekly_test');
+
 
 
 

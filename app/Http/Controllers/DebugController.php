@@ -8,6 +8,7 @@ use App\Http\Mail\Study_Planned_Student;
 use App\Http\Support\Func;
 use App\Http\Traits\AgreementTrait;
 use App\Http\Traits\StudyTrait;
+use App\Http\Traits\UserTrait;
 use App\Models\Study;
 use App\Models\Subject;
 use App\Models\Person;
@@ -56,6 +57,14 @@ class DebugController extends Controller {
     public function agreement_reminder_plan_test() {
 
         AgreementTrait::plan_reminders_losse_lessen();
+
+    }
+
+
+
+    public function scheduled_todos_weekly_test() {
+
+        UserTrait::scheduled_todos_weekly();
 
     }
 
