@@ -15,6 +15,7 @@ use App\Http\Mail\Evaluation_Created_Employee;
 use App\Http\Mail\Evaluation_Created_Host;
 use App\Http\Mail\Evaluation_Created_Student;
 use App\Http\Mail\Report_Weekly_Management;
+use App\Http\Mail\Todos_Weekly_Employee;
 use App\Http\Mail\Student_Linked_Customer;
 use App\Http\Mail\Study_Edited_Employee;
 use App\Http\Mail\Study_Edited_Student;
@@ -28,6 +29,7 @@ use App\Http\Mail\User_Activate_Reminder;
 use App\Http\Mail\User_Activate_Student;
 use App\Http\Mail\User_Activate_Student_NoStudy;
 use App\Http\Middleware\Locale;
+use App\Models\User;
 use Illuminate\Support\Facades\Mail as Mail_;
 
 
@@ -274,6 +276,16 @@ class Mail {
         $recipients                                         = ['mano.gilissen@gmail.com', 'b.jennissen@studied.nl', 'sales@studied.nl'];
 
         self::mailTo($mail, $recipients);
+    }
+
+
+
+    public static function todosWeekly($todos, $user) {
+
+        $mail                                               = new Todos_Weekly_Employee($todos, $user);
+        $recipient                                          = $user->{Model::$USER_EMAIL};
+
+        self::mailTo($mail, $recipient, $user->{Model::$USER_LANGUAGE});
     }
 
 

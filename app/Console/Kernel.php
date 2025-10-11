@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use App\Http\Traits\AgreementTrait;
 use App\Http\Traits\StudyTrait;
+use App\Http\Traits\UserTrait;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -22,7 +23,6 @@ class Kernel extends ConsoleKernel {
         $schedule
             ->command('activate:reminder')
             ->hourly();
-            //->emailOutputOnFailure('mano.gilissen@gmail.com');
 
         $schedule
             ->call(function() { StudyTrait::scheduled_report_weekly(); })
@@ -37,7 +37,11 @@ class Kernel extends ConsoleKernel {
         $schedule
             ->call(function() { DashboardController::announcement_send_emails(); })
             ->everyFiveMinutes();
-            //->emailOutputOnFailure('mano.gilissen@gmail.com');
+
+        $schedule
+            ->call(function() { UserTrait::scheduled_todos_weekly(); })
+            ->weeklyOn(3, '0:01')
+            ->emailOutputOnFailure('mano.gilissen@gmail.com');
     }
 
 

@@ -4,14 +4,18 @@
 
 namespace App\Http\Traits;
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\StudyController;
 use App\Http\Support\Color;
 use App\Http\Support\Format;
 use App\Http\Support\Key;
 use App\Http\Support\Mail;
 use App\Http\Support\Model;
+use App\Http\Support\Route;
 use App\Models\Agreement;
 use App\Models\Evaluation;
 use App\Models\Role;
+use App\Models\Study;
 use App\Models\User;
 use Auth;
 use Carbon\Carbon;
@@ -328,6 +332,167 @@ trait UserTrait {
     }
 
 
+
+
+
+    public static function getTodos($user) {
+
+        $todos                                              = [];
+
+        $studies                                            = Study::where(Model::$STUDY_REPORT_FLAGGED, true)
+                                                            ->where(Model::$STUDY_HOST_USER, $user->id)
+                                                            ->where(Model::$BASE_DELETED_AT, null)
+                                                            ->get();
+
+        foreach ($studies as $study) {
+
+            $participants                                   = StudyTrait::getParticipantsText($study);
+            $link                                           = route(Route::STUDY_VIEW, $study->{Model::$BASE_KEY});
+            $title                                          = __('Je rapport voor :participants op :date is afgekeurd.', [
+                'participants'                              => $participants,
+                'date'                                      => Format::datetime($study->{Model::$STUDY_START}, Format::$DATETIME_EMAIL)
+            ]);
+
+            $description                                    = __('Klik op dit bericht om het rapport te bekijken en aan te passen.');
+
+            $todos[]                                        = [
+                'title'                                     => $title,
+                'description'                               => $description,
+                'link'                                      => $link,
+                'priority'                                  => 'high',
+                'icon'                                      => 'flag',
+            ];
+        }
+
+
+
+        $studies                                            = Study::where(Model::$STUDY_HOST_USER, $user->id)
+                                                            ->where(Model::$STUDY_STATUS, StudyTrait::$STATUS_PLANNED)
+                                                            ->where(Model::$STUDY_END, '<', date(Format::$DATABASE_DATETIME, time()))
+                                                            ->where(Model::$BASE_DELETED_AT, null)
+                                                            ->count();
+
+        if ($studies > 0) {
+
+            $todos[]                                        = [
+                'title'                                     => __('Je hebt nog lessen die niet zijn gerapporteerd.'),
+                'description'                               => __('Klik op dit bericht om alle afgelopen lessen te bekijken.'),
+                'link'                                      => route('study.list', [StudyController::$PARAMETER_STATUS => StudyTrait::$STATUS_FINISHED]),
+                'priority'                                  => 'high',
+                'icon'                                      => 'flag',
+            ];
+        }
+
+
+
+        $agreements                                         = Agreement::where(Model::$EMPLOYEE, $user->id)
+                                                            ->where(Model::$AGREEMENT_STATUS, '!=', AgreementTrait::$STATUS_FINISHED)
+                                                            ->where(Model::$AGREEMENT_START, '<', date(Format::$DATABASE_DATE))
+                                                            ->where(Model::$AGREEMENT_START, '>=', '2025-04-01')
+                                                            ->where(Model::$AGREEMENT_PLAN, '!=', AgreementTrait::$PLAN_LOSSE_LESSEN)
+                                                            ->get();
+
+        foreach ($agreements as $agreement) {
+
+            $deficit                                        = AgreementTrait::calculateDeficit($agreement);
+
+            if ($deficit >= 1) {
+
+                $student                                    = $agreement->getStudent->getPerson->{Model::$PERSON_FIRST_NAME};
+                $link                                       = route(Route::AGREEMENT_VIEW, $agreement->{Model::$AGREEMENT_IDENTIFIER});
+                $title                                      = __('Je hebt een achterstand aan lessen :subject met :student.', [
+                    'student'                               => $student,
+                    'subject'                               => $agreement->getSubject->{Model::$SUBJECT_NAME},
+                ]);
+
+                $description                                = __('Plan :deficit uur aan lessen extra in om deze achterstand in te halen.', [
+                    'deficit'                               => str_replace('.', ',', $deficit)
+                ]);
+
+                $todos[]                                    = [
+                    'title'                                 => $title,
+                    'description'                           => $description,
+                    'link'                                  => $link,
+                    'priority'                              => 'medium',
+                ];
+            }
+        }
+
+
+
+        $agreements                                         = Agreement::where(Model::$EMPLOYEE, $user->id)
+                                                            ->where(Model::$AGREEMENT_STATUS, '!=', AgreementTrait::$STATUS_FINISHED)
+                                                            ->where(Model::$AGREEMENT_START, '<=', date(Format::$DATABASE_DATE))
+                                                            ->where(Model::$AGREEMENT_END, '>', date(Format::$DATABASE_DATE))
+                                                            ->where(Model::$AGREEMENT_PLAN, '=', AgreementTrait::$PLAN_LOSSE_LESSEN)
+                                                            ->get();
+
+        foreach ($agreements as $agreement) {
+
+            $next_study_scheduled = false;
+
+            foreach ($agreement->getStudies as $study) {
+
+                if (strtotime($study->start) > time()) {
+
+                    $next_study_scheduled = true;
+
+                    break;
+                }
+            }
+
+            if ($next_study_scheduled) {
+
+                continue;
+
+            }
+
+            $student                                        = $agreement->getStudent->getPerson->{Model::$PERSON_FIRST_NAME};
+            $link                                           = route(Route::AGREEMENT_VIEW, $agreement->{Model::$AGREEMENT_IDENTIFIER});
+            $title                                          = __('Je hebt nog geen vervolgles :subject ingepland met :student.', [
+                'student'                                   => $student,
+                'subject'                                   => $agreement->getSubject->{Model::$SUBJECT_NAME},
+            ]);
+
+            $description                                    = __('Klik op dit bericht om de vakafspraak te bekijken en een nieuwe les in te plannen.');
+
+            $todos[]                                        = [
+                'title'                                     => $title,
+                'description'                               => $description,
+                'link'                                      => $link,
+                'priority'                                  => 'medium',
+            ];
+        }
+
+        return $todos;
+    }
+
+
+
+
+
+    public static function scheduled_todos_weekly() {
+
+        $employees                                          = User::where(Model::$ROLE, RoleTrait::$ID_EMPLOYEE)
+                                                            ->where(Model::$USER_STATUS, self::$STATUS_ACTIVE)
+                                                            ->whereNull(Model::$BASE_DELETED_AT)
+                                                            ->get();
+
+        foreach ($employees as $employee) {
+
+            $todos = self::getTodos($employee);
+
+            if (!sizeof($todos)) {
+
+                continue;
+
+            }
+
+            Mail::todosWeekly($todos, $employee);
+        }
+
+        return true;
+    }
 
 
 
