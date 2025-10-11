@@ -37,7 +37,7 @@ class Study_Planned_Employee extends Mailable {
 
         $this->study                                = $study;
         $this->employee                             = $study->getHost;
-        $this->subject                              = Lang::get('Er is een :service voor je ingepland met :participants', ['service' => strtolower(__($study->getService->{Model::$SERVICE_SHORT})), 'participants' => StudyTrait::getParticipantsText($study)], $this->employee->{Model::$USER_LANGUAGE});
+        $this->subject                              = Lang::get('Er is een les voor je ingepland met :participants', ['participants' => StudyTrait::getParticipantsText($study)], $this->employee->{Model::$USER_LANGUAGE});
         $this->invite                               = StudyTrait::generateCalendarInvite($study);
     }
 
