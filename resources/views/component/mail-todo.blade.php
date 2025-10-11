@@ -30,7 +30,7 @@ margin-bottom: 16px;
 
 @endif>
 
-    <img style="width: 24px;height: 24px;padding-right: 16px;" src="/images_app/dashboard-todo-{{ array_key_exists('icon', $todo) ? 'icon-' . $todo['icon'] : 'priority-' . $todo['priority'] }}.svg"/>
+    <img style="width: 24px;height: 24px;padding-right: 16px;" src="{{ $message->embed(public_path() . '/images_app/dashboard-todo-' . (array_key_exists('icon', $todo) ? 'icon-' . $todo['icon'] : 'priority-' . $todo['priority']) . '.svg') }}"/>
 
     <div>
 
