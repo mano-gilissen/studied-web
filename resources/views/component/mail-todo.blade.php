@@ -5,6 +5,7 @@ border-radius:8px;
 color:black;
 display: flex;
 margin-bottom: 16px;
+cursor: {{ strlen($todo['link']) ? 'pointer' : 'default' }};
 
 @switch($todo['priority'])
 
@@ -27,7 +28,7 @@ margin-bottom: 16px;
 
      onclick="window.open('{{ $todo['link'] }}')"
 
-@endif>
+@else @php dd($todo) @endphp @endif>
 
     <img style="width: 24px;height: 24px;padding-right: 16px;padding-top: 9px;" src="{{ $message->embed(public_path() . '/images_app/dashboard-todo-' . (array_key_exists('icon', $todo) ? 'icon-' . $todo['icon'] : 'priority-' . $todo['priority']) . '.png') }}"/>
 
@@ -39,6 +40,6 @@ margin-bottom: 16px;
 
     </div>
 
-    <img style="width: 24px;height: 24px;padding-top: 9px;margin-left: auto" src="/images_app/chevron-right.png">
+    <img style="width: 24px;height: 24px;padding-top: 9px;margin-left: auto" src="{{ $message->embed(public_path() . '/images_app/chevron-right.png') }}"/>
 
 </div>
