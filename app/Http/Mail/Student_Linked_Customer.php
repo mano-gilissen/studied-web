@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace App\Http\Mail;
 
 use App\Http\Support\Model;
@@ -13,6 +11,7 @@ use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Lang;
 
 
 
@@ -37,7 +36,7 @@ class Student_Linked_Customer extends Mailable {
         $this->student                      = $student;
         $this->customer                     = $customer;
 
-        $this->subject                      = __(':name is als leerling bij u toegevoegd!', ['name' => $student->getPerson->{Model::$PERSON_FIRST_NAME}]);
+        $this->subject                      = Lang::get(':name is als leerling bij u toegevoegd!', ['name' => $student->getPerson->{Model::$PERSON_FIRST_NAME}], $customer->{Model::$USER_LANGUAGE});
     }
 
 

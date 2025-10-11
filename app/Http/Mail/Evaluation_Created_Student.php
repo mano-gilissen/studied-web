@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace App\Http\Mail;
 
 use App\Http\Support\Func;
@@ -17,6 +15,7 @@ use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Lang;
 use DateTime;
 
 
@@ -42,7 +41,7 @@ class Evaluation_Created_Student extends Mailable {
 
         $this->student                      = $student;
         $this->evaluation                   = $evaluation;
-        $this->subject                      = __('Er is een :regarding met je ingepland!', ['regarding' => strtolower(EvaluationTrait::getRegardingText($evaluation->{Model::$EVALUATION_REGARDING}))]);
+        $this->subject                      = Lang::get('Er is een :regarding met je ingepland!', ['regarding' => strtolower(EvaluationTrait::getRegardingText($evaluation->{Model::$EVALUATION_REGARDING}))], $student->{Model::$USER_LANGUAGE});
         $this->invite                       = EvaluationTrait::generateCalendarInvite($evaluation);
     }
 

@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace App\Http\Mail;
 
 use App\Http\Support\Func;
@@ -13,6 +11,7 @@ use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Lang;
 
 
 
@@ -37,7 +36,7 @@ class Study_Edited_Student extends Mailable {
 
         $this->study                                = $study;
         $this->participant                          = $participant;
-        $this->subject                              = __('De gegevens van je les :subject met :name zijn gewijzigd.', ['subject' => strtolower(StudyTrait::getSubject($study)->{Model::$SUBJECT_NAME}), 'name' => PersonTrait::getFullName($participant->getPerson)]);
+        $this->subject                              = Lang::get('De gegevens van je les :subject met :name zijn gewijzigd.', ['subject' => strtolower(StudyTrait::getSubject($study)->{Model::$SUBJECT_NAME}), 'name' => PersonTrait::getFullName($participant->getPerson)], $participant->{Model::$USER_LANGUAGE});
         $this->invite                               = StudyTrait::generateCalendarInvite($study);
     }
 

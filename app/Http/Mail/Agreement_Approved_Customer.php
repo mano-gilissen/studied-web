@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace App\Http\Mail;
 
 use App\Http\Support\Model;
@@ -13,6 +11,7 @@ use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Lang;
 
 
 
@@ -42,7 +41,7 @@ class Agreement_Approved_Customer extends Mailable {
         $this->study                        = $study;
         $this->agreement                    = $agreement;
 
-        $this->subject                      = __('De proefles :subject voor :name was een succes!', ['subject' => StudyTrait::getSubject($study)->{Model::$SUBJECT_NAME}, 'name' => $student->getPerson->{Model::$PERSON_FIRST_NAME}]);
+        $this->subject                      = Lang::get('De proefles :subject voor :name was een succes!', ['subject' => StudyTrait::getSubject($study)->{Model::$SUBJECT_NAME}, 'name' => $student->getPerson->{Model::$PERSON_FIRST_NAME}], $user->{Model::$USER_LANGUAGE});
     }
 
 

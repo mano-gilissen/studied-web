@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace App\Http\Mail;
 
 use App\Http\Support\Model;
@@ -13,6 +11,7 @@ use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Lang;
 
 
 
@@ -39,7 +38,7 @@ class Agreement_Extended_Employee extends Mailable {
         $this->student                      = $student;
         $this->agreement                    = $agreement;
 
-        $this->subject                      = __('Jou vakafspraak :subject met :name is verlengd!', ['subject' => $agreement->getSubject->{Model::$SUBJECT_NAME}, 'name' => $student->getPerson->{Model::$PERSON_FIRST_NAME}]);
+        $this->subject                      = Lang::get('Jou vakafspraak :subject met :name is verlengd!', ['subject' => $agreement->getSubject->{Model::$SUBJECT_NAME}, 'name' => $student->getPerson->{Model::$PERSON_FIRST_NAME}], $employee->{Model::$USER_LANGUAGE});
     }
 
 

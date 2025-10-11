@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace App\Http\Mail;
 
 use App\Http\Support\Model;
@@ -11,6 +9,7 @@ use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Lang;
 
 
 
@@ -33,7 +32,7 @@ class User_Activate_Student_NoStudy extends Mailable {
 
         $this->user                         = $user;
 
-        $this->subject                      = __('Activeer je account voor onze webapp');
+        $this->subject                      = Lang::get('Activeer je account voor onze webapp', [], $user->{Model::$USER_LANGUAGE});
     }
 
 

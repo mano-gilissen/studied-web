@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace App\Http\Mail;
 
 use App\Http\Support\Func;
@@ -13,6 +11,7 @@ use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Lang;
 
 
 
@@ -37,7 +36,7 @@ class Study_Planned_Student extends Mailable {
 
         $this->study                                = $study;
         $this->participant                          = $participant;
-        $this->subject                              = __('Er is een :service voor je ingepland door :name', ['service' => strtolower($study->getService->{Model::$SERVICE_SHORT}), 'name' => PersonTrait::getFullName($study->getHost->getPerson)]);
+        $this->subject                              = Lang::get('Er is een :service voor je ingepland door :name', ['service' => strtolower($study->getService->{Model::$SERVICE_SHORT}), 'name' => PersonTrait::getFullName($study->getHost->getPerson)], $participant->{Model::$USER_LANGUAGE});
         $this->invite                               = StudyTrait::generateCalendarInvite($study);
     }
 

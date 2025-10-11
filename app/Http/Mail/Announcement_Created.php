@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace App\Http\Mail;
 
 use App\Http\Support\Func;
@@ -14,6 +12,7 @@ use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Lang;
 
 
 
@@ -35,7 +34,7 @@ class Announcement_Created extends Mailable {
     public function __construct(User $user) {
 
         $this->user                         = $user;
-        $this->subject                      = __('Nieuw bericht voor jou in het Studied dashboard');
+        $this->subject                      = Lang::get('Nieuw bericht voor jou in het Studied dashboard', [], $user->{Model::$USER_LANGUAGE});
 
     }
 
