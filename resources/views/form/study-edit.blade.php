@@ -6,10 +6,15 @@
 
     <style>
 
-        #reason_cancel-field,
+        #reason_cancel-field {
+
+            display: {{ $study->{\App\Http\Support\Model::$STUDY_STATUS} == \App\Http\Traits\StudyTrait::$STATUS_CANCELLED ? 'flex' : 'none' }};
+
+        }
+
         #explanation_cancel-field {
 
-            display: {{ $study->{\App\Http\Support\Model::$STUDY_STATUS} == 5 ? 'flex' : 'none' }};
+            display: {{ in_array($study->{\App\Http\Support\Model::$STUDY_STATUS}, [\App\Http\Traits\StudyTrait::$STATUS_ABSENT, \App\Http\Traits\StudyTrait::$STATUS_CANCELLED]) ? 'flex' : 'none' }};
 
         }
 
@@ -28,6 +33,10 @@
             if ($('#_status').val() === '5') {
 
                 $('#reason_cancel-field, #explanation_cancel-field').css('display', 'flex');
+
+            } else if ($('#_status').val() === '6') {
+
+                $('#explanation_cancel-field').css('display', 'flex');
 
             } else {
 

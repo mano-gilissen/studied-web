@@ -212,16 +212,22 @@ trait StudyTrait {
         $study->{Model::$STUDY_REMARK}                              = $data[Model::$STUDY_REMARK];
         $study->{Model::$STUDY_STATUS}                              = $data[Key::AUTOCOMPLETE_ID . Model::$STUDY_STATUS];
 
-        if ($study->{Model::$STUDY_STATUS} == self::$STATUS_CANCELLED) {
+        switch ($study->{Model::$STUDY_STATUS}) {
 
-            $study->{Model::$STUDY_REASON_CANCEL}                   = $data[Key::AUTOCOMPLETE_ID . Model::$STUDY_REASON_CANCEL];
-            $study->{Model::$STUDY_EXPLANATION_CANCEL}              = $data[Model::$STUDY_EXPLANATION_CANCEL];
+            case self::$STATUS_CANCELLED:
+                $study->{Model::$STUDY_REASON_CANCEL}               = $data[Key::AUTOCOMPLETE_ID . Model::$STUDY_REASON_CANCEL];
+                $study->{Model::$STUDY_EXPLANATION_CANCEL}          = $data[Model::$STUDY_EXPLANATION_CANCEL];
+                break;
 
-        } else {
+            case self::$STATUS_ABSENT:
+                $study->{Model::$STUDY_REASON_CANCEL}               = 1;
+                $study->{Model::$STUDY_EXPLANATION_CANCEL}          = $data[Model::$STUDY_EXPLANATION_CANCEL];
+                break;
 
-            $study->{Model::$STUDY_REASON_CANCEL}                   = 1;
-            $study->{Model::$STUDY_EXPLANATION_CANCEL}              = null;
-
+            default:
+                $study->{Model::$STUDY_REASON_CANCEL}               = 1;
+                $study->{Model::$STUDY_EXPLANATION_CANCEL}          = null;
+                break;
         }
 
 
@@ -279,6 +285,11 @@ trait StudyTrait {
         if (array_key_exists(Model::$STUDY_STATUS, $data) && ($data[Key::AUTOCOMPLETE_ID . Model::$STUDY_STATUS] == self::$STATUS_CANCELLED)) {
 
             $rules[Model::$STUDY_REASON_CANCEL]                     = ['required'];
+
+        }
+
+        if (array_key_exists(Model::$STUDY_STATUS, $data) && (in_array($data[Key::AUTOCOMPLETE_ID . Model::$STUDY_STATUS], [self::$STATUS_CANCELLED, self::$STATUS_ABSENT]))) {
+
             $rules[Model::$STUDY_EXPLANATION_CANCEL]                = ['required', 'min:20', 'max:999'];
 
         }
