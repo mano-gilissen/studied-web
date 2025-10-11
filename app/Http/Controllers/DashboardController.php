@@ -212,7 +212,7 @@ class DashboardController extends Controller {
 
     public static function getModuleData_todo() {
 
-        return UserTrait::getTodos(Auth::check());
+        return UserTrait::getTodos(Auth::user());
 
     }
 
