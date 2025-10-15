@@ -285,7 +285,7 @@ class Mail {
         $mail                                               = new Todos_Weekly_Employee($todos, $user);
         $recipient                                          = $user->{Model::$USER_EMAIL};
 
-        self::mailTo($mail, 'mano.gilissen@gmail.com'/*$recipient*/, $user->{Model::$USER_LANGUAGE});
+        self::mailTo($mail, $recipient, $user->{Model::$USER_LANGUAGE});
     }
 
 
