@@ -34,15 +34,21 @@ class Format {
 
         $previousLocale = setlocale(LC_TIME, '0');
 
-        if ($locale) {
+        $locale = $locale == 'en' ? 'en_US' : $locale;
+
+        if ($locale && $locale != $previousLocale) {
 
             setlocale(LC_TIME, $locale . '.utf8');
 
+            $formatted = ucfirst($datetime->formatLocalized($format));
+
+            setlocale(LC_TIME, $previousLocale);
+
+        } else {
+
+            $formatted = ucfirst($datetime->formatLocalized($format));
+
         }
-
-        $formatted = ucfirst($datetime->formatLocalized($format));
-
-        setlocale(LC_TIME, $previousLocale);
 
         return $formatted;
     }
