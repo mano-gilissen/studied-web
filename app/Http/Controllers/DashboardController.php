@@ -282,11 +282,17 @@ class DashboardController extends Controller {
 
                 if ($announcement->role == RoleTrait::$ID_EMPLOYEE) {
 
-                    $users = $query->whereIn(Model::$ROLE, [RoleTrait::$ID_EMPLOYEE, RoleTrait::$ID_MANAGEMENT, RoleTrait::$ID_BOARD, RoleTrait::$ID_ADMINISTRATOR])->get();
+                    $users = $query
+                        ->whereIn(Model::$ROLE, [RoleTrait::$ID_EMPLOYEE, RoleTrait::$ID_MANAGEMENT, RoleTrait::$ID_BOARD, RoleTrait::$ID_ADMINISTRATOR])
+                        ->whereIn(Model::$USER_STATUS, [UserTrait::$STATUS_INTAKE, UserTrait::$STATUS_ACTIVE])->get()
+                        ->whereNull(Model::$BASE_DELETED_AT);
 
                 } else {
 
-                    $users = $query->where(Model::$ROLE, $announcement->role)->get();
+                    $users = $query
+                        ->where(Model::$ROLE, $announcement->role)
+                        ->whereIn(Model::$USER_STATUS, [UserTrait::$STATUS_INTAKE, UserTrait::$STATUS_ACTIVE])->get()
+                        ->whereNull(Model::$BASE_DELETED_AT);
 
                 }
             }
