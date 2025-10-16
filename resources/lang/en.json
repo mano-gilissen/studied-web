@@ -739,7 +739,7 @@
     "De gegevens van je :regarding zijn gewijzigd. Het gesprek is nu op :date om :time en de locatie is: :location" : "The details of your :regarding have been changed. The meeting is now on :date at :time and the location is: :location",
     "De gegevens van uw :regarding zijn gewijzigd. Het gesprek is nu digitaal op :date om :time. Dit is de link naar het gesprek: :link" : "The details of your :regarding have been changed. The meeting is now digital on :date at :time. This is the link to the meeting: :link",
     "De gegevens van uw :regarding zijn gewijzigd. Het gesprek is nu op :date om :time en de locatie is: :location" : "The details of your :regarding have been changed. The meeting is now on :date at :time and the location is: :location",
-    "Het tijdstip of de datum van je :regarding met :name is gewijzigd." : "The time or date of your :regarding with :name has been changed.",
+    "Het tijdstip of de datum van je :regarding is gewijzigd." : "The time or date of your :regarding has been changed.",
     "Het tijdstip of de datum van het :regarding met :student is gewijzigd." : "The time or date of the :regarding with :student has been changed.",
-    "Het tijdstip of de datum van uw :regarding met :name is gewijzigd." : "The time or date of your :regarding with :name has been changed.",
+    "Het tijdstip of de datum van uw :regarding is gewijzigd." : "The time or date of your :regarding has been changed."
 }
