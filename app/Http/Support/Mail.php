@@ -246,6 +246,48 @@ class Mail {
 
 
 
+    public static function evaluationEdited_forHost($employee, $evaluation) {
+
+        $mail                                               = new Evaluation_Edited_Host($employee, $evaluation);
+        $recipient                                          = $employee->{Model::$USER_EMAIL};
+
+        self::mailTo($mail, $recipient, $employee->{Model::$USER_LANGUAGE});
+    }
+
+
+
+    public static function evaluationEdited_forEmployee($employee, $evaluation) {
+
+        $mail                                               = new Evaluation_Edited_Employee($employee, $evaluation);
+        $recipient                                          = $employee->{Model::$USER_EMAIL};
+
+        self::mailTo($mail, $recipient, $employee->{Model::$USER_LANGUAGE});
+    }
+
+
+
+    public static function evaluationEdited_forStudent($student, $evaluation) {
+
+        $mail                                               = new Evaluation_Edited_Student($student, $evaluation);
+        $recipient                                          = $student->{Model::$USER_EMAIL};
+
+        self::mailTo($mail, $recipient, $student->{Model::$USER_LANGUAGE});
+    }
+
+
+
+    public static function evaluationEdited_forCustomer($customer, $evaluation) {
+
+        $mail                                               = new Evaluation_Edited_Customer($customer, $evaluation);
+        $recipient                                          = $customer->{Model::$USER_EMAIL};
+
+        self::mailTo($mail, $recipient, $customer->{Model::$USER_LANGUAGE});
+    }
+
+
+
+
+
     public static function announcementCreated($user) {
 
         $mail                                               = new Announcement_Created($user);

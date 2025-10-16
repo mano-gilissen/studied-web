@@ -267,6 +267,31 @@ trait EvaluationTrait {
 
                 Evaluation_EmployeeTrait::create($evaluation->{Model::$BASE_ID}, $employee_id);
 
+                Mail::evaluationEdited_forEmployee(User::find($employee_id), $evaluation);
+            }
+        }
+
+
+
+        $user_host                                                  = User::find($evaluation->{Model::$EVALUATION_HOST});
+        $user_student                                               = User::find($evaluation->{Model::$STUDENT});
+
+        Mail::evaluationEdited_forHost($user_host, $evaluation);
+
+        if (UserTrait::isActivated($user_student)) {
+
+            Mail::evaluationEdited_forStudent($user_student, $evaluation);
+
+        }
+
+        if (StudentTrait::hasCustomer($user_student->getStudent)) {
+
+            $user_customer = $user_student->getStudent->getCustomer->getUser;
+
+            if (UserTrait::isActivated($user_customer)) {
+
+                Mail::evaluationEdited_forCustomer($user_customer, $evaluation);
+
             }
         }
 
