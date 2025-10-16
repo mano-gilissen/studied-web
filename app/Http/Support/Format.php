@@ -36,7 +36,7 @@ class Format {
 
         if ($locale) {
 
-            setlocale(LC_TIME, $locale);
+            setlocale(LC_TIME, $locale . '.utf8');
 
         }
 
