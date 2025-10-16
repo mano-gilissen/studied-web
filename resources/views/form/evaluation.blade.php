@@ -74,43 +74,43 @@
     @if($evaluation->{\App\Http\Support\Model::$EVALUATION_REGARDING} == \App\Http\Traits\EvaluationTrait::$ID_INTAKE)
 
         @include('form.evaluation-questions', [
-            'title'                                         => 'PVA - De doelstelling',
+            'title'                                         => __('PVA - De doelstelling'),
             'question_numbers'                              => [0,1,2,3,4],
             'questions'                                     => \App\Http\Traits\EvaluationTrait::$QUESTIONS_INTAKE
         ])
 
         @include('form.evaluation-questions', [
-            'title'                                         => 'PVA - Stand van zaken',
+            'title'                                         => __('PVA - Stand van zaken'),
             'question_numbers'                              => [5,6,7,8,9,10,11],
             'questions'                                     => \App\Http\Traits\EvaluationTrait::$QUESTIONS_INTAKE
         ])
 
         @include('form.evaluation-questions', [
-            'title'                                         => 'PVA - De mogelijkheden',
+            'title'                                         => __('PVA - De mogelijkheden'),
             'question_numbers'                              => [12,13,14,15,16,17,18],
             'questions'                                     => \App\Http\Traits\EvaluationTrait::$QUESTIONS_INTAKE
         ])
 
         @include('form.evaluation-questions', [
-            'title'                                         => 'PVA - De acties',
+            'title'                                         => __('PVA - De acties'),
             'question_numbers'                              => [19,20,21,22],
             'questions'                                     => \App\Http\Traits\EvaluationTrait::$QUESTIONS_INTAKE
         ])
 
         @include('form.evaluation-questions', [
-            'title'                                         => 'Afspraken',
+            'title'                                         => __('Afspraken'),
             'question_numbers'                              => [23,24,25,26,27,28,29,30,31,32],
             'questions'                                     => \App\Http\Traits\EvaluationTrait::$QUESTIONS_INTAKE
         ])
 
         @include('form.evaluation-questions', [
-            'title'                                         => 'Proefles',
+            'title'                                         => __('Proefles'),
             'question_numbers'                              => [33,34,35],
             'questions'                                     => \App\Http\Traits\EvaluationTrait::$QUESTIONS_INTAKE
         ])
 
         @include('form.evaluation-questions', [
-            'title'                                         => 'Overig',
+            'title'                                         => __('Overig'),
             'question_numbers'                              => [36],
             'questions'                                     => \App\Http\Traits\EvaluationTrait::$QUESTIONS_INTAKE
         ])
