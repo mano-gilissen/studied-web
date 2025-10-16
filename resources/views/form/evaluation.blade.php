@@ -15,14 +15,14 @@
 
     <style>
 
+        #form .field .name {
+            height: unset;
+        }
+
         @media (max-width: 840px) {
 
             #form .field {
                 display: block
-            }
-
-            #form .field .name {
-                height: unset;
             }
 
             #form .box-input,
