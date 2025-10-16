@@ -16,7 +16,7 @@
                         'full_name' => \App\Http\Traits\PersonTrait::getFullName(Auth::user()->getPerson),
                         'subject_name' => strtolower(\App\Http\Traits\StudyTrait::getSubject($study)->{\App\Http\Support\Model::$SUBJECT_NAME}),
                         'participants_text' => \App\Http\Traits\StudyTrait::getParticipantsText($study),
-                        'date' => strtolower(\App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE)),
+                        'date' => strtolower(\App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE, $employee->{\App\Http\Support\Model::$USER_LANGUAGE})),
                         'time' => \App\Http\Traits\StudyTrait::getTimeText($study, true),
                         'link' => $study->{\App\Http\Support\Model::$STUDY_LINK}
                     ]) !!}
@@ -27,7 +27,7 @@
                         'full_name' => \App\Http\Traits\PersonTrait::getFullName(Auth::user()->getPerson),
                         'subject_name' => strtolower(\App\Http\Traits\StudyTrait::getSubject($study)->{\App\Http\Support\Model::$SUBJECT_NAME}),
                         'participants_text' => \App\Http\Traits\StudyTrait::getParticipantsText($study),
-                        'date' => strtolower(\App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE)),
+                        'date' => strtolower(\App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE, $employee->{\App\Http\Support\Model::$USER_LANGUAGE})),
                         'time' => \App\Http\Traits\StudyTrait::getTimeText($study, true),
                         'location' => $study->{\App\Http\Support\Model::$STUDY_LOCATION_TEXT}
                     ]) }}

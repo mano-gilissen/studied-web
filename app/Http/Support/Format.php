@@ -30,10 +30,21 @@ class Format {
 
 
 
-    public static function datetime($datetime, $format) {
+    public static function datetime($datetime, $format, $locale = null) {
 
-        return ucfirst($datetime->formatLocalized($format));
+        $previousLocale = setlocale(LC_TIME, '0');
 
+        if ($locale) {
+
+            setlocale(LC_TIME, $locale);
+
+        }
+
+        $formatted = ucfirst($datetime->formatLocalized($format));
+
+        setlocale(LC_TIME, $previousLocale);
+
+        return $formatted;
     }
 
 

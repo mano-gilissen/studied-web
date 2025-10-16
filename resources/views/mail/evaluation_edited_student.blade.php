@@ -15,8 +15,8 @@
                     {!! __('De gegevens van je :regarding met :user zijn gewijzigd. Het gesprek is nu digitaal op :date om :time. Dit is de link naar het gesprek: :link', [
                         'regarding' => \App\Http\Traits\EvaluationTrait::getRegardingText($evaluation),
                         'user' => $evaluation->getEmployee->getPerson->first_name,
-                        'date' => strtolower(\App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$DATETIME_SINGLE)),
-                        'time' => \App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$TIME_SINGLE),
+                        'date' => strtolower(\App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$DATETIME_SINGLE, $student->{\App\Http\Support\Model::$USER_LANGUAGE})),
+                        'time' => \App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$TIME_SINGLE, $student->{\App\Http\Support\Model::$USER_LANGUAGE}),
                         'link' => '<a href="' . $evaluation->{\App\Http\Support\Model::$EVALUATION_LINK} . '">' . $evaluation->{\App\Http\Support\Model::$EVALUATION_LINK} . '</a>'
                     ]) !!}
                 </p>
@@ -25,8 +25,8 @@
                     {{ __('De gegevens van je :regarding met :user zijn gewijzigd. Het gesprek is nu op :date om :time en de locatie is: :location', [
                         'regarding' => \App\Http\Traits\EvaluationTrait::getRegardingText($evaluation),
                         'user' => $evaluation->getEmployee->getPerson->first_name,
-                        'date' => strtolower(\App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$DATETIME_SINGLE)),
-                        'time' => \App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$TIME_SINGLE),
+                        'date' => strtolower(\App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$DATETIME_SINGLE, $student->{\App\Http\Support\Model::$USER_LANGUAGE})),
+                        'time' => \App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$TIME_SINGLE, $student->{\App\Http\Support\Model::$USER_LANGUAGE}),
                         'location' => $evaluation->{\App\Http\Support\Model::$EVALUATION_LOCATION_TEXT}
                     ]) }}
                 </p>

@@ -353,29 +353,31 @@ trait EvaluationTrait {
 
 
 
-    public static function getRegardingText($regarding) {
+    public static function getRegardingText($regarding, $lang = null) {
+
+        $lang = $lang ?? app()->getLocale();
 
         switch ($regarding) {
 
             case self::$ID_INTAKE:
 
-                return __("Intakegesprek");
+                return __("Intakegesprek", [], $lang);
 
             case self::$ID_EVALUATION:
 
-                return __("Evaluatiegesprek");
+                return __("Evaluatiegesprek", [], $lang);
 
             case self::$ID_YEAR_END:
 
-                return __("Eindejaarsgesprek");
+                return __("Eindejaarsgesprek", [], $lang);
 
             case self::$ID_EXIT:
 
-                return __("Exitgesprek");
+                return __("Exitgesprek", [], $lang);
 
             default:
 
-                return __("Gesprek");
+                return __("Gesprek", [], $lang);
         }
     }
 

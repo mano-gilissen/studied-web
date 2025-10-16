@@ -15,7 +15,7 @@
                     {!! __(':host_first_name heeft een les :subject_name met jou ingepland op :date van :time. De les is digitaal en de link hiervoor is: <a href=":link">:link</a>. Kom op tijd en zorg ervoor dat je alles bij je hebt wat je normaal ook naar school zou meenemen.', [
                         'host_first_name' => $study->getHost->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME},
                         'subject_name' => strtolower(\App\Http\Traits\StudyTrait::getSubject($study)->{\App\Http\Support\Model::$SUBJECT_NAME}),
-                        'date' => strtolower(\App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE)),
+                        'date' => strtolower(\App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE, $participant->{\App\Http\Support\Model::$USER_LANGUAGE})),
                         'time' => \App\Http\Traits\StudyTrait::getTimeText($study, true),
                         'link' => $study->{\App\Http\Support\Model::$STUDY_LINK}
                     ]) !!}
@@ -25,7 +25,7 @@
                     {{ __(':host_first_name heeft een les :subject_name met jou ingepland op :date van :time. De locatie is: :location. Kom op tijd en zorg ervoor dat je alles bij je hebt wat je normaal ook naar school zou meenemen.', [
                         'host_first_name' => $study->getHost->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME},
                         'subject_name' => strtolower(\App\Http\Traits\StudyTrait::getSubject($study)->{\App\Http\Support\Model::$SUBJECT_NAME}),
-                        'date' => strtolower(\App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE)),
+                        'date' => strtolower(\App\Http\Support\Format::datetime($study->start, \App\Http\Support\Format::$DATETIME_SINGLE, $participant->{\App\Http\Support\Model::$USER_LANGUAGE})),
                         'time' => \App\Http\Traits\StudyTrait::getTimeText($study, true),
                         'location' => $study->{\App\Http\Support\Model::$STUDY_LOCATION_TEXT}
                     ]) }}
