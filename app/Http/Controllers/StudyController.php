@@ -93,7 +93,7 @@ class StudyController extends Controller {
 
         $EXPORT_COLUMNS_LESSONS                                             = [
             'Leerling', 'Medewerker', 'Onderwerp', 'Dienst', 'Begeleidingsvorm', 'Deelnemers', 'Proefles',
-            'Datum', 'Start', 'Einde', 'Duurtijd', 'Locatie', 'Status', 'Opmerkingen', 'Link naar les'
+            'Datum', 'Start', 'Einde', 'Duurtijd', 'Locatie', 'Status', 'Opmerkingen', 'Reden verzuimd/geannuleerd', 'Link naar les'
         ],
 
         $EXPORT_HEADOFFICE_EMPLOYEE                                         = [
@@ -1294,6 +1294,7 @@ class StudyController extends Controller {
             $link                                           = 'https://studied.app/les/' . $study->{Model::$BASE_KEY};
             $trial                                          = StudyTrait::isTrial($study) ? __('Ja') : __('Nee');
             $duration                                       = StudyTrait::getDuration($study, $participant) / 60.0;
+            $explanation_cancel                             = $study->{Model::$STUDY_EXPLANATION_CANCEL} ?? '-';
             $subjects                                       = '';
 
             switch ($study->{Model::$STUDY_STATUS}) {
@@ -1331,7 +1332,7 @@ class StudyController extends Controller {
                     break;
             }
 
-            array_push($rows, [$first_name, $last_name, $subjects, $service, $plan, $participants, $trial, $date, $start, $end, $duration, $location, $status, $remark, $link]);
+            array_push($rows, [$first_name, $last_name, $subjects, $service, $plan, $participants, $trial, $date, $start, $end, $duration, $location, $status, $remark, $explanation_cancel, $link]);
         }
     }
 
