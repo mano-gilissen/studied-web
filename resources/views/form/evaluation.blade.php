@@ -16,13 +16,17 @@
     <style>
 
         #form .field .name {
-            height: unset;
+            min-height: 40px;
         }
 
         @media (max-width: 840px) {
 
             #form .field {
                 display: block
+            }
+
+            #form .field .name {
+                min-height: unset
             }
 
             #form .box-input,
