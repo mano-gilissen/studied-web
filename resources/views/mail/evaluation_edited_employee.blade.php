@@ -13,7 +13,7 @@
             @if(\App\Http\Traits\EvaluationTrait::hasLink($evaluation))
                 <p style="margin: 0; font-size: 13px; line-height: 22.8px;">
                     {!! __('De gegevens van je :regarding met :user zijn gewijzigd. Het gesprek is nu digitaal op :date om :time. Dit is de link naar het gesprek: :link', [
-                        'regarding' => \App\Http\Traits\EvaluationTrait::getRegardingText($evaluation),
+                        'regarding' => \App\Http\Traits\EvaluationTrait::getRegardingText($evaluation->{\App\Http\Support\Model::$EVALUATION_REGARDING}),
                         'user' => $evaluation->getStudent->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME},
                         'date' => strtolower(\App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$DATETIME_SINGLE, $employee->{\App\Http\Support\Model::$USER_LANGUAGE})),
                         'time' => \App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$TIME_SINGLE, $employee->{\App\Http\Support\Model::$USER_LANGUAGE}),
@@ -23,7 +23,7 @@
             @else
                 <p style="margin: 0; font-size: 13px; line-height: 22.8px;">
                     {{ __('De gegevens van je :regarding met :user zijn gewijzigd. Het gesprek is nu op :date om :time en de locatie is: :location', [
-                        'regarding' => \App\Http\Traits\EvaluationTrait::getRegardingText($evaluation),
+                        'regarding' => \App\Http\Traits\EvaluationTrait::getRegardingText($evaluation->{\App\Http\Support\Model::$EVALUATION_REGARDING}),
                         'user' => $evaluation->getStudent->getPerson->{\App\Http\Support\Model::$PERSON_FIRST_NAME},
                         'date' => strtolower(\App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$DATETIME_SINGLE, $employee->{\App\Http\Support\Model::$USER_LANGUAGE})),
                         'time' => \App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$TIME_SINGLE, $employee->{\App\Http\Support\Model::$USER_LANGUAGE}),
