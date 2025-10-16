@@ -4,11 +4,32 @@
 
     <div class="list">
 
-        @foreach($data__todo as $todo)
+        @if(count($data__todo) == 0)
 
-            @include('component.todo', ['todo' => $todo])
+            <div class="todo positive">
 
-        @endforeach
+                <img class="priority" src="/images_app/dashboard-todo-{{ array_key_exists('icon', $todo) ? 'icon-' . $todo['icon'] : 'priority-' . $todo['priority'] }}.svg">
+
+                <div>
+
+                    <div class="title">{{ __('Er zijn op dit moment geen to do\'s.') }}</div>
+
+                    <div class="description">{{ __('Goed bezig! Je hebt alles goed bijgehouden en er zijn op dit moment geen items to do.') }}</div>
+
+                </div>
+
+            </div>
+
+
+        @else
+
+            @foreach($data__todo as $todo)
+
+                @include('component.todo', ['todo' => $todo])
+
+            @endforeach
+
+        @endif
 
     </div>
 
