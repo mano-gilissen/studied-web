@@ -17,6 +17,7 @@
 
         #form .field .name {
             min-height: 40px;
+            height: unset;
         }
 
         @media (max-width: 840px) {
