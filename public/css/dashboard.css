@@ -139,6 +139,11 @@
     border: 1px solid #ff5f5f;
 }
 
+#module-todo .todo.positive {
+    background: #e6ffed;
+    border: 1px solid #4CD976;
+}
+
 #module-todo .todo:hover {
     opacity: .7;
 }

@@ -8,7 +8,7 @@
 
             <div class="todo positive">
 
-                <img class="priority" src="/images_app/dashboard-todo-{{ array_key_exists('icon', $todo) ? 'icon-' . $todo['icon'] : 'priority-' . $todo['priority'] }}.svg">
+                <img class="priority" src="/images_app/dashboard-todo-check.svg">
 
                 <div>
 
@@ -19,7 +19,6 @@
                 </div>
 
             </div>
-
 
         @else
 
