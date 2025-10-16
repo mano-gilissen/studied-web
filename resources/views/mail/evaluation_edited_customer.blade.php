@@ -12,9 +12,8 @@
 
             @if(\App\Http\Traits\EvaluationTrait::hasLink($evaluation))
                 <p style="margin: 0; font-size: 13px; line-height: 22.8px;">
-                    {!! __('De gegevens van uw :regarding met :employee zijn gewijzigd. Het gesprek is nu digitaal op :date om :time. Dit is de link naar het gesprek: :link', [
+                    {!! __('De gegevens van uw :regarding zijn gewijzigd. Het gesprek is nu digitaal op :date om :time. Dit is de link naar het gesprek: :link', [
                         'regarding' => \App\Http\Traits\EvaluationTrait::getRegardingText($evaluation->{\App\Http\Support\Model::$EVALUATION_REGARDING}),
-                        'employee' => $evaluation->getEmployee->getPerson->first_name,
                         'date' => strtolower(\App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$DATETIME_SINGLE, $customer->{\App\Http\Support\Model::$USER_LANGUAGE})),
                         'time' => \App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$TIME_SINGLE, $customer->{\App\Http\Support\Model::$USER_LANGUAGE}),
                         'link' => '<a href="' . $evaluation->{\App\Http\Support\Model::$EVALUATION_LINK} . '">' . $evaluation->{\App\Http\Support\Model::$EVALUATION_LINK} . '</a>'
@@ -22,9 +21,8 @@
                 </p>
             @else
                 <p style="margin: 0; font-size: 13px; line-height: 22.8px;">
-                    {{ __('De gegevens van uw :regarding met :employee zijn gewijzigd. Het gesprek is nu op :date om :time en de locatie is: :location', [
+                    {{ __('De gegevens van uw :regarding zijn gewijzigd. Het gesprek is nu op :date om :time en de locatie is: :location', [
                         'regarding' => \App\Http\Traits\EvaluationTrait::getRegardingText($evaluation->{\App\Http\Support\Model::$EVALUATION_REGARDING}),
-                        'employee' => $evaluation->getEmployee->getPerson->first_name,
                         'date' => strtolower(\App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$DATETIME_SINGLE, $customer->{\App\Http\Support\Model::$USER_LANGUAGE})),
                         'time' => \App\Http\Support\Format::datetime($evaluation->{\App\Http\Support\Model::$EVALUATION_DATETIME}, \App\Http\Support\Format::$TIME_SINGLE, $customer->{\App\Http\Support\Model::$USER_LANGUAGE}),
                         'location' => $evaluation->{\App\Http\Support\Model::$EVALUATION_LOCATION_TEXT}

@@ -41,10 +41,7 @@ class Evaluation_Edited_Student extends Mailable {
 
         $this->student                      = $student;
         $this->evaluation                   = $evaluation;
-        $this->subject                      = Lang::get('Het tijdstip of de datum van je :regarding met :name is gewijzigd.', [
-            'regarding' => strtolower(EvaluationTrait::getRegardingText($evaluation->{Model::$EVALUATION_REGARDING})),
-            'name' => $evaluation->getEmployee->getPerson->first_name
-        ], $student->{Model::$USER_LANGUAGE});
+        $this->subject                      = Lang::get('Het tijdstip of de datum van je :regarding is gewijzigd.', ['regarding' => strtolower(EvaluationTrait::getRegardingText($evaluation->{Model::$EVALUATION_REGARDING}))], $student->{Model::$USER_LANGUAGE});
         $this->invite                       = EvaluationTrait::generateCalendarInvite($evaluation);
     }
 
