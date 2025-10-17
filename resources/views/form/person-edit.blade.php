@@ -38,7 +38,7 @@
 
     @include('component.field-input', ['id' => 'phone', 'type' => 'phone', 'tag' => __('Telefoonnummer'), 'placeholder' => __('Telefoonnummer met landcode'), 'value' => old('phone') ?? $person->{\App\Http\Support\Model::$PERSON_PHONE}])
 
-    @include('component.field-input', ['id' => 'status', 'tag' => __('Status*'), 'icon' => 'dropdown.svg', 'placeholder' => __('Kies een status'), 'required' => true, 'data' => true, 'show_all' => true, 'show_always' => true, 'reject_other' => true, 'uses_id' => true, 'locked' => !(\App\Http\Traits\UserTrait::isActivated($person->getUser)), 'set_id' => (\App\Http\Traits\UserTrait::isActivated($person->getUser) && old('_status')) ?? $person->getUser->{\App\Http\Support\Model::$USER_STATUS}])
+    @include('component.field-input', ['id' => 'status', 'tag' => __('Status*'), 'icon' => 'dropdown.svg', 'placeholder' => __('Kies een status'), 'required' => true, 'data' => true, 'show_all' => true, 'show_always' => true, 'reject_other' => true, 'uses_id' => true, 'locked' => !(\App\Http\Traits\UserTrait::isActivated($person->getUser)), 'set_id' => $person->getUser->{\App\Http\Support\Model::$USER_STATUS}])
 
     <div class="seperator"></div>
 
