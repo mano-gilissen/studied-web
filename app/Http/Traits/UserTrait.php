@@ -95,7 +95,7 @@ trait UserTrait {
 
     public static function validate(array $data, $user = null, $additional_rules = []) {
 
-        $rules                                                              = [];
+        $rules                                                              = $additional_rules;
 
         if ($user) {
 
