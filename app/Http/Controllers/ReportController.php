@@ -169,7 +169,7 @@ class ReportController extends Controller {
     public function data_export_csv($time) {
 
         $rows = [];
-        $columns = ['Datum', 'Link naar les', 'Medewerker', 'Verslag', 'Voortgang', 'Volgende les', 'Uitdagingen'];
+        $columns = ['Datum', 'Link naar les', 'Medewerker', 'Verslag', 'Wat ging goed', 'Wat gaan jullie volgende les doen', 'Wat kan worden verbeterd'];
         $reports = Report::where(Model::$BASE_CREATED_AT, '<', date(Format::$DATABASE_DATE, $time))
             ->where(Model::$BASE_CREATED_AT, '>=', date(Format::$DATABASE_DATE, $time - (7 * 86400)))
             ->get();

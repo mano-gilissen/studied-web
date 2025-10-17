@@ -98,7 +98,7 @@
 
                     <div class="item-title">
 
-                        <div>{{ __('Voortgang') }}</div>
+                        <div>{{ __('Wat ging er goed?') }}</div>
 
                         <img src="/images_app/chevron-down.svg">
 
@@ -114,7 +114,7 @@
 
                     <div class="item-title">
 
-                        <div>{{ __('Volgende les') }}</div>
+                        <div>{{ __('Wat gaan jullie volgende les doen?') }}</div>
 
                         <img src="/images_app/chevron-down.svg">
 
@@ -130,7 +130,7 @@
 
                     <div class="item-title">
 
-                        <div>{{ __('Uitdagingen') }}</div>
+                        <div>{{ __('Wat kan er worden verbeterd?') }}</div>
 
                         <img src="/images_app/chevron-down.svg">
 

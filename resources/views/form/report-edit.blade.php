@@ -62,11 +62,11 @@
 
         <div class="title">{{ __('Hoe verloopt de begeleiding?') }}</div>
 
-        @include('component.field-textarea', ['id' => $id_user . 'content_volgende_les', 'tag' => __('Volgende les'), 'required' => true, 'value' => $report->{\App\Http\Support\Model::$REPORT_CONTENT_VOLGENDE_LES}])
+        @include('component.field-textarea', ['id' => $id_user . 'content_volgende_les', 'tag' => __('Wat gaan jullie volgende les doen?'), 'required' => true, 'value' => $report->{\App\Http\Support\Model::$REPORT_CONTENT_VOLGENDE_LES}])
 
-        @include('component.field-textarea', ['id' => $id_user . 'content_uitdagingen', 'tag' => __('Uitdagingen'), 'required' => true, 'value' => $report->{\App\Http\Support\Model::$REPORT_CONTENT_UITDAGINGEN}])
+        @include('component.field-textarea', ['id' => $id_user . 'content_voortgang', 'tag' => __('Wat ging er goed?'), 'required' => true, 'value' => $report->{\App\Http\Support\Model::$REPORT_CONTENT_VOORTGANG}])
 
-        @include('component.field-textarea', ['id' => $id_user . 'content_voortgang', 'tag' => __('Voortgang'), 'required' => true, 'value' => $report->{\App\Http\Support\Model::$REPORT_CONTENT_VOORTGANG}])
+        @include('component.field-textarea', ['id' => $id_user . 'content_uitdagingen', 'tag' => __('Wat kan er worden verbeterd?'), 'required' => true, 'value' => $report->{\App\Http\Support\Model::$REPORT_CONTENT_UITDAGINGEN}])
 
         <div class="seperator"></div>
 
