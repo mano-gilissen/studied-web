@@ -14,7 +14,7 @@
 
                     <div class="title">{{ __('Er zijn op dit moment geen to do\'s.') }}</div>
 
-                    <div class="description">{{ __('Goed bezig! Je hebt alles goed bijgehouden en er zijn op dit moment geen items to do.') }}</div>
+                    <div class="description">{{ __('Goed bezig! Je hebt alles goed bijgehouden en er zijn op dit moment geen taken to do.') }}</div>
 
                 </div>
 

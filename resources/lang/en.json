@@ -755,5 +755,7 @@
     "PVA - De doelstelling" : "PoA - The objective",
     "PVA - Stand van zaken" : "PoA - Current status",
     "PVA - De mogelijkheden" : "PoA - The possibilities",
-    "PVA - De acties" : "PoA - The actions"
+    "PVA - De acties" : "PoA - The actions",
+    "Goed bezig! Je hebt alles goed bijgehouden en er zijn op dit moment geen taken to do." : "Well done! You have kept everything up to date and there are currently no tasks to do.",
+    "Er zijn op dit moment geen to do\\'s." : "There are currently no to do's."
 }
