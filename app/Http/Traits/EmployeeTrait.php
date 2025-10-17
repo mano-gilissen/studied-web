@@ -23,8 +23,8 @@ trait EmployeeTrait {
     public static function create(array $data, $request) {
 
         UserTrait::validate($data, null, [
-            $rules[Model::$EMPLOYEE_CAPACITY]                           = "required|numeric",
-            $rules[Model::$EMPLOYEE_IBAN]                               = "max:30"
+            Model::$EMPLOYEE_CAPACITY                                   => "required|numeric",
+            Model::$EMPLOYEE_IBAN                                       => "max:30"
         ]);
 
         $employee                                                       = new Employee;
@@ -50,8 +50,8 @@ trait EmployeeTrait {
     public static function update(array $data, $request, $employee) {
 
         UserTrait::validate($data, $employee->getUser, [
-            $rules[Model::$EMPLOYEE_CAPACITY]                           = "required|numeric",
-            $rules[Model::$EMPLOYEE_IBAN]                               = "max:30"
+            Model::$EMPLOYEE_CAPACITY                                   => "required|numeric",
+            Model::$EMPLOYEE_IBAN                                       => "max:30"
         ]);
 
         self::set($data, $request, $employee);

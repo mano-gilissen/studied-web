@@ -19,7 +19,7 @@ trait CustomerTrait {
     public static function create(array $data) {
 
         UserTrait::validate($data, null, [
-
+            Model::$USER_CATEGORY                               => "required"
         ]);
 
         $customer                                               = new Customer;
@@ -43,7 +43,7 @@ trait CustomerTrait {
     public static function update(array $data, $customer) {
 
         UserTrait::validate($data, $customer->getUser, [
-
+            Model::$USER_CATEGORY                               => "required"
         ]);
 
         // No additional fields to set for Customer at this time
