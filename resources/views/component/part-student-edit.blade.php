@@ -1,12 +1,12 @@
 <div class="title">{{ __('Educatie') }}</div>
 
-@include('component.field-input', ['id' => 'school', 'tag' => __('School*'), 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'value' => old('school') ?? $student->{\App\Http\Support\Model::$STUDENT_SCHOOL}])
+@include('component.field-input', ['id' => 'school', 'tag' => __('School') . '*', 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'value' => old('school') ?? $student->{\App\Http\Support\Model::$STUDENT_SCHOOL}])
 
-@include('component.field-input', ['id' => 'niveau', 'tag' => __('Niveau*'), 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true, 'set_id' => old('_niveau') ?? $student->{\App\Http\Support\Model::$STUDENT_NIVEAU}])
+@include('component.field-input', ['id' => 'niveau', 'tag' => __('Niveau') . '*', 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true, 'set_id' => old('_niveau') ?? $student->{\App\Http\Support\Model::$STUDENT_NIVEAU}])
 
-@include('component.field-input', ['id' => 'leerjaar', 'tag' => __('Leerjaar*'), 'data' => true, 'icon' => 'dropdown.svg', 'required' => true, 'show_all' => true, 'show_always' => true, 'reject_other' => true, 'uses_id' => true, 'set_id' => old('_leerjaar') ?? $student->{\App\Http\Support\Model::$STUDENT_LEERJAAR}])
+@include('component.field-input', ['id' => 'leerjaar', 'tag' => __('Leerjaar') . '*', 'data' => true, 'icon' => 'dropdown.svg', 'required' => true, 'show_all' => true, 'show_always' => true, 'reject_other' => true, 'uses_id' => true, 'set_id' => old('_leerjaar') ?? $student->{\App\Http\Support\Model::$STUDENT_LEERJAAR}])
 
-@include('component.field-input', ['id' => 'profile', 'tag' => __('Profiel*'), 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'value' => old('profile') ?? $student->{\App\Http\Support\Model::$STUDENT_PROFILE}])
+@include('component.field-input', ['id' => 'profile', 'tag' => __('Profiel') . '*', 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'value' => old('profile') ?? $student->{\App\Http\Support\Model::$STUDENT_PROFILE}])
 
 <div class="seperator"></div>
 
