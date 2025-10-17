@@ -764,5 +764,7 @@
     "Auteur" : "Author",
     "Inhoud" : "Content",
     "Zichtbaarheid" : "Visibility",
-    "Voor wie is deze aankondiging?" : "Who is this announcement for?"
+    "Voor wie is deze aankondiging?" : "Who is this announcement for?",
+    "Versturen" : "Send",
+    "Aankondiging versturen" : "Send announcement"
 }
