@@ -438,8 +438,9 @@ trait EvaluationTrait {
 
     public static function getDescription($evaluation) {
 
-        return self::getRegardingText($evaluation->{Model::$EVALUATION_REGARDING}) . __(' met ') . PersonTrait::getFullName($evaluation->getHost->getPerson) . __(' van Studied');
+        $language = $evaluation->getStudent->{Model::$USER_LANGUAGE};
 
+        return self::getRegardingText($evaluation->{Model::$EVALUATION_REGARDING}, $language) . Lang::get(' met ', [], $language) . PersonTrait::getFullName($evaluation->getHost->getPerson) . Lang::get(' van Studied', [], $language);
     }
 
 

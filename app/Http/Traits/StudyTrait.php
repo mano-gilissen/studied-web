@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace App\Http\Traits;
 
 use App\Http\Controllers\StudyController;
@@ -20,6 +18,7 @@ use App\Rules\DateBeforeEndAgreement;
 use Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Lang;
 
 
 
@@ -423,9 +422,11 @@ trait StudyTrait {
 
     public static function getDescription($study, $for_host = false) {
 
+        $language = $study->getParticipants_User[0]->{Model::$USER_LANGUAGE};
+
         $agreement = $study->getAgreements[0];
 
-        $description = __($agreement->getService->{Model::$SERVICE_SHORT}) . " " . __($agreement->getSubject->{Model::$SUBJECT_NAME}) . " met ";
+        $description = Lang::get($agreement->getService->{Model::$SERVICE_SHORT}, [], $language) . " " . Lang::get($agreement->getSubject->{Model::$SUBJECT_NAME}, [], $language) . Lang::get(" met ", [], $language);
 
         if ($for_host) {
 
@@ -433,7 +434,7 @@ trait StudyTrait {
 
             foreach ($study->getAgreements as $participant) {
 
-                $students = (strlen($students) > 0 ? $students . ' en ' : $students);
+                $students = (strlen($students) > 0 ? $students . Lang::get(' en ', [], $language) : $students);
                 $students .= $participant->getStudent->getPerson->{Model::$PERSON_FIRST_NAME};
 
             }
