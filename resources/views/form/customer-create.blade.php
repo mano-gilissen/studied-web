@@ -18,7 +18,7 @@
 
     @include('component.field-input', ['id' => 'birth_date', 'type' => 'date', 'tag' => __('Geboortedatum*'), 'placeholder' => __('Kies een datum'), 'required' => true, 'value' => old('birth_date')])
 
-    @include('component.field-input', ['id' => 'language', 'tag' => __('Taal*'), 'icon' => 'dropdown.svg', 'required' => true, 'data' => true, 'show_all' => true, 'reject_others' => true, 'show_always' => true, 'ac_data' => 'language', 'uses_id' => true, 'set_id' => old('language') ?? \App\Http\Middleware\Locale::LOCALE_NL])
+    @include('component.field-input', ['id' => 'language', 'tag' => __('Taal*'), 'icon' => 'dropdown.svg', 'required' => true, 'data' => true, 'show_all' => true, 'reject_others' => true, 'show_always' => true, 'ac_data' => 'language', 'uses_id' => true, 'set_id' => old('_language') ?? \App\Http\Middleware\Locale::LOCALE_NL])
 
     @include('component.field-input', ['id' => 'refer', 'tag' => __('Referentie*'), 'placeholder' => __('Hoe komt deze persoon bij Studied terecht?'), 'icon' => 'dropdown.svg', 'required' => true, 'data' => true, 'show_all' => true, 'reject_others' => true, 'show_always' => true, 'value' => old('refer')])
 
