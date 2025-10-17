@@ -68,9 +68,9 @@
 
     @include('component.field-input', ['id' => 'school', 'tag' => __('School*'), 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'value' => old('school')])
 
-    @include('component.field-input', ['id' => 'niveau', 'tag' => __('Niveau*'), 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true, 'set_id' => old('_niveau') ?? 0])
+    @include('component.field-input', ['id' => 'niveau', 'tag' => __('Niveau*'), 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true, 'set_id' => old('_niveau') ?? -1])
 
-    @include('component.field-input', ['id' => 'leerjaar', 'tag' => __('Leerjaar*'), 'data' => true, 'icon' => 'dropdown.svg', 'required' => true, 'show_all' => true, 'show_always' => true, 'reject_other' => true, 'uses_id' => true, 'set_id' => old('_leerjaar') ?? 0])
+    @include('component.field-input', ['id' => 'leerjaar', 'tag' => __('Leerjaar*'), 'data' => true, 'icon' => 'dropdown.svg', 'required' => true, 'show_all' => true, 'show_always' => true, 'reject_other' => true, 'uses_id' => true, 'set_id' => old('_leerjaar') ?? -1])
 
     @include('component.field-input', ['id' => 'profile', 'tag' => __('Profiel*'), 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'value' => old('profile')])
 
@@ -80,7 +80,7 @@
 
     <div class="title">{{ __('Relaties') }}</div>
 
-    @include('component.field-input', ['id' => 'customer', 'tag' => __('Klant'), 'icon' => 'search.svg', 'placeholder' => __('Zoek een klant'), 'required' => false, 'data' => true, 'additional' => true, 'reject_other' => true, 'uses_id' => true, 'set_id' => old('_customer') ?? 0])
+    @include('component.field-input', ['id' => 'customer', 'tag' => __('Klant'), 'icon' => 'search.svg', 'placeholder' => __('Zoek een klant'), 'required' => false, 'data' => true, 'additional' => true, 'reject_other' => true, 'uses_id' => true, 'set_id' => old('_customer') ?? -1])
 
     @include('component.field-input', ['id' => 'name_mentor', 'tag' => __('Naam mentor'), 'value' => old('name_mentor')])
 
