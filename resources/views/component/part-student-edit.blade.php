@@ -16,21 +16,21 @@
 
 @include('component.field-input', ['id' => 'customer', 'tag' => __('Klant'), 'icon' => 'search.svg', 'placeholder' => __('Zoek een klant'), 'required' => false, 'data' => true, 'additional' => true, 'reject_other' => true, 'uses_id' => true, 'set_id' => old('_customer') ?? $student->{\App\Http\Support\Model::$CUSTOMER}])
 
-@include('component.field-input', ['id' => 'name_mentor', 'tag' => __('Naam mentor'), 'value' => $student->{\App\Http\Support\Model::$STUDENT_NAME_MENTOR}])
+@include('component.field-input', ['id' => 'name_mentor', 'tag' => __('Naam mentor'), 'value' => old('name_mentor') ?? $student->{\App\Http\Support\Model::$STUDENT_NAME_MENTOR}])
 
-@include('component.field-input', ['id' => 'email_mentor', 'type' => 'email', 'tag' => __('Email mentor'), 'value' => $student->{\App\Http\Support\Model::$STUDENT_EMAIL_MENTOR}])
+@include('component.field-input', ['id' => 'email_mentor', 'type' => 'email', 'tag' => __('Email mentor'), 'value' => old('email_mentor') ?? $student->{\App\Http\Support\Model::$STUDENT_EMAIL_MENTOR}])
 
-@include('component.field-input', ['id' => 'name_vakdocent_1', 'tag' => __('Naam vakdocent 1'), 'value' => $student->{\App\Http\Support\Model::$STUDENT_NAME_VAKDOCENT_1}])
+@include('component.field-input', ['id' => 'name_vakdocent_1', 'tag' => __('Naam vakdocent 1'), 'value' => old('name_vakdocent_1') ?? $student->{\App\Http\Support\Model::$STUDENT_NAME_VAKDOCENT_1}])
 
-@include('component.field-input', ['id' => 'email_vakdocent_1', 'type' => 'email', 'tag' => __('Email vakdocent 1'), 'value' => $student->{\App\Http\Support\Model::$STUDENT_EMAIL_VAKDOCENT_1}])
+@include('component.field-input', ['id' => 'email_vakdocent_1', 'type' => 'email', 'tag' => __('Email vakdocent 1'), 'value' => old('email_vakdocent_1') ?? $student->{\App\Http\Support\Model::$STUDENT_EMAIL_VAKDOCENT_1}])
 
-@include('component.field-input', ['id' => 'name_vakdocent_2', 'tag' => __('Naam vakdocent 2'), 'value' => $student->{\App\Http\Support\Model::$STUDENT_NAME_VAKDOCENT_2}])
+@include('component.field-input', ['id' => 'name_vakdocent_2', 'tag' => __('Naam vakdocent 2'), 'value' => old('name_vakdocent_2') ?? $student->{\App\Http\Support\Model::$STUDENT_NAME_VAKDOCENT_2}])
 
-@include('component.field-input', ['id' => 'email_vakdocent_2', 'type' => 'email', 'tag' => __('Email vakdocent 2'), 'value' => $student->{\App\Http\Support\Model::$STUDENT_EMAIL_VAKDOCENT_2}])
+@include('component.field-input', ['id' => 'email_vakdocent_2', 'type' => 'email', 'tag' => __('Email vakdocent 2'), 'value' => old('email_vakdocent_2') ?? $student->{\App\Http\Support\Model::$STUDENT_EMAIL_VAKDOCENT_2}])
 
-@include('component.field-input', ['id' => 'name_vakdocent_3', 'tag' => __('Naam vakdocent 3'), 'value' => $student->{\App\Http\Support\Model::$STUDENT_NAME_VAKDOCENT_3}])
+@include('component.field-input', ['id' => 'name_vakdocent_3', 'tag' => __('Naam vakdocent 3'), 'value' => old('name_vakdocent_3') ?? $student->{\App\Http\Support\Model::$STUDENT_NAME_VAKDOCENT_3}])
 
-@include('component.field-input', ['id' => 'email_vakdocent_3', 'type' => 'email', 'tag' => __('Email vakdocent 3'), 'value' => $student->{\App\Http\Support\Model::$STUDENT_EMAIL_VAKDOCENT_3}])
+@include('component.field-input', ['id' => 'email_vakdocent_3', 'type' => 'email', 'tag' => __('Email vakdocent 3'), 'value' => old('email_vakdocent_3') ?? $student->{\App\Http\Support\Model::$STUDENT_EMAIL_VAKDOCENT_3}])
 
 <div class="seperator"></div>
 
