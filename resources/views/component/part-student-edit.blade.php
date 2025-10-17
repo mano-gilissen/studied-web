@@ -1,12 +1,12 @@
 <div class="title">{{ __('Educatie') }}</div>
 
-@include('component.field-input', ['id' => 'school', 'tag' => __('School'), 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'value' => $student->{\App\Http\Support\Model::$STUDENT_SCHOOL}])
+@include('component.field-input', ['id' => 'school', 'tag' => __('School*'), 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'value' => old('school') ?? $student->{\App\Http\Support\Model::$STUDENT_SCHOOL}])
 
-@include('component.field-input', ['id' => 'niveau', 'tag' => __('Niveau'), 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true, 'set_id' => $student->{\App\Http\Support\Model::$STUDENT_NIVEAU}])
+@include('component.field-input', ['id' => 'niveau', 'tag' => __('Niveau*'), 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'reject_other' => true, 'uses_id' => true, 'set_id' => old('_niveau') ?? $student->{\App\Http\Support\Model::$STUDENT_NIVEAU}])
 
-@include('component.field-input', ['id' => 'leerjaar', 'tag' => __('Leerjaar'), 'data' => true, 'icon' => 'dropdown.svg', 'required' => true, 'show_all' => true, 'show_always' => true, 'reject_other' => true, 'uses_id' => true, 'set_id' => $student->{\App\Http\Support\Model::$STUDENT_LEERJAAR}])
+@include('component.field-input', ['id' => 'leerjaar', 'tag' => __('Leerjaar*'), 'data' => true, 'icon' => 'dropdown.svg', 'required' => true, 'show_all' => true, 'show_always' => true, 'reject_other' => true, 'uses_id' => true, 'set_id' => old('_leerjaar') ?? $student->{\App\Http\Support\Model::$STUDENT_LEERJAAR}])
 
-@include('component.field-input', ['id' => 'profile', 'tag' => __('Profiel'), 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'value' => $student->{\App\Http\Support\Model::$STUDENT_PROFILE}])
+@include('component.field-input', ['id' => 'profile', 'tag' => __('Profiel*'), 'data' => true, 'icon' => 'search.svg', 'required' => true, 'show_all' => true, 'value' => old('profile') ?? $student->{\App\Http\Support\Model::$STUDENT_PROFILE}])
 
 <div class="seperator"></div>
 
@@ -14,7 +14,7 @@
 
 <div class="title">{{ __('Relaties') }}</div>
 
-@include('component.field-input', ['id' => 'customer', 'tag' => __('Klant'), 'icon' => 'search.svg', 'placeholder' => __('Zoek een klant'), 'required' => false, 'data' => true, 'additional' => true, 'reject_other' => true, 'uses_id' => true, 'set_id' => $student->{\App\Http\Support\Model::$CUSTOMER}])
+@include('component.field-input', ['id' => 'customer', 'tag' => __('Klant'), 'icon' => 'search.svg', 'placeholder' => __('Zoek een klant'), 'required' => false, 'data' => true, 'additional' => true, 'reject_other' => true, 'uses_id' => true, 'set_id' => old('_customer') ?? $student->{\App\Http\Support\Model::$CUSTOMER}])
 
 @include('component.field-input', ['id' => 'name_mentor', 'tag' => __('Naam mentor'), 'value' => $student->{\App\Http\Support\Model::$STUDENT_NAME_MENTOR}])
 
@@ -38,6 +38,6 @@
 
 <div class="title">{{ __('Organisatie') }}</div>
 
-@include('component.field-input', ['id' => 'branch', 'tag' => __('Bedrijfstak'), 'icon' => 'dropdown.svg', 'required' => true, 'data' => true, 'show_all' => true, 'reject_others' => true, 'show_always' => true, 'ac_data' => 'branch', 'uses_id' => true, 'set_id' => $student->{\App\Http\Support\Model::$STUDENT_BRANCH}])
+@include('component.field-input', ['id' => 'branch', 'tag' => __('Bedrijfstak'), 'icon' => 'dropdown.svg', 'required' => true, 'data' => true, 'show_all' => true, 'reject_others' => true, 'show_always' => true, 'ac_data' => 'branch', 'uses_id' => true, 'set_id' => old('_branch') ?? $student->{\App\Http\Support\Model::$STUDENT_BRANCH}])
 
 <div class="seperator"></div>

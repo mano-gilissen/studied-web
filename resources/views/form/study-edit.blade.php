@@ -61,7 +61,7 @@
 
     <div class="title">{{ __('Tijd en locatie') }}</div>
 
-    @include('component.field-input', ['id' => 'date', 'type' => 'date', 'tag' => __('Datum'), 'placeholder' => __('Kies een datum'), 'required' => true, 'value' => \App\Http\Support\Format::datetime($study->{\App\Http\Support\Model::$STUDY_START}, \App\Http\Support\Format::$DATETIME_FORM)])
+    @include('component.field-input', ['id' => 'date', 'type' => 'date', 'tag' => __('Datum*'), 'placeholder' => __('Kies een datum'), 'required' => true, 'value' => \App\Http\Support\Format::datetime($study->{\App\Http\Support\Model::$STUDY_START}, \App\Http\Support\Format::$DATETIME_FORM)])
 
     @include('component.field-select-time', ['set_start' => $study->start, 'set_end' => $study->end])
 
@@ -80,7 +80,7 @@
         'id' => 'status',
         'tag' => __('Status'),
         'icon' => 'dropdown.svg',
-        'placeholder' => __('Kies een status'),
+        'placeholder' => __('Kies een status*'),
 
         'required' => true,
         'data' => true,
@@ -94,9 +94,9 @@
         'set_id' => old('_status') ?? $study->{\App\Http\Support\Model::$STUDY_STATUS}
     ])
 
-    @include('component.field-input', ['id' => 'reason_cancel', 'tag' => __('Reden annuleren / verzuim'), 'icon' => 'dropdown.svg', 'placeholder' => __('Kies een reden'), 'data' => true, 'show_all' => true, 'show_always' => true, 'reject_other' => true, 'uses_id' => true, 'set_id' => $study->{\App\Http\Support\Model::$STUDY_REASON_CANCEL}])
+    @include('component.field-input', ['id' => 'reason_cancel', 'tag' => __('Reden annuleren / verzuim*'), 'icon' => 'dropdown.svg', 'placeholder' => __('Kies een reden'), 'data' => true, 'show_all' => true, 'show_always' => true, 'reject_other' => true, 'uses_id' => true, 'set_id' => $study->{\App\Http\Support\Model::$STUDY_REASON_CANCEL}])
 
-    @include('component.field-input', ['id' => 'explanation_cancel', 'tag' => __('Uitleg annuleren / verzuim'), 'value' => $study->{\App\Http\Support\Model::$STUDY_EXPLANATION_CANCEL}])
+    @include('component.field-input', ['id' => 'explanation_cancel', 'tag' => __('Uitleg annuleren / verzuim*'), 'value' => $study->{\App\Http\Support\Model::$STUDY_EXPLANATION_CANCEL}])
 
     @include('component.field-input', ['id' => 'remark', 'tag' => __('Opmerking'), 'value' => $study->{\App\Http\Support\Model::$STUDY_REMARK}])
 
