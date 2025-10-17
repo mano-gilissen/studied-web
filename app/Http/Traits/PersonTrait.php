@@ -20,8 +20,6 @@ trait PersonTrait {
 
     public static function create(array $data, $person = null) {
 
-        self::validate($data);
-
         $person                                                         = $person ? $person : new Person;
 
         $person->{Model::$PERSON_PREFIX}                                = $data[Model::$PERSON_PREFIX];
@@ -48,8 +46,6 @@ trait PersonTrait {
 
     public static function update(array $data, $person) {
 
-        self::validate($data);
-
         $person->{Model::$PERSON_PREFIX}                                = $data[Model::$PERSON_PREFIX];
         $person->{Model::$PERSON_FIRST_NAME}                            = $data[Model::$PERSON_FIRST_NAME];
         $person->{Model::$PERSON_MIDDLE_NAME}                           = $data[Model::$PERSON_MIDDLE_NAME];
@@ -68,33 +64,6 @@ trait PersonTrait {
 
         return $person;
 
-    }
-
-
-
-    public static function validate(array $data) {
-
-        $rules                                                          = [];
-
-        $rules[Model::$PERSON_PREFIX]                                   = ['required'];
-        $rules[Model::$PERSON_FIRST_NAME]                               = ['required'];
-        $rules[Model::$PERSON_LAST_NAME]                                = ['required'];
-
-        if (array_key_exists(Model::$PERSON_BIRTH_DATE, $data)) {
-
-            $rules[Model::$PERSON_BIRTH_DATE]                           = ['required'];
-
-        }
-
-        if (array_key_exists(Key::AUTOCOMPLETE_ID . Model::$USER_CATEGORY, $data) && $data[Key::AUTOCOMPLETE_ID . Model::$USER_CATEGORY] == RoleTrait::$CATEGORY_CUSTOMER_COMPANY) {
-
-            $rules[Model::$PERSON_COMPANY]                              = ['required'];
-
-        }
-
-        $validator                                                      = Validator::make($data, $rules, BaseTrait::getValidationMessages());
-
-        $validator->validate();
     }
 
 

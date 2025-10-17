@@ -44,8 +44,6 @@ trait UserTrait {
 
     public static function create($data, $role, $status = null) {
 
-        self::validate($data);
-
         $user                                               = new User;
         $person                                             = PersonTrait::create($data);
         $address                                            = AddressTrait::create($data);
@@ -81,8 +79,6 @@ trait UserTrait {
 
     public static function update($data, $user) {
 
-        self::validate($data, $user);
-
         PersonTrait::update($data, $user->getPerson);
         AddressTrait::update($data, $user->getPerson->getAddress);
 
@@ -97,7 +93,7 @@ trait UserTrait {
 
 
 
-    public static function validate(array $data, $user = null) {
+    public static function validate(array $data, $user = null, $additional_rules = []) {
 
         $rules                                                              = [];
 
@@ -110,6 +106,28 @@ trait UserTrait {
             $rules[Model::$USER_EMAIL]                                      = ['required', 'email', 'unique:user,email'];
 
         }
+
+        $rules[Model::$PERSON_PREFIX]                                       = ['required'];
+        $rules[Model::$PERSON_FIRST_NAME]                                   = ['required'];
+        $rules[Model::$PERSON_LAST_NAME]                                    = ['required'];
+
+        if (array_key_exists(Model::$PERSON_BIRTH_DATE, $data)) {
+
+            $rules[Model::$PERSON_BIRTH_DATE]                               = ['required'];
+
+        }
+
+        if (array_key_exists(Key::AUTOCOMPLETE_ID . Model::$USER_CATEGORY, $data) && $data[Key::AUTOCOMPLETE_ID . Model::$USER_CATEGORY] == RoleTrait::$CATEGORY_CUSTOMER_COMPANY) {
+
+            $rules[Model::$PERSON_COMPANY]                                  = ['required'];
+
+        }
+
+        $rules[Model::$ADDRESS_STREET]                                      = ['required'];
+        $rules[Model::$ADDRESS_NUMBER]                                      = ['required'];
+        $rules[Model::$ADDRESS_ZIPCODE]                                     = ['required', 'max:20'];
+        $rules[Model::$ADDRESS_CITY]                                        = ['required'];
+        $rules[Model::$ADDRESS_COUNTRY]                                     = ['required'];
 
         $validator                                                          = Validator::make($data, $rules, BaseTrait::getValidationMessages());
 

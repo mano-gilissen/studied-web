@@ -18,7 +18,9 @@ trait CustomerTrait {
 
     public static function create(array $data) {
 
-        self::validate($data);
+        UserTrait::validate($data, null, [
+
+        ]);
 
         $customer                                               = new Customer;
         $user                                                   = UserTrait::create($data, RoleTrait::$ID_CUSTOMER);
@@ -40,24 +42,15 @@ trait CustomerTrait {
 
     public static function update(array $data, $customer) {
 
-        self::validate($data);
+        UserTrait::validate($data, $customer->getUser, [
+
+        ]);
+
+        // No additional fields to set for Customer at this time
 
         $customer->save();
 
         return $customer;
-    }
-
-
-
-    public static function validate(array $data) {
-
-        $rules                                                  = [];
-
-        // TODO: ADD RULES
-
-        $validator                                              = Validator::make($data, $rules, BaseTrait::getValidationMessages());
-
-        $validator->validate();
     }
 
 

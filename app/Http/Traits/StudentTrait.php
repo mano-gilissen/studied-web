@@ -20,7 +20,7 @@ trait StudentTrait {
 
     public static function create(array $data) {
 
-        self::validate($data);
+        UserTrait::validate($data, null, self::validationRules(true));
 
         $student                                                            = new Student;
         $user                                                               = UserTrait::create($data, RoleTrait::$ID_STUDENT);
@@ -79,7 +79,7 @@ trait StudentTrait {
 
     public static function update(array $data, $student) {
 
-        self::validate($data, false);
+        UserTrait::validate($data, $student->getUser, self::validationRules());
 
         $customerBefore                                                     = self::hasCustomer($student) ? $student->{Model::$CUSTOMER} : null;
 
@@ -128,7 +128,7 @@ trait StudentTrait {
 
 
 
-    public static function validate(array $data, $create = true) {
+    public static function validationRules($create = false) {
 
         $rules                                                              = [];
 
@@ -142,9 +142,7 @@ trait StudentTrait {
 
         }
 
-        $validator                                                          = Validator::make($data, $rules, BaseTrait::getValidationMessages());
-
-        $validator->validate();
+        return $rules;
     }
 
 

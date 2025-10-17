@@ -22,7 +22,10 @@ trait EmployeeTrait {
 
     public static function create(array $data, $request) {
 
-        self::validate($data);
+        UserTrait::validate($data, null, [
+            $rules[Model::$EMPLOYEE_CAPACITY]                           = "required|numeric",
+            $rules[Model::$EMPLOYEE_IBAN]                               = "max:30"
+        ]);
 
         $employee                                                       = new Employee;
         $user                                                           = UserTrait::create($data, RoleTrait::$ID_EMPLOYEE);
@@ -46,7 +49,10 @@ trait EmployeeTrait {
 
     public static function update(array $data, $request, $employee) {
 
-        self::validate($data);
+        UserTrait::validate($data, $employee->getUser, [
+            $rules[Model::$EMPLOYEE_CAPACITY]                           = "required|numeric",
+            $rules[Model::$EMPLOYEE_IBAN]                               = "max:30"
+        ]);
 
         self::set($data, $request, $employee);
 
@@ -98,20 +104,6 @@ trait EmployeeTrait {
 
         $file_name_indiensttreding                                      = Files::storeFile($request, Model::$EMPLOYEE_INDIENSTTREDING, $employee->{Model::$BASE_ID});
         $employee->{Model::$EMPLOYEE_INDIENSTTREDING}                   = strlen($file_name_indiensttreding) > 0 ? $file_name_indiensttreding : $employee->{Model::$EMPLOYEE_INDIENSTTREDING};
-    }
-
-
-
-    public static function validate(array $data) {
-
-        $rules                                                          = [];
-
-        $rules[Model::$EMPLOYEE_CAPACITY]                               = "required|numeric";
-        $rules[Model::$EMPLOYEE_IBAN]                                   = "max:30";
-
-        $validator                                                      = Validator::make($data, $rules, BaseTrait::getValidationMessages());
-
-        $validator->validate();
     }
 
 
