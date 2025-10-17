@@ -107,6 +107,7 @@ trait UserTrait {
 
         }
 
+        $rules[Model::$PERSON_REFER]                                        = ['required'];
         $rules[Model::$PERSON_PREFIX]                                       = ['required'];
         $rules[Model::$PERSON_FIRST_NAME]                                   = ['required'];
         $rules[Model::$PERSON_LAST_NAME]                                    = ['required'];
