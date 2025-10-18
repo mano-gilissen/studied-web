@@ -50,7 +50,7 @@
 
     <div class="field">
 
-        <div class="name">Huisnummer</ . '*div>
+        <div class="name">{{ __('Huisnummer') .'*' }}</div>
 
         @include('component.box-input', ['id' => 'number', 'required' => true, 'size' => 'width-third', 'value' => old('number') ?? $person->getAddress->{\App\Http\Support\Model::$ADDRESS_NUMBER}])
 
