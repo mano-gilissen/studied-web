@@ -1,14 +1,34 @@
+@php use App\Http\Traits\BaseTrait; @endphp
+
 @extends('form.template')
 
 
 
 @section('fields')
 
-
-
     <div class="title">{{ __('Tijd en locatie') }}</div>
 
-    @include('component.field-input', ['id' => 'date', 'type' => 'date', 'tag' => __('Datum'), 'placeholder' => __('Kies een datum'), 'required' => true, 'trigger' => 'agreements', 'value' => old('date'), 'min' => now()->toDateString()])
+    @php
+
+        $input_date_arguments = [
+            'id' => 'date',
+            'type' => 'date',
+            'tag' => __('Datum'),
+            'placeholder' => __('Kies een datum'),
+            'required' => true,
+            'trigger' => 'agreements',
+            'value' => old('date')
+        ];
+
+        if (!BaseTrait::hasManagementRights()){
+
+            $input_date_arguments['min'] = now()->toDateString();
+
+        }
+
+    @endphp
+
+    @include('component.field-input', $input_date_arguments)
 
     @include('component.field-select-time')
 
@@ -28,7 +48,8 @@
 
             @if(\App\Http\Support\Func::contains($key, \App\Http\Support\Model::$AGREEMENT))
 
-                <div class="block-note error" style="margin-bottom: 24px">>{{ __('De vakafspraak moet op de datum van de les actief zijn.') }}</div>
+                <div class="block-note error" style="margin-bottom: 24px">
+                    >{{ __('De vakafspraak moet op de datum van de les actief zijn.') }}</div>
 
             @endif
 
@@ -54,7 +75,8 @@
 
             @if(\App\Http\Support\Func::contains($key, \App\Http\Support\Model::$AGREEMENT))
 
-                <div class="block-note error" style="margin: 24px 0">{{ __('De vakafspraak moet op de datum van de les nog actief zijn.') }}</div>
+                <div class="block-note error"
+                     style="margin: 24px 0">{{ __('De vakafspraak moet op de datum van de les nog actief zijn.') }}</div>
 
             @endif
 
@@ -76,14 +98,12 @@
 
     <script>
 
-        $(function(){
+        $(function () {
 
             set_submit_enabled(false)
 
         });
 
     </script>
-
-
 
 @endsection
