@@ -54,7 +54,7 @@
 
                     @foreach($errors->all() as $error)
 
-                        {{ $error }}
+                        {{ $errors }}
 
                     @endforeach
 
