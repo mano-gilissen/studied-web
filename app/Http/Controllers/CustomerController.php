@@ -111,6 +111,7 @@ class CustomerController extends Controller {
 
         $data[Key::AUTOCOMPLETE_DATA . Model::$USER_LANGUAGE]               = Format::encode(Locale::getData_autocomplete());
         $data[Key::AUTOCOMPLETE_DATA . Model::$PERSON_PREFIX]               = Format::encode(PersonTrait::getPrefixData());
+        $data[Key::AUTOCOMPLETE_DATA . Model::$USER_CATEGORY]               = Format::encode(CustomerTrait::getCategoryData());
 
 
 

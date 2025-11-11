@@ -4,6 +4,7 @@
 
 namespace App\Http\Traits;
 
+use App\Http\Support\Key;
 use App\Models\Customer;
 use App\Http\Support\Model;
 use App\Models\User;
@@ -49,6 +50,10 @@ trait CustomerTrait {
         // No additional fields to set for Customer at this time
 
         $customer->save();
+
+        $user = $customer->getUser;
+        $user->{Model::$USER_CATEGORY} = $data[Key::AUTOCOMPLETE_ID . Model::$USER_CATEGORY];
+        $user->save();
 
         return $customer;
     }
