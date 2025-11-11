@@ -52,6 +52,12 @@
 
                     <div class="block-note error">{{ __('Vul de juiste gegevens in en probeer het opnieuw.') }}</div>
 
+                    @foreach($errors->all() as $error)
+
+                        {{ $error }}
+
+                    @endforeach
+
                     <div class="seperator"></div>
 
                 @endif
